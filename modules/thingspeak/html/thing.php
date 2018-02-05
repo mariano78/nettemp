@@ -84,6 +84,10 @@ $sth = $db->prepare("SELECT * FROM sensors WHERE thing='on'");
 $sth->execute();
 $result = $sth->fetchAll(); 
 
+$sth2 = $db->prepare("SELECT * FROM thingspeak");
+$sth2->execute();
+$thinktbl = $sth2->fetchAll();
+
 $db = new PDO('sqlite:dbf/nettemp.db');
 $rows = $db->query("SELECT * FROM thingspeak");
 $row = $rows->fetchAll();
@@ -135,7 +139,8 @@ foreach ($row as $a) {
 		<select name="f1" class="form-control input-sm">
 		<?php 
 			foreach ($result as $select) { ?>
-			<option value="<?php echo $select['rom']; ?>"><?php echo $select['name']." ".$select['tmp'] ?></option>
+			<option value="<?php echo $select['rom']; ?>" <?php echo $select['rom']==$thinktbl['f1'] ? 'selected="selected"' : ''; ?> ><?php echo $select['name']." ".$select['tmp'] ?></option>
+			
 		<?php } ?>
 		</select>
 	</td>
