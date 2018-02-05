@@ -244,6 +244,8 @@ foreach ($row as $a) {
 
 		<span>
 			ThingSpeak is available as a free service for small non-commercial home projects - 3 million messages/year or ~8200 messages/day. 
+			Recommended maximum daily usage capacity:  8 219 messages. For questions about exceeding suggested daily usage rate or for purchasing new units, see the Licensing FAQ 
+			https://thingspeak.com/pages/license_faq
 		</span>
 	</div>
 </div>
