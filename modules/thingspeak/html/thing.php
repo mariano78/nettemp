@@ -8,6 +8,25 @@
 	</form></div>
 
 <?php
+// chanel update
+$f1=isset($_POST['f1']) ? $_POST['f1'] : '';
+$f2=isset($_POST['f2']) ? $_POST['f2'] : '';
+$f3=isset($_POST['f3']) ? $_POST['f3'] : '';
+$f4=isset($_POST['f4']) ? $_POST['f4'] : '';
+$f5=isset($_POST['f5']) ? $_POST['f5'] : '';
+$f6=isset($_POST['f6']) ? $_POST['f6'] : '';
+$f7=isset($_POST['f7']) ? $_POST['f7'] : '';
+$f8=isset($_POST['f8']) ? $_POST['f8'] : '';
+$ch_update=isset($_POST['ch_update']) ? $_POST['ch_update'] : '';
+$ch_update_id=isset($_POST['ch_update_id']) ? $_POST['ch_update_id'] : '';
+
+if(!empty($ch_update_id) && ($ch_update == "ch_update")) { 
+	$db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("UPDATE thingspeak SET f1='$f1',f2='$f2',f3='$f3',f4='$f4',f5='$f5',f6='$f6',f7='$f7',f8='$f8' WHERE id='$ch_update_id'");
+	header("location: " . $_SERVER['REQUEST_URI']);
+	exit();	
+}
+
 
 // add thingspeak chanell
 $addthc = isset($_POST['addthc']) ? $_POST['addthc'] : '';
@@ -187,7 +206,7 @@ foreach ($row as $a) {
 	<td class="col-md-1">
 		
 		
-		<input type="hidden" name="update" value="<?php echo $a['id']; ?>"/>
+		<input type="hidden" name="ch_update_id" value="<?php echo $a['id']; ?>"/>
 		<input type="hidden" name="ch_update" value="ch_update" />
 		<button type="submit" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span></button>
 		</form>
