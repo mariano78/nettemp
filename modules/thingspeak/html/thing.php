@@ -86,7 +86,7 @@ foreach ($row as $a) {
 	</form>
 	</td>
 	
-	<td class="col-md-0">
+	<td class="col-md-1">
 	<form action="" method="post" style="display:inline!important;">
 			<input type="text" name="api_new" size="15" maxlength="30" value="<?php echo $a["apikey"]; ?>" />
 			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
@@ -95,43 +95,43 @@ foreach ($row as $a) {
 	</form>
 	</td>
 	
-	<td class="col-md-0">
+	<td class="col-md-1">
 		<?php echo $a["f1"]; ?>
 	</td>
 	
-	<td class="col-md-0">
+	<td class="col-md-1">
 		<?php echo $a["f2"]; ?>
 	</td>
 	
-	<td class="col-md-0">
+	<td class="col-md-1">
 		<?php echo $a["f3"]; ?>
 	</td>
 	
-	<td class="col-md-0">
+	<td class="col-md-1">
 		<?php echo $a["f4"]; ?>
 	</td>
 	
-	<td class="col-md-0">
+	<td class="col-md-1">
 		<?php echo $a["f5"]; ?>
 	</td>
 	
-	<td class="col-md-0">
+	<td class="col-md-1">
 		<?php echo $a["f6"]; ?>
 	</td>
 	
-	<td class="col-md-0">
+	<td class="col-md-1">
 		<?php echo $a["f7"]; ?>
 	</td>
 	
-	<td class="col-md-0">
+	<td class="col-md-1">
 		<?php echo $a["f8"]; ?>
 	</td>
 	
-	<td class="col-md-0">
+	<td class="col-md-1">
 		<?php echo $a["active"]; ?>
 	</td>
 	
-	<td class="col-md-0">
+	<td class="col-md-1">
 		<form action="" method="post" style="display:inline!important;">
 			<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> </button>
 			<input type="hidden" name="del_id" value="<?php echo $a['id']; ?>" />
