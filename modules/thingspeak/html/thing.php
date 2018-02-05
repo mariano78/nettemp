@@ -149,7 +149,7 @@ foreach ($row as $a) {
 		<select name="f2" class="form-control input-sm">
 		<?php 
 			foreach ($result as $select) { ?>
-			<option value="<?php echo $select['rom']; ?>"><?php echo $select['name']." ".$select['tmp'] ?></option>
+			<option value="<?php echo $select['rom']; ?>" <?php echo $select['rom']==$a['f2'] ? 'selected="selected"' : ''; ?> ><?php echo $select['name']." ".$select['tmp'] ?></option>
 		<?php } ?>
 		</select>
 	</td>
@@ -158,7 +158,7 @@ foreach ($row as $a) {
 		<select name="f3" class="form-control input-sm">
 		<?php 
 			foreach ($result as $select) { ?>
-			<option value="<?php echo $select['rom']; ?>"><?php echo $select['name']." ".$select['tmp'] ?></option>
+			<option value="<?php echo $select['rom']; ?>" <?php echo $select['rom']==$a['f3'] ? 'selected="selected"' : ''; ?> ><?php echo $select['name']." ".$select['tmp'] ?></option>
 		<?php } ?>
 		</select>
 	</td>
@@ -167,7 +167,7 @@ foreach ($row as $a) {
 		<select name="f4" class="form-control input-sm">
 		<?php 
 			foreach ($result as $select) { ?>
-			<option value="<?php echo $select['rom']; ?>"><?php echo $select['name']." ".$select['tmp'] ?></option>
+			<option value="<?php echo $select['rom']; ?>" <?php echo $select['rom']==$a['f4'] ? 'selected="selected"' : ''; ?> ><?php echo $select['name']." ".$select['tmp'] ?></option>
 		<?php } ?>
 		</select>
 	</td>
@@ -176,7 +176,7 @@ foreach ($row as $a) {
 		<select name="f5" class="form-control input-sm">
 		<?php 
 			foreach ($result as $select) { ?>
-			<option value="<?php echo $select['rom']; ?>"><?php echo $select['name']." ".$select['tmp'] ?></option>
+			<option value="<?php echo $select['rom']; ?>" <?php echo $select['rom']==$a['f5'] ? 'selected="selected"' : ''; ?> ><?php echo $select['name']." ".$select['tmp'] ?></option>
 		<?php } ?>
 		</select>
 	</td>
@@ -185,7 +185,7 @@ foreach ($row as $a) {
 		<select name="f6" class="form-control input-sm">
 		<?php 
 			foreach ($result as $select) { ?>
-			<option value="<?php echo $select['rom']; ?>"><?php echo $select['name']." ".$select['tmp'] ?></option>
+			<option value="<?php echo $select['rom']; ?>" <?php echo $select['rom']==$a['f6'] ? 'selected="selected"' : ''; ?> ><?php echo $select['name']." ".$select['tmp'] ?></option>
 		<?php } ?>
 		</select>
 	</td>
@@ -194,7 +194,7 @@ foreach ($row as $a) {
 		<select name="f7" class="form-control input-sm">
 		<?php 
 			foreach ($result as $select) { ?>
-			<option value="<?php echo $select['rom']; ?>"><?php echo $select['name']." ".$select['tmp'] ?></option>
+			<option value="<?php echo $select['rom']; ?>" <?php echo $select['rom']==$a['f7'] ? 'selected="selected"' : ''; ?> ><?php echo $select['name']." ".$select['tmp'] ?></option>
 		<?php } ?>
 		</select>
 	</td>
@@ -203,7 +203,7 @@ foreach ($row as $a) {
 		<select name="f8" class="form-control input-sm">
 		<?php 
 			foreach ($result as $select) { ?>
-			<option value="<?php echo $select['rom']; ?>"><?php echo $select['name']." ".$select['tmp'] ?></option>
+			<option value="<?php echo $select['rom']; ?>" <?php echo $select['rom']==$a['f8'] ? 'selected="selected"' : ''; ?> ><?php echo $select['name']." ".$select['tmp'] ?></option>
 		<?php } ?>
 		</select>
 	</td>
