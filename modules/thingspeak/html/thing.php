@@ -32,6 +32,13 @@ if ($count >= "1") {
 <th>API Key</th>
 <th>F1</th>
 <th>F2</th>
+<th>F3</th>
+<th>F4</th>
+<th>F5</th>
+<th>F6</th>
+<th>F7</th>
+<th>F8</th>
+<th>Active</th>
 </thead>
 <?php
 foreach ($row as $a) { 	
