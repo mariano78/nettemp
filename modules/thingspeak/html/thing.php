@@ -139,7 +139,7 @@ foreach ($row as $a) {
 		<select name="f1" class="form-control input-sm">
 		<?php 
 			foreach ($result as $select) { ?>
-			<option value="<?php echo $select['rom']; ?>" <?php echo $select['rom']==$thinktbl['f1'] ? 'selected="selected"' : ''; ?> ><?php echo $select['name']." ".$select['tmp'] ?></option>
+			<option value="<?php echo $select['rom']; ?>" <?php echo $select['rom']==$a['f1'] ? 'selected="selected"' : ''; ?> ><?php echo $select['name']." ".$select['tmp'] ?></option>
 			
 		<?php } ?>
 		</select>
