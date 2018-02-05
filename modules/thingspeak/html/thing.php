@@ -85,14 +85,16 @@ if ($count >= "1") {
 <th>F7</th>
 <th>F8</th>
 <th>Active</th>
+<th>Submit</th>
 <th>Delete</th>
 </thead>
 <?php
 foreach ($row as $a) { 	
 ?>
+
 <tr>
     <td class="col-md-1">
-	<form action="" method="post" style="display:inline!important;">
+	<form class="form-horizontal" action="" method="post" style="display:inline!important;">	
 			<input type="text" name="name_new" size="15" maxlength="30" value="<?php echo $a["name"]; ?>" />
 			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 			<input type="hidden" name="name_id" value="<?php echo $a["id"]; ?>" />
@@ -110,6 +112,7 @@ foreach ($row as $a) {
 	</td>
 	
 	<td class="col-md-1">
+	<form class="form-horizontal" action="" method="post" style="display:inline!important;">	
 		<select name="f1" class="form-control input-sm">
 		<?php 
 			foreach ($result as $select) { ?>
@@ -179,6 +182,15 @@ foreach ($row as $a) {
 			<option value="<?php echo $select['id']; ?>"><?php echo $select['name']." ".$select['tmp'] ?></option>
 		<?php } ?>
 		</select>
+	</td>
+	
+	<td class="col-md-1">
+		
+		
+		<input type="hidden" name="update" value="<?php echo $a['id']; ?>"/>
+		<input type="hidden" name="ch_update" value="ch_update" />
+		<button type="submit" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span></button>
+		</form>
 	</td>
 	
 	<td class="col-md-1">
