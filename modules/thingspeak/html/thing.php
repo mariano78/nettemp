@@ -41,6 +41,16 @@ if(!empty($api_id) && !empty($api_new) && ($api_th == "api_th")) {
 	exit();	
 }
 
+// active
+$active_id = isset($_POST['active_id']) ? $_POST['active_id'] : '';
+$active_on = isset($_POST['active_on']) ? $_POST['active_on'] : '';
+$th_active = isset($_POST['th_active']) ? $_POST['th_active'] : '';
+    if ($th_active == "th_active"){
+    $db->exec("UPDATE thingspeak SET active='$active_on' WHERE id='$active_id'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+
 //del from base
 $del= isset($_POST['del']) ? $_POST['del'] : '';
 $del_id = isset($_POST['del_id']) ? $_POST['del_id'] : '';
@@ -128,7 +138,12 @@ foreach ($row as $a) {
 	</td>
 	
 	<td class="col-md-1">
-		<?php echo $a["active"]; ?>
+		<form action="" method="post" style="display:inline!important;" > 	
+		<input type="hidden" name="active_id" value="<?php echo $a["id"]; ?>" />
+		<button type="submit" name="active_on" value="<?php echo $a["active"] == 'on' ? 'off' : 'on'; ?>" <?php echo $a["active"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
+	    <?php echo $a["active"] == 'on' ? 'ON' : 'OFF'; ?></button>
+		<input type="hidden" name="th_active" value="th_active" />
+    </form>
 	</td>
 	
 	<td class="col-md-1">
