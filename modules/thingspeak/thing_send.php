@@ -12,7 +12,7 @@ $row = $rows->fetchAll();
 			$ThingSpeakApiKey = $a['apikey'];
 			
 				foreach (range(1, 8) as $x) {
-					$field.$x = $a['f1.$x'];
+					$field.$x = $a['f.$x'];
 					//$field2 = $a['f2'];
 					//$field3 = $a['f3'];
 					//$field4 = $a['f4'];
