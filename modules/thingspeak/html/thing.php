@@ -41,6 +41,16 @@ if(!empty($api_id) && !empty($api_new) && ($api_th == "api_th")) {
 	exit();	
 }
 
+//del from base
+$del= isset($_POST['del']) ? $_POST['del'] : '';
+$del_id = isset($_POST['del_id']) ? $_POST['del_id'] : '';
+if(!empty($del_id) && !empty($del) && ($del == "delete")) { 
+	$db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("DELETE FROM thingspeak WHERE id='$del_id'");
+	header("location: " . $_SERVER['REQUEST_URI']);
+	exit();	
+}
+
 $db = new PDO('sqlite:dbf/nettemp.db');
 $rows = $db->query("SELECT * FROM thingspeak");
 $row = $rows->fetchAll();
@@ -61,6 +71,7 @@ if ($count >= "1") {
 <th>F7</th>
 <th>F8</th>
 <th>Active</th>
+<th>Delete</th>
 </thead>
 <?php
 foreach ($row as $a) { 	
@@ -118,6 +129,14 @@ foreach ($row as $a) {
 	
 	<td class="col-md-0">
 		<?php echo $a["active"]; ?>
+	</td>
+	
+	<td class="col-md-0">
+		<form action="" method="post" style="display:inline!important;">
+			<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> </button>
+			<input type="hidden" name="del_id" value="<?php echo $a['id']; ?>" />
+			<input type="hidden" name="del" value="delete"/>
+		</form>
 	</td>
 </tr>
 <?php
