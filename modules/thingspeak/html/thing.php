@@ -1,6 +1,6 @@
 <div class="panel panel-default">
 <div class="panel-heading">
-<h3 class="panel-title">Thing Speak </h3> 
+<h3 class="panel-title">Thing Speak  </h3> 
 
 	<form action="" method="post" style="display:inline!important;">
 		<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-plus"></span> </button>
@@ -60,6 +60,10 @@ if(!empty($del_id) && !empty($del) && ($del == "delete")) {
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();	
 }
+//select sensors for field
+$sth = $db->prepare("SELECT * FROM sensors WHERE thing='on'");
+$sth->execute();
+$result = $sth->fetchAll(); 
 
 $db = new PDO('sqlite:dbf/nettemp.db');
 $rows = $db->query("SELECT * FROM thingspeak");
@@ -106,7 +110,14 @@ foreach ($row as $a) {
 	</td>
 	
 	<td class="col-md-1">
-		<?php echo $a["f1"]; ?>
+		<select name="sensor1" class="form-control input-sm">
+<?php 
+    foreach ($result as $select) { ?>
+	<option value="<?php echo $select['id']; ?>"><?php echo $select['name']." ".$select['tmp'] ?></option>
+<?php 
+    } 
+?>
+</select>
 	</td>
 	
 	<td class="col-md-1">
