@@ -19,6 +19,29 @@ if(!empty($addthc) && ($addthc == "addthc")) {
 	exit();	
 }
 
+//name
+$name_new = isset($_POST['name_new']) ? $_POST['name_new'] : '';
+$name_id = isset($_POST['name_id']) ? $_POST['name_id'] : '';
+if(!empty($name_id) && !empty($name_new) && ($th_name == "th_name")) { 
+	$db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("UPDATE thingspeak SET name='$name_new' WHERE id='$name_id'");
+	header("location: " . $_SERVER['REQUEST_URI']);
+	exit();	
+}
+
+//api key
+$api_new = isset($_POST['api_new']) ? $_POST['api_new'] : '';
+$api_id = isset($_POST['api_id']) ? $_POST['api_id'] : '';
+if(!empty($api_id) && !empty($api_new) && ($th_api == "th_api")) { 
+	$db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("UPDATE thingspeak SET apikey='$api_new' WHERE id='$api_id'");
+	header("location: " . $_SERVER['REQUEST_URI']);
+	exit();	
+}
+
+
+
+
 $db = new PDO('sqlite:dbf/nettemp.db');
 $rows = $db->query("SELECT * FROM thingspeak");
 $row = $rows->fetchAll();
@@ -45,11 +68,21 @@ foreach ($row as $a) {
 ?>
 <tr>
     <td class="col-md-1">
-		<?php echo $a["name"]; ?>
+	<form action="" method="post" style="display:inline!important;">
+			<input type="text" name="name_new" size="15" maxlength="30" value="<?php echo $a["name"]; ?>" />
+			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+			<input type="hidden" name="name_id" value="<?php echo $a["id"]; ?>" />
+			<input type="hidden" name="th_name" value="th_name"/>
+	</form>
 	</td>
 	
 	<td class="col-md-0">
-		<?php echo $a["apikey"]; ?>
+	<form action="" method="post" style="display:inline!important;">
+			<input type="text" name="api_new" size="15" maxlength="30" value="<?php echo $a["apikey"]; ?>" />
+			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+			<input type="hidden" name="api_id" value="<?php echo $a["id"]; ?>" />
+			<input type="hidden" name="th_api" value="th_api"/>
+	</form>
 	</td>
 	
 	<td class="col-md-0">
