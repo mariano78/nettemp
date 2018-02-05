@@ -11,16 +11,14 @@ $row = $rows->fetchAll();
 			$url = 'http://api.thingspeak.com/update';
 			$ThingSpeakApiKey = $a['apikey'];
 			
-				foreach (range(1, 8) as $x) {
-					$field.$x = $a["f.$x"];
-					//$field2 = $a['f2'];
-					//$field3 = $a['f3'];
-					//$field4 = $a['f4'];
-					//$field5 = $a['f5'];
-					//$field6 = $a['f6'];
-					//$field7 = $a['f7'];
-					//$field8 = $a['f8'];	
-				}			
+			$field1 = $a['f1'];
+			$field2 = $a['f2'];
+			$field3 = $a['f3'];
+			$field4 = $a['f4'];
+			$field5 = $a['f5'];
+			$field6 = $a['f6'];
+			$field7 = $a['f7'];
+			$field8 = $a['f8'];			
 			$data = 'key=' . $ThingSpeakApiKey . '&field1=' . $field1 . '&field2=' . $field2 .'&field3=' . $field3 . '&field4=' . $field4 . '&field5=' . $field5 . '&field6=' . $field6 . '&field7=' . $field7 . '&field8=' . $field8;
 			 
 			$ch = curl_init($url);
