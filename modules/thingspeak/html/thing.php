@@ -110,42 +110,75 @@ foreach ($row as $a) {
 	</td>
 	
 	<td class="col-md-1">
-		<select name="sensor1" class="form-control input-sm">
-<?php 
-    foreach ($result as $select) { ?>
-	<option value="<?php echo $select['id']; ?>"><?php echo $select['name']." ".$select['tmp'] ?></option>
-<?php 
-    } 
-?>
-</select>
+		<select name="f1" class="form-control input-sm">
+		<?php 
+			foreach ($result as $select) { ?>
+			<option value="<?php echo $select['id']; ?>"><?php echo $select['name']." ".$select['tmp'] ?></option>
+		<?php } ?>
+		</select>
 	</td>
 	
 	<td class="col-md-1">
-		<?php echo $a["f2"]; ?>
+		<select name="f2" class="form-control input-sm">
+		<?php 
+			foreach ($result as $select) { ?>
+			<option value="<?php echo $select['id']; ?>"><?php echo $select['name']." ".$select['tmp'] ?></option>
+		<?php } ?>
+		</select>
 	</td>
 	
 	<td class="col-md-1">
-		<?php echo $a["f3"]; ?>
+		<select name="f3" class="form-control input-sm">
+		<?php 
+			foreach ($result as $select) { ?>
+			<option value="<?php echo $select['id']; ?>"><?php echo $select['name']." ".$select['tmp'] ?></option>
+		<?php } ?>
+		</select>
 	</td>
 	
 	<td class="col-md-1">
-		<?php echo $a["f4"]; ?>
+		<select name="f4" class="form-control input-sm">
+		<?php 
+			foreach ($result as $select) { ?>
+			<option value="<?php echo $select['id']; ?>"><?php echo $select['name']." ".$select['tmp'] ?></option>
+		<?php } ?>
+		</select>
 	</td>
 	
 	<td class="col-md-1">
-		<?php echo $a["f5"]; ?>
+		<select name="f5" class="form-control input-sm">
+		<?php 
+			foreach ($result as $select) { ?>
+			<option value="<?php echo $select['id']; ?>"><?php echo $select['name']." ".$select['tmp'] ?></option>
+		<?php } ?>
+		</select>
 	</td>
 	
 	<td class="col-md-1">
-		<?php echo $a["f6"]; ?>
+		<select name="f6" class="form-control input-sm">
+		<?php 
+			foreach ($result as $select) { ?>
+			<option value="<?php echo $select['id']; ?>"><?php echo $select['name']." ".$select['tmp'] ?></option>
+		<?php } ?>
+		</select>
 	</td>
 	
 	<td class="col-md-1">
-		<?php echo $a["f7"]; ?>
+		<select name="f7" class="form-control input-sm">
+		<?php 
+			foreach ($result as $select) { ?>
+			<option value="<?php echo $select['id']; ?>"><?php echo $select['name']." ".$select['tmp'] ?></option>
+		<?php } ?>
+		</select>
 	</td>
 	
 	<td class="col-md-1">
-		<?php echo $a["f8"]; ?>
+		<select name="f8" class="form-control input-sm">
+		<?php 
+			foreach ($result as $select) { ?>
+			<option value="<?php echo $select['id']; ?>"><?php echo $select['name']." ".$select['tmp'] ?></option>
+		<?php } ?>
+		</select>
 	</td>
 	
 	<td class="col-md-1">
