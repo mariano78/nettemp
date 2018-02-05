@@ -1,6 +1,9 @@
 <div class="panel panel-default">
 <div class="panel-heading">
-<h3 class="panel-title">Thing Speak </h3></div>
+<h3 class="panel-title">Thing Speak </h3> <form action="" method="post" style="display:inline!important;">
+			<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-plus"></span> </button>
+			<input type="hidden" name="addow" value="addow"/>
+		</form></div>
 
 <?php
 $sum = isset($_POST['sum']) ? $_POST['sum'] : '';
@@ -46,9 +49,11 @@ foreach ($row as $a) {
     <td class="col-md-1">
 		<?php echo $a["name"]; ?>
 	</td>
+	
 	<td class="col-md-0">
 		<?php echo $a["apikey"]; ?>
 	</td>
+	
 	<td class="col-md-0">
 		<?php echo $a["f1"]; ?>
 	</td>
