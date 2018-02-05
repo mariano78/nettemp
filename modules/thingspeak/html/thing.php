@@ -1,32 +1,23 @@
 <div class="panel panel-default">
 <div class="panel-heading">
-<h3 class="panel-title">Thing Speak </h3> <form action="" method="post" style="display:inline!important;">
-			<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-plus"></span> </button>
-			<input type="hidden" name="addow" value="addow"/>
-		</form></div>
+<h3 class="panel-title">Thing Speak </h3> 
+
+	<form action="" method="post" style="display:inline!important;">
+		<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-plus"></span> </button>
+		<input type="hidden" name="addthc" value="addthc"/>
+	</form></div>
 
 <?php
-$sum = isset($_POST['sum']) ? $_POST['sum'] : '';
-$sum1 = isset($_POST['sum1']) ? $_POST['sum1'] : '';
-$id = isset($_POST['id']) ? $_POST['id'] : '';
 
-
-if ($sum1 == 'sum2'){
-    $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("UPDATE sensors SET sum='$sum' WHERE id='$id'") or die ($db->lastErrorMsg());
-	header("location: " . $_SERVER['REQUEST_URI']);
-	exit();
-}
-
- $ch_group = isset($_POST['ch_group']) ? $_POST['ch_group'] : '';
-    $ch_grouponoff = isset($_POST['ch_grouponoff']) ? $_POST['ch_grouponoff'] : '';
-    $ch_groupon = isset($_POST['ch_groupon']) ? $_POST['ch_groupon'] : '';
-    if (($ch_grouponoff == "onoff")){
+// add thingspeak chanell
+$addthc = isset($_POST['addthc']) ? $_POST['addthc'] : '';
+if(!empty($addthc) && ($addthc == "addthc")) { 
+	
 	$db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("UPDATE sensors SET ch_group='$ch_groupon' WHERE id='$ch_group'") or die ($db->lastErrorMsg());
-    header("location: " . $_SERVER['REQUEST_URI']);
-    exit();
-    }
+	$db->exec("INSERT INTO thingspeak ('name', 'apikey', 'onoff', 'active') VALUES ('My new chanell','API KEY', 'off')");
+	header("location: " . $_SERVER['REQUEST_URI']);
+	exit();	
+}
 
 $db = new PDO('sqlite:dbf/nettemp.db');
 $rows = $db->query("SELECT * FROM thingspeak");
