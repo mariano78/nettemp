@@ -109,7 +109,6 @@ if ($count >= "1") {
 <th>F8</th>
 <th>Submit</th>
 <th>Active</th>
-<th>Delete</th>
 </thead>
 <?php
 foreach ($row as $a) { 	
@@ -210,7 +209,6 @@ foreach ($row as $a) {
 	
 	<td class="col-md-1">
 		
-		
 		<input type="hidden" name="ch_update_id" value="<?php echo $a['id']; ?>"/>
 		<input type="hidden" name="ch_update" value="ch_update" />
 		<button type="submit" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span></button>
@@ -224,14 +222,12 @@ foreach ($row as $a) {
 	    <?php echo $a["active"] == 'on' ? 'ON' : 'OFF'; ?></button>
 		<input type="hidden" name="th_active" value="th_active" />
     </form>
-	</td>
-	
-	<td class="col-md-1">
-		<form action="" method="post" style="display:inline!important;">
-			<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> </button>
-			<input type="hidden" name="del_id" value="<?php echo $a['id']; ?>" />
-			<input type="hidden" name="del" value="delete"/>
-		</form>
+
+	<form action="" method="post" style="display:inline!important;">
+		<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> </button>
+		<input type="hidden" name="del_id" value="<?php echo $a['id']; ?>" />
+		<input type="hidden" name="del" value="delete"/>
+	</form>
 	</td>
 </tr>
 <?php
