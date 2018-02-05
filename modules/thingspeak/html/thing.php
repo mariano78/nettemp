@@ -243,7 +243,7 @@ foreach ($row as $a) {
 	<div class="panel-body">
 
 		<span>
-			Note: Thing speak free account....
+			ThingSpeak is available as a free service for small non-commercial home projects - 3 million messages/year or ~8200 messages/day. 
 		</span>
 	</div>
 </div>
