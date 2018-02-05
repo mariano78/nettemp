@@ -1,11 +1,11 @@
 <div class="panel panel-default">
 <div class="panel-heading">
 <h3 class="panel-title">Thing Speak  </h3> 
-
+<span>
 	<form action="" method="post" style="display:inline!important;">
 		<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-plus"></span> </button>
 		<input type="hidden" name="addthc" value="addthc"/>
-	</form></div>
+	</form></span></div>
 
 <?php
 // chanel update
@@ -83,10 +83,6 @@ if(!empty($del_id) && !empty($del) && ($del == "delete")) {
 $sth = $db->prepare("SELECT * FROM sensors WHERE thing='on'");
 $sth->execute();
 $result = $sth->fetchAll(); 
-
-$sth2 = $db->prepare("SELECT * FROM thingspeak");
-$sth2->execute();
-$thinktbl = $sth2->fetchAll();
 
 $db = new PDO('sqlite:dbf/nettemp.db');
 $rows = $db->query("SELECT * FROM thingspeak");
@@ -243,10 +239,10 @@ foreach ($row as $a) {
 </div>
 
 <div class="panel panel-default">
-  <div class="panel-heading">Thing Speak Info:</div>
+  <div class="panel-heading">Info:</div>
 	<div class="panel-body">
 
-		<span id="helpBlock" class="help-block">
+		<span>
 			Note: Thing speak free account....
 		</span>
 	</div>
