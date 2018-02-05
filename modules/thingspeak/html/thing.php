@@ -234,6 +234,12 @@ foreach ($row as $a) {
 	}
 ?>
 </table>
+<div class="panel-footer">
+		<span id="helpBlock" class="help-block">
+			Note: Thing speak free account....
+		</span>
+	</div>
+
 <?php
 	} 
 ?>
