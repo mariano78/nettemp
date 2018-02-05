@@ -234,14 +234,21 @@ foreach ($row as $a) {
 	}
 ?>
 </table>
-<div class="panel-footer">
-		<span id="helpBlock" class="help-block">
-			Note: Thing speak free account....
-		</span>
-	</div>
+
 
 <?php
 	} 
 ?>
 </div>
 
+<div class="panel panel-default">
+  <div class="panel-heading">Thing Speak Info:</div>
+  <div class="panel-body">
+
+<span id="helpBlock" class="help-block">
+			Note: Thing speak free account....
+		</span>
+
+
+  </div>
+</div>
