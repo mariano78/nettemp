@@ -49,6 +49,37 @@ foreach ($row as $a) {
 		<?php echo $a["f1"]; ?>
 	</td>
 	
+	<td class="col-md-0">
+		<?php echo $a["f2"]; ?>
+	</td>
+	
+	<td class="col-md-0">
+		<?php echo $a["f3"]; ?>
+	</td>
+	
+	<td class="col-md-0">
+		<?php echo $a["f4"]; ?>
+	</td>
+	
+	<td class="col-md-0">
+		<?php echo $a["f5"]; ?>
+	</td>
+	
+	<td class="col-md-0">
+		<?php echo $a["f6"]; ?>
+	</td>
+	
+	<td class="col-md-0">
+		<?php echo $a["f7"]; ?>
+	</td>
+	
+	<td class="col-md-0">
+		<?php echo $a["f8"]; ?>
+	</td>
+	
+	<td class="col-md-0">
+		<?php echo $a["active"]; ?>
+	</td>
 </tr>
 <?php
 	}
