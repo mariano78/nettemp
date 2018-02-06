@@ -12,8 +12,9 @@ $row = $rows->fetchAll();
 			$ThingSpeakApiKey = $a['apikey'];
 			
 			$rom1 = $a['f1'];
-			$result = $db->query("SELECT tmp FROM sensors WHERE rom='$rom1' ");
-			$field1 = mysql_fetch_row($result);
+			$f1 = $db->query("SELECT tmp FROM sensors WHERE rom='$rom1' ");
+			$result = mysql_fetch_array($f1);
+			$field1 = $result['tmp'];
 			$rom2 = $a['f2'];
 			$rom3 = $a['f3'];
 			$rom4 = $a['f4'];
