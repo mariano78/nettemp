@@ -132,7 +132,9 @@ foreach ($row as $a) {
 	<td class="col-md-1">
 	<form class="form-horizontal" action="" method="post" style="display:inline!important;">	
 		<select name="f1" class="form-control input-sm">
+		<option>none</option>
 		<?php 
+		
 			foreach ($result as $select) { ?>
 			<option value="<?php echo $select['rom']; ?>" <?php echo $select['rom']==$a['f1'] ? 'selected="selected"' : ''; ?> ><?php echo $select['name']." ".$select['tmp'] ?></option>
 			
