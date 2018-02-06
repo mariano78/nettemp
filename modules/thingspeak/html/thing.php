@@ -93,8 +93,8 @@ if ($count >= "1") {
 <div class="table-responsive">
 <table class="table table-hover table-condensed small" border="0">
 <thead>
-<th>Channel name</th>
-<th>API Key</th>
+<th>Channel Name</th>
+<th>Write API Key</th>
 <th>F1</th>
 <th>F2</th>
 <th>F3</th>
