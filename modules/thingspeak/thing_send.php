@@ -23,7 +23,7 @@ $row = $rows->fetchAll();
 			$rom7 = $a['f7'];
 			$rom8 = $a['f8'];		
 			
-			$data = 'key=' . $ThingSpeakApiKey . '&field1=' . $field1 . '&field2=' . $field2 .'&field3=' . $field3 . '&field4=' . $field4 . '&field5=' . $field5 . '&field6=' . $field6 . '&field7=' . $field7 . '&field8=' . $field8;
+			$data = 'key=' . $ThingSpeakApiKey . '&field1=' . $field1;
 			 
 			$ch = curl_init($url);
 			curl_setopt( $ch, CURLOPT_POST, 1);
