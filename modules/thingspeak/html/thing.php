@@ -132,7 +132,7 @@ foreach ($row as $a) {
 	<td class="col-md-1">
 	<form class="form-horizontal" action="" method="post" style="display:inline!important;">	
 		<select name="f1" class="form-control input-sm">
-		<option>---</option>
+		<option value="off">---</option>
 		<?php 
 		
 			foreach ($result as $select) { ?>
