@@ -12,13 +12,13 @@ $row = $rows->fetchAll();
 			$ThingSpeakApiKey = $a['apikey'];
 			
 			if ($a['tmp1'] == 'off'){$field1 = '';} else {$field1 = $a['tmp1'];}
-			if ($a['tmp2'] == 'off'){$field2 = '';} else {$field1 = $a['tmp2'];}
-			if ($a['tmp3'] == 'off'){$field3 = '';} else {$field1 = $a['tmp3'];}
-			if ($a['tmp4'] == 'off'){$field4 = '';} else {$field1 = $a['tmp4'];}
-			if ($a['tmp5'] == 'off'){$field5 = '';} else {$field1 = $a['tmp5'];}
-			if ($a['tmp6'] == 'off'){$field6 = '';} else {$field1 = $a['tmp6'];}
-			if ($a['tmp7'] == 'off'){$field7 = '';} else {$field1 = $a['tmp7'];}
-			if ($a['tmp8'] == 'off'){$field8 = '';} else {$field1 = $a['tmp8'];}
+			if ($a['tmp2'] == 'off'){$field2 = '';} else {$field2 = $a['tmp2'];}
+			if ($a['tmp3'] == 'off'){$field3 = '';} else {$field3 = $a['tmp3'];}
+			if ($a['tmp4'] == 'off'){$field4 = '';} else {$field4 = $a['tmp4'];}
+			if ($a['tmp5'] == 'off'){$field5 = '';} else {$field5 = $a['tmp5'];}
+			if ($a['tmp6'] == 'off'){$field6 = '';} else {$field6 = $a['tmp6'];}
+			if ($a['tmp7'] == 'off'){$field7 = '';} else {$field7 = $a['tmp7'];}
+			if ($a['tmp8'] == 'off'){$field8 = '';} else {$field8 = $a['tmp8'];}
 					
 			$data = 'key=' . $ThingSpeakApiKey . '&field1=' . $field1 . '&field2=' . $field2 .'&field3=' . $field3 . '&field4=' . $field4 . '&field5=' . $field5 . '&field6=' . $field6 . '&field7=' . $field7 . '&field8=' . $field8;
 			 
