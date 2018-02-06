@@ -14,13 +14,13 @@ $row = $rows->fetchAll();
 			
 			
 			$item = $row[$a]['f1'];
-			$rom2 = $a['f2'];
-			$rom3 = $a['f3'];
-			$rom4 = $a['f4'];
-			$rom5 = $a['f5'];
-			$rom6 = $a['f6'];
-			$rom7 = $a['f7'];
-			$rom8 = $a['f8'];		
+			//$rom2 = $a['f2'];
+			//$rom3 = $a['f3'];
+			//$rom4 = $a['f4'];
+			//$rom5 = $a['f5'];
+			//$rom6 = $a['f6'];
+			//$rom7 = $a['f7'];
+			//$rom8 = $a['f8'];		
 			
 			$data = 'key=' . $ThingSpeakApiKey . '&field1=' . $item ;
 			 
