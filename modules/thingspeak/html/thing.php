@@ -33,7 +33,7 @@ $addthc = isset($_POST['addthc']) ? $_POST['addthc'] : '';
 if(!empty($addthc) && ($addthc == "addthc")) { 
 	
 	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("INSERT INTO thingspeak ('name', 'apikey', 'active') VALUES ('My new chanell','API KEY', 'off')");
+	$db->exec("INSERT INTO thingspeak ('name', 'apikey', 'active', 'f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8') VALUES ('My new chanell','API KEY', 'off', '---', '---', '---', '---', '---', '---', '---', '---')");
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();	
 }
