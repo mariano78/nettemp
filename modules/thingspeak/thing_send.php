@@ -11,19 +11,15 @@ $row = $rows->fetchAll();
 			$url = 'http://api.thingspeak.com/update';
 			$ThingSpeakApiKey = $a['apikey'];
 			
-			$rom1 = $a['f1'];
-			$f1 = $db->query("SELECT tmp FROM sensors WHERE rom='$rom1' ");
-			$result = mysql_fetch_array($f1);
-			$field1 = $result['tmp'];
-			$rom2 = $a['f2'];
-			$rom3 = $a['f3'];
-			$rom4 = $a['f4'];
-			$rom5 = $a['f5'];
-			$rom6 = $a['f6'];
-			$rom7 = $a['f7'];
-			$rom8 = $a['f8'];		
-			
-			$data = 'key=' . $ThingSpeakApiKey . '&field1=' . $field1;
+			$field1 = $a['f1'];
+			$field2 = $a['f2'];
+			$field3 = $a['f3'];
+			$field4 = $a['f4'];
+			$field5 = $a['f5'];
+			$field6 = $a['f6'];
+			$field7 = $a['f7'];
+			$field8 = $a['f8'];			
+			$data = 'key=' . $ThingSpeakApiKey . '&field1=' . $field1 . '&field2=' . $field2 .'&field3=' . $field3 . '&field4=' . $field4 . '&field5=' . $field5 . '&field6=' . $field6 . '&field7=' . $field7 . '&field8=' . $field8;
 			 
 			$ch = curl_init($url);
 			curl_setopt( $ch, CURLOPT_POST, 1);
@@ -40,4 +36,3 @@ $row = $rows->fetchAll();
 
 
 ?>
-
