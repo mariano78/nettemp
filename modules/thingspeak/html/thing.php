@@ -256,7 +256,7 @@ foreach ($row as $a) {
 			Recommended maximum daily usage capacity:  8 219 messages. <br>
 			For questions about exceeding suggested daily usage rate or for purchasing new units,
 			see the
-			<a href="https://thingspeak.com/pages/license_faq">Licensing FAQ</a>
+			<a href="https://thingspeak.com/pages/license_faq" target="_blank">Licensing FAQ</a>
 		
 		</span>
 	</div>
