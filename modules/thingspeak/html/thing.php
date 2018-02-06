@@ -252,10 +252,10 @@ foreach ($row as $a) {
 	<div class="panel-body">
 
 		<span id="helpBlock" class="help-block">
-			ThingSpeak is available as a free service for small non-commercial home projects - 3 million messages/year. 
-			Recommended maximum daily usage capacity:  8 219 messages. 
-			For questions about exceeding suggested daily usage rate or for purchasing new units,
-			see the Licensing FAQ 
+			ThingSpeak is available as a free service for small non-commercial home projects - 3 million messages/year. <br>
+			Recommended maximum daily usage capacity:  8 219 messages. <br>
+			For questions about exceeding suggested daily usage rate or for purchasing new units,<br>
+			see the Licensing FAQ <br>
 			https://thingspeak.com/pages/license_faq
 		</span>
 	</div>
