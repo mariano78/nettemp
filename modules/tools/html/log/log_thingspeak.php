@@ -1,7 +1,7 @@
 <?php	
 $dir = '';
-$log_del = isset($_POST['log_del']) ? $_POST['log_del'] : '';
-	if ($log_del == "Clear"){
+$th_log_del = isset($_POST['th_log_del']) ? $_POST['th_log_del'] : '';
+	if ($th_log_del == "Clear"){
 	exec("echo log cleared > tmp/thingspeak_log.txt");	
 	echo $dir; 
 	header("location: " . $_SERVER['REQUEST_URI']);
@@ -14,7 +14,7 @@ $log_del = isset($_POST['log_del']) ? $_POST['log_del'] : '';
 <div class="panel-body">
 
 <form action="index.php?id=tools&type=log" method="post">
-    <input type="submit" name="log_del" value="Clear" class="btn btn-xs btn-danger" />
+    <input type="submit" name="th_log_del" value="Clear" class="btn btn-xs btn-danger" />
 </form>
 <br />
 <div style="height:300px;overflow:auto;padding:5px;">
