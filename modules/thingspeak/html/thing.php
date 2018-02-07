@@ -104,6 +104,7 @@ if ($count >= "1") {
 <th>F7</th>
 <th>F8</th>
 <th>Submit</th>
+<th>Interval</th>
 <th>Active</th>
 </thead>
 <?php
@@ -213,7 +214,10 @@ foreach ($row as $a) {
 	</td>
 	
 	<td class="col-md-1">
-		
+		interval
+	</td>
+	
+	<td class="col-md-1">
 		<input type="hidden" name="ch_update_id" value="<?php echo $a['id']; ?>"/>
 		<input type="hidden" name="ch_update" value="ch_update" />
 		<button type="submit" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span></button>
