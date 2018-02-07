@@ -1,6 +1,6 @@
 <div class="panel panel-default">
-<div class="panel-heading">
-<h3 class="panel-title">Thing Speak  </h3> 
+<div class="panel-heading">Thing Speak
+<h3 class="panel-title">  </h3> 
 <span>
 	<form action="" method="post" style="display:inline!important;">
 		<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-plus"></span> </button>
@@ -103,8 +103,8 @@ if ($count >= "1") {
 <th>F6</th>
 <th>F7</th>
 <th>F8</th>
-<th>Submit</th>
 <th>Interval</th>
+<th>Submit</th>
 <th>Active</th>
 </thead>
 <?php
