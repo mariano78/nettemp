@@ -16,12 +16,13 @@ $f5=isset($_POST['f5']) ? $_POST['f5'] : '';
 $f6=isset($_POST['f6']) ? $_POST['f6'] : '';
 $f7=isset($_POST['f7']) ? $_POST['f7'] : '';
 $f8=isset($_POST['f8']) ? $_POST['f8'] : '';
+$interval=isset($_POST['interval']) ? $_POST['interval'] : '';
 $ch_update=isset($_POST['ch_update']) ? $_POST['ch_update'] : '';
 $ch_update_id=isset($_POST['ch_update_id']) ? $_POST['ch_update_id'] : '';
 
 if(!empty($ch_update_id) && ($ch_update == "ch_update")) { 
 	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("UPDATE thingspeak SET f1='$f1',f2='$f2',f3='$f3',f4='$f4',f5='$f5',f6='$f6',f7='$f7',f8='$f8' WHERE id='$ch_update_id'");
+	$db->exec("UPDATE thingspeak SET f1='$f1',f2='$f2',f3='$f3',f4='$f4',f5='$f5',f6='$f6',f7='$f7',f8='$f8',interval='$interval' WHERE id='$ch_update_id'");
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();	
 }
@@ -32,7 +33,7 @@ $addthc = isset($_POST['addthc']) ? $_POST['addthc'] : '';
 if(!empty($addthc) && ($addthc == "addthc")) { 
 	
 	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("INSERT INTO thingspeak ('name', 'apikey', 'active', 'f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8') VALUES ('My new chanell','API KEY', 'off', 'off', 'off', 'off', 'off', 'off', 'off', 'off', 'off')");
+	$db->exec("INSERT INTO thingspeak ('name', 'apikey', 'active', 'f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 'interval') VALUES ('My new chanell','API KEY', 'off', 'off', 'off', 'off', 'off', 'off', 'off', 'off', 'off', '1')");
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();	
 }
@@ -213,7 +214,14 @@ foreach ($row as $a) {
 	</td>
 	
 	<td class="col-md-0">
-		interval
+		<select name="interval" class="form-control input-sm">
+		<option value="1">1 min</option>
+		<option value="2">2 min</option>
+		<option value="5">5 min</option>
+		<option value="10">10 min</option>
+		<option value="30">30 min</option>
+		<option value="60">60 min</option>
+		</select>
 	</td>
 	
 	<td class="col-md-0">
