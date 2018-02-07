@@ -215,12 +215,12 @@ foreach ($row as $a) {
 	
 	<td class="col-md-0">
 		<select name="interval" class="form-control input-sm">
-		<option value="1" <?php echo $a['interval']." "; ?>>1 min</option>
-		<option value="2" <?php echo $a['interval']." "; ?>>2 min</option>
-		<option value="5" <?php echo $a['interval']." "; ?>>5 min</option>
-		<option value="10" <?php echo $a['interval']." "; ?>>10 min</option>
-		<option value="30" <?php echo $a['interval']." "; ?>>30 min</option>
-		<option value="60" <?php echo $a['interval']." "; ?>>60 min</option>
+		<option value="1" <?php echo "1 min"; ?>><?php echo $a['interval']." "; ?></option>
+		<option value="2" <?php echo "2 min"; ?>><?php echo $a['interval']." "; ?></option>
+		<option value="5" <?php echo "5 min"; ?>><?php echo $a['interval']." "; ?></option>
+		<option value="10" <?php echo "10 min"; ?>><?php echo $a['interval']." "; ?></option>
+		<option value="30" <?php echo "30 min"; ?>><?php echo $a['interval']." "; ?></option>
+		<option value="60" <?php echo "60 min"; ?>><?php echo $a['interval']." "; ?></option>
 		</select>
 	</td>
 	
