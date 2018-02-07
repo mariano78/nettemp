@@ -25,6 +25,7 @@ $row = $rows->fetchAll();
 			
 			$url = 'http://api.thingspeak.com/update';
 			$ThingSpeakApiKey = $a['apikey'];
+			$name = $a['name'];
 			
 			if ($a['tmp1'] == 'off'){$field1 = '';} else {$field1 = $a['tmp1'];}
 			if ($a['tmp2'] == 'off'){$field2 = '';} else {$field2 = $a['tmp2'];}
@@ -36,8 +37,7 @@ $row = $rows->fetchAll();
 			if ($a['tmp8'] == 'off'){$field8 = '';} else {$field8 = $a['tmp8'];}
 					
 			$data = 'key=' . $ThingSpeakApiKey . '&field1=' . $field1 . '&field2=' . $field2 .'&field3=' . $field3 . '&field4=' . $field4 . '&field5=' . $field5 . '&field6=' . $field6 . '&field7=' . $field7 . '&field8=' . $field8;
-			$content = date('Y M d H:i:s').$data."\n";
-			logs($content);
+			
 			 
 			$ch = curl_init($url);
 			curl_setopt( $ch, CURLOPT_POST, 1);
@@ -48,6 +48,8 @@ $row = $rows->fetchAll();
 			$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 			curl_close($ch);
 			$content = $httpcode;
+			
+			$content = date('Y M d H:i:s')."-".$name."-".$data."-".$httpcode."\n";
 			logs($content);
 
 	}
