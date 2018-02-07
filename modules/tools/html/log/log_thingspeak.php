@@ -13,7 +13,7 @@ $th_log_del = isset($_POST['th_log_del']) ? $_POST['th_log_del'] : '';
 <div class="panel-heading">Thing Speak</div>
 <div class="panel-body">
 
-<form action="" method="post">
+<form action="index.php?id=tools&type=log&log=thingspeak" method="post">
     <input type="submit" name="th_log_del" value="Clear" class="btn btn-xs btn-danger" />
 </form>
 <br />
