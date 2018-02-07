@@ -113,7 +113,7 @@ foreach ($row as $a) {
 <tr>
     <td class="col-md-0">
 	<form class="form-horizontal" action="" method="post" style="display:inline!important;">	
-			<input type="text" name="name_new" size="15" maxlength="30" value="<?php echo $a["name"]; ?>" />
+			<input type="text" name="name_new" size="10" maxlength="30" value="<?php echo $a["name"]; ?>" />
 			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 			<input type="hidden" name="name_id" value="<?php echo $a["id"]; ?>" />
 			<input type="hidden" name="name_th" value="name_th"/>
@@ -122,7 +122,7 @@ foreach ($row as $a) {
 	
 	<td class="col-md-0">
 	<form action="" method="post" style="display:inline!important;">
-			<input type="text" name="api_new" size="15" maxlength="35" value="<?php echo $a["apikey"]; ?>" />
+			<input type="text" name="api_new" size="10" maxlength="35" value="<?php echo $a["apikey"]; ?>" />
 			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 			<input type="hidden" name="api_id" value="<?php echo $a["id"]; ?>" />
 			<input type="hidden" name="api_th" value="api_th"/>
