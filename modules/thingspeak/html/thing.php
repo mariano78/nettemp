@@ -2,7 +2,7 @@
 <div class="panel-heading">Thing Speak
 <span>
 	<form action="" method="post" style="display:inline!important;">
-		<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-plus"></span> </button>
+		<button class="btn btn-xs btn-danger"><span>Add new channel</span> </button>
 		<input type="hidden" name="addthc" value="addthc"/>
 	</form></span></div>
 
