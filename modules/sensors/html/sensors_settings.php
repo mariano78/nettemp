@@ -360,84 +360,12 @@ $row = $rows->fetchAll();
 <th>New group</th>
 <th>Group</th>
 <th>Thing Speak</th>
-<th>Log out
-
-	<form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="add_all" value="logon" />
-		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-plus"></span> </button>
-    </form>
-    <form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="del_all" value="logon" />
-		<button class="btn btn-xs btn-info "><span class="glyphicon glyphicon-minus"></span> </button>
-    </form>
-
-</th>
-<th>Charts
-
-	 <form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="add_all" value="charts" />
-		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-plus"></span> </button>
-    </form>
-    <form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="del_all" value="charts" />
-		<button class="btn btn-xs btn-info "><span class="glyphicon glyphicon-minus"></span> </button>
-    </form>
-
-</th>
-<th>Node
-
-    <form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="add_all" value="remote" />
-		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-plus"></span> </button>
-    </form>
-    <form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="del_all" value="remote" />
-		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-minus"></span> </button>
-    </form>
-
-
-</th>
-<th>Status Min/Max
-
-    <form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="add_all" value="minmax" />
-		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-plus"></span> </button>
-    </form>
-    <form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="del_all" value="minmax" />
-		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-minus"></span> </button>
-    </form>
-
-
-
-</th>
-<th>LCD/OLED
-
- 	<form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="add_all" value="lcd" />
-		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-plus"></span> </button>
-    </form>
-    <form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="del_all" value="lcd" />
-		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-minus"></span> </button>
-    </form>
-
-
-</th>
-<th>JustGage
-
- 	<form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="add_all" value="jg" />
-		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-plus"></span> </button>
-    </form>
-    <form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="del_all" value="jg" />
-		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-minus"></span> </button>
-    </form>
-
-</th>
-
-
+<th>Log out</th>
+<th>Charts</th>
+<th>Node</th>
+<th>Status Min/Max</th>
+<th>LCD/OLED</th>
+<th>JustGage</th>
 <th></th>
 </tr>
 <tr>
