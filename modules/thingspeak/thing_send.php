@@ -1,8 +1,10 @@
 <?php
 
-if (isset($_GET['intv'])) { 
-    $interval = $_GET['intv'];
-}
+var_dump($argv);
+parse_str($argv[1],$params);
+$interval=$params['intv'];
+
+
 
 $ROOT=dirname(dirname(dirname(__FILE__)));
 //$root=$_SERVER["DOCUMENT_ROOT"];
