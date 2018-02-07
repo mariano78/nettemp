@@ -450,7 +450,14 @@ $row = $rows->fetchAll();
 <td></td>
 <td></td>
 <td></td>
-<td></td>
+<td><form action="" method="post" style="display:inline!important;">
+		<input type="hidden" name="add_all" value="logon" />
+		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-plus"></span> </button>
+    </form>
+    <form action="" method="post" style="display:inline!important;">
+		<input type="hidden" name="del_all" value="logon" />
+		<button class="btn btn-xs btn-info "><span class="glyphicon glyphicon-minus"></span> </button>
+    </form></td>
 <td></td>
 <td></td>
 <td></td>
