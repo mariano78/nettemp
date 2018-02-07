@@ -1,12 +1,20 @@
 <?php
-
+$ROOT=dirname(dirname(dirname(__FILE__)));
 var_dump($argv);
 parse_str($argv[1],$params);
 $interval=$params['intv'];
 
 
+function logs($content){
+global $ROOT;
 
-$ROOT=dirname(dirname(dirname(__FILE__)));
+	$f = fopen("$ROOT/tmp/thingspeak_log.txt", "a");
+
+fwrite($f, $content);
+fclose($f); 
+}
+
+
 //$root=$_SERVER["DOCUMENT_ROOT"];
 $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 
@@ -28,6 +36,8 @@ $row = $rows->fetchAll();
 			if ($a['tmp8'] == 'off'){$field8 = '';} else {$field8 = $a['tmp8'];}
 					
 			$data = 'key=' . $ThingSpeakApiKey . '&field1=' . $field1 . '&field2=' . $field2 .'&field3=' . $field3 . '&field4=' . $field4 . '&field5=' . $field5 . '&field6=' . $field6 . '&field7=' . $field7 . '&field8=' . $field8;
+			$content = date('Y M d H:i:s').$data."\n";
+			logs($content);
 			 
 			$ch = curl_init($url);
 			curl_setopt( $ch, CURLOPT_POST, 1);
@@ -37,10 +47,9 @@ $row = $rows->fetchAll();
 			$response = curl_exec( $ch );
 			$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 			curl_close($ch);
-			echo $httpcode;
+			$content = $httpcode;
+			logs($content);
 
 	}
-
-
 
 ?>
