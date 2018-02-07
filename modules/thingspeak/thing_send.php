@@ -49,7 +49,7 @@ $row = $rows->fetchAll();
 			curl_close($ch);
 			$content = $httpcode;
 			
-			$content = date('Y M d H:i:s')."-".$name."-".$data."-".$httpcode."\n";
+			$content = date('Y M d H:i:s')."-".$name."-".$data." - httpcode = ".$httpcode."\n";
 			logs($content);
 
 	}
