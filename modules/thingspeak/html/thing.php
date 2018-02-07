@@ -1,6 +1,5 @@
 <div class="panel panel-default">
 <div class="panel-heading">Thing Speak
-<h3 class="panel-title">  </h3> 
 <span>
 	<form action="" method="post" style="display:inline!important;">
 		<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-plus"></span> </button>
@@ -112,7 +111,7 @@ foreach ($row as $a) {
 ?>
 
 <tr>
-    <td class="col-md-1">
+    <td class="col-md-0">
 	<form class="form-horizontal" action="" method="post" style="display:inline!important;">	
 			<input type="text" name="name_new" size="15" maxlength="30" value="<?php echo $a["name"]; ?>" />
 			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
@@ -121,7 +120,7 @@ foreach ($row as $a) {
 	</form>
 	</td>
 	
-	<td class="col-md-1">
+	<td class="col-md-0">
 	<form action="" method="post" style="display:inline!important;">
 			<input type="text" name="api_new" size="15" maxlength="35" value="<?php echo $a["apikey"]; ?>" />
 			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
@@ -130,7 +129,7 @@ foreach ($row as $a) {
 	</form>
 	</td>
 	
-	<td class="col-md-1">
+	<td class="col-md-0">
 	<form class="form-horizontal" action="" method="post" style="display:inline!important;">	
 		<select name="f1" class="form-control input-sm">
 		<option value="off">off</option>
@@ -143,7 +142,7 @@ foreach ($row as $a) {
 		</select>
 	</td>
 	
-	<td class="col-md-1">
+	<td class="col-md-0">
 		<select name="f2" class="form-control input-sm">
 		<option value="off">off</option>
 		<?php 
@@ -153,7 +152,7 @@ foreach ($row as $a) {
 		</select>
 	</td>
 	
-	<td class="col-md-1">
+	<td class="col-md-0">
 		<select name="f3" class="form-control input-sm">
 		<option value="off">off</option>
 		<?php 
@@ -163,7 +162,7 @@ foreach ($row as $a) {
 		</select>
 	</td>
 	
-	<td class="col-md-1">
+	<td class="col-md-0">
 		<select name="f4" class="form-control input-sm">
 		<option value="off">off</option>
 		<?php 
@@ -173,7 +172,7 @@ foreach ($row as $a) {
 		</select>
 	</td>
 	
-	<td class="col-md-1">
+	<td class="col-md-0">
 		<select name="f5" class="form-control input-sm">
 		<option value="off">off</option>
 		<?php 
@@ -183,7 +182,7 @@ foreach ($row as $a) {
 		</select>
 	</td>
 	
-	<td class="col-md-1">
+	<td class="col-md-0">
 		<select name="f6" class="form-control input-sm">
 		<option value="off">off</option>
 		<?php 
@@ -193,7 +192,7 @@ foreach ($row as $a) {
 		</select>
 	</td>
 	
-	<td class="col-md-1">
+	<td class="col-md-0">
 		<select name="f7" class="form-control input-sm">
 		<option value="off">off</option>
 		<?php 
@@ -203,7 +202,7 @@ foreach ($row as $a) {
 		</select>
 	</td>
 	
-	<td class="col-md-1">
+	<td class="col-md-0">
 		<select name="f8" class="form-control input-sm">
 		<option value="off">off</option>
 		<?php 
@@ -213,18 +212,18 @@ foreach ($row as $a) {
 		</select>
 	</td>
 	
-	<td class="col-md-1">
+	<td class="col-md-0">
 		interval
 	</td>
 	
-	<td class="col-md-1">
+	<td class="col-md-0">
 		<input type="hidden" name="ch_update_id" value="<?php echo $a['id']; ?>"/>
 		<input type="hidden" name="ch_update" value="ch_update" />
 		<button type="submit" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span></button>
 		</form>
 	</td>
 	
-	<td class="col-md-1">
+	<td class="col-md-0">
 		<form action="" method="post" style="display:inline!important;" > 	
 		<input type="hidden" name="active_id" value="<?php echo $a["id"]; ?>" />
 		<button type="submit" name="active_on" value="<?php echo $a["active"] == 'on' ? 'off' : 'on'; ?>" <?php echo $a["active"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
