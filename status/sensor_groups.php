@@ -11,7 +11,13 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db");
 $query = $db->query("SELECT * FROM types");
 $result_t = $query->fetchAll();
 
-include("modules/settings/nt_settings.php");
+$rows_nt_settings = $db->query("SELECT option, value FROM nt_settings WHERE option='old_read_dan' OR option='old_read_war' OR option='charts_max' ");
+$row_nt_settings = $rows_nt_settings->fetchAll();
+foreach ($row_nt_settings as $nts) {
+$nts_old_read_war = $nts['old_read_war'];
+//$nts_old_read_dan = $nts['old_read_dan'];
+$nts_charts_max = $nts['charts_max'];  
+}
 
 
 
@@ -124,7 +130,7 @@ foreach ($row_meteo as $a) {
 			    <a href="index.php?id=view&type=<?php echo $a['type']?>&max=<?php echo $nts_charts_max ?>&single=<?php echo $a['name']?>" title="Go to charts, last update: <?php echo $a['time']?>"
 				<?php 
 					
-				    if (($a['tmp'] == 'error') || ($a['status'] == 'error') || ($label=='danger') || strtotime($a['time'])<(time()-($nts_old_read_dan))){
+				    if (($a['tmp'] == 'error') || ($a['status'] == 'error') || ($label=='danger') || strtotime($a['time'])<(time()-($nts['old_read_dan']))){
 					echo 'class="label label-danger"';
 				    } elseif (strtotime($a['time'])<(time()-$nts_old_read_war)){
 					echo 'class="label label-warning"';
