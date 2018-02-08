@@ -176,11 +176,20 @@ if ( $lcd == "lcd"){
     } 
     elseif (empty($readerralarm) && ($readsonoff == "readsonoff")){
     $db->exec("UPDATE sensors SET readerralarm='off' WHERE rom='$rom'") or die ($db->lastErrorMsg());
-    //$db->exec("UPDATE sensors SET mail='' WHERE rom='$rom'");
-    
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+	
+	$readerr = isset($_POST['readerr']) ? $_POST['readerr'] : '';
+    $reads_id = isset($_POST['reads_id']) ? $_POST['reads_id'] : '';
+	$readerrok = isset($_POST['readerrok']) ? $_POST['readerrok'] : '';
+	
+    if (!empty($reads_id) && ($readerrok == "readerrok")){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE sensors SET readerr='$readerr' WHERE id='$reads_id'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    } 
 	
 	$thing_id = isset($_POST['thing_id']) ? $_POST['thing_id'] : '';
     $thing_on = isset($_POST['thing_on']) ? $_POST['thing_on'] : '';
