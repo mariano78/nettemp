@@ -335,8 +335,8 @@ MinMax mode:
 </form>
 Errors warning/danger in min:
 <form action="" method="post" style="display:inline!important;"> 
-	<input type="text" name="war_min_new" size="2" value="<?php echo $nts_old_read_war; ?>" />
-	<input type="text" name="dan_min_new" size="2" value="<?php echo $nts_old_read_dan; ?>" />
+	<input type="text" name="war_min_new" size="2" value="<?php echo $nts_old_read_war=$nts_old_read_war/60; ?>" />
+	<input type="text" name="dan_min_new" size="2" value="<?php echo $nts_old_read_dan=$nts_old_read_dan/60; ?>" />
 	<input type="hidden" name="warnings_update" value="warnings_update" />
 	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 </form>
