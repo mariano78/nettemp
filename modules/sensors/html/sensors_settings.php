@@ -333,7 +333,7 @@ MinMax mode:
 	<input type="checkbox" data-toggle="toggle" data-size="mini"  name="minmax_mode_on" data-on="min/max" data-off="difference"  value="1" <?php echo $nts_minmax_mode == '1' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" /></td>
 	<input type="hidden" name="minmax_mode" value="onoff" />
 </form>
-Errors warning/danger in min:
+warning/danger in min:
 <form action="" method="post" style="display:inline!important;"> 
 	<input type="text" name="war_min_new" size="2" value="<?php echo $nts_old_read_war=$nts_old_read_war/60; ?>" />
 	<input type="text" name="dan_min_new" size="2" value="<?php echo $nts_old_read_dan=$nts_old_read_dan/60; ?>" />
