@@ -11,7 +11,7 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db");
 $query = $db->query("SELECT * FROM types");
 $result_t = $query->fetchAll();
 
-$rows_nt_settings = $db->query("SELECT value FROM nt_settings WHERE option='old_read_dan' OR option='old_read_war' OR option='charts_max' ");
+$rows_nt_settings = $db->query("SELECT option, value FROM nt_settings WHERE option='old_read_dan' OR option='old_read_war' OR option='charts_max' ");
 $row_nt_settings = $rows_nt_settings->fetchAll();
 foreach ($row_nt_settings as $nts) {
 $nts_old_read_war = $nts['old_read_war'];
