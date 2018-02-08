@@ -120,10 +120,10 @@ foreach ($result as $a) {
        	$nts_screen=$a['value'];
     }
 	if($a['option']=='old_read_war') {
-       	global $nts_old_read_war=$a['value'];
+       	$nts_old_read_war=$a['value'];
     }
 	if($a['option']=='old_read_dan') {
-       	global $nts_old_read_dan=$a['value'];
+       	$nts_old_read_dan=$a['value'];
     }
 }
 
