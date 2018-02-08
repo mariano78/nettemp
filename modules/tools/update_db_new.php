@@ -59,5 +59,7 @@ $updates['2018-02-05 13:47:42'][]="CREATE TABLE thingspeak (id INTEGER PRIMARY K
 //Update sensors alarm reads errors
 $updates['2018-02-08 19:40:08'][]="ALTER TABLE sensors ADD readerr TEXT";
 $updates['2018-02-08 19:40:08'][]="ALTER TABLE sensors ADD readerralarm TEXT";
+$updates['2018-02-08 19:48:25'][]="UPDATE sensors SET readerralarm='off'";
+$updates['2018-02-08 19:49:20'][]="UPDATE sensors SET readerr='60'";
 
 ?>
