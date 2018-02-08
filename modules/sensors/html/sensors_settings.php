@@ -259,18 +259,6 @@ if ( $lcd == "lcd"){
     exit();
     }
 	
-	 //################
-    $war_min_new = isset($_POST['war_min_new']) ? $_POST['war_min_new'] : '';
-	$dan_min_new = isset($_POST['dan_min_new']) ? $_POST['dan_min_new'] : '';
-    $warnings_update = isset($_POST['warnings_update']) ? $_POST['warnings_update'] : '';
-    if (($warnings_update == "warnings_update")){
-	$war_min_new=$war_min_new*60;	
-    $db->exec("UPDATE nt_settings SET value='$war_min_new' WHERE option='old_read_war'") or die ($db->lastErrorMsg());
-	$dan_min_new=$dan_min_new*60;
-	$db->exec("UPDATE nt_settings SET value='$dan_min_new' WHERE option='old_read_dan'") or die ($db->lastErrorMsg());
-    header("location: " . $_SERVER['REQUEST_URI']);
-    exit();
-    }
 
     $adj = isset($_POST['adj']) ? $_POST['adj'] : '';
     $adj1 = isset($_POST['adj1']) ? $_POST['adj1'] : '';
@@ -359,14 +347,6 @@ MinMax mode:
 	<input type="checkbox" data-toggle="toggle" data-size="mini"  name="minmax_mode_on" data-on="min/max" data-off="difference"  value="1" <?php echo $nts_minmax_mode == '1' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" /></td>
 	<input type="hidden" name="minmax_mode" value="onoff" />
 </form>
-warning/danger in min:
-<form action="" method="post" style="display:inline!important;"> 
-	<input type="text" name="war_min_new" size="2" value="<?php echo $nts_old_read_war=$nts_old_read_war/60; ?>" />
-	<input type="text" name="dan_min_new" size="2" value="<?php echo $nts_old_read_dan=$nts_old_read_dan/60; ?>" />
-	<input type="hidden" name="warnings_update" value="warnings_update" />
-	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
-</form>
-
 </div>
 
 <div class="table-responsive">
@@ -404,7 +384,7 @@ $row = $rows->fetchAll();
 <th>Type</th>
 <th>Adjust</th>
 <th>Alarm / Min / Max</th>
-<th>Alarm / Reads -min</th>
+<th>Alarm / Read-min</th>
 <th>New group</th>
 <th>Group</th>
 <th>Thing Speak</th>
@@ -423,7 +403,16 @@ $row = $rows->fetchAll();
 <td></td>
 <td></td>
 <td></td>
-<td></td>
+<td>
+<form action="" method="post" style="display:inline!important;">
+		<input type="hidden" name="add_all" value="readerralarm" />
+		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-plus"></span> </button>
+    </form>
+    <form action="" method="post" style="display:inline!important;">
+		<input type="hidden" name="del_all" value="readerralarm" />
+		<button class="btn btn-xs btn-info "><span class="glyphicon glyphicon-minus"></span> </button>
+    </form>
+</td>
 <td></td>
 <td></td>
 <td></td>
