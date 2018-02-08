@@ -320,6 +320,15 @@ MinMax mode:
 	<input type="checkbox" data-toggle="toggle" data-size="mini"  name="minmax_mode_on" data-on="min/max" data-off="difference"  value="1" <?php echo $nts_minmax_mode == '1' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" /></td>
 	<input type="hidden" name="minmax_mode" value="onoff" />
 </form>
+Errors warning/danger in min:
+<form action="" method="post" style="display:inline!important;"> 
+		<input type="hidden" name="tmp_id" value="<?php echo $a['id']; ?>" />
+		<input type="text" name="tmp_min_new" size="2" value="<?php echo $a['tmp_min']; ?>" />
+		<input type="text" name="tmp_max_new" size="2" value="<?php echo $a['tmp_max']; ?>" />
+		<input type="hidden" name="ok" value="ok" />
+		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+    </form>
+
 </div>
 
 <div class="table-responsive">
