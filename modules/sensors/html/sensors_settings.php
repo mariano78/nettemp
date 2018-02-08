@@ -232,6 +232,17 @@ if ( $lcd == "lcd"){
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+	
+	 //################
+    $war_min_new = isset($_POST['war_min_new']) ? $_POST['war_min_new'] : '';
+	$dan_min_new = isset($_POST['dan_min_new']) ? $_POST['dan_min_new'] : '';
+    $warnings_update = isset($_POST['warnings_update']) ? $_POST['warnings_update'] : '';
+    if (($warnings_update == "warnings_update")){
+    $db->exec("UPDATE nt_settings SET value='$war_min_new' WHERE option='old_read_war'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$dan_min_new' WHERE option='old_read_dan'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
 
     $adj = isset($_POST['adj']) ? $_POST['adj'] : '';
     $adj1 = isset($_POST['adj1']) ? $_POST['adj1'] : '';
@@ -322,12 +333,11 @@ MinMax mode:
 </form>
 Errors warning/danger in min:
 <form action="" method="post" style="display:inline!important;"> 
-		<input type="hidden" name="tmp_id" value="<?php echo $a['id']; ?>" />
-		<input type="text" name="tmp_min_new" size="2" value="<?php echo $nts_old_read_war; ?>" />
-		<input type="text" name="tmp_max_new" size="2" value="<?php echo $nts_old_read_dan; ?>" />
-		<input type="hidden" name="ok" value="ok" />
-		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
-    </form>
+	<input type="text" name="war_min_new" size="2" value="<?php echo $nts_old_read_war; ?>" />
+	<input type="text" name="dan_min_new" size="2" value="<?php echo $nts_old_read_dan; ?>" />
+	<input type="hidden" name="warnings_update" value="warnings_update" />
+	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+</form>
 
 </div>
 
