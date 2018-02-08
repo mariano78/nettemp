@@ -238,7 +238,9 @@ if ( $lcd == "lcd"){
 	$dan_min_new = isset($_POST['dan_min_new']) ? $_POST['dan_min_new'] : '';
     $warnings_update = isset($_POST['warnings_update']) ? $_POST['warnings_update'] : '';
     if (($warnings_update == "warnings_update")){
+	$war_min_new=$war_min_new*60;	
     $db->exec("UPDATE nt_settings SET value='$war_min_new' WHERE option='old_read_war'") or die ($db->lastErrorMsg());
+	$dan_min_new=$dan_min_new*60;
 	$db->exec("UPDATE nt_settings SET value='$dan_min_new' WHERE option='old_read_dan'") or die ($db->lastErrorMsg());
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
