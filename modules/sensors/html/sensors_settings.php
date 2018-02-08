@@ -165,6 +165,23 @@ if ( $lcd == "lcd"){
     exit();
     }
 	
+	$readsonoff= isset($_POST['readsonoff']) ? $_POST['readsonoff'] : '';
+    $readerralarm = isset($_POST['readerralarm']) ? $_POST['readerralarm'] : '';
+    $rom = isset($_POST['rom']) ? $_POST['rom'] : '';
+    if ( !empty($readerralarm) && ($readsonoff == "readsonoff")){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE sensors SET readerralarm='$readerralarm' WHERE rom='$rom'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    } 
+    elseif (empty($readerralarm) && ($readsonoff == "readsonoff")){
+    $db->exec("UPDATE sensors SET readerralarm='off' WHERE rom='$rom'") or die ($db->lastErrorMsg());
+    //$db->exec("UPDATE sensors SET mail='' WHERE rom='$rom'");
+    
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+	
 	$thing_id = isset($_POST['thing_id']) ? $_POST['thing_id'] : '';
     $thing_on = isset($_POST['thing_on']) ? $_POST['thing_on'] : '';
     $th_on = isset($_POST['th_on']) ? $_POST['th_on'] : '';
@@ -567,7 +584,7 @@ $row = $rows->fetchAll();
 	<td class="col-md-0">
     <form action="" method="post" style="display:inline!important;">
 		<input type="hidden" name="rom" value="<?php echo $a['rom']; ?>" />
-		<input type="checkbox" data-toggle="toggle" data-size="mini"  name="alarm" value="on" <?php echo $a["readerralarm"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+		<input type="checkbox" data-toggle="toggle" data-size="mini"  name="readerralarm" value="on" <?php echo $a["readerralarm"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
 		<input type="hidden" name="readsonoff" value="readsonoff" />
     </form>
 
