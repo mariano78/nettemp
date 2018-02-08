@@ -118,8 +118,8 @@ foreach ($row_meteo as $a) {
 			<td>
 			    <a href="index.php?id=view&type=<?php echo $a['type']?>&max=<?php echo $GLOBALS['nts_charts_max'] ?>&single=<?php echo $a['name']?>" title="Go to charts, last update: <?php echo $a['time']?>"
 				<?php 
-					$dan=$GLOBALS['nts_old_read_dan'];
-				    if (($a['tmp'] == 'error') || ($a['status'] == 'error') || ($label=='danger') || strtotime($a['time'])<(time()-86400)){
+				
+				    if (($a['tmp'] == 'error') || ($a['status'] == 'error') || ($label=='danger') || strtotime($a['time'])<(time()-$nts_old_read_dan)){
 					echo 'class="label label-danger"';
 				    } elseif (strtotime($a['time'])<(time()-7200)){
 					echo 'class="label label-warning"';
