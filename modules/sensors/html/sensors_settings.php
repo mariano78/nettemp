@@ -323,8 +323,8 @@ MinMax mode:
 Errors warning/danger in min:
 <form action="" method="post" style="display:inline!important;"> 
 		<input type="hidden" name="tmp_id" value="<?php echo $a['id']; ?>" />
-		<input type="text" name="tmp_min_new" size="2" value="<?php echo $a['tmp_min']; ?>" />
-		<input type="text" name="tmp_max_new" size="2" value="<?php echo $a['tmp_max']; ?>" />
+		<input type="text" name="tmp_min_new" size="2" value="<?php echo $nts_old_read_war; ?>" />
+		<input type="text" name="tmp_max_new" size="2" value="<?php echo $nts_old_read_dan; ?>" />
 		<input type="hidden" name="ok" value="ok" />
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
