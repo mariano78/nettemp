@@ -116,10 +116,10 @@ foreach ($row_meteo as $a) {
 				?>
 			</td>
 			<td>
-			    <a href="index.php?id=view&type=<?php echo $a['type']?>&max=<?php echo $nts_charts_max ?>&single=<?php echo $a['name']?>" title="Go to charts, last update: <?php echo $a['time']?>"
+			    <a href="index.php?id=view&type=<?php echo $a['type']?>&max=<?php echo $GLOBALS['nts_charts_max'] ?>&single=<?php echo $a['name']?>" title="Go to charts, last update: <?php echo $a['time']?>"
 				<?php 
-					
-				    if (($a['tmp'] == 'error') || ($a['status'] == 'error') || ($label=='danger') || strtotime($a['time'])<(time()-($GLOBALS['nts_old_read_dan']))){
+					$dan=$GLOBALS['nts_old_read_dan'];
+				    if (($a['tmp'] == 'error') || ($a['status'] == 'error') || ($label=='danger') || strtotime($a['time'])<(time()-$dan)){
 					echo 'class="label label-danger"';
 				    } elseif (strtotime($a['time'])<(time()-($GLOBALS['nts_old_read_war']))){
 					echo 'class="label label-warning"';
