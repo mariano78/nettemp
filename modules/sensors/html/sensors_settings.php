@@ -378,6 +378,7 @@ $row = $rows->fetchAll();
 <th>Type</th>
 <th>Adjust</th>
 <th>Alarm / Min / Max</th>
+<th>Alarm / Reads -min</th>
 <th>New group</th>
 <th>Group</th>
 <th>Thing Speak</th>
@@ -390,6 +391,7 @@ $row = $rows->fetchAll();
 <th></th>
 </tr>
 <tr>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -558,6 +560,21 @@ $row = $rows->fetchAll();
 		<input type="text" name="tmp_min_new" size="2" value="<?php echo $a['tmp_min']; ?>" />
 		<input type="text" name="tmp_max_new" size="2" value="<?php echo $a['tmp_max']; ?>" />
 		<input type="hidden" name="ok" value="ok" />
+		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+    </form>
+    </td>
+	
+	<td class="col-md-0">
+    <form action="" method="post" style="display:inline!important;">
+		<input type="hidden" name="rom" value="<?php echo $a['rom']; ?>" />
+		<input type="checkbox" data-toggle="toggle" data-size="mini"  name="alarm" value="on" <?php echo $a["readerralarm"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+		<input type="hidden" name="readsonoff" value="readsonoff" />
+    </form>
+
+    <form action="" method="post" style="display:inline!important;"> 
+		<input type="hidden" name="reads_id" value="<?php echo $a['id']; ?>" />
+		<input type="text" name="readerr" size="2" value="<?php echo $a['readerr']; ?>" />
+		<input type="hidden" name="readerrok" value="readerrok" />
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
     </td>

@@ -56,8 +56,8 @@ $updates['2018-02-01 19:47:50'][]="UPDATE sensors SET logon='on'";
 $updates['2018-02-05 13:32:38'][]="ALTER TABLE sensors ADD thing  TEXT";
 //Create table for thingspeak
 $updates['2018-02-05 13:47:42'][]="CREATE TABLE thingspeak (id INTEGER PRIMARY KEY, name TEXT , apikey TEXT , f1 TEXT, f2 TEXT, f3 TEXT, f4 TEXT, f5 TEXT, f6 TEXT, f7 TEXT, f8 TEXT, active TEXT, interval INTEGER)";
-//Update nt_settings - read error sensors 
-$updates['2018-02-08 09:37:53'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('old_read_war','86400')";
-$updates['2018-02-08 09:37:53'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('old_read_dan','604800')";
+//Update sensors alarm reads errors
+$updates['2018-02-08 19:40:08'][]="ALTER TABLE sensors ADD readerr TEXT";
+$updates['2018-02-08 19:40:08'][]="ALTER TABLE sensors ADD readerralarm TEXT";
 
 ?>
