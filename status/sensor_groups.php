@@ -121,7 +121,7 @@ foreach ($row_meteo as $a) {
 					
 				    if (($a['tmp'] == 'error') || ($a['status'] == 'error') || ($label=='danger') || strtotime($a['time'])<(time()-($GLOBALS['nts_old_read_dan']))){
 					echo 'class="label label-danger"';
-				    } elseif (strtotime($a['time'])<(time()-$GLOBALS['nts_old_read_war'])){
+				    } elseif (strtotime($a['time'])<(time()-($GLOBALS['nts_old_read_war']))){
 					echo 'class="label label-warning"';
 				    }else{
 					echo 'class="label label-success"';
