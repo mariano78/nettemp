@@ -116,7 +116,7 @@ foreach ($row_meteo as $a) {
 				?>
 			</td>
 			<td>
-			    <a href="index.php?id=view&type=<?php echo $a['type']?>&max=<?php echo $nts_charts_max ?>&single=<?php echo $a['name']?>" title="Go to charts, last update: <?php echo $a['time']?>"
+			    <a href="index.php?id=view&type=<?php echo $a['type']?>&max=<?php echo $_SESSION['nts_charts_max']; ?>&single=<?php echo $a['name']?>" title="Go to charts, last update: <?php echo $a['time']?>"
 				<?php 
 				
 				    if (($a['tmp'] == 'error') || ($a['status'] == 'error') || ($label=='danger') || strtotime($a['time'])<(time()-86400)){
