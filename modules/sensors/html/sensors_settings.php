@@ -596,6 +596,7 @@ $row = $rows->fetchAll();
 	 <?php 
 	}
     ?>
+
     </td>
        
     <!--NEW GROUP-->
