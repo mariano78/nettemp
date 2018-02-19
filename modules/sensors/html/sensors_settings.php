@@ -750,7 +750,7 @@ $row = $rows->fetchAll();
 	</tr>
 <?php
 	
-	if ($device_type == 'trigger') { ?>
+	if ($device_type == 'temp') { ?>
 	
 	<tr>
 	
