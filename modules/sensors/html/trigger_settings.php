@@ -15,7 +15,7 @@ $rowtr = $rows_trig->fetchAll();
 foreach($rowtr as $tr) { ?>
 	
 <tr>
-<td><?php echo $tr['name']; ?> </td>
+<td><?php echo $tr["name"]; ?> </td>
 </tr>
 	
 <?php}?>
