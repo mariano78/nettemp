@@ -17,7 +17,7 @@ $oneclr = isset($_POST['oneclr']) ? $_POST['oneclr'] : '';
     exit();
     } 
 
-$rows_trig = $db->query("SELECT rom, name, trigzero, trigone FROM sensors WHERE type='volt' ORDER BY position ASC ");
+$rows_trig = $db->query("SELECT rom, name, trigzero, trigone, trigzeroclr, trigoneclr FROM sensors WHERE type='volt' ORDER BY position ASC ");
 $rowtr = $rows_trig->fetchAll();
 ?>
 
