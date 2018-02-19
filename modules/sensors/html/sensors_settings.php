@@ -760,11 +760,11 @@ $row = $rows->fetchAll();
 
 <?php 
 
-if (!empty($device_type) && $a["type"] == 'temp' ) { ?>
+if (!empty($device_type) && $device_type == 'volt' ) { ?>
 
 <table class="table table-hover table-condensed small" border="0">
 <tr>
-<td>TEST</td>
+<td>Trigger Settings</td>
 </tr>
 </table>
 <?php } ?>
