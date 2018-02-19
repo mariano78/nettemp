@@ -40,6 +40,8 @@ foreach($rowtr as $tr) { ?>
 </td>
 <td class="col-md-0">		
 		<label>Color:</label>
+<td>
+<td class="col-md-0">
 		<select name="zeroclr" class="form-control input-sm">
 			<option value="label-default">default</option>
 			<option value="label-primary">primary</option>
@@ -54,6 +56,8 @@ foreach($rowtr as $tr) { ?>
 </td>	
 <td class="col-md-0">	
 		<label for="exampleInputPassword1">Color:</label>
+<td>
+<td class="col-md-0">
 		<select name="oneclr" class="form-control input-sm">
 			<option value="label-default">default</option>
 			<option value="label-primary">primary</option>
