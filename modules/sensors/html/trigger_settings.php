@@ -30,18 +30,18 @@ $rowtr = $rows_trig->fetchAll();
 foreach($rowtr as $tr) { ?>
 	
 <tr>
-<td class="col-md-0"><span class="label label-default"><?php echo str_replace("_", " ", $tr['name']) ?></span></td>
+<td class="col-md-1"><span class="label label-default"><?php echo str_replace("_", " ", $tr['name']) ?></span></td>
 
-<td class="col-md-0">
+<td class="col-md-1">
 <form action="" method="post" style="display:inline!important;"> 
 		<input type="hidden" name="trigrom" value="<?php echo $tr['rom']; ?>" />
 		<label for="exampleInputPassword1">For 0:</label>
 		<input type="text" name="trigzero" size="10" value="<?php echo $tr['trigzero']; ?>" />
 </td>
-<td class="col-md-0">		
+<td class="col-md-1">		
 		<label>Color:</label>
 <td>
-<td class="col-md-0">
+<td class="col-md-1">
 		<select name="zeroclr" class="form-control input-sm">
 			<option value="label-default">default</option>
 			<option value="label-primary">primary</option>
@@ -50,14 +50,14 @@ foreach($rowtr as $tr) { ?>
 			<option value="label-danger">danger</option>
 		</select>
 </td>
-<td class="col-md-0">
+<td class="col-md-1">
 		<label>For 1:</label>
 		<input type="text" name="trigone" size="10" value="<?php echo $tr['trigone']; ?>" />
 </td>	
-<td class="col-md-0">	
+<td class="col-md-1">	
 		<label for="exampleInputPassword1">Color:</label>
 <td>
-<td class="col-md-0">
+<td class="col-md-4">
 		<select name="oneclr" class="form-control input-sm">
 			<option value="label-default">default</option>
 			<option value="label-primary">primary</option>
