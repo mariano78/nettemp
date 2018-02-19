@@ -15,7 +15,7 @@ $trigupdate = isset($_POST['trigupdate']) ? $_POST['trigupdate'] : '';
 
 
 
-$rows_trig = $db->query("SELECT rom, name, trigzero, trigone FROM sensors WHERE type='volt' ");
+$rows_trig = $db->query("SELECT rom, name, trigzero, trigone FROM sensors WHERE type='volt' ORDER BY position ASC ");
 $rowtr = $rows_trig->fetchAll();
 ?>
 
