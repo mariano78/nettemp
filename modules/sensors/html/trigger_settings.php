@@ -39,7 +39,7 @@ foreach($rowtr as $tr) { ?>
 		<input type="text" name="trigzero" size="10" value="<?php echo $tr['trigzero']; ?>" />
 </td>
 <td class="col-md-0">		
-		<label for="exampleInputPassword1">Color:</label>
+		<label>Color:</label>
 		<select name="zeroclr" class="form-control input-sm">
 			<option value="label-default">default</option>
 			<option value="label-primary">primary</option>
@@ -49,7 +49,7 @@ foreach($rowtr as $tr) { ?>
 		</select>
 </td>
 <td class="col-md-0">
-		<label for="exampleInputPassword1">For 1:</label>
+		<label>For 1:</label>
 		<input type="text" name="trigone" size="10" value="<?php echo $tr['trigone']; ?>" />
 </td>	
 <td class="col-md-0">	
