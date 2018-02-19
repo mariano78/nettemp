@@ -3,17 +3,19 @@ $trigzero= isset($_POST['trigzero']) ? $_POST['trigzero'] : '';
 $trigone = isset($_POST['trigone']) ? $_POST['trigone'] : '';
 $trigrom = isset($_POST['trigrom']) ? $_POST['trigrom'] : '';
 $trigupdate = isset($_POST['trigupdate']) ? $_POST['trigupdate'] : '';
+$zeroclr = isset($_POST['zeroclr']) ? $_POST['zeroclr'] : '';
+$oneclr = isset($_POST['oneclr']) ? $_POST['oneclr'] : '';
+
     if ( !empty($trigupdate) && ($trigupdate == "trigupdate")){
     $db = new PDO('sqlite:dbf/nettemp.db');
     $db->exec("UPDATE sensors SET trigzero='$trigzero' WHERE rom='$trigrom'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE sensors SET trigzeroclr='$zeroclr' WHERE rom='$trigrom'") or die ($db->lastErrorMsg());
 	$db->exec("UPDATE sensors SET trigone='$trigone' WHERE rom='$trigrom'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE sensors SET trigoneclr='$oneclr' WHERE rom='$trigrom'") or die ($db->lastErrorMsg());
+	
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     } 
-
-
-
-
 
 $rows_trig = $db->query("SELECT rom, name, trigzero, trigone FROM sensors WHERE type='volt' ORDER BY position ASC ");
 $rowtr = $rows_trig->fetchAll();
@@ -35,10 +37,10 @@ foreach($rowtr as $tr) { ?>
 <td class="col-md-3">
 <form action="" method="post" class="form-inline" style="display:inline!important;"> 
 		<input type="hidden" name="trigrom" value="<?php echo $tr['rom']; ?>" />
-		<label for="exampleInputPassword1">For 0:</label>
+		<label>For 0:</label>
 		<input type="text" name="trigzero" size="10" value="<?php echo $tr['trigzero']; ?>" />
 	
-		<label for="exampleInputPassword1">Color:</label>
+		<label>Color:</label>
 		<select name="zeroclr" class="form-control input-sm">
 			<option value="label-default">default</option>
 			<option value="label-primary">primary</option>
@@ -47,10 +49,10 @@ foreach($rowtr as $tr) { ?>
 			<option value="label-danger">danger</option>
 		</select>
 
-		<label for="exampleInputPassword1">For 1:</label>
+		<label>For 1:</label>
 		<input type="text" name="trigone" size="10" value="<?php echo $tr['trigone']; ?>" />
 	
-		<label for="exampleInputPassword1">Color:</label>
+		<label>Color:</label>
 		<select name="oneclr" class="form-control input-sm">
 			<option value="label-default">default</option>
 			<option value="label-primary">primary</option>
