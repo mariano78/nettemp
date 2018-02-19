@@ -45,9 +45,8 @@ foreach($rowtr as $tr) { ?>
 		<select name="zeroclr" class="form-control input-sm">
 		
 		<?php foreach ($labels as $color) { ?>
-		
-	<option value="<?php echo $color; ?>"<?php echo $tr['trigzeroclr'] == $color ? 'selected="selected"' : ''; ?>><?php echo $color; ?></option>
-	<?php } ?>
+			<option value="<?php echo $color; ?>"<?php echo $tr['trigzeroclr'] == $color ? 'selected="selected"' : ''; ?>><?php echo $color; ?></option>
+		<?php } ?>
 			
 		</select>
 
@@ -56,11 +55,9 @@ foreach($rowtr as $tr) { ?>
 	
 		<label>Color:</label>
 		<select name="oneclr" class="form-control input-sm">
-			<option value="label-default">default</option>
-			<option value="label-primary">primary</option>
-			<option value="label-success">success</option>
-			<option value="label-info">info</option>
-			<option value="label-danger">danger</option>
+		<?php foreach ($labels as $color) { ?>
+			<option value="<?php echo $color; ?>"<?php echo $tr['trigzeroclr'] == $color ? 'selected="selected"' : ''; ?>><?php echo $color; ?></option>
+		<?php } ?>
 		</select>
 		<input type="hidden" name="trigupdate" value="trigupdate" />
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
