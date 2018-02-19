@@ -31,14 +31,13 @@ foreach($rowtr as $tr) { ?>
 	
 <tr>
 <td class="col-md-1"><span class="label label-default"><?php echo str_replace("_", " ", $tr['name']) ?></span></td>
-<td>Value for 0 and 1</span></td>
+
 <td class="col-md-3">
 <form action="" method="post" class="form-inline" style="display:inline!important;"> 
 		<input type="hidden" name="trigrom" value="<?php echo $tr['rom']; ?>" />
 		<label for="exampleInputPassword1">For 0:</label>
 		<input type="text" name="trigzero" size="10" value="<?php echo $tr['trigzero']; ?>" />
-</td>
-<td>		
+	
 		<label for="exampleInputPassword1">Color:</label>
 		<select name="zeroclr" class="form-control input-sm">
 			<option value="label-default">default</option>
@@ -47,12 +46,10 @@ foreach($rowtr as $tr) { ?>
 			<option value="label-info">info</option>
 			<option value="label-danger">danger</option>
 		</select>
-</td>
-<td>
+
 		<label for="exampleInputPassword1">For 1:</label>
 		<input type="text" name="trigone" size="10" value="<?php echo $tr['trigone']; ?>" />
-</td>	
-<td>	
+	
 		<label for="exampleInputPassword1">Color:</label>
 		<select name="oneclr" class="form-control input-sm">
 			<option value="label-default">default</option>
