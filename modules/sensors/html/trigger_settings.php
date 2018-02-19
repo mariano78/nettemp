@@ -45,7 +45,7 @@ foreach($rowtr as $tr) { ?>
 		<select name="zeroclr" class="form-control input-sm">
 		
 		<?php foreach ($labels as $color) { ?>
-			<option value="<?php echo $color; ?>"<?php echo $tr['trigzeroclr'] == $color ? 'selected="selected"' : ''; ?>><?php echo "<span class=\"label ".$color."\">".$color."</span>"; ?></option>
+			<option style="<?php echo 'label '.$color.'"'?> value="<?php echo $color; ?>"<?php echo $tr['trigzeroclr'] == $color ? 'selected="selected"' : ''; ?>><?php echo "<span class=\"label ".$color."\">".$color."</span>"; ?></option>
 		<?php } ?>
 			
 		</select>
