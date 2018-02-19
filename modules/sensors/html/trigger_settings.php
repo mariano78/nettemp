@@ -1,5 +1,5 @@
 <?php
-$rows_trig = $db->query("SELECT name FROM sensors WHERE type='volt' ");
+$rows_trig = $db->query("SELECT name, trigzero, trigone FROM sensors WHERE type='volt' ");
 $rowtr = $rows_trig->fetchAll();
 ?>
 
