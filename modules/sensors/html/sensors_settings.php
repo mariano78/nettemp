@@ -759,19 +759,9 @@ $row = $rows->fetchAll();
 </table>
 </div>
 </div>
+
 <?php 
-if (!empty($device_type) && $device_type == 'volt' ) { ?>
-
-<div class="panel panel-default">
-<div class="panel-heading">Trigger Settings</div>
-<div class="table-responsive">
-
-
-<table class="table table-hover table-condensed small" border="0">
-<tr>
-<td>Trigger Settings</td>
-</tr>
-</table>
-</div>
-</div>
-<?php } ?>
+if (!empty($device_type) && $device_type == 'volt' ) { 
+include("modules/sensors/html/trigger_settings.php"); 
+}
+?>
