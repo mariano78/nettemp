@@ -749,7 +749,7 @@ $row = $rows->fetchAll();
     
 	</tr>
 
-</tr>
+
 
 <?php 
 
