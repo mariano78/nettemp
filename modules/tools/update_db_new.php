@@ -64,5 +64,7 @@ $updates['2018-02-08 19:49:20'][]="UPDATE sensors SET readerr='60'";
 //Update sensors for triggers
 $updates['2018-02-19 14:36:25'][]="ALTER TABLE sensors ADD trigzero  TEXT";
 $updates['2018-02-19 14:36:25'][]="ALTER TABLE sensors ADD trigone  TEXT";
+$updates['2018-02-19 14:38:00'][]="UPDATE sensors SET trigzero='0'";
+$updates['2018-02-19 14:38:00'][]="UPDATE sensors SET trigone='1'";
 
 ?>

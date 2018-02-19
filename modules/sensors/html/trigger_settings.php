@@ -15,6 +15,8 @@ foreach($rowtr as $tr) { ?>
 	
 <tr>
 <td><?php echo $tr["name"]; ?> </td>
+<td><?php echo $tr["trigzero"]; ?> </td>
+<td><?php echo $tr["trigone"]; ?> </td>
 </tr>
 	
 <?php
