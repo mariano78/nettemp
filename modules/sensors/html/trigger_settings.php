@@ -42,11 +42,11 @@ foreach($rowtr as $tr) { ?>
 	
 		<label>Color:</label>
 		<select name="zeroclr" class="form-control input-sm">
-			<option value="label-default">default</option>
-			<option value="label-primary">primary</option>
-			<option value="label-success">success</option>
-			<option value="label-info">info</option>
-			<option value="label-danger">danger</option>
+			<option value="label-default"<?php echo $tr['trigzeroclr'] == 'label-default' ? 'selected="selected"' : ''; ?>>default</option>
+			<option value="label-primary"<?php echo $tr['trigzeroclr'] == 'label-primary' ? 'selected="selected"' : ''; ?>>primary</option>
+			<option value="label-success"<?php echo $tr['trigzeroclr'] == 'label-success' ? 'selected="selected"' : ''; ?>>success</option>
+			<option value="label-info"<?php echo $tr['trigzeroclr'] == 'label-info' ? 'selected="selected"' : ''; ?>>info</option>
+			<option value="label-danger"<?php echo $tr['trigzeroclr'] == 'label-danger' ? 'selected="selected"' : ''; ?>>danger</option>
 		</select>
 
 		<label>For 1:</label>
