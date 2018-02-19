@@ -37,7 +37,6 @@ foreach($rowtr as $tr) { ?>
 		<input type="hidden" name="trigrom" value="<?php echo $tr['rom']; ?>" />
 		<label for="exampleInputPassword1">For 0:</label>
 		<input type="text" name="trigzero" size="10" value="<?php echo $tr['trigzero']; ?>" />
-		
 		<label for="exampleInputPassword1">Color:</label>
 		<select name="zeroclr" class="form-control input-sm">
 			<option value="label-default">default</option>
@@ -46,13 +45,9 @@ foreach($rowtr as $tr) { ?>
 			<option value="label-info">info</option>
 			<option value="label-danger">danger</option>
 		</select>
-		
-		
-		
 		<label for="exampleInputPassword1">For 1:</label>
 		<input type="text" name="trigone" size="10" value="<?php echo $tr['trigone']; ?>" />
 		<label for="exampleInputPassword1">Color:</label>
-		
 		<label for="exampleInputPassword1">Color:</label>
 		<select name="oneclr" class="form-control input-sm">
 			<option value="label-default">default</option>
@@ -67,7 +62,7 @@ foreach($rowtr as $tr) { ?>
 </td>
 
 
-<td class="col-md-8"><?php echo $tr["trigone"]; ?> </td>
+<td class="col-md-6"><?php echo $tr["trigone"]; ?> </td>
 </tr>
 	
 <?php
