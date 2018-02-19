@@ -748,19 +748,6 @@ $row = $rows->fetchAll();
     </td>
     
 	</tr>
-<?php
-	
-	if ($device_type == 'trigger') { ?>
-	
-	<tr>
-	
-	<td> <?echo 'test'?>
-	<td>
-	
-	</tr>
-	
-	<?}
-?>
 
 
 
