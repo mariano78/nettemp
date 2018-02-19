@@ -8,18 +8,18 @@ $row = $rows_trig->fetchAll();
 <div class="panel-heading">Trigger Settings</div>
 <div class="table-responsive">
 <table class="table table-hover table-condensed small" border="0">
+<tr>
 <?php
 
 foreach($row as $a) { ?>
 	
-<tr>
+
 <td><?php echo $a['name']; ?> </td>
-</tr>
+
 	
 <?php}?>
 
-
+</tr>
 </table>
 </div>
 </div>
-<?php } ?>
