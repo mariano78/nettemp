@@ -62,6 +62,8 @@ foreach($rowtr as $tr) { ?>
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
 </td>
+<td class="col-md-3">
+</td>
 
 </tr>
 	
