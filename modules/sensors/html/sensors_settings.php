@@ -760,7 +760,7 @@ $row = $rows->fetchAll();
 
 <?php 
 
-if (!empty($device_type && $a["type"] == 'temp' ) { ?>
+if (!empty($device_type) && $a["type"] == 'temp' ) { ?>
 
 <table class="table table-hover table-condensed small" border="0">
 <tr>
