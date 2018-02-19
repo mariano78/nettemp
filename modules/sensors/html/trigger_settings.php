@@ -31,6 +31,7 @@ foreach($rowtr as $tr) { ?>
 	
 <tr>
 <td><span class="label label-default"><?php echo str_replace("_", " ", $tr['name']) ?></span></td>
+<td>Value for 0 and 1</span></td>
 <td>
 <form action="" method="post" style="display:inline!important;"> 
 		<input type="hidden" name="trigrom" value="<?php echo $tr['rom']; ?>" />
