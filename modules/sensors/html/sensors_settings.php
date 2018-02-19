@@ -757,5 +757,12 @@ $row = $rows->fetchAll();
 ?>
 
 </table>
+
+<table class="table table-hover table-condensed small" border="0">
+<tr>
+<td>TEST</td>
+</tr>
+</table>
+
 </div>
 </div>
