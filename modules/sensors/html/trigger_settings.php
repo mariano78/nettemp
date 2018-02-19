@@ -1,7 +1,7 @@
 <?php 
 
 $rows_trig = $db->query("SELECT name FROM sensors WHERE type='volt' ");
-$row = $rows_trig->fetchAll();
+$rowtr = $rows_trig->fetchAll();
 ?>
 
 <div class="panel panel-default">
@@ -12,7 +12,7 @@ $row = $rows_trig->fetchAll();
 
 <?php
 
-foreach($row as $tr) { ?>
+foreach($rowtr as $tr) { ?>
 	
 <tr>
 <td><?php echo $tr['name']; ?> </td>
