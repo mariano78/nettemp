@@ -19,6 +19,7 @@ $oneclr = isset($_POST['oneclr']) ? $_POST['oneclr'] : '';
 
 $rows_trig = $db->query("SELECT rom, name, trigzero, trigone, trigzeroclr, trigoneclr FROM sensors WHERE type='volt' ORDER BY position ASC ");
 $rowtr = $rows_trig->fetchAll();
+$labels = array('label-default', 'label-primary', 'label-success', 'label-info', 'label-danger');
 ?>
 
 <div class="panel panel-default">
@@ -42,11 +43,12 @@ foreach($rowtr as $tr) { ?>
 	
 		<label>Color:</label>
 		<select name="zeroclr" class="form-control input-sm">
-			<option value="label-default"<?php echo $tr['trigzeroclr'] == 'label-default' ? 'selected="selected"' : ''; ?>>default</option>
-			<option value="label-primary"<?php echo $tr['trigzeroclr'] == 'label-primary' ? 'selected="selected"' : ''; ?>>primary</option>
-			<option value="label-success"<?php echo $tr['trigzeroclr'] == 'label-success' ? 'selected="selected"' : ''; ?>>success</option>
-			<option value="label-info"<?php echo $tr['trigzeroclr'] == 'label-info' ? 'selected="selected"' : ''; ?>>info</option>
-			<option value="label-danger"<?php echo $tr['trigzeroclr'] == 'label-danger' ? 'selected="selected"' : ''; ?>>danger</option>
+		
+		<?php foreach ($labels as $color) { ?>
+		
+	<option value="<?php echo $color; ?>"<?php echo $tr['trigzeroclr'] == $color ? 'selected="selected"' : ''; ?>><?php echo $color; ?></option>
+	<?php } ?>
+			
 		</select>
 
 		<label>For 1:</label>
