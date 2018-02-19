@@ -30,7 +30,7 @@ $rowtr = $rows_trig->fetchAll();
 foreach($rowtr as $tr) { ?>
 	
 <tr>
-<td><span class="label label-default"><?php echo str_replace("_", " ", $tr['name']) ?></span></td>
+<td class="col-md-1"><span class="label label-default"><?php echo str_replace("_", " ", $tr['name']) ?></span></td>
 <td>Value for 0 and 1</span></td>
 <td class="col-md-3">
 <form action="" method="post" style="display:inline!important;"> 
@@ -66,8 +66,8 @@ foreach($rowtr as $tr) { ?>
     </form>
 </td>
 
-<td><?php echo $tr["trigzero"]; ?> </td>
-<td><?php echo $tr["trigone"]; ?> </td>
+
+<td class="col-md-8"><?php echo $tr["trigone"]; ?> </td>
 </tr>
 	
 <?php
