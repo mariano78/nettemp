@@ -748,20 +748,6 @@ $row = $rows->fetchAll();
     </td>
     
 	</tr>
-<?php
-	
-	if ($device_type == 'temp') { ?>
-	
-	<tr>
-	
-	<td> <?echo 'test';?>
-	<td>
-	
-	</tr>
-	
-	<?}
-?>
-
 
 
 <?php 
