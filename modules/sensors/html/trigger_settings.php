@@ -37,8 +37,10 @@ foreach($rowtr as $tr) { ?>
 		<input type="hidden" name="trigrom" value="<?php echo $tr['rom']; ?>" />
 		<label for="exampleInputPassword1">For 0:</label>
 		<input type="text" name="trigzero" size="10" value="<?php echo $tr['trigzero']; ?>" />
+		<label for="exampleInputPassword1">Color:</label>
 		<label for="exampleInputPassword1">For 1:</label>
 		<input type="text" name="trigone" size="10" value="<?php echo $tr['trigone']; ?>" />
+		<label for="exampleInputPassword1">Color:</label>
 		<input type="hidden" name="trigupdate" value="trigupdate" />
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
