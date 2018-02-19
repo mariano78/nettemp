@@ -21,7 +21,6 @@ foreach($rowtr as $tr) { ?>
 }
 ?>
 
-
 </table>
 </div>
 </div>
