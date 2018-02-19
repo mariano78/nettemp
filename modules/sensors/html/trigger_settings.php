@@ -48,7 +48,6 @@ foreach($rowtr as $tr) { ?>
 		<label for="exampleInputPassword1">For 1:</label>
 		<input type="text" name="trigone" size="10" value="<?php echo $tr['trigone']; ?>" />
 		<label for="exampleInputPassword1">Color:</label>
-		<label for="exampleInputPassword1">Color:</label>
 		<select name="oneclr" class="form-control input-sm">
 			<option value="label-default">default</option>
 			<option value="label-primary">primary</option>
