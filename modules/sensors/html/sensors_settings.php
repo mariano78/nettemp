@@ -757,10 +757,6 @@ $row = $rows->fetchAll();
 ?>
 
 </table>
-
-<?php 
- } ?>
-
 </div>
 </div>
 <?php 
