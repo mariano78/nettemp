@@ -164,21 +164,21 @@ $row = $rows->fetchAll();
 				</td>
 				<td>
 					<span class="label label-default"><?php echo str_replace("_", " ", $a['name']); ?></span></td>
-				<td><span
+				<td>
 			<?php
 			
 			if ($a['type']=='trigger' && $a['tmp'] == '1.0') {
 						if (strtotime($a['time'])<(time()-($a['readerr']*60))){
-							echo 'class="label label-warning"';
+							echo '<span class="label label-warning">';
 						}else { 
-								echo "class=\"label ".$a['trigoneclr']."\"";
+								echo "<span class=\"label ".$a['trigoneclr']."\">";
 						}
 						
 						}elseif ($a['type']=='trigger' && $a['tmp'] == '0.0') {
 						if (strtotime($a['time'])<(time()-($a['readerr']*60))){
-							echo 'class="label label-warning"';
+							echo '<span class="label label-warning">';
 						}else { 
-								echo "class=\"label ".$a['trigzeroclr']."\"";
+								echo "<span class=\"label ".$a['trigzeroclr']."\">";
 						}
 						}
 			//if ($a['rom'] == 'UPS_id8' & $a['tmp'] == '1')      { echo "<span class=\"label ".$a['trigoneclr']."\">".$a['trigone'];}
