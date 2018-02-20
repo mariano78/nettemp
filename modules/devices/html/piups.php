@@ -180,7 +180,7 @@ $row = $rows->fetchAll();
 						}else { 
 								echo "<span class=\"label ".$a['trigzeroclr']."\">";
 						}
-						}
+						}echo '<span class="label label-success">';
 						
 						if ($a['type']=='trigger')  {
 						if ( $a['tmp'] == '1.0' && $a['trigone']!='' ) { 
