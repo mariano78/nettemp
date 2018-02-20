@@ -45,7 +45,7 @@ foreach($rowtr as $tr) { ?>
 <td class="col-md-0">
 <form action="" method="post" class="form-inline" style="display:inline!important;"> 
 		<input type="hidden" name="trigrom" value="<?php echo $tr['rom']; ?>" />
-		<label>For 0 value:</label>
+		<label>Bind value:</label>
 		<input type="text" name="trigzero" size="10" value="<?php echo $tr['trigzero']; ?>" />
 		<label>Color:</label>
 		<select name="zeroclr" class="form-control input-sm">
@@ -61,7 +61,7 @@ foreach($rowtr as $tr) { ?>
 <td class="col-md-0">
 <form action="" method="post" class="form-inline" style="display:inline!important;"> 
 		<input type="hidden" name="trigrom" value="<?php echo $tr['rom']; ?>" />
-		<label>For 1 value:</label>
+		<label>Bind value:</label>
 		<input type="text" name="trigone" size="10" value="<?php echo $tr['trigone']; ?>" />
 	
 		<label>Color:</label>
@@ -74,7 +74,7 @@ foreach($rowtr as $tr) { ?>
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 </form>
 </td>
-<td class="col-md-3">
+<td class="col-md-6">
 </td>
 
 </tr>
