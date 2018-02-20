@@ -194,6 +194,8 @@ $row = $rows->fetchAll();
 						else {
 							echo $a['tmp'];
 						}
+						} else {
+							echo $a['tmp']." ".$unit;
 						}
 			//if ($a['rom'] == 'UPS_id8' & $a['tmp'] == '1')      { echo "<span class=\"label ".$a['trigoneclr']."\">".$a['trigone'];}
 			//elseif ($a['rom'] == 'UPS_id8' & $a['tmp'] == '0')  { echo "<span class=\"label ".$a['trigzeroclr']."\">".$a['trigzero'];}
