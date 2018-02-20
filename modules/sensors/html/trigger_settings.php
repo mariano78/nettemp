@@ -2,7 +2,8 @@
 $trigzero= isset($_POST['trigzero']) ? $_POST['trigzero'] : '';
 $trigone = isset($_POST['trigone']) ? $_POST['trigone'] : '';
 $trigrom = isset($_POST['trigrom']) ? $_POST['trigrom'] : '';
-$trigupdate = isset($_POST['trigupdate']) ? $_POST['trigupdate'] : '';
+$trigupdatez = isset($_POST['trigupdatez']) ? $_POST['trigupdatez'] : '';
+$trigupdateo = isset($_POST['trigupdateo']) ? $_POST['trigupdateo'] : '';
 $zeroclr = isset($_POST['zeroclr']) ? $_POST['zeroclr'] : '';
 $oneclr = isset($_POST['oneclr']) ? $_POST['oneclr'] : '';
 
@@ -35,11 +36,8 @@ $labels = array('label-default', 'label-primary', 'label-success', 'label-info',
 <th>Settings for value = 0</th>
 <th>Settings for value = 1</th>
 <th></th>
-
 <?php
-
 foreach($rowtr as $tr) { ?>
-	
 <tr>
 	<td class="col-md-0"><span class="label label-default"><?php echo str_replace("_", " ", $tr['name']) ?></span>
 </td>
@@ -74,7 +72,7 @@ foreach($rowtr as $tr) { ?>
 		</select>
 		<input type="hidden" name="trigupdateo" value="trigupdateo" />
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
-    </form>
+</form>
 </td>
 <td class="col-md-3">
 </td>
