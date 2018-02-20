@@ -35,10 +35,10 @@ $labels = array('label-default', 'label-primary', 'label-success', 'label-info',
 foreach($rowtr as $tr) { ?>
 	
 <tr>
-	<td class="col-md-1"><span class="label label-default"><?php echo str_replace("_", " ", $tr['name']) ?></span>
+	<td class="col-md-0"><span class="label label-default"><?php echo str_replace("_", " ", $tr['name']) ?></span>
 </td>
 
-<td class="col-md-3">
+<td class="col-md-0">
 <form action="" method="post" class="form-inline" style="display:inline!important;"> 
 		<input type="hidden" name="trigrom" value="<?php echo $tr['rom']; ?>" />
 		<label>For 0 value:</label>
@@ -53,7 +53,7 @@ foreach($rowtr as $tr) { ?>
 			
 		</select>
 </td>
-<td class="col-md-3">
+<td class="col-md-0">
 
 		<label>For 1 value:</label>
 		<input type="text" name="trigone" size="10" value="<?php echo $tr['trigone']; ?>" />
