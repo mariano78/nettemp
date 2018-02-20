@@ -134,7 +134,7 @@ if  ($resetups == "resetups") {
 //***********************************************************
 
 $db = new PDO("sqlite:$root/dbf/nettemp.db");
-$rows = $db->query("SELECT name, tmp, rom, type, trigone, trigzero, trigoneclr, trigzeroclr, readerr position FROM sensors WHERE rom LIKE '%UPS_id%' ORDER BY position ASC");
+$rows = $db->query("SELECT name, tmp, rom, type, trigone, trigzero, trigoneclr, trigzeroclr, readerr, time, position FROM sensors WHERE rom LIKE '%UPS_id%' ORDER BY position ASC");
 $row = $rows->fetchAll();
 
 ?>
