@@ -761,7 +761,7 @@ $row = $rows->fetchAll();
 </div>
 
 <?php 
-if (!empty($device_type) && $device_type == 'volt' ) { 
+if (!empty($device_type) && $device_type == 'trigger' ) { 
 include("modules/sensors/html/trigger_settings.php"); 
 }
 ?>
