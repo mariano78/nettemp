@@ -181,6 +181,18 @@ $row = $rows->fetchAll();
 								echo "<span class=\"label ".$a['trigzeroclr']."\">";
 						}
 						}
+						
+						if ($a['type']=='trigger')  {
+						if ( $a['tmp'] == '1.0' && $a['trigone']!='' ) { 
+							echo $a['trigone']; 
+						} 
+						elseif ( $a['tmp'] == '0.0' && $a['trigzero']!='') {
+							echo $a['trigzero'];
+						}
+						else {
+							echo $a['tmp'];
+						}
+						}
 			//if ($a['rom'] == 'UPS_id8' & $a['tmp'] == '1')      { echo "<span class=\"label ".$a['trigoneclr']."\">".$a['trigone'];}
 			//elseif ($a['rom'] == 'UPS_id8' & $a['tmp'] == '0')  { echo "<span class=\"label ".$a['trigzeroclr']."\">".$a['trigzero'];}
 			//elseif ($a['rom'] == 'UPS_id9' & $a['tmp'] == '0')  { echo "<span class=\"label ".$a['trigzeroclr']."\">".$a['trigzero'];}
