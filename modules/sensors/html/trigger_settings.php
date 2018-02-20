@@ -29,6 +29,7 @@ $labels = array('label-default', 'label-primary', 'label-success', 'label-info',
 <th>Trigger name</th>
 <th>Settings for value = 0</th>
 <th>Settings for value = 1</th>
+<th></th>
 
 <?php
 
