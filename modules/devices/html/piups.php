@@ -197,15 +197,7 @@ $row = $rows->fetchAll();
 						} else {
 							echo $a['tmp']." ".$unit;
 						}
-			//if ($a['rom'] == 'UPS_id8' & $a['tmp'] == '1')      { echo "<span class=\"label ".$a['trigoneclr']."\">".$a['trigone'];}
-			//elseif ($a['rom'] == 'UPS_id8' & $a['tmp'] == '0')  { echo "<span class=\"label ".$a['trigzeroclr']."\">".$a['trigzero'];}
-			//elseif ($a['rom'] == 'UPS_id9' & $a['tmp'] == '0')  { echo "<span class=\"label ".$a['trigzeroclr']."\">".$a['trigzero'];}
-			//elseif ($a['rom'] == 'UPS_id9' & $a['tmp'] == '1')  { echo "<span class=\"label ".$a['trigoneclr']."\">".$a['trigone'];}
-			//elseif ($a['rom'] == 'UPS_id10' & $a['tmp'] == '0') { echo "<span class=\"label ".$a['trigzeroclr']."\">".$a['trigzero'];}
-			//elseif ($a['rom'] == 'UPS_id10' & $a['tmp'] == '1') { echo "<span class=\"label ".$a['trigoneclr']."\">".$a['trigone'];}
-			//elseif ($a['rom'] == 'UPS_id11' & $a['tmp'] == '0') { echo "<span class=\"label ".$a['trigzeroclr']."\">".$a['trigzero'];}
-			//elseif ($a['rom'] == 'UPS_id11' & $a['tmp'] == '1') { echo "<span class=\"label ".$a['trigoneclr']."\">".$a['trigone'];}
-			//else {echo '<span class="label label-success">'; echo $a['tmp']." ".$unit;} 
+			
 			?>
 			
 					</span>
@@ -223,145 +215,192 @@ $row = $rows->fetchAll();
 </div>
 		
 
-		<div class="grid-item">
-				<div class="panel panel-default">
+<div class="grid-item">
+<div class="panel panel-default">
 
-							<div class="panel-heading">PiUPS Settings</div>
-							<div class="table-responsive">
-								<table class="table table-hover table-condensed">
-								
-								
+<div class="panel-heading">PiUPS Settings</div>
+<div class="table-responsive">
+<table class="table table-hover table-condensed">
 
-										<tbody>
-												<tr>
-												<td><span class="label label-default">Delay ON</span></td>
-												<td> <span class="label label-success"><?php echo $d1 ?></span></td>
-<td>
-	<form action="" method="post" style="display:inline!important;">
-	<input type="text" name="upsdelayon" size="2" maxlength="4" value="<?php echo $nts_ups_delay_on; ?>" />
-    
-</td>
-<td><span class="label label-default">S</span></td>
-
-												</tr>
-
-												<tr>
-												<td><span class="label label-default">Delay OFF</span></td>
-												<td><span class="label label-success"><?php echo $d2  ?></span></td>
-<td>
-
-	<input type="text" name="upsdelayoff" size="2" maxlength="4" value="<?php echo $nts_ups_delay_off; ?>" />
-    
-</td>
-<td><span class="label label-default">S</span></td>
-												</tr>
-
-												<tr>
-												<td><span class="label label-default">Akku. charge start</span></td>
-												<td><span class="label label-success"><?php echo $d3 ?></span></td>
-<td>
-	
-	<input type="text" name="upsakkuchargestart" size="2" maxlength="4" value="<?php echo $nts_ups_akku_charge_start; ?>" />
-    
-</td>
-<td><span class="label label-default">V</span></td>
-												</tr>
-
-												<tr>
-												<td><span class="label label-default">Akku. charge stop</span></td>
-												<td><span class="label label-success"><?php echo $d4  ?></span></td>
-<td>
-	
-	<input type="text" name="upsakkuchargestop" size="2" maxlength="4" value="<?php echo $nts_ups_akku_charge_stop; ?>" />
-    
-</td>
-<td><span class="label label-default">V</span></td>	
-												</tr>
-
-												<tr>
-												<td><span class="label label-default">Akku. discharged</span></td>
-												<td><span class="label label-success"><?php echo $d5 ?></span></td>
-<td>
-	
-	<input type="text" name="upsakkudischarged" size="2" maxlength="4" value="<?php echo $nts_ups_akku_discharged; ?>" />
-    
-</td>
-<td><span class="label label-default">V</span></td>
-											
-												</tr>
-												
-												<tr>
-												<td><span class="label label-default">Akku. temp</span></td>
-												<td><span class="label label-success"><?php echo $d6 ?></span></td>
-<td>
-	
-	<input type="text" name="upsakkutemp" size="2" maxlength="4" value="<?php echo $nts_ups_akku_temp; ?>" />
-    
-</td>
-<td><span class="label label-default">C</span></td>
-											
-												</tr>
-
-												<tr>
-												<td><span class="label label-default">LCD Scrolling</span></td>
-												<td><span class="label label-success"><?php echo $d7  ?></span></td>
-<td>
-	
-	<input type="text" name="upsscroll" size="2" maxlength="4" value="<?php echo $nts_ups_lcd_scroll; ?>" />
-	
-	 
-    
-</td>	
-<td><span class="label label-default">S</span></td>
-												</tr>
-
-												<tr>
-<td><span class="label label-default">LCD Auto Backlight</span></td>
-<td><span class="label label-success"><?php if ($d8 == '1') { echo 'Yes';}
-elseif ($d8 == '0') { echo 'No';}?>
-</span>
-</td>
-<td>
-	
-	<select class="selectpicker" data-width="50px" name="upsbacklight" class="form-control input-sm">
-		
-		<option value="1" <?php echo $nts_ups_lcd_backlight == '1' ? 'selected="selected"' : ''; ?> >Yes</option>
-		<option value="0" <?php echo $nts_ups_lcd_backlight == '0'? 'selected="selected"' : ''; ?> >No</option>
-		
-	</select>
-</td>
-<td></td>
-												</tr>
-<tr>
-												<td><span class="label label-default">Shutdown Time</span></td>
-												<td></td>
-<td>
-	
-	<input type="text" name="upstimeoff" size="2" maxlength="4" value="<?php echo $nts_ups_time_off; ?>" />
-</td>	
-<td><span class="label label-default">M</span></td>
-												</tr>
-
-<tr>
-	<td>
+	<tbody>
+		<tr>
+			<td>
+				<span class="label label-default">Delay ON</span>
+			</td>
 			
-	</td>
-	<td>
-				<button type="submit" name="readups" value="readups"class="btn btn-xs btn-success">Read</button>
-				
-	</td>
-	<td>
-				<button type="submit" name="savetoups" value="savetoups" class="btn btn-xs btn-danger">Save</button>
-				</form>
-	</td>
-	<td></td>
-</tr>
-							
-																				
+			<td>
+				<span class="label label-success"><?php echo $d1 ?></span>
+			</td>
+		
+			<td>
+				<form action="" method="post" style="display:inline!important;">
+				<input type="text" name="upsdelayon" size="2" maxlength="4" value="<?php echo $nts_ups_delay_on; ?>" />
+			</td>
+			
+			<td>
+				<span class="label label-default">S</span>
+			</td>
+		</tr>
 
-		</tbody>
+		<tr>
+			<td>
+				<span class="label label-default">Delay OFF</span>
+			</td>
+			
+			<td>
+				<span class="label label-success"><?php echo $d2  ?></span>
+			</td>
 
-	</table>
+			<td>
+				<input type="text" name="upsdelayoff" size="2" maxlength="4" value="<?php echo $nts_ups_delay_off; ?>" />
+			</td>
+			
+			<td>
+				<span class="label label-default">S</span>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<span class="label label-default">Akku. charge start</span>
+			</td>
+												
+			<td>
+				<span class="label label-success"><?php echo $d3 ?></span>
+			</td>
+
+			<td>
+				<input type="text" name="upsakkuchargestart" size="2" maxlength="4" value="<?php echo $nts_ups_akku_charge_start; ?>" />
+			</td>
+
+			<td>
+				<span class="label label-default">V</span>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<span class="label label-default">Akku. charge stop</span>
+			</td>
+			<td>
+				<span class="label label-success"><?php echo $d4  ?></span>
+			</td>
+
+			<td>
+				<input type="text" name="upsakkuchargestop" size="2" maxlength="4" value="<?php echo $nts_ups_akku_charge_stop; ?>" />
+			</td>
+			
+			<td>
+				<span class="label label-default">V</span>
+			</td>	
+		</tr>
+
+		<tr>
+			<td>
+				<span class="label label-default">Akku. discharged</span>
+			</td>
+			
+			<td>
+				<span class="label label-success"><?php echo $d5 ?></span>
+			</td>
+
+			<td>
+				<input type="text" name="upsakkudischarged" size="2" maxlength="4" value="<?php echo $nts_ups_akku_discharged; ?>" />
+			</td>
+
+			<td>
+				<span class="label label-default">V</span>
+			</td>
+		</tr>
+												
+		<tr>
+			<td>
+				<span class="label label-default">Akku. temp</span>
+			</td>
+			<td>
+				<span class="label label-success"><?php echo $d6 ?></span>
+			</td>
+
+			<td>
+				<input type="text" name="upsakkutemp" size="2" maxlength="4" value="<?php echo $nts_ups_akku_temp; ?>" />
+			</td>
+			
+			<td>
+				<span class="label label-default">C</span>
+			</td>									
+		</tr>
+
+		<tr>
+			<td>
+				<span class="label label-default">LCD Scrolling</span>
+			</td>
+			<td>
+				<span class="label label-success"><?php echo $d7  ?></span>
+			</td>
+
+			<td>	
+				<input type="text" name="upsscroll" size="2" maxlength="4" value="<?php echo $nts_ups_lcd_scroll; ?>" />
+			</td>	
+
+			<td>
+				<span class="label label-default">S</span>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<span class="label label-default">LCD Auto Backlight</span>
+			</td>
+
+			<td>
+				<span class="label label-success"><?php if ($d8 == '1') { echo 'Yes';} elseif ($d8 == '0') { echo 'No';}?></span>
+			</td>
+
+			<td>
+				<select class="selectpicker" data-width="50px" name="upsbacklight" class="form-control input-sm">
+				<option value="1" <?php echo $nts_ups_lcd_backlight == '1' ? 'selected="selected"' : ''; ?> >Yes</option>
+				<option value="0" <?php echo $nts_ups_lcd_backlight == '0'? 'selected="selected"' : ''; ?> >No</option>
+				</select>
+			</td>
+			
+			<td>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<span class="label label-default">Shutdown Time</span>
+			</td>
+												
+			<td>
+			</td>
+
+			<td>
+				<input type="text" name="upstimeoff" size="2" maxlength="4" value="<?php echo $nts_ups_time_off; ?>" />
+			</td>	
+
+			<td>
+				<span class="label label-default">M</span>
+			</td>
+		</tr>
+
+	<tr>
+		<td>	
+		</td>
+	
+		<td>
+			<button type="submit" name="readups" value="readups"class="btn btn-xs btn-success">Read</button>			
+		</td>
+	
+		<td>
+			<button type="submit" name="savetoups" value="savetoups" class="btn btn-xs btn-danger">Save</button>
+			</form>
+		</td>
+	
+		<td>
+		</td>
+	</tr>
+</tbody>
+</table>
 </div>
 
 <div class="table-responsive">
@@ -405,10 +444,5 @@ elseif ($d8 == '0') { echo 'No';}?>
 		</div>
 
 </div>
-
-
-
-		</div>
-
-
+</div>
 </div>
