@@ -164,7 +164,7 @@ $row = $rows->fetchAll();
 				</td>
 				<td>
 					<span class="label label-default"><?php echo str_replace("_", " ", $a['name']); ?></span></td>
-				<td>
+				<td><span
 			<?php
 			
 			if ($a['type']=='trigger' && $a['tmp'] == '1.0') {
