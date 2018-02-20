@@ -26,14 +26,17 @@ $labels = array('label-default', 'label-primary', 'label-success', 'label-info',
 <div class="panel-heading">Trigger Settings</div>
 <div class="table-responsive">
 <table class="table table-hover table-condensed small" border="0">
-
+<th>Trigger name</th>
+<th>Settings for value = 0</th>
+<th>Settings for value = 1</th>
 
 <?php
 
 foreach($rowtr as $tr) { ?>
 	
 <tr>
-<td class="col-md-1"><span class="label label-default"><?php echo str_replace("_", " ", $tr['name']) ?></span></td>
+	<td class="col-md-1"><span class="label label-default"><?php echo str_replace("_", " ", $tr['name']) ?></span>
+</td>
 
 <td class="col-md-3">
 <form action="" method="post" class="form-inline" style="display:inline!important;"> 
@@ -49,6 +52,8 @@ foreach($rowtr as $tr) { ?>
 		<?php } ?>
 			
 		</select>
+</td>
+<td class="col-md-3">
 
 		<label>For 1 value:</label>
 		<input type="text" name="trigone" size="10" value="<?php echo $tr['trigone']; ?>" />
