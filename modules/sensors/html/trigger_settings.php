@@ -59,6 +59,7 @@ foreach($rowtr as $tr) { ?>
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 </form>
 </td>
+
 <td class="col-md-0">
 <form action="" method="post" class="form-inline" style="display:inline!important;"> 
 		<input type="hidden" name="trigrom" value="<?php echo $tr['rom']; ?>" />
