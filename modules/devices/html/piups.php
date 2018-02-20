@@ -134,7 +134,7 @@ if  ($resetups == "resetups") {
 //***********************************************************
 
 $db = new PDO("sqlite:$root/dbf/nettemp.db");
-$rows = $db->query("SELECT name, tmp, rom, type, position FROM sensors WHERE rom LIKE '%UPS_id%' ORDER BY position ASC");
+$rows = $db->query("SELECT name, tmp, rom, type,trigone, trigzero, trigoneclr, trigzeroclr  position FROM sensors WHERE rom LIKE '%UPS_id%' ORDER BY position ASC");
 $row = $rows->fetchAll();
 
 ?>
@@ -166,14 +166,14 @@ $row = $rows->fetchAll();
 					<span class="label label-default"><?php echo str_replace("_", " ", $a['name']); ?></span></td>
 				<td>
 			<?php
-			if ($a['rom'] == 'UPS_id8' & $a['tmp'] == '1') { echo '<span class="label label-warning">Charging';}
-			elseif ($a['rom'] == 'UPS_id8' & $a['tmp'] == '0') { echo '<span class="label label-success">Charged';}
-			elseif ($a['rom'] == 'UPS_id9' & $a['tmp'] == '0') { echo '<span class="label label-success">Online';}
-			elseif ($a['rom'] == 'UPS_id9' & $a['tmp'] == '1') { echo '<span class="label label-danger">Offline';}
-			elseif ($a['rom'] == 'UPS_id10' & $a['tmp'] == '0') { echo '<span class="label label-success">OK';}
-			elseif ($a['rom'] == 'UPS_id10' & $a['tmp'] == '1') { echo '<span class="label label-danger">Discharged';}
-			elseif ($a['rom'] == 'UPS_id11' & $a['tmp'] == '0') { echo '<span class="label label-success">OK';}
-			elseif ($a['rom'] == 'UPS_id11' & $a['tmp'] == '1') { echo '<span class="label label-danger">Alarm';}
+			if ($a['rom'] == 'UPS_id8' & $a['tmp'] == '1') { echo "< span class=\"label ".$a['trigoneclr']."\"".$a['trigone'];}
+			elseif ($a['rom'] == 'UPS_id8' & $a['tmp'] == '0') { echo "< span class=\"label ".$a['trigzeroclr']."\"".$a['trigzero'];}
+			elseif ($a['rom'] == 'UPS_id9' & $a['tmp'] == '0') { echo "< span class=\"label ".$a['trigzeroclr']."\"".$a['trigzero'];}
+			elseif ($a['rom'] == 'UPS_id9' & $a['tmp'] == '1') { echo "< span class=\"label ".$a['trigoneclr']."\"".$a['trigone'];}
+			elseif ($a['rom'] == 'UPS_id10' & $a['tmp'] == '0') { echo "< span class=\"label ".$a['trigzeroclr']."\"".$a['trigzero'];}
+			elseif ($a['rom'] == 'UPS_id10' & $a['tmp'] == '1') { echo "< span class=\"label ".$a['trigoneclr']."\"".$a['trigone'];}
+			elseif ($a['rom'] == 'UPS_id11' & $a['tmp'] == '0') { echo "< span class=\"label ".$a['trigzeroclr']."\"".$a['trigzero'];}
+			elseif ($a['rom'] == 'UPS_id11' & $a['tmp'] == '1') { echo "< span class=\"label ".$a['trigoneclr']."\"".$a['trigone'];}
 			else {echo '<span class="label label-success">'; echo $a['tmp']." ".$unit;} 
 			?>
 			
