@@ -6,13 +6,18 @@ $trigupdate = isset($_POST['trigupdate']) ? $_POST['trigupdate'] : '';
 $zeroclr = isset($_POST['zeroclr']) ? $_POST['zeroclr'] : '';
 $oneclr = isset($_POST['oneclr']) ? $_POST['oneclr'] : '';
 
-    if ( !empty($trigupdate) && ($trigupdate == "trigupdate")){
+    if ( !empty($trigupdatez) && ($trigupdatez == "trigupdatez")){
     $db = new PDO('sqlite:dbf/nettemp.db');
     $db->exec("UPDATE sensors SET trigzero='$trigzero' WHERE rom='$trigrom'") or die ($db->lastErrorMsg());
 	$db->exec("UPDATE sensors SET trigzeroclr='$zeroclr' WHERE rom='$trigrom'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    } 
+	
+	if ( !empty($trigupdateo) && ($trigupdateo == "trigupdateo")){
+    $db = new PDO('sqlite:dbf/nettemp.db');
 	$db->exec("UPDATE sensors SET trigone='$trigone' WHERE rom='$trigrom'") or die ($db->lastErrorMsg());
 	$db->exec("UPDATE sensors SET trigoneclr='$oneclr' WHERE rom='$trigrom'") or die ($db->lastErrorMsg());
-	
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     } 
@@ -50,13 +55,13 @@ foreach($rowtr as $tr) { ?>
 			<option class="<?php echo $color; ?>" value="<?php echo $color; ?>"<?php echo $tr['trigzeroclr'] == $color ? 'selected="selected"' : ''; ?>><?php echo $color; ?></option>
 		<?php } ?>	
 		</select>
-		<input type="hidden" name="trigupdate" value="trigupdate" />
+		<input type="hidden" name="trigupdateo" value="trigupdateo" />
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 		</form>
 </td>
 <td class="col-md-0">
 <form action="" method="post" class="form-inline" style="display:inline!important;"> 
-
+		<input type="hidden" name="trigrom" value="<?php echo $tr['rom']; ?>" />
 		<label>For 1 value:</label>
 		<input type="text" name="trigone" size="10" value="<?php echo $tr['trigone']; ?>" />
 	
@@ -66,7 +71,7 @@ foreach($rowtr as $tr) { ?>
 			<option class="<?php echo $color; ?>" value="<?php echo $color; ?>"<?php echo $tr['trigoneclr'] == $color ? 'selected="selected"' : ''; ?>><?php echo $color; ?></option>
 		<?php } ?>
 		</select>
-		<input type="hidden" name="trigupdate" value="trigupdate" />
+		<input type="hidden" name="trigupdatez" value="trigupdatez" />
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
 </td>
