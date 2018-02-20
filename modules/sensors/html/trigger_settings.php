@@ -55,9 +55,9 @@ foreach($rowtr as $tr) { ?>
 			<option class="<?php echo $color; ?>" value="<?php echo $color; ?>"<?php echo $tr['trigzeroclr'] == $color ? 'selected="selected"' : ''; ?>><?php echo $color; ?></option>
 		<?php } ?>	
 		</select>
-		<input type="hidden" name="trigupdateo" value="trigupdateo" />
+		<input type="hidden" name="trigupdatez" value="trigupdatez" />
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
-		</form>
+</form>
 </td>
 <td class="col-md-0">
 <form action="" method="post" class="form-inline" style="display:inline!important;"> 
@@ -71,7 +71,7 @@ foreach($rowtr as $tr) { ?>
 			<option class="<?php echo $color; ?>" value="<?php echo $color; ?>"<?php echo $tr['trigoneclr'] == $color ? 'selected="selected"' : ''; ?>><?php echo $color; ?></option>
 		<?php } ?>
 		</select>
-		<input type="hidden" name="trigupdatez" value="trigupdatez" />
+		<input type="hidden" name="trigupdateo" value="trigupdateo" />
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
 </td>
