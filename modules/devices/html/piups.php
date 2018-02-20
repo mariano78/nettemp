@@ -177,10 +177,12 @@ $row = $rows->fetchAll();
 						}elseif ($a['type']=='trigger' && $a['tmp'] == '0.0') {
 						if (strtotime($a['time'])<(time()-($a['readerr']*60))){
 							echo '<span class="label label-warning">';
-						}else { 
+						}else{ 
 								echo "<span class=\"label ".$a['trigzeroclr']."\">";
-						}
-						}echo '<span class="label label-success">';
+							}
+						}else{
+								echo '<span class="label label-success">';
+							}
 						
 						if ($a['type']=='trigger')  {
 						if ( $a['tmp'] == '1.0' && $a['trigone']!='' ) { 
