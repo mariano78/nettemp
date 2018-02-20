@@ -166,7 +166,7 @@ $row = $rows->fetchAll();
 					<span class="label label-default"><?php echo str_replace("_", " ", $a['name']); ?></span></td>
 				<td>
 			<?php
-			if ($a['rom'] == 'UPS_id8' & $a['tmp'] == '1') { echo "<span class=\"label ".$a['trigoneclr']."\"".$a['trigone']."\"";}
+			if ($a['rom'] == 'UPS_id8' & $a['tmp'] == '1') { echo "<span class=\"label ".$a['trigoneclr']."\">".$a['trigone']."\"";}
 			elseif ($a['rom'] == 'UPS_id8' & $a['tmp'] == '0') { echo "<span class=\"label ".$a['trigzeroclr']."\"".$a['trigzero'];}
 			elseif ($a['rom'] == 'UPS_id9' & $a['tmp'] == '0') { echo "<span class=\"label ".$a['trigzeroclr']."\"".$a['trigzero'];}
 			elseif ($a['rom'] == 'UPS_id9' & $a['tmp'] == '1') { echo "<span class=\"label ".$a['trigoneclr']."\"".$a['trigone'];}
