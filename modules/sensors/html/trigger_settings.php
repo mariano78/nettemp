@@ -38,7 +38,7 @@ foreach($rowtr as $tr) { ?>
 	<td class="col-md-0"><span class="label label-default"><?php echo str_replace("_", " ", $tr['name']) ?></span>
 </td>
 
-<td class="col-md-0" style="display:inline!important;">
+<td class="col-md-0">
 <form action="" method="post" class="form-inline" style="display:inline!important;"> 
 		<input type="hidden" name="trigrom" value="<?php echo $tr['rom']; ?>" />
 		<label>For 0 value:</label>
@@ -49,8 +49,12 @@ foreach($rowtr as $tr) { ?>
 			<option class="<?php echo $color; ?>" value="<?php echo $color; ?>"<?php echo $tr['trigzeroclr'] == $color ? 'selected="selected"' : ''; ?>><?php echo $color; ?></option>
 		<?php } ?>	
 		</select>
+		<input type="hidden" name="trigupdate" value="trigupdate" />
+		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+		</form>
 </td>
-<td class="col-md-0" style="display:inline!important;">
+<td class="col-md-0">
+<form action="" method="post" class="form-inline" style="display:inline!important;"> 
 
 		<label>For 1 value:</label>
 		<input type="text" name="trigone" size="10" value="<?php echo $tr['trigone']; ?>" />
