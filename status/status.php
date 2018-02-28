@@ -73,9 +73,12 @@ Go to device scan!
 			include('status/justgage_status.php');
 		}
 	}	
-
 	//END JG GROUPS
-   
+	//OW
+    $rowsow = $db->query("SELECT body FROM ownwidget") or header("Location: html/errors/db_error.php");
+	$owresult = $rowsow->fetchAll();
+	
+	
     include('status/minmax_status.php'); 
     include('status/counters_status.php');
     include('status/controls.php');
@@ -83,9 +86,6 @@ Go to device scan!
     include('status/ipcam_status.php');
     include('status/ups_status.php');
 	include('status/ownwidget.php');
-   
-	
-	
     ?>
 </div>
 
@@ -104,6 +104,14 @@ Go to device scan!
 		foreach ($uniquea as $key => $ch_g) { 
 	?>
 		$('#justgage_refresh').load("status/justgage_refresh.php?ch_g=<?php echo $ch_g?>");
+	<?php
+		}
+	?>
+	
+	<?php
+		foreach ($owresult as $owr) { 
+	?>
+		$('.ow<?php echo $owr['body']?>').load("$root/tmp/ownwidget<?php echo $owr['body']?>");
 	<?php
 		}
 	?>
