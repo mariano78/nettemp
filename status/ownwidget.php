@@ -14,7 +14,7 @@ if ( $numRows > '0' ) {
 	foreach ($row as $ow) {?> 	
 	
 	<?php
-	$owb = $ow['body']
+	$owb = $ow['body'];
 	
 	if (($ow['onoff'] == "on") && ($ow['iflogon'] == "off"))  { ?>
 		<div class="grid-item <?php echo $owb ?>">
