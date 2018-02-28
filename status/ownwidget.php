@@ -14,9 +14,10 @@ if ( $numRows > '0' ) {
 	foreach ($row as $ow) {?> 	
 	
 	<?php
+	$owb = $ow['body']
 	
 	if (($ow['onoff'] == "on") && ($ow['iflogon'] == "off"))  { ?>
-		<div class="grid-item">
+		<div class="grid-item <?php echo $owb ?>">
 		<div class="panel panel-default">
 			<div class="panel-heading"><?php echo $ow['name'];?></div>
 			<div class="panel-body"><?php include("$root/tmp/ownwidget".$ow['body'].".php");?> </div>
