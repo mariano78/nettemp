@@ -19,7 +19,7 @@ if ( $numRows > '0' ) {
 	if (($ow['onoff'] == "on") && ($ow['iflogon'] == "off"))  { ?>
 		<div class="grid-item <?php echo $owb ?>">
 		<div class="panel panel-default">
-			<div class="panel-heading"><?php echo $;?></div>
+			<div class="panel-heading"><?php echo $own;?></div>
 			<div class="panel-body"><?php include("$root/tmp/ownwidget".$owb.".php");?> </div>
 		</div>
 		</div>
