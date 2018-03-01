@@ -92,7 +92,7 @@ Go to device scan!
     include('status/meteo_status.php');
     include('status/ipcam_status.php');
     include('status/ups_status.php');
-	include('status/ownwidget.php');
+	//include('status/ownwidget.php');
     ?>
 </div>
 
