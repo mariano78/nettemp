@@ -75,8 +75,15 @@ Go to device scan!
 	}	
 	//END JG GROUPS
 	//OW
-    $rowsow = $db->query("SELECT body FROM ownwidget") or header("Location: html/errors/db_error.php");
+    $rowsow = $db->query("SELECT * FROM ownwidget") or header("Location: html/errors/db_error.php");
 	$owresult = $rowsow->fetchAll();
+	foreach($owresult as $owg) {
+		
+		$owb = $owg['body'];
+		$own = $owg['name'];
+		include('status/ownwidget.php');
+		
+	}
 	
 	
     include('status/minmax_status.php'); 
