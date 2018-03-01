@@ -18,7 +18,7 @@ if ( $numRows > '0' ) {
 	
 	if (($ow['onoff'] == "on") && ($ow['iflogon'] == "off"))  { ?>
 		
-		<?php include("$root/tmp/ownwidget".$ow['body'].".php");?> </div>
+		<?php include("$root/tmp/ownwidget".$ow['body'].".php");?>
 		
 <?php	
 	
