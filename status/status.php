@@ -115,13 +115,7 @@ Go to device scan!
 		}
 	?>
 	
-	<?php
-		foreach ($owresult as $owr) { 
-	?>
-		$('.ow<?php echo $owr['body']?>').load("status/ownwidget.php");
-	<?php
-		}
-	?>
+	
 	
     $('.co').load("status/counters_status.php");
     $('.ms').load("status/meteo_status.php");
