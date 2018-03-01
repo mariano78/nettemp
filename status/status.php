@@ -79,7 +79,7 @@ Go to device scan!
 	foreach($owresult as $owg) {
 		$owb = $owg['body'];
 		$own = $owg['name'];
-		include('tmp/ownwidget${owb}.php');
+		include('tmp/ownwidget4575.php');
 	}
     include('status/minmax_status.php'); 
     include('status/counters_status.php');
