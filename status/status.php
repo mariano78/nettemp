@@ -111,7 +111,7 @@ Go to device scan!
 	<?php
 		foreach ($owresult as $owr) { 
 	?>
-		$('.ow<?php echo $owr['body']?>').load("/tmp/ownwidget<?php echo $owr['body']?>.php");
+		$('.ow<?php echo $owr['body']?>').load("status/ownwidget.php");
 	<?php
 		}
 	?>
