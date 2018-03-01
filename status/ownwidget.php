@@ -30,7 +30,7 @@ if ( $numRows > '0' ) {  ?>
 
 		<div class="grid-item ow<?php echo $owb ?>">
 		<div class="panel panel-default">
-		<div class="panel-heading"><?php echo str_replace(' ', '_', $own);?></div>
+		<div class="panel-heading"><?php echo str_replace('_', ' ', $own);?></div>
 
 	<?php
 	
