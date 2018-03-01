@@ -17,24 +17,19 @@ if ( $numRows > '0' ) {
 	$owb = $ow['body'];
 	
 	if (($ow['onoff'] == "on") && ($ow['iflogon'] == "off"))  { ?>
-		<div class="grid-item ow<?php echo $owb ?>">
-		<div class="panel panel-default">
-			<div class="panel-heading"><?php echo $ow['name'];?></div>
-			<div class="panel-body"><?php include("$root/tmp/ownwidget".$ow['body'].".php");?> </div>
-		</div>
-		</div>
+		
+		<?php include("$root/tmp/ownwidget".$ow['body'].".php");?> </div>
+		
 <?php	
 	
 		} else { if (($ow['onoff'] == "on") && ($ow['iflogon'] == "on"))  {
 			
 			if(($_SESSION["perms"] == 'adm') || (isset($_SESSION["user"]))) { ?>
 
-			<div class="grid-item">
-			<div class="panel panel-default">
+			
 				<div class="panel-heading"><?php echo $ow['name'];?></div>
-				<div class="panel-body"><?php include("$root/tmp/ownwidget".$ow['body'].".php");?> </div>
-			</div>
-			</div>
+				<?php include("$root/tmp/ownwidget".$ow['body'].".php");?>
+			
 
 			<?php } 
 			
