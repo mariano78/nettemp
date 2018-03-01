@@ -8,9 +8,6 @@ if (isset($_GET['owb'])) {
 $root=$_SERVER["DOCUMENT_ROOT"];
 $db = new PDO("sqlite:$root/dbf/nettemp.db") or die ("cannot open database");
 
-
-$db = new PDO('sqlite:dbf/nettemp.db');
-
 if(($_SESSION["perms"] == 'adm') || (isset($_SESSION["user"]))) {
 
 $rows = $db->query("SELECT * FROM ownwidget WHERE body='$owb'");
@@ -43,4 +40,5 @@ if ( $numRows > '0' ) {  ?>
 				}
 		}
 		unset($owb);
+		unset($own);
 ?>
