@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 if (isset($_GET['owb'])) { 
     $owb = $_GET['owb'];
