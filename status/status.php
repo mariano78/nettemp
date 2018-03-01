@@ -77,6 +77,7 @@ Go to device scan!
 	//OW
     $rowsow = $db->query("SELECT * FROM ownwidget") or header("Location: html/errors/db_error.php");
 	$owresult = $rowsow->fetchAll();
+	$uniquec=array();
 	foreach($owresult as $owg) {
 		
 		$owb = $owg['body'];
@@ -116,9 +117,9 @@ Go to device scan!
 	?>
 	
 	<?php
-		foreach ($owresult as $owr) { 
+		foreach ($uniquec as $key => $owb) { 
 	?>
-		$('.ow<?php echo $owg['body']?>').load("$root/tmp/ownwidget<?php echo $owr['body']?>");
+		$('.ow<?php echo $owb?>').load("tmp/ownwidget.php?owb=<?php echo $owb?>");
 	<?php
 		}
 	?>
