@@ -112,7 +112,7 @@ Go to device scan!
 	<?php
 		foreach ($owresult as $owg) { 
 	?>
-		$('.ow<?php echo $owg['body']?>').load("tmp/ownwidget<?php echo $owg['body'];?>.php);
+		$('.ow<?php echo $owg['body']?>').load("tmp/ownwidget<?php echo $owg['body'];?>.php");
 	<?php
 		}
 	?>
