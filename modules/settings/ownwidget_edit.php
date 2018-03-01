@@ -144,7 +144,7 @@ foreach($row as $z) {
 		</form>
 		
 		<form action="" method="post" style="display:inline!important;">
-		<label>Logon:</label>
+		<label>Logon required:</label>
 			<input type="hidden" name="id" value="<?php echo $z["id"]; ?>" />
 			<button type="submit" name="logon" value="<?php echo $z["iflogon"] == 'on' ? 'off' : 'on'; ?>" <?php echo $z["iflogon"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>> <?php echo $z["iflogon"] == 'on' ? 'ON' : 'OFF'; ?></button>
 			<input type="hidden" name="if_logon" value="if_logon" />
