@@ -115,6 +115,14 @@ Go to device scan!
 		}
 	?>
 	
+	<?php
+		foreach ($owresult as $owr) { 
+	?>
+		$('.ow<?php echo $owg['body']?>').load("$root/tmp/ownwidget<?php echo $owr['body']?>");
+	<?php
+		}
+	?>
+	
 	
 	
     $('.co').load("status/counters_status.php");
