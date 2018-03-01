@@ -117,9 +117,9 @@ Go to device scan!
 	?>
 	
 	<?php
-		foreach ($uniquec as $key => $owb) { 
+		foreach ($owresult as $owg) { 
 	?>
-		$('.ow<?php echo $owb?>').load("status/ownwidget.php?owb=<?php echo $owb?>");
+		$('.ow<?php echo $owg['body']?>').load("status/ownwidget.php?owb=<?php echo $owg['body']?>");
 	<?php
 		}
 	?>
