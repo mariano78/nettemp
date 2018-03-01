@@ -42,4 +42,5 @@ if ( $numRows > '0' ) {  ?>
 			<?php
 				}
 		}
+		unset($owb);
 ?>
