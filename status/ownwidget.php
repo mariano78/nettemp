@@ -5,6 +5,11 @@ if (isset($_GET['owb'])) {
     $owb = $_GET['owb'];
 } 
 
+if (isset($_GET['own'])) { 
+    $own = $_GET['own'];
+} 
+
+
 $root=$_SERVER["DOCUMENT_ROOT"];
 $db = new PDO("sqlite:$root/dbf/nettemp.db") or die ("cannot open database");
 
