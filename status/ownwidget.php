@@ -23,13 +23,18 @@ $rows = $db->query("SELECT * FROM ownwidget WHERE iflogon='off' AND body='$owb'"
 $row = $rows->fetchAll();
 $numRows = count($row);
 
-if ( $numRows > '0' ) { 
+if ( $numRows > '0' ) {  ?>
 
-	foreach ($row as $ow) {?> 	
-	
+
 		<div class="grid-item ow<?php echo $owb ?>">
 		<div class="panel panel-default">
-			<div class="panel-heading"><?php echo $own;?></div>
+		<div class="panel-heading"><?php echo $own;?></div>
+
+	<?php
+	
+	foreach ($row as $ow) {?> 	
+	
+		
 			<div class="panel-body"><?php include("$root/tmp/ownwidget".$owb.".php");?> </div>
 		</div>
 		</div>
