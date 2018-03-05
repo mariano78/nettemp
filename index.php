@@ -135,10 +135,11 @@ if($nts_info=='on') {
 	?>
 <li> <?php include('modules/settings/access_time_check.php'); ?></li>
 
-</ul>
 <?php if (file_exists("tmp/update")) {  ?>
-			<a href="index.php?id=tools&type=update" class="btn btn-xs btn-info">Update available!</a>
-		<?php } ?>
+<li><a href="index.php?id=tools&type=update" class="btn btn-xs btn-info">Update available!</a></li>
+<?php } ?>
+</ul>
+
 
     <?php if(!isset($_SESSION["user"])) {?>
 	    <form method="post" class="navbar-form navbar-right" >
