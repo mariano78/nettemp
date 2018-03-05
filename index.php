@@ -89,9 +89,9 @@ function new_seen($seen){
 	}
 }
 
-if (file_exists("tmp/update")) {
-			$upd = 1;
-		} else {$upd =0;}
+//if (file_exists("tmp/update")) {
+		//	$upd = 1;
+		//} else {$upd = 0;}
 
 function new_update($upd){
 	if($upd == 1)
