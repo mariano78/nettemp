@@ -101,6 +101,7 @@ function new_update($upd){
 }
 ?>
 
+
 <li <?php echo $id == 'status' ? ' class="active"' : ''; ?>><a href="index.php?id=status"><span class="glyphicon glyphicon-th-large" aria-hidden="true"> Status</span></a></li>
 <li <?php echo $id == 'view' ? ' class="active"' : ''; ?>><a href="index.php?id=view&type=temp&max=<?php echo $nts_charts_max?>"><span class="glyphicon glyphicon-stats" aria-hidden="true"> Charts</span></a></li>
 <?php
