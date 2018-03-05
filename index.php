@@ -125,11 +125,10 @@ if($nts_info=='on') {
 <li> <?php include('modules/settings/access_time_check.php'); ?></li>
 
 <?php if (file_exists("tmp/update")) {  ?>
-<li><a href="index.php?id=tools&type=update">Update available!</a></li>
+<li><a href="index.php?id=tools&type=update" class="label label-success">Update available!</a></li>
 <?php } ?>
 </ul>
 
-<button type="submit" class="btn btn-xs btn-success">Log Out</button>
 
 
     <?php if(!isset($_SESSION["user"])) {?>
