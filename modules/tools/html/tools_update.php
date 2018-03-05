@@ -4,7 +4,6 @@
 
 <?php
 $ROOT=$_SERVER['DOCUMENT_ROOT'];
-$root=$_SERVER["DOCUMENT_ROOT"];
 $dir=$ROOT.'/dbf';
 $dbfile=$dir.'/nettemp.db';
 
@@ -34,7 +33,7 @@ if ($update == "UPDATE") {
     include("$ROOT/modules/tools/update_perms.php");
     include("$ROOT/modules/tools/update_db.php");
     include("$ROOT/modules/tools/check_packages.php");
-	unlink("$root/tmp/update");
+	unlink("$ROOT/tmp/update");
 	system ("sudo service cron start && sleep 2");
     echo '</pre>';
 
