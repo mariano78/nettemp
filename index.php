@@ -126,7 +126,7 @@ if($nts_info=='on') {
 
 
 <?php if (file_exists("tmp/update")) {  ?>
-<li><a href="index.php?id=tools&type=update" class="glyphicon glyphicon-cloud-download text-success" aria-hidden="true"> </a></li>
+<li><a href="index.php?id=tools&type=update"><span class="glyphicon glyphicon-cloud-download text-success" aria-hidden="true"> </span></a></li>
 
 <?php } ?>
 </ul>
