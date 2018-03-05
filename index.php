@@ -125,7 +125,8 @@ if($nts_info=='on') {
 <li> <?php include('modules/settings/access_time_check.php'); ?></li>
 
 <?php if (file_exists("tmp/update")) {  ?>
-<li><a href="index.php?id=tools&type=update" class="label label-success">Update available!</a></li>
+<li><a href="index.php?id=tools&type=update" class="glyphicon glyphicon-cloud-download" aria-hidden="true"> </a></li>
+
 <?php } ?>
 </ul>
 
