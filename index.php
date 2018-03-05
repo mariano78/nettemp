@@ -89,7 +89,18 @@ function new_seen($seen){
 	}
 }
 
-?>
+if (file_exists("tmp/update")) {
+			$upd = 1;
+		} else {$upd =0;}
+
+function new_update($upd){
+	if($upd == 1)
+	{	
+		return '<span class="badge">'.$upd.'</span>';
+	}
+}
+
+
 <li <?php echo $id == 'status' ? ' class="active"' : ''; ?>><a href="index.php?id=status"><span class="glyphicon glyphicon-th-large" aria-hidden="true"> Status</span></a></li>
 <li <?php echo $id == 'view' ? ' class="active"' : ''; ?>><a href="index.php?id=view&type=temp&max=<?php echo $nts_charts_max?>"><span class="glyphicon glyphicon-stats" aria-hidden="true"> Charts</span></a></li>
 <?php
@@ -111,7 +122,7 @@ function new_seen($seen){
 <li<?php echo $id == 'device' ? ' class="active"' : ''; ?>><a href="device"><span class="glyphicon glyphicon-cog" aria-hidden="true"> Device <?php echo new_seen($seen);?></span></a></li>
 <li <?php echo $id == 'security' ? ' class="active"' : ''; ?>><a href="security"><span class="glyphicon glyphicon-lock" aria-hidden="true"> Security</span></a></li>
 <li <?php echo $id == 'settings' ? ' class="active"' : ''; ?>><a href="settings"><span class="glyphicon glyphicon-tasks" aria-hidden="true"> Settings</span></a></li>
-<li <?php echo $id == 'tools' ? ' class="active"' : ''; ?>><a href="tools"><span class="glyphicon glyphicon-wrench" aria-hidden="true"> Tools</span></a></li>
+<li <?php echo $id == 'tools' ? ' class="active"' : ''; ?>><a href="tools"><span class="glyphicon glyphicon-wrench" aria-hidden="true"> Tools <?php echo new_update($upd);?></span></a></li>
 <?php
 	}
 }
@@ -212,10 +223,7 @@ window.setInterval( function() {
 			<button class="btn btn-xs btn-primary systime">
 			<?php include('html/index/systime.php');?>
 			</button>
-	    <?php if (file_exists("tmp/update")) {  ?>
-			<a href="index.php?id=tools&type=update" class="btn btn-xs btn-info">Update available!</a>
-		<?php } ?>
-		
+	    
 		<a href="http://wiki.abc-service.com.pl/doku.php" target="_blank" class="btn btn-xs btn-primary">NT WIKI </a>
 
       </div>
