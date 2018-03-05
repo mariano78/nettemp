@@ -88,17 +88,6 @@ function new_seen($seen){
 		return '<span class="badge">'.$seen.'</span>';
 	}
 }
-
-if (file_exists("tmp/update")) {
-			$upd = 1;
-		} else {$upd = 0;}
-
-function new_update($upd){
-	if($upd == 1)
-	{	
-		return '<span class="badge">'.$upd.'</span>';
-	}
-}
 ?>
 
 
@@ -123,7 +112,7 @@ function new_update($upd){
 <li<?php echo $id == 'device' ? ' class="active"' : ''; ?>><a href="device"><span class="glyphicon glyphicon-cog" aria-hidden="true"> Device <?php echo new_seen($seen);?></span></a></li>
 <li <?php echo $id == 'security' ? ' class="active"' : ''; ?>><a href="security"><span class="glyphicon glyphicon-lock" aria-hidden="true"> Security</span></a></li>
 <li <?php echo $id == 'settings' ? ' class="active"' : ''; ?>><a href="settings"><span class="glyphicon glyphicon-tasks" aria-hidden="true"> Settings</span></a></li>
-<li <?php echo $id == 'tools' ? ' class="active"' : ''; ?>><a href="tools"><span class="glyphicon glyphicon-wrench" aria-hidden="true"> Tools <?php echo new_update($upd);?></span></a></li>
+<li <?php echo $id == 'tools' ? ' class="active"' : ''; ?>><a href="tools"><span class="glyphicon glyphicon-wrench" aria-hidden="true"> Tools</span></a></li>
 <?php
 	}
 }
