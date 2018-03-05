@@ -129,6 +129,8 @@ if($nts_info=='on') {
 <?php } ?>
 </ul>
 
+<button type="submit" class="btn btn-xs btn-success">Log Out</button>
+
 
     <?php if(!isset($_SESSION["user"])) {?>
 	    <form method="post" class="navbar-form navbar-right" >
