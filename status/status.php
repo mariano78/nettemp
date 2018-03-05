@@ -112,7 +112,7 @@ Go to device scan!
 	<?php
 		foreach ($owresult as $owg) { 
 	?>
-		$('.ow<?php echo $owg['body']?>').load("tmp/ownwidget<?php echo $owg['body'];?>.php");
+		//$('.ow<?php echo $owg['body']?>').load("tmp/ownwidget<?php echo $owg['body'];?>.php");
 	<?php
 		}
 	?>
@@ -126,8 +126,7 @@ Go to device scan!
 	
     $('.swcon').load("status/controls.php", function() {		
 	$('[id="onoffstatus"]').bootstrapToggle({size : 'mini', off : 'Off', on : 'On',});
-	$('[id="lockstatus"]').bootstrapToggle({size : 'mini', off : 'lock', on : 'lock',});
-	
+	$('[id="lockstatus"]').bootstrapToggle({size : 'mini', off : 'lock', on : 'lock',});	
 	});	
 
 	$('.uptime').load("html/index/uptime.php");
