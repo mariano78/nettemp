@@ -86,7 +86,7 @@ $ref= isset($_POST['ref']) ? $_POST['ref'] : '';
 $refresh= isset($_POST['refresh']) ? $_POST['refresh'] : '';
 if(!empty($id) && !empty($refresh) && ($ref == "ref")) { 
 	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("UPDATE ownwidget SET refresh='$ref' WHERE id='$id'");
+	$db->exec("UPDATE ownwidget SET refresh='$refresh' WHERE id='$id'");
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();	
 } 
