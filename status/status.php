@@ -114,7 +114,7 @@ Go to device scan!
 		foreach ($owresult as $owg) { 
 		if ($owg['refresh'] == 'on') {
 	?>
-		$('.ow<?php echo $owg['body']?>').load("tmp/ownwidget<?php echo $owg['body'];?>.php");
+		$('.ow<?php echo $owg['body']?>').load("status/ownwidget.php?owb=<?php echo $owg['body'];?>&own=<?php echo $owg['name'];?>");
 	<?php
 		}
 		}
