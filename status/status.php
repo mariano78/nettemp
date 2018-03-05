@@ -79,7 +79,7 @@ Go to device scan!
 	foreach($owresult as $owg) {
 		$owb = $owg['body'];
 		$own = $owg['name'];
-		$ref = $owg['refresh'];
+		//$ref = $owg['refresh'];
 		include('status/ownwidget.php');
 	}
     include('status/minmax_status.php'); 
@@ -112,7 +112,7 @@ Go to device scan!
 	
 	<?php
 		foreach ($owresult as $owg) { 
-		if ($ref == 'on') {
+		if ($owg['refresh'] == 'on') {
 	?>
 		$('.ow<?php echo $owg['body']?>').load("tmp/ownwidget<?php echo $owg['body'];?>.php");
 	<?php
