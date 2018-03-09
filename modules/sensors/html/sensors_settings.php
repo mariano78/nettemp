@@ -755,7 +755,7 @@ $row = $rows->fetchAll();
 	<td></td>
 	<td></td>
 	<td></td>
-	<td>Lat/Long:</td>
+	<td><label>Lat/Long:</label></td>
 	<td>
 	<form action="" method="post" style="display:inline!important;"> 
 		<input type="hidden" name="gps_id" value="<?php echo $a['id']; ?>" />
