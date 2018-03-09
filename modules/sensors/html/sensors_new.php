@@ -196,29 +196,7 @@ foreach ($result as $a) {
 </thead>
 <tbody>
 
-<?php	
-$db = new PDO('sqlite:dbf/nettemp.db');
-$sth = $db->prepare("SELECT * FROM virtual");
-$sth->execute();
-$resultv = $sth->fetchAll();
-foreach ($resultv as $v) {
-?>
-<tr>
-	<td class="col-md-0">
-		<?php echo $v['name']; ?>
-	</td>
-	<td class="col-md-0">
-		<?php echo $v['rom']; ?>
-	</td>
-	<td class="col-md-0">
-		<?php echo $v['type']; ?>
-	</td>
-	<td class="col-md-0">
-		<?php echo $v['device']; ?>
-	</td>
-</tr>
 
-<?php}?>
 	
 
 <tr>
@@ -236,4 +214,3 @@ foreach ($resultv as $v) {
 </table>
 </div>
 </div>
-<?php ?>
