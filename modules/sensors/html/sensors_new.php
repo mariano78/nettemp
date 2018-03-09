@@ -53,7 +53,12 @@ if(file_exists("db/".$new_rom.".sql")&& filesize("db/".$new_rom.".sql")!=0){
 	$device='sensors';
 
 	//SENOSRS ALL
+	if ($device == 'virtual') {
+		$db->exec("INSERT INTO sensors (rom,type,device,name) VALUES ('$new_rom','$type','$device','$name')");
+	} else {
 	$db->exec("INSERT INTO sensors (rom,type,device,ip,gpio,i2c,usb,name) SELECT rom,type,device,ip,gpio,i2c,usb,name FROM newdev WHERE rom='$new_rom'");
+	}
+	
 	$db->exec("UPDATE sensors SET alarm='off', tmp='0', adj='0', charts='on', sum='0', position='1', status='on', ch_group='$type',position_group='1',logon='off', thing='off', readerr='60', readerralarm='off' WHERE rom='$new_rom'");
 	
 	
