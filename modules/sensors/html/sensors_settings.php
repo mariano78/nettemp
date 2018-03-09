@@ -774,7 +774,7 @@ $row = $rows->fetchAll();
     
 	</tr>
 	
-	<?php if ($a['device'] == 'virtual' && substr($a['type'],0,2) == 'air') { ?>
+	<?php if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'air') { ?>
 	<tr>
 	<td></td>
 	<td></td>
