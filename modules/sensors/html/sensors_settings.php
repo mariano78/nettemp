@@ -344,7 +344,7 @@ if ( $lcd == "lcd"){
 	
 	if (!empty($api_id) && $api == "apiok"){
     $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("UPDATE sensors SET apikey='$apikey' WHERE id='$gps_id'") or die ($db->lastErrorMsg());
+    $db->exec("UPDATE sensors SET apikey='$apikey' WHERE id='$api_id'") or die ($db->lastErrorMsg());
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     } 
