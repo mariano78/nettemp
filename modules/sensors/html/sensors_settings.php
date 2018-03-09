@@ -755,10 +755,12 @@ $row = $rows->fetchAll();
 	<td></td>
 	<td></td>
 	<td></td>
-	<td>Latitude:</td>
-	<td>Lval</td>
-	<td>Longitude:</td>
-	<td>Langval</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+	<td>Lat/Long:</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	
+	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 	
 	
 	</tr>
