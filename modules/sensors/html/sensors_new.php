@@ -178,7 +178,7 @@ foreach ($result as $a) {
 </div>
 </div>
 
-<?php//*********************************************virtual?>
+<?php//*********************************************virtual****************************************?>
 
 <div class="panel panel-default">
 <div class="panel-heading">Virtual devices</div>
@@ -190,8 +190,6 @@ foreach ($result as $a) {
 		<th>ROM</th>
 		<th>Type</th>
 		<th>Device</th>
-		<th>Latitude</th>
-		<th>Longitude</th>
 		<th>Add</th>
 		<th></th>
 	</tr>

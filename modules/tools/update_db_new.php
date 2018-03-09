@@ -98,5 +98,8 @@ $updates['2018-03-05 09:29:00'][]="ALTER TABLE ownwidget ADD refresh TEXT";
 $updates['2018-03-05 09:29:00'][]="UPDATE ownwidget SET refresh='off'";
 //Virtual Sensors
 $updates['2018-03-09 09:29:46'][]="CREATE TABLE virtual (id INTEGER PRIMARY KEY, name TEXT , rom TEXT, type TEXT, device TEXT, lati TEXT, long TEXT, active TEXT)";
+$updates['2018-03-09 09:40:04'][]="INSERT INTO virtual  ('name', 'rom', 'type', 'device') VALUES ('Air_quality', 'Airly', 'airquality', 'virtual')";
+$updates['2018-03-09 09:40:04'][]="INSERT INTO virtual  ('name', 'rom', 'type', 'device') VALUES ('Air_quality_PM2.5', 'Airly', 'airqualitypm2.5', 'virtual')";
+$updates['2018-03-09 09:40:04'][]="INSERT INTO virtual  ('name', 'rom', 'type', 'device') VALUES ('Air_quality_PM10', 'Airly', 'airqualitypm10', 'virtual')";
 
 ?>
