@@ -22,15 +22,15 @@ try {
 	
 	foreach ($result as $vr) {
 		
-		
-		if (substr($vr['type'],0,3) == 'air'){
+		$local_type = $vr['type'];
+		if (substr($local_type,0,3) == 'air'){
 			
 			$lati = $vr['latitude'];
 			$long = $vr['longitude'];
 			$vrpi = $vr['apikey'];
 			$localid = $vr['id'];
 			$local_rom = $vr['rom'];
-			$local_type = $vr['type'];
+			//$local_type = $vr['type'];
 			$local_device = $vr['device'];
 			
 			
@@ -48,7 +48,7 @@ try {
 		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 			
 			
-		}
+}
 		
 		
 		
