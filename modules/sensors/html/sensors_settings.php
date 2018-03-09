@@ -748,6 +748,8 @@ $row = $rows->fetchAll();
     </td>
     
 	</tr>
+	
+	<?php if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'air') { ?>
 	<tr>
 	<td></td>
 	<td></td>
@@ -760,6 +762,9 @@ $row = $rows->fetchAll();
 	
 	
 	</tr>
+	<?php
+	}
+	?>
 
 
 <?php 
