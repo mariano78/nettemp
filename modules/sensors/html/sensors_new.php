@@ -3,7 +3,7 @@ $gpio = isset($_POST['gpio']) ? $_POST['gpio'] : '';
 $new_rom = isset($_POST['new_rom']) ? $_POST['new_rom'] : '';
 $type = isset($_POST['type']) ? $_POST['type'] : '';
 $ip = isset($_POST['ip']) ? $_POST['ip'] : '';
-$device = isset($_POST['device']) ? $_POST['device'] : '';
+$vdevice = isset($_POST['vdevice']) ? $_POST['vdevice'] : '';
 $vname = isset($_POST['vname']) ? $_POST['vname'] : '';
 
 
@@ -26,9 +26,9 @@ if ($delnew=='yes'){
 //ADD from NEWDEV 
 if(!empty($new_rom)) {
 	
-	if ($device == 'virtual') {
-		$name=$vname.mt_rand(0,10000);
-		$new_rom=$new_rom.mt_rand(0,10000);
+	if ($vdevice == 'virtual') {
+		$name=$vname.mt_rand(0,1000);
+		$new_rom=$new_rom.mt_rand(0,1000);
 				
 	} else {
 	$name=substr(rand(), 0, 4);
@@ -53,8 +53,8 @@ if(file_exists("db/".$new_rom.".sql")&& filesize("db/".$new_rom.".sql")!=0){
 	$device='sensors';
 
 	//SENOSRS ALL
-	if ($device == 'virtual') {
-		$db->exec("INSERT INTO sensors (rom,type,device,name) VALUES ('$new_rom','$type','$device','$name')");
+	if ($vdevice == 'virtual') {
+		$db->exec("INSERT INTO sensors (rom,type,device,name) VALUES ('$new_rom','$type','$vdevice','$name')");
 	} else {
 	$db->exec("INSERT INTO sensors (rom,type,device,ip,gpio,i2c,usb,name) SELECT rom,type,device,ip,gpio,i2c,usb,name FROM newdev WHERE rom='$new_rom'");
 	}
@@ -236,7 +236,7 @@ foreach ($resultv as $v) {
 			<input type="hidden" name="new_rom" value="<?php echo $v['rom']; ?>" >
 			<input type="hidden" name="type" value="<?php echo $v['type']; ?>" >
 			<input type="hidden" name="vname" value="<?php echo $v['name']; ?>" >
-			<input type="hidden" name="device" value="<?php echo $v['device']; ?>" >
+			<input type="hidden" name="vdevice" value="<?php echo $v['device']; ?>" >
 			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span> </button>
 		</form>
 	</td>
