@@ -1,8 +1,6 @@
 <?php
 $ROOT=dirname(dirname(dirname(__FILE__)));
  
-$date = date("Y-m-d H:i:s"); 
-$hostname=gethostname(); 
 
 try {
     $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
@@ -18,7 +16,7 @@ try {
 	$sth->execute();
 	$result = $sth->fetchAll();
 	
-	include("$ROOT/receiver.php");
+	//include("$ROOT/receiver.php");
 	
 	foreach ($result as $a) {
 		
