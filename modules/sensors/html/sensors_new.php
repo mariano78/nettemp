@@ -204,8 +204,8 @@ foreach ($result as $a) {
 		<th>ROM</th>
 		<th>Type</th>
 		<th>Device</th>
+		<th>Description</th>
 		<th>Add</th>
-		<th></th>
 	</tr>
 </thead>
 <tbody>
@@ -229,6 +229,9 @@ foreach ($resultv as $v) {
 	</td>
 	<td class="col-md-0">
 		<?php echo $v['device']; ?>
+	</td>
+	<td class="col-md-0">
+		<?php echo $v['description']; ?>
 	</td>
 	
 	<td class="col-md-0">

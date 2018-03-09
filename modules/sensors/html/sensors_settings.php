@@ -337,6 +337,17 @@ if ( $lcd == "lcd"){
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     } 
+	
+	$apikey = isset($_POST['apikey']) ? $_POST['apikey'] : '';
+    $api_id = isset($_POST['api_id']) ? $_POST['api_id'] : '';
+	$api = isset($_POST['api']) ? $_POST['api'] : '';
+	
+	if (!empty($api_id) && $api == "apiok"){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE sensors SET apikey='$apikey' WHERE id='$gps_id'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    } 
     
 ?> 
 
@@ -779,8 +790,15 @@ $row = $rows->fetchAll();
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
 	</td>
-	<td></td>
-	<td></td>
+	<td>API Key:</td>
+	<td>
+	<form action="" method="post" style="display:inline!important;"> 
+		<input type="hidden" name="api_id" value="<?php echo $a['id']; ?>" />
+		<input type="text" name="apikey" size="8" value="<?php echo $a['apikey']; ?>" />
+		<input type="hidden" name="api" value="apiok" />
+		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+    </form>
+	</td>
 	
 	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 	
