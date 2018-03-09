@@ -3,6 +3,8 @@ $gpio = isset($_POST['gpio']) ? $_POST['gpio'] : '';
 $new_rom = isset($_POST['new_rom']) ? $_POST['new_rom'] : '';
 $type = isset($_POST['type']) ? $_POST['type'] : '';
 $ip = isset($_POST['ip']) ? $_POST['ip'] : '';
+$device = isset($_POST['device']) ? $_POST['device'] : '';
+$vname = isset($_POST['vname']) ? $_POST['vname'] : '';
 
 
 $delallnewrom = isset($_POST['delallnewrom']) ? $_POST['delallnewrom'] : '';
@@ -23,9 +25,16 @@ if ($delnew=='yes'){
 
 //ADD from NEWDEV 
 if(!empty($new_rom)) {
+	
+	if ($device == 'virtual') {
+		$name=$vname.mt_rand(0,10000);
+		$new_rom=$new_rom.mt_rand(0,10000);
+				
+	} else {
 	$name=substr(rand(), 0, 4);
 	$map_num=substr(rand(), 0, 4);
 	$map_num2=substr(rand(), 0, 4);
+	}
 	
 //DB    
 if ($type=='elec' || $type=='water' || $type=='gas' || $type=='watt'|| $type=='gpio') {
@@ -219,10 +228,10 @@ foreach ($resultv as $v) {
 	
 	<td class="col-md-0">
 		<form action="" method="post" style="display:inline!important;">
-			<input type="hidden" name="vnew_rom" value="<?php echo $v['rom']; ?>" >
-			<input type="hidden" name="vtype" value="<?php echo $v['type']; ?>" >
+			<input type="hidden" name="new_rom" value="<?php echo $v['rom']; ?>" >
+			<input type="hidden" name="type" value="<?php echo $v['type']; ?>" >
 			<input type="hidden" name="vname" value="<?php echo $v['name']; ?>" >
-			<input type="hidden" name="vdevice" value="<?php echo $v['device']; ?>" >
+			<input type="hidden" name="device" value="<?php echo $v['device']; ?>" >
 			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span> </button>
 		</form>
 	</td>
