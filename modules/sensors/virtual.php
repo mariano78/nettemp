@@ -22,15 +22,15 @@ try {
 	
 	foreach ($result as $a) {
 		
-		
-		if (substr($a["type"],0,3) == 'air'){
+		$local_type = $a['type'];
+		if (substr($local_type,0,3) == 'air'){
 			
 			$lati = $a['latitude'];
 			$long = $a['longitude'];
 			$api = $a['apikey'];
 			$localid = $a['id'];
 			$local_rom = $a['rom'];
-			$local_type = $a['type'];
+			//$local_type = $a['type'];
 			$local_device = $a['device'];
 			
 			
