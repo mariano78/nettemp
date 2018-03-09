@@ -201,7 +201,7 @@ $db = new PDO('sqlite:dbf/nettemp.db');
 $sth = $db->prepare("SELECT * FROM virtual");
 $sth->execute();
 $resultv = $sth->fetchAll();
-foreach ($result as $v) {
+foreach ($resultv as $v) {
 ?>
 <tr>
 	<td class="col-md-0">
