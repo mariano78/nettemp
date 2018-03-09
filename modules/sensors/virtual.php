@@ -34,7 +34,7 @@ try {
 			$local_device = $vr['device'];
 			
 			
-	$json = file_get_contents('https://airapi.airly.eu/v1/nearestSensor/measurements?latitude=$lati&longitude=$long&maxDistance=1000&apikey=$api');
+	$json = file_get_contents('https://airapi.airly.eu/v1/nearestSensor/measurements?latitude=50.76197&longitude=19.0624&maxDistance=1000&apikey=dbad863c9c9c4516b8fcc33898b51393');
 	$obj = json_decode($json,true);
 	
 	if ($local_type == "airquality") {
