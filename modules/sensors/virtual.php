@@ -23,7 +23,7 @@ try {
 	foreach ($result as $vr) {
 		
 		$local_type = $vr['type'];
-		if (substr($local_type,0,3) == 'air'){
+		if (substr($local_type,0,2) == 'air'){
 			
 			$lati = $vr['latitude'];
 			$long = $vr['longitude'];
