@@ -186,16 +186,12 @@ foreach ($result as $a) {
 <table class="table table-hover table-condensed small">
 <thead>
 	<tr>
-		<th>ID</th>
-		<th>List*</th>
 		<th>Name</th>
 		<th>ROM</th>
 		<th>Type</th>
 		<th>Device</th>
-		<th>IP</th>
-		<th>GPIO</th>
-		<th>I2C</th>
-		<th>USB</th>
+		<th>Latitude</th>
+		<th>Longitude</th>
 		<th></th>
 		<th></th>
 	</tr>
