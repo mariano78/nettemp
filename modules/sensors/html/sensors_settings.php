@@ -790,11 +790,11 @@ $row = $rows->fetchAll();
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
 	</td>
-	<td>API Key:</td>
+	<td><label>API Key:</label></td>
 	<td>
 	<form action="" method="post" style="display:inline!important;"> 
 		<input type="hidden" name="api_id" value="<?php echo $a['id']; ?>" />
-		<input type="text" name="apikey" size="15" value="<?php echo $a['apikey']; ?>" />
+		<input type="text" name="apikey" size="17" value="<?php echo $a['apikey']; ?>" />
 		<input type="hidden" name="api" value="apiok" />
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
