@@ -45,6 +45,9 @@ try {
 		$local_val = round($obj["pm10"]);
 	}
 		include("$ROOT/receiver.php");	
+		echo $local_rom."\n";
+		echo $local_val."\n";
+		echo $local_type."\n";
 		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 			
 			
