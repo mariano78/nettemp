@@ -102,4 +102,7 @@ $updates['2018-03-09 10:40:04'][]="INSERT INTO virtual  ('name', 'rom', 'type', 
 $updates['2018-03-09 10:40:04'][]="INSERT INTO virtual  ('name', 'rom', 'type', 'device') VALUES ('Air_quality_PM2.5', 'Airly25', 'air_pm_25', 'virtual')";
 $updates['2018-03-09 10:40:04'][]="INSERT INTO virtual  ('name', 'rom', 'type', 'device') VALUES ('Air_quality_PM10', 'Airly10', 'air_pm_10', 'virtual')";
 
+$updates['2018-03-09 11:00:50'][]="ALTER TABLE sensors ADD latitude  TEXT";
+$updates['2018-03-09 11:00:50'][]="ALTER TABLE sensors ADD longitude  TEXT";
+
 ?>
