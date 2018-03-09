@@ -751,7 +751,10 @@ $row = $rows->fetchAll();
 	
 	<?php if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'air') { ?>
 	<tr>
-	<td class="col-md-4"></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
 	<td>Latitude:</td>
 	<td>Lval</td>
 	<td>Longitude:</td>
