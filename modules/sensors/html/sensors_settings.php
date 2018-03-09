@@ -749,7 +749,14 @@ $row = $rows->fetchAll();
     
 	</tr>
 	<tr>
-	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td>Latitude:</td>
+	<td>Lval</td>
+	<td>Longitude:</td>
+	<td>Langval</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 	
 	
 	</tr>
