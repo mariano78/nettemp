@@ -1,6 +1,8 @@
 <?php
 $ROOT=dirname(dirname(dirname(__FILE__)));
  
+$date = date("Y-m-d H:i:s"); 
+$hostname=gethostname(); 
 
 try {
     $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
@@ -16,23 +18,23 @@ try {
 	$sth->execute();
 	$result = $sth->fetchAll();
 	
-	//include("$ROOT/receiver.php");
+	include("$ROOT/receiver.php");
 	
-	foreach ($result as $a) {
+	foreach ($result as $vr) {
 		
-		$local_type = $a['type'];
-		if (substr($local_type,0,3) == 'air'){
+		
+		if (substr($vr['type'],0,3) == 'air'){
 			
-			$lati = $a['latitude'];
-			$long = $a['longitude'];
-			$api = $a['apikey'];
-			$localid = $a['id'];
-			$local_rom = $a['rom'];
-			//$local_type = $a['type'];
-			$local_device = $a['device'];
+			$lati = $vr['latitude'];
+			$long = $vr['longitude'];
+			$vrpi = $vr['apikey'];
+			$localid = $vr['id'];
+			$local_rom = $vr['rom'];
+			$local_type = $vr['type'];
+			$local_device = $vr['device'];
 			
 			
-	$json = file_get_contents('https://airapi.airly.eu/v1/nearestSensor/measurements?latitude=$lati&longitude=$long&maxDistance=1000&apikey=$api');
+	$json = file_get_contents('https://airapi.airly.eu/v1/nearestSensor/measurements?latitude=$lati&longitude=$long&maxDistance=1000&apikey=$vrpi');
 	$obj = json_decode($json,true);
 	
 	if ($local_type == "airquality") {
