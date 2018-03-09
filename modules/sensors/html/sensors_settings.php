@@ -323,6 +323,20 @@ if ( $lcd == "lcd"){
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     } 
+	
+	
+	$latitude = isset($_POST['latitude']) ? $_POST['latitude'] : '';
+    $longitude = isset($_POST['longitude']) ? $_POST['longitude'] : '';
+    $gps_id = isset($_POST['gps_id']) ? $_POST['gps_id'] : '';
+	$gps = isset($_POST['gps']) ? $_POST['gps'] : '';
+	
+	if (!empty($gps_id) && $gps == "gpsok"){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE sensors SET latitude='$latitude' WHERE id='$gps_id'") or die ($db->lastErrorMsg());
+    $db->exec("UPDATE sensors SET longitude='$longitude' WHERE id='$gps_id'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    } 
     
 ?> 
 
