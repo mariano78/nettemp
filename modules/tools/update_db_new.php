@@ -104,5 +104,7 @@ $updates['2018-03-09 10:40:04'][]="INSERT INTO virtual  ('name', 'rom', 'type', 
 
 $updates['2018-03-09 11:00:50'][]="ALTER TABLE sensors ADD latitude  TEXT";
 $updates['2018-03-09 11:00:50'][]="ALTER TABLE sensors ADD longitude  TEXT";
+$updates['2018-03-09 12:00:50'][]="ALTER TABLE sensors ADD apikey  TEXT";
+
 
 ?>
