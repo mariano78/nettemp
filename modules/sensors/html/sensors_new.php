@@ -192,7 +192,7 @@ foreach ($result as $a) {
 		<th>Device</th>
 		<th>Latitude</th>
 		<th>Longitude</th>
-		<th></th>
+		<th>Add</th>
 		<th></th>
 	</tr>
 </thead>
