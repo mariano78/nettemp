@@ -23,7 +23,7 @@ try {
 	foreach ($result as $a) {
 		
 		
-		if (substr($a['type'],0,3) == 'air'){
+		if (substr($a["type"],0,3) == 'air'){
 			
 			$lati = $a['latitude'];
 			$long = $a['longitude'];
