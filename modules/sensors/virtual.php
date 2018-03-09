@@ -1,8 +1,7 @@
 <?php
 $ROOT=dirname(dirname(dirname(__FILE__)));
  
-$date = date("Y-m-d H:i:s"); 
-$hostname=gethostname(); 
+include("$ROOT/receiver.php");	
 
 try {
     $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
@@ -44,7 +43,7 @@ try {
 	}elseif ($local_type == "air_pm_10") {
 		$local_val = round($obj["pm10"]);
 	}
-		include("$ROOT/receiver.php");	
+		
 		echo $local_rom."\n";
 		echo $local_val."\n";
 		echo $local_type."\n";
