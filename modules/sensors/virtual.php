@@ -38,12 +38,11 @@ try {
 	$obj = json_decode($json,true);
 	
 	if ($local_type == "airquality") {
-		
-		$local_val = round($obj["airQualityIndex"])
+		$local_val = round($obj["airQualityIndex"]);
 	}elseif ($local_type == "air_pm_25") {
-		$local_val = round($obj["pm25"])
+		$local_val = round($obj["pm25"]);
 	}elseif ($local_type == "air_pm_10") {
-		$local_val = round($obj["pm10"])
+		$local_val = round($obj["pm10"]);
 	}
 			
 		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
