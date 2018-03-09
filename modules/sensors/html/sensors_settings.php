@@ -756,11 +756,11 @@ $row = $rows->fetchAll();
 	<td></td>
 	<td></td>
 	<td><label>Lat/Long:</label></td>
-	<td><label>Lat/Long:</label>
+	<td>
 	<form action="" method="post" style="display:inline!important;"> 
 		<input type="hidden" name="gps_id" value="<?php echo $a['id']; ?>" />
-		<input type="text" name="latitude" size="2" value="<?php echo $a['latitude']; ?>" />
-		<input type="text" name="longitude" size="2" value="<?php echo $a['longitude']; ?>" />
+		<input type="text" name="latitude" size="3" value="<?php echo $a['latitude']; ?>" />
+		<input type="text" name="longitude" size="3" value="<?php echo $a['longitude']; ?>" />
 		<input type="hidden" name="gps" value="gpsok" />
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
