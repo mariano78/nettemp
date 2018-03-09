@@ -177,3 +177,43 @@ foreach ($result as $a) {
 </table>
 </div>
 </div>
+
+<?php//*********************************************virtual?>
+
+<div class="panel panel-default">
+<div class="panel-heading">Virtual devices</div>
+<div class="table-responsive">
+<table class="table table-hover table-condensed small">
+<thead>
+	<tr>
+		<th>ID</th>
+		<th>List*</th>
+		<th>Name</th>
+		<th>ROM</th>
+		<th>Type</th>
+		<th>Device</th>
+		<th>IP</th>
+		<th>GPIO</th>
+		<th>I2C</th>
+		<th>USB</th>
+		<th></th>
+		<th></th>
+	</tr>
+</thead>
+<tbody>
+
+<tr>
+	<td  colspan = "12">
+		<center>
+		<form action="" method="post">
+			<input type="hidden" name="delallnewrom" value="yes" >
+			<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> Remove all new device</button>
+		</form>
+		</center>
+	</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
