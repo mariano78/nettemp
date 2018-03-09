@@ -18,7 +18,7 @@ try {
 	$sth->execute();
 	$result = $sth->fetchAll();
 	
-	include("$ROOT/receiver.php");
+	
 	
 	foreach ($result as $vr) {
 		
@@ -44,7 +44,7 @@ try {
 	}elseif ($local_type == "air_pm_10") {
 		$local_val = round($obj["pm10"]);
 	}
-			
+		include("$ROOT/receiver.php");	
 		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 			
 			
