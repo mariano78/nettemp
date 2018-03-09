@@ -253,18 +253,6 @@ foreach ($resultv as $v) {
 }
 ?>
 	
-
-<tr>
-	<td  colspan = "12">
-		<center>
-		<form action="" method="post">
-			<input type="hidden" name="delallnewrom" value="yes" >
-			<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> Remove all new device</button>
-		</form>
-		</center>
-	</td>
-</tr>
-
 </tbody>
 </table>
 </div>
