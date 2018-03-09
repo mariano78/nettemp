@@ -216,6 +216,20 @@ foreach ($resultv as $v) {
 	<td class="col-md-0">
 		<?php echo $v['device']; ?>
 	</td>
+	
+	<td class="col-md-0">
+		<form action="" method="post" style="display:inline!important;">
+			<input type="hidden" name="vnew_rom" value="<?php echo $v['rom']; ?>" >
+			<input type="hidden" name="vtype" value="<?php echo $v['type']; ?>" >
+			<input type="hidden" name="vname" value="<?php echo $v['name']; ?>" >
+			<input type="hidden" name="vdevice" value="<?php echo $v['device']; ?>" >
+			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span> </button>
+		</form>
+	</td>
+	
+	
+	
+	
 </tr>
 
 <?php
