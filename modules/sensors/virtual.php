@@ -27,7 +27,7 @@ try {
 			
 			$lati = $vr['latitude'];
 			$long = $vr['longitude'];
-			$vrpi = $vr['apikey'];
+			$api = $vr['apikey'];
 			$localid = $vr['id'];
 			$local_rom = $vr['rom'];
 			//$local_type = $vr['type'];
