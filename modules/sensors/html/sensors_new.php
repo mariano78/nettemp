@@ -216,6 +216,7 @@ foreach ($resultv as $v) {
 	<td class="col-md-0">
 		<?php echo $v['device']; ?>
 	</td>
+</tr>
 	
 
 <tr>
