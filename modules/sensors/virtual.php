@@ -21,19 +21,22 @@ try {
 	
 	foreach ($result as $vr) {
 		
-		$local_type = $vr['type'];
-		if (substr($local_type,0,3) == 'air'){
+		
+		if (substr($vr['type'],0,3) == 'air'){
 			
 			$lati = $vr['latitude'];
 			$long = $vr['longitude'];
 			$api = $vr['apikey'];
 			$localid = $vr['id'];
 			$local_rom = $vr['rom'];
-			//$local_type = $vr['type'];
+			$local_type = $vr['type'];
 			$local_device = $vr['device'];
 			
 			
-	$json = file_get_contents('https://airapi.airly.eu/v1/nearestSensor/measurements?latitude=50.76197&longitude=19.0624&maxDistance=1000&apikey=dbad863c9c9c4516b8fcc33898b51393');
+	//$json = file_get_contents('https://airapi.airly.eu/v1/nearestSensor/measurements?latitude=50.76197&longitude=19.0624&maxDistance=1000&apikey=dbad863c9c9c4516b8fcc33898b51393');
+	
+	$json = file_get_contents('https://airapi.airly.eu/v1/nearestSensor/measurements?latitude=$lati&longitude=$long&maxDistance=1000&apikey=$api');
+	
 	$obj = json_decode($json,true);
 	
 	if ($local_type == "airquality") {
