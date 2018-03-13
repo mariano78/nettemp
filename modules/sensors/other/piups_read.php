@@ -23,7 +23,7 @@ try {
     if($dev=='none'){
     echo $date." No PiUPS USB Device.\n";
 	
-	$content = date('Y M d H:i:s')."-"."No PiUPS device\n";
+	$content = date('Y M d H:i:s')." -"." No PiUPS device\n";
 	logs($content);
     exit;
     }
@@ -49,6 +49,8 @@ try {
     $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 } catch (Exception $e) {
     echo $date." Could not connect to the database.\n";
+	$content = date('Y M d H:i:s')." -"." Could not connect to the database.\n";
+	logs($content);
     exit;
 }
 
@@ -66,7 +68,7 @@ try {
     if( count($data) != count($types) ){
         echo "Different number of array elements!\n";
 		
-		$content = date('Y M d H:i:s')."-"."Different number of array elements!\n";
+		$content = date('Y M d H:i:s')." -"." Different number of array elements!\n";
 		logs($content);
 		
         exit;
@@ -84,7 +86,7 @@ try {
 			if (($local_rom == 'UPS_id9') && ($local_val == '1')) {
 				
 					echo "Power 230 off\n";
-					$content = date('Y M d H:i:s')."-"."Power 230 is off\n";
+					$content = date('Y M d H:i:s')." -"." Power 230 is off\n";
 					logs($content);
 										
 					if ($count == '1') {
@@ -93,7 +95,7 @@ try {
 							 
 							 echo "--- Malina OFF ---\n"; 
 							 
-							 $content = date('Y M d H:i:s')."-"."Power 230 is off. Rpi shutdown now. \n";
+							 $content = date('Y M d H:i:s')." -"." Power 230 is off. Rpi shutdown now. \n";
 							 logs($content);
 							 
 							 $db->exec("UPDATE nt_settings SET value='0' WHERE option='ups_count'");
@@ -101,7 +103,7 @@ try {
 							 							 
 							 } else {
 									echo "--- Malina ON ---\n"; echo time(); echo " "; echo $tshutdown."\n";  
-									$content = date('Y M d H:i:s')."-"."Power 230 - off. Rpi counts the time to shutdown system.\n";
+									$content = date('Y M d H:i:s')." -"." Power 230 - off. Rpi counts the time to shutdown system.\n";
 									logs($content);
 									}
 						 
@@ -117,7 +119,7 @@ try {
 					 $db->exec("UPDATE nt_settings SET value='$timewhenoff' WHERE option='ups_toff_stop'");
 					 $db->exec("UPDATE nt_settings SET value='1' WHERE option='ups_count'");
 					 
-					$content = date('Y M d H:i:s')."-"."Power 230 - off. Rpi counts the time to shutdown system.\n";
+					$content = date('Y M d H:i:s')." -"." Power 230 is off. Rpi counts the time to shutdown system.\n";
 					logs($content);
 					}
 					
@@ -129,7 +131,7 @@ try {
 					
 					$db->exec("UPDATE nt_settings SET value='0' WHERE option='ups_count'");
 					echo "Battery discharged. Rpi goes to sleep.\n";
-					$content = date('Y M d H:i:s')."-"."Battery discharged. Rpi shutdown now.\n";
+					$content = date('Y M d H:i:s')." -"." Battery discharged. Rpi shutdown now.\n";
 					logs($content);
 					system ("sudo /sbin/shutdown -h now");
 					
