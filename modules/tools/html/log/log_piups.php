@@ -1,6 +1,6 @@
 <?php	
 $dir = '';
-$th_log_del = isset($_POST['piups_log_del']) ? $_POST['piups_log_del'] : '';
+$piups_log_del = isset($_POST['piups_log_del']) ? $_POST['piups_log_del'] : '';
 	if ($piups_log_del == "Clear"){
 	exec("echo log cleared > tmp/piups_log.txt");	
 	echo $dir; 
