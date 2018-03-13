@@ -4,6 +4,18 @@ $date = date("Y-m-d H:i:s");
 define("LOCAL","local");
 
 $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
+
+try {
+    $query = $db->query("SELECT dev FROM usb WHERE device='PiUPS'");
+    $result= $query->fetchAll();
+    foreach($result as $r) {
+     $dev=$r['dev'];
+    }
+    if($dev=='none'){
+    echo $date." No PiUPS USB Device.\n";
+    exit;
+    }
+    //unset($db);
 					
 					
 
@@ -30,17 +42,7 @@ try {
     exit;
 }
 
-try {
-    $query = $db->query("SELECT dev FROM usb WHERE device='PiUPS'");
-    $result= $query->fetchAll();
-    foreach($result as $r) {
-     $dev=$r['dev'];
-    }
-    if($dev=='none'){
-    echo $date." No PiUPS USB Device.\n";
-    exit;
-    }
-    //unset($db);
+
 
     include("$ROOT/receiver.php");
 	//$cmd=("exec 3<$dev && echo -n '\r' >$dev && echo -n 'D\r' >$dev && head -1 <&3; exec 3<&-");
@@ -53,10 +55,6 @@ try {
     $data=explode(" ",$out);
     var_dump($out);
     var_dump($data);
-	//echo $dev."\n";
-	
-	//$types=array('volt','volt','volt','amps','watt','temp','battery','trigger','trigger','trigger');
-    //$echoes=array('UPS Volt IN','UPS Volt Akku','UPS Volt OUT','UPS Amps','UPS Watt','UPS Temp','UPS Battery','UPS Power Trigger','UPS Volt Trigger','UPS Akku Trigger');
 
     $types=array('volt','volt','volt','amps','watt','temp','battery','trigger','trigger','trigger','trigger');
     $echoes=array('UPS Volt IN','UPS Volt Akku','UPS Volt OUT','UPS Amps','UPS Watt','UPS Temp','UPS Battery','UPS Power Trigger','UPS Volt Trigger','UPS Akku Trigger','UPS Temp Trigger');
@@ -71,14 +69,13 @@ try {
             $local_rom='UPS_id'.($i+1);
             $local_val=$data[$i];
             $local_type=$types[$i];
-            //echo $date.' '.$echoes[$i].': '.$data[$i]."\n";
+
             db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 			
 			if (($local_rom == 'UPS_id9') && ($local_val == '1')) {
 				
 					echo "Power 230 off\n";
-					
-					
+										
 					if ($count == '1') {
 						
 						 if ( time() > $tshutdown) {
@@ -86,8 +83,7 @@ try {
 							 echo "--- Malina OFF ---\n"; 
 							 $db->exec("UPDATE nt_settings SET value='0' WHERE option='ups_count'");
 							 system ("sudo /sbin/shutdown -h now");
-							 
-							 
+							 							 
 							 } else {echo "--- Malina ON ---\n"; echo time(); echo " "; echo $tshutdown."\n";  }
 						 
 					}else {
