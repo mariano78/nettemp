@@ -8,7 +8,7 @@ $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 					
 
 $query = $db->query("SELECT option,value FROM nt_settings WHERE option='ups_time_off' OR option='ups_toff_stop' OR  option='ups_toff_start' OR option='ups_count'");
-$result= $query->fetchAll();
+$result = $query->fetchAll();
 foreach($result as $a) {
 						
 	if($a['option']=='ups_count') {
@@ -95,7 +95,7 @@ try {
 					echo $ttoff."\n";
 					echo time()."\n";
 					$timecountstart = time();
-					$timewhenoff = time() + ($ttoff*60);
+					$timewhenoff = $timecountstart + ($ttoff*60);
 					
 					echo $timewhenoff."\n";
 					 $db->exec("UPDATE nt_settings SET value='$timecountstart' WHERE option='ups_toff_start'");
@@ -103,9 +103,15 @@ try {
 					 $db->exec("UPDATE nt_settings SET value='1' WHERE option='ups_count'");
 					}
 					
-				} 
+				} elseif (($local_rom == 'UPS_id9') && ($local_val == '0')) {echo "Power 230 on\n";} 
 				
-			elseif (($local_rom == 'UPS_id9') && ($local_val == '0')) {echo "Power 230 on\n";} 
+				if (($local_rom == 'UPS_id10') && ($local_val == '1')) {
+					
+					$db->exec("UPDATE nt_settings SET value='0' WHERE option='ups_count'");
+					echo "Battery discharged. Rpi goes to sleep.\n";
+					system ("sudo /sbin/shutdown -h now");
+					
+				}
 		}		
     }
 
