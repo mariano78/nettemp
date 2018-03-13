@@ -3,6 +3,15 @@ $ROOT=dirname(dirname(dirname(dirname(__FILE__))));
 $date = date("Y-m-d H:i:s");
 define("LOCAL","local");
 
+function logs($content){
+global $ROOT;
+
+	$f = fopen("$ROOT/tmp/piups_log.txt", "a");
+
+fwrite($f, $content);
+fclose($f); 
+}
+
 $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 
 try {
@@ -17,8 +26,6 @@ try {
     }
     //unset($db);
 					
-					
-
 $query = $db->query("SELECT option,value FROM nt_settings WHERE option='ups_time_off' OR option='ups_toff_stop' OR  option='ups_toff_start' OR option='ups_count'");
 $result = $query->fetchAll();
 foreach($result as $a) {
@@ -42,15 +49,9 @@ try {
     exit;
 }
 
-
-
     include("$ROOT/receiver.php");
-	//$cmd=("exec 3<$dev && echo -n '\r' >$dev && echo -n 'D\r' >$dev && head -1 <&3; exec 3<&-");
 	$cmd=("exec 3<$dev && echo -n 'D\r' >$dev && head -1 <&3; exec 3<&-");
-	
-	
     $out=shell_exec($cmd);
-
     $out=trim($out);
     $data=explode(" ",$out);
     var_dump($out);
@@ -61,6 +62,10 @@ try {
 
     if( count($data) != count($types) ){
         echo "Different number of array elements!\n";
+		
+		$content = date('Y M d H:i:s')."-"."Different number of array elements!\n";
+		logs($content);
+		
         exit;
     }else{
         $local_device='usb';
@@ -72,19 +77,30 @@ try {
 
             db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 			
+//trigger 230v action
 			if (($local_rom == 'UPS_id9') && ($local_val == '1')) {
 				
 					echo "Power 230 off\n";
+					$content = date('Y M d H:i:s')."-"."Power 230 is off\n";
+					logs($content);
 										
 					if ($count == '1') {
 						
 						 if ( time() > $tshutdown) {
 							 
 							 echo "--- Malina OFF ---\n"; 
+							 
+							 $content = date('Y M d H:i:s')."-"."Power 230 is off. Rpi shutdown now. \n";
+							 logs($content);
+							 
 							 $db->exec("UPDATE nt_settings SET value='0' WHERE option='ups_count'");
 							 system ("sudo /sbin/shutdown -h now");
 							 							 
-							 } else {echo "--- Malina ON ---\n"; echo time(); echo " "; echo $tshutdown."\n";  }
+							 } else {
+									echo "--- Malina ON ---\n"; echo time(); echo " "; echo $tshutdown."\n";  
+									$content = date('Y M d H:i:s')."-"."Power 230 - off. Rpi counts the time to shutdown system.\n";
+									logs($content);
+									}
 						 
 					}else {
 				
@@ -97,14 +113,21 @@ try {
 					 $db->exec("UPDATE nt_settings SET value='$timecountstart' WHERE option='ups_toff_start'");
 					 $db->exec("UPDATE nt_settings SET value='$timewhenoff' WHERE option='ups_toff_stop'");
 					 $db->exec("UPDATE nt_settings SET value='1' WHERE option='ups_count'");
+					 
+					$content = date('Y M d H:i:s')."-"."Power 230 - off. Rpi counts the time to shutdown system.\n";
+					logs($content);
 					}
 					
 				} elseif (($local_rom == 'UPS_id9') && ($local_val == '0')) {echo "Power 230 on\n";} 
 				
+//trigger Battery discharged action
+
 				if (($local_rom == 'UPS_id10') && ($local_val == '1')) {
 					
 					$db->exec("UPDATE nt_settings SET value='0' WHERE option='ups_count'");
 					echo "Battery discharged. Rpi goes to sleep.\n";
+					$content = date('Y M d H:i:s')."-"."Battery discharged. Rpi shutdown now.\n";
+					logs($content);
 					system ("sudo /sbin/shutdown -h now");
 					
 				}
