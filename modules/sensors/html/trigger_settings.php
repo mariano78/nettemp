@@ -23,7 +23,7 @@ $oneclr = isset($_POST['oneclr']) ? $_POST['oneclr'] : '';
     exit();
     } 
 
-$rows_trig = $db->query("SELECT rom, name, trigzero, trigone, trigzeroclr, trigoneclr FROM sensors WHERE type='trigger' ORDER BY position ASC ");
+$rows_trig = $db->query("SELECT rom, name, trigzero, trigone, trigzeroclr, trigoneclr, sms, mail, script FROM sensors WHERE type='trigger' ORDER BY position ASC ");
 $rowtr = $rows_trig->fetchAll();
 $labels = array('label-default', 'label-primary', 'label-success', 'label-info', 'label-danger');
 ?>
@@ -45,7 +45,7 @@ foreach($rowtr as $tr) { ?>
 </td>
 
 <td class="col-md-0">
-<form action="" method="post" class="form-inline" style="display:inline!important;"> 
+	<form action="" method="post" class="form-inline" style="display:inline!important;"> 
 		<input type="hidden" name="trigrom" value="<?php echo $tr['rom']; ?>" />
 		<label>Bind value:</label>
 		<input type="text" name="trigzero" size="10" value="<?php echo $tr['trigzero']; ?>" />
@@ -57,11 +57,11 @@ foreach($rowtr as $tr) { ?>
 		</select>
 		<input type="hidden" name="trigupdatez" value="trigupdatez" />
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
-</form>
+	</form>
 </td>
 
 <td class="col-md-0">
-<form action="" method="post" class="form-inline" style="display:inline!important;"> 
+	<form action="" method="post" class="form-inline" style="display:inline!important;"> 
 		<input type="hidden" name="trigrom" value="<?php echo $tr['rom']; ?>" />
 		<label>Bind value:</label>
 		<input type="text" name="trigone" size="10" value="<?php echo $tr['trigone']; ?>" />
@@ -74,13 +74,34 @@ foreach($rowtr as $tr) { ?>
 		</select>
 		<input type="hidden" name="trigupdateo" value="trigupdateo" />
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
-</form>
+	</form>
 </td>
 <td class="col-md-1">
+
+	<form action="" method="post" style="display:inline!important;">
+		<input type="hidden" name="rom" value="<?php echo $tr['rom']; ?>" />
+		<input type="checkbox" data-toggle="toggle" data-size="mini"  name="alarm" value="on" <?php echo $tr["ssms"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+		<input type="hidden" name="smsonoff" value="smsonoff" />
+    </form>
 </td>
 <td class="col-md-1">
+
+	<form action="" method="post" style="display:inline!important;">
+		<input type="hidden" name="rom" value="<?php echo $tr['rom']; ?>" />
+		<input type="checkbox" data-toggle="toggle" data-size="mini"  name="alarm" value="on" <?php echo $tr["smail"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+		<input type="hidden" name="mailonoff" value="mailonoff" />
+    </form>
 </td>
+
 <td class="col-md-1">
+
+	<form action="" method="post" style="display:inline!important;">
+		<input type="text" name="script_path" size="10" maxlength="30" value="<?php echo $tr["script"]; ?>" />
+		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+		<input type="hidden" name="rom" value="<?php echo $tr["rom"]; ?>" />
+		<input type="hidden" name="scriptp" value="scriptp"/>
+    </form>
+
 </td>
 <td class="col-md-3">
 </td>

@@ -107,6 +107,8 @@ $updates['2018-03-09 12:00:50'][]="ALTER TABLE sensors ADD apikey  TEXT";
 $updates['2018-03-09 14:50:23'][]="INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('airquality', 'CAQI', 'CAQI', 'media/ico/airly.png' ,'Air Quality','0', '100')";
 $updates['2018-03-09 14:50:23'][]="INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('air_pm_25', 'μg/m3', 'μg/m3', 'media/ico/airly.png' ,'PM 2.5','0', '1000')";
 $updates['2018-03-09 14:50:23'][]="INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('air_pm_10', 'μg/m3', 'μg/m3', 'media/ico/airly.png' ,'PM 10','0', '1000')";
-
-
+// SMS, MAIL, SCRIPT - sensors - Trigger
+$updates['2018-03-15 08:48:41'][]="ALTER TABLE sensors ADD ssms  TEXT";
+$updates['2018-03-15 08:48:41'][]="ALTER TABLE sensors ADD smail  TEXT";
+$updates['2018-03-15 08:48:41'][]="ALTER TABLE sensors ADD script  TEXT";
 ?>
