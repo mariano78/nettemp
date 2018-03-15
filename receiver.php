@@ -163,6 +163,8 @@ function trigger($rom, $val) {
 		
     }
 	
+	$to = implode(', ', $to);
+	
 	// from 0 to 1
 	if ($val > $oldval) {
 		
@@ -198,7 +200,7 @@ function trigger($rom, $val) {
 		
 	}
    
-    $to = implode(', ', $to);
+    
 	
 	
  //   if(mail($to, $mail_topic, "Trigger ALARM $name" )) {
