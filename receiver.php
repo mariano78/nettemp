@@ -166,17 +166,35 @@ function trigger($rom, $val) {
 	// from 0 to 1
 	if ($val > $oldval) {
 		
-		if ($sms == 'on') {}
-		if ($mail == 'on') {mail($to, $mail_topic, "Trigger ALARM $name" )}
-		if (!empty($pscript)) {}
+		if ($sms == 'on') {
+			echo "";
+		}
+		if ($mail == 'on') {
+			mail($to, $mail_topic, "Trigger ALARM $name" )
+			
+			}
+		if (!empty($pscript)) {
+			
+			echo "";
+		}
 		
 		
 	// from 1 to 0	
 	}elseif ($val < $oldval) {
 		
-		if ($sms == 'on') {}
-		if ($mail == 'on') {mail($to, $mail_topic, "Trigger Recovery $name" )}
-		if (!empty($pscript1)) {}
+		if ($sms == 'on') {
+			
+			echo "";
+		}
+		if ($mail == 'on') {
+			
+			mail($to, $mail_topic, "Trigger Recovery $name" )
+			
+			}
+		if (!empty($pscript1)) {
+			
+			echo "";
+		}
 		
 	}
    
