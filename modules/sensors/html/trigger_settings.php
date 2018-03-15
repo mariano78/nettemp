@@ -23,7 +23,7 @@ $oneclr = isset($_POST['oneclr']) ? $_POST['oneclr'] : '';
     exit();
     } 
 
-$rows_trig = $db->query("SELECT rom, name, trigzero, trigone, trigzeroclr, trigoneclr, sms, mail, script FROM sensors WHERE type='trigger' ORDER BY position ASC ");
+$rows_trig = $db->query("SELECT rom, name, trigzero, trigone, trigzeroclr, trigoneclr, ssms, smail, script FROM sensors WHERE type='trigger' ORDER BY position ASC ");
 $rowtr = $rows_trig->fetchAll();
 $labels = array('label-default', 'label-primary', 'label-success', 'label-info', 'label-danger');
 ?>
