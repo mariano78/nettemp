@@ -118,7 +118,8 @@ foreach($rowtr as $tr) { ?>
 
 	<form action="" method="post" style="display:inline!important;">
 		<input type="hidden" name="smsrom" value="<?php echo $tr['rom']; ?>" />
-		<input type="checkbox" data-toggle="toggle" data-size="mini"  name="ssms" value="<?php echo $tr["ssms"] == 'on' ? 'off' : 'on'; ?>" <?php echo $tr["ssms"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+		
+		<button type="submit" name="ssms" value="<?php echo $tr["ssms"] == 'on' ? 'off' : 'on'; ?>" <?php echo $tr["ssms"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
 		<input type="hidden" name="smsonoff" value="smsonoff" />
     </form>
 </td>
