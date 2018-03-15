@@ -79,16 +79,16 @@ foreach($rowtr as $tr) { ?>
 <td class="col-md-1">
 
 	<form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="rom" value="<?php echo $tr['rom']; ?>" />
-		<input type="checkbox" data-toggle="toggle" data-size="mini"  name="alarm" value="on" <?php echo $tr["ssms"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+		<input type="hidden" name="smsrom" value="<?php echo $tr['rom']; ?>" />
+		<input type="checkbox" data-toggle="toggle" data-size="mini"  name="ssms" value="on" <?php echo $tr["ssms"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
 		<input type="hidden" name="smsonoff" value="smsonoff" />
     </form>
 </td>
 <td class="col-md-1">
 
 	<form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="rom" value="<?php echo $tr['rom']; ?>" />
-		<input type="checkbox" data-toggle="toggle" data-size="mini"  name="alarm" value="on" <?php echo $tr["smail"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+		<input type="hidden" name="mailrom" value="<?php echo $tr['rom']; ?>" />
+		<input type="checkbox" data-toggle="toggle" data-size="mini"  name="smail" value="on" <?php echo $tr["smail"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
 		<input type="hidden" name="mailonoff" value="mailonoff" />
     </form>
 </td>
@@ -98,7 +98,7 @@ foreach($rowtr as $tr) { ?>
 	<form action="" method="post" style="display:inline!important;">
 		<input type="text" name="script_path" size="10" maxlength="30" value="<?php echo $tr["script"]; ?>" />
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
-		<input type="hidden" name="rom" value="<?php echo $tr["rom"]; ?>" />
+		<input type="hidden" name="scriptrom" value="<?php echo $tr["rom"]; ?>" />
 		<input type="hidden" name="scriptp" value="scriptp"/>
     </form>
 
