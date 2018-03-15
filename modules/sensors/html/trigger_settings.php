@@ -35,7 +35,9 @@ $labels = array('label-default', 'label-primary', 'label-success', 'label-info',
 <th>Trigger name</th>
 <th>Settings for value = 0</th>
 <th>Settings for value = 1</th>
-<th></th>
+<th>SMS</th>
+<th>Mail</th>
+<th>Script</th>
 <?php
 foreach($rowtr as $tr) { ?>
 <tr>
@@ -74,7 +76,13 @@ foreach($rowtr as $tr) { ?>
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 </form>
 </td>
-<td class="col-md-6">
+<td class="col-md-1">
+</td>
+<td class="col-md-1">
+</td>
+<td class="col-md-1">
+</td>
+<td class="col-md-3">
 </td>
 
 </tr>
