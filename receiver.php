@@ -143,7 +143,7 @@ function scale($val,$type) {
     //$dbr=null;
 }
 
-function trigger($rom) {
+function trigger($rom, $val) {
 	$dbr = new PDO("sqlite:".__DIR__."/dbf/nettemp.db") or die ("cannot open database");
     $sthr = $dbr->query("SELECT mail FROM users WHERE maila='yes'");
     $row = $sthr->fetchAll();
@@ -151,13 +151,38 @@ function trigger($rom) {
 		$to[]=$row['mail'];   
     }
    
-    $sthr = $dbr->query("SELECT name FROM sensors WHERE rom='$rom'");
+    $sthr = $dbr->query("SELECT name, tmp, ssms, smail, script, script1 FROM sensors WHERE rom='$rom'");
     $row = $sthr->fetchAll();
     foreach($row as $row) {
-		$name=$row['name'];   
+		$name = $row['name'];   
+		$oldval = $row['tmp'];
+		$sms = $row['ssms'];
+		$mail = $row['smail'];
+		$pscript = $row['script'];
+		$pscript1 = $row['script1'];
+		
     }
+	
+	// from 0 to 1
+	if ($val > $oldval) {
+		
+		if ($sms == 'on') {}
+		if ($mail == 'on') {}
+		if (!empty($pscript)) {}
+		
+		
+	// from 1 to 0	
+	}elseif ($val < $oldval) {
+		
+		if ($sms == 'on') {}
+		if ($mail == 'on') {}
+		if (!empty($pscript1)) {}
+		
+	}
    
     $to = implode(', ', $to);
+	
+	
     if(mail($to, $mail_topic, "Trigger ALARM $name" )) {
 		echo "ok\n";
     } else {
@@ -247,8 +272,11 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 					}
 		
 					if ($type == 'trigger') {
+						
+						trigger($rom,$val);
+						
 						$dbr->exec("UPDATE sensors SET tmp='$val' WHERE rom='$rom'") or die ("cannot insert to trigger status2\n");
-						trigger($rom);
+						
 					}
 					//sensors status
 					else {
