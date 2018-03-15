@@ -1,5 +1,5 @@
 <?php
-$trigzero= isset($_POST['trigzero']) ? $_POST['trigzero'] : '';
+$trigzero = isset($_POST['trigzero']) ? $_POST['trigzero'] : '';
 $trigone = isset($_POST['trigone']) ? $_POST['trigone'] : '';
 $trigrom = isset($_POST['trigrom']) ? $_POST['trigrom'] : '';
 $trigupdatez = isset($_POST['trigupdatez']) ? $_POST['trigupdatez'] : '';
@@ -22,6 +22,44 @@ $oneclr = isset($_POST['oneclr']) ? $_POST['oneclr'] : '';
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     } 
+	
+	
+$smsrom = isset($_POST['smsrom']) ? $_POST['smsrom'] : '';
+$ssms = isset($_POST['ssms']) ? $_POST['ssms'] : '';
+$smsonoff = isset($_POST['smsonoff']) ? $_POST['smsonoff'] : '';
+
+	if ( !empty($smsonoff) && ($smsonoff == "smsonoff")){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("UPDATE sensors SET ssms='$ssms' WHERE rom='$smsrom'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    } 
+
+$mailrom = isset($_POST['mailrom']) ? $_POST['mailrom'] : '';
+$smail = isset($_POST['smail']) ? $_POST['smail'] : '';
+$mailonoff = isset($_POST['mailonoff']) ? $_POST['mailonoff'] : '';
+
+	if ( !empty($mailonoff) && ($mailonoff == "mailonoff")){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("UPDATE sensors SET smail='$smail' WHERE rom='$mailrom'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    } 
+
+$scriptrom = isset($_POST['scriptrom']) ? $_POST['scriptrom'] : '';
+$script_path = isset($_POST['script_path']) ? $_POST['script_path'] : '';
+$scriptp = isset($_POST['scriptp']) ? $_POST['scriptp'] : '';
+
+	if ( !empty($scriptp) && ($scriptp == "scriptp")){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("UPDATE sensors SET script='$script_path' WHERE rom='$scriptrom'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    } 
+
+
+
+
 
 $rows_trig = $db->query("SELECT rom, name, trigzero, trigone, trigzeroclr, trigoneclr, ssms, smail, script FROM sensors WHERE type='trigger' ORDER BY position ASC ");
 $rowtr = $rows_trig->fetchAll();
