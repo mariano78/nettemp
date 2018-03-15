@@ -111,7 +111,7 @@ $updates['2018-03-09 14:50:23'][]="INSERT OR IGNORE INTO types (type, unit, unit
 $updates['2018-03-15 08:48:41'][]="ALTER TABLE sensors ADD ssms  TEXT";
 $updates['2018-03-15 08:48:41'][]="ALTER TABLE sensors ADD smail  TEXT";
 $updates['2018-03-15 08:48:41'][]="ALTER TABLE sensors ADD script  TEXT";
-$updates['2018-03-15 08:48:42'][]="ALTER TABLE sensors ADD script1  TEXT";
+$updates['2018-03-15 08:49:42'][]="ALTER TABLE sensors ADD script1  TEXT";
 $updates['2018-03-15 09:17:10'][]="UPDATE sensors SET ssms='off'";
 $updates['2018-03-15 09:17:10'][]="UPDATE sensors SET smail='off'";
 ?>
