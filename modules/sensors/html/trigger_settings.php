@@ -146,7 +146,7 @@ foreach($rowtr as $tr) { ?>
 <td class="col-md-1">
 
 	<form action="" method="post" style="display:inline!important;">
-		<input type="text" name="script_path" size="15" maxlength="50" value="<?php echo $tr["script"]; ?>" />
+		<input type="text" name="script_path" size="15" maxlength="40" value="<?php echo $tr["script"]; ?>" />
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 		<input type="hidden" name="scriptrom" value="<?php echo $tr["rom"]; ?>" />
 		<input type="hidden" name="scriptp" value="scriptp"/>
@@ -156,7 +156,7 @@ foreach($rowtr as $tr) { ?>
 <td class="col-md-1">
 
 	<form action="" method="post" style="display:inline!important;">
-		<input type="text" name="script_path1" size="15" maxlength="50" value="<?php echo $tr["script1"]; ?>" />
+		<input type="text" name="script_path1" size="15" maxlength="40" value="<?php echo $tr["script1"]; ?>" />
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 		<input type="hidden" name="scriptrom1" value="<?php echo $tr["rom"]; ?>" />
 		<input type="hidden" name="scriptp1" value="scriptp1"/>
