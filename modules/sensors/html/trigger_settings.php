@@ -163,7 +163,7 @@ foreach($rowtr as $tr) { ?>
     </form>
 
 </td>
-<td class="col-md-2">
+<td class="col-md-1">
 </td>
 
 </tr>
