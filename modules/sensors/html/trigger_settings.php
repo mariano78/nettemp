@@ -56,6 +56,17 @@ $scriptp = isset($_POST['scriptp']) ? $_POST['scriptp'] : '';
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     } 
+	
+$scriptrom1 = isset($_POST['scriptrom1']) ? $_POST['scriptrom1'] : '';
+$script_path1 = isset($_POST['script_path1']) ? $_POST['script_path1'] : '';
+$scriptp1 = isset($_POST['scriptp']) ? $_POST['scriptp1'] : '';
+
+	if ( !empty($scriptp1) && ($scriptp1 == "scriptp1")){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("UPDATE sensors SET script1='$script_path1' WHERE rom='$scriptrom1'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    } 
 
 
 
@@ -141,7 +152,17 @@ foreach($rowtr as $tr) { ?>
     </form>
 
 </td>
-<td class="col-md-3">
+<td class="col-md-1">
+
+	<form action="" method="post" style="display:inline!important;">
+		<input type="text" name="script_path1" size="10" maxlength="30" value="<?php echo $tr["script1"]; ?>" />
+		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+		<input type="hidden" name="scriptrom1" value="<?php echo $tr["rom"]; ?>" />
+		<input type="hidden" name="scriptp1" value="scriptp1"/>
+    </form>
+
+</td>
+<td class="col-md-2">
 </td>
 
 </tr>
