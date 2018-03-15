@@ -86,7 +86,8 @@ $labels = array('label-default', 'label-primary', 'label-success', 'label-info',
 <th>Settings for value = 1</th>
 <th>SMS</th>
 <th>Mail</th>
-<th>Script</th>
+<th>Script 0->1</th>
+<th>Script 1->0</th>
 <?php
 foreach($rowtr as $tr) { ?>
 <tr>
