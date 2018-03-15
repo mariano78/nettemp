@@ -170,7 +170,7 @@ function trigger($rom, $val) {
 			echo "";
 		}
 		if ($mail == 'on') {
-			mail($to, $mail_topic, "Trigger ALARM $name" )
+			mail($to, $mail_topic, "Trigger ALARM $name" );
 			
 			}
 		if (!empty($pscript)) {
@@ -188,7 +188,7 @@ function trigger($rom, $val) {
 		}
 		if ($mail == 'on') {
 			
-			mail($to, $mail_topic, "Trigger Recovery $name" )
+			mail($to, $mail_topic, "Trigger Recovery $name" );
 			
 			}
 		if (!empty($pscript1)) {
