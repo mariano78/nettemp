@@ -59,7 +59,7 @@ $scriptp = isset($_POST['scriptp']) ? $_POST['scriptp'] : '';
 	
 $scriptrom1 = isset($_POST['scriptrom1']) ? $_POST['scriptrom1'] : '';
 $script_path1 = isset($_POST['script_path1']) ? $_POST['script_path1'] : '';
-$scriptp1 = isset($_POST['scriptp']) ? $_POST['scriptp1'] : '';
+$scriptp1 = isset($_POST['scriptp1']) ? $_POST['scriptp1'] : '';
 
 	if ( !empty($scriptp1) && ($scriptp1 == "scriptp1")){
     $db = new PDO('sqlite:dbf/nettemp.db');
