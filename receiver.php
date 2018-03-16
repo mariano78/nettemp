@@ -248,8 +248,8 @@ function trigger($rom, $val) {
 
 		}
 		if ($mail == 'on') {
-			
-			mail($mailto, "Trigger RECOVERY info from nettemp", "Trigger: $name *** Recovery ***" );
+			$topic = "Trigger RECOVERY info from nettemp"
+			mail($mailto, $topic, "Trigger: $name *** Recovery ***" );
 			
 			}
 		if (!empty($pscript1)) {
