@@ -223,30 +223,30 @@ function trigger($rom, $val) {
 		if ($sms == 'on') {
 			
 			for ($x = 0, $cnt = count($smsto); $x < $cnt; $x++){
-				
+			
 			$date = date('H:i:s');
 			$msg = $date." - ".$name." - RECOVERY";
 			$sms = "To: ".$smsto[$x]."\n\n".$msg;
 			
-			$fsms = fopen("/tmp/".$date."sms", 'a+');
+			$filepath = "tmp/sms/message_".$date.".sms";
+			$fsms = fopen($filepath, 'a+');
 			
 			fwrite($fsms, $sms);
 			fclose($fsms);
 			
-			$ftosend = "/var/spool/sms/outgoing/";
-			echo $fsms."/n";
-			echo $ftosend."/n";
-			if (!copy($fsms, $ftosend)) {
+			$ftosend = "/var/spool/sms/outgoing/message_".$date.".sms";
+	
+			if (!copy($filepath, $ftosend)) {
 			echo "Send failed.\n";
 			} else {
 				echo "Send OK.\n";
 			}
+			unlink($filepath);
 				
-			$content = $date." - ".$name." - !!! RECOVERY !!!\n";
+			$content = $date." - ".$name." - *** RECOVERY ***\n";
 			logs($content);
-			
 			}
-
+			
 		}
 		if ($mail == 'on') {
 			$topic = "Trigger RECOVERY info from nettemp";
