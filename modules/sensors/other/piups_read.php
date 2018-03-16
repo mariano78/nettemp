@@ -82,9 +82,9 @@ try {
 //trigger 230v action
 			if (($local_rom == 'UPS_id9') && ($local_val == '1')) {
 				
-					//echo "Power 230 off\n";
-					//$content = date('Y M d H:i:s')." -"." Power 230 is off\n";
-					//logs($content);
+					echo "Power 230 off\n";
+					$content = date('Y M d H:i:s')." -"." Power 230 is off\n";
+					logs($content);
 										
 					if ($count == '1') {
 						

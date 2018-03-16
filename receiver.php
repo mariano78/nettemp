@@ -181,20 +181,16 @@ function trigger($rom, $val) {
 		if ($sms == 'on') {
 			
 			for ($x = 0, $cnt = count($smsto); $x < $cnt; $x++){
-			
 			$random=substr(rand(), 0, 4);
 			$date = date('H:i:s');
 			$msg = $date." - ".$name." - ALARM";
 			$sms = "To: ".$smsto[$x]."\n\n".$msg;
-			
 			$filepath = "tmp/sms/message_".$date."_".$random.".sms";
 			$fsms = fopen($filepath, 'a+');
-			
 			fwrite($fsms, $sms);
 			fclose($fsms);
-			
 			$ftosend = "/var/spool/sms/outgoing/message_".$date."_".$random.".sms";
-	
+			
 			if (!copy($filepath, $ftosend)) {
 			echo "Send failed.\n";
 			} else {
@@ -205,7 +201,7 @@ function trigger($rom, $val) {
 			$content = $date." - ".$name." - !!! ALARM !!!\n";
 			logs($content);
 			}
-			
+
 		}
 		if ($mail == 'on') {
 			$topic = "Trigger ALARM info from nettemp";
@@ -224,18 +220,14 @@ function trigger($rom, $val) {
 		if ($sms == 'on') {
 			
 			for ($x = 0, $cnt = count($smsto); $x < $cnt; $x++){
-			
 			$random=substr(rand(), 0, 4);
 			$date = date('H:i:s');
 			$msg = $date." - ".$name." - RECOVERY";
 			$sms = "To: ".$smsto[$x]."\n\n".$msg;
-			
 			$filepath = "tmp/sms/message_".$date."_".$random.".sms";
 			$fsms = fopen($filepath, 'a+');
-			
 			fwrite($fsms, $sms);
 			fclose($fsms);
-			
 			$ftosend = "/var/spool/sms/outgoing/message_".$date."_".$random.".sms";
 	
 			if (!copy($filepath, $ftosend)) {
@@ -244,11 +236,9 @@ function trigger($rom, $val) {
 				echo "Send OK.\n";
 			}
 			unlink($filepath);
-				
 			$content = $date." - ".$name." - *** RECOVERY ***\n";
 			logs($content);
 			}
-			
 		}
 		if ($mail == 'on') {
 			$topic = "Trigger RECOVERY info from nettemp";
@@ -261,17 +251,6 @@ function trigger($rom, $val) {
 		}
 		
 	}
-   
-    
-	
-	
- //   if(mail($to, $mail_topic, "Trigger ALARM $name" )) {
-//		echo "ok\n";
- //   } else {
-//		echo "error\n";
-  //  }
-    //$sthr=null;
-    //$dbr=null;
 
 }
 
