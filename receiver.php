@@ -205,7 +205,7 @@ function trigger($rom, $val) {
 			
 		}
 		if ($mail == 'on') {
-			mail($to, "Trigger ALARM info from nettemp", "Trigger: $name !!! ALARM !!!" );
+			mail($mailto, "Trigger ALARM info from nettemp", "Trigger: $name !!! ALARM !!!" );
 			
 			}
 		if (!empty($pscript)) {
@@ -245,7 +245,7 @@ function trigger($rom, $val) {
 		}
 		if ($mail == 'on') {
 			
-			mail($to, "Trigger RECOVERY info from nettemp", "Trigger: $name *** Recovery ***" );
+			mail($mailto, "Trigger RECOVERY info from nettemp", "Trigger: $name *** Recovery ***" );
 			
 			}
 		if (!empty($pscript1)) {
