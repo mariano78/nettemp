@@ -181,7 +181,7 @@ function trigger($rom, $val) {
 		if ($sms == 'on') {
 			
 			for ($x = 0, $cnt = count($smsto); $x < $cnt; $x++){
-			
+			echo $cnt;
 			$date = time();
 			$msg = $date." - ".$name." - ALARM";
 			$sms = "To: ".$smsto[$x]."\n\n".$msg;
