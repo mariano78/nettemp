@@ -94,7 +94,7 @@ $local_usb='';
 function logs($content){
 global $ROOT;
 
-	$f = fopen("$ROOT/tmp/incoming_sms.txt", "a");
+	$f = fopen("tmp/incoming_sms.txt", "a");
 
 fwrite($f, $content);
 fclose($f); 
@@ -180,7 +180,6 @@ function trigger($rom, $val) {
 				
 		if ($sms == 'on') {
 			
-			
 			for ($x = 0, $cnt = count($smsto); $x < $cnt; $x++){
 			
 			$date = date('H:i:s');
@@ -193,7 +192,6 @@ function trigger($rom, $val) {
 			fwrite($fsms, $sms);
 			fclose($fsms);
 			
-		
 			$ftosend = "/var/spool/sms/outgoing/message_".$date.".sms";
 	
 			if (!copy($filepath, $ftosend)) {
