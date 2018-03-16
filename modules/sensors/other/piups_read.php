@@ -92,10 +92,12 @@ try {
 							 
 							 echo "--- Malina OFF ---\n"; 
 							 
+							 $db->exec("UPDATE nt_settings SET value='0' WHERE option='ups_count'");
+							 
 							 $content = date('Y M d H:i:s')." -"." Power 230V is off. Rpi shutdown now. \n";
 							 logs($content);
 							 
-							 $db->exec("UPDATE nt_settings SET value='0' WHERE option='ups_count'");
+							 
 							 system ("sudo /sbin/shutdown -h now");
 							 							 
 							 } else {
@@ -120,7 +122,17 @@ try {
 					logs($content);
 					}
 					
-				} elseif (($local_rom == 'UPS_id9') && ($local_val == '0')) {echo "Power 230 on\n";} 
+				} elseif (($local_rom == 'UPS_id9') && ($local_val == '0')) {
+					
+						echo "Power 230 on\n";
+						if ($count == '1') {
+							
+							$db->exec("UPDATE nt_settings SET value='0' WHERE option='ups_count'");
+							
+						}
+					
+					
+					} 
 				
 //trigger Battery discharged action
 
