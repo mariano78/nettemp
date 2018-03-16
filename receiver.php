@@ -182,7 +182,7 @@ function trigger($rom, $val) {
 			
 			for ($x = 0, $cnt = count($smsto); $x < $cnt; $x++){
 			
-			$date = date('H:i:s');
+			$date = time();
 			$msg = $date." - ".$name." - ALARM";
 			$sms = "To: ".$smsto[$x]."\n\n".$msg;
 			
@@ -224,7 +224,7 @@ function trigger($rom, $val) {
 			
 			for ($x = 0, $cnt = count($smsto); $x < $cnt; $x++){
 			
-			$date = date('H:i:s');
+			$date = time();
 			$msg = $date." - ".$name." - RECOVERY";
 			$sms = "To: ".$smsto[$x]."\n\n".$msg;
 			
