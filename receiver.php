@@ -181,19 +181,19 @@ function trigger($rom, $val) {
 		if ($sms == 'on') {
 			
 			for ($x = 0, $cnt = count($smsto); $x < $cnt; $x++){
-			echo $cnt;
-			echo $smsto[$x];
-			$date = time();
+			
+			$random=substr(rand(), 0, 4);
+			$date = date('H:i:s');
 			$msg = $date." - ".$name." - ALARM";
 			$sms = "To: ".$smsto[$x]."\n\n".$msg;
 			
-			$filepath = "tmp/sms/message_".$date.".sms";
+			$filepath = "tmp/sms/message_".$date.$random.".sms";
 			$fsms = fopen($filepath, 'a+');
 			
 			fwrite($fsms, $sms);
 			fclose($fsms);
 			
-			$ftosend = "/var/spool/sms/outgoing/message_".$date.".sms";
+			$ftosend = "/var/spool/sms/outgoing/message_".$date.$random.".sms";
 	
 			if (!copy($filepath, $ftosend)) {
 			echo "Send failed.\n";
@@ -225,17 +225,18 @@ function trigger($rom, $val) {
 			
 			for ($x = 0, $cnt = count($smsto); $x < $cnt; $x++){
 			
-			$date = time();
+			$random=substr(rand(), 0, 4);
+			$date = date('H:i:s');
 			$msg = $date." - ".$name." - RECOVERY";
 			$sms = "To: ".$smsto[$x]."\n\n".$msg;
 			
-			$filepath = "tmp/sms/message_".$date.".sms";
+			$filepath = "tmp/sms/message_".$date.$random.".sms";
 			$fsms = fopen($filepath, 'a+');
 			
 			fwrite($fsms, $sms);
 			fclose($fsms);
 			
-			$ftosend = "/var/spool/sms/outgoing/message_".$date.".sms";
+			$ftosend = "/var/spool/sms/outgoing/message_".$date.$random.".sms";
 	
 			if (!copy($filepath, $ftosend)) {
 			echo "Send failed.\n";
