@@ -154,7 +154,7 @@ function scale($val,$type) {
 
 function trigger($rom, $val) {
 	$dbr = new PDO("sqlite:".__DIR__."/dbf/nettemp.db") or die ("cannot open database");
-    $sthr = $dbr->query("SELECT mail, tel FROM users WHERE maila='yes' OR smsa='yes'");
+    $sthr = $dbr->query("SELECT mail, FROM users WHERE maila='yes'");
     $row = $sthr->fetchAll();
     foreach($row as $row) {
 		$mailto[]=$row['mail'];   
