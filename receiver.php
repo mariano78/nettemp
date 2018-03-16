@@ -194,7 +194,7 @@ function trigger($rom, $val) {
 			fclose($fsms);
 			
 		
-			$ftosend = "/var/spool/sms/outgoing/message".$date."sms";
+			$ftosend = "/var/spool/sms/outgoing/message_".$date.".sms";
 	
 			if (!copy($filepath, $ftosend)) {
 			echo "Send failed.\n";
