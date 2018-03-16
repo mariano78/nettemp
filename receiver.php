@@ -91,7 +91,7 @@ $local_ip='';
 $local_gpio='';
 $local_usb='';
 
-function logs($content){
+function logsr($content){
 global $ROOT;
 
 	$f = fopen("tmp/incoming_sms.txt", "a");
@@ -199,7 +199,7 @@ function trigger($rom, $val) {
 			unlink($filepath);
 				
 			$content = $date." - ".$name." - !!! ALARM !!!\n";
-			logs($content);
+			logsr($content);
 			}
 
 		}
@@ -237,7 +237,7 @@ function trigger($rom, $val) {
 			}
 			unlink($filepath);
 			$content = $date." - ".$name." - *** RECOVERY ***\n";
-			logs($content);
+			logsr($content);
 			}
 		}
 		if ($mail == 'on') {
