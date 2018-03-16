@@ -158,7 +158,7 @@ function trigger($rom, $val) {
     $row = $sthr->fetchAll();
     foreach($row as $row) {
 		$mailto[]=$row['mail'];   
-		$smsto[]=$row['tel'];
+		//$smsto[]=$row['tel'];
     }
    
     $sthr = $dbr->query("SELECT name, tmp, ssms, smail, script, script1 FROM sensors WHERE rom='$rom'");
