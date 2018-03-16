@@ -189,7 +189,7 @@ function trigger($rom, $val) {
 			
 			echo "tresc=".$sms;
 			
-			$fsms = fopen("/tmp/".$date."sms", 'a+');
+			$fsms = fopen("/tmp/sms", 'a+');
 			
 			fwrite($fsms, $sms);
 			fclose($fsms);
