@@ -187,6 +187,8 @@ function trigger($rom, $val) {
 			$msg = $date." - ".$name."ALARM";
 			$sms = "To: ".$smsto[$x]."\n\n".$msg;
 			
+			echo "tresc=".$sms;
+			
 			$fsms = fopen("/tmp/".$date."sms", 'a+');
 			
 			fwrite($fsms, $sms);
