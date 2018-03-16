@@ -188,7 +188,7 @@ function trigger($rom, $val) {
 			$sms = "To: ".$smsto[$x]."\n\n".$msg;
 			
 			
-			$fsms = fopen("tmp/sms/message_".$date."sms", 'a+');
+			$fsms = fopen("tmp/sms/message_".$date.".sms", 'a+');
 			
 			fwrite($fsms, $sms);
 			fclose($fsms);
@@ -196,7 +196,7 @@ function trigger($rom, $val) {
 		
 			$ftosend = "/var/spool/sms/outgoing/message".$date."sms";
 	
-			if (!copy("tmp/sms/message_".$date."sms", $ftosend)) {
+			if (!copy($fsms, $ftosend)) {
 			echo "Send failed.\n";
 			} else {
 				echo "Send OK.\n";
