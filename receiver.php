@@ -179,6 +179,7 @@ function trigger($rom, $val) {
 	if ($val > $oldval) {
 		
 		if ($sms == 'on') {
+			echo "ile tel=".$x;
 			
 			for ($x = 0, $cnt = count($smsto); $x < $cnt; $x++){
 				
