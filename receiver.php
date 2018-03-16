@@ -334,7 +334,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 		
 					if ($type == 'trigger') {
 						
-						//trigger($rom,$val);
+						trigger($rom,$val);
 						
 						$dbr->exec("UPDATE sensors SET tmp='$val' WHERE rom='$rom'") or die ("cannot insert to trigger status2\n");
 						
