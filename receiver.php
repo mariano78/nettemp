@@ -179,10 +179,10 @@ function trigger($rom, $val) {
 	if ($val > $oldval) {
 		
 		if ($sms == 'on') {
-			echo "ile tel=".$x;
+			
 			
 			for ($x = 0, $cnt = count($smsto); $x < $cnt; $x++){
-				
+				echo "ile tel=".$cnt;
 			$date = date('Y M d H:i:s');
 			$msg = $date." - ".$name."ALARM";
 			$sms = "To: ".$smsto[$x]."\n\n".$msg;
