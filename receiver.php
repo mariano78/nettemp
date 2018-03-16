@@ -182,6 +182,7 @@ function trigger($rom, $val) {
 			
 			for ($x = 0, $cnt = count($smsto); $x < $cnt; $x++){
 			echo $cnt;
+			echo $smsto;
 			$date = time();
 			$msg = $date." - ".$name." - ALARM";
 			$sms = "To: ".$smsto[$x]."\n\n".$msg;
