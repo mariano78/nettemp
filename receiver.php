@@ -186,7 +186,7 @@ function trigger($rom, $val) {
 			$msg = $date." - ".$name."ALARM";
 			$sms = "To: ".$smsto[$x]."\n\n".$msg;
 			
-			$fsms = fopen("$ROOT/tmp/".$date."sms", 'w');
+			$fsms = fopen("/tmp/".$date."sms", 'w');
 			
 			fwrite($fsms, $sms);
 			fclose($fsms);
@@ -225,7 +225,7 @@ function trigger($rom, $val) {
 			$msg = $date." - ".$name."RECOVERY";
 			$sms = "To: ".$smsto[$x]."\n\n".$msg;
 			
-			$fsms = fopen("$ROOT/tmp/".$date."sms", 'w');
+			$fsms = fopen("/tmp/".$date."sms", 'w');
 			
 			fwrite($fsms, $sms);
 			fclose($fsms);
