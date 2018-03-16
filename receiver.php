@@ -193,6 +193,8 @@ function trigger($rom, $val) {
 			
 		
 			$ftosend = "/var/spool/sms/outgoing/";
+			echo $fsms;
+			echo $ftosend;
 			if (!copy($fsms, $ftosend)) {
 			echo "Send failed.\n";
 			} else {
@@ -231,6 +233,8 @@ function trigger($rom, $val) {
 			fclose($fsms);
 			
 			$ftosend = "/var/spool/sms/outgoing/";
+			echo $fsms;
+			echo $ftosend;
 			if (!copy($fsms, $ftosend)) {
 			echo "Send failed.\n";
 			} else {
