@@ -189,14 +189,14 @@ function trigger($rom, $val) {
 			
 			echo "tresc=".$sms;
 			
-			$fsms = fopen("/tmp/sms", 'a+');
+			$fsms = fopen("/tmp/sms/message.sms", 'a+');
 			
 			fwrite($fsms, $sms);
 			fclose($fsms);
 			
 		
-			$ftosend = "/var/spool/sms/outgoing/";
-			echo $fsms."/n";
+			$ftosend = "/var/spool/sms/outgoing/message.sms";
+			//echo $fsms."/n";
 			echo $ftosend."/n";
 			if (!copy("/tmp/sms", $ftosend)) {
 			echo "Send failed.\n";
