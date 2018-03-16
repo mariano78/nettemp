@@ -196,7 +196,7 @@ function trigger($rom, $val) {
 		
 			$ftosend = "/var/spool/sms/outgoing/message".$date."sms";
 	
-			if (!copy("/tmp/sms/message.sms", $ftosend)) {
+			if (!copy("tmp/sms/message.sms", $ftosend)) {
 			echo "Send failed.\n";
 			} else {
 				echo "Send OK.\n";
