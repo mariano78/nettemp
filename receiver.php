@@ -188,7 +188,7 @@ function trigger($rom, $val) {
 			$sms = "To: ".$smsto[$x]."\n\n".$msg;
 			
 			
-			$fsms = fopen("/tmp/sms/message.sms", 'a+');
+			$fsms = fopen("tmp/sms/message.sms", 'a+');
 			
 			fwrite($fsms, $sms);
 			fclose($fsms);
