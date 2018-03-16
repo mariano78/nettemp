@@ -207,7 +207,8 @@ function trigger($rom, $val) {
 			
 		}
 		if ($mail == 'on') {
-			mail($mailto, "Trigger ALARM info from nettemp", "Trigger: $name !!! ALARM !!!" );
+			$topic = "Trigger ALARM info from nettemp";
+			mail($mailto, $topic, "Trigger: $name *** ALARM ***" );
 			
 			}
 		if (!empty($pscript)) {
