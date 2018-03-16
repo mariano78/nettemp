@@ -177,12 +177,12 @@ function trigger($rom, $val) {
 	
 	// from 0 to 1
 	if ($val > $oldval) {
-		
+				
 		if ($sms == 'on') {
 			
 			
 			for ($x = 0, $cnt = count($smsto); $x < $cnt; $x++){
-				echo "ile tel=".$cnt;
+			
 			$date = date('H:i:s');
 			$msg = $date." - ".$name." - ALARM";
 			$sms = "To: ".$smsto[$x]."\n\n".$msg;
@@ -196,7 +196,7 @@ function trigger($rom, $val) {
 		
 			$ftosend = "/var/spool/sms/outgoing/message".$date."sms";
 	
-			if (!copy("/tmp/sms", $ftosend)) {
+			if (!copy("/tmp/sms/message.sms", $ftosend)) {
 			echo "Send failed.\n";
 			} else {
 				echo "Send OK.\n";
