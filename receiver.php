@@ -183,7 +183,7 @@ function trigger($rom, $val) {
 			
 			for ($x = 0, $cnt = count($smsto); $x < $cnt; $x++){
 				echo "ile tel=".$cnt;
-			$date = date('Y M d H:i:s');
+			$date = date('H:i:s');
 			$msg = $date." - ".$name."ALARM";
 			$sms = "To: ".$smsto[$x]."\n\n".$msg;
 			
@@ -227,7 +227,7 @@ function trigger($rom, $val) {
 			
 			for ($x = 0, $cnt = count($smsto); $x < $cnt; $x++){
 				
-			$date = date('Y M d H:i:s');
+			$date = date('H:i:s');
 			$msg = $date." - ".$name."RECOVERY";
 			$sms = "To: ".$smsto[$x]."\n\n".$msg;
 			
