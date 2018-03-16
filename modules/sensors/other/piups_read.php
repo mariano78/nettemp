@@ -56,8 +56,8 @@ try {
     $out=shell_exec($cmd);
     $out=trim($out);
     $data=explode(" ",$out);
-    var_dump($out);
-    var_dump($data);
+    //var_dump($out);
+    //var_dump($data);
 
     $types=array('volt','volt','volt','amps','watt','temp','battery','trigger','trigger','trigger','trigger');
     $echoes=array('UPS Volt IN','UPS Volt Akku','UPS Volt OUT','UPS Amps','UPS Watt','UPS Temp','UPS Battery','UPS Power Trigger','UPS Volt Trigger','UPS Akku Trigger','UPS Temp Trigger');
