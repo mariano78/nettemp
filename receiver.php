@@ -91,15 +91,6 @@ $local_ip='';
 $local_gpio='';
 $local_usb='';
 
-function logs($content){
-global $ROOT;
-
-	$f = fopen("$ROOT/tmp/incoming_sms.txt", "a");
-
-fwrite($f, $content);
-fclose($f); 
-}
-
 
 $dbr = new PDO("sqlite:".__DIR__."/dbf/nettemp.db") or die ("cannot open database");
 
@@ -157,8 +148,7 @@ function trigger($rom, $val) {
     $sthr = $dbr->query("SELECT mail FROM users WHERE maila='yes'");
     $row = $sthr->fetchAll();
     foreach($row as $row) {
-		$mailto[]=$row['mail'];   
-		//$smsto[]=$row['tel'];
+		$to[]=$row['mail'];   
     }
    
     $sthr = $dbr->query("SELECT name, tmp, ssms, smail, script, script1 FROM sensors WHERE rom='$rom'");
@@ -173,42 +163,16 @@ function trigger($rom, $val) {
 		
     }
 	
-	$mailto = implode(', ', $mailto);
+	$to = implode(', ', $to);
 	
 	// from 0 to 1
 	if ($val > $oldval) {
 		
 		if ($sms == 'on') {
-			
-			for ($x = 0, $cnt = count($smsto); $x < $cnt; $x++){
-				
-			$date = date('Y M d H:i:s');
-			$msg = $date." - ".$name."ALARM";
-			$sms = "To: ".$smsto[$x]."\n\n".$msg;
-			
-			$fsms = fopen("/tmp/".$date."sms", 'a+');
-			
-			fwrite($fsms, $sms);
-			fclose($fsms);
-			
-		
-			$ftosend = "/var/spool/sms/outgoing/";
-			echo $fsms."/n";
-			echo $ftosend."/n";
-			if (!copy($fsms, $ftosend)) {
-			echo "Send failed.\n";
-			} else {
-				echo "Send OK.\n";
-			}
-				
-			$content = $date." - ".$name." - !!! ALARM !!!\n";
-			logs($content);
-			}
-			
+			echo "";
 		}
 		if ($mail == 'on') {
-			$topic = "Trigger ALARM info from nettemp";
-			mail($mailto, $topic, "Trigger: $name *** ALARM ***" );
+			mail($to, $mail_topic, "Trigger ALARM $name" );
 			
 			}
 		if (!empty($pscript)) {
@@ -222,35 +186,11 @@ function trigger($rom, $val) {
 		
 		if ($sms == 'on') {
 			
-			for ($x = 0, $cnt = count($smsto); $x < $cnt; $x++){
-				
-			$date = date('Y M d H:i:s');
-			$msg = $date." - ".$name."RECOVERY";
-			$sms = "To: ".$smsto[$x]."\n\n".$msg;
-			
-			$fsms = fopen("/tmp/".$date."sms", 'a+');
-			
-			fwrite($fsms, $sms);
-			fclose($fsms);
-			
-			$ftosend = "/var/spool/sms/outgoing/";
-			echo $fsms."/n";
-			echo $ftosend."/n";
-			if (!copy($fsms, $ftosend)) {
-			echo "Send failed.\n";
-			} else {
-				echo "Send OK.\n";
-			}
-				
-			$content = $date." - ".$name." - !!! RECOVERY !!!\n";
-			logs($content);
-			
-			}
-
+			echo "";
 		}
 		if ($mail == 'on') {
-			$topic = "Trigger RECOVERY info from nettemp";
-			mail($mailto, $topic, "Trigger: $name *** Recovery ***" );
+			
+			mail($to, $mail_topic, "Trigger Recovery $name" );
 			
 			}
 		if (!empty($pscript1)) {
