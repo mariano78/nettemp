@@ -1,4 +1,7 @@
 <?php
+
+$ROOT=dirname(dirname(dirname(__FILE__)));
+
 $trigzero = isset($_POST['trigzero']) ? $_POST['trigzero'] : '';
 $trigone = isset($_POST['trigone']) ? $_POST['trigone'] : '';
 $trigrom = isset($_POST['trigrom']) ? $_POST['trigrom'] : '';
