@@ -207,8 +207,6 @@ function trigger($rom, $val) {
 		if (!empty($pscript)) {
 			
 			include("tmp/$pscript");
-			
-			echo "script for 0";
 		}	
 	// from 1 to 0	
 	}elseif ($val < $oldval) {
@@ -244,8 +242,6 @@ function trigger($rom, $val) {
 		if (!empty($pscript1)) {
 			
 			include("tmp/$pscript1");
-			
-			echo "script for 1";
 		}
 	}
 }
