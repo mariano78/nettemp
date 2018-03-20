@@ -202,7 +202,7 @@ try {
 		if(($readerrsend!='sent')||($minute=='00')){
 		    echo $date." Sending to: ".$string."\n";
 		    
-			if ( mail ($addr, $mail_topic, message($name,0,$date,"Read error","#FF0000"), $headers ) ) {
+			if ( mail ($addr, $mail_topic, message($name,0,$date,"Read sensor error","#FF0000"), $headers ) ) {
 				echo $date." Read error in: ".$name." - Mail send OK\n";
 			} else {
 				echo $date." Read error in: ".$name." - Mail send problem\n";
@@ -227,7 +227,7 @@ try {
 		
 		if($readerrsend == 'sent' && strtotime($time)>(time()- 60) && !empty($readerr)){
 		    echo $date." Sending to: ".$string."\n";
-			if ( mail ($addr, $mail_topic, message($name,0,$date,"Read sensor Recovery","#00FF00"), $headers ) ) {
+			if ( mail ($addr, $mail_topic, message($name,0,$date,"Read sensor recovery","#00FF00"), $headers ) ) {
 				echo $date." ".$name." Read recovery - Mail send OK\n";
 				$db->exec("UPDATE sensors SET readerrsend='' WHERE rom='$rom'");
 			} else {
