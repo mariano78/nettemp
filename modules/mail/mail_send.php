@@ -215,7 +215,27 @@ try {
 		}
 	}
 	
-	
+	//READ ERR RECOVERY
+	$query = $db->query("SELECT rom,name,time,readerrsend,readerr FROM sensors WHERE readerralarm='on' AND readerrsend='sent'");
+    $result= $query->fetchAll();
+    foreach($result as $s) {
+		$rom=$s['rom'];
+		$name=$s['name'];
+		$readerrsend=$s['readerrsend'];
+		$time=$s['time'];
+		$readerr=$s['readerr'];
+		
+		if($readerrsend == 'sent' && strtotime($time)>(time()- 60) && !empty($readerr)){
+		    echo $date." Sending to: ".$string."\n";
+			if ( mail ($addr, $mail_topic, message($name,0,$date,"Read sensor Recovery","#00FF00"), $headers ) ) {
+				echo $date." ".$name." Read recovery - Mail send OK\n";
+				$db->exec("UPDATE sensors SET readerrsend='' WHERE rom='$rom'");
+			} else {
+				echo $date." ".$name." Read recovery - Mail send problem\n";
+			}
+			
+		} 
+	}
 	
 	
 	//REMOVE if ALARM OFF
