@@ -186,8 +186,27 @@ $del = isset($_POST['del']) ? $_POST['del'] : '';
 	exit();
 	 }
 	 
-	 
-	 
+	 //change password
+	$pass1=sha1(isset($_POST['pass1']) ? $_POST['pass1'] : '');
+	$pass2=sha1(isset($_POST['pass2']) ? $_POST['pass2'] : '');
+	$pass_change = isset($_POST['pass_change']) ? $_POST['pass_change'] : '';
+	$pass_id = isset($_POST['pass_id']) ? $_POST['pass_id'] : '';
+	
+	if (!empty($pass_id) && $pass_change == "pass_change") { 
+	if ((!empty($pass1)) && (!empty($pass2)) && ($pass1 == $pass2)) {
+	$db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("UPDATE users SET password='$pass1' WHERE id='$pass_id' ") or die ($db->lastErrorMsg());
+	?>
+	<span class="label label-success">Password changed</span>
+	<?php
+	}	
+	    else { ?>
+		<span class="label label-danger">Password do not match or empty</span>
+<?php
+	}
+	header("location: " . $_SERVER['REQUEST_URI']);
+	exit();
+	}
 	 ?>
 	
 
@@ -251,6 +270,8 @@ foreach ($result as $a) {
 	
 	
 	<label>Repeat : </label><input type="password" name="pass2" size="15" maxlength="30" value="" required=""/>
+	<input type="hidden" name="pass_id" value="<?php echo $a["id"]; ?>" />
+	<input type="hidden" name="pass_change" value="pass_change"/>
 	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 	</form>
 	</td>
