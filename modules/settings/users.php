@@ -192,25 +192,10 @@ $del = isset($_POST['del']) ? $_POST['del'] : '';
 	$pass_change = isset($_POST['pass_change']) ? $_POST['pass_change'] : '';
 	$pass_id = isset($_POST['pass_id']) ? $_POST['pass_id'] : '';
 	
-	if (!empty($pass_id) && $pass_change == "pass_change") { 
-	if ((!empty($pass1)) && (!empty($pass2)) && ($pass1 == $pass2)) {
-	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("UPDATE users SET password='$pass1' WHERE id='$pass_id' ") or die ($db->lastErrorMsg());
-	?>
-	<span class="label label-success">Password changed</span>
-	<?php
-	}	
-	    else { ?>
-		<span class="label label-danger">Password do not match or empty</span>
-<?php
-	}
-	//header("location: " . $_SERVER['REQUEST_URI']);
-	//exit();
-	}
-	 ?>
+	
 	
 
-<?php // SQLite - usuwanie notification
+     // SQLite - usuwanie notification
 	if (!empty($del) && ($_POST['del1'] == "del2") ){
 	$db = new PDO('sqlite:dbf/nettemp.db');
 	$db->exec("DELETE FROM users WHERE id='$del'") or die ($db->lastErrorMsg());
@@ -274,6 +259,26 @@ foreach ($result as $a) {
 	<input type="hidden" name="pass_change" value="pass_change"/>
 	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 	</form>
+	<?php 
+	if (!empty($pass_id) && $pass_change == "pass_change") { 
+	if ((!empty($pass1)) && (!empty($pass2)) && ($pass1 == $pass2)) {
+	$db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("UPDATE users SET password='$pass1' WHERE id='$pass_id' ") or die ($db->lastErrorMsg());
+	?>
+	<span class="label label-success">Password changed</span>
+	<?php
+	}	
+	    else { ?>
+		<span class="label label-danger">Password do not match or empty</span>
+<?php
+	}
+	//header("location: " . $_SERVER['REQUEST_URI']);
+	//exit();
+	}
+	 ?>
+	
+	
+	
 	</td>
 	
 	<td>
