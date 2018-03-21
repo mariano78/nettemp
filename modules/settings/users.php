@@ -175,6 +175,17 @@ $del = isset($_POST['del']) ? $_POST['del'] : '';
 	exit();
 	 }
 	 
+	  //change smspin
+	$pin_id = isset($_POST['pin_id']) ? $_POST['pin_id'] : '';
+	$pin_new = isset($_POST['pin_new']) ? $_POST['pin_new'] : '';
+	$new_pin = isset($_POST['new_pin']) ? $_POST['new_pin'] : '';
+	if (!empty($pin_id) && $new_pin == 'new_pin'){
+	$db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("UPDATE users SET smspin='$pin_new' WHERE id='$pin_id'") or die ($db->lastErrorMsg());
+	header("location: " . $_SERVER['REQUEST_URI']);
+	exit();
+	 }
+	 
 	 
 	 
 	 ?>
@@ -244,21 +255,27 @@ foreach ($result as $a) {
     </form>
 	</td>
 	
-	
-	<td><?php echo $a["tel"]; ?>
+	<td>
 	<form action="" method="post" style="display:inline!important;">
 		<input type="text" name="tel_new" size="25" maxlength="50" value="<?php echo $a["tel"]; ?>" />
 		<input type="hidden" name="tel_id" value="<?php echo $a["id"]; ?>" />
 		<input type="hidden" name="new_tel" value="new_tel"/>
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
+	</td>
 	
+	<td>
+	<form action="" method="post" style="display:inline!important;">
+		<input type="text" name="pin_new" size="25" maxlength="50" value="<?php echo $a["smspin"]; ?>" />
+		<input type="hidden" name="pin_id" value="<?php echo $a["id"]; ?>" />
+		<input type="hidden" name="new_pin" value="new_pin"/>
+		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+    </form>
 	
 	
 	
 	
 	</td>
-	<td><?php echo $a["smspin"]; ?></td>
 	<?php if ($a['login'] != 'admin') { ?>
 	<td>
     	<form action="" method="post"> 	
