@@ -271,11 +271,11 @@ foreach ($result as $a) {
 	</form>
 	<?php if ($a["id"] == $pass_id && $flag == 'OK') { ?>
 		
-		<span class="label label-success">Password chenged</span>
+		<span class="label label-success">Chenged</span>
 		
 		<?php } elseif ($a["id"] == $pass_id && $flag == 'ERR') { ?>
 		
-			<span class="label label-danger">Password do not match or empty</span>
+			<span class="label label-danger">Error</span>
 		<?php } ?>
 		
 	</td>
