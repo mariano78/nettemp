@@ -197,9 +197,9 @@ $del = isset($_POST['del']) ? $_POST['del'] : '';
 		$db = new PDO('sqlite:dbf/nettemp.db');
 		$db->exec("UPDATE users SET password='$pass1' WHERE id='$pass_id' ") or die ($db->lastErrorMsg());
 		
-		$flaga = "Changed";
+		$flag = "OK";
 		
-		}	else {$flaga = "Passwords error";
+		}	else {$flag = "ERR";
 				
 			}
 	
@@ -269,7 +269,15 @@ foreach ($result as $a) {
 	<input type="hidden" name="pass_change" value="pass_change"/>
 	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 	</form>
-	<?php if ($a["id"] == $pass_id) {echo $flaga;} ?>
+	<?php if ($a["id"] == $pass_id && $flag == 'OK') { ?>
+		
+		<span class="label label-success">Password chenged</span>
+		
+		<?php } elseif ($a["id"] == $pass_id && $flag == 'ERR') { ?>
+		
+			<span class="label label-danger">Password do not match or empty</span>
+		<?php } ?>
+		
 	</td>
 	
 	<td>
