@@ -204,8 +204,8 @@ $del = isset($_POST['del']) ? $_POST['del'] : '';
 		<span class="label label-danger">Password do not match or empty</span>
 <?php
 	}
-	header("location: " . $_SERVER['REQUEST_URI']);
-	exit();
+	//header("location: " . $_SERVER['REQUEST_URI']);
+	//exit();
 	}
 	 ?>
 	
