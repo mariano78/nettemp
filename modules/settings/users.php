@@ -246,11 +246,11 @@ foreach ($result as $a) {
 	
 	<td>
 	<form action="" method="post" style="display:inline!important;">
-	<label>New:</label><input type="password" name="pass1" size="10" maxlength="30" value="" class="form-control" required=""/>
+	<label>New:</label><input type="password" name="pass1" size="10" maxlength="30" value=""  required=""/>
 	
 	
 	
-	<label>Repeat:</label><input type="password" name="pass2" size="10" maxlength="30" value="" class="form-control" required=""/>
+	<label>Repeat:</label><input type="password" name="pass2" size="10" maxlength="30" value="" required=""/>
 	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 	</form>
 	</td>
