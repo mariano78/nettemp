@@ -280,13 +280,8 @@ foreach ($result as $a) {
 	    <input type="hidden" type="submit" name="del1" value="del2" />
 	    <button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> </button>
 	</form>
+	<?php } ?>
 	</td>
-	<?php } else {?> 
-	
-	<td></td>
-	<?php}
-	?>	
-	
 	</tr>
 <?php }
 ?>
