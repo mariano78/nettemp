@@ -198,9 +198,11 @@ $del = isset($_POST['del']) ? $_POST['del'] : '';
 	$db->exec("UPDATE users SET password='$pass1' WHERE id='$pass_id' ") or die ($db->lastErrorMsg());
 	?>
 	<span class="label label-success">Password changed</span>
-	<?php
+	
+	<?php 
+	$flaga = "ok";
 	}	
-	    else { ?>
+	    else {$flaga = "err"; ?>
 		<span class="label label-danger">Password do not match or empty</span>
 <?php
 	}
@@ -274,6 +276,7 @@ foreach ($result as $a) {
 	<input type="hidden" name="pass_change" value="pass_change"/>
 	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 	</form>
+	<?php echo $flaga; ?>
 	</td>
 	
 	<td>
