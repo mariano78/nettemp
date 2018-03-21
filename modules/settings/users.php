@@ -196,13 +196,9 @@ $del = isset($_POST['del']) ? $_POST['del'] : '';
 		if ((!empty($pass1)) && (!empty($pass2)) && ($pass1 == $pass2)) {
 		$db = new PDO('sqlite:dbf/nettemp.db');
 		$db->exec("UPDATE users SET password='$pass1' WHERE id='$pass_id' ") or die ($db->lastErrorMsg());
-		
 		$flag = "OK";
-		
 		}	else {$flag = "ERR";
-				
 			}
-	
 	}
 	
 	  // SQLite - usuwanie notification
@@ -260,11 +256,8 @@ foreach ($result as $a) {
 	
 	<td>
 	<form action="" method="post" style="display:inline!important;">
-	<label>New : </label><input type="password" name="pass1" size="15" maxlength="30" value=""  required=""/>
-	
-	
-	
-	<label>Repeat : </label><input type="password" name="pass2" size="15" maxlength="30" value="" required=""/>
+	<label>New :&nbsp</label><input type="password" name="pass1" size="15" maxlength="30" value=""  required=""/>
+	<label>Repeat :&nbsp</label><input type="password" name="pass2" size="15" maxlength="30" value="" required=""/>
 	<input type="hidden" name="pass_id" value="<?php echo $a["id"]; ?>" />
 	<input type="hidden" name="pass_change" value="pass_change"/>
 	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
