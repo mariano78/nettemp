@@ -257,7 +257,7 @@ foreach ($result as $a) {
 	
 	<td>
 	<form action="" method="post" style="display:inline!important;">
-		<input type="text" name="tel_new" size="25" maxlength="50" value="<?php echo $a["tel"]; ?>" />
+		<input type="text" name="tel_new" size="15" maxlength="50" value="<?php echo $a["tel"]; ?>" />
 		<input type="hidden" name="tel_id" value="<?php echo $a["id"]; ?>" />
 		<input type="hidden" name="new_tel" value="new_tel"/>
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
@@ -266,15 +266,12 @@ foreach ($result as $a) {
 	
 	<td>
 	<form action="" method="post" style="display:inline!important;">
-		<input type="text" name="pin_new" size="25" maxlength="50" value="<?php echo $a["smspin"]; ?>" />
+		<input type="text" name="pin_new" size="10" maxlength="50" value="<?php echo $a["smspin"]; ?>" />
 		<input type="hidden" name="pin_id" value="<?php echo $a["id"]; ?>" />
 		<input type="hidden" name="new_pin" value="new_pin"/>
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
-	
-	
-	
-	
+
 	</td>
 	<?php if ($a['login'] != 'admin') { ?>
 	<td>
@@ -283,8 +280,13 @@ foreach ($result as $a) {
 	    <input type="hidden" type="submit" name="del1" value="del2" />
 	    <button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> </button>
 	</form>
-	<?php } ?>
 	</td>
+	<?php } else {?> 
+	
+	<td></td>
+	<?php}
+	?>	
+	
 	</tr>
 <?php }
 ?>
