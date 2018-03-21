@@ -246,12 +246,15 @@ foreach ($result as $a) {
 ?>
 	<tr>
 	<td>
+	
+	<?php if ($a["login"] != 'admin') { ?>
 	 <form action="" method="post" style="display:inline!important;">
 		<input type="text" name="login_new" size="10" maxlength="30" value="<?php echo $a["login"]; ?>" />
 		<input type="hidden" name="login_id" value="<?php echo $a["id"]; ?>" />
 		<input type="hidden" name="new_login" value="new_login"/>
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
+	<?php }?>
 	</td>
 	
 	<td>
