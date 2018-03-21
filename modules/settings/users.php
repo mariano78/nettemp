@@ -245,8 +245,11 @@ foreach ($result as $a) {
 	</td>
 	
 	<td>
-	<label>New:</label>
-	<label>Repeat:</label>
+	<label>New:</label><input type="password" name="pass1" value="" class="form-control" required=""/>
+	
+	
+	
+	<label>Repeat:</label><input type="password" name="pass2" value="" class="form-control" required=""/>
 	</td>
 	
 	<td>
