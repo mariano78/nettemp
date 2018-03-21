@@ -142,6 +142,20 @@ $del = isset($_POST['del']) ? $_POST['del'] : '';
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();
 	 }
+	 
+	 
+	$login_id = isset($_POST['login_id']) ? $_POST['login_id'] : '';
+	$login_new = isset($_POST['login_new']) ? $_POST['login_new'] : '';
+	$new_login = isset($_POST['new_login']) ? $_POST['new_login'] : '';
+	if (!empty($login_id) && $new_login == 'new_login'){
+	$db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("UPDATE users SET login='$login_new' WHERE id='$login_id'") or die ($db->lastErrorMsg());
+	header("location: " . $_SERVER['REQUEST_URI']);
+	exit();
+	 }
+	 
+	 
+	 
 	 ?>
 	
 
