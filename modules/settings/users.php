@@ -164,6 +164,17 @@ $del = isset($_POST['del']) ? $_POST['del'] : '';
 	exit();
 	 }
 	 
+	 //change tel
+	$tel_id = isset($_POST['tel_id']) ? $_POST['tel_id'] : '';
+	$tel_new = isset($_POST['tel_new']) ? $_POST['tel_new'] : '';
+	$new_tel = isset($_POST['new_tel']) ? $_POST['new_tel'] : '';
+	if (!empty($tel_id) && $new_tel == 'new_tel'){
+	$db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("UPDATE users SET tel='$tel_new' WHERE id='$tel_id'") or die ($db->lastErrorMsg());
+	header("location: " . $_SERVER['REQUEST_URI']);
+	exit();
+	 }
+	 
 	 
 	 
 	 ?>
@@ -234,7 +245,19 @@ foreach ($result as $a) {
 	</td>
 	
 	
-	<td><?php echo $a["tel"]; ?></td>
+	<td><?php echo $a["tel"]; ?>
+	<form action="" method="post" style="display:inline!important;">
+		<input type="text" name="tel_new" size="25" maxlength="50" value="<?php echo $a["tel"]; ?>" />
+		<input type="hidden" name="tel_id" value="<?php echo $a["id"]; ?>" />
+		<input type="hidden" name="new_tel" value="new_tel"/>
+		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+    </form>
+	
+	
+	
+	
+	
+	</td>
 	<td><?php echo $a["smspin"]; ?></td>
 	<?php if ($a['login'] != 'admin') { ?>
 	<td>
