@@ -244,7 +244,10 @@ foreach ($result as $a) {
     </form>
 	</td>
 	
-	<td></td>
+	<td>
+	<label>New:</label>
+	<label>Repeat:</label>
+	</td>
 	
 	<td>
 	<form action="" method="post" style="display:inline!important;">
