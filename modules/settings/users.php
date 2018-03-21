@@ -254,7 +254,7 @@ foreach ($result as $a) {
 		<input type="hidden" name="new_login" value="new_login"/>
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
-	<?php }?>
+	<?php } else { echo $a["login"];}?>
 	</td>
 	
 	<td>
