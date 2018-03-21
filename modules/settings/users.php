@@ -200,7 +200,7 @@ $del = isset($_POST['del']) ? $_POST['del'] : '';
 	<span class="label label-success">Password changed</span>
 	
 	<?php 
-	$flaga = "ok";
+	$flaga = $pass_id;
 	}	
 	    else {$flaga = "err"; ?>
 		<span class="label label-danger">Password do not match or empty</span>
@@ -276,7 +276,7 @@ foreach ($result as $a) {
 	<input type="hidden" name="pass_change" value="pass_change"/>
 	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 	</form>
-	<?php echo $flaga; ?>
+	<?php if ($a["id"] == $flaga) {echo $flaga;} ?>
 	</td>
 	
 	<td>
