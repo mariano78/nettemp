@@ -223,23 +223,17 @@ foreach ($result as $a) {
 	</td>
 	
 	<td></td>
-	<td><?php echo $a["mail"];?>
+	
+	<td>
 	<form action="" method="post" style="display:inline!important;">
 		<input type="text" name="mail_new" size="10" maxlength="30" value="<?php echo $a["mail"]; ?>" />
 		<input type="hidden" name="mail_id" value="<?php echo $a["id"]; ?>" />
 		<input type="hidden" name="new_mail" value="new_mail"/>
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	</td>
+	
+	
 	<td><?php echo $a["tel"]; ?></td>
 	<td><?php echo $a["smspin"]; ?></td>
 	<?php if ($a['login'] != 'admin') { ?>
