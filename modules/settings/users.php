@@ -143,13 +143,23 @@ $del = isset($_POST['del']) ? $_POST['del'] : '';
 	exit();
 	 }
 	 
-	 
+	//change login
 	$login_id = isset($_POST['login_id']) ? $_POST['login_id'] : '';
 	$login_new = isset($_POST['login_new']) ? $_POST['login_new'] : '';
 	$new_login = isset($_POST['new_login']) ? $_POST['new_login'] : '';
 	if (!empty($login_id) && $new_login == 'new_login'){
 	$db = new PDO('sqlite:dbf/nettemp.db');
 	$db->exec("UPDATE users SET login='$login_new' WHERE id='$login_id'") or die ($db->lastErrorMsg());
+	header("location: " . $_SERVER['REQUEST_URI']);
+	exit();
+	 }
+	//change mail
+	$mail_id = isset($_POST['mail_id']) ? $_POST['mail_id'] : '';
+	$mail_new = isset($_POST['mail_new']) ? $_POST['mail_new'] : '';
+	$new_mail = isset($_POST['new_mail']) ? $_POST['new_mail'] : '';
+	if (!empty($mail_id) && $new_mail == 'new_mail'){
+	$db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("UPDATE users SET mail='$mail_new' WHERE id='$mail_id'") or die ($db->lastErrorMsg());
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();
 	 }
@@ -204,7 +214,7 @@ foreach ($result as $a) {
 ?>
 	<tr>
 	<td>
-	    <form action="" method="post" style="display:inline!important;">
+	 <form action="" method="post" style="display:inline!important;">
 		<input type="text" name="login_new" size="10" maxlength="30" value="<?php echo $a["login"]; ?>" />
 		<input type="hidden" name="login_id" value="<?php echo $a["id"]; ?>" />
 		<input type="hidden" name="new_login" value="new_login"/>
@@ -212,12 +222,24 @@ foreach ($result as $a) {
     </form>
 	</td>
 	
-	
-	
-	
-	
 	<td></td>
-	<td><?php echo $a["mail"];?></td>
+	<td><?php echo $a["mail"];?>
+	<form action="" method="post" style="display:inline!important;">
+		<input type="text" name="mail_new" size="10" maxlength="30" value="<?php echo $a["mail"]; ?>" />
+		<input type="hidden" name="mail_id" value="<?php echo $a["id"]; ?>" />
+		<input type="hidden" name="new_mail" value="new_mail"/>
+		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+    </form>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</td>
 	<td><?php echo $a["tel"]; ?></td>
 	<td><?php echo $a["smspin"]; ?></td>
 	<?php if ($a['login'] != 'admin') { ?>
