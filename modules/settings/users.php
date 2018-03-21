@@ -193,26 +193,19 @@ $del = isset($_POST['del']) ? $_POST['del'] : '';
 	$pass_id = isset($_POST['pass_id']) ? $_POST['pass_id'] : '';
 	
 	if (!empty($pass_id) && $pass_change == "pass_change") { 
-	if ((!empty($pass1)) && (!empty($pass2)) && ($pass1 == $pass2)) {
-	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("UPDATE users SET password='$pass1' WHERE id='$pass_id' ") or die ($db->lastErrorMsg());
-	?>
-	<span class="label label-success">Password changed</span>
+		if ((!empty($pass1)) && (!empty($pass2)) && ($pass1 == $pass2)) {
+		$db = new PDO('sqlite:dbf/nettemp.db');
+		$db->exec("UPDATE users SET password='$pass1' WHERE id='$pass_id' ") or die ($db->lastErrorMsg());
+		
+		$flaga = "Changed";
+		
+		}	else {$flaga = "Passwords error";
+				
+			}
 	
-	<?php 
-	$flaga = $pass_id;
-	}	
-	    else {$flaga = "err"; ?>
-		<span class="label label-danger">Password do not match or empty</span>
-<?php
 	}
-	//header("location: " . $_SERVER['REQUEST_URI']);
-	//exit();
-	}
-	 ?>
 	
-
-<?php // SQLite - usuwanie notification
+	  // SQLite - usuwanie notification
 	if (!empty($del) && ($_POST['del1'] == "del2") ){
 	$db = new PDO('sqlite:dbf/nettemp.db');
 	$db->exec("DELETE FROM users WHERE id='$del'") or die ($db->lastErrorMsg());
