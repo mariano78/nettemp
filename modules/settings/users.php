@@ -276,7 +276,7 @@ foreach ($result as $a) {
 	<input type="hidden" name="pass_change" value="pass_change"/>
 	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 	</form>
-	<?php if ($a["id"] == $flaga) {echo $flaga;} ?>
+	<?php if ($a["id"] == $pass_id) {echo $flaga;} ?>
 	</td>
 	
 	<td>
