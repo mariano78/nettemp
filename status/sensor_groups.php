@@ -62,11 +62,10 @@ foreach ($row_meteo as $a) {
 	
 	<div class="pull-left"><?php echo $gname; echo $hide; ?></div>
   <div class="pull-right">
-  <class="text-right">Right</div>
+  <class="text-right">
   
-  <div class="clearfix"></div>
-	
-	<form action="" method="post" style="display:inline!important;">
+  
+ <form action="" method="post" style="display:inline!important;">
 		<input type="hidden" name="hideg" value="<?php echo $ch_g; ?>" />
 		<input type="hidden" name="hidegstate" value="<?php echo $hide; ?>" />
 		
@@ -83,6 +82,13 @@ foreach ($row_meteo as $a) {
 		
 		<?php } ?>
     </form>	
+  
+  
+  </div>
+  
+  <div class="clearfix"></div>
+	
+	
 	
 	
 	</div>
