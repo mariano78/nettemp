@@ -15,7 +15,8 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db");
 	
 	if (!empty($hidegroup) && $hidegroup == 'hidegroup'){
 		if ($hidegstate == 'on') {$hidegstate = 'off';
-		}elseif ($hidegstate == 'off') {$hidegstate = 'on';}
+		}elseif ($hidegstate == 'off') {$hidegstate = 'on';
+		}elseif ($hidegstate == '') {$hidegstate = 'off';
 		
 	$db = new PDO('sqlite:dbf/nettemp.db');
 	$db->exec("UPDATE sensors SET ghide='$hidegstate' WHERE ch_group='$hideg'") or die ($db->lastErrorMsg());
