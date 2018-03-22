@@ -70,7 +70,7 @@ foreach ($row_meteo as $a) {
 		
 		if($hide =='off'){ ?>
 		
-		<button class="hidearrow"><span class="glyphicon glyphicon-triangle-top"></span> </button>
+		<button><span class="glyphicon glyphicon-triangle-top"></span> </button>
 		
 		<?php } elseif($hide =='on'){?>
 		
