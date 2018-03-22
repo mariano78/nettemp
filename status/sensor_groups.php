@@ -71,8 +71,9 @@ foreach ($row_meteo as $a) {
 		<button class="hidearrow"><span style="pull-right!important;" class="glyphicon glyphicon-triangle-top"></span> </button>
 		
 		<?php } elseif($hide =='on'){?>
+		<div class="text-right">
 		<button class="hidearrow"><span style="pull-right" class="glyphicon glyphicon-triangle-bottom"></span> </button>
-		
+		</div>
 		<?php } ?>
     </form>	
 	
