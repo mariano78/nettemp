@@ -53,7 +53,7 @@ foreach ($row_meteo as $a) {
     ?>
     <div class="grid-item sg<?php echo $ch_g ?>">
 	<div class="panel panel-default">
-	<div class="panel-heading"><?php echo $gname; ?>
+	<div class="panel-heading"><?php echo $gname; echo $hide; ?>
 	
 	<form action="" method="post" style="display:inline!important;">
 		<input type="hidden" name="hideg" value="<?php echo $ch_g; ?>" />
