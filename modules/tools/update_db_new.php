@@ -117,4 +117,5 @@ $updates['2018-03-19 12:42:40'][]="ALTER TABLE sensors ADD readerrsend TEXT";
 $updates['2018-03-21 13:05:08'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('ups_language','1')";
 
 $updates['2018-03-22 10:01:46'][]="ALTER TABLE sensors ADD ghide TEXT";
+$updates['2018-03-22 10:17:11'][]="UPDATE sensors SET ghide='off'";
 ?>
