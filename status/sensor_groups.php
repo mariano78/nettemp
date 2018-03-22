@@ -46,7 +46,7 @@ foreach ($row_meteo as $a) {
 	<form action="" method="post" style="display:inline!important;">
 		<input type="hidden" name="chghide" value="<?php echo $ch_g; ?>" />
 		<input type="hidden" name="hidegroup" value="hidegroup"/>
-		<button class="btn btn-xs btn-success"><span style="float:right" class="glyphicon glyphicon-menu-down"></span> </button>
+		<button><span style="float:right" class="glyphicon glyphicon-menu-down"></span> </button>
     </form>	
 	
 	</div>
