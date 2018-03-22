@@ -57,7 +57,7 @@ foreach ($row_meteo as $a) {
     ?>
     <div class="grid-item sg<?php echo $ch_g ?>">
 	<div class="panel panel-default">
-	<div class="panel-heading"><?php echo $gname; echo $hide; ?>
+	<div class="panel-heading">
 	
 	
 	<div class="text-left">aaa</div>
