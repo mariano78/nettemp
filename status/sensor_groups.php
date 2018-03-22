@@ -14,8 +14,8 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db");
 	$hidegstate = isset($_POST['hidegstate']) ? $_POST['hidegstate'] : '';
 	
 	if (!empty($hidegroup) && $hidegroup == 'hidegroup'){
-		if ($hidegstate == 'on') {$hidegstate == 'off';
-		}elseif ($hidegstate == 'off') {$hidegstate == 'on';}
+		if ($hidegstate == 'on') {$hidegstate = 'off';
+		}elseif ($hidegstate == 'off') {$hidegstate = 'on';}
 		
 	$db = new PDO('sqlite:dbf/nettemp.db');
 	$db->exec("UPDATE sensors SET ghide='$hidegstate' WHERE ch_group='$hideg'") or die ($db->lastErrorMsg());
