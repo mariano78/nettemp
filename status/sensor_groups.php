@@ -8,6 +8,18 @@ if (isset($_GET['ch_g'])) {
 $root=$_SERVER["DOCUMENT_ROOT"];
 $db = new PDO("sqlite:$root/dbf/nettemp.db");
 
+//hide
+	$hidegroup = isset($_POST['hidegroup']) ? $_POST['hidegroup'] : '';
+	$hideg = isset($_POST['hideg']) ? $_POST['hideg'] : '';
+	
+	if (!empty($hidegroup) && $hidegroup == 'hidegroup'){
+	$db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("UPDATE sensors SET ghide='off' WHERE ch_group='$hideg'") or die ($db->lastErrorMsg());
+	header("location: " . $_SERVER['REQUEST_URI']);
+	exit();
+	 }
+
+
 $query = $db->query("SELECT * FROM types");
 $result_t = $query->fetchAll();
 
@@ -44,9 +56,9 @@ foreach ($row_meteo as $a) {
 	<div class="panel-heading"><?php echo $gname; ?>
 	
 	<form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="chghide" value="<?php echo $ch_g; ?>" />
+		<input type="hidden" name="hideg" value="<?php echo $ch_g; ?>" />
 		<input type="hidden" name="hidegroup" value="hidegroup"/>
-		<span style="float:right" class="glyphicon glyphicon-menu-down"></span>
+		<button><span style="float:right" class="glyphicon glyphicon-menu-down"></span> </button>
     </form>	
 	
 	</div>
