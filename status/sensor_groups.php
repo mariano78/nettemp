@@ -11,7 +11,7 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db");
 $query = $db->query("SELECT * FROM types");
 $result_t = $query->fetchAll();
 
-$hide = $db->query("SELECT ghide FROM sensors WHERE ch_group='$ch_g' ");
+$hide = $db->query("SELECT ghide FROM sensors WHERE ch_group='$ch_g'");
 $hide_res = $query->fetchAll();
 foreach ($hide_res as $h) {
     $hide=$h['ghide'];
@@ -45,6 +45,8 @@ foreach ($row_meteo as $a) {
     <table class="table table-hover table-condensed">
     <tbody>
 <?php
+
+if ($hide == '') {
     foreach ($result as $a) {
 	$name1=$a['name'];
 	$name = str_replace("_", " ", $name1);
@@ -231,6 +233,7 @@ foreach ($row_meteo as $a) {
     unset($stat_min);
     unset($stat_max);
      } 
+}
 ?>
     </tbody>
     </table> 
