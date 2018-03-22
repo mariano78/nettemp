@@ -57,12 +57,12 @@ foreach ($row_meteo as $a) {
     ?>
     <div class="grid-item sg<?php echo $ch_g ?>">
 	<div class="panel panel-default">
-	<div class="panel-heading"><?php echo $gname; echo $hide; ?>
+	<div class="panel-heading">
 	
 	
-	<div class="pull-left">Text on the left</div>
+	<div class="pull-left"><?php echo $gname; echo $hide; ?></div>
   <div class="pull-right">
-  <class="text-right">This to the right but on the same line</div>
+  <class="text-right">Right</div>
   
   <div class="clearfix"></div>
 	
