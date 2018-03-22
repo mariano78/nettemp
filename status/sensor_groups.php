@@ -58,6 +58,7 @@ foreach ($row_meteo as $a) {
     <div class="grid-item sg<?php echo $ch_g ?>">
 	<div class="panel panel-default">
 	<div class="panel-heading"><?php echo $gname; echo $hide; ?>
+	<div class="text-right">
 	
 	<form action="" method="post" style="display:inline!important;">
 		<input type="hidden" name="hideg" value="<?php echo $ch_g; ?>" />
@@ -71,11 +72,12 @@ foreach ($row_meteo as $a) {
 		<button class="hidearrow"><span style="pull-right!important;" class="glyphicon glyphicon-triangle-top"></span> </button>
 		
 		<?php } elseif($hide =='on'){?>
-		<div class="text-right">
+		
 		<button class="hidearrow"><span style="pull-right" class="glyphicon glyphicon-triangle-bottom"></span> </button>
-		</div>
+		
 		<?php } ?>
     </form>	
+	</div>
 	
 	</div>
     <table class="table table-hover table-condensed">
