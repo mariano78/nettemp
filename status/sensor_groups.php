@@ -46,7 +46,7 @@ foreach ($row_meteo as $a) {
     <tbody>
 <?php
 
-if ($hide == '') {
+if ($hide == 'on') {
     foreach ($result as $a) {
 	$name1=$a['name'];
 	$name = str_replace("_", " ", $name1);
