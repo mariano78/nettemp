@@ -67,7 +67,7 @@ foreach ($row_meteo as $a) {
 		<?php
 		
 		if($hide =='off'){ ?>
-		<button type="submit"><i class="glyphicon glyphicon-menu-up"></i></button>
+		<button type="submit" class="icon-user"><i class="glyphicon glyphicon-menu-up"></i></button>
 		
 		<?php } elseif($hide =='on'){?>
 		<button type="submit" class="btn btn-link"><span style="float:right" class="glyphicon glyphicon-menu-down"></span> </button>
