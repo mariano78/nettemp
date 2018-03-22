@@ -41,12 +41,20 @@ foreach ($row_meteo as $a) {
     ?>
     <div class="grid-item sg<?php echo $ch_g ?>">
 	<div class="panel panel-default">
-	<div class="panel-heading"><?php echo $gname; ?></div>
+	<div class="panel-heading"><?php echo $gname; ?>
+	
+	<form action="" method="post" style="display:inline!important;">
+		<input type="hidden" name="chghide" value="<?php echo $ch_g; ?>" />
+		<input type="hidden" name="hidegroup" value="hidegroup"/>
+		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-menu-down"></span> </button>
+    </form>	
+	
+	</div>
     <table class="table table-hover table-condensed">
     <tbody>
 <?php
 
-if ($hide == 'on') {
+if ($hide == 'off') {
     foreach ($result as $a) {
 	$name1=$a['name'];
 	$name = str_replace("_", " ", $name1);
