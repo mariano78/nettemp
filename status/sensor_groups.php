@@ -60,28 +60,21 @@ foreach ($row_meteo as $a) {
 	<div class="panel-heading">
 	
 	
-	<div class="pull-left"><?php echo $gname; echo $hide; ?></div>
-  <div class="pull-right">
-  <class="text-right">
-  
-  
- <form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="hideg" value="<?php echo $ch_g; ?>" />
-		<input type="hidden" name="hidegstate" value="<?php echo $hide; ?>" />
-		
-		<input type="hidden" name="hidegroup" value="hidegroup"/>
-		<?php
-		
-		if($hide =='off'){ ?>
-		
-		<button class="hidearrow"><span class="glyphicon glyphicon-triangle-top"></span> </button>
-		
-		<?php } elseif($hide =='on'){?>
-		
-		<button class="hidearrow"><span class="glyphicon glyphicon-triangle-bottom"></span> </button>
-		
-		<?php } ?>
-    </form>	
+		<div class="pull-left"><?php echo $gname;?></div>
+		<div class="pull-right">
+		<div class="text-right">
+			 <form action="" method="post" style="display:inline!important;">
+					<input type="hidden" name="hideg" value="<?php echo $ch_g; ?>" />
+					<input type="hidden" name="hidegstate" value="<?php echo $hide; ?>" />
+					<input type="hidden" name="hidegroup" value="hidegroup"/>
+					<?php
+					if($hide =='off'){ ?>
+					<button class="hidearrow"><span class="glyphicon glyphicon-triangle-top"></span> </button>
+					<?php } elseif($hide =='on'){?>
+					<button class="hidearrow"><span class="glyphicon glyphicon-triangle-bottom"></span> </button>
+					<?php } ?>
+				</form>	
+		</div>
   
   
   </div>
