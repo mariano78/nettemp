@@ -11,6 +11,12 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db");
 $query = $db->query("SELECT * FROM types");
 $result_t = $query->fetchAll();
 
+$hide = $db->query("SELECT ghide FROM sensors WHERE ch_group='$ch_g' ");
+$hide_res = $query->fetchAll();
+foreach ($hide_res as $h) {
+    $hide=$h['ghide'];
+}
+
 $rows_meteo = $db->query("SELECT normalized,pressure FROM meteo WHERE id='1'");
 $row_meteo = $rows_meteo->fetchAll();
 foreach ($row_meteo as $a) {
@@ -53,19 +59,7 @@ foreach ($row_meteo as $a) {
 	$stat_min='';
 	$stat_max='';
 
-	/*
-		if($a['device'] == 'wireless'){ $device='<img src="media/ico/wifi-circle-icon.png" alt="" title="'.$a['ip'].'"/>';}
-		elseif($a['device'] == 'remote'||$a['device'] == 'ip'){ $device='<img src="media/ico/remote.png" alt="" title="'.$a['ip'].'"/>';}
-		elseif($a['device'] == 'usb'){ $device='<img src="media/ico/usb-icon.png" alt="" title="USB"/>';}
-		elseif($a['device'] == 'rpi'){ $device='<img src="media/ico/raspberry-icon.png" alt="" title="Raspberry Pi"/>';}
-		elseif($a['device'] == 'banana'){ $device='<img src="media/ico/banana-icon.png" alt="" title="Banana Pi"/>';}
-		elseif($a['device'] == 'gpio'){ $device='<img src="media/ico/gpio2.png" alt="" title="GPIO"/>';}
-		elseif($a['device'] == 'i2c'||$a['device'] == 'lmsensors'){ $device='<img src="media/ico/i2c_1.png" alt="" title="I2C"/>';}
-		elseif($a['device'] == 'snmp'){ $device='<img src="media/ico/snmp-icon.png" alt="" title=SNMP"/>';}
-		elseif($a['device'] == '1wire'||$a['device'] == 'owfs'){ $device='<img src="media/ico/1wire.png" alt="" title="1wire"/>';}
-	*/
-		
-		
+	
 		foreach($result_t as $ty){
        	if($ty['type']==$a['type']){
      			if($nts_temp_scale == 'F'){
@@ -119,8 +113,6 @@ foreach ($row_meteo as $a) {
 			<td>
 			    <a href="index.php?id=view&type=<?php echo $a['type']?>&max=<?php echo $_SESSION['nts_charts_max']; ?>&single=<?php echo $a['name']?>" title="Go to charts, last update: <?php echo $a['time']?>"
 				<?php 
-				
-				
 					if ($a['type']=='trigger' && $a['tmp'] == '1.0') {
 						if (strtotime($a['time'])<(time()-($a['readerr']*60)) && !empty($a['readerr'])){
 							echo 'class="label label-warning"';
