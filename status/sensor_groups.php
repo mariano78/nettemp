@@ -27,7 +27,7 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db");
 $query = $db->query("SELECT * FROM types");
 $result_t = $query->fetchAll();
 
-$hide = $db->query("SELECT ghide FROM sensors WHERE ch_group='$ch_g'");
+$hide = $db->query("SELECT ghide FROM sensors WHERE ch_group='$ch_g' LIMIT 1");
 $hide_res = $hide->fetchAll();
 foreach ($hide_res as $h) {
     $hide=$h['ghide'];
