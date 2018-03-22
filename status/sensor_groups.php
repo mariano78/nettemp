@@ -11,10 +11,14 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db");
 //hide
 	$hidegroup = isset($_POST['hidegroup']) ? $_POST['hidegroup'] : '';
 	$hideg = isset($_POST['hideg']) ? $_POST['hideg'] : '';
+	$hidegstate = isset($_POST['hidegstate']) ? $_POST['hidegstate'] : '';
 	
 	if (!empty($hidegroup) && $hidegroup == 'hidegroup'){
+		if ($hidegstate == 'on') {$hidegstate == 'off';
+		}elseif ($hidegstate == 'off') {$hidegstate == 'on';}
+		
 	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("UPDATE sensors SET ghide='off' WHERE ch_group='$hideg'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE sensors SET ghide='$hidegstate' WHERE ch_group='$hideg'") or die ($db->lastErrorMsg());
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();
 	 }
@@ -57,6 +61,8 @@ foreach ($row_meteo as $a) {
 	
 	<form action="" method="post" style="display:inline!important;">
 		<input type="hidden" name="hideg" value="<?php echo $ch_g; ?>" />
+		<input type="hidden" name="hidegstate" value="<?php echo $hide; ?>" />
+		
 		<input type="hidden" name="hidegroup" value="hidegroup"/>
 		<button><span style="float:right" class="glyphicon glyphicon-menu-down"></span> </button>
     </form>	
