@@ -60,8 +60,13 @@ foreach ($row_meteo as $a) {
 	<div class="panel-heading"><?php echo $gname; echo $hide; ?>
 	
 	
-	<div class="span4 text-left">aaa</div>
-	<div class="span4 text-right">aaa</div>
+	<div class="pull-left">
+  <h1>Text on the left</h1>
+  </div>
+  <div class="pull-right">
+  <h3 class="text-right">This to the right but on the same line</h3>
+  </div>
+  <div class="clearfix"></div>
 	
 	<form action="" method="post" style="display:inline!important;">
 		<input type="hidden" name="hideg" value="<?php echo $ch_g; ?>" />
