@@ -24,7 +24,7 @@ $query = $db->query("SELECT * FROM types");
 $result_t = $query->fetchAll();
 
 $hide = $db->query("SELECT ghide FROM sensors WHERE ch_group='$ch_g'");
-$hide_res = $query->fetchAll();
+$hide_res = $hide->fetchAll();
 foreach ($hide_res as $h) {
     $hide=$h['ghide'];
 }
