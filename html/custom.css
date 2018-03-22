@@ -75,6 +75,14 @@ padding: 0px 15px;
 	padding: 5px;
 }
 
+.btn-link2
+{
+font-weight:400;
+color:#337ab7;
+border-radius:5
+}
+
+
 /* on map default white color is invisible on white background */
 input[name='time_offset']
 {
