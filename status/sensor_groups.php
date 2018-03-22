@@ -78,11 +78,7 @@ foreach ($row_meteo as $a) {
 		<button class="hidearrow"><span class="glyphicon glyphicon-triangle-bottom"></span> </button>
 		
 		<?php } ?>
-    </form>	
-	 
-	 
-	 
-	 </span> 
+    </form>	</span> 
 	
 	
 	
