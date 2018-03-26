@@ -26,7 +26,7 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db") or die ("cannot open database");
 		}elseif ($hideowstate == 'off') {$hideowstate = 'on';}
 		
 	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("UPDATE ownwidget SET hide='$hideow' WHERE body='$owb'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE ownwidget SET hide='$hideowstate' WHERE body='$owb'") or die ($db->lastErrorMsg());
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();
 	 }	
