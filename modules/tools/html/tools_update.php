@@ -41,7 +41,7 @@ if ($update == "UPDATE") {
 	//$db->exec("UPDATE nt_settings SET value='$serverkey' WHERE option='server_key' ");
 	
 	
-	//shell_exec("sudo service cron start");
+	
 
 }
 
@@ -89,6 +89,8 @@ if(!empty($dbintegrity)){
 }
     echo '</form>';
 
+	
+shell_exec("sudo service cron start");	
 ?>
 
 </div>
