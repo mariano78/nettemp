@@ -52,8 +52,8 @@ if ($update == "INTEGRITY"){
     $okfile =$dir.'/OK_nettemp.db.'.$date;
     echo '<pre>';
     if(rename($dbfile,$badfile)){
-        unlink($dbfile.'-shm');
-        unlink($dbfile.'-wal');
+        //unlink($dbfile.'-shm');
+        //unlink($dbfile.'-wal');
         passthru('/usr/bin/sqlite3 '.$badfile.' ".clone '.$okfile.'" 2>&1');
         if( file_exists($okfile) && filesize($okfile)>0 ){
             rename($okfile,$dbfile);
