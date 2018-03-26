@@ -178,7 +178,7 @@ if(!empty($ip_gpio)||!empty($sensors_relay)) {
 <div class="grid-item swcon">
 <div class="panel panel-default">
 <div class="panel-heading">
-<div class="pull-left">GPIO <?php echo $nts_hide_gpio; ?></div>
+<div class="pull-left">GPIO</div>
 
 <div class="pull-right">
 		<div class="text-right">
