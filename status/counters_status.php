@@ -21,6 +21,8 @@ foreach ($hide_resc as $hc) {
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();
 	 }	
+	 
+//logon or logoff
 if(($_SESSION["perms"] == 'adm') || (isset($_SESSION["user"]))) {
 
 	$rows = $db->query("SELECT * FROM sensors WHERE ch_group!='none' AND  (type='gas' OR type='elec' OR type='water')");
@@ -54,7 +56,6 @@ if ( $numRows > '0' ) { ?>
 		</div>
   </div>
   <div class="clearfix"></div>
-</div>
 </div>
 
 <table class="table table-responsive table-hover table-condensed">
