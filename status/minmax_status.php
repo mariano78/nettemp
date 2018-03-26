@@ -18,7 +18,7 @@ foreach ($hide_resmm as $mm) {
 	$hidemm = isset($_POST['hidemm']) ? $_POST['hidemm'] : '';
 	$hidemmstate = isset($_POST['hidemmstate']) ? $_POST['hidemmstate'] : '';
 	
-	if (!empty($hidemm) && $hidemm == 'hidegpio'){
+	if (!empty($hidemm) && $hidemm == 'hidemm'){
 		if ($hidemmstate == 'on') {$hidemmstate = 'off';
 		}elseif ($hidemmstate == 'off') {$hidemmstate = 'on';}
 		
