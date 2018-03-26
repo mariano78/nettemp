@@ -3,7 +3,6 @@ session_start();
 $root=$_SERVER["DOCUMENT_ROOT"];
 if(isset($_SESSION['user'])){
 	
-	
 //hide
 	$hidegpio = isset($_POST['hidegpio']) ? $_POST['hidegpio'] : '';
 	$hidegstate = isset($_POST['hidegstate']) ? $_POST['hidegstate'] : '';
@@ -17,6 +16,13 @@ if(isset($_SESSION['user'])){
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();
 	 }	
+	
+$db = new PDO('sqlite:dbf/nettemp.db');	
+$hideg = $db->query("SELECT value FROM nt_settings WHERE option='hide_gpio'");
+$hide_resg = $hideg->fetchAll();
+foreach ($hide_resg as $hg) {
+    $nts_hide_gpio=$hg['hide_gpio'];
+}	 
 	
 	
 /* SWITCH EasyESP */
