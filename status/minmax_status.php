@@ -6,12 +6,7 @@ $rows = $db->query("SELECT * FROM sensors WHERE minmax='on' ORDER BY position AS
 $result = $rows->fetchAll();
 $numRows = count($result);
 
-$db = new PDO('sqlite:dbf/nettemp.db');	
-$hidemm = $db->query("SELECT value FROM nt_settings WHERE option='hide_gpio'");
-$hide_resmm = $hidemm->fetchAll();
-foreach ($hide_resmm as $mm) {
-    $nts_hide_minmax=$mm['value'];
-}
+
 
 
 //hide
