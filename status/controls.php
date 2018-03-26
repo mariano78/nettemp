@@ -13,7 +13,7 @@ if(isset($_SESSION['user'])){
 		}elseif ($hidegpiostate == 'off') {$hidegpiostate = 'on';}
 		
 	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("UPDATE nt_settings SET value='$hidegpiostate' WHERE option='hidegpio'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$hidegpiostate' WHERE option='hide_gpio'") or die ($db->lastErrorMsg());
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();
 	 }	
