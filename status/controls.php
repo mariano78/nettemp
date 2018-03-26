@@ -21,7 +21,9 @@ $db = new PDO('sqlite:dbf/nettemp.db');
 $hideg = $db->query("SELECT value FROM nt_settings WHERE option='hide_gpio'");
 $hide_resg = $hideg->fetchAll();
 foreach ($hide_resg as $hg) {
-    $nts_hide_gpio=$hg['hide_gpio'];
+	
+	
+    $nts_hide_gpio=$hg['value'];
 }	 
 	
 	
