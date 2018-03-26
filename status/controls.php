@@ -3,6 +3,22 @@ session_start();
 $root=$_SERVER["DOCUMENT_ROOT"];
 if(isset($_SESSION['user'])){
 	
+	
+//hide
+	$hidegpio = isset($_POST['hidegpio']) ? $_POST['hidegpio'] : '';
+	$hidegstate = isset($_POST['hidegstate']) ? $_POST['hidegstate'] : '';
+	
+	if (!empty($hidegpio) && $hidegpio == 'hidegpio'){
+		if ($hidegpiostate == 'on') {$hidegpiostate = 'off';
+		}elseif ($hidegpiostate == 'off') {$hidegpiostate = 'on';}
+		
+	$db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("UPDATE nt_settings SET value='$hidegpiostate' WHERE option='hidegpio'") or die ($db->lastErrorMsg());
+	header("location: " . $_SERVER['REQUEST_URI']);
+	exit();
+	 }	
+	
+	
 /* SWITCH EasyESP */
 $db = new PDO("sqlite:$root/dbf/nettemp.db");
 $sth = $db->prepare("SELECT ip,rom,gpio,name,tmp,status FROM sensors WHERE type='gpio' AND ch_group='gpio' ORDER BY position ASC");
@@ -156,15 +172,30 @@ if(!empty($ip_gpio)||!empty($sensors_relay)) {
 <div class="grid-item swcon">
 <div class="panel panel-default">
 <div class="panel-heading">
-<h3 class="panel-title">GPIO</h3>
+<div class="pull-left">GPIO</div>
+
+<div class="pull-right">
+		<div class="text-right">
+			 <form action="" method="post" style="display:inline!important;">
+					
+					<input type="hidden" name="hidegpiostate" value="<?php echo $nts_hide_gpio; ?>" />
+					<input type="hidden" name="hidegpio" value="hidegpio"/>
+					<?php
+					if($nts_hide_gpio =='off'){ ?>
+					<button class="hidearrow"><span class="glyphicon glyphicon-triangle-top"></span> </button>
+					<?php } elseif($nts_hide_gpio =='on'){?>
+					<button class="hidearrow"><span class="glyphicon glyphicon-triangle-bottom"></span> </button>
+					<?php } ?>
+				</form>	
+		</div>
+  </div>
+  <div class="clearfix"></div>
+
 </div>
 <table class="table table-hover table-condensed small" border="0">
-<?php 
-
-if ($nts_hide_gpio == 'off') { ?>
-
 	<tbody>
 	<?php
+if ($nts_hide_gpio == 'off') { 
 	/* EasyESP */
 	$numRows = count($ip_gpio);
 	if ( $numRows > '0' ) { 
@@ -740,16 +771,11 @@ if ($nts_hide_gpio == 'off') { ?>
 	}
 
 	/* GPIO */
-?>
-
-
-
-<!--END-->
-	</tbody>
-<?php	
+		
 }//hide
 ?>
-
+<!--END-->
+	</tbody>
 </table>
 
 </div>
