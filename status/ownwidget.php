@@ -20,13 +20,15 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db") or die ("cannot open database");
 //hide ownwidget in status
 	$hideow = isset($_POST['hideow']) ? $_POST['hideow'] : '';
 	$hideowstate = isset($_POST['hideowstate']) ? $_POST['hideowstate'] : '';
+	$hideowbod = isset($_POST['hideowbod']) ? $_POST['hideowbod'] : '';
+
 	
 	if (!empty($hideow) && $hideow == 'hideow'){
 		if ($hideowstate == 'on') {$hideowstate = 'off';
 		}elseif ($hideowstate == 'off') {$hideowstate = 'on';}
 		
 	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("UPDATE ownwidget SET hide='$hideowstate' WHERE body='$owb'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE ownwidget SET hide='$hideowstate' WHERE body='$hideowbod'") or die ($db->lastErrorMsg());
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();
 	 }	
@@ -54,7 +56,7 @@ if ( $numRows > '0' ) {  ?>
 		<div class="pull-right">
 		<div class="text-right">
 			 <form action="" method="post" style="display:inline!important;">
-					
+					<input type="hidden" name="hideowbod" value="<?php echo $owb; ?>" />
 					<input type="hidden" name="hideowstate" value="<?php echo $owh; ?>" />
 					<input type="hidden" name="hideow" value="hideow"/>
 					<?php
