@@ -159,6 +159,10 @@ if(!empty($ip_gpio)||!empty($sensors_relay)) {
 <h3 class="panel-title">GPIO</h3>
 </div>
 <table class="table table-hover table-condensed small" border="0">
+<?php 
+
+if ($nts_hide_gpio == 'off') { ?>
+
 	<tbody>
 	<?php
 	/* EasyESP */
@@ -742,9 +746,11 @@ if(!empty($ip_gpio)||!empty($sensors_relay)) {
 
 <!--END-->
 	</tbody>
+<?php	
+}//hide
+?>
+
 </table>
-
-
 
 </div>
 </div>
