@@ -73,10 +73,16 @@ if ( $numRows > '0' ) {  ?>
 
 	<?php
 	
+	
+	
 	foreach ($row as $ow) {?> 	
 	
-		
+		<?php if ($owh == 'off') { ?>
 			<div class="panel-body"><?php include("$root/tmp/ownwidget".$owb.".php");?> </div>
+			
+			<?php
+		}
+		?>
 		</div>
 		</div>
 
