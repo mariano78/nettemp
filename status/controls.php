@@ -5,7 +5,7 @@ if(isset($_SESSION['user'])){
 	
 //hide
 	$hidegpio = isset($_POST['hidegpio']) ? $_POST['hidegpio'] : '';
-	$hidegstate = isset($_POST['hidegstate']) ? $_POST['hidegstate'] : '';
+	$hidegpiostate = isset($_POST['hidegpiostate']) ? $_POST['hidegpiostate'] : '';
 	
 	if (!empty($hidegpio) && $hidegpio == 'hidegpio'){
 		if ($hidegpiostate == 'on') {$hidegpiostate = 'off';
@@ -17,14 +17,7 @@ if(isset($_SESSION['user'])){
 	exit();
 	 }	
 	
-$db = new PDO('sqlite:dbf/nettemp.db');	
-$hideg = $db->query("SELECT value FROM nt_settings WHERE option='hide_gpio'");
-$hide_resg = $hideg->fetchAll();
-foreach ($hide_resg as $hg) {
-	
-	
-    $nts_hide_gpio=$hg['value'];
-}	 
+ 
 	
 	
 /* SWITCH EasyESP */
