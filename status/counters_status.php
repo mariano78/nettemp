@@ -59,7 +59,7 @@ if ( $numRows > '0' ) { ?>
 
 <table class="table table-responsive table-hover table-condensed">
 <?php 
-if ($nts_hide_minmax == 'off') { ?>
+if ($nts_hide_counters == 'off') { ?>
 
 <thead>
 <tr>
