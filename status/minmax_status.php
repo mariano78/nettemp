@@ -13,7 +13,7 @@ if ( $numRows > '0' ) { ?>
 <table class="table table-hover table-condensed">
 <tbody>
 <tr>
-   <th></th>
+
 <?php
 
  if($nts_minmax_mode != '1') {
