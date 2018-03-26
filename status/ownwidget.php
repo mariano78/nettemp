@@ -19,7 +19,7 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db") or die ("cannot open database");
 
 //hide ownwidget in status
 	$hideow = isset($_POST['hideow']) ? $_POST['hideow'] : '';
-	$hideowstate = isset($_POST['$hideowstate']) ? $_POST['$hideowstate'] : '';
+	$hideowstate = isset($_POST['hideowstate']) ? $_POST['hideowstate'] : '';
 	
 	if (!empty($hideow) && $hideow == 'hideow'){
 		if ($hideowstate == 'on') {$hideowstate = 'off';
