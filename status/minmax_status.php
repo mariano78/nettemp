@@ -6,10 +6,7 @@ $rows = $db->query("SELECT * FROM sensors WHERE minmax='on' ORDER BY position AS
 $result = $rows->fetchAll();
 $numRows = count($result);
 
-
-
-
-//hide
+//hide minmax in status
 	$hidemm = isset($_POST['hidemm']) ? $_POST['hidemm'] : '';
 	$hidemmstate = isset($_POST['hidemmstate']) ? $_POST['hidemmstate'] : '';
 	
@@ -28,7 +25,6 @@ if ( $numRows > '0' ) { ?>
 <div class="panel panel-default">
 <div class="panel-heading">
 <div class="pull-left">Sensors Min Max</div>
-
 <div class="pull-right">
 		<div class="text-right">
 			 <form action="" method="post" style="display:inline!important;">
@@ -55,7 +51,6 @@ if ($nts_hide_minmax == 'off') { ?>
 
 <tr>
    <th></th>
-   
    
 <?php
 
