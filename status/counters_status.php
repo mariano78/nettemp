@@ -9,8 +9,8 @@ foreach ($hide_resc as $hc) {
     $nts_hide_counters=$hc['value'];
 }	 
 //hide counters in status
-	$hidecounters = isset($_POST['$hidecounters']) ? $_POST['$hidecounters'] : '';
-	$hidecountersstate = isset($_POST['$hidecountersstate']) ? $_POST['$hidecountersstate'] : '';
+	$hidecounters = isset($_POST['hidecounters']) ? $_POST['hidecounters'] : '';
+	$hidecountersstate = isset($_POST['hidecountersstate']) ? $_POST['hidecountersstate'] : '';
 	
 	if (!empty($hidecounters) && $hidecounters == 'hidecounters'){
 		if ($hidecountersstate == 'on') {$hidecountersstate = 'off';
@@ -47,9 +47,9 @@ if ( $numRows > '0' ) { ?>
 					<input type="hidden" name="hidecountersstate" value="<?php echo $nts_hide_counters; ?>" />
 					<input type="hidden" name="hidecounters" value="hidecounters"/>
 					<?php
-					if($nts_hide_counters =='off'){ ?>
+					if($nts_hide_counters == 'off'){ ?>
 					<button class="hidearrow"><span class="glyphicon glyphicon-triangle-top"></span> </button>
-					<?php } elseif($nts_hide_counters =='on'){?>
+					<?php } elseif($nts_hide_counters == 'on'){?>
 					<button class="hidearrow"><span class="glyphicon glyphicon-triangle-bottom"></span> </button>
 					<?php } ?>
 				</form>	
