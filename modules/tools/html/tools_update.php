@@ -72,7 +72,7 @@ if ( $sth = $db->query("PRAGMA integrity_check") ){
     $row = $sth->fetchAll();
     foreach($row as $r) {
         if($r[0]!='ok') {
-            $dbintegrity = "database problem: PRAGMA integrity_check";
+            $dbintegrity = "database problem: PRAGMA integrity_check".$r[0];
         }
     }
 } else {
