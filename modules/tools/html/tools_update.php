@@ -41,7 +41,7 @@ if ($update == "UPDATE") {
 	//$db->exec("UPDATE nt_settings SET value='$serverkey' WHERE option='server_key' ");
 	
 	
-	shell_exec("sudo service cron start");
+	//shell_exec("sudo service cron start");
 
 }
 
@@ -52,8 +52,8 @@ if ($update == "INTEGRITY"){
     $okfile =$dir.'/OK_nettemp.db.'.$date;
     echo '<pre>';
     if(rename($dbfile,$badfile)){
-        //unlink($dbfile.'-shm');
-        //unlink($dbfile.'-wal');
+        unlink($badfile.'-shm');
+        unlink($badfile.'-wal');
         passthru('/usr/bin/sqlite3 '.$badfile.' ".clone '.$okfile.'" 2>&1');
         if( file_exists($okfile) && filesize($okfile)>0 ){
             rename($okfile,$dbfile);
