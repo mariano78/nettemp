@@ -3,7 +3,7 @@ session_start();
 $root=$_SERVER["DOCUMENT_ROOT"];
 $db = new PDO("sqlite:$root/dbf/nettemp.db");
 
-$hidec = $db->query("SELECT value FROM nt_settings WHERE option='hide_gpio'");
+$hidec = $db->query("SELECT value FROM nt_settings WHERE option='hide_counters'");
 $hide_resc = $hidec->fetchAll();
 foreach ($hide_resc as $hc) {
     $nts_hide_counters=$hc['value'];
