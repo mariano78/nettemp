@@ -85,7 +85,7 @@ $row = $rows->fetchAll();
     </td>
 	
 	<input type="hidden" name="add" value="add" class="form-control"/>
-    <td class="col-md-8">
+    <td class="col-md-6">
 	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span></button>
     </td>
     </div>
@@ -104,12 +104,17 @@ $row = $rows->fetchAll();
 	<img src="media/ico/TO-220-icon.png" />
 	<?php echo $a['dev']; ?>
     </td>
-    <td class="col-md-2">
+    
+	<td class="col-md-2">
 	<?php echo  $a["addr"] ;?>
+    </td>
+	
+	<td class="col-md-2">
+	<?php echo  $a["baudrate"] ;?>
     </td>
 
 
-    <td class="col-md-8">
+    <td class="col-md-6">
     <form action="" method="post" style="display:inline!important;">
 	<input type="hidden" name="rs485id" value="<?php echo $a["id"]; ?>" />
 	<input type="hidden" name="rmrs485" value="rmrs485" />
