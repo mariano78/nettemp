@@ -40,7 +40,8 @@ foreach($array as $key => $value){
 	if (strpos($key, 'STATUS') !== false) { ?>
 	<tr>
 	<td><span class="label label-default">Status </span></td>
-	<?php if ($value == 'ONLINE') { ?>
+	
+	<?php if (trim($value) == 'ONLINE') { ?>
 	<td><span class="label label-success"><?php echo $value; ?></span></td>
 	<?php } elseif ($value == 'OFFLINE') { ?>
 		<td><span class="label label-success"><?php echo $value; ?></span></td>
