@@ -138,11 +138,11 @@ $row = $rows->fetchAll();
 </div>
 </fieldset>
 </form>
-
-
 </td>
-
-
+<td>
+</td>
+<td>
+</td>
 </tr>
 </table>
 
