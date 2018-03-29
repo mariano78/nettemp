@@ -44,26 +44,40 @@ foreach($array as $key => $value){
     </tr>
 	<?php }
 	
+	if (strpos($key, 'TIMELEFT') !== false) { ?>
+	<tr>
+	<td><span class="label label-default">Left time on battery </span></td>
+	<td><span class="label label-success"><?php echo $value; ?></span></td>
+    </tr>
+	<?php }
 	
+	if (strpos($key, 'BATTV') !== false) { ?>
+	<tr>
+	<td><span class="label label-default">Battery voltage </span></td>
+	<td><span class="label label-success"><?php echo $value; ?></span></td>
+    </tr>
+	<?php }
 	
-    if (strpos($key, 'STATUS') !== false) {
-	echo "Status: ".$value."<br>";
-    }
-    if (strpos($key, 'TIMELEFT') !== false) {
-	echo "Left time on battery: ".$value."<br>";
-    }
-	if (strpos($key, 'BATTV') !== false) {
-	echo "Voltage baterry: ".$value."<br>";
-    }
-	if (strpos($key, 'LINEV') !== false) {
-	echo "Voltage line: ".$value."<br>";
-    }
-	if (strpos($key, 'LOADPCT') !== false) {
-	echo "Load: ".$value."<br>";
-    }
-    if (strpos($key, 'TONBATT') !== false) {
-	echo "Time on baterry: ".$value."<br>";
-    }
+	if (strpos($key, 'LINEV') !== false) { ?>
+	<tr>
+	<td><span class="label label-default">Line voltage </span></td>
+	<td><span class="label label-success"><?php echo $value; ?></span></td>
+    </tr>
+	<?php }
+	
+	if (strpos($key, 'LOADPCT') !== false) { ?>
+	<tr>
+	<td><span class="label label-default">UPS load </span></td>
+	<td><span class="label label-success"><?php echo $value; ?></span></td>
+    </tr>
+	<?php }
+	
+	if (strpos($key, 'TONBATT') !== false) { ?>
+	<tr>
+	<td><span class="label label-default">Time on baterry </span></td>
+	<td><span class="label label-success"><?php echo $value; ?></span></td>
+    </tr>
+	<?php }
 
 }
 ?>
