@@ -32,7 +32,14 @@ foreach($array as $key => $value){
 	
 	if (strpos($key, 'MODEL') !== false) { ?>
 	<tr>
-	<td><span class="label label-default">Model:</span></td>
+	<td><span class="label label-default">Model </span></td>
+	<td><span class="label label-success"><?php echo $value; ?></span></td>
+    </tr>
+	<?php }
+	
+	if (strpos($key, 'STATUS') !== false) { ?>
+	<tr>
+	<td><span class="label label-default">Status </span></td>
 	<td><span class="label label-success"><?php echo $value; ?></span></td>
     </tr>
 	<?php }
