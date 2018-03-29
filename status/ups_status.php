@@ -9,7 +9,6 @@ foreach ($upsqr as $ups) {
        	$nts_ups_status=$ups['value'];
     }
 }
-
 //hide ups in status
 	$hideups = isset($_POST['hideups']) ? $_POST['hideups'] : '';
 	$hideupsstate = isset($_POST['hideupsstate']) ? $_POST['hideupsstate'] : '';
@@ -116,18 +115,17 @@ foreach($array as $key => $value){
 	<td><span class="label label-success"><?php echo $value; ?></span></td>
     </tr>
 	<?php }
-
 }
 }//hide
 ?>
-
 </tbody>
-
 </table>
 </div>			
-	</div>
-    </div>
 </div>
+</div>
+</div>
+
+
 
 <?php
 }
