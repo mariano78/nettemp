@@ -8,9 +8,7 @@ foreach ($upsqr as $ups) {
 	if($a['option']=='ups_status') {
        	$nts_ups_status=$ups['value'];
     }
-    $nts_ups_status=$ups['value'];
 }
-
 
 //hide ups in status
 	$hideups = isset($_POST['hideups']) ? $_POST['hideups'] : '';
@@ -25,22 +23,16 @@ foreach ($upsqr as $ups) {
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();
 	 }	
-
-
 if ($nts_ups_status != 'on' ) { return; }
 else {
-
 ?>
-
-
 <div class="grid-item ups">
 <div class="panel panel-default">
-
 <div class="panel-heading"> 
 <div class="pull-left">UPS Status</div>
 <div class="pull-right">
 		<div class="text-right">
-			 <form action="" method="post" style="display:inline!important;">
+			<form action="" method="post" style="display:inline!important;">
 					
 					<input type="hidden" name="hideupsstate" value="<?php echo $nts_hide_ups; ?>" />
 					<input type="hidden" name="hideups" value="hideups"/>
@@ -50,16 +42,15 @@ else {
 					<?php } elseif($nts_hide_ups == 'on'){?>
 					<button class="hidearrow"><span class="glyphicon glyphicon-triangle-bottom"></span> </button>
 					<?php } ?>
-				</form>	
+			</form>	
 		</div>
-  </div>
-  <div class="clearfix"></div>
+ </div>
+ <div class="clearfix"></div>
 </div>
 	
-	<div class="table-responsive">
-	<table class="table table-hover table-condensed">
+<div class="table-responsive">
+<table class="table table-hover table-condensed">
 	
-
 <tbody>      
 <?php
 if ($nts_hide_ups == 'off') {
