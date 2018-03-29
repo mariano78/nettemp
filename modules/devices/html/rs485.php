@@ -129,14 +129,14 @@ $row = $rows->fetchAll();
 <td>
 
 <form class="form-horizontal" action="" method="post">
-<fieldset>
-<div class="form-group">
+
+
   <div class="col-md-1">
     <input type="hidden" name="default" value="default">
     <button id="singlebutton" name="singlebutton" class="btn btn-xs btn-success">Reset to default</button>
   </div>
-</div>
-</fieldset>
+
+
 </form>
 </td>
 
