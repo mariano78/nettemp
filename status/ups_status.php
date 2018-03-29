@@ -22,8 +22,8 @@ else {
         <div class="panel-body">
 <?php
 foreach($array as $key => $value){
-    if (strpos($key, 'UPSMODE') !== false) {
-	echo "Mode: ".$value."<br>";
+    if (strpos($key, 'MODEL') !== false) {
+        echo "Model: ".$value."<br>";
     }
     if (strpos($key, 'STATUS') !== false) {
 	echo "Status: ".$value."<br>";
@@ -31,6 +31,19 @@ foreach($array as $key => $value){
     if (strpos($key, 'TIMELEFT') !== false) {
 	echo "Left time on battery: ".$value."<br>";
     }
+	if (strpos($key, 'BATTV') !== false) {
+	echo "Voltage baterry: ".$value."<br>";
+    }
+	if (strpos($key, 'LINEV') !== false) {
+	echo "Voltage line: ".$value."<br>";
+    }
+	if (strpos($key, 'LOADPCT') !== false) {
+	echo "Load: ".$value."<br>";
+    }
+	
+	
+	
+	
     if (strpos($key, 'TONBATT') !== false) {
 	echo "Time on baterry: ".$value."<br>";
     }
