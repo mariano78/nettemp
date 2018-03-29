@@ -8,14 +8,9 @@ $dir=$_SERVER["DOCUMENT_ROOT"];
 $usb=isset($_POST['usb']) ? $_POST['usb'] : '';
 $setusb=isset($_POST['setusb']) ? $_POST['setusb'] : '';
 $device=isset($_POST['device']) ? $_POST['device'] : '';
-$devs=array();
 if ($setusb == "setusb") {
     $db = new PDO('sqlite:dbf/nettemp.db');
     $db->exec("UPDATE usb SET dev='$usb' WHERE device='$device'");
-	
-	if ($device == 'PiUPS') {
-		shell_exec("sudo usermod -G www-data,dialout www-data");
-	}
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
 } 

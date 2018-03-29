@@ -2,14 +2,7 @@
 ob_clean();
 ob_start();
 
-$action = isset($_POST['action']) ? $_POST['action'] : '';
 $file = isset($_POST['file']) ? $_POST['file'] : '';
-$daterange = isset($_POST['daterange']) ? $_POST['daterange'] : '';
-$pieces = explode(" ", $daterange);
-$start=$pieces[0]." ".$pieces[1];
-$end=$pieces[3]." ".$pieces[4];
-
-
 // Set headers to make the browser download the results as a csv file
 header("Content-type: text/csv");
 header("Content-Disposition: attachment; filename=$file.csv");
@@ -21,13 +14,7 @@ header("Expires: 0");
 $conn = new PDO("sqlite:db/$file.sql");
 
 // Query
-
-if($action=='get') {
-	$query = $conn->query("SELECT * FROM def");
-}
-elseif($action=='getc') {
-	$query = $conn->query("SELECT * FROM def WHERE time BETWEEN '$start' AND '$end'");
-}
+$query = $conn->query("SELECT * FROM def");
 
 // Fetch the first row
 $row = $query->fetch(PDO::FETCH_ASSOC);

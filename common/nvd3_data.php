@@ -12,12 +12,15 @@ $data='';
 $adj='';
 
 
-include($root."/modules/settings/nt_settings.php");
+$db = new PDO("sqlite:$root/dbf/nettemp.db");
+$rows = $db->query("SELECT * FROM highcharts WHERE id='1'");
+$row = $rows->fetchAll();
+foreach($row as $a) {
+$charts_fast=$a['charts_fast'];
+$charts_min=$a['charts_min'];
+}
 
 function query($max,&$query) {
-if ($max == '15min') {
-    $query = "select strftime('%s', time),value from def WHERE time >= datetime('now','localtime','-15 minutes')";
-    } 
 if ($max == 'hour') {
     $query = "select strftime('%s', time),value from def WHERE time >= datetime('now','localtime','-1 hour')";
     } 
@@ -43,9 +46,6 @@ if ($max == 'all') {
 
 
 function querymod($max,$charts_min,&$query) {
-if ($max == '15min') {
-    	$query = "select strftime('%s', time),value from def WHERE time >= datetime('now','localtime','-15 minutes')";
-    } 
 if ($max == 'hour') {
     	$query = "select strftime('%s', time),value from def WHERE time >= datetime('now','localtime','-1 hour')";
     } 
@@ -75,9 +75,6 @@ if ($max == 'all') {
 }
 
 function queryc($max,&$query) {
-if ($max == '15min') {
-    $query = "select strftime('%s', time),current from def WHERE time >= datetime('now','localtime','-15 minutes')";
-    } 
 if ($max == 'hour') {
     $query = "select strftime('%s', time),current from def WHERE time >= datetime('now','localtime','-1 hour')";
     } 
@@ -109,8 +106,8 @@ if ($type == 'system') {
     $dirb = "sqlite:$root/db/system_$file.sql";
     $dbh = new PDO($dirb) or die("cannot open database");
 
-    	if($nts_charts_fast=='on') {
-    		querymod($max,$nts_charts_min,$query);
+    	if($charts_fast=='on') {
+    		querymod($max,$charts_min,$query);
     	}
 		else {
     		query($max,$query);
@@ -121,9 +118,7 @@ if ($type == 'system') {
 		}
     		$array['key']=$file;
     		$array['values']=$data;
-     		if(!empty($data)) {
-     			$all[]=$array;
-     		}
+     		$all[]=$array;
   			unset($data);
     		unset($array);
 	}
@@ -131,7 +126,7 @@ if ($type == 'system') {
 } 
 
 
-elseif ($type == 'host') {
+elseif ($type == 'hosts') {
  	 $db = new PDO("sqlite:$root/dbf/nettemp.db");
  	 if(empty($single)) {
     	$rows = $db->query("SELECT * FROM hosts");
@@ -147,27 +142,59 @@ elseif ($type == 'host') {
    
     	$dirb = "sqlite:$root/db/$file.sql";
     	$dbh = new PDO($dirb) or die("cannot open database");
-    	if($nts_charts_fast=='on') {
-    		querymod($max,$nts_charts_min,$query);
+    	if($charts_fast=='on') {
+    		querymod($max,$charts_min,$query);
     	}
 		else {
     		query($max,$query);
     	}
 	   foreach ($dbh->query($query) as $row) {
-			$data[]=array('x' => $row[0]*1000, 'y' => $row[1]);
+			$data[]=array('x' => $row[0]*1000, 'y' => $row[1]+$adj);
 		}
     		$array['key']=$name;
     		$array['values']=$data;
-     		if(!empty($data)) {
-     			$all[]=$array;
-     		}
+     		$all[]=$array;
   			unset($data);
     		unset($array);
 	}
    print json_encode($all);
 }
 
-   
+elseif ($type == 'gpio') {
+
+    $db = new PDO("sqlite:$root/dbf/nettemp.db");
+    if(empty($single)) {
+     		$rows = $db->query("SELECT * FROM gpio");
+     	} 
+     	else {
+     		$rows = $db->query("SELECT * FROM gpio WHERE name='$single'");
+     	}
+    $row = $rows->fetchAll();
+	 foreach($row as $a) {
+		$file=$a['gpio'];
+		$name=$a['name'];
+
+    	$dirb = "sqlite:$root/db/gpio_stats_$file.sql";
+    	$dbh = new PDO($dirb) or die("cannot open database");
+    	if($charts_fast=='on') {
+    		querymod($max,$charts_min,$query);
+    	}
+		else {
+    		query($max,$query);
+    	}
+	   foreach ($dbh->query($query) as $row) {
+			$data[]=array('x' => $row[0]*1000, 'y' => $row[1]+$adj);
+		}
+    		$array['key']=$name;
+    		$array['values']=$data;
+    		if(!empty($data)) {
+     			$all[]=$array;
+     		}
+  			unset($data);
+    		unset($array);
+	}
+   print json_encode($all);
+}    
 elseif ($type == 'group'){
     $db = new PDO("sqlite:$root/dbf/nettemp.db");
     $rows = $db->query("SELECT * FROM sensors WHERE ch_group='$group'");
@@ -175,23 +202,22 @@ elseif ($type == 'group'){
     foreach($row as $a) {
 		$file=$a['rom'];
 		$name=$a['name'];
+		$adj=$a['adj'];
 		
     	$dirb = "sqlite:$root/db/$file.sql";
     	$dbh = new PDO($dirb) or die("cannot open database");
-    	if($nts_charts_fast=='on') {
-    		querymod($max,$nts_charts_min,$query);
+    	if($charts_fast=='on') {
+    		querymod($max,$charts_min,$query);
     	}
 		else {
     		query($max,$query);
     	}
 	   foreach ($dbh->query($query) as $row) {
-			$data[]=array('x' => $row[0]*1000, 'y' => $row[1]);
+			$data[]=array('x' => $row[0]*1000, 'y' => $row[1]+$adj);
 		}
     		$array['key']=$name;
     		$array['values']=$data;
-     		if(!empty($data)) {
-     			$all[]=$array;
-     		}
+     		$all[]=$array;
   			unset($data);
     		unset($array);
 	}
@@ -213,24 +239,24 @@ elseif ($type == 'elec' && $mode == 2) {
     foreach($row as $a) {
 		$file=$a['rom'];
 		$name=$a['name'];
+		$adj=$a['adj'];
 		$type=$a['type'];
 
     	$dirb = "sqlite:$root/db/$file.sql";
     	$dbh = new PDO($dirb) or die("cannot open database");
     	if($charts_fast=='on') {
-    		queryc($max,$nts_charts_min,$query);
+    		queryc($max,$charts_min,$query);
     	}
 		else {
     		queryc($max,$query);
     	}
 	   foreach ($dbh->query($query) as $row) {
-			$data[]=array('x' => $row[0]*1000, 'y' => $row[1]);
+			$data[]=array('x' => $row[0]*1000, 'y' => $row[1]+$adj);
 		}
     		$array['key']=$name;
     		$array['values']=$data;
-     		if(!empty($data)) {
-     			$all[]=$array;
-     		}
+    		//$array['units']=$type;
+     		$all[]=$array;
   			unset($data);
     		unset($array);
 	}
@@ -252,24 +278,24 @@ else {
     foreach($row as $a) {
 		$file=$a['rom'];
 		$name=$a['name'];
+		$adj=$a['adj'];
 		$type=$a['type'];
 
     	$dirb = "sqlite:$root/db/$file.sql";
     	$dbh = new PDO($dirb) or die("cannot open database");
-    	if($nts_charts_fast=='on') {
-    		querymod($max,$nts_charts_min,$query);
+    	if($charts_fast=='on') {
+    		querymod($max,$charts_min,$query);
     	}
 		else {
     		query($max,$query);
     	}
 	   foreach ($dbh->query($query) as $row) {
-			$data[]=array('x' => $row[0]*1000, 'y' => $row[1]);
+			$data[]=array('x' => $row[0]*1000, 'y' => $row[1]+$adj);
 		}
     		$array['key']=$name;
     		$array['values']=$data;
-     		if(!empty($data)) {
-     			$all[]=$array;
-     		}
+    		//$array['units']=$type;
+     		$all[]=$array;
   			unset($data);
     		unset($array);
 	}

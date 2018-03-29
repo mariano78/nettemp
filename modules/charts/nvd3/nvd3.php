@@ -18,11 +18,7 @@
        #chart1, svg {
             margin: 0px;
             padding: 0px;
-	    <?php if($id == 'screen') { ?>
-        	height: 300px;
-	    <?php } else { ?>
-		height: 500px;
-	    <?php } ?>
+            height: 500px;
             width: 100%;
         }
     </style>
@@ -34,10 +30,15 @@
 </div>
 
 <script type="text/javascript"> 	 
-var nvd3 = function () {
 
 <?php
-	$dirb = "sqlite:dbf/nettemp.db";
+$dirb = "sqlite:dbf/nettemp.db";
+$dbh = new PDO($dirb) or die("cannot open database");
+$query = "SELECT temp_scale FROM settings WHERE id='1'";
+foreach ($dbh->query($query) as $row) {
+	$temp_scale=$row['temp_scale'];
+}
+echo "temp_scale = '". $temp_scale ."';\n";
 ?>
 
 var start = +new Date();
@@ -54,12 +55,6 @@ function getUrlVars() {
     var single = getUrlVars()["single"];
     var group = getUrlVars()["group"];
     var mode = getUrlVars()["mode"];
-    if(!type) {
-		var type = "temp";    
-    }
-    if(!max) {
-		var max = "<?php echo $nts_charts_max?>";    
-    }
     
     if (typeof group === 'undefined') {
 		var group = "";
@@ -70,29 +65,28 @@ function getUrlVars() {
 	 if (typeof single === 'undefined') {
 		var single = "";
 	 }
-	 
-<?php
-parse_str(parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY), $url);
-if(!empty($url['type'])) {
-	$type=$url['type'];
-} else {
-	$type="temp";
-}
-$query = $db->query("SELECT * FROM types");
-$result_t = $query->fetchAll();
-foreach($result_t as $ty){
-       	if($ty['type']==$type) {
-       		if(($nts_temp_scale != 'C')&&($ty['type']=='temp')){
-       			echo "var n_units = '". $ty['unit2'] ."';\n"; 
-        		} else {
-					echo "var n_units = '". $ty['unit'] ."';\n"; 
-       		}
-        	}  
-		}
-?>
-          
+
+			 if (type=='temp' && temp_scale=='F') {n_units = " °F"}
+			 else if (type=='temp' && temp_scale=='C') {n_units = " °C" }
+		    if (type=='humid') {n_units = " %"};
+		    if (type=='press') {n_units = " hPa"};
+		    if (type=='gpio') {n_units = " H/L"};
+		    if (type=='host') {n_units = " ms"};
+		    if (type=='system') {n_units = " %"};
+		    if (type=='lux') {n_units = " lux"};
+		    if (type=='water') {n_units = " m3"};
+		    if (type=='gas') {n_units = " m3"};
+	    	 if (type=='elec') {n_units = " kWh"};
+		    if (type=='elec' && mode=='2') {n_units = " W"};
+		    if (type=='hosts') {n_units = " ms"};
+		    if (type=='volt') {n_units = " V"};
+		    if (type=='amps') {n_units = " A"};
+		    if (type=='watt') {n_units = " W"};
+		    if (type=='dist') {n_units = " cm"};
+		    if (type=='group') {n_units = " "};
+            	    
+
 d3.json('common/nvd3_data.php?type='+type+'&name='+name+'&max='+max+'&mode='+mode+'&group='+group+'&single='+single, function(data) {
-  console.log('common/nvd3_data.php?type='+type+'&name='+name+'&max='+max+'&mode='+mode+'&group='+group+'&single='+single);
   nv.addGraph(function() {
   	var chart = nv.models.lineWithFocusChart()
         .margin({top: 30, right: 20, bottom: 50, left: 60})
@@ -106,7 +100,7 @@ d3.json('common/nvd3_data.php?type='+type+'&name='+name+'&max='+max+'&mode='+mod
     chart.xAxis
     .axisLabel("Time")
     .tickFormat(function(d) {
-      return d3.time.format.utc('%H:%M')(new Date(d))
+      return d3.time.format.utc('%m/%d %X')(new Date(d))
     });
     
     chart.x2Axis
@@ -120,13 +114,12 @@ d3.json('common/nvd3_data.php?type='+type+'&name='+name+'&max='+max+'&mode='+mod
 
     nv.utils.windowResize(chart.update);
         
-     //     chart.xAxis
-     //     .tickFormat.utc(function(d) {
-     //       return d3.time.format('%m/%d/%y')(new Date(d))
-     //   });
+          chart.xAxis.tickFormat.utc(function(d) {
+            return d3.time.format('%m/%d/%y')(new Date(d))
+        });
         
        chart.interactiveLayer.tooltip.contentGenerator(function (d) {
-         var html = "<h5><b>"+d3.time.format.utc('%m/%d %H:%M')(new Date(d.value))+"</b></h5>";
+         var html = "<h5><b>"+d3.time.format.utc('%m/%d %X')(new Date(d.value))+"</b></h5>";
 
           d.series.forEach(function(elem){
             html += "<h5 style='color:"+elem.color+"'>"+elem.key+" : <b>"+elem.value+' '+n_units+"</b></h5>";
@@ -140,13 +133,6 @@ d3.json('common/nvd3_data.php?type='+type+'&name='+name+'&max='+max+'&mode='+mod
   });
 });
 
-}
-
-
-nvd3();
-setInterval(function() {
-	nvd3();
-}, 60000);
 </script>
 </body>
 </html>

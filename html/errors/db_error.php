@@ -26,9 +26,15 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+    
 
-  <body>
+ 
+
+
+
+ </head>
+<body>
+
  <!-- Static navbar -->
       <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -41,7 +47,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-          </div>
+	              </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
 		<li><a href="../../status">Home</a></li>
@@ -50,8 +56,8 @@
 
     	</div><!--/.nav-collapse -->
 	</div><!--/.container-fluid -->
-      </nav>
-
+        </nav>
+ 
 
 <div class="container">
 <?php include('../../modules/tools/html/tools_update.php'); ?>
@@ -60,11 +66,11 @@
 
 <footer class="footer">
       <div class="container text-center">
-        <p class="text-muted"><table><tr>Donate for developing <?php include('../../html/info/paypal.php'); ?> <?php passthru("/usr/bin/git branch |grep [*]|awk '{print $2}' && awk '/Changelog/{y=1;next}y' ../../readme.md |head -2 |grep -v '^$'"); ?>| System time <?php passthru("date +%H:%M:%S");?></tr></table></p>
+        <p class="text-muted"><table><tr>Donate for developing <?php include('../../modules/info/paypal.php'); ?> <?php passthru("/usr/bin/git branch |grep [*]|awk '{print $2}' && awk '/Changelog/{y=1;next}y' ../../readme.md |head -2 |grep -v '^$'"); ?>| System time <?php passthru("date +%H:%M:%S");?></tr></table></p>
       </div>
 </footer>
 
-
+    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>

@@ -6,5 +6,4 @@ from io import HIH6130
 
 rht = HIH6130()
 rht.read()
-print ("{0}\n{1}".format(rht.rh, rht.t))
-
+print ("RH: {0} Temp: {1}".format(rht.rh, rht.t))

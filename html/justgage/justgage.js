@@ -172,19 +172,19 @@ JustGage = function(config) {
 
     // titleMinFontSize
     // absolute minimum font size for the title
-    titleMinFontSize: kvLookup('titleMinFontSize', config, dataset, 11),
+    titleMinFontSize: kvLookup('titleMinFontSize', config, dataset, 10),
 
     // labelMinFontSize
     // absolute minimum font size for the label
-    labelMinFontSize: kvLookup('labelMinFontSize', config, dataset, 11),
+    labelMinFontSize: kvLookup('labelMinFontSize', config, dataset, 10),
 
     // minLabelMinFontSize
     // absolute minimum font size for the minimum label
-    minLabelMinFontSize: kvLookup('minLabelMinFontSize', config, dataset, 11),
+    minLabelMinFontSize: kvLookup('minLabelMinFontSize', config, dataset, 10),
 
     // maxLabelMinFontSize
     // absolute minimum font size for the maximum label
-    maxLabelMinFontSize: kvLookup('maxLabelMinFontSize', config, dataset, 11),
+    maxLabelMinFontSize: kvLookup('maxLabelMinFontSize', config, dataset, 10),
 
     // hideValue : bool
     // hide value text
@@ -220,7 +220,7 @@ JustGage = function(config) {
 
     // decimals : int
     // number of digits after floating point
-    decimals: kvLookup('decimals', config, dataset, 1),
+    decimals: kvLookup('decimals', config, dataset, 0),
 
     // customSectors : [] of objects
     // number of digits after floating point
