@@ -51,7 +51,7 @@ foreach($array as $key => $value){
     </tr>
 	<?php }
 	
-	if ($key =='BATTV') { ?>
+	if (strpos($key, 'BATTV') !== false && strpos($key, 'NOMBATTV') === false ) { ?>
 	<tr>
 	<td><span class="label label-default">Battery voltage </span></td>
 	<td><span class="label label-success"><?php echo $value; ?></span></td>
