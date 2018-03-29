@@ -75,10 +75,9 @@ foreach($array as $key => $value){
 	
 	<?php if (trim($value) == 'ONLINE') { ?>
 	<td><span class="label label-success"><?php echo $value; ?></span></td>
-	<?php } elseif (trim($value == 'OFFLINE') { ?>
+	<?php } elseif (trim($value) == 'OFFLINE') { ?>
 		<td><span class="label label-success"><?php echo $value; ?></span></td>
-	<?php 
-	}
+	<?php }
 	?>
     </tr>
 	<?php }
