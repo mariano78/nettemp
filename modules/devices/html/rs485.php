@@ -139,15 +139,13 @@ $row = $rows->fetchAll();
 </fieldset>
 </form>
 </td>
-<td>
-</td>
-<td>
-</td>
+
+</td><td>
+</td><td>
+</td><td>
+
 </tr>
 </table>
 
-<div class="panel-body">
-
-</div>
 </div>
 </div>
