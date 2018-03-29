@@ -50,11 +50,9 @@ else {
 	
 <div class="table-responsive">
 <table class="table table-hover table-condensed">
-	
 <tbody>      
 <?php
 if ($nts_hide_ups == 'off') {
-
 
 	exec("/sbin/apcaccess",$upso);
 	foreach($upso as $ar) {
@@ -79,7 +77,8 @@ foreach($array as $key => $value){
 	<td><span class="label label-success"><?php echo $value; ?></span></td>
 	<?php } elseif (trim($value == 'OFFLINE') { ?>
 		<td><span class="label label-success"><?php echo $value; ?></span></td>
-	<?php }
+	<?php 
+	}
 	?>
     </tr>
 	<?php }
