@@ -64,7 +64,7 @@ $row = $rows->fetchAll();
 <tr>	
     <form action="" method="post" class="form-horizontal">
     <div class="form-group">
-    <td class="col-md-2">
+    <td class="col-md-1">
     <select name="name" class="form-control input-sm">
         <option value="SDM120">SDM120</option>
         <option value="SDM630">SDM630</option>
@@ -72,11 +72,11 @@ $row = $rows->fetchAll();
     </select>
     </td>
     
-	<td class="col-md-2">
+	<td class="col-md-1">
 	<input type="text" name="addr" value="" class="form-control input-sm" required=""/>
     </td>
 	
-	<td class="col-md-2">
+	<td class="col-md-1">
     <select name="baud" class="form-control input-sm">
         <option value="2400">2400</option>
         <option value="9600">9600</option>
@@ -85,7 +85,7 @@ $row = $rows->fetchAll();
     </td>
 	
 	<input type="hidden" name="add" value="add" class="form-control"/>
-    <td class="col-md-6">
+    <td class="col-md-9">
 	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span></button>
     </td>
     </div>
@@ -100,21 +100,21 @@ $row = $rows->fetchAll();
 	
 ?>
 <tr>
-    <td class="col-md-2">
+    <td class="col-md-1">
 	<img src="media/ico/TO-220-icon.png" />
 	<?php echo $a['dev']; ?>
     </td>
     
-	<td class="col-md-2">
+	<td class="col-md-1">
 	<?php echo  $a["addr"] ;?>
     </td>
 	
-	<td class="col-md-2">
+	<td class="col-md-1">
 	<?php echo  $a["baudrate"] ;?>
     </td>
 
 
-    <td class="col-md-6">
+    <td class="col-md-9">
     <form action="" method="post" style="display:inline!important;">
 	<input type="hidden" name="rs485id" value="<?php echo $a["id"]; ?>" />
 	<input type="hidden" name="rmrs485" value="rmrs485" />
