@@ -17,7 +17,7 @@ $add = isset($_POST['add']) ? $_POST['add'] : '';
 
     if ($_POST['add'] == "add"){
     $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("INSERT OR IGNORE INTO rs485 (dev, addr, budrate) VALUES ('$name','$addr', '$baud')") or die ("cannot insert to DB" );
+    $db->exec("INSERT OR IGNORE INTO rs485 (dev, addr, baudrate) VALUES ('$name','$addr', '$baud')") or die ("cannot insert to DB" );
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
@@ -26,8 +26,8 @@ $add = isset($_POST['add']) ? $_POST['add'] : '';
     if ($default == "default") { 
     $db = new PDO("sqlite:dbf/nettemp.db");	
     $db->exec("DELETE from rs485") or header("Location: html/errors/db_error.php");
-    $db->exec("INSERT OR IGNORE INTO rs485 (dev, addr, baud) VALUES ('SDM120','2', '9600')") or header("Location: html/errors/db_error.php");
-    $db->exec("INSERT OR IGNORE INTO rs485 (dev, addr, baud) VALUES ('SDM630','1', '9600')") or header("Location: html/errors/db_error.php");
+    $db->exec("INSERT OR IGNORE INTO rs485 (dev, addr, baudrate) VALUES ('SDM120','2', '9600')") or header("Location: html/errors/db_error.php");
+    $db->exec("INSERT OR IGNORE INTO rs485 (dev, addr, baudrate) VALUES ('SDM630','1', '9600')") or header("Location: html/errors/db_error.php");
     
 
     header("location: " . $_SERVER['REQUEST_URI']);
