@@ -4,6 +4,8 @@ $rmrs485 = isset($_POST['rmrs485']) ? $_POST['rmrs485'] : '';
 
 $addr = isset($_POST['addr']) ? $_POST['addr'] : '';
 $name = isset($_POST['name']) ? $_POST['name'] : '';
+$baud = isset($_POST['baud']) ? $_POST['baud'] : '';
+
 $add = isset($_POST['add']) ? $_POST['add'] : '';
 
     if (!empty($rs485id) && ($_POST['rmrs485'] == "rmrs485") ){
@@ -15,7 +17,7 @@ $add = isset($_POST['add']) ? $_POST['add'] : '';
 
     if ($_POST['add'] == "add"){
     $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("INSERT OR IGNORE INTO rs485 (dev, addr) VALUES ('$name','$addr')") or die ("cannot insert to DB" );
+    $db->exec("INSERT OR IGNORE INTO rs485 (dev, addr, budrate) VALUES ('$name','$addr', '$baud')") or die ("cannot insert to DB" );
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
@@ -24,8 +26,8 @@ $add = isset($_POST['add']) ? $_POST['add'] : '';
     if ($default == "default") { 
     $db = new PDO("sqlite:dbf/nettemp.db");	
     $db->exec("DELETE from rs485") or header("Location: html/errors/db_error.php");
-    $db->exec("INSERT OR IGNORE INTO rs485 (dev, addr) VALUES ('SDM120','2')") or header("Location: html/errors/db_error.php");
-    $db->exec("INSERT OR IGNORE INTO rs485 (dev, addr) VALUES ('SDM630','1')") or header("Location: html/errors/db_error.php");
+    $db->exec("INSERT OR IGNORE INTO rs485 (dev, addr, baud) VALUES ('SDM120','2', '9600')") or header("Location: html/errors/db_error.php");
+    $db->exec("INSERT OR IGNORE INTO rs485 (dev, addr, baud) VALUES ('SDM630','1', '9600')") or header("Location: html/errors/db_error.php");
     
 
     header("location: " . $_SERVER['REQUEST_URI']);
@@ -54,6 +56,7 @@ $row = $rows->fetchAll();
 <tr>
 <th>Name</th>
 <th>Address</th>
+<th>Baudrate</th>
 <th></th>
 </tr>
 </thead>
@@ -68,9 +71,19 @@ $row = $rows->fetchAll();
          <option value="OR-WE">OR-WE</option>
     </select>
     </td>
-    <td class="col-md-2">
+    
+	<td class="col-md-2">
 	<input type="text" name="addr" value="" class="form-control input-sm" required=""/>
     </td>
+	
+	<td class="col-md-2">
+    <select name="baud" class="form-control input-sm">
+        <option value="2400">2400</option>
+        <option value="9600">9600</option>
+         <option value="115200">115200</option>
+    </select>
+    </td>
+	
 	<input type="hidden" name="add" value="add" class="form-control"/>
     <td class="col-md-8">
 	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span></button>
