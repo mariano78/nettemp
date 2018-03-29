@@ -125,9 +125,9 @@ $row = $rows->fetchAll();
 <?php 
 }  
 ?>
-</table>
+<tr>
+<td>
 
-<div class="panel-body">
 <form class="form-horizontal" action="" method="post">
 <fieldset>
 <div class="form-group">
@@ -138,6 +138,16 @@ $row = $rows->fetchAll();
 </div>
 </fieldset>
 </form>
+
+
+</td>
+
+
+</tr>
+</table>
+
+<div class="panel-body">
+
 </div>
 </div>
 </div>
