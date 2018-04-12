@@ -73,7 +73,7 @@ function procmsg($topic, $msg){
     $local_gpio='';
     
     if ($arr['2']=='gpio') {
-	$ip=$arr['0'];
+	$ip=$arr['1'];
 	$type=$arr['2'];
 	$gpio=$arr['3'];
     
@@ -86,7 +86,7 @@ function procmsg($topic, $msg){
 	$local_rom=$local_device."_".$local_name."_".$local_type."_".$local_gpio;
     }
     else {
-	$ip=$arr['0'];
+	$ip=$arr['1'];
 	$name=$arr['2'];
 	$type=$arr['3'];
     
