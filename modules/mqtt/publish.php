@@ -12,7 +12,7 @@ $client_id = "phpMQTT-publisher"; // make sure this is unique for connecting to 
 $mqtt = new phpMQTT($server, $port, $client_id);
 
 if ($mqtt->connect(true, NULL, $username, $password)) {
-	$mqtt->publish("/Kominek/GPIO/12/", "1" . date("r"), 0);
+	$mqtt->publish("/Kominek/GPIO/12", "1" . date("r"), 0);
 sleep 1;
 	$mqtt->close();
 } else {
