@@ -2,7 +2,7 @@
 
 require("../phpMQTT.php");
 
-$server = "mqtt.example.com";     // change if necessary
+$server = "localhost";     // change if necessary
 $port = 1883;                     // change if necessary
 $username = "";                   // set your username
 $password = "";                   // set your password
