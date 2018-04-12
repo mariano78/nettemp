@@ -86,11 +86,11 @@ function procmsg($topic, $msg){
 	$local_rom=$local_device."_".$local_name."_".$local_type."_".$local_gpio;
     }
     else {
-	$ip=$arr['1'];
+	$ip=$arr['0'];
 	$name=$arr['2'];
 	$type=$arr['3'];
     
-        $local_device	=	'ip';
+    $local_device	=	'ip';
 	$local_type	=	$type;
 	$local_val	=	$output;
 	$local_name	=	$name;
