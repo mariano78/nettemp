@@ -12,7 +12,7 @@ $client_id = "phpMQTT-publisher"; // make sure this is unique for connecting to 
 $mqtt = new phpMQTT($server, $port, $client_id);
 
 if ($mqtt->connect(true, NULL, $username, $password)) {
-	$mqtt->publish("/192.168.50.104/Kominek/Rssi/rssi/", "1000" . date("r"), 0);
+	$mqtt->publish("/192.168.50.104/Kominek/rssi/rssi/", "1000" . date("r"), 0);
 	$mqtt->close();
 } else {
     echo "Time out!\n";
