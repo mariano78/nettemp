@@ -1,6 +1,7 @@
 <?php
 
-require("../phpMQTT.php");
+$ROOT=(dirname(dirname(dirname(__FILE__))));
+require("phpMQTT.php");
 
 $server = "localhost";     // change if necessary
 $port = 1883;                     // change if necessary
