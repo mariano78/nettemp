@@ -68,7 +68,6 @@ function procmsg($topic, $msg){
     global $local_usb;
 
     $output = trim($msg);
-	echo $output;
 
     $gpio='';
     $local_gpio='';
