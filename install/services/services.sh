@@ -16,6 +16,7 @@ systemctl daemon-reload
 systemctl enable mosquitto
 systemctl start mosquitto.service
 
+sudo systemctl stop nettempmqtt
 cp $dir/install/services/nettempmqtt.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable nettempmqtt
