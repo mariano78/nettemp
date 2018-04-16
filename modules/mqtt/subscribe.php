@@ -73,6 +73,7 @@ function procmsg($topic, $msg){
     $local_gpio='';
     
     if ($arr['3']=='gpio') {
+		
 	$ip=$arr['1'];
 	$name=$arr['2'];
 	$type=$arr['3'];
