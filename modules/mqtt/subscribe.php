@@ -83,7 +83,7 @@ function procmsg($topic, $msg){
 	$local_name	=	$ip;
 	$local_ip	=	$ip;
 	$local_gpio	=	$gpio;
-	$local_rom=$local_device."_".$local_name."_".$local_type."_".$local_gpio;
+	$local_rom=$local_device."_a".$local_name."_".$local_type."_".$local_gpio;
     }
     else {
 	$ip=$arr['1'];
