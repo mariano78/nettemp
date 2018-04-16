@@ -77,7 +77,7 @@ function procmsg($topic, $msg){
 	$ip=$arr['1'];
 	$name=$arr['2'];
 	$type=$arr['3'];
-	$gpio=$arr['3'];
+	$gpio=$arr['4'];
     
 	$local_device	=	'ip';
 	$local_type	=	$type;
