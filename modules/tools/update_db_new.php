@@ -139,6 +139,10 @@ $updates['2018-04-03 16:09:35'][]="INSERT INTO nt_settings ('option', 'value') V
 $updates['2018-04-04 12:31:28'][]="ALTER TABLE ownwidget ADD edithide TEXT";
 $updates['2018-04-04 12:31:38'][]="UPDATE ownwidget SET edithide='off'";
 
+$updates['2018-04-24 10:10:04'][]="INSERT INTO virtual  ('name', 'rom', 'type', 'device', 'description') VALUES ('Max24', 'max24', 'max24', 'virtual','Max value - 24H')";
+$updates['2018-04-24 10:11:04'][]="INSERT INTO virtual  ('name', 'rom', 'type', 'device', 'description') VALUES ('MaxWeek', 'maxweek', 'maxweek', 'virtual','Max value - week')";
+$updates['2018-04-24 10:12:04'][]="INSERT INTO virtual  ('name', 'rom', 'type', 'device', 'description') VALUES ('MaxMonth', 'maxmonth', 'maxmonth', 'virtual','Max value - month')";
+
 
 
 ?>
