@@ -818,13 +818,26 @@ $row = $rows->fetchAll();
 	<td></td>
 	<td><label> Bind sensor:</label></td>
 	<td>
-	<form action="" method="post" style="display:inline!important;"> 
-		<input type="hidden" name="bind_id" value="<?php echo $a['id']; ?>" />
-		<input type="text" name="latitude" size="5" value="<?php echo $a['latitude']; ?>" />
-		<input type="text" name="longitude" size="5" value="<?php echo $a['longitude']; ?>" />
-		<input type="hidden" name="gps" value="gpsok" />
-		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+	<form action="" method="post"  class="form-inline">
+    <select name="bindsensor" class="form-control input-sm small" onchange="this.form.submit()" style="width: 100px;" >
+		<?php	
+			$rows2 = $db->query("SELECT name,rom FROM sensors WHERE type !='gpio'");
+			$row2 = $rows2->fetchAll();
+			foreach($row2 as $bs) {	
+			$brom=$bs['rom'];
+			$bname=$bs['name'];
+				?>
+					<option value="<?php echo $brom?>"  <?php echo $bname == $bs["name"] ? 'selected="selected"' : ''; ?>  ><?php echo $bname ?></option>
+				<?php 
+
+			}
+		?>
+		
+    </select>
+    <input type="hidden" name="ch_grouponoff" value="onoff" />
+    <input type="hidden" name="ch_group" value="<?php echo $a['id']; ?>" />
     </form>
+    </td>
 	</td>
 	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 	</tr>
