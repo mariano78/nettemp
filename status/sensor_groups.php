@@ -253,7 +253,7 @@ if ($hide == 'off') {
 					</span>
 					</td>
 					<td>
-						<?php echo $updo; ?>
+						<?php if (substr($a['type'],0,3) != 'max'){echo $updo;} ?>
 					</td>
 					<td>
 						<?php echo $mail; ?>
