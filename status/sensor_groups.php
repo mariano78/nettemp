@@ -113,10 +113,9 @@ if ($hide == 'off') {
 					$unit2 = $unit2->fetch(); 
 					$unit = $unit2['unit'];
 					
-				} else {
-						$unit=$ty['unit'];
-					}
-       		$type="<img src=\"".$ty['ico']."\" alt=\"\" title=\"".$ty['title']."\"/>";
+				} 
+				$unit=$ty['unit'];
+				$type="<img src=\"".$ty['ico']."\" alt=\"\" title=\"".$ty['title']."\"/>";
        	   
 			}
 		}
