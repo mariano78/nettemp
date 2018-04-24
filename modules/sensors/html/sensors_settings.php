@@ -827,25 +827,14 @@ $row = $rows->fetchAll();
 	<td></td>
 	<td></td>
 	<td></td>
-	<td><label> Bind sensor:</label></td>
+	<td><label> Bind rom:</label></td>
 	<td>
-	<form action="" method="post"  class="form-inline">
-	<input type="hidden" name="bsens_id" value="<?php echo $a['id']; ?>" />
-    <select name="bindsensor" class="form-control input-sm small" onchange="this.form.submit()" style="width: 100px;" >
-		<?php	
-			$rows2 = $db->query("SELECT name,rom FROM sensors WHERE type !='gpio'");
-			$row2 = $rows2->fetchAll();
-			foreach($row2 as $bs) {	
-			$brom=$bs['rom'];
-			$bname=$bs['name'];
-				?>
-					<option value="<?php echo $brom?>"  <?php echo $brom == $a["rom"] ? 'selected="selected"' : ''; ?>  ><?php echo $bname ?></option>
-				<?php 
-			}
-		?>
-		<option value="none"  <?php echo $bname == 'none' ? 'selected="selected"' : ''; ?>  >none</option>
-    </select>
-    <input type="hidden" name="ch_bsensor" value="ch_bsensorok" />
+	
+	<form action="" method="post" style="display:inline!important;"> 
+		<input type="hidden" name="bsens_id" value="<?php echo $a['id']; ?>" />
+		<input type="text" name="bindsensor" size="17" value="<?php echo $a['apikey']; ?>" />
+		<input type="hidden" name="ch_bsensor" value="ch_bsensorok" />
+		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
     </td>
 	</td>
