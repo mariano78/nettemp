@@ -55,7 +55,7 @@ try {
 	
 	if ($vr['type'] == 'max24'){
 			
-			$bindrom = $vr['binsensor'];
+			$bindrom = $vr['bindsensor'];
 			$file=$bindrom .".sql";
 
 			$db1 = new PDO("sqlite:$ROOT/db/$file");
