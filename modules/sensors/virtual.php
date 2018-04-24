@@ -72,13 +72,13 @@ try {
 				$val = $val->fetch(); 
 				$local_val = $val['m24max'];
 				
-			} elseif if ($local_type == "maxweek"){
+			} elseif  ($local_type == "maxweek"){
 				
 				$val = $db1->query("SELECT max(value) AS mweek from def WHERE time BETWEEN datetime('now','localtime','-7 day') AND datetime('now','localtime') ") or die('maxweek');
 				$val = $val->fetch(); 
 				$local_val = $val['mweek'];
 				
-			} elseif if ($local_type == "maxmonth"){
+			} elseif  ($local_type == "maxmonth"){
 				
 				$val = $db1->query("SELECT max(value) AS mmonth from def WHERE time BETWEEN datetime('now','localtime','-1 months') AND datetime('now','localtime') ") or die('maxmonth');
 				$val = $val->fetch(); 
