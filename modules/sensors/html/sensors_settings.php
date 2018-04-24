@@ -807,6 +807,7 @@ $row = $rows->fetchAll();
 	<?php
 	}
 	?>
+
 	
 	
 	<?php if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'max') { ?>
@@ -815,27 +816,17 @@ $row = $rows->fetchAll();
 	<td></td>
 	<td></td>
 	<td></td>
-	<td><label> Lat/Long:</label></td>
+	<td><label> Bind sensor:</label></td>
 	<td>
 	<form action="" method="post" style="display:inline!important;"> 
-		<input type="hidden" name="gps_id" value="<?php echo $a['id']; ?>" />
+		<input type="hidden" name="bind_id" value="<?php echo $a['id']; ?>" />
 		<input type="text" name="latitude" size="5" value="<?php echo $a['latitude']; ?>" />
 		<input type="text" name="longitude" size="5" value="<?php echo $a['longitude']; ?>" />
 		<input type="hidden" name="gps" value="gpsok" />
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
 	</td>
-	<td><label>API Key:</label></td>
-	<td>
-	<form action="" method="post" style="display:inline!important;"> 
-		<input type="hidden" name="api_id" value="<?php echo $a['id']; ?>" />
-		<input type="text" name="apikey" size="17" value="<?php echo $a['apikey']; ?>" />
-		<input type="hidden" name="api" value="apiok" />
-		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
-    </form>
-	</td>
-	
-	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 	</tr>
 	<?php
 	}
