@@ -53,7 +53,7 @@ try {
 			
 	}
 	
-	if ($vr['type']) == 'max24'){
+	if ($vr['type'] == 'max24'){
 			
 			$bindrom = $vr['binsensor'];
 			$file=$bindrom .".sql";
