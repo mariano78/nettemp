@@ -776,9 +776,7 @@ $row = $rows->fetchAll();
     
 	</tr>
 	
-<?php 
-//***********************************************virtual devices******************************************	
-	
+<?php 	
 	if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'air') { ?>
 	<tr>
 	<td></td>
@@ -804,9 +802,7 @@ $row = $rows->fetchAll();
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
 	</td>
-	
 	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-	
 	
 	</tr>
 	<?php if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'max') { ?>
@@ -833,16 +829,10 @@ $row = $rows->fetchAll();
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
 	</td>
-	
 	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-	
-	
 	</tr>
-	
 <?php 
-
 }  
-
 ?>
 
 </table>
