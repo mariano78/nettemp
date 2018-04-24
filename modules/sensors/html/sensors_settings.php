@@ -829,13 +829,11 @@ $row = $rows->fetchAll();
 				?>
 					<option value="<?php echo $brom?>"  <?php echo $bname == $bs["name"] ? 'selected="selected"' : ''; ?>  ><?php echo $bname ?></option>
 				<?php 
-
 			}
 		?>
 		<option value="none"  <?php echo $bname == 'none' ? 'selected="selected"' : ''; ?>  >none</option>
     </select>
-    <input type="hidden" name="ch_grouponoff" value="onoff" />
-    <input type="hidden" name="ch_group" value="<?php echo $a['id']; ?>" />
+    <input type="hidden" name="ch_bsensor" value="ch_bsensorok" />
     </form>
     </td>
 	</td>
