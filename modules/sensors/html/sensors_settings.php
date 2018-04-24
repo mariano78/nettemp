@@ -805,7 +805,10 @@ $row = $rows->fetchAll();
 	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 	
 	</tr>
-	<?php if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'max') { ?>
+<?php 
+	}  
+
+	if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'max') { ?>
 	<tr>
 	<td></td>
 	<td></td>
@@ -832,9 +835,8 @@ $row = $rows->fetchAll();
 	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 	</tr>
 <?php 
-}  
+	}  
 ?>
-
 </table>
 </div>
 </div>
@@ -842,5 +844,5 @@ $row = $rows->fetchAll();
 <?php 
 if (!empty($device_type) && $device_type == 'trigger' ) { 
 include("modules/sensors/html/trigger_settings.php"); 
-}
+	}
 ?>
