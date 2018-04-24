@@ -350,6 +350,17 @@ if ( $lcd == "lcd"){
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     } 
+	
+	$bindsensor = isset($_POST['bindsensor']) ? $_POST['bindsensor'] : '';
+    $bsens_id = isset($_POST['bsens_id']) ? $_POST['bsens_id'] : '';
+	$ch_bsensor = isset($_POST['ch_bsensor']) ? $_POST['ch_bsensor'] : '';
+	
+	if (!empty($bsens_id) && $ch_bsensor == "ch_bsensorok"){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE sensors SET bindsensor='$bindsensor' WHERE id='$bsens_id'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    } 
     
 ?> 
 
@@ -819,6 +830,7 @@ $row = $rows->fetchAll();
 	<td><label> Bind sensor:</label></td>
 	<td>
 	<form action="" method="post"  class="form-inline">
+	<input type="hidden" name="bsens_id" value="<?php echo $a['id']; ?>" />
     <select name="bindsensor" class="form-control input-sm small" onchange="this.form.submit()" style="width: 100px;" >
 		<?php	
 			$rows2 = $db->query("SELECT name,rom FROM sensors WHERE type !='gpio'");
