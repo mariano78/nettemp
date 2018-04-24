@@ -114,7 +114,7 @@ if ($hide == 'off') {
 					$unit = $unit2['unit'];
 					
 				} 
-				$unit=$ty['unit'];
+				//$unit=$ty['unit'];
 			}
 				$type="<img src=\"".$ty['ico']."\" alt=\"\" title=\"".$ty['title']."\"/>";
        	   
