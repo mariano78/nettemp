@@ -776,8 +776,7 @@ $row = $rows->fetchAll();
     
 	</tr>
 	
-<?php 	
-	if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'air') { ?>
+	<?php if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'air') { ?>
 	<tr>
 	<td></td>
 	<td></td>
@@ -802,41 +801,20 @@ $row = $rows->fetchAll();
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
 	</td>
-	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 	
-	</tr>
-<?php 
-	}  
-
-	if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'max') { ?>
-	<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td><label> Bind sensor:</label></td>
-	<td>
-	<form action="" method="post" style="display:inline!important;"> 
-		<input type="hidden" name="binds_id" value="<?php echo $a['id']; ?>" />
-		<input type="text" name="bindsrom" size="5" value="<?php echo $a['bindsensor']; ?>" />
-		<input type="hidden" name="binds" value="bindsok" />
-		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
-    </form>
-	</td>
-	<td></td>
-	<td>
-	<form action="" method="post" style="display:inline!important;"> 
-		<input type="hidden" name="api_id" value="<?php echo $a['id']; ?>" />
-		<input type="text" name="apikey" size="17" value="<?php echo $a['apikey']; ?>" />
-		<input type="hidden" name="api" value="apiok" />
-		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
-    </form>
-	</td>
 	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 	</tr>
+	<?php
+	}
+	?>
+
+
 <?php 
-	}  
+
+}  
+
 ?>
+
 </table>
 </div>
 </div>
@@ -844,5 +822,5 @@ $row = $rows->fetchAll();
 <?php 
 if (!empty($device_type) && $device_type == 'trigger' ) { 
 include("modules/sensors/html/trigger_settings.php"); 
-	}
+}
 ?>
