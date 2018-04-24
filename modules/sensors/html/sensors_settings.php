@@ -839,7 +839,7 @@ $row = $rows->fetchAll();
 			$brom=$bs['rom'];
 			$bname=$bs['name'];
 				?>
-					<option value="<?php echo $brom?>"  <?php echo $brom == $a["rom"] ? 'selected="selected"' : ''; ?>  ><?php echo $a['name'] ?></option>
+					<option value="<?php echo $brom?>"  <?php echo $brom == $a["rom"] ? 'selected="selected"' : ''; ?>  ><?php echo $bname ?></option>
 				<?php 
 			}
 		?>
