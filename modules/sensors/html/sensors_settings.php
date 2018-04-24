@@ -838,11 +838,7 @@ $row = $rows->fetchAll();
 	
 	
 	</tr>
-	<?php
-	}
-	?>
-
-
+	
 <?php 
 
 }  
