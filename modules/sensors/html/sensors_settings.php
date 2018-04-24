@@ -832,7 +832,7 @@ $row = $rows->fetchAll();
 
 			}
 		?>
-		
+		<option value="none"  <?php echo $bname == 'none' ? 'selected="selected"' : ''; ?>  >none</option>
     </select>
     <input type="hidden" name="ch_grouponoff" value="onoff" />
     <input type="hidden" name="ch_group" value="<?php echo $a['id']; ?>" />
