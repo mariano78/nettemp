@@ -58,7 +58,7 @@ try {
 			$bindrom = $vr['binsensor'];
 			$file=$bindrom .".sql";
 
-			$db1 = new PDO("sqlite:$root/db/$file");
+			$db1 = new PDO("sqlite:$ROOT/db/$file");
 			
 			$m24 = $db1->query("SELECT max(value) AS m24max from def WHERE time BETWEEN datetime('now','localtime','-1 day') AND datetime('now','localtime') ") or die('max24');
 			$m24 = $m24->fetch(); 
