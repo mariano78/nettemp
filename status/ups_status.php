@@ -68,14 +68,13 @@ foreach($array as $key => $value){
     </tr>
 	<?php }
 	
-	if (strpos($key, 'STATUS') !== false) { $value2 = substr($value, 0, strpos($value, " "));
- ?>
+	if (strpos($key, 'STATUS') !== false) { ?>
 	<tr>
 	<td><span class="label label-default">Status </span></td>
 	
-	<?php if (trim($value2) == 'ONLINE') { ?>
+	<?php if (trim($value) == 'ONLINE') { ?>
 	<td><span class="label label-success"><?php echo $value; ?></span></td>
-	<?php } elseif (trim($value2) == 'OFFLINE') { ?>
+	<?php } elseif (trim($value) == 'OFFLINE') { ?>
 		<td><span class="label label-success"><?php echo $value; ?></span></td>
 	<?php }
 	?>
