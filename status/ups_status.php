@@ -74,7 +74,7 @@ foreach($array as $key => $value){
 	
 	<?php if (trim($value) == 'ONLINE' || trim($value) == 'ONLINE SLAVE' ) { ?>
 	<td><span class="label label-success"><?php echo $value; ?></span></td>
-	<?php } elseif (trim($value) == 'OFFLINE' || trim($value) == 'ONLINE SLAVE') { ?>
+	<?php } elseif (trim($value) == 'OFFLINE' || trim($value) == 'OFFLINE SLAVE') { ?>
 		<td><span class="label label-success"><?php echo $value; ?></span></td>
 	<?php }
 	?>
