@@ -552,7 +552,7 @@ $row = $rows->fetchAll();
 	
 	<td class="col-md-0">
     <form action="" method="post" style="display:inline!important;" > 	
-		<input type="hidden" name="hide" value="<?php echo $a["id"]; ?>" />
+		<input type="hidden" name="hide_id" value="<?php echo $a["id"]; ?>" />
 		<button type="submit" name="hide_on" value="<?php echo $a["hide"] == 'on' ? 'off' : 'on'; ?>" <?php echo $a["hide"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
 	    <?php echo $a["hide"] == 'on' ? 'ON' : 'OFF'; ?></button>
 		<input type="hidden" name="hid_on" value="hid_on" />
