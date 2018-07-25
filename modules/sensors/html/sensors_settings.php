@@ -843,7 +843,7 @@ $row = $rows->fetchAll();
 	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 	</tr>
 	<?php
-	} elseif ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'sun') { ?>
+	} else if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'air') { ?>
 	
 	<td><label>Time Zone:</label></td>
 	<td>
@@ -857,9 +857,12 @@ $row = $rows->fetchAll();
 	
 	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 	</tr>
+	
+	
 	<?php
 	}
-	 if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'max') { ?>
+	}
+	if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'max') { ?>
 	<tr>
 	<td></td>
 	<td></td>
