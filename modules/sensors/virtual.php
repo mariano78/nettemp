@@ -96,16 +96,16 @@ try {
 			
 			$lati = $vr['latitude'];
 			$long = $vr['longitude'];
-			//$api = $vr['apikey'];
+			$tz = $vr['timezone'];
 			$localid = $vr['id'];
 			$local_rom = $vr['rom'];
 			$local_type = $vr['type'];
 			$local_device = $vr['device'];
 			
 			if ($local_type == "sunrise"){	
-				$local_val = (date_sunrise(time(),SUNFUNCS_RET_STRING,$lati,$long,90.5,2));
+				$local_val = (date_sunrise(time(),SUNFUNCS_RET_STRING,$lati,$long,90.5,$tz));
 			} elseif  ($local_type == "sunset"){
-				$local_val = (date_sunset(time(),SUNFUNCS_RET_STRING,$lati,$long,90.5,2));	
+				$local_val = (date_sunset(time(),SUNFUNCS_RET_STRING,$lati,$long,90.5,$tz));	
 			}
 			
 		echo $local_rom."\n";
