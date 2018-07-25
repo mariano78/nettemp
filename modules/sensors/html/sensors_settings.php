@@ -843,7 +843,7 @@ $row = $rows->fetchAll();
 	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 	</tr>
 	<?php
-	} else if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'air') { ?>
+	} else if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'sun') { ?>
 	
 	<td><label>Time Zone:</label></td>
 	<td>
