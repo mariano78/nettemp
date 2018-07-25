@@ -103,8 +103,8 @@ try {
 			$local_device = $vr['device'];
 			
 			if ($local_type == "sunrise"){	
-				$local_val2 = (date_sunrise(time(),SUNFUNCS_RET_STRING,$lati,$long,90.83,$tz));
-				$local_val = str_replace(":", "", $local_val2);
+				$local_val = (date_sunrise(time(),SUNFUNCS_RET_DOUBLE,$lati,$long,90.83,$tz));
+				//$local_val = str_replace(":", "", $local_val2);
 			} elseif  ($local_type == "sunset"){
 				$local_val = (date_sunset(time(),SUNFUNCS_RET_STRING,$lati,$long,90.83,$tz));	
 			}
