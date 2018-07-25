@@ -271,7 +271,7 @@ if ($hide == 'off') {
 					</span>
 					</td>
 					<td>
-						<?php if (substr($a['type'],0,3) != 'max'){echo $updo;} ?>
+						<?php if (substr($a['type'],0,3) != 'max' || substr($a['type'],0,3) != 'sun'){echo $updo;} ?>
 					</td>
 					<td>
 						<?php echo $mail; ?>
