@@ -827,6 +827,9 @@ $row = $rows->fetchAll();
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
 	</td>
+	
+	<?php if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'air' { ?>
+	
 	<td><label>API Key:</label></td>
 	<td>
 	<form action="" method="post" style="display:inline!important;"> 
@@ -840,6 +843,7 @@ $row = $rows->fetchAll();
 	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 	</tr>
 	<?php
+	}
 	}
 	?>
 
