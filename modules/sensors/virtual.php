@@ -103,9 +103,9 @@ try {
 			$local_device = $vr['device'];
 			
 			if ($local_type == "sunrise"){	
-				$local_val = (date_sunrise(time(),SUNFUNCS_RET_STRING,$lati,$longi,90,1));
+				$local_val = (date_sunrise(time(),SUNFUNCS_RET_STRING,$lati,$long,90,1));
 			} elseif  ($local_type == "sunset"){
-				$local_val = (date_sunset(time(),SUNFUNCS_RET_STRING,$lati,$longi,90,1));	
+				$local_val = (date_sunset(time(),SUNFUNCS_RET_STRING,$lati,$long,90,1));	
 			}
 			
 		echo $local_rom."\n";
