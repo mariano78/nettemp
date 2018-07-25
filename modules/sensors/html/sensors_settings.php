@@ -859,11 +859,7 @@ $row = $rows->fetchAll();
 	</tr>
 	<?php
 	}
-	?>
-
-	
-	
-	<?php if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'max') { ?>
+	 if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'max') { ?>
 	<tr>
 	<td></td>
 	<td></td>
