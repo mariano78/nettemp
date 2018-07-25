@@ -373,6 +373,17 @@ if ( $lcd == "lcd"){
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     } 
+	
+	$tzone = isset($_POST['tzone']) ? $_POST['tzone'] : '';
+    $tz_id = isset($_POST['tz_id']) ? $_POST['tz_id'] : '';
+	$tz = isset($_POST['tz']) ? $_POST['tz'] : '';
+	
+	if (!empty($tz_id) && $tz == "tzok"){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE sensors SET timezone='$tzone' WHERE id='$tz_id'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
     
 ?> 
 
@@ -848,9 +859,9 @@ $row = $rows->fetchAll();
 	<td><label>Time Zone:</label></td>
 	<td>
 	<form action="" method="post" style="display:inline!important;"> 
-		<input type="hidden" name="api_id" value="<?php echo $a['id']; ?>" />
-		<input type="text" name="apikey" size="17" value="<?php echo $a['apikey']; ?>" />
-		<input type="hidden" name="api" value="apiok" />
+		<input type="hidden" name="tz_id" value="<?php echo $a['id']; ?>" />
+		<input type="text" name="tzone" size="5" value="<?php echo $a['timezone']; ?>" />
+		<input type="hidden" name="tz" value="tzok" />
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
 	</td>
