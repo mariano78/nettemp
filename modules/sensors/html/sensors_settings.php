@@ -828,7 +828,7 @@ $row = $rows->fetchAll();
     </form>
 	</td>
 	
-	<?php if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'air' { ?>
+	<?php if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'air') { ?>
 	
 	<td><label>API Key:</label></td>
 	<td>
