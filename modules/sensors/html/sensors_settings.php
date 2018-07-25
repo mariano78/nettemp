@@ -811,7 +811,7 @@ $row = $rows->fetchAll();
     
 	</tr>
 	
-	<?php if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'air') { ?>
+	<?php if ($a['device'] == 'virtual' && (substr($a['type'],0,3) == 'air') || substr($a['type'],0,3) == 'sun') { ?>
 	<tr>
 	<td></td>
 	<td></td>
