@@ -41,6 +41,17 @@
 					</form>
 				</td>
 			</tr>
+			
+			<tr>
+				<td> GPIO MCP23017
+				</td>
+				<td>
+					<form action="" method="post">
+					<input type="hidden" name="MCP23017_onoff1" value="MCP23017_onoff2"  />
+					<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()" type="checkbox" name="MCP23017_onoff" value="on"  <?php echo $nts_MCP23017 == 'on' ? 'checked="checked"' : ''; ?> >
+					</form>
+				</td>
+			</tr>
 		</tbody>
 	</table>
 	</div>
@@ -48,25 +59,4 @@
 
 
 
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 class="panel-title">GPIO RPI</h3>
-</div>
-<div class="panel-body"> 
-
-</div>
-</div>
-
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 class="panel-title">GPIO MCP23017</h3>
-</div>
-<div class="panel-body">
-<form action="" method="post">
-  <input type="hidden" name="MCP23017_onoff1" value="MCP23017_onoff2"  />
-  <input data-toggle="toggle" data-size="mini" onchange="this.form.submit()" type="checkbox" name="MCP23017_onoff" value="on"  <?php echo $nts_MCP23017 == 'on' ? 'checked="checked"' : ''; ?> >
-</form>
-</div>
-</div>
 
