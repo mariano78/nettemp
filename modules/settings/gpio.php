@@ -1,11 +1,9 @@
 
  <div class="grid-item settings">
 	<div class="panel panel-default">
-	<div class="panel-heading">
+	<div class="panel-heading">Global settings</div>
 	
-		<div class="pull-left"> Global settings  </div>
 		
-</div> 
     <table class="table table-hover table-condensed">
     <tbody>
 	</tbody>
