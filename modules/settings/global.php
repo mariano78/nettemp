@@ -26,6 +26,13 @@
     exit();
     }
 
+	$map_onoff = isset($_POST['map_onoff']) ? $_POST['map_onoff'] : '';
+    $map_onoff1 = isset($_POST['map_onoff1']) ? $_POST['map_onoff1'] : '';
+    if (($map_onoff1 == "map_onoff2") ){
+    $db->exec("UPDATE nt_settings SET value='$map_onoff' WHERE option='mapon'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
 
 ?>
 
@@ -60,13 +67,25 @@
 					</form>
 				</td>
 			</tr>
+			
 			<tr>
-				<td> SCREEN
+				<td> Screen
 				</td>
 				<td>
 					<form action="" method="post">
 					<input type="hidden" name="screen_onoff1" value="screen_onoff2"  />
 					<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()" type="checkbox" name="screen_onoff" value="on"  <?php echo $nts_screen == 'on' ? 'checked="checked"' : ''; ?> >
+					</form>
+				</td>
+			</tr>
+			
+			<tr>
+				<td> Map
+				</td>
+				<td>
+					<form action="" method="post">
+					<input type="hidden" name="map_onoff1" value="map_onoff2"  />
+					<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()" type="checkbox" name="map_onoff" value="on"  <?php echo $nts_mapon == 'on' ? 'checked="checked"' : ''; ?> >
 					</form>
 				</td>
 			</tr>
