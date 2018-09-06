@@ -15,7 +15,7 @@
 <a href="index.php?id=settings&type=ownwidget" ><button class="btn btn-xs btn-default <?php echo $art == 'ownwidget' ? 'active' : ''; ?>">OwnWidget</button></a>
 <a href="index.php?id=settings&type=server_node" ><button class="btn btn-xs btn-default <?php echo $art == 'server_node' ? 'active' : ''; ?>">Server - Node</button></a>
 <a href="index.php?id=settings&type=mysql" ><button class="btn btn-xs btn-default <?php echo $art == 'mysql' ? 'active' : ''; ?>">MySQL</button></a>
-<a href="index.php?id=settings&type=screen" ><button class="btn btn-xs btn-default <?php echo $art == 'screen' ? 'active' : ''; ?>">Screen</button></a>
+
 <a href="index.php?id=settings&type=types" ><button class="btn btn-xs btn-default <?php echo $art == 'types' ? 'active' : ''; ?>">Types</button></a>
 <a href="index.php?id=settings&type=global" ><button class="btn btn-xs btn-default <?php echo $art == 'global' ? 'active' : ''; ?>">Global</button></a>
 </p>
