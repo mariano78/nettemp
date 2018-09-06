@@ -21,9 +21,6 @@ switch ($art)
 default: case '$mail': include('modules/settings/mail.php'); break;
 case 'smsscript': include('modules/settings/sms_script.php'); break;
 case 'accesstime': include('modules/settings/accesstime.php'); break;
-//case 'gpio': include('modules/settings/gpio.php'); break;
-//case 'time': include('modules/settings/time.php'); break;
-//case 'snmpd': include('modules/settings/snmpd.php'); break;
 case 'lcd': include('modules/settings/lcd.php'); break;
 case '1wire': include('modules/settings/1wire.php'); break;
 case 'i2c': include('modules/settings/i2c.php'); break;
@@ -34,7 +31,6 @@ case 'charts': include('modules/settings/charts.php'); break;
 case 'ownwidget': include('modules/settings/ownwidget_edit.php'); break;
 case 'server_node': include('modules/settings/server_node.php'); break;
 case 'mysql': include('modules/mysql/mysql.php'); break;
-//case 'screen': include('modules/settings/screen.php'); break;
 case 'types': include('modules/settings/types.php'); break;
 case 'global': include('modules/settings/global.php'); break;
 }
