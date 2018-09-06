@@ -1,29 +1,3 @@
-
- <div class="grid-item settings">
-	<div class="panel panel-default">
-	<div class="panel-heading">Global settings</div>
-	
-		
-    <table class="table table-hover table-condensed">
-    <tbody>
-	</tbody>
-	</table>
-	</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
     $gpio_onoff = isset($_POST['gpio_onoff']) ? $_POST['gpio_onoff'] : '';
     $gpio_onoff1 = isset($_POST['gpio_onoff1']) ? $_POST['gpio_onoff1'] : '';
@@ -47,15 +21,39 @@
 
 ?>
 
+
+
+ 
+ <div class="grid-item settings">
+	<div class="panel panel-default">
+		<div class="panel-heading">Global settings</div>
+	
+		
+    <table class="table table-hover table-condensed">
+		<tbody>
+			<tr>
+				<td> GPIO RPI
+				</td>
+				<td>
+					<form action="" method="post">
+					<input type="hidden" name="gpio_onoff1" value="gpio_onoff2"  />
+					<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()" type="checkbox" name="gpio_onoff" value="on"  <?php echo $nts_gpio == 'on' ? 'checked="checked"' : ''; ?> >
+					</form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+</div>
+
+
+
 <div class="panel panel-default">
 <div class="panel-heading">
 <h3 class="panel-title">GPIO RPI</h3>
 </div>
 <div class="panel-body"> 
-<form action="" method="post">
-  <input type="hidden" name="gpio_onoff1" value="gpio_onoff2"  />
-  <input data-toggle="toggle" data-size="mini" onchange="this.form.submit()" type="checkbox" name="gpio_onoff" value="on"  <?php echo $nts_gpio == 'on' ? 'checked="checked"' : ''; ?> >
-</form>
+
 </div>
 </div>
 
