@@ -148,7 +148,7 @@
 			</tr>
 			
 			<tr>
-				<td> NTP time sync
+				<td> Time NTP
 				</td>
 				<td>
 					<form action="" method="post">
@@ -164,6 +164,68 @@
 					?>
 				</td>
 			</tr>
+			
+			<tr>
+				<td> Time RTC I2C
+				</td>
+				<td>
+					<form action="" method="post">
+					<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="rtc" value="on" <?php echo $rtc == 'on' ? 'checked="checked"' : ''; ?>  />
+					<input type="hidden" name="rtc_onoff" value="rtc_onoff" />
+					</form>
+					<?php 
+					if ( $rtc == "on") { 
+					?>
+
+					<?php
+					if ((file_exists("/dev/i2c-0")) || (file_exists("/dev/i2c-1"))) {
+					?>
+
+
+					<hr>
+						<?php echo "System date: "; passthru("date");?>
+					<?php
+					$ntsync = isset($_POST['ntsync']) ? $_POST['ntsync'] : '';
+					if ($ntsync == "ntsync") { 
+					shell_exec("sudo service ntp restart; sleep 5; sudo /usr/sbin/ntpd -qg");
+					header("location: " . $_SERVER['REQUEST_URI']);
+					exit();	
+					}
+					?>
+					<form action="" method="post">
+						<input type="hidden" name="ntsync" value="ntsync">
+						<input  type="submit" value="Time sync"  class="btn btn-xs btn-success"/>
+					</form>
+					<?php echo "Hwclock date: "; passthru("sudo /sbin/hwclock --show");?>
+					<?php
+					$hwsync = isset($_POST['hwsync']) ? $_POST['hwsync'] : '';
+					if ($hwsync == "hwsync") { 
+					shell_exec("sudo /sbin/hwclock -w");
+					header("location: " . $_SERVER['REQUEST_URI']);
+					exit();	
+					}
+					?>
+					<form action="" method="post">
+					<input type="hidden" name="hwsync" value="hwsync">
+					<input  type="submit" value="RTC sync" class="btn btn-xs btn-success" />
+					</form>
+					<?php 
+					}
+					else { ?>
+					RTC - No i2c modules loaded
+
+					<?php 
+						}
+					?>
+
+
+					<?php 
+						}
+					?>
+				</td>
+			</tr>
+			
+			
 		</tbody>
 	</table>
 	</div>
