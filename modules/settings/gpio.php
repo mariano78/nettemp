@@ -1,3 +1,31 @@
+
+ <div class="grid-item settings">
+	<div class="panel panel-default">
+	<div class="panel-heading">
+	
+		<div class="pull-left"> Global settings  </div>
+		
+</div> 
+    <table class="table table-hover table-condensed">
+    <tbody>
+	</tbody>
+	</table>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <?php
     $gpio_onoff = isset($_POST['gpio_onoff']) ? $_POST['gpio_onoff'] : '';
     $gpio_onoff1 = isset($_POST['gpio_onoff1']) ? $_POST['gpio_onoff1'] : '';
