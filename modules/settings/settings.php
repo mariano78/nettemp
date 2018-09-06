@@ -38,7 +38,7 @@ case 'charts': include('modules/settings/charts.php'); break;
 case 'ownwidget': include('modules/settings/ownwidget_edit.php'); break;
 case 'server_node': include('modules/settings/server_node.php'); break;
 case 'mysql': include('modules/mysql/mysql.php'); break;
-case 'screen': include('modules/settings/screen.php'); break;
+//case 'screen': include('modules/settings/screen.php'); break;
 case 'types': include('modules/settings/types.php'); break;
 case 'global': include('modules/settings/global.php'); break;
 }

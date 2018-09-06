@@ -17,6 +17,14 @@
 		header("location: " . $_SERVER['REQUEST_URI']);
 		exit();
     }
+	
+	$screen_onoff = isset($_POST['screen_onoff']) ? $_POST['screen_onoff'] : '';
+    $screen_onoff1 = isset($_POST['screen_onoff1']) ? $_POST['screen_onoff1'] : '';
+    if (($screen_onoff1 == "screen_onoff2") ){
+    $db->exec("UPDATE nt_settings SET value='$screen_onoff' WHERE option='screen'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
 
 
 ?>
@@ -49,6 +57,16 @@
 					<form action="" method="post">
 					<input type="hidden" name="MCP23017_onoff1" value="MCP23017_onoff2"  />
 					<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()" type="checkbox" name="MCP23017_onoff" value="on"  <?php echo $nts_MCP23017 == 'on' ? 'checked="checked"' : ''; ?> >
+					</form>
+				</td>
+			</tr>
+			<tr>
+				<td> SCREEN
+				</td>
+				<td>
+					<form action="" method="post">
+					<input type="hidden" name="screen_onoff1" value="screen_onoff2"  />
+					<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()" type="checkbox" name="screen_onoff" value="on"  <?php echo $nts_screen == 'on' ? 'checked="checked"' : ''; ?> >
 					</form>
 				</td>
 			</tr>
