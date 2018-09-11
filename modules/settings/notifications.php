@@ -100,15 +100,7 @@ $conf = array (
 		<table class="table table-hover table-condensed">
 			<tbody>	
 	   
-			<tr>
-				<td>Active:</td>
-				<td>
-				<form action="" method="post">
-				<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="ms_onoff" value="on" <?php echo $nts_mail_onoff == 'on' ? 'checked="checked"' : ''; ?>  />
-				<input type="hidden" name="ms_onoff1" value="ms_onoff2" />
-				</form>
-				</td>
-			</tr>
+		
 		<form action="" method="post">	
 			<tr>
 				<td>
