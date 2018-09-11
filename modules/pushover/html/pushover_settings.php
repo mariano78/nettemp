@@ -23,7 +23,7 @@
 				<td><label>Active:</label></td>
 				<td>
 					<form action="" method="post">
-						<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="po_onoff" value="on" <?php echo $nts_pusho_active == 'on' ? 'checked="checked"' : ''; ?>  />
+						<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="po_onoff" value="<?php echo $nts_pusho_active == 'on' ? 'off' : 'on'; ?>" <?php echo $nts_pusho_active == 'on' ? 'checked="checked"' : ''; ?>  />
 						<input type="hidden" name="po_onoff1" value="po_onoff2" />
 					</form>
 				</td>
