@@ -22,14 +22,6 @@ foreach ($ns_rows as $v) {
 	$mail_topic=$v['value'];
 }
 
-$db = new PDO('sqlite:dbf/nettemp.db');
-$sth = $db->prepare("select value from nt_settings WHERE option='mail_onoff'");
-$sth->execute();
-$result = $sth->fetchAll();
-foreach ($result as $a) {
-	$mail=$a["value"];
-}
-
 
 $address = isset($_POST['address']) ? $_POST['address'] : '';
 $user = isset($_POST['user']) ? $_POST['user'] : '';
@@ -219,11 +211,6 @@ $conf = array (
 				<button id="send" name="send" value="send" class="btn btn-xs btn-success">Send test</button>
 				
 				</form>
-				<?php
-					if ($mail == "on" ) { 
-					include("mail_test.php"); 
-				} 
-				?>
 				
 				</td>
 			</tr>
