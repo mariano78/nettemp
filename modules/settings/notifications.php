@@ -36,6 +36,8 @@
 				<input type="hidden" name="ms_onoff1" value="ms_onoff2" />
 				</form>
 				
+				<?php include('modules/mail/html/mail.php'); ?>
+				
 				</td>
 			</tr>
 				
