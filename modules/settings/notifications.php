@@ -120,6 +120,7 @@ $conf = array (
 				</div>
 				</td>
 			</tr>
+			</form>
 			
 			<tr>
 				<td>Username:</td>
