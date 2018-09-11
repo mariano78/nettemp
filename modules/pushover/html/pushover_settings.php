@@ -76,7 +76,8 @@ $conf = array (
     	exit();
 }
 ?>
-
+<div class="grid">
+<div class="grid-sizer"></div>
 <div class="grid-item settings">
 		<div class="panel panel-default">
 			<div class="panel-heading">Email</div>
@@ -238,3 +239,4 @@ $conf = array (
 		</table>
 		</div>
 	</div>
+</div>
