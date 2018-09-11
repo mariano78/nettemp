@@ -11,7 +11,7 @@
 			<tbody>	
 	   
 			<tr>
-				<td>Active:</td>
+				<td><label>Active:</label></td>
 				<td>
 					<form action="" method="post">
 						<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="ms_onoff" value="on" <?php echo $nts_mail_onoff == 'on' ? 'checked="checked"' : ''; ?>  />
@@ -21,14 +21,14 @@
 			</tr>
 		<form action="" method="post">	
 			<tr>
-				<td>User KEY:</td>
+				<td><label>User KEY:</label></td>
 				<td>
 					<input id="user" name="address" placeholder="not required" class="form-control input-md" type="text" value="<?php echo $a['from']; ?>">
 				</td>
 			</tr>
 			
 			<tr>
-				<td>API KEY:</td>
+				<td><label>API KEY:</label></td>
 				<td>
 					<input id="user" name="user" placeholder="ex. nettemp@nettemp.pl" class="form-control input-md" required="" type="text" value="<?php echo $a['user']; ?>">
 				</td>
