@@ -1,5 +1,14 @@
 <?php
 
+	$po_onoff = isset($_POST['po_onoff']) ? $_POST['po_onoff'] : '';
+    $po_onoff1 = isset($_POST['po_onoff1']) ? $_POST['po_onoff1'] : '';
+    if (($po_onoff1 == "po_onoff2") ){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE nt_settings SET value='$po_onoff' WHERE option='pusho_active'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+
 ?>
 
 <div class="grid-item">
@@ -14,7 +23,7 @@
 				<td><label>Active:</label></td>
 				<td>
 					<form action="" method="post">
-						<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="ms_onoff" value="on" <?php echo $nts_pusho_active == 'on' ? 'checked="checked"' : ''; ?>  />
+						<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="po_onoff" value="on" <?php echo $nts_pusho_active == 'on' ? 'checked="checked"' : ''; ?>  />
 						<input type="hidden" name="po_onoff1" value="po_onoff2" />
 					</form>
 				</td>
