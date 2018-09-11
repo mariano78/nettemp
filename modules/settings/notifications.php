@@ -11,19 +11,18 @@
     }
 ?>
 
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 class="panel-title">Notifications</h3>
-</div>
-<div class="panel-body">
 
+<div class="panel-heading"><h3 class="panel-title">Notifications</h3></div>
+
+<div class="grid">
+<div class="grid-sizer"></div>
 	
 <?php include('modules/mail/html/mail_settings.php'); ?>
 <?php include('modules/pushover/html/pushover_settings.php'); ?>
 
+</div>
 
-</div>
-</div>
+
 
 
 
