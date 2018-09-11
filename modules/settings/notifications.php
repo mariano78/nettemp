@@ -170,8 +170,8 @@ $conf = array (
 				<td>TLS Check:</td>
 				<td>
 					<select id="tlscheck" name="tlscheck" class="form-control">
-						<option value="on" <?php echo $a['tlscheck'] == 'on' ? 'selected="selected"' : ''; ?>>on</option>
-						<option value="off" <?php echo $a['tlscheck'] == 'off' ? 'selected="selected"' : ''; ?> >off</option>
+						<option value="on" <?php echo $a['tls_certcheck'] == 'on' ? 'selected="selected"' : ''; ?>>on</option>
+						<option value="off" <?php echo $a['tls_certcheck'] == 'off' ? 'selected="selected"' : ''; ?> >off</option>
 					</select>
 				</td>
 			</tr>
