@@ -112,7 +112,7 @@ $conf = array (
 		<form action="" method="post">	
 			<tr>
 				<td>
-				<div class="form-group">
+				<div class="form-group row">
 				<label  for="user">From:</label>
 				
 				<input id="user" name="address" placeholder="not required" class="form-control form-control-sm" type="text" value="<?php echo $a['from']; ?>">
