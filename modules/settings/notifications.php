@@ -103,99 +103,131 @@ $conf = array (
 			<tr>
 				<td>Active:</td>
 				<td>
-				<form action="" method="post">
-				<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="ms_onoff" value="on" <?php echo $nts_mail_onoff == 'on' ? 'checked="checked"' : ''; ?>  />
-				<input type="hidden" name="ms_onoff1" value="ms_onoff2" />
-				</form>
+					<form action="" method="post">
+						<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="ms_onoff" value="on" <?php echo $nts_mail_onoff == 'on' ? 'checked="checked"' : ''; ?>  />
+						<input type="hidden" name="ms_onoff1" value="ms_onoff2" />
+					</form>
 				</td>
 			</tr>
 		<form action="" method="post">	
 			<tr>
 				<td>From:</td>
 				<td>
-				<input id="user" name="address" placeholder="not required" class="form-control input-md" type="text" value="<?php echo $a['from']; ?>">
+					<input id="user" name="address" placeholder="not required" class="form-control input-md" type="text" value="<?php echo $a['from']; ?>">
 				</td>
 			</tr>
 			
 			<tr>
 				<td>Username:</td>
 				<td>
-				<input id="user" name="user" placeholder="ex. nettemp@nettemp.pl" class="form-control input-md" required="" type="text" value="<?php echo $a['user']; ?>">
+					<input id="user" name="user" placeholder="ex. nettemp@nettemp.pl" class="form-control input-md" required="" type="text" value="<?php echo $a['user']; ?>">
 				</td>
 			</tr>
 			
 			<tr>
 				<td>Password:</td>
 				<td>
-				<input id="password" name="password" placeholder="" class="form-control input-md" required="" type="password" value="<?php echo $a['password']; ?>">
+					<input id="password" name="password" placeholder="" class="form-control input-md" required="" type="password" value="<?php echo $a['password']; ?>">
 				</td>
 			</tr>
 			
 			<tr>
 				<td>SMTP Server:</td>
 				<td>
-				 <input id="host" name="host" placeholder="smtp.gmail.com" class="form-control input-md" required="" type="text" value="<?php echo $a['host']; ?>">
+					<input id="host" name="host" placeholder="smtp.gmail.com" class="form-control input-md" required="" type="text" value="<?php echo $a['host']; ?>">
 				</td>
 			</tr>
 			
 			<tr>
 				<td>Port:</td>
 				<td>
-				 <input id="port" name="port" placeholder="587" class="form-control input-md" required="" type="text" value="<?php echo $a['port']; ?>">
+					<input id="port" name="port" placeholder="587" class="form-control input-md" required="" type="text" value="<?php echo $a['port']; ?>">
 				</td>
 			</tr>
 			
 			<tr>
 				<td>Auth:</td>
 				<td>
-				 <select id="auth" name="auth" class="form-control">
-      <option value="on" <?php echo $a['auth'] == 'on' ? 'selected="selected"' : ''; ?>>on</option>
-      <option value="off" <?php echo $a['auth'] == 'off' ? 'selected="selected"' : ''; ?>>off</option>
-      <option value="login" <?php echo $a['auth'] == 'login' ? 'selected="selected"' : ''; ?>>login</option>
-    </select>
+					<select id="auth" name="auth" class="form-control">
+						<option value="on" <?php echo $a['auth'] == 'on' ? 'selected="selected"' : ''; ?>>on</option>
+						<option value="off" <?php echo $a['auth'] == 'off' ? 'selected="selected"' : ''; ?>>off</option>
+						<option value="login" <?php echo $a['auth'] == 'login' ? 'selected="selected"' : ''; ?>>login</option>
+					</select>
 				</td>
 			</tr>
 			
 			<tr>
 				<td>TLS:</td>
 				<td>
-				<select id="tls" name="tls" class="form-control">
-    <option value="on" <?php echo $a['tls'] == 'on' ? 'selected="selected"' : 'selected="selected"'; ?>>on</option>
-    <option value="off" <?php echo $a['tls'] == 'off' ? 'selected="selected"' : ''; ?>>off</option>
-    </select>
+					<select id="tls" name="tls" class="form-control">
+						<option value="on" <?php echo $a['tls'] == 'on' ? 'selected="selected"' : 'selected="selected"'; ?>>on</option>
+						<option value="off" <?php echo $a['tls'] == 'off' ? 'selected="selected"' : ''; ?>>off</option>
+					</select>
 				</td>
 			</tr>
 			
 			<tr>
 				<td>TLS Check:</td>
 				<td>
-				 <select id="tlscheck" name="tlscheck" class="form-control">
-      <option value="on" <?php echo $a['tlscheck'] == 'on' ? 'selected="selected"' : ''; ?>>on</option>
-      <option value="off" <?php echo $a['tlscheck'] == 'off' ? 'selected="selected"' : 'selected="selected"'; ?> >off</option>
-    </select>
+					<select id="tlscheck" name="tlscheck" class="form-control">
+						<option value="on" <?php echo $a['tlscheck'] == 'on' ? 'selected="selected"' : ''; ?>>on</option>
+						<option value="off" <?php echo $a['tlscheck'] == 'off' ? 'selected="selected"' : 'selected="selected"'; ?> >off</option>
+					</select>
 				</td>
 			</tr>
 			
 			<tr>
 				<td>Mail topic:</td>
 				<td>
-				<input id="topic" name="topic" placeholder="" class="form-control input-md" required="" type="topic" value="<?php echo $mail_topic ?>">
+					<input id="topic" name="topic" placeholder="" class="form-control input-md" required="" type="topic" value="<?php echo $mail_topic ?>">
 				</td>
 			</tr>
 			
 			<tr>
 				<td></td>
 				<td>
-				 <input type="hidden" name="change_password1" value="change_password2" />
-    <button id="mailsave" name="mailsave" class="btn btn-xs btn-success">Save</button>
+					<input type="hidden" name="change_password1" value="change_password2" />
+					<button id="mailsave" name="mailsave" class="btn btn-xs btn-success">Save</button>
+		</form>
 				</td>
 			</tr>
 			</form>
 			
 			<tr>
-				<td>Send test:</td>
+				<td>Test email:</td>
 				<td>
+				<form action="" method="post">
+					<input id="mail_test" name="test_mail" placeholder="" class="form-control input-md" required="" type="text" value="" placeholder="test@nettemp.pl">
+					<button id="send" name="send" value="send" class="btn btn-xs btn-success">Send test</button>
 				
+				</form>
+				<?php
+$test_mail = isset($_POST['test_mail']) ? $_POST['test_mail'] : '';
+$send = isset($_POST['send']) ? $_POST['send'] : '';
+
+$headers = "From: ".$a['user']."\r\n";
+
+
+if  ($send == "send") {
+	 $test_mail1=escapeshellarg($test_mail);
+	 if ( mail ($test_mail, $mail_topic, 'Working Fine.', $headers ) ) {
+?>
+
+    		<center><span class="label label-success">Mail send ok</span></center>
+    		<br>
+<?php
+	 } else { 
+?>
+
+			<center><span class="label label-warning">Cannot send mail</span></center>
+			<br>
+
+<?php
+	 }
+
+}
+
+?>
 				</td>
 			</tr>
 				
