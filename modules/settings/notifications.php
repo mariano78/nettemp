@@ -24,7 +24,7 @@
 			<tbody>	
 	   
 			<tr>
-				<td>
+				<td class="control-label" >
 				
 				Active:
 				
