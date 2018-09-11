@@ -81,7 +81,7 @@ $conf = array (
 		<div class="panel panel-default">
 			<div class="panel-heading">Email</div>
 			
-		
+		<div class="table-responsive">
 		<table class="table table-hover table-condensed">
 			<tbody>	
 	   
@@ -236,5 +236,6 @@ $conf = array (
 				
 			</tbody>
 		</table>
+		</div>
 		</div>
 	</div>
