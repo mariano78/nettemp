@@ -15,18 +15,23 @@
 </div>
 <div class="panel-body">
 
-<div class="grid-item settings">
-	<div class="panel panel-default">
-		<div class="panel-heading">Email</div>
-	
+	<div class="grid-item settings">
+		<div class="panel panel-default">
+			<div class="panel-heading">Email</div>
 		
-   
-			
-			
-		</tbody>
-	</table>
+		<table class="table table-hover table-condensed">
+			<tbody>	
+	   
+			<form action="" method="post">
+				<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="ms_onoff" value="on" <?php echo $nts_mail_onoff == 'on' ? 'checked="checked"' : ''; ?>  />
+				<input type="hidden" name="ms_onoff1" value="ms_onoff2" />
+			</form>
+				
+				
+			</tbody>
+		</table>
+		</div>
 	</div>
-</div>
 
 
 
