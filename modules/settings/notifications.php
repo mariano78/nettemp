@@ -15,9 +15,6 @@
 </div>
 <div class="panel-body">
 
-</div>
-</div>
-
 <div class="grid-item settings">
 	<div class="panel panel-default">
 		<div class="panel-heading">Email</div>
@@ -30,5 +27,12 @@
 	</table>
 	</div>
 </div>
+
+
+
+</div>
+</div>
+
+
 
 
