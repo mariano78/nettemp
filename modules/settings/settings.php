@@ -3,7 +3,7 @@
 
 <p>
 <a href="index.php?id=settings&type=users" ><button class="btn btn-xs btn-default <?php echo $art == 'users' ? 'active' : ''; ?>">Users</button></a>
-<a href="index.php?id=settings&type=mail" ><button class="btn btn-xs btn-default <?php echo $art == 'notifications' ? 'active' : ''; ?>">Notifications</button></a>
+<a href="index.php?id=settings&type=notifications" ><button class="btn btn-xs btn-default <?php echo $art == 'notifications' ? 'active' : ''; ?>">Notifications</button></a>
 <a href="index.php?id=settings&type=accesstime" ><button class="btn btn-xs btn-default <?php echo $art == 'accesstime' ? 'active' : ''; ?>">Access time</button></a>
 <a href="index.php?id=settings&type=modem" ><button class="btn btn-xs btn-default <?php echo $art == 'modem' ? 'active' : ''; ?>">Modem</button></a>
 <a href="index.php?id=settings&type=meteo" ><button class="btn btn-xs btn-default <?php echo $art == 'meteo' ? 'active' : ''; ?>">Meteo</button></a>
