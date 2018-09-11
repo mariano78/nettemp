@@ -167,7 +167,7 @@ $conf = array (
 			</tr>
 			
 			<tr>
-				<td>TLS Check:</td>
+				<td class="align-middle">TLS Check:</td>
 				<td>
 					<select id="tlscheck" name="tlscheck" class="form-control">
 						<option value="on" <?php echo $a['tls_certcheck'] == 'on' ? 'selected="selected"' : ''; ?>>on</option>
