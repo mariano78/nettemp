@@ -14,13 +14,7 @@
 <h3 class="panel-title">Notifications</h3>
 </div>
 <div class="panel-body">
-<p>
-<form action="" method="post">
-    <input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="ms_onoff" value="on" <?php echo $nts_mail_onoff == 'on' ? 'checked="checked"' : ''; ?>  />
-    <input type="hidden" name="ms_onoff1" value="ms_onoff2" />
-</form>
-</p>
-<?php include('modules/mail/html/mail.php'); ?>
+
 </div>
 </div>
 
@@ -36,3 +30,5 @@
 	</table>
 	</div>
 </div>
+
+
