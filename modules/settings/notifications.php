@@ -24,19 +24,88 @@
 			<tbody>	
 	   
 			<tr>
+				<td>Active:</td>
 				<td>
-				
-				Active:
-				
-				</td>
-				<td>
-				
 				<form action="" method="post">
 				<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="ms_onoff" value="on" <?php echo $nts_mail_onoff == 'on' ? 'checked="checked"' : ''; ?>  />
 				<input type="hidden" name="ms_onoff1" value="ms_onoff2" />
 				</form>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>From:</td>
+				<td>
 				
+				</td>
+			</tr>
+			
+			<tr>
+				<td>Username:</td>
+				<td>
 				
+				</td>
+			</tr>
+			
+			<tr>
+				<td>Password:</td>
+				<td>
+				
+				</td>
+			</tr>
+			
+			<tr>
+				<td>SMTP Server:</td>
+				<td>
+				
+				</td>
+			</tr>
+			
+			<tr>
+				<td>Port:</td>
+				<td>
+				
+				</td>
+			</tr>
+			
+			<tr>
+				<td>Auth:</td>
+				<td>
+				
+				</td>
+			</tr>
+			
+			<tr>
+				<td>TLS:</td>
+				<td>
+				
+				</td>
+			</tr>
+			
+			<tr>
+				<td>TLS Check:</td>
+				<td>
+				
+				</td>
+			</tr>
+			
+			<tr>
+				<td>Mail topic:</td>
+				<td>
+				
+				</td>
+			</tr>
+			
+			<tr>
+				<td>Save switch:</td>
+				<td>
+				
+				</td>
+			</tr>
+			
+			<tr>
+				<td>Send test:</td>
+				<td>
 				
 				</td>
 			</tr>
