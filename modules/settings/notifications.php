@@ -23,3 +23,16 @@
 <?php include('modules/mail/html/mail.php'); ?>
 </div>
 </div>
+
+<div class="grid-item settings">
+	<div class="panel panel-default">
+		<div class="panel-heading">Email</div>
+	
+		
+   
+			
+			
+		</tbody>
+	</table>
+	</div>
+</div>
