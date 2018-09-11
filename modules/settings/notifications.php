@@ -111,16 +111,11 @@ $conf = array (
 			</tr>
 		<form action="" method="post">	
 			<tr>
+				<td>From:</td>
 				<td>
-				<div class="form-group row">
-				<label  for="user" class="col-sm-2 col-form-label">From:</label>
-				<div class="col-sm-10">
-				<input id="user" name="address" placeholder="not required" class="form-control form-control-sm" type="text" value="<?php echo $a['from']; ?>">
-				</div>
-				</div>
+				<input id="user" name="address" placeholder="not required" class="form-control input-md" type="text" value="<?php echo $a['from']; ?>">
 				</td>
 			</tr>
-			</form>
 			
 			<tr>
 				<td>Username:</td>
@@ -196,17 +191,6 @@ $conf = array (
 				
 			</tbody>
 		</table>
-		
-		<form action="" method="post">	
-			
-				<div class="form-group row">
-				<label  for="user" class="col-sm-2 col-form-label">From:</label>
-				<div class="col-sm-10">
-				<input id="user" name="address" placeholder="not required" class="form-control form-control-sm" type="text" value="<?php echo $a['from']; ?>">
-				</div>
-				</div>
-				
-			</form>
 		</div>
 	</div>
 
