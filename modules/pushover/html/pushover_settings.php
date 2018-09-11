@@ -79,7 +79,7 @@ $conf = array (
 
 <div class="grid-item">
 		<div class="panel panel-default">
-			<div class="panel-heading">Email</div>
+			<div class="panel-heading">Pushover (Android / IOs)</div>
 			
 		<div class="table-responsive">
 		<table class="table table-hover table-condensed">
@@ -96,77 +96,19 @@ $conf = array (
 			</tr>
 		<form action="" method="post">	
 			<tr>
-				<td>From:</td>
+				<td>User KEY:</td>
 				<td>
 					<input id="user" name="address" placeholder="not required" class="form-control input-md" type="text" value="<?php echo $a['from']; ?>">
 				</td>
 			</tr>
 			
 			<tr>
-				<td>Username:</td>
+				<td>API KEY:</td>
 				<td>
 					<input id="user" name="user" placeholder="ex. nettemp@nettemp.pl" class="form-control input-md" required="" type="text" value="<?php echo $a['user']; ?>">
 				</td>
 			</tr>
 			
-			<tr>
-				<td>Password:</td>
-				<td>
-					<input id="password" name="password" placeholder="" class="form-control input-md" required="" type="password" value="<?php echo $a['password']; ?>">
-				</td>
-			</tr>
-			
-			<tr>
-				<td>SMTP Server:</td>
-				<td>
-					<input id="host" name="host" placeholder="smtp.gmail.com" class="form-control input-md" required="" type="text" value="<?php echo $a['host']; ?>">
-				</td>
-			</tr>
-			
-			<tr>
-				<td>Port:</td>
-				<td>
-					<input id="port" name="port" placeholder="587" class="form-control input-md" required="" type="text" value="<?php echo $a['port']; ?>">
-				</td>
-			</tr>
-			
-			<tr>
-				<td>Auth:</td>
-				<td>
-					<select id="auth" name="auth" class="form-control">
-						<option value="on" <?php echo $a['auth'] == 'on' ? 'selected="selected"' : ''; ?>>on</option>
-						<option value="off" <?php echo $a['auth'] == 'off' ? 'selected="selected"' : ''; ?>>off</option>
-						<option value="login" <?php echo $a['auth'] == 'login' ? 'selected="selected"' : ''; ?>>login</option>
-					</select>
-				</td>
-			</tr>
-			
-			<tr>
-				<td>TLS:</td>
-				<td>
-					<select id="tls" name="tls" class="form-control">
-						<option value="on" <?php echo $a['tls'] == 'on' ? 'selected="selected"' : ''; ?>>on</option>
-						<option value="off" <?php echo $a['tls'] == 'off' ? 'selected="selected"' : ''; ?>>off</option>
-					</select>
-				</td>
-			</tr>
-			
-			<tr>
-				<td class="align-middle">TLS Check:</td>
-				<td>
-					<select id="tlscheck" name="tlscheck" class="form-control">
-						<option value="on" <?php echo $a['tls_certcheck'] == 'on' ? 'selected="selected"' : ''; ?>>on</option>
-						<option value="off" <?php echo $a['tls_certcheck'] == 'off' ? 'selected="selected"' : ''; ?> >off</option>
-					</select>
-				</td>
-			</tr>
-			
-			<tr>
-				<td>Mail topic:</td>
-				<td>
-					<input id="topic" name="topic" placeholder="" class="form-control input-md" required="" type="topic" value="<?php echo $mail_topic ?>">
-				</td>
-			</tr>
 			
 			<tr>
 				<td></td>
@@ -178,61 +120,7 @@ $conf = array (
 			</tr>
 			</form>
 			
-			<?php
-			$db = new PDO('sqlite:dbf/nettemp.db');
-			$sth = $db->prepare("select value from nt_settings WHERE option='mail_onoff'");
-			$sth->execute();
-			$result = $sth->fetchAll();
-			foreach ($result as $a) {
-				$mail=$a["value"];
-			}
-
-			if ($mail == "on" ) { 
-				
-			?>
-			
-			<tr>
-				<td>Test email:</td>
-				<td>
-				<form action="" method="post">
-					<input id="mail_test" name="test_mail" class="form-control input-md" required="" type="text" value="" placeholder="test@nettemp.pl">
-				</td>	
-			</tr>
-			<tr>
-				<td>
-					
-					
-				
-				</td>
-				<td>
-				
-				<button id="send" name="send" value="send" class="btn btn-xs btn-success">Test</button>
-				
-				</form>
-				
-				<?php
-				$test_mail = isset($_POST['test_mail']) ? $_POST['test_mail'] : '';
-				$send = isset($_POST['send']) ? $_POST['send'] : '';
-				$headers = "From: ".$a['user']."\r\n";
-
-				if  ($send == "send") {
-					 $test_mail1=escapeshellarg($test_mail);
-					 if ( mail ($test_mail, $mail_topic, 'Working Fine.', $headers ) ) {
-				?>
-							<span class="label label-success">Test OK</span>
-				<?php
-					 } else { 
-				?>
-							<span class="label label-warning">Test fail</span>
-				<?php
-					 }
-				}
-				?>
-				</td>
-			</tr>
-			<?php
-			}
-			?>			
+						
 				
 			</tbody>
 		</table>
