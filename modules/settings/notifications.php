@@ -210,7 +210,7 @@ $conf = array (
 				<td>Test email:</td>
 				<td>
 				<form action="" method="post">
-					<input id="mail_test" name="test_mail" placeholder="" class="form-control input-md" required="" type="text" value="" placeholder="test@nettemp.pl">
+					<input id="mail_test" name="test_mail" class="form-control input-md" required="" type="text" value="" placeholder="test@nettemp.pl">
 				</td>	
 			</tr>
 			<tr>
@@ -226,32 +226,25 @@ $conf = array (
 				</form>
 				
 				<?php
-$test_mail = isset($_POST['test_mail']) ? $_POST['test_mail'] : '';
-$send = isset($_POST['send']) ? $_POST['send'] : '';
-$headers = "From: ".$a['user']."\r\n";
+				$test_mail = isset($_POST['test_mail']) ? $_POST['test_mail'] : '';
+				$send = isset($_POST['send']) ? $_POST['send'] : '';
+				$headers = "From: ".$a['user']."\r\n";
 
-if  ($send == "send") {
-	 $test_mail1=escapeshellarg($test_mail);
-	 if ( mail ($test_mail, $mail_topic, 'Working Fine.', $headers ) ) {
-?>
-
-    		<span class="label label-success">Test OK</span>
-<?php
-	 } else { 
-?>
-
-			<span class="label label-warning">Test fail</span>
-
-<?php
-	 }
-
-}
-
-?>
-				
+				if  ($send == "send") {
+					 $test_mail1=escapeshellarg($test_mail);
+					 if ( mail ($test_mail, $mail_topic, 'Working Fine.', $headers ) ) {
+				?>
+							<span class="label label-success">Test OK</span>
+				<?php
+					 } else { 
+				?>
+							<span class="label label-warning">Test fail</span>
+				<?php
+					 }
+				}
+				?>
 				</td>
 			</tr>
-			
 			<?php
 			}
 			?>			
