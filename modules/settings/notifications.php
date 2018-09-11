@@ -14,15 +14,13 @@
 
 
 
-<div class="grid">
-<div class="grid-sizer"></div>
+
 	
 <?php 
 include('modules/mail/html/mail_settings.php');
 include('modules/pushover/html/pushover_settings.php');
  ?>
 
-</div>
 
 
 
