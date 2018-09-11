@@ -77,7 +77,7 @@ $conf = array (
 }
 ?>
 
-<div class="grid-item settings">
+<div class="grid-item">
 		<div class="panel panel-default">
 			<div class="panel-heading">Email</div>
 			
