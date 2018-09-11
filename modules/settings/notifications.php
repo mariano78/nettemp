@@ -40,7 +40,6 @@
 				
 				</td>
 			</tr>
-			<?php include('modules/mail/html/mail.php'); ?>
 				
 				
 			</tbody>
