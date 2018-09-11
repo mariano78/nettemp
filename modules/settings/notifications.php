@@ -12,7 +12,7 @@
 ?>
 
 
-<div class="panel-heading"><h3 class="panel-title">Notifications</h3></div>
+
 
 <div class="grid">
 <div class="grid-sizer"></div>
