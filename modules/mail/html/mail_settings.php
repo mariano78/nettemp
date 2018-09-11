@@ -86,7 +86,7 @@ $conf = array (
 			<tbody>	
 	   
 			<tr>
-				<td>Active:</td>
+				<td><label>Active:</label></td>
 				<td>
 					<form action="" method="post">
 						<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="ms_onoff" value="on" <?php echo $nts_mail_onoff == 'on' ? 'checked="checked"' : ''; ?>  />
