@@ -120,63 +120,74 @@ $conf = array (
 			<tr>
 				<td>Username:</td>
 				<td>
-				
+				<input id="user" name="user" placeholder="ex. nettemp@nettemp.pl" class="form-control input-md" required="" type="text" value="<?php echo $a['user']; ?>">
 				</td>
 			</tr>
 			
 			<tr>
 				<td>Password:</td>
 				<td>
-				
+				<input id="password" name="password" placeholder="" class="form-control input-md" required="" type="password" value="<?php echo $a['password']; ?>">
 				</td>
 			</tr>
 			
 			<tr>
 				<td>SMTP Server:</td>
 				<td>
-				
+				 <input id="host" name="host" placeholder="smtp.gmail.com" class="form-control input-md" required="" type="text" value="<?php echo $a['host']; ?>">
 				</td>
 			</tr>
 			
 			<tr>
 				<td>Port:</td>
 				<td>
-				
+				 <input id="port" name="port" placeholder="587" class="form-control input-md" required="" type="text" value="<?php echo $a['port']; ?>">
 				</td>
 			</tr>
 			
 			<tr>
 				<td>Auth:</td>
 				<td>
-				
+				 <select id="auth" name="auth" class="form-control">
+      <option value="on" <?php echo $a['auth'] == 'on' ? 'selected="selected"' : ''; ?>>on</option>
+      <option value="off" <?php echo $a['auth'] == 'off' ? 'selected="selected"' : ''; ?>>off</option>
+      <option value="login" <?php echo $a['auth'] == 'login' ? 'selected="selected"' : ''; ?>>login</option>
+    </select>
 				</td>
 			</tr>
 			
 			<tr>
 				<td>TLS:</td>
 				<td>
-				
+				<select id="tls" name="tls" class="form-control">
+    <option value="on" <?php echo $a['tls'] == 'on' ? 'selected="selected"' : 'selected="selected"'; ?>>on</option>
+    <option value="off" <?php echo $a['tls'] == 'off' ? 'selected="selected"' : ''; ?>>off</option>
+    </select>
 				</td>
 			</tr>
 			
 			<tr>
 				<td>TLS Check:</td>
 				<td>
-				
+				 <select id="tlscheck" name="tlscheck" class="form-control">
+      <option value="on" <?php echo $a['tlscheck'] == 'on' ? 'selected="selected"' : ''; ?>>on</option>
+      <option value="off" <?php echo $a['tlscheck'] == 'off' ? 'selected="selected"' : 'selected="selected"'; ?> >off</option>
+    </select>
 				</td>
 			</tr>
 			
 			<tr>
 				<td>Mail topic:</td>
 				<td>
-				
+				<input id="topic" name="topic" placeholder="" class="form-control input-md" required="" type="topic" value="<?php echo $mail_topic ?>">
 				</td>
 			</tr>
 			
 			<tr>
 				<td>Save switch:</td>
 				<td>
-				
+				 <input type="hidden" name="change_password1" value="change_password2" />
+    <button id="mailsave" name="mailsave" class="btn btn-xs btn-success">Save</button>
 				</td>
 			</tr>
 			</form>
