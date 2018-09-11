@@ -19,6 +19,7 @@
 
 	
 <?php include('modules/mail/html/mail_settings.php'); ?>
+<?php include('modules/pushover/html/pushover_settings.php'); ?>
 
 
 </div>
