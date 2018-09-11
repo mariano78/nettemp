@@ -96,42 +96,42 @@ $conf = array (
 			</tr>
 		<form action="" method="post">	
 			<tr>
-				<td>From:</td>
+				<td><label>From:</td>
 				<td>
 					<input id="user" name="address" placeholder="not required" class="form-control input-md" type="text" value="<?php echo $a['from']; ?>">
 				</td>
 			</tr>
 			
 			<tr>
-				<td>Username:</td>
+				<td><label>Username:</label></td>
 				<td>
 					<input id="user" name="user" placeholder="ex. nettemp@nettemp.pl" class="form-control input-md" required="" type="text" value="<?php echo $a['user']; ?>">
 				</td>
 			</tr>
 			
 			<tr>
-				<td>Password:</td>
+				<td><label>Password:</label></td>
 				<td>
 					<input id="password" name="password" placeholder="" class="form-control input-md" required="" type="password" value="<?php echo $a['password']; ?>">
 				</td>
 			</tr>
 			
 			<tr>
-				<td>SMTP Server:</td>
+				<td><label>SMTP Server:</label></td>
 				<td>
 					<input id="host" name="host" placeholder="smtp.gmail.com" class="form-control input-md" required="" type="text" value="<?php echo $a['host']; ?>">
 				</td>
 			</tr>
 			
 			<tr>
-				<td>Port:</td>
+				<td><label>Port:</label></td>
 				<td>
 					<input id="port" name="port" placeholder="587" class="form-control input-md" required="" type="text" value="<?php echo $a['port']; ?>">
 				</td>
 			</tr>
 			
 			<tr>
-				<td>Auth:</td>
+				<td><label>Auth:</label></td>
 				<td>
 					<select id="auth" name="auth" class="form-control">
 						<option value="on" <?php echo $a['auth'] == 'on' ? 'selected="selected"' : ''; ?>>on</option>
@@ -142,7 +142,7 @@ $conf = array (
 			</tr>
 			
 			<tr>
-				<td>TLS:</td>
+				<td><label>TLS:</label></td>
 				<td>
 					<select id="tls" name="tls" class="form-control">
 						<option value="on" <?php echo $a['tls'] == 'on' ? 'selected="selected"' : ''; ?>>on</option>
@@ -152,7 +152,7 @@ $conf = array (
 			</tr>
 			
 			<tr>
-				<td class="align-middle">TLS Check:</td>
+				<td><label>TLS Check:</label></td>
 				<td>
 					<select id="tlscheck" name="tlscheck" class="form-control">
 						<option value="on" <?php echo $a['tls_certcheck'] == 'on' ? 'selected="selected"' : ''; ?>>on</option>
@@ -162,7 +162,7 @@ $conf = array (
 			</tr>
 			
 			<tr>
-				<td>Mail topic:</td>
+				<td><label>Mail topic:</label></td>
 				<td>
 					<input id="topic" name="topic" placeholder="" class="form-control input-md" required="" type="topic" value="<?php echo $mail_topic ?>">
 				</td>
@@ -192,7 +192,7 @@ $conf = array (
 			?>
 			
 			<tr>
-				<td>Test email:</td>
+				<td><label>Test email:</label></td>
 				<td>
 				<form action="" method="post">
 					<input id="mail_test" name="test_mail" class="form-control input-md" required="" type="text" value="" placeholder="test@nettemp.pl">
