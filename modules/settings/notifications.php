@@ -1,18 +1,3 @@
-<style type="text/css">
-
-
-/* ---- grid-item ---- */
-
-.grid-item {
-    width: 340px;
-    float: left;
-    border-radius: 5px;
-	margin-right: 10px;
-	margin-bottom: 20px;
-}
-
-</style>
-
 <?php
 
 
@@ -26,18 +11,17 @@
     }
 ?>
 
-
-
-
-
+<div class="panel panel-default">
+<div class="panel-heading"><h3 class="panel-title">Notifications</h3></div>
+<div class="panel-body">
+<div class="grid">
 	
-<?php 
-include('modules/mail/html/mail_settings.php');
-include('modules/pushover/html/pushover_settings.php');
- ?>
+<?php include('modules/mail/html/mail_settings.php'); ?>
+<?php include('modules/pushover/html/pushover_settings.php'); ?>
 
-
-
+</div>
+</div>
+</div>
 
 
 
