@@ -203,38 +203,14 @@ $conf = array (
 			<tr>
 				<td>
 					
-					<button id="send" name="send" value="send" class="btn btn-xs btn-success">Send test</button>
-				
-				</form>
+					
 				
 				</td>
 				<td>
 				
-				<?php
-$test_mail = isset($_POST['test_mail']) ? $_POST['test_mail'] : '';
-$send = isset($_POST['send']) ? $_POST['send'] : '';
-$headers = "From: ".$a['user']."\r\n";
-
-if  ($send == "send") {
-	 $test_mail1=escapeshellarg($test_mail);
-	 if ( mail ($test_mail, $mail_topic, 'Working Fine.', $headers ) ) {
-?>
-
-    		<center><span class="label label-success">Mail send ok</span></center>
-    		<br>
-<?php
-	 } else { 
-?>
-
-			<center><span class="label label-warning">Cannot send mail</span></center>
-			<br>
-
-<?php
-	 }
-
-}
-
-?>
+				<button id="send" name="send" value="send" class="btn btn-xs btn-success">Send test</button>
+				
+				</form>
 				
 				</td>
 			</tr>
