@@ -184,7 +184,7 @@ $conf = array (
 			</tr>
 			
 			<tr>
-				<td>Save switch:</td>
+				<td></td>
 				<td>
 				 <input type="hidden" name="change_password1" value="change_password2" />
     <button id="mailsave" name="mailsave" class="btn btn-xs btn-success">Save</button>
