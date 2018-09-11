@@ -18,7 +18,7 @@
 <div class="panel-body">
 
 	
-<?php include('modules/mail/html/mail.php'); ?>
+<?php include('modules/mail/html/mail_settings.php'); ?>
 
 
 </div>
