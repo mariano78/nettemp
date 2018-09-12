@@ -77,6 +77,7 @@
 				"token" => "$nts_pusho_api_key",
 				"user" => "$nts_pusho_user_key",
 				"message" => "Test message from nettemp",
+				"priority" => "1",
 			  ),
 			  CURLOPT_SAFE_UPLOAD => true,
 			  CURLOPT_RETURNTRANSFER => true,
