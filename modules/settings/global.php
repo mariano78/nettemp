@@ -144,7 +144,7 @@
     <table class="table table-hover table-condensed">
 		<tbody>
 			<tr>
-				<td> GPIO RPI
+				<td><label>GPIO RPI</label>
 				</td>
 				<td>
 					<form action="" method="post">
@@ -155,7 +155,7 @@
 			</tr>
 			
 			<tr>
-				<td> GPIO MCP23017
+				<td><label>GPIO MCP23017</label>
 				</td>
 				<td>
 					<form action="" method="post">
@@ -166,7 +166,7 @@
 			</tr>
 			
 			<tr>
-				<td> Screen
+				<td><label>Screen</label>
 				</td>
 				<td>
 					<form action="" method="post">
@@ -177,7 +177,7 @@
 			</tr>
 			
 			<tr>
-				<td> Map
+				<td><label>Map</label>
 				</td>
 				<td>
 					<form action="" method="post">
@@ -188,7 +188,7 @@
 			</tr>
 			
 			<tr>
-				<td> Time NTP
+				<td><label>Time NTP</label>
 				</td>
 				<td>
 					<form action="" method="post">
@@ -206,7 +206,7 @@
 			</tr>
 			
 			<tr>
-				<td> Time RTC I2C
+				<td><label>Time RTC I2C</label>
 				</td>
 				<td>
 					<form action="" method="post">
