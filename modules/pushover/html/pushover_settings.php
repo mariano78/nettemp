@@ -11,10 +11,12 @@
 	
 	$pouserkey = isset($_POST['pouserkey']) ? $_POST['pouserkey'] : '';
     $poapikey = isset($_POST['poapikey']) ? $_POST['poapikey'] : '';
+	$posave = isset($_POST['posave']) ? $_POST['posave'] : '';
 	
-    if (($po_onoff1 == "po_onoff2") ){
+    if (($posave == "posave") ){
     $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("UPDATE nt_settings SET value='$po_onoff' WHERE option='pusho_active'") or die ($db->lastErrorMsg());
+    $db->exec("UPDATE nt_settings SET value='$pouserkey' WHERE option='pusho_user_key'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$poapikey' WHERE option='pusho_api_key'") or die ($db->lastErrorMsg());
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
@@ -58,7 +60,6 @@
 				<td></td>
 				<td>
 					<input type="hidden" name="posave" value="posave" />
-					<button name="posave" class="btn btn-xs btn-success">Save</button>
 					<button class="btn btn-xs btn-success"><span>Save</span> </button>
 		</form>
 				</td>
