@@ -8,6 +8,16 @@
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+	
+	$pouserkey = isset($_POST['pouserkey']) ? $_POST['pouserkey'] : '';
+    $poapikey = isset($_POST['poapikey']) ? $_POST['poapikey'] : '';
+	
+    if (($po_onoff1 == "po_onoff2") ){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE nt_settings SET value='$po_onoff' WHERE option='pusho_active'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
 
 ?>
 
@@ -32,14 +42,14 @@
 			<tr>
 				<td><label>User KEY:</label></td>
 				<td>
-					<input id="user" name="address" class="form-control input-md" type="text" value="<?php echo $nts_pusho_user_key; ?>">
+					<input name="pouserkey" class="form-control input-md" type="text" value="<?php echo $nts_pusho_user_key; ?>">
 				</td>
 			</tr>
 			
 			<tr>
 				<td><label>API KEY:</label></td>
 				<td>
-					<input id="user" name="user"  class="form-control input-md" required="" type="text" value="<?php echo $nts_pusho_api_key; ?>">
+					<input name="poapikey"  class="form-control input-md" required="" type="text" value="<?php echo $nts_pusho_api_key; ?>">
 				</td>
 			</tr>
 			
@@ -47,8 +57,9 @@
 			<tr>
 				<td></td>
 				<td>
-					<input type="hidden" name="chang" value="change_password2" />
-					<button id="mailsave" name="mailsave" class="btn btn-xs btn-success">Save</button>
+					<input type="hidden" name="posave" value="posave" />
+					<button name="posave" class="btn btn-xs btn-success">Save</button>
+					<button class="btn btn-xs btn-success"><span>Save</span> </button>
 		</form>
 				</td>
 			</tr>
