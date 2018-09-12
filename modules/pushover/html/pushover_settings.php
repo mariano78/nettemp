@@ -62,7 +62,7 @@
 					<input type="hidden" name="posave" value="posave" />
 					<button class="btn btn-xs btn-success"><span>Save</span> </button>
 		</form>
-		<form action="" method="post">
+		<form action="" method="post" style="display:inline!important;">
 					<input type="hidden" name="potest" value="potest" />
 					<button class="btn btn-xs btn-success"><span>Test</span> </button>
 		</form>
