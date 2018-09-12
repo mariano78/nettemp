@@ -62,9 +62,38 @@
 					<input type="hidden" name="posave" value="posave" />
 					<button class="btn btn-xs btn-success"><span>Save</span> </button>
 		</form>
+		<form action="" method="post">
+					<input type="hidden" name="potest" value="potest" />
+					<button class="btn btn-xs btn-success"><span>Test</span> </button>
+		</form>
+		<?php
+		$potest = isset($_POST['potest']) ? $_POST['potest'] : '';
+		
+		if (($potest == "potest") ){
+			
+			curl_setopt_array($ch = curl_init(), array(
+			  CURLOPT_URL => "https://api.pushover.net/1/messages.json",
+			  CURLOPT_POSTFIELDS => array(
+				"token" => "$nts_pusho_api_key",
+				"user" => "$nts_pusho_user_key",
+				"message" => "Test message from nettemp",
+			  ),
+			  CURLOPT_SAFE_UPLOAD => true,
+			  CURLOPT_RETURNTRANSFER => true,
+			));
+			curl_exec($ch);
+			curl_close($ch);
+			
+			
+			
+		}
+		
+		
+		
+		?>
 				</td>
 			</tr>
-			</form>
+			
 			
 						
 				
