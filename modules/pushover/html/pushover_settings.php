@@ -32,14 +32,14 @@
 			<tr>
 				<td><label>User KEY:</label></td>
 				<td>
-					<input id="user" name="address" class="form-control input-md" type="text" value="<?php echo $a['from']; ?>">
+					<input id="user" name="address" class="form-control input-md" type="text" value="<?php echo $nts_pusho_user_key; ?>">
 				</td>
 			</tr>
 			
 			<tr>
 				<td><label>API KEY:</label></td>
 				<td>
-					<input id="user" name="user"  class="form-control input-md" required="" type="text" value="<?php echo $a['user']; ?>">
+					<input id="user" name="user"  class="form-control input-md" required="" type="text" value="<?php echo $nts_pusho_api_key; ?>">
 				</td>
 			</tr>
 			
