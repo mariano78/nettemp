@@ -266,8 +266,7 @@
 			</tr>
 			
 			<tr>
-				<td> SNMPD
-				</td>
+				<td><label>SNMPD</label>
 				<td>
 					<form action="" method="post">
 					<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()" type="checkbox" name="snmpd" value="on" <?php echo $snmpd == 'on' ? 'checked="checked"' : ''; ?> />
