@@ -44,14 +44,14 @@
 			<tr>
 				<td><label>User KEY:</label></td>
 				<td>
-					<input name="pouserkey" class="form-control input-md" type="text" value="<?php echo $nts_pusho_user_key; ?>">
+					<input name="pouserkey" class="form-control input-md"  type="text" value="<?php echo $nts_pusho_user_key; ?>">
 				</td>
 			</tr>
 			
 			<tr>
 				<td><label>API KEY:</label></td>
 				<td>
-					<input name="poapikey"  class="form-control input-md" required="" type="text" value="<?php echo $nts_pusho_api_key; ?>">
+					<input name="poapikey"  class="form-control input-md"  type="text" value="<?php echo $nts_pusho_api_key; ?>">
 				</td>
 			</tr>
 			
