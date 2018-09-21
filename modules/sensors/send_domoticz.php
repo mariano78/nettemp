@@ -48,11 +48,13 @@ try {
 			$current=$s['current'];
 			
 			if ($type == 'elec' ){
-				
 				$value2=$value*1000;
-				
 				$URL="192.168.50.2/json.htm?type=command&param=udevice&idx=173&nvalue=0&svalue=$current;$value2";
-
+			}elseif ($type == 'temp'){
+				$URL="192.168.50.2/json.htm?type=command&param=udevice&idx=179&nvalue=0&svalue=$value";
+			}else{
+				
+				
 			}
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $URL);
