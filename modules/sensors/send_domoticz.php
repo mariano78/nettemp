@@ -52,10 +52,11 @@ try {
 				$URL="192.168.50.2/json.htm?type=command&param=udevice&idx=173&nvalue=0&svalue=$current;$value2";
 			}elseif ($type == 'temp'){
 				$URL="192.168.50.2/json.htm?type=command&param=udevice&idx=179&nvalue=0&svalue=$value";
-			}else{
-				
-				
+			}elseif ($type == 'lux'){
+				$URL="192.168.50.2/json.htm?type=command&param=udevice&idx=180&nvalue=0&svalue=$value";
 			}
+				
+			
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $URL);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
