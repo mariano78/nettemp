@@ -35,7 +35,7 @@ try {
 			$client_port=$a['value'];
 		}
 }
-    
+    $domoticz_ip='192.168.50.2';
     
     if(!empty($client_ip)&&!empty($client_key)&&!empty($client_on)){
 		$query = $db->query("SELECT * FROM sensors WHERE domoticz='on'");
@@ -49,11 +49,11 @@ try {
 			
 			if ($type == 'elec' ){
 				$value2=$value*1000;
-				$URL="192.168.50.2/json.htm?type=command&param=udevice&idx=173&nvalue=0&svalue=$current;$value2";
+				$URL="$domoticz_ip/json.htm?type=command&param=udevice&idx=173&nvalue=0&svalue=$current;$value2";
 			}elseif ($type == 'temp'){
-				$URL="192.168.50.2/json.htm?type=command&param=udevice&idx=179&nvalue=0&svalue=$value";
+				$URL="$domoticz_ip/json.htm?type=command&param=udevice&idx=179&nvalue=0&svalue=$value";
 			}elseif ($type == 'lux'){
-				$URL="192.168.50.2/json.htm?type=command&param=udevice&idx=180&nvalue=0&svalue=$value";
+				$URL="$domoticz_ip/json.htm?type=command&param=udevice&idx=180&nvalue=0&svalue=$value";
 			}
 				
 			
