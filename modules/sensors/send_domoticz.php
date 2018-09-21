@@ -38,7 +38,7 @@ try {
     $domoticz_ip='192.168.50.2';
     
     if(!empty($client_ip)&&!empty($client_key)&&!empty($client_on)){
-		$query = $db->query("SELECT * FROM sensors WHERE domoticz='on'");
+		$query = $db->query("SELECT * FROM sensors WHERE domoticz='on' and domoticzidx!=''");
 		$result= $query->fetchAll();
 		foreach($result as $s) {
 
