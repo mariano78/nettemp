@@ -49,11 +49,9 @@ try {
 			
 			if ($type == 'elec' ){
 				$value2=$value*1000;
-				$URL="$domoticz_ip/json.htm?type=command&param=udevice&idx=173&nvalue=0&svalue=$current;$value2";
-			}elseif ($type == 'temp'){
-				$URL="$domoticz_ip/json.htm?type=command&param=udevice&idx=179&nvalue=0&svalue=$value";
-			}elseif ($type == 'lux'){
-				$URL="$domoticz_ip/json.htm?type=command&param=udevice&idx=180&nvalue=0&svalue=$value";
+				$URL="$domoticz_ip/json.htm?type=command&param=udevice&idx=$idx&nvalue=0&svalue=$current;$value2";
+			}else {
+				$URL="$domoticz_ip/json.htm?type=command&param=udevice&idx=$idx&nvalue=0&svalue=$value";
 			}
 				
 			
@@ -63,7 +61,7 @@ try {
 			curl_setopt($ch, CURLOPT_USERPWD, "admin:" . $cauth_pass);
 			$server_output = curl_exec ($ch);
 			curl_close ($ch);
-			//echo $date." Name:".$name." Rom:".$rom." Value:".$value. " Current:".$current."\n";
+			echo $URL."\n";
 			echo $server_output;
 		}
     }
