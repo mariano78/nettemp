@@ -182,5 +182,6 @@ $updates['2018-09-11 13:04:14'][]="INSERT INTO nt_settings ('option', 'value') V
 $updates['2018-09-11 13:04:15'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('pusho_user_key','')";
 $updates['2018-09-11 13:04:16'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('pusho_api_key','')";
 
-
+$updates['2018-09-21 10:01:46'][]="ALTER TABLE sensors ADD domoticz TEXT";
+$updates['2018-09-21 13:46:11'][]="UPDATE sensors SET domoticz='off'";
 ?>
