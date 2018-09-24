@@ -444,7 +444,12 @@ elseif(!empty($device_group)) {
 	}
 }
 elseif(!empty($device_type)) {
-	$rows = $db->query("SELECT * FROM sensors WHERE type='$device_type' ORDER BY position ASC");
+	
+	if (!empty($device_rom)) {
+		$rows = $db->query("SELECT * FROM sensors WHERE type='$device_type' AND rom='$device_rom' ORDER BY position ASC");
+	} else {	
+		$rows = $db->query("SELECT * FROM sensors WHERE type='$device_type' ORDER BY position ASC");
+	}
 }
 elseif(!empty($device_id)) {
 	$rows = $db->query("SELECT * FROM sensors WHERE id='$device_id' ");
@@ -829,7 +834,7 @@ $row = $rows->fetchAll();
     </td>
 	<td>
 	
-	<a href="index.php?id=<?php echo $id ?>&type=devices&device_menu=expand_device&device_rom=<?php echo $a["rom"]; ?>" ><button class="btn btn-xs btn-default">Settings</button></a>
+	<a href="index.php?id=<?php echo $id ?>&type=devices&device_group=<?php echo $device_group?>&device_type=<?php echo $t_g?>device_menu=expand_device&device_rom=<?php echo $a["rom"]; ?>" ><button class="btn btn-xs btn-default">Settings</button></a>
 	
 	</td>
     
