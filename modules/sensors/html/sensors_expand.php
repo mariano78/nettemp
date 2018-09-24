@@ -81,8 +81,7 @@
 		</td>
 		
 		<?php if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'air') { ?>
-	
-		<td><label>API Key: </label>
+		<td><label> API Key: </label>
 		<form action="" method="post" style="display:inline!important;"> 
 			<input type="hidden" name="api_id" value="<?php echo $a['id']; ?>" />
 			<input type="text" name="apikey" size="10" value="<?php echo $a['apikey']; ?>" />
@@ -93,11 +92,9 @@
 		<?php
 		}
 		?>
-		
+		<td>
 		<?php if ($a['device'] == 'virtual' && (substr($a['type'],0,3) == 'air') || substr($a['type'],0,3) == 'sun') { ?>
-	
-	
-		<td><label> Lat/Lon: </label>
+		<label> Lat/Lon: </label>
 		<form action="" method="post" style="display:inline!important;"> 
 			<input type="hidden" name="gps_id" value="<?php echo $a['id']; ?>" />
 			<input type="text" name="latitude" size="3" value="<?php echo $a['latitude']; ?>" />
@@ -105,38 +102,37 @@
 			<input type="hidden" name="gps" value="gpsok" />
 			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 		</form>
-		</td>
+		
 		<?php
 		}
 		?>
 		<?php
 		if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'sun') { ?>
-	
-		<td><label>Time Zone: </label>
+		<label> Time Zone: </label>
 		<form action="" method="post" style="display:inline!important;"> 
 			<input type="hidden" name="tz_id" value="<?php echo $a['id']; ?>" />
 			<input type="text" name="tzone" size="5" value="<?php echo $a['timezone']; ?>" />
 			<input type="hidden" name="tz" value="tzok" />
 			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 		</form>
-		</td>
+		
 		<?php
 		}
 		?>
 		<?php
 		if ($a['device'] == 'virtual' && ((substr($a['type'],0,3) == 'max') || (substr($a['type'],0,3) == 'min'))) { ?>
-	
-		<td><label> Bind rom: </label>
+		<label> Bind rom: </label>
 		<form action="" method="post" style="display:inline!important;"> 
 			<input type="hidden" name="bsens_id" value="<?php echo $a['id']; ?>" />
 			<input type="text" name="bindsensor" size="15" value="<?php echo $a['bindsensor']; ?>" />
 			<input type="hidden" name="ch_bsensor" value="ch_bsensorok" />
 			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 		</form>
-		</td>
 		<?php
 		}
 		?>
+		</td>
+		
 		
 		<td class="col-md-4">
 		</td>
