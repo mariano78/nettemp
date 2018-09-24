@@ -92,7 +92,7 @@ exit();
 
 ?>
 <div class="panel panel-default">
-<div class="panel-heading">New devices</div>
+<div class="panel-heading">Settings</div>
 <div class="table-responsive">
 <table class="table table-hover table-condensed small">
 <thead>
@@ -112,82 +112,7 @@ exit();
 	</tr>
 </thead>
 <tbody>
-<?php	
-$db = new PDO('sqlite:dbf/nettemp.db');
-$sth = $db->prepare("SELECT * FROM newdev WHERE rom NOT IN (SELECT rom FROM sensors WHERE 1)");
-$sth->execute();
-$result = $sth->fetchAll();
-foreach ($result as $a) {
-	$db->exec("UPDATE newdev SET seen='1' WHERE id=$a[id]");
-?>
-<tr>
-	<td class="col-md-0">
-		<?php echo $a['id']; ?>
-	</td>
-	<td class="col-md-0">
-		<?php echo $a['list']; ?>
-	</td>
-	<td class="col-md-0">
-		<?php echo $a['name']; ?>
-	</td>
-	<td class="col-md-0">
-		<?php echo $a['rom']; ?>
-	</td>
-	<td class="col-md-0">
-		<?php echo $a['type']; ?>
-	</td>
-	<td class="col-md-0">
-		<?php echo $a['device']; ?>
-	</td>
-	<td class="col-md-0">
-		<?php echo $a['ip']; ?>
-	</td>
-	<td class="col-md-0">
-		<?php echo $a['gpio']; ?>
-	</td>
-	<td class="col-md-0">
-		<?php echo $a['i2c']; ?>
-	</td>
-	<td class="col-md-0">
-		<?php echo $a['usb']; ?>
-	</td>
-	
-	<td class="col-md-0">
-		<form action="" method="post" style="display:inline!important;">
-			<input type="hidden" name="new_rom" value="<?php echo $a['rom']; ?>" >
-			<input type="hidden" name="type" value="<?php echo $a['type']; ?>" >
-			<input type="hidden" name="gpio" value="<?php echo $a['gpio']; ?>" >
-			<input type="hidden" name="ip" value="<?php echo $a['ip']; ?>" >
-			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span> </button>
-		</form>
-	
-	</td>
-	<td class="col-md-0">
-		<form action="" method="post" style="display:inline!important;">
-			<input type="hidden" name="delnewrom" value="<?php echo $a['id']; ?>" >
-			<input type="hidden" name="delnew" value="yes" >
-			<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> </button>
-		</form>
-	</td>
-	
-</tr>
-<?php
-	}
-	if(count($result)>0) {
-?>
-<tr>
-	<td  colspan = "12">
-		<center>
-		<form action="" method="post">
-			<input type="hidden" name="delallnewrom" value="yes" >
-			<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> Remove all new device</button>
-		</form>
-		</center>
-	</td>
-</tr>
-<?php
-	}
-?>
+
 </tbody>
 </table>
 </div>
@@ -196,7 +121,7 @@ foreach ($result as $a) {
 <?php//*********************************************virtual****************************************?>
 
 <div class="panel panel-default">
-<div class="panel-heading">Virtual devices - 5 minutes refresh interval</div>
+<div class="panel-heading">Notifications</div>
 <div class="table-responsive">
 <table class="table table-hover table-condensed small">
 <thead>
@@ -210,49 +135,6 @@ foreach ($result as $a) {
 	</tr>
 </thead>
 <tbody>
-
-<?php	
-$db = new PDO('sqlite:dbf/nettemp.db');
-$sth = $db->prepare("SELECT * FROM virtual");
-$sth->execute();
-$resultv = $sth->fetchAll();
-foreach ($resultv as $v) {
-?>
-<tr>
-	<td class="col-md-0">
-		<?php echo $v['name']; ?>
-	</td>
-	<td class="col-md-0">
-		<?php echo $v['rom']; ?>
-	</td>
-	<td class="col-md-0">
-		<?php echo $v['type']; ?>
-	</td>
-	<td class="col-md-0">
-		<?php echo $v['device']; ?>
-	</td>
-	<td class="col-md-0">
-		<?php echo $v['description']; ?>
-	</td>
-	
-	<td class="col-md-0">
-		<form action="" method="post" style="display:inline!important;">
-			<input type="hidden" name="new_rom" value="<?php echo $v['rom']; ?>" >
-			<input type="hidden" name="type" value="<?php echo $v['type']; ?>" >
-			<input type="hidden" name="vname" value="<?php echo $v['name']; ?>" >
-			<input type="hidden" name="vdevice" value="<?php echo $v['device']; ?>" >
-			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span> </button>
-		</form>
-	</td>
-	
-	
-	
-	
-</tr>
-
-<?php
-}
-?>
 	
 </tbody>
 </table>
