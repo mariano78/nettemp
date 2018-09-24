@@ -79,16 +79,15 @@
 			<input type="hidden" name="lcd" value="lcd" />
 		</form>
 		</td>
-		
+		<td>
 		<?php if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'air') { ?>
-		<td><label> API Key: </label>
+		<label> API Key: </label>
 		<form action="" method="post" style="display:inline!important;"> 
 			<input type="hidden" name="api_id" value="<?php echo $a['id']; ?>" />
 			<input type="text" name="apikey" size="10" value="<?php echo $a['apikey']; ?>" />
 			<input type="hidden" name="api" value="apiok" />
 			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 		</form>
-		</td>
 		<?php
 		}
 		?>
