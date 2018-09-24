@@ -10,6 +10,7 @@
 		<th>Remote NT</th>
 		<th>Remote Domoticz</th>
 		<th>LCD</th>
+		<th></th>
 	
 	</tr>
 </thead>
