@@ -110,6 +110,21 @@
 		<?php
 		}
 		?>
+		<?php
+		if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'sun') { ?>
+	
+		<td><label>Time Zone:</label></td>
+		<td>
+		<form action="" method="post" style="display:inline!important;"> 
+			<input type="hidden" name="tz_id" value="<?php echo $a['id']; ?>" />
+			<input type="text" name="tzone" size="5" value="<?php echo $a['timezone']; ?>" />
+			<input type="hidden" name="tz" value="tzok" />
+			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+		</form>
+		</td>
+		<?php
+		}
+		?>
 		
 		
 		<td class="col-md-4">
