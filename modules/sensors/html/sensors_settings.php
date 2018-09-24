@@ -467,101 +467,14 @@ $row = $rows->fetchAll();
 <th>Name</th>
 <th>DB</th>
 <th>Type</th>
-
-
-
 <th>New group</th>
 <th>Group</th>
-
 <th>Log out</th>
 <th>Charts</th>
-
 <th>Status Min/Max</th>
 <th>LCD/OLED</th>
 <th>JustGage</th>
 <th></th>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>
-<form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="add_all" value="readerralarm" />
-		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-plus"></span> </button>
-    </form>
-    <form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="del_all" value="readerralarm" />
-		<button class="btn btn-xs btn-info "><span class="glyphicon glyphicon-minus"></span> </button>
-    </form>
-</td>
-<td></td>
-<td></td>
-<td></td>
-<td>
-	<form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="add_all" value="logon" />
-		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-plus"></span> </button>
-    </form>
-    <form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="del_all" value="logon" />
-		<button class="btn btn-xs btn-info "><span class="glyphicon glyphicon-minus"></span> </button>
-    </form>
-</td>
-<td>
-	<form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="add_all" value="charts" />
-		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-plus"></span> </button>
-    </form>
-    <form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="del_all" value="charts" />
-		<button class="btn btn-xs btn-info "><span class="glyphicon glyphicon-minus"></span> </button>
-	</form>
-</td>
-<td>
-	<form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="add_all" value="remote" />
-		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-plus"></span> </button>
-    </form>
-    <form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="del_all" value="remote" />
-		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-minus"></span> </button>
-    </form>
-</td>
-<td>
-	<form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="add_all" value="minmax" />
-		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-plus"></span> </button>
-    </form>
-    <form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="del_all" value="minmax" />
-		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-minus"></span> </button>
-    </form>
-</td>
-<td>
-	<form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="add_all" value="lcd" />
-		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-plus"></span> </button>
-    </form>
-    <form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="del_all" value="lcd" />
-		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-minus"></span> </button>
-    </form>
-</td>
-<td>
-	<form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="add_all" value="jg" />
-		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-plus"></span> </button>
-    </form>
-    <form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="del_all" value="jg" />
-		<button class="btn btn-xs btn-info"><span class="glyphicon glyphicon-minus"></span> </button>
-    </form>
-</td>
 </tr>
 </thead>
 
