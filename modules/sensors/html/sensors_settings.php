@@ -723,13 +723,6 @@ $row = $rows->fetchAll();
 	}
 	?>
 
-
-<?php 
-
-}  
-
-?>
-
 </table>
 </div>
 </div>
