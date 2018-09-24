@@ -42,6 +42,7 @@ try {
 		$result= $query->fetchAll();
 		foreach($result as $s) {
 
+			$name=$s['name'];
 			$value=$s['tmp'];
 			$type=$s['type'];
 			$idx=$s['domoticzidx'];
@@ -61,6 +62,7 @@ try {
 			curl_setopt($ch, CURLOPT_USERPWD, "admin:" . $cauth_pass);
 			$server_output = curl_exec ($ch);
 			curl_close ($ch);
+			echo $name."\n";
 			echo $URL."\n";
 			echo $server_output;
 		}

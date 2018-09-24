@@ -817,6 +817,11 @@ $row = $rows->fetchAll();
 		<input type="hidden" name="jg" value="jg" />
     </form>
     </td>
+	<td>
+	
+	<a href="index.php?id=<?php echo $id ?>&type=devices&device_menu=expand_device" ><button class="btn btn-xs btn-default">Settings</button></a>
+	
+	</td>
     
 	<td class="col-md-0">
     <form action="" method="post" style="display:inline!important;">
