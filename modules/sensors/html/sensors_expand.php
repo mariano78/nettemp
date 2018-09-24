@@ -144,6 +144,8 @@
 </table>
 </div>
 <table class="table table-hover table-condensed small">
+<thead>
+</thead>
 <tbody>
 <tr>
 <td>
