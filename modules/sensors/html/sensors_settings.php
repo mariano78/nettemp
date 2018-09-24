@@ -172,7 +172,7 @@ if ( $lcd == "lcd"){
 	
 	if (!empty($domoticz_id) && ($domoticzidx == "domoticzidx")){
     $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("UPDATE sensors SET domoticzidx='$domoticz_idx' WHERE id='$tmp_id'") or die ($db->lastErrorMsg());
+    $db->exec("UPDATE sensors SET domoticzidx='$domoticz_idx' WHERE id='$domoticz_id'") or die ($db->lastErrorMsg());
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     } 
