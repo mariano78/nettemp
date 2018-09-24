@@ -474,9 +474,8 @@ $row = $rows->fetchAll();
 <th>Log out</th>
 <th>Charts</th>
 <th>Status Min/Max</th>
-<th>LCD/OLED</th>
 <th>JustGage</th>
-<th></th>
+<th>Delete</th>
 </tr>
 </thead>
 
@@ -661,14 +660,6 @@ $row = $rows->fetchAll();
     </form>
     </td>
 
-    <td class="col-md-0">
-    <form action="" method="post" style="display:inline!important;"> 	
-		<input type="hidden" name="lcdid" value="<?php echo $a["id"]; ?>" />
-		<button type="submit" name="lcdon" value="<?php echo $a["lcd"] == 'on' ? 'off' : 'on'; ?>" <?php echo $a["lcd"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
-	    <?php echo $a["lcd"] == 'on' ? 'ON' : 'OFF'; ?></button>
-		<input type="hidden" name="lcd" value="lcd" />
-    </form>
-    </td>
     
     <td class="col-md-0">
 	
