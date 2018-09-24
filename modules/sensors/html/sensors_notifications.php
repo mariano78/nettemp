@@ -12,6 +12,7 @@
 		<th>Priority</th>
 		<th>Ignore interval</th>
 		<th>Recovery</th>
+		<th>Active</th>
 	</tr>
 </thead>
 <tbody>

@@ -133,7 +133,7 @@
 		</td>
 		
 		
-		<td class="col-md-4">
+		<td class="col-md-6">
 		</td>
 	
 	
