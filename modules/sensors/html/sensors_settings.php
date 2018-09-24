@@ -475,6 +475,7 @@ $row = $rows->fetchAll();
 <th>Charts</th>
 <th>Status Min/Max</th>
 <th>JustGage</th>
+<th></th>
 <th>Delete</th>
 </tr>
 </thead>
