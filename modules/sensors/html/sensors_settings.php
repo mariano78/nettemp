@@ -171,6 +171,7 @@ if ( $lcd == "lcd"){
 	$domoticz_idx = isset($_POST['domoticz_idx']) ? $_POST['domoticz_idx'] : '';
 	$domoticzidx = isset($_POST['domoticzidx']) ? $_POST['domoticzidx'] : '';
 	$domoticzon = isset($_POST['domoticzon']) ? $_POST['domoticzon'] : '';
+	$domoticzonoff = isset($_POST['domoticzonoff']) ? $_POST['domoticzonoff'] : '';
 	
 	
 	if (($domoticzonoff == "domoticzonoff")){
