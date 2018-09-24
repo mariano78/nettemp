@@ -191,7 +191,7 @@ $updates['2018-09-24 10:29:46'][]="CREATE TABLE notifications (id INTEGER PRIMAR
 $updates['2018-09-24 11:40:31'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('lat','')";
 $updates['2018-09-24 11:41:31'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('long','')";
 
-$updates['2018-09-24 11:41:31'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('domoip','')";
-$updates['2018-09-24 11:41:31'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('domoport','')";
+$updates['2018-09-24 12:41:31'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('domoip','')";
+$updates['2018-09-24 12:41:31'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('domoport','')";
 
 ?>
