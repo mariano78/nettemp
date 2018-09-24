@@ -125,7 +125,21 @@
 		<?php
 		}
 		?>
+		<?php
+		if ($a['device'] == 'virtual' && ((substr($a['type'],0,3) == 'max') || (substr($a['type'],0,3) == 'min'))) { ?>
+	
+		<td><label> Bind rom: </label></td>
 		
+		<form action="" method="post" style="display:inline!important;"> 
+			<input type="hidden" name="bsens_id" value="<?php echo $a['id']; ?>" />
+			<input type="text" name="bindsensor" size="15" value="<?php echo $a['bindsensor']; ?>" />
+			<input type="hidden" name="ch_bsensor" value="ch_bsensorok" />
+			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+		</form>
+		</td>
+		<?php
+		}
+		?>
 		
 		<td class="col-md-4">
 		</td>
