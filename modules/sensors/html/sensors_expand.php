@@ -60,7 +60,7 @@
 			<?php echo $a["domoticz"] == 'on' ? 'ON' : 'OFF'; ?></button>
 			<input type="hidden" name="domoticzonoff" value="domoticzonoff" />
 		</form>
-		
+		<label>IDX: </label>
 		<form action="" method="post" style="display:inline!important;"> 
 			<input type="hidden" name="domoticz_id" value="<?php echo $a['id']; ?>" />
 			<input type="text" name="domoticz_idx" size="1" value="<?php echo $a['domoticzidx']; ?>" />
