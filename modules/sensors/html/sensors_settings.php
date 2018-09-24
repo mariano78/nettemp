@@ -428,16 +428,16 @@ MinMax mode: <?php echo $device_rom ?>
 
 <?php
 if(!empty($device_type)&&!empty($device_group)) {
-	$rows = $db->query("SELECT * FROM sensors WHERE type='$device_type' AND ch_group='$device_group' AND rom='$device_rom' ORDER BY position ASC");
+	$rows = $db->query("SELECT * FROM sensors WHERE type='$device_type' AND ch_group='$device_group' ORDER BY position ASC");
 }
 elseif(!empty($device_group)) {
-	$rows = $db->query("SELECT * FROM sensors WHERE ch_group='$device_group' AND rom='$device_rom' ORDER BY position ASC");
+	$rows = $db->query("SELECT * FROM sensors WHERE ch_group='$device_group' ORDER BY position ASC");
 }
 elseif(!empty($device_type)) {
-	$rows = $db->query("SELECT * FROM sensors WHERE type='$device_type' AND rom='$device_rom' ORDER BY position ASC");
+	$rows = $db->query("SELECT * FROM sensors WHERE type='$device_type' ORDER BY position ASC");
 }
 elseif(!empty($device_id)) {
-	$rows = $db->query("SELECT * FROM sensors WHERE id='$device_id' AND rom='$device_rom' ");
+	$rows = $db->query("SELECT * FROM sensors WHERE id='$device_id' ");
 }
 else {
 	$rows = $db->query("SELECT * FROM sensors ORDER BY position ASC");
