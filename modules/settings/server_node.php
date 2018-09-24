@@ -63,7 +63,7 @@ $cauth_pass=$nts_cauth_pass;
 
 <div class="panel panel-default">
 <div class="panel-heading">
-<h3 class="panel-title">Node</h3>
+<h3 class="panel-title">Nettemp Server</h3>
 </div>
 <div class="panel-body">
 
@@ -191,6 +191,12 @@ if ($cauth_on == 'on'){
 <div class="panel panel-default">
 <div class="panel-heading">
 <h3 class="panel-title">Domoticz Server</h3>
+<span>
+	<form action="" method="post" style="display:inline!important;">
+		<button class="btn btn-xs btn-danger"><span>Add new</span> </button>
+		<input type="hidden" name="adddomo" value="adddomo"/>
+	</form>
+</span>
 </div>
 <div class="panel-body">
 
