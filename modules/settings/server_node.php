@@ -207,16 +207,6 @@ if ($cauth_on == 'on'){
 </div>
 <div class="panel-body">
 
-<form action="" method="post">
-    <input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="con" value="on" <?php echo $con == 'on' ? 'checked="checked"' : ''; ?>  />
-    <input type="hidden" name="conoff" value="conoff" />
-</form>
-
-<?php
-if ($con == 'on'){
-?>
-
-
 <form action="" method="post" class="form-horizontal">
 <fieldset>
 
