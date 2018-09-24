@@ -94,11 +94,25 @@
 		}
 		?>
 		
-		
-		
-		<td class="col-md-8">
+		<?php if ($a['device'] == 'virtual' && (substr($a['type'],0,3) == 'air') || substr($a['type'],0,3) == 'sun') { ?>
+	
+	
+		<td><label> Lat/Lon:</label></td>
+		<td>
+		<form action="" method="post" style="display:inline!important;"> 
+			<input type="hidden" name="gps_id" value="<?php echo $a['id']; ?>" />
+			<input type="text" name="latitude" size="3" value="<?php echo $a['latitude']; ?>" />
+			<input type="text" name="longitude" size="3" value="<?php echo $a['longitude']; ?>" />
+			<input type="hidden" name="gps" value="gpsok" />
+			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+		</form>
 		</td>
-	</tr>
+		
+		
+		
+		<td class="col-md-4">
+		</td>
+	
 	
 	
 
