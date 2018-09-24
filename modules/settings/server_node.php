@@ -48,6 +48,16 @@
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+	
+	// add thingspeak chanell
+	$adddomo = isset($_POST['adddomo']) ? $_POST['adddomo'] : '';
+	if(!empty($adddomo) && ($adddomo == "adddomo")) { 
+	
+	$db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("INSERT INTO domoticz ('ip', 'login', 'password', 'port', 'active') VALUES ('', '', '', '', 'off',)");
+	header("location: " . $_SERVER['REQUEST_URI']);
+	exit();	
+}
 
 
 $cip=$nts_client_ip;
