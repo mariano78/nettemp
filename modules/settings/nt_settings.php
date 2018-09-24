@@ -184,8 +184,15 @@ foreach ($result as $a) {
     }
 	if($a['option']=='lat') {
        	$nts_lat=$a['value'];
-    }if($a['option']=='long') {
+    }
+	if($a['option']=='long') {
        	$nts_long=$a['value'];
+    }
+	if($a['option']=='domoip') {
+       	$nts_domo_ip=$a['value'];
+    }
+	if($a['option']=='domoport') {
+       	$nts_domo_port=$a['value'];
     }
 }
 
