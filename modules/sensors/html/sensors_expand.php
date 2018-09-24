@@ -107,7 +107,9 @@
 			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 		</form>
 		</td>
-		
+		<?php
+		}
+		?>
 		
 		
 		<td class="col-md-4">
