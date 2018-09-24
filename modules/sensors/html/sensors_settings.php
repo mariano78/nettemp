@@ -165,6 +165,17 @@ if ( $lcd == "lcd"){
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     } 
+	
+	$domoticz_id = isset($_POST['domoticz_id']) ? $_POST['domoticz_id'] : '';
+	$domoticz_idx = isset($_POST['domoticz_idx']) ? $_POST['domoticz_idx'] : '';
+	$domoticzidx = isset($_POST['domoticzidx']) ? $_POST['domoticzidx'] : '';
+	
+	if (!empty($domoticz_id) && ($domoticzidx == "domoticzidx")){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE sensors SET domoticzidx='$domoticz_idx' WHERE id='$tmp_id'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    } 
 
     $alarmonoff= isset($_POST['alarmonoff']) ? $_POST['alarmonoff'] : '';
     $alarm = isset($_POST['alarm']) ? $_POST['alarm'] : '';
