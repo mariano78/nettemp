@@ -1,6 +1,6 @@
 <?php
 $device_rom=isset($_GET['device_rom']) ? $_GET['device_rom'] : '';
-$device_id=isset($_GET['device id']) ? $_GET['device id'] : '';
+//$device_id=isset($_GET['device id']) ? $_GET['device id'] : '';
 $name_new = isset($_POST['name_new']) ? $_POST['name_new'] : '';
 $name_id = isset($_POST['name_id']) ? $_POST['name_id'] : '';
 $usun_rom_nw = isset($_POST['usun_nw']) ? $_POST['usun_nw'] : '';
