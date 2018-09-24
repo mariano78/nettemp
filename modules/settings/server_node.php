@@ -221,6 +221,7 @@ if ($cauth_on == 'on'){
   <label class="col-md-4 control-label" for="textinput">Port</label>  
   <div class="col-md-4">
   <input id="textinput" name="domoticzport" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_domo_port; ?>">
+  <input type="hidden" name="domoticzsave" value="domoticzsave" />
   </div>
 </div>
 
