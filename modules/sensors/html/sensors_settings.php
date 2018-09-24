@@ -167,8 +167,15 @@ if ( $lcd == "lcd"){
     } 
 	
 	$domoticz_id = isset($_POST['domoticz_id']) ? $_POST['domoticz_id'] : '';
+	$remotedomoticz_id = isset($_POST['remotedomoticz_id']) ? $_POST['remotedomoticz_id'] : '';
 	$domoticz_idx = isset($_POST['domoticz_idx']) ? $_POST['domoticz_idx'] : '';
 	$domoticzidx = isset($_POST['domoticzidx']) ? $_POST['domoticzidx'] : '';
+	$domoticzon = isset($_POST['domoticzon']) ? $_POST['domoticzon'] : '';
+	
+	
+	if (($domoticzonoff == "domoticzonoff")){
+    $db->exec("UPDATE sensors SET domoticz='$domoticzon' WHERE id='$remotedomoticz_id'") or die ($db->lastErrorMsg());
+	
 	
 	if (!empty($domoticz_id) && ($domoticzidx == "domoticzidx")){
     $db = new PDO('sqlite:dbf/nettemp.db');
