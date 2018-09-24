@@ -834,7 +834,7 @@ $row = $rows->fetchAll();
     </td>
 	<td>
 	
-	<a href="index.php?id=<?php echo $id ?>&type=devices&device_group=<?php echo $device_group?>&device_type=<?php echo $device_type?>&device_menu=expand_device&id=<?php echo $a["id"]; ?>&device_rom=<?php echo $a["rom"]; ?>" ><button class="btn btn-xs btn-default">Settings</button></a>
+	<a href="index.php?id=<?php echo $id ?>&type=devices&device_group=<?php echo $device_group?>&device_type=<?php echo $device_type?>&device_menu=expand_device&device id=<?php echo $a["id"]; ?>&device_rom=<?php echo $a["rom"]; ?>" ><button class="btn btn-xs btn-default">Settings</button></a>
 	
 	</td>
     
