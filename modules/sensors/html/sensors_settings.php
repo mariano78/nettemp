@@ -493,6 +493,7 @@ $row = $rows->fetchAll();
 <th>Log out</th>
 <th>Charts</th>
 <th>Status Min/Max</th>
+<th>Min/Max</th>
 <th>JustGage</th>
 <th></th>
 <th>Delete</th>
@@ -680,7 +681,15 @@ $row = $rows->fetchAll();
     </form>
     </td>
 
-    
+     <form action="" method="post" style="display:inline!important;"> 
+		<input type="hidden" name="tmp_id" value="<?php echo $a['id']; ?>" />
+		<input type="text" name="tmp_min_new" size="1" value="<?php echo $a['tmp_min']; ?>" />
+		<input type="text" name="tmp_max_new" size="1" value="<?php echo $a['tmp_max']; ?>" />
+		<input type="hidden" name="ok" value="ok" />
+		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+    </form>
+    </td>
+	
     <td class="col-md-0">
 	
 	<form action="" method="post" style="display:inline!important;"> 
