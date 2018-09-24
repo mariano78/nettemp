@@ -54,7 +54,7 @@
 	if(!empty($adddomo) && ($adddomo == "adddomo")) { 
 	
 	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("INSERT INTO domoticz ('ip', 'login', 'password', 'port', 'active') VALUES ('1', '1', '1', '1', 'off',)");
+	$db->exec("INSERT INTO domoticz ('ip', 'login', 'password', 'port', 'active') VALUES ('', '', '', '', 'off',)") or die ($db->lastErrorMsg());
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();	
 }
