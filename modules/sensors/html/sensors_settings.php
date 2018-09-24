@@ -466,6 +466,7 @@ $row = $rows->fetchAll();
 <th>Hide</th>	
 <th>Name</th>
 <th>DB</th>
+<th>IP</th>
 <th>Type</th>
 <th>New group</th>
 <th>Group</th>
@@ -538,6 +539,10 @@ $row = $rows->fetchAll();
 			}
 		?>
 		</span>
+	</td>
+	
+	<td>
+			<span class="label label-default"><?php echo $a['ip']?></span>
 	</td>
 	<?php  
 	}
