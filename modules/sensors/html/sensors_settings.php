@@ -819,7 +819,7 @@ $row = $rows->fetchAll();
     </td>
 	<td>
 	
-	<a href="index.php?id=<?php echo $id ?>&type=devices&device_menu=expand_device" ><button class="btn btn-xs btn-default">Settings</button></a>
+	<a href="index.php?id=<?php echo $id ?>&type=devices&device_menu=expand_device&rom=<?php echo $a["rom"]; ?>" ><button class="btn btn-xs btn-default">Settings</button></a>
 	
 	</td>
     
@@ -830,7 +830,7 @@ $row = $rows->fetchAll();
 		<input type="hidden" name="gpio" value="<?php echo $a["gpio"]; ?>" />
 		<input type="hidden" name="ip" value="<?php echo $a["ip"]; ?>" />
 		<input type="hidden" name="usun2" value="usun3" />
-		<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> </button>
+		<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
     </form>
     </td>
     
