@@ -209,8 +209,32 @@ if ($cauth_on == 'on'){
 </span>
 </div>
 <div class="panel-body">
+<?php
+$db = new PDO('sqlite:dbf/nettemp.db');
+$rows = $db->query("SELECT * FROM domoticz");
+$row = $rows->fetchAll();
+$count = count($row);
+if ($count >= "1") {
+?>
+<div class="table-responsive">
+<table class="table table-hover table-condensed small" border="0">
+<thead>
+<th>IP</th>
+<th>Login</th>
+<th>Password</th>
+<th>Port</th>
+<th>Active</th>
+<th>Delete</th>
+</thead>
+<?php
+foreach ($row as $a) { 	
+?>
 
-
+<td>aaaa
+</td>
+<?php
+}
+?>
 
 </div>
 </div>
