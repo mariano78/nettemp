@@ -49,12 +49,12 @@
     exit();
     }
 	
-	// add thingspeak chanell
+	// add domoticz server
 	$adddomo = isset($_POST['adddomo']) ? $_POST['adddomo'] : '';
 	if(!empty($adddomo) && ($adddomo == "adddomo")) { 
 	
 	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("INSERT INTO domoticz ('ip', 'login', 'password', 'port', 'active') VALUES ('', '', '', '', 'off',)");
+	$db->exec("INSERT INTO domoticz ('ip', 'login', 'password', 'port', 'active') VALUES ('1', '1', '1', '1', 'off',)");
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();	
 }
