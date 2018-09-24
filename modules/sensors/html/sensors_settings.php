@@ -1,5 +1,5 @@
 <?php
-
+$device_rom=isset($_GET['device_rom']) ? $_GET['device_rom'] : '';
 $name_new = isset($_POST['name_new']) ? $_POST['name_new'] : '';
 $name_id = isset($_POST['name_id']) ? $_POST['name_id'] : '';
 $usun_rom_nw = isset($_POST['usun_nw']) ? $_POST['usun_nw'] : '';
@@ -428,16 +428,16 @@ MinMax mode:
 
 <?php
 if(!empty($device_type)&&!empty($device_group)) {
-	$rows = $db->query("SELECT * FROM sensors WHERE type='$device_type' AND ch_group='$device_group' ORDER BY position ASC");
+	$rows = $db->query("SELECT * FROM sensors WHERE type='$device_type' AND ch_group='$device_group' AND rom='$device_rom' ORDER BY position ASC");
 }
 elseif(!empty($device_group)) {
-	$rows = $db->query("SELECT * FROM sensors WHERE ch_group='$device_group' ORDER BY position ASC");
+	$rows = $db->query("SELECT * FROM sensors WHERE ch_group='$device_group' AND rom='$device_rom' ORDER BY position ASC");
 }
 elseif(!empty($device_type)) {
-	$rows = $db->query("SELECT * FROM sensors WHERE type='$device_type' ORDER BY position ASC");
+	$rows = $db->query("SELECT * FROM sensors WHERE type='$device_type' AND rom='$device_rom' ORDER BY position ASC");
 }
 elseif(!empty($device_id)) {
-	$rows = $db->query("SELECT * FROM sensors WHERE id='$device_id'");
+	$rows = $db->query("SELECT * FROM sensors WHERE id='$device_id' AND rom='$device_rom' ");
 }
 else {
 	$rows = $db->query("SELECT * FROM sensors ORDER BY position ASC");
