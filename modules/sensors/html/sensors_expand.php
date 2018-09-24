@@ -92,7 +92,6 @@
 		<?php
 		}
 		?>
-		<td>
 		<?php if ($a['device'] == 'virtual' && (substr($a['type'],0,3) == 'air') || substr($a['type'],0,3) == 'sun') { ?>
 		<label> Lat/Lon: </label>
 		<form action="" method="post" style="display:inline!important;"> 
