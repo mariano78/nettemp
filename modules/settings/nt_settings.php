@@ -182,7 +182,11 @@ foreach ($result as $a) {
 	if($a['option']=='pusho_api_key') {
        	$nts_pusho_api_key=$a['value'];
     }
-	
+	if($a['option']=='lat') {
+       	$nts_lat=$a['value'];
+    }if($a['option']=='long') {
+       	$nts_long=$a['value'];
+    }
 }
 
 //different way..
