@@ -8,6 +8,7 @@
 		<th>Adjust</th>
 		<th>Thing Speak</th>
 		<th>Remote NT</th>
+		<th>Remote Domoticz</th>
 		<th>LCD</th>
 	
 	</tr>
@@ -50,6 +51,26 @@
 		<?php 
 		}
 		?>
+		</td>
+	<!--Remote Domoticz-->
+		<td class="col-md-0">
+		<?php if ($a["device"] != 'remote' && $a["device"] != 'gpio') { ?>
+		<form action="" method="post" style="display:inline!important;"> 	
+			<input type="hidden" name="remote" value="<?php echo $a["id"]; ?>" />
+			<button type="submit" name="remoteon" value="<?php echo $a["domoticz"] == 'on' ? 'off' : 'on'; ?>" <?php echo $a["domoticz"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
+			<?php echo $a["domoticz"] == 'on' ? 'ON' : 'OFF'; ?></button>
+			<input type="hidden" name="remoteonoff" value="onoff" />
+		</form>
+		<?php 
+		}
+		?>
+		<form action="" method="post" style="display:inline!important;"> 
+			<input type="hidden" name="domoticz_id" value="<?php echo $a['id']; ?>" />
+			<input type="text" name="domoticz_idx" size="1" value="<?php echo $a['domoticzidx']; ?>" />
+			<input type="hidden" name="domoticzidx" value="domoticzidx" />
+		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+		</form>
+    
 		</td>
 	<!--LCD-->
 		<td class="col-md-0">
