@@ -11,6 +11,7 @@
 		<th>Remote Domoticz</th>
 		<th>LCD</th>
 		<th></th>
+		<th></th>
 	
 	</tr>
 </thead>
