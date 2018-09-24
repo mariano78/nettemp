@@ -135,6 +135,12 @@
 		
 		<td class="col-md-6">
 		</td>
+		
+	<tr>
+		<td>
+		<a href="index.php?id=<?php echo $id ?>&type=devices&device_group=<?php echo $device_group?>&device_type=<?php echo $device_type?>&device_menu=settimgs&device id=<?php echo $a["id"]; ?>&device_rom=<?php echo $a["rom"]; ?>" ><button class="btn btn-xs btn-info">Back</button></a>
+		</td>
+	</tr>
 	
 	
 	
