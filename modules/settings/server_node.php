@@ -49,6 +49,19 @@
     exit();
     }
 	
+	
+	$domoticzsave = isset($_POST['domoticzsave']) ? $_POST['domoticzsave'] : '';
+    $domoticzip = isset($_POST['domoticzip']) ? $_POST['domoticzip'] : '';
+	$domoticzport = isset($_POST['domoticzport']) ? $_POST['domoticzport'] : '';
+   
+    if ($domoticzsave == "domoticzsave"){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE nt_settings SET value='$domoticzip' WHERE option='domoip'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$domoticzport' WHERE option='domoport'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+	
 
 $cip=$nts_client_ip;
 $cport=$nts_client_port;
@@ -191,12 +204,6 @@ if ($cauth_on == 'on'){
 <div class="panel panel-default">
 <div class="panel-heading">
 <h3 class="panel-title">Domoticz Server</h3>
-<span>
-	<form action="" method="post" style="display:inline!important;">
-		<button class="btn btn-xs btn-danger"><span>Add new</span> </button>
-		<input type="hidden" name="adddomo" value="adddomo"/>
-	</form>
-</span>
 </div>
 <div class="panel-body">
 
@@ -216,76 +223,27 @@ if ($con == 'on'){
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">IP/Hostname</label>  
   <div class="col-md-4">
-  <input id="textinput" name="cip" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $cip; ?>">
+  <input id="textinput" name="domoticzip" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_domo_ip; ?>">
   </div>
 </div>
 
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Port</label>  
   <div class="col-md-4">
-  <input id="textinput" name="cport" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $cport; ?>">
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Key</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="ckey" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $ckey; ?>">
-     <input type="hidden" name="csave" value="csave" />
+  <input id="textinput" name="domoticzport" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_domo_port; ?>">
   </div>
 </div>
 
 <div class="form-group">
   <label class="col-md-4 control-label" for="singlebutton"></label>
   <div class="col-md-4">
-    <button id="singlebutton" name="singlebutton" class="btn btn-xs btn-success">Save</button>
+    <button id="singlebutton" name="domoticzsave" class="btn btn-xs btn-success">Save</button>
   </div>
 </div>
 
 </fieldset>
 </form>
 
-<form action="" method="post">
-    <input data-on="AUTH" data-off="AUTH" data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="cauth_on" value="on" <?php echo $cauth_on == 'on' ? 'checked="checked"' : ''; ?>  />
-    <input type="hidden" name="cauth_onoff" value="cauth_onoff" />
-</form>
-
-<?php
-if ($cauth_on == 'on'){
-?>
-
-<form action="" method="post" class="form-horizontal">
-<fieldset>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">User:</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="cauth_login" placeholder="" class="form-control input-md" required="" type="text" value="admin" disabled>
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Password:</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="cauth_pass" placeholder="" class="form-control input-md" required="" type="password" value="<?php echo $cauth_pass; ?>">
-     <input type="hidden" name="cauth_save" value="cauth_save" />
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="singlebutton"></label>
-  <div class="col-md-4">
-    <button id="singlebutton" name="singlebutton" class="btn btn-xs btn-success">Save</button>
-  </div>
-</div>
-
-</fieldset>
-</form>
-
-<?php
-	}
-}
-?>
 
 </div>
 </div>
