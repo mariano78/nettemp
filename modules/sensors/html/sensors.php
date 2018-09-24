@@ -58,5 +58,8 @@ include("modules/sensors/html/sensors_settings.php");
 if($device_menu=='new_devices') {
     include("modules/sensors/html/sensors_new.php"); 
 }
+if($device_menu=='expand_device') {
+    include("modules/sensors/html/sensors_expand.php"); 
+}
 ?>
 
