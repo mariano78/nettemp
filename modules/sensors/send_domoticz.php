@@ -16,28 +16,14 @@ try {
 	$sth->execute();
 	$result = $sth->fetchAll();
 	foreach ($result as $a) {
-		if($a['option']=='client_ip') {
-			$client_ip=$a['value'];
+		if($a['option']=='domoip') {
+			$domoticz_ip=$a['value'];
 		}
-		if($a['option']=='client_key') {
-			$client_key=$a['value'];
+		if($a['option']=='domoport') {
+			 $domoticz_port=$a['value'];
 		}
-		if($a['option']=='client_on') {
-			$client_on=$a['value'];
-		}
-		if($a['option']=='cauth_on') {
-			$cauth_on=$a['value'];
-		}
-		if($a['option']=='cauth_pass') {
-			$cauth_pass=$a['value'];
-		}
-		if($a['option']=='client_port') {
-			$client_port=$a['value'];
-		}
-}
-    $domoticz_ip='192.168.50.2';
     
-    if(!empty($client_ip)&&!empty($client_key)&&!empty($client_on)){
+    if(!empty($domoticz_ip)&&!empty($domoticz_port)){
 		$query = $db->query("SELECT * FROM sensors WHERE domoticz='on' and domoticzidx!=''");
 		$result= $query->fetchAll();
 		foreach($result as $s) {
@@ -50,9 +36,9 @@ try {
 			
 			if ($type == 'elec' ){
 				$value2=$value*1000;
-				$URL="$domoticz_ip/json.htm?type=command&param=udevice&idx=$idx&nvalue=0&svalue=$current;$value2";
+				$URL="$domoticz_ip:$domoticz_port/json.htm?type=command&param=udevice&idx=$idx&nvalue=0&svalue=$current;$value2";
 			}else {
-				$URL="$domoticz_ip/json.htm?type=command&param=udevice&idx=$idx&nvalue=0&svalue=$value";
+				$URL="$domoticz_ip:$domoticz_port/json.htm?type=command&param=udevice&idx=$idx&nvalue=0&svalue=$value";
 			}
 				
 			
