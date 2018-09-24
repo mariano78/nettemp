@@ -233,7 +233,7 @@ foreach ($row as $a) {
 <td>aaaa
 </td>
 <?php
-}
+}}
 ?>
 
 </div>
