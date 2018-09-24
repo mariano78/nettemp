@@ -126,12 +126,13 @@ exit();
 <table class="table table-hover table-condensed small">
 <thead>
 	<tr>
-		<th>Name</th>
-		<th>ROM</th>
 		<th>Type</th>
-		<th>Device</th>
-		<th>Description</th>
-		<th>Add</th>
+		<th>When</th>
+		<th>Active systems</th>
+		<th>Custom message</th>
+		<th>Priority</th>
+		<th>Ignore interval</th>
+		<th>Recovery</th>
 	</tr>
 </thead>
 <tbody>
