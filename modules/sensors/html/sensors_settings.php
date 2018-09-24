@@ -466,6 +466,7 @@ $row = $rows->fetchAll();
 <th>Hide</th>	
 <th>Name</th>
 <th>DB</th>
+<th>Rom</th>
 <th>IP</th>
 <th>Type</th>
 <th>New group</th>
@@ -528,6 +529,10 @@ $row = $rows->fetchAll();
 	<td class="col-md-0">
 		<span class="label label-success" title="Last update: <?php echo $a["time"] ?>">ok</span>
 		<span class="label label-default"><?php $filesize = (filesize("$file3") * .0009765625) * .0009765625; echo round($filesize, 3)."MB" ?></span>
+		
+	</td>
+
+	<td>
 		<span class="label label-default">
 		<?php 
 			$rom=$a["rom"];
