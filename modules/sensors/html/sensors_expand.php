@@ -5,21 +5,26 @@
 <table class="table table-hover table-condensed small">
 <thead>
 	<tr>
-		<th>ID</th>
-		<th>List*</th>
-		<th>Name</th>
-		<th>ROM</th>
-		<th>Type</th>
-		<th>Device</th>
-		<th>IP</th>
-		<th>GPIO</th>
-		<th>I2C</th>
-		<th>USB</th>
-		<th></th>
-		<th></th>
+		<th>Adjust</th>
+	
 	</tr>
 </thead>
 <tbody>
+
+	<tr>
+		<td class="col-md-0">
+		<?php if ($a["device"] != 'remote') { ?>
+		<form action="" method="post" style="display:inline!important;">
+		<input type="text" name="adj" size="2" maxlength="30" value="<?php echo $a["adj"]; ?>" required="" <?php echo $a["device"] == 'remote' ? 'disabled' : ''; ?> />
+		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+		<input type="hidden" name="name_id" value="<?php echo $a["id"]; ?>" />
+		<input type="hidden" name="adj1" value="adj2"/>
+		</form>
+		<?php
+		}
+		?>
+		</td>
+	</tr>
 
 </tbody>
 </table>
