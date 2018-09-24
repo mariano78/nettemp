@@ -49,16 +49,6 @@
     exit();
     }
 	
-	// add domoticz server
-	$adddomo = isset($_POST['adddomo']) ? $_POST['adddomo'] : '';
-	if(!empty($adddomo) && ($adddomo == "adddomo")) { 
-	
-	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("INSERT INTO domoticz ('ip', 'login', 'password', 'port', 'active') VALUES ('', '', '', '', 'off')") or die ($db->lastErrorMsg());
-	header("location: " . $_SERVER['REQUEST_URI']);
-	exit();	
-}
-
 
 $cip=$nts_client_ip;
 $cport=$nts_client_port;
@@ -199,8 +189,8 @@ if ($cauth_on == 'on'){
 </div>
 
 <div class="panel panel-default">
-<div class="panel-heading">Domoticz Server 
-
+<div class="panel-heading">
+<h3 class="panel-title">Domoticz Server</h3>
 <span>
 	<form action="" method="post" style="display:inline!important;">
 		<button class="btn btn-xs btn-danger"><span>Add new</span> </button>
@@ -209,31 +199,92 @@ if ($cauth_on == 'on'){
 </span>
 </div>
 <div class="panel-body">
+
+<form action="" method="post">
+    <input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="con" value="on" <?php echo $con == 'on' ? 'checked="checked"' : ''; ?>  />
+    <input type="hidden" name="conoff" value="conoff" />
+</form>
+
 <?php
-$db = new PDO('sqlite:dbf/nettemp.db');
-$rows = $db->query("SELECT * FROM domoticz");
-$row = $rows->fetchAll();
-$count = count($row);
-if ($count >= "1") {
-?>
-<div class="table-responsive">
-<table class="table table-hover table-condensed small" border="0">
-<thead>
-<th>IP</th>
-<th>Login</th>
-<th>Password</th>
-<th>Port</th>
-<th>Active</th>
-<th>Delete</th>
-</thead>
-<?php
-foreach ($row as $a) { 	
+if ($con == 'on'){
 ?>
 
-<td>aaaa
-</td>
+
+<form action="" method="post" class="form-horizontal">
+<fieldset>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">IP/Hostname</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="cip" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $cip; ?>">
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Port</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="cport" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $cport; ?>">
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Key</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="ckey" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $ckey; ?>">
+     <input type="hidden" name="csave" value="csave" />
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-xs btn-success">Save</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+<form action="" method="post">
+    <input data-on="AUTH" data-off="AUTH" data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="cauth_on" value="on" <?php echo $cauth_on == 'on' ? 'checked="checked"' : ''; ?>  />
+    <input type="hidden" name="cauth_onoff" value="cauth_onoff" />
+</form>
+
 <?php
-}}
+if ($cauth_on == 'on'){
+?>
+
+<form action="" method="post" class="form-horizontal">
+<fieldset>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">User:</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="cauth_login" placeholder="" class="form-control input-md" required="" type="text" value="admin" disabled>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Password:</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="cauth_pass" placeholder="" class="form-control input-md" required="" type="password" value="<?php echo $cauth_pass; ?>">
+     <input type="hidden" name="cauth_save" value="cauth_save" />
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-xs btn-success">Save</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+<?php
+	}
+}
 ?>
 
 </div>
