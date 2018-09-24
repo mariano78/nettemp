@@ -8,12 +8,15 @@
 		<th>Adjust</th>
 		<th>Thing Speak</th>
 		<th>Remote NT</th>
+		<th>LCD</th>
 	
 	</tr>
 </thead>
 <tbody>
 
 	<tr>
+	<!--Adjust-->
+	
 		<td class="col-md-0">
 		<?php if ($a["device"] != 'remote') { ?>
 		<form action="" method="post" style="display:inline!important;">
@@ -26,7 +29,7 @@
 		}
 		?>
 		</td>
-	
+	<!--Thing Speak-->
 		<td class="col-md-0">
 		<form action="" method="post" style="display:inline!important;" > 	
 			<input type="hidden" name="thing_id" value="<?php echo $a["id"]; ?>" />
@@ -35,7 +38,7 @@
 			<input type="hidden" name="th_on" value="th_on" />
 		</form>
 		</td>
-		
+	<!--Remote NT-->
 		<td class="col-md-0">
 		<?php if ($a["device"] != 'remote' && $a["device"] != 'gpio') { ?>
 		<form action="" method="post" style="display:inline!important;"> 	
@@ -48,7 +51,18 @@
 		}
 		?>
 		</td>
-		<td class="col-md-9">
+	<!--LCD-->
+		<td class="col-md-0">
+		<form action="" method="post" style="display:inline!important;"> 	
+			<input type="hidden" name="lcdid" value="<?php echo $a["id"]; ?>" />
+			<button type="submit" name="lcdon" value="<?php echo $a["lcd"] == 'on' ? 'off' : 'on'; ?>" <?php echo $a["lcd"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
+			<?php echo $a["lcd"] == 'on' ? 'ON' : 'OFF'; ?></button>
+			<input type="hidden" name="lcd" value="lcd" />
+		</form>
+		</td>
+		
+		
+		<td class="col-md-8">
 		</td>
 	</tr>
 	
