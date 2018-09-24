@@ -25,9 +25,7 @@
 		}
 		?>
 		</td>
-	</tr>
 	
-	<tr>
 		<td class="col-md-0">
 		<form action="" method="post" style="display:inline!important;" > 	
 			<input type="hidden" name="thing_id" value="<?php echo $a["id"]; ?>" />
