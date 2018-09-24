@@ -48,6 +48,8 @@
 		}
 		?>
 		</td>
+		<td class="col-md-9">
+		</td>
 	</tr>
 	
 	
