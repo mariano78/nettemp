@@ -467,15 +467,15 @@ $row = $rows->fetchAll();
 <th>Name</th>
 <th>DB</th>
 <th>Type</th>
-<th>Adjust</th>
-<th>Alarm / Min / Max</th>
-<th>Alarm / Read-min</th>
+
+
+
 <th>New group</th>
 <th>Group</th>
-<th>Thing Speak</th>
+
 <th>Log out</th>
 <th>Charts</th>
-<th>Node</th>
+
 <th>Status Min/Max</th>
 <th>LCD/OLED</th>
 <th>JustGage</th>
@@ -645,54 +645,6 @@ $row = $rows->fetchAll();
 		?>
 	</td>
     
-    <td class="col-md-0">
-    <?php if ($a["device"] != 'remote') { ?>
-    <form action="" method="post" style="display:inline!important;">
-	<input type="text" name="adj" size="2" maxlength="30" value="<?php echo $a["adj"]; ?>" required="" <?php echo $a["device"] == 'remote' ? 'disabled' : ''; ?> />
-	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
-	<input type="hidden" name="name_id" value="<?php echo $a["id"]; ?>" />
-	<input type="hidden" name="adj1" value="adj2"/>
-    </form>
-    <?php
-	}
-    ?>
-    </td>
-    
-    <td class="col-md-0">
-    <form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="rom" value="<?php echo $a['rom']; ?>" />
-		<input type="checkbox" data-toggle="toggle" data-size="mini"  name="alarm" value="on" <?php echo $a["alarm"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
-		<input type="hidden" name="alarmonoff" value="onoff" />
-    </form>
-
-    <form action="" method="post" style="display:inline!important;"> 
-		<input type="hidden" name="tmp_id" value="<?php echo $a['id']; ?>" />
-		<input type="text" name="tmp_min_new" size="1" value="<?php echo $a['tmp_min']; ?>" />
-		<input type="text" name="tmp_max_new" size="1" value="<?php echo $a['tmp_max']; ?>" />
-		<input type="hidden" name="ok" value="ok" />
-		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
-    </form>
-    </td>
-	
-	<td class="col-md-0">
-	 <?php if ($a["type"] != 'gpio') { ?>
-    <form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="rom" value="<?php echo $a['rom']; ?>" />
-		<input type="checkbox" data-toggle="toggle" data-size="mini"  name="readerralarm" value="on" <?php echo $a["readerralarm"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
-		<input type="hidden" name="readsonoff" value="readsonoff" />
-    </form>
-
-    <form action="" method="post" style="display:inline!important;"> 
-		<input type="hidden" name="reads_id" value="<?php echo $a['id']; ?>" />
-		<input type="text" name="readerr" size="1" value="<?php echo $a['readerr']; ?>" />
-		<input type="hidden" name="readerrok" value="readerrok" />
-		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
-    </form>
-	 <?php 
-	}
-    ?>
-
-    </td>
        
     <!--NEW GROUP-->
     <td class="col-md-0">
@@ -739,14 +691,7 @@ $row = $rows->fetchAll();
     </form>
     </td>
 	
-	<td class="col-md-0">
-    <form action="" method="post" style="display:inline!important;" > 	
-		<input type="hidden" name="thing_id" value="<?php echo $a["id"]; ?>" />
-		<button type="submit" name="thing_on" value="<?php echo $a["thing"] == 'on' ? 'off' : 'on'; ?>" <?php echo $a["thing"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
-	    <?php echo $a["thing"] == 'on' ? 'ON' : 'OFF'; ?></button>
-		<input type="hidden" name="th_on" value="th_on" />
-    </form>
-    </td>
+
 	
 	<td class="col-md-0">
 	 <?php if ($a["type"] != 'gpio') { ?>
@@ -770,18 +715,7 @@ $row = $rows->fetchAll();
     </form>
     </td>
     
-    <td class="col-md-0">
-    <?php if ($a["device"] != 'remote' && $a["device"] != 'gpio') { ?>
-    <form action="" method="post" style="display:inline!important;"> 	
-		<input type="hidden" name="remote" value="<?php echo $a["id"]; ?>" />
-		<button type="submit" name="remoteon" value="<?php echo $a["remote"] == 'on' ? 'off' : 'on'; ?>" <?php echo $a["remote"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
-	    <?php echo $a["remote"] == 'on' ? 'ON' : 'OFF'; ?></button>
-		<input type="hidden" name="remoteonoff" value="onoff" />
-    </form>
-    <?php 
-	}
-    ?>
-    </td>
+    
     
     <td class="col-md-0">
     <form action="" method="post" style="display:inline!important;"> 	
