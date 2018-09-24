@@ -199,8 +199,8 @@ if ($cauth_on == 'on'){
 </div>
 
 <div class="panel panel-default">
-<div class="panel-heading">
-<h3 class="panel-title">Domoticz Server</h3>
+<div class="panel-heading">Domoticz Server 
+
 <span>
 	<form action="" method="post" style="display:inline!important;">
 		<button class="btn btn-xs btn-danger"><span>Add new</span> </button>
