@@ -495,6 +495,7 @@ $row = $rows->fetchAll();
 <th>Charts</th>
 <th>Status Min/Max</th>
 <th>Min/Max</th>
+<th>Read errors</th>
 <th>JustGage</th>
 <th></th>
 <th>Delete</th>
@@ -691,6 +692,15 @@ $row = $rows->fetchAll();
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
     </form>
     </td>
+	
+	  <td class="col-md-0">
+	<form action="" method="post" style="display:inline!important;"> 
+		<input type="hidden" name="reads_id" value="<?php echo $a['id']; ?>" />
+		<input type="text" name="readerr" size="1" value="<?php echo $a['readerr']; ?>" />
+		<input type="hidden" name="readerrok" value="readerrok" />
+		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+    </form>
+	 </td>
 	
     <td class="col-md-0">
 	
