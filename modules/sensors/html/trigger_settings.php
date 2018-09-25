@@ -103,12 +103,12 @@ foreach($rowtr as $tr) { ?>
 </td>
 
 <td class="col-md-0">
-	<form action="" method="post" class="form-inline"> 
+	<form action="" method="post" class="form-inline" style="display:inline!important;"> 
 		<input type="hidden" name="trigrom" value="<?php echo $tr['rom']; ?>" />
 		<label>Bind value:</label>
 		<input type="text" name="trigzero" size="10" value="<?php echo $tr['trigzero']; ?>" />
 		<label>Color:</label>
-		<select name="zeroclr" class="form-control input-sm" style="display:inline!important;">
+		<select name="zeroclr" class="form-control input-sm">
 		<?php foreach ($labels as $color) { ?>
 			<option class="<?php echo $color; ?>" value="<?php echo $color; ?>"<?php echo $tr['trigzeroclr'] == $color ? 'selected="selected"' : ''; ?>><?php echo $color; ?></option>
 		<?php } ?>	
@@ -119,12 +119,13 @@ foreach($rowtr as $tr) { ?>
 </td>
 
 <td class="col-md-0">
-	<form action="" method="post" class="form-inline"> 
+	<form action="" method="post" class="form-inline" style="display:inline!important;"> 
 		<input type="hidden" name="trigrom" value="<?php echo $tr['rom']; ?>" />
 		<label>Bind value:</label>
 		<input type="text" name="trigone" size="10" value="<?php echo $tr['trigone']; ?>" />
+	
 		<label>Color:</label>
-		<select name="oneclr" class="form-control input-sm" style="display:inline!important;">
+		<select name="oneclr" class="form-control input-sm">
 		<?php foreach ($labels as $color) { ?>
 			<option class="<?php echo $color; ?>" value="<?php echo $color; ?>"<?php echo $tr['trigoneclr'] == $color ? 'selected="selected"' : ''; ?>><?php echo $color; ?></option>
 		<?php } ?>
@@ -150,7 +151,7 @@ foreach($rowtr as $tr) { ?>
     </form>
 </td>
 
-<td class="col-md-0">
+<td class="col-md-">
 
 	<form action="" method="post" style="display:inline!important;">
 		<input type="text" name="script_path" size="10" maxlength="50" value="<?php echo $tr["script"]; ?>" />
@@ -160,7 +161,7 @@ foreach($rowtr as $tr) { ?>
     </form>
 
 </td>
-<td class="col-md-0">
+<td class="col-md-1">
 
 	<form action="" method="post" style="display:inline!important;">
 		<input type="text" name="script_path1" size="10" maxlength="50" value="<?php echo $tr["script1"]; ?>" />
@@ -170,7 +171,7 @@ foreach($rowtr as $tr) { ?>
     </form>
 
 </td>
-<td class="col-md-0">
+<td class="col-md-1">
 Put the script file in var/www/nettemp/scripts/
 </td>
 
