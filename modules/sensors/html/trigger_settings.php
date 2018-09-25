@@ -82,7 +82,6 @@ $labels = array('label-default', 'label-primary', 'label-success', 'label-info',
 
 <div class="panel panel-default">
 <div class="panel-heading">Trigger Settings</div>
-<div class="table-responsive">
 <table class="table table-hover table-condensed small" border="0">
 <th>Trigger name</th>
 <th>Settings for value = 0</th>
@@ -178,5 +177,4 @@ Put the script file in var/www/nettemp/scripts/
 ?>
 
 </table>
-</div>
 </div>
