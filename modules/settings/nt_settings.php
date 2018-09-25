@@ -194,6 +194,9 @@ foreach ($result as $a) {
 	if($a['option']=='domoport') {
        	$nts_domo_port=$a['value'];
     }
+	if($a['option']=='domoon') {
+       	$nts_domo_on=$a['value'];
+    }
 }
 
 //different way..

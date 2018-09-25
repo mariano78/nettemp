@@ -22,9 +22,12 @@ try {
 		if($a['option']=='domoport') {
 			 $domoticz_port=$a['value'];
 		}
+		if($a['option']=='domoon') {
+			 $domoticz_on=$a['value'];
+		}
 	}
     
-    if(!empty($domoticz_ip)&&!empty($domoticz_port)){
+    if(!empty($domoticz_ip)&&!empty($domoticz_port)&& $domoticz_on=='on')){
 		$query = $db->query("SELECT * FROM sensors WHERE domoticz='on' and domoticzidx!=''");
 		$result= $query->fetchAll();
 		foreach($result as $s) {

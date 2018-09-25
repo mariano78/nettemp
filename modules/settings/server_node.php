@@ -62,6 +62,13 @@
     exit();
     }
 	
+	if ($domoticzon == "domoticzon"){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE nt_settings SET value='$domoon' WHERE option='domoon'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+	
 
 $cip=$nts_client_ip;
 $cport=$nts_client_port;
@@ -206,6 +213,11 @@ if ($cauth_on == 'on'){
 <h3 class="panel-title">Domoticz Server</h3>
 </div>
 <div class="panel-body">
+
+<form action="" method="post">
+    <input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="domoon" value="on" <?php echo $nts_domo_on == 'on' ? 'checked="checked"' : ''; ?>  />
+    <input type="hidden" name="domoticzon" value="domoticzon" />
+</form>
 
 <form action="" method="post" class="form-horizontal">
 <fieldset>
