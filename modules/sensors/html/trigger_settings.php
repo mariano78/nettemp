@@ -102,7 +102,7 @@ foreach($rowtr as $tr) { ?>
 	<td class="col-md-0"><span class="label label-default"><?php echo str_replace("_", " ", $tr['name']) ?></span>
 </td>
 
-<td class="col-md-0">
+<td class="col-md-2">
 	<form action="" method="post" class="form-inline" style="display:inline!important;"> 
 		<input type="hidden" name="trigrom" value="<?php echo $tr['rom']; ?>" />
 		<label>Bind value:</label>
@@ -118,12 +118,11 @@ foreach($rowtr as $tr) { ?>
 	</form>
 </td>
 
-<td class="col-md-0">
+<td class="col-md-2">
 	<form action="" method="post" class="form-inline" style="display:inline!important;"> 
 		<input type="hidden" name="trigrom" value="<?php echo $tr['rom']; ?>" />
 		<label>Bind value:</label>
 		<input type="text" name="trigone" size="10" value="<?php echo $tr['trigone']; ?>" />
-	
 		<label>Color:</label>
 		<select name="oneclr" class="form-control input-sm" style="display:inline!important;">
 		<?php foreach ($labels as $color) { ?>
