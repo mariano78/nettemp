@@ -134,7 +134,7 @@ foreach($rowtr as $tr) { ?>
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 	</form>
 </td>
-<td class="col-md-1">
+<td class="col-md-0">
 
 	<form action="" method="post" style="display:inline!important;">
 		<input type="hidden" name="smsrom" value="<?php echo $tr['rom']; ?>" />
@@ -142,7 +142,7 @@ foreach($rowtr as $tr) { ?>
 		<input type="hidden" name="smsonoff" value="smsonoff" />
     </form>
 </td>
-<td class="col-md-1">
+<td class="col-md-0">
 
 	<form action="" method="post" style="display:inline!important;">
 		<input type="hidden" name="mailrom" value="<?php echo $tr['rom']; ?>" />
@@ -151,7 +151,7 @@ foreach($rowtr as $tr) { ?>
     </form>
 </td>
 
-<td class="col-md-1">
+<td class="col-md-0">
 
 	<form action="" method="post" style="display:inline!important;">
 		<input type="text" name="script_path" size="10" maxlength="50" value="<?php echo $tr["script"]; ?>" />
