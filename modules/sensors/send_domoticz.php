@@ -27,7 +27,7 @@ try {
 		}
 	}
     
-    if(!empty($domoticz_ip)&&!empty($domoticz_port)&& $domoticz_on=='on')){
+    if(!empty($domoticz_ip)&&!empty($domoticz_port) && $domoticz_on=='on'){
 		$query = $db->query("SELECT * FROM sensors WHERE domoticz='on' and domoticzidx!=''");
 		$result= $query->fetchAll();
 		foreach($result as $s) {
