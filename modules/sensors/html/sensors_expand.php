@@ -157,3 +157,9 @@
 </table>
 </div>
 
+<?php 
+if ($device_type == 'trigger' ) { 
+include("modules/sensors/html/trigger_settings.php"); 
+}
+?>
+

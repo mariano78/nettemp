@@ -186,7 +186,7 @@ $updates['2018-09-21 10:01:46'][]="ALTER TABLE sensors ADD domoticz TEXT";
 $updates['2018-09-21 13:46:11'][]="UPDATE sensors SET domoticz='off'";
 $updates['2018-09-21 14:05:46'][]="ALTER TABLE sensors ADD domoticzidx TEXT";
 
-$updates['2018-09-24 10:29:46'][]="CREATE TABLE notifications (id INTEGER PRIMARY KEY, rom TEXT , type TEXT, whn TEXT, systems TEXT, message TEXT, priority TEXT, iginterval TEXT, recovery TEXT, active TEXT)";
+
 
 $updates['2018-09-24 11:40:31'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('lat','')";
 $updates['2018-09-24 11:41:31'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('long','')";
