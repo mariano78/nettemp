@@ -288,7 +288,7 @@
 			</tr>
 			
 			<tr>
-				<td><label>Location</label>
+				<td><label>Location Lat./Long.</label>
 				<td>
 					<form action="" method="post" style="display:inline!important;"> 
 					<input type="text" name="lat" size="3" value="<?php echo $nts_lat; ?>" />
