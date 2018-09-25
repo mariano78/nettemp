@@ -82,7 +82,10 @@ $labels = array('label-default', 'label-primary', 'label-success', 'label-info',
 
 <div class="panel panel-default">
 <div class="panel-heading">Trigger Settings</div>
+<div class="table-responsive">
 <table class="table table-hover table-condensed small" border="0">
+<thead>
+<tr>
 <th>Trigger name</th>
 <th>Settings for value = 0</th>
 <th>Settings for value = 1</th>
@@ -91,6 +94,8 @@ $labels = array('label-default', 'label-primary', 'label-success', 'label-info',
 <th>Script 0->1</th>
 <th>Script 1->0</th>
 <th>Info</th>
+</tr>
+</thead>
 <?php
 foreach($rowtr as $tr) { ?>
 <tr>
@@ -177,4 +182,5 @@ Put the script file in var/www/nettemp/scripts/
 ?>
 
 </table>
+</div>
 </div>
