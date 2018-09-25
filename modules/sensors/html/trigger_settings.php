@@ -161,7 +161,7 @@ foreach($rowtr as $tr) { ?>
     </form>
 
 </td>
-<td class="col-md-1">
+<td class="col-md-0">
 
 	<form action="" method="post" style="display:inline!important;">
 		<input type="text" name="script_path1" size="10" maxlength="50" value="<?php echo $tr["script1"]; ?>" />
@@ -171,7 +171,7 @@ foreach($rowtr as $tr) { ?>
     </form>
 
 </td>
-<td class="col-md-1">
+<td class="col-md-0">
 Put the script file in var/www/nettemp/scripts/
 </td>
 
