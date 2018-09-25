@@ -62,6 +62,9 @@
     exit();
     }
 	
+	$domoticzon = isset($_POST['domoticzon']) ? $_POST['domoticzon'] : '';
+	$domoon = isset($_POST['domoon']) ? $_POST['domoon'] : '';
+	
 	if ($domoticzon == "domoticzon"){
     $db = new PDO('sqlite:dbf/nettemp.db');
     $db->exec("UPDATE nt_settings SET value='$domoon' WHERE option='domoon'") or die ($db->lastErrorMsg());
