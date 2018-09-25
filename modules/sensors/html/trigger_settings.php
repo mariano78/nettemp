@@ -108,7 +108,7 @@ foreach($rowtr as $tr) { ?>
 		<label>Bind value:</label>
 		<input type="text" name="trigzero" size="10" value="<?php echo $tr['trigzero']; ?>" />
 		<label>Color:</label>
-		<select name="zeroclr" class="form-control input-sm">
+		<select name="zeroclr" class="form-control input-sm" style="display:inline!important;">
 		<?php foreach ($labels as $color) { ?>
 			<option class="<?php echo $color; ?>" value="<?php echo $color; ?>"<?php echo $tr['trigzeroclr'] == $color ? 'selected="selected"' : ''; ?>><?php echo $color; ?></option>
 		<?php } ?>	
@@ -125,7 +125,7 @@ foreach($rowtr as $tr) { ?>
 		<input type="text" name="trigone" size="10" value="<?php echo $tr['trigone']; ?>" />
 	
 		<label>Color:</label>
-		<select name="oneclr" class="form-control input-sm">
+		<select name="oneclr" class="form-control input-sm" style="display:inline!important;">
 		<?php foreach ($labels as $color) { ?>
 			<option class="<?php echo $color; ?>" value="<?php echo $color; ?>"<?php echo $tr['trigoneclr'] == $color ? 'selected="selected"' : ''; ?>><?php echo $color; ?></option>
 		<?php } ?>
