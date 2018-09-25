@@ -736,7 +736,7 @@ $row = $rows->fetchAll();
 	<td>
 	
 	<a href="index.php?id=<?php echo $id ?>&type=devices&device_group=<?php echo $device_group?>&device_type=<?php echo $device_type?>&device_menu=expand_device&device id=<?php if (!empty($device_id)) {echo $device_id;} else {echo $a['id'];}?>&device_rom=<?php echo $a["rom"]; ?>"><button class="btn btn-xs btn-info">Settings</button></a>
-	<a href="index.php?id=<?php echo $id ?>&type=devices&device_group=<?php echo $device_group?>&device_type=<?php echo $device_type?>&device_menu=notifications&device id=<?php if (!empty($device_id)) {echo $device_id;} else {echo $a['id'];}?>&device_rom=<?php echo $a["rom"]; ?>"><button class="btn btn-xs btn-info">Notifications</button></a>
+	>
 	</td>
     
 	<td class="col-md-0">
@@ -759,9 +759,3 @@ $row = $rows->fetchAll();
 </table>
 </div>
 </div>
-
-<?php 
-if (!empty($device_type) && $device_type == 'trigger' ) { 
-include("modules/sensors/html/trigger_settings.php"); 
-}
-?>

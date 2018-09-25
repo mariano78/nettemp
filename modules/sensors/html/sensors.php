@@ -60,7 +60,7 @@ if($device_menu=='new_devices') {
 }
 if($device_menu=='expand_device') {
     include("modules/sensors/html/sensors_expand.php"); 
-	include("modules/sensors/html/sensors_notifications.php"); 
+	//include("modules/sensors/html/sensors_notifications.php"); 
 }
 if($device_menu=='notifications') {
     include("modules/sensors/html/sensors_notifications.php"); 
