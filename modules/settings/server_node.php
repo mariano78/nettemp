@@ -72,6 +72,15 @@
     exit();
     }
 	
+	$domoauth_onoff = isset($_POST['domoauth_onoff']) ? $_POST['domoauth_onoff'] : '';
+    $domoauth_on = isset($_POST['domoauth_on']) ? $_POST['domoauth_on'] : '';
+    if (($domoauth_onoff == "domoauth_onoff") ){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE nt_settings SET value='$domoauth_on' WHERE option='domoauth'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+	
 
 $cip=$nts_client_ip;
 $cport=$nts_client_port;
@@ -251,9 +260,15 @@ if ($cauth_on == 'on'){
 </form>
 
 <form action="" method="post">
-    <input data-on="AUTH" data-off="AUTH" data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="cauth_on" value="on" <?php echo $cauth_on == 'on' ? 'checked="checked"' : ''; ?>  />
-    <input type="hidden" name="cauth_onoff" value="cauth_onoff" />
+    <input data-on="AUTH" data-off="AUTH" data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="domoauth_on" value="on" <?php echo $nts_domo_auth == 'on' ? 'checked="checked"' : ''; ?>  />
+    <input type="hidden" name="domoauth_onoff" value="domoauth_onoff" />
 </form>
+
+
+
+
+
+
 <?php
 if ($nts_domo_auth == 'on'){
 ?>
