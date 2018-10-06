@@ -286,7 +286,7 @@ if ($nts_domo_auth == 'on'){
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">User:</label>  
   <div class="col-md-4">
-  <input id="textinput" name="domo_login" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_domo_log; ?>" disabled>
+  <input id="textinput" name="domo_login" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_domo_log; ?>">
   </div>
 </div>
 
