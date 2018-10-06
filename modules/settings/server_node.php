@@ -288,7 +288,6 @@ if ($nts_domo_auth == 'on'){
 
 <?php
 	}
-}
 ?>
 
 
