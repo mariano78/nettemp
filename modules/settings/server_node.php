@@ -81,6 +81,18 @@
     exit();
     }
 	
+	
+	$domoauth_save = isset($_POST['domoauth_save']) ? $_POST['domoauth_save'] : '';
+    $domo_pass = isset($_POST['domo_pass']) ? $_POST['domo_pass'] : '';
+	$domo_login = isset($_POST['domo_login']) ? $_POST['domo_login'] : '';
+    if ($domoauth_save == "domoauth_save"){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE nt_settings SET value='$domo_pass' WHERE option='domopass'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$domo_login' WHERE option='domolog'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+	
 
 $cip=$nts_client_ip;
 $cport=$nts_client_port;
@@ -264,11 +276,6 @@ if ($cauth_on == 'on'){
     <input type="hidden" name="domoauth_onoff" value="domoauth_onoff" />
 </form>
 
-
-
-
-
-
 <?php
 if ($nts_domo_auth == 'on'){
 ?>
@@ -279,15 +286,15 @@ if ($nts_domo_auth == 'on'){
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">User:</label>  
   <div class="col-md-4">
-  <input id="textinput" name="cauth_login" placeholder="" class="form-control input-md" required="" type="text" value="admin" disabled>
+  <input id="textinput" name="domo_login" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_domo_log; ?>" disabled>
   </div>
 </div>
 
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Password:</label>  
   <div class="col-md-4">
-  <input id="textinput" name="cauth_pass" placeholder="" class="form-control input-md" required="" type="password" value="<?php echo $cauth_pass; ?>">
-     <input type="hidden" name="cauth_save" value="cauth_save" />
+  <input id="textinput" name="domo_pass" placeholder="" class="form-control input-md" required="" type="password" value="<?php echo $nts_domo_pass; ?>">
+     <input type="hidden" name="domoauth_save" value="domoauth_save" />
   </div>
 </div>
 
