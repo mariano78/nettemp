@@ -49,9 +49,9 @@ try {
 			
 			if ($nts_domo_auth == 'on') {
 				
-				$URLA = "$nts_domo_log:$nts_domo_pass@$domoticz_ip:$domoticz_port/json.htm"
+				$URLA = "$nts_domo_log:$nts_domo_pass@$domoticz_ip:$domoticz_port/json.htm";
 			}else {
-				$URLA = "$domoticz_ip:$domoticz_port/json.htm"				
+				$URLA = "$domoticz_ip:$domoticz_port/json.htm";		
 			}
 			
 			if ($type == 'elec' ){
