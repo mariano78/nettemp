@@ -116,7 +116,10 @@
 		</td>
 	</tr>
 	<tr>
-		<td><label>Value:</label></td><td></td>
+		<td><label>Value:</label></td>
+		<td>
+			<input id="port" name="port" class="form-control input-md" required="" type="text" value="">
+		</td>
 	</tr>
 	<tr>
 		<td><label>SMS:</label></td>
