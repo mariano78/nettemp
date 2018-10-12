@@ -96,7 +96,7 @@
 	<tr>
 		<td><label>Type:</label></td>
 		<td>
-			<select id="auth" name="auth" class="form-control">
+			<select id="auth" name="auth" class="form-control input-sm">
 				<option value="value" >Value</option>
 				<option value="lupdate" >Last Update</option>
 			</select>
@@ -105,7 +105,7 @@
 	<tr>	
 		<td><label>When:</label></td>
 		<td>
-			<select id="auth" name="auth" class="form-control">
+			<select id="auth" name="auth" class="form-control input-sm">
 				<option value="1" ><</option>
 				<option value="2" ><=</option>
 				<option value="3" >></option>
@@ -152,7 +152,7 @@
 	<tr>
 		<td><label>Priority:</label></td>
 		<td>
-			<select id="auth" name="auth" class="form-control">
+			<select id="auth" name="auth" class="form-control input-sm">
 				<option value="1" >Very Low</option>
 				<option value="2" >Moderate</option>
 				<option value="3" >Normal</option>
