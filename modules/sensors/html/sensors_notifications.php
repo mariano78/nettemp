@@ -85,16 +85,16 @@
 
 </table>
 </div>
-
+<div class="grid-item">
 <div class="panel panel-default">
 <div class="panel-heading">Add new notifications</div>
 <div class="table-responsive">
 <table class="table table-hover table-condensed small">
 	<tr>
-		<td><label>TypeŁ</label></td><td></td>
+		<td><label>Type:</label></td><td></td>
 	</tr>
 	<tr>	
-		<td><label>WhenŁ</label></td><td></td>
+		<td><label>When:</label></td><td></td>
 		</tr>
 	<tr>
 		<td><label>Value:</label></td><td></td>
@@ -103,7 +103,7 @@
 		<td><label>SMS:</label></td><td></td>
 		</tr>
 	<tr>
-		<td><label>>Mail:</label></td><td></td>
+		<td><label>Mail:</label></td><td></td>
 		</tr>
 	<tr>
 		<td><label>PushOver:</label></td><td></td>
@@ -153,4 +153,5 @@
 </table>
 </div>
 
+</div>
 </div>
