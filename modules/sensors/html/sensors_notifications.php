@@ -149,9 +149,6 @@
 		</td>
 	</tr>
 	<tr>
-		<td><label>Active:</label></td><td></td>
-	</tr>
-	<tr>
 	</tr>
 		<td></td>
 		<td>
