@@ -21,14 +21,19 @@
 
 	<tr>
 		<td>
-		
 			<select class="selectpicker" data-width="50px" name="upsbacklight" class="form-control input-sm">
 			<option value="1" >Value</option>
 			<option value="2" >Last Update</option>
-			
 			</select>
+		</td>
 		
-		
+		<td>
+			<select class="selectpicker" data-width="50px" name="upsbacklight" class="form-control input-sm">
+			<option value="1" >></option>
+			<option value="2" >>=</option>
+			<option value="3" ><</option>
+			<option value="4" ><=</option>
+			</select>
 		</td>
 	</tr>
 
