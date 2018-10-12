@@ -87,7 +87,7 @@
 </div>
 <div class="grid-item">
 <div class="panel panel-default">
-<div class="panel-heading">Add new notifications</div>
+<div class="panel-heading">New notifications</div>
 <div class="table-responsive">
 <table class="table table-hover table-condensed small">
 
@@ -98,52 +98,58 @@
 	</tr>
 	<tr>	
 		<td><label>When:</label></td><td></td>
-		</tr>
+	</tr>
 	<tr>
 		<td><label>Value:</label></td><td></td>
-		</tr>
+	</tr>
 	<tr>
-		<td><label>SMS:</label></td><td></td>
-		</tr>
+		<td><label>SMS:</label></td>
+		<td>
+			<input type="hidden" name="rom" value="<?php echo $a['rom']; ?>" />
+			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="alarm" value="on" <?php echo $a["alarm"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+			<input type="hidden" name="alarmonoff" value="onoff" />
+		</td>
+	</tr>
 	<tr>
-		<td><label>Mail:</label></td><td></td>
-		</tr>
+		<td><label>Mail:</label></td>
+		<td>
+			<input type="hidden" name="rom" value="<?php echo $a['rom']; ?>" />
+			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="alarm" value="on" <?php echo $a["alarm"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+			<input type="hidden" name="alarmonoff" value="onoff" />
+		</td>
+	</tr>
 	<tr>
-		<td><label>PushOver:</label></td><td></td>
-		</tr>
+		<td><label>PushOver:</label></td>
+		<td>
+			<input type="hidden" name="rom" value="<?php echo $a['rom']; ?>" />
+			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="alarm" value="on" <?php echo $a["alarm"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+			<input type="hidden" name="alarmonoff" value="onoff" />
+		</td>
+	</tr>
 	<tr>
 		<td><label>Custom message:</label></td><td></td>
-		</tr>
+	</tr>
 	<tr>
 		<td><label>Priority:</label></td><td></td>
-		</tr>
+	</tr>
 	<tr>
 		<td><label>Ignore interval:</label></td><td></td>
-		</tr>
+	</tr>
 	<tr>
 		<td><label>Recovery:</label></td><td></td>
-		</tr>
+	</tr>
 	<tr>
 		<td><label>Active:</label></td><td></td>
-		</tr>
+	</tr>
 	<tr>
 	</tr>
-
-
 		<td></td>
-		
 		<td>
-		
-		
-		<input type="hidden" name="change_password1" value="change_password2" />
-		<button id="mailsave" name="mailsave" class="btn btn-xs btn-success">Save</button>
-    </form>
-		
-		
-		</td>
-		
-		
+			<input type="hidden" name="change_password1" value="change_password2" />
+			<button id="mailsave" name="mailsave" class="btn btn-xs btn-success">Add</button>
+		</td>	
 	</tr>
+	</form>
 
 
 
