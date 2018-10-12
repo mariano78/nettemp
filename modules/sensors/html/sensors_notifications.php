@@ -100,12 +100,20 @@
 				<option value="value" >Value</option>
 				<option value="lupdate" >Last Update</option>
 			</select>
-		
-		
 		</td>
 	</tr>
 	<tr>	
-		<td><label>When:</label></td><td></td>
+		<td><label>When:</label></td>
+		<td>
+			<select id="auth" name="auth" class="form-control">
+				<option value="1" ><</option>
+				<option value="2" ><=</option>
+				<option value="3" >></option>
+				<option value="4" >>=</option>
+			</select>
+			</select>
+		
+		</td>
 	</tr>
 	<tr>
 		<td><label>Value:</label></td><td></td>
