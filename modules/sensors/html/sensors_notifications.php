@@ -60,7 +60,7 @@
 		<input type="hidden" name="gpio" value="<?php echo $a["gpio"]; ?>" />
 		<input type="hidden" name="ip" value="<?php echo $a["ip"]; ?>" />
 		<input type="hidden" name="usun2222" value="usun333333" />
-		<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-plus"></span></button>
+		<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
     </form>
 		
 		
@@ -90,6 +90,9 @@
 <div class="panel-heading">Add new notifications</div>
 <div class="table-responsive">
 <table class="table table-hover table-condensed small">
+
+<form action="" method="post">	
+
 	<tr>
 		<td><label>Type:</label></td><td></td>
 	</tr>
@@ -131,13 +134,9 @@
 		
 		<td>
 		
-		<form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="rom" value="<?php echo $a["rom"]; ?>" />
-		<input type="hidden" name="type" value="<?php echo $a["type"]; ?>" />
-		<input type="hidden" name="gpio" value="<?php echo $a["gpio"]; ?>" />
-		<input type="hidden" name="ip" value="<?php echo $a["ip"]; ?>" />
-		<input type="hidden" name="usun2222" value="usun333333" />
-		<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-plus"></span></button>
+		
+		<input type="hidden" name="change_password1" value="change_password2" />
+		<button id="mailsave" name="mailsave" class="btn btn-xs btn-success">Save</button>
     </form>
 		
 		
