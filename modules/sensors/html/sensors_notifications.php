@@ -133,10 +133,20 @@
 		<td><label>Priority:</label></td><td></td>
 	</tr>
 	<tr>
-		<td><label>Ignore interval:</label></td><td></td>
+		<td><label>Ignore interval:</label></td>
+		<td>
+			<input type="hidden" name="rom" value="<?php echo $a['rom']; ?>" />
+			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="alarm" value="on" <?php echo $a["alarm"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+			<input type="hidden" name="alarmonoff" value="onoff" />
+		</td>
 	</tr>
 	<tr>
-		<td><label>Recovery:</label></td><td></td>
+		<td><label>Recovery:</label></td>
+		<td>
+			<input type="hidden" name="rom" value="<?php echo $a['rom']; ?>" />
+			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="alarm" value="on" <?php echo $a["alarm"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+			<input type="hidden" name="alarmonoff" value="onoff" />
+		</td>
 	</tr>
 	<tr>
 		<td><label>Active:</label></td><td></td>
