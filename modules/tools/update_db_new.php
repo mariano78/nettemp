@@ -199,4 +199,6 @@ $updates['2018-10-05 08:06:21'][]="INSERT INTO nt_settings ('option', 'value') V
 $updates['2018-10-05 08:06:22'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('domolog','')";
 $updates['2018-10-05 08:06:25'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('domopass','')";
 
+$updates['2018-10-12 10:29:46'][]="CREATE TABLE notifications (id INTEGER PRIMARY KEY, rom TEXT , type TEXT, wheen TEXT, mail TEXT, pov TEXT, message TEXT, priority TEXT, iginterval TEXT, recovery TEXT, active TEXT)";
+
 ?>
