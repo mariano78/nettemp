@@ -195,7 +195,7 @@ if(!empty($nrom) && ($nadd == "nadd")) {
 	</tr>
 		<td></td>
 		<td>
-			<input type="hidden" name="nrom" value="<?php echo $a["rom"]; ?>" />
+			<input type="text" name="nrom" value="<?php echo $a["rom"]; ?>" />
 			<input type="hidden" name="nadd" value="nadd" />
 			<button id="nsave" name="nsave" class="btn btn-xs btn-success">Add</button>
 		</td>	
