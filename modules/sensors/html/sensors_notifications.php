@@ -94,7 +94,15 @@
 <form action="" method="post">	
 
 	<tr>
-		<td><label>Type:</label></td><td></td>
+		<td><label>Type:</label></td>
+		<td>
+			<select id="auth" name="auth" class="form-control">
+				<option value="value" >Value</option>
+				<option value="lupdate" >Last Update</option>
+			</select>
+		
+		
+		</td>
 	</tr>
 	<tr>	
 		<td><label>When:</label></td><td></td>
