@@ -16,6 +16,7 @@
 		<th>Ignore interval</th>
 		<th>Recovery</th>
 		<th>Active</th>
+		<th></th>
 	</tr>
 </thead>
 
@@ -35,6 +36,32 @@
 			<option value="4" ><=</option>
 			</select>
 		</td>
+		
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		
+		<td>
+		
+		<form action="" method="post" style="display:inline!important;">
+		<input type="hidden" name="rom" value="<?php echo $a["rom"]; ?>" />
+		<input type="hidden" name="type" value="<?php echo $a["type"]; ?>" />
+		<input type="hidden" name="gpio" value="<?php echo $a["gpio"]; ?>" />
+		<input type="hidden" name="ip" value="<?php echo $a["ip"]; ?>" />
+		<input type="hidden" name="usun2222" value="usun333333" />
+		<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-plus"></span></button>
+    </form>
+		
+		
+		</td>
+		
+		
 	</tr>
 
 
