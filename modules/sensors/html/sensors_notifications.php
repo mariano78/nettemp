@@ -70,9 +70,6 @@
 	</tr>
 
 
-
-	
-
 </table>
 </div>
 <table class="table table-hover table-condensed small">
@@ -87,4 +84,51 @@
 </tbody>
 
 </table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">Add new notifications</div>
+<div class="table-responsive">
+<table class="table table-hover table-condensed small">
+	<tr>
+		<td>Type</td><td></td>
+		<td>When</td><td></td>
+		<td>Value</td><td></td>
+		<td>SMS</td><td></td>
+		<td>Mail</td><td></td>
+		<td>PushOver</td><td></td>
+		<td>Custom message</td><td></td>
+		<td>Priority</td><td></td>
+		<td>Ignore interval</td><td></td>
+		<td>Recovery</td><td></td>
+		<td>Active</td><td></td>
+	</tr>
+
+
+		<td></td>
+		
+		<td>
+		
+		<form action="" method="post" style="display:inline!important;">
+		<input type="hidden" name="rom" value="<?php echo $a["rom"]; ?>" />
+		<input type="hidden" name="type" value="<?php echo $a["type"]; ?>" />
+		<input type="hidden" name="gpio" value="<?php echo $a["gpio"]; ?>" />
+		<input type="hidden" name="ip" value="<?php echo $a["ip"]; ?>" />
+		<input type="hidden" name="usun2222" value="usun333333" />
+		<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-plus"></span></button>
+    </form>
+		
+		
+		</td>
+		
+		
+	</tr>
+
+
+
+	
+
+</table>
+</div>
+
 </div>
