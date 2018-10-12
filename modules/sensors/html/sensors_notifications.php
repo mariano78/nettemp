@@ -41,7 +41,7 @@
 		
 		<div class="custom-control custom-checkbox">
   <input type="checkbox" class="custom-control-input" id="customCheck1">
-  <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+  
 </div></td>
 		<td></td>
 		<td></td>
@@ -139,8 +139,8 @@
 		<td><label>PushOver:</label></td>
 		<td>
 			<input type="hidden" name="rom" value="<?php echo $a['rom']; ?>" />
-			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="alarm" value="on" <?php echo $a["alarm"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
-			<input type="hidden" name="alarmonoff" value="onoff" />
+			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="poonoff">
+  
 		</td>
 	</tr>
 	<tr>
@@ -153,11 +153,11 @@
 		<td><label>Priority:</label></td>
 		<td>
 			<select id="auth" name="auth" class="form-control input-sm">
-				<option value="1" >Very Low</option>
-				<option value="2" >Moderate</option>
-				<option value="3" >Normal</option>
-				<option value="4" >High</option>
-				<option value="4" >Emergency</option>
+				<option value="Very Low" >Very Low</option>
+				<option value="Moderate" >Moderate</option>
+				<option value="Normal" >Normal</option>
+				<option value="High" >High</option>
+				<option value="Emergency" >Emergency</option>
 			</select>
 		</td>
 	</tr>
