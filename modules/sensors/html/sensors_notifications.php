@@ -48,17 +48,17 @@ if(!empty($nrom) && ($nadd == "nadd")) {
 	<tr>
 		<td>
 			<select class="selectpicker" data-width="50px" name="upsbacklight" class="form-control input-sm">
-			<option value="1" >Value</option>
-			<option value="2" >Last Update</option>
+			<option value="1">Value</option>
+			<option value="2">Last Update</option>
 			</select>
 		</td>
 		
 		<td>
 			<select class="selectpicker" data-width="50px" name="upsbacklight" class="form-control input-sm">
-			<option value="1" >></option>
-			<option value="2" >>=</option>
-			<option value="3" ><</option>
-			<option value="4" ><=</option>
+			<option value="1">></option>
+			<option value="2">>=</option>
+			<option value="3"><</option>
+			<option value="4"><=</option>
 			</select>
 		</td>
 		
@@ -147,7 +147,8 @@ if(!empty($nrom) && ($nadd == "nadd")) {
 	<tr>
 		<td><label>SMS:</label></td>
 		<td>
-			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="smsonoff">
+			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="smsonoff" value="on">
+			
 		</td>
 	</tr>
 	<tr>
@@ -165,18 +166,18 @@ if(!empty($nrom) && ($nadd == "nadd")) {
 	<tr>
 		<td><label>Message:</label></td>
 		<td>
-			<input name="nmessage" placeholder="optional" class="form-control input-md" required="" type="text" value="">
+			<input name="nmessage" placeholder="optional" class="form-control input-md" type="text" value="">
 		</td>
 	</tr>
 	<tr>
 		<td><label>Priority:</label></td>
 		<td>
 			<select name="npriority" class="form-control input-sm">
-				<option value="verylow" >Very Low</option>
-				<option value="moderate" >Moderate</option>
-				<option value="normal" >Normal</option>
-				<option value="high" >High</option>
-				<option value="emergency" >Emergency</option>
+				<option value="verylow">Very Low</option>
+				<option value="moderate">Moderate</option>
+				<option value="normal">Normal</option>
+				<option value="high">High</option>
+				<option value="emergency">Emergency</option>
 			</select>
 		</td>
 	</tr>
