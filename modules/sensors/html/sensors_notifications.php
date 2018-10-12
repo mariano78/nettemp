@@ -122,25 +122,19 @@
 	<tr>
 		<td><label>SMS:</label></td>
 		<td>
-			<input type="hidden" name="rom" value="<?php echo $a['rom']; ?>" />
-			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="alarm" value="on" <?php echo $a["alarm"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
-			<input type="hidden" name="alarmonoff" value="onoff" />
+			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="smsonoff">
 		</td>
 	</tr>
 	<tr>
 		<td><label>Mail:</label></td>
 		<td>
-			<input type="hidden" name="rom" value="<?php echo $a['rom']; ?>" />
-			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="alarm" value="on" <?php echo $a["alarm"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
-			<input type="hidden" name="alarmonoff" value="onoff" />
+			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="mailonoff">
 		</td>
 	</tr>
 	<tr>
 		<td><label>PushOver:</label></td>
 		<td>
-			<input type="hidden" name="rom" value="<?php echo $a['rom']; ?>" />
 			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="poonoff">
-  
 		</td>
 	</tr>
 	<tr>
@@ -164,17 +158,13 @@
 	<tr>
 		<td><label>Ignore interval:</label></td>
 		<td>
-			<input type="hidden" name="rom" value="<?php echo $a['rom']; ?>" />
-			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="alarm" value="on" <?php echo $a["alarm"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
-			<input type="hidden" name="alarmonoff" value="onoff" />
+			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="intervalonoff">
 		</td>
 	</tr>
 	<tr>
 		<td><label>Recovery:</label></td>
 		<td>
-			<input type="hidden" name="rom" value="<?php echo $a['rom']; ?>" />
-			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="alarm" value="on" <?php echo $a["alarm"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
-			<input type="hidden" name="alarmonoff" value="onoff" />
+			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="recoveryonoff">
 		</td>
 	</tr>
 	<tr>
