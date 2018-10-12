@@ -7,7 +7,9 @@
 	<tr>
 		<th>Type</th>
 		<th>When</th>
-		<th>Active systems</th>
+		<th>SMS</th>
+		<th>Mail</th>
+		<th>PoshOver</th>
 		<th>Custom message</th>
 		<th>Priority</th>
 		<th>Ignore interval</th>
