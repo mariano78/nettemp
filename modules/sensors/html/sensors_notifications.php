@@ -144,9 +144,9 @@
 		</td>
 	</tr>
 	<tr>
-		<td><label>Message:(optional)</label></td>
+		<td><label>Message:</label></td>
 		<td>
-			<input id="port" name="port" class="form-control input-md" required="" type="text" value="">
+			<input id="port" name="port" placeholder="optional" class="form-control input-md" required="" type="text" value="">
 		</td>
 	</tr>
 	<tr>
