@@ -10,7 +10,7 @@
 		<th>Value</th>
 		<th>SMS</th>
 		<th>Mail</th>
-		<th>PoshOver</th>
+		<th>PushOver</th>
 		<th>Custom message</th>
 		<th>Priority</th>
 		<th>Ignore interval</th>
@@ -18,6 +18,21 @@
 		<th>Active</th>
 	</tr>
 </thead>
+
+	<tr>
+		<td>
+		
+			<select class="selectpicker" data-width="50px" name="upsbacklight" class="form-control input-sm">
+			<option value="1" >Value</option>
+			<option value="2" >Last Update</option>
+			
+			</select>
+		
+		
+		</td>
+	</tr>
+
+
 
 	
 
