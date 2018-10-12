@@ -146,25 +146,25 @@ if(!empty($nrom) && ($nadd == "nadd")) {
 	<tr>
 		<td><label>SMS:</label></td>
 		<td>
-			<input type="checkbox" value="" data-toggle="toggle" data-size="mini"  name="smsonoff">
+			<input type="checkbox" value="1" data-toggle="toggle" data-size="mini"  name="smsonoff">
 		</td>
 	</tr>
 	<tr>
 		<td><label>Mail:</label></td>
 		<td>
-			<input type="checkbox" value="" data-toggle="toggle" data-size="mini"  name="mailonoff">
+			<input type="checkbox" value="1" data-toggle="toggle" data-size="mini"  name="mailonoff">
 		</td>
 	</tr>
 	<tr>
 		<td><label>PushOver:</label></td>
 		<td>
-			<input type="checkbox" value="" data-toggle="toggle" data-size="mini"  name="poonoff">
+			<input type="checkbox" value="1" data-toggle="toggle" data-size="mini"  name="poonoff">
 		</td>
 	</tr>
 	<tr>
 		<td><label>Message:</label></td>
 		<td>
-			<input name="nmessage" placeholder="optional" class="form-control input-md" type="text" value="">
+			<input name="nmessage" placeholder="optional" class="form-control input-md" type="text" value="xxxxx">
 		</td>
 	</tr>
 	<tr>
@@ -182,13 +182,13 @@ if(!empty($nrom) && ($nadd == "nadd")) {
 	<tr>
 		<td><label>Ignore interval:</label></td>
 		<td>
-			<input type="checkbox" value="" data-toggle="toggle" data-size="mini"  name="intervalonoff">
+			<input type="checkbox" value="1" data-toggle="toggle" data-size="mini"  name="intervalonoff">
 		</td>
 	</tr>
 	<tr>
 		<td><label>Recovery:</label></td>
 		<td>
-			<input type="checkbox" value="" data-toggle="toggle" data-size="mini"  name="recoveryonoff">
+			<input type="checkbox" value="1" data-toggle="toggle" data-size="mini"  name="recoveryonoff">
 		</td>
 	</tr>
 	<tr>
