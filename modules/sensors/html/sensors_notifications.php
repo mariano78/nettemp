@@ -141,7 +141,7 @@ if(!empty($nrom) && ($nadd == "nadd")) {
 	<tr>
 		<td><label>Value:</label></td>
 		<td>
-			<input name="nvalue" class="form-control input-sm" required="" type="text" value="">
+			<input name="nvalue" class="form-control input-sm" required="10" type="text" value="">
 		</td>
 	</tr>
 	<tr>
@@ -165,7 +165,7 @@ if(!empty($nrom) && ($nadd == "nadd")) {
 	<tr>
 		<td><label>Message:</label></td>
 		<td>
-			<input name="nmessage" placeholder="optional" class="form-control input-md" required="" type="text" value="">
+			<input name="nmessage" placeholder="optional" class="form-control input-md" type="text" value="">
 		</td>
 	</tr>
 	<tr>
