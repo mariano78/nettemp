@@ -111,8 +111,6 @@
 				<option value="3" >></option>
 				<option value="4" >>=</option>
 			</select>
-			</select>
-		
 		</td>
 	</tr>
 	<tr>
@@ -146,10 +144,22 @@
 		</td>
 	</tr>
 	<tr>
-		<td><label>Custom message:</label></td><td></td>
+		<td><label>Message:(optional)</label></td>
+		<td>
+			<input id="port" name="port" class="form-control input-md" required="" type="text" value="">
+		</td>
 	</tr>
 	<tr>
-		<td><label>Priority:</label></td><td></td>
+		<td><label>Priority:</label></td>
+		<td>
+			<select id="auth" name="auth" class="form-control">
+				<option value="1" >Very Low</option>
+				<option value="2" >Moderate</option>
+				<option value="3" >Normal</option>
+				<option value="4" >High</option>
+				<option value="4" >Emergency</option>
+			</select>
+		</td>
 	</tr>
 	<tr>
 		<td><label>Ignore interval:</label></td>
