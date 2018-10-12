@@ -96,7 +96,7 @@
 	<tr>
 		<td><label>Type:</label></td>
 		<td>
-			<select id="auth" name="auth" class="form-control input-sm">
+			<select id="auth" name="ntype" class="form-control input-sm">
 				<option value="value" >Value</option>
 				<option value="lupdate" >Last Update</option>
 			</select>
@@ -105,7 +105,7 @@
 	<tr>	
 		<td><label>When:</label></td>
 		<td>
-			<select id="auth" name="auth" class="form-control input-sm">
+			<select id="auth" name="nwhen" class="form-control input-sm">
 				<option value="1" ><</option>
 				<option value="2" ><=</option>
 				<option value="3" >></option>
@@ -116,7 +116,7 @@
 	<tr>
 		<td><label>Value:</label></td>
 		<td>
-			<input id="port" name="port" class="form-control input-sm" required="" type="text" value="">
+			<input id="port" name="nvalue" class="form-control input-sm" required="" type="text" value="">
 		</td>
 	</tr>
 	<tr>
@@ -140,18 +140,18 @@
 	<tr>
 		<td><label>Message:</label></td>
 		<td>
-			<input id="port" name="port" placeholder="optional" class="form-control input-md" required="" type="text" value="">
+			<input id="port" name="nmessage" placeholder="optional" class="form-control input-md" required="" type="text" value="">
 		</td>
 	</tr>
 	<tr>
 		<td><label>Priority:</label></td>
 		<td>
-			<select id="auth" name="auth" class="form-control input-sm">
-				<option value="Very Low" >Very Low</option>
-				<option value="Moderate" >Moderate</option>
-				<option value="Normal" >Normal</option>
-				<option value="High" >High</option>
-				<option value="Emergency" >Emergency</option>
+			<select id="auth" name="npriority" class="form-control input-sm">
+				<option value="verylow" >Very Low</option>
+				<option value="moderate" >Moderate</option>
+				<option value="normal" >Normal</option>
+				<option value="high" >High</option>
+				<option value="emergency" >Emergency</option>
 			</select>
 		</td>
 	</tr>
@@ -171,8 +171,9 @@
 	</tr>
 		<td></td>
 		<td>
-			<input type="hidden" name="change_password1" value="change_password2" />
-			<button id="mailsave" name="mailsave" class="btn btn-xs btn-success">Add</button>
+			<input type="hidden" name="nrom" value="<?php echo $a["rom"]; ?>" />
+			<input type="hidden" name="nadd" value="nadd" />
+			<button id="nsave" name="nsave" class="btn btn-xs btn-success">Add</button>
 		</td>	
 	</tr>
 	</form>
