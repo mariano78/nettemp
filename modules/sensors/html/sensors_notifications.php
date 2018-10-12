@@ -92,16 +92,38 @@
 <table class="table table-hover table-condensed small">
 	<tr>
 		<td>Type</td><td></td>
+	</tr>
+	<tr>	
 		<td>When</td><td></td>
+		</tr>
+	<tr>
 		<td>Value</td><td></td>
+		</tr>
+	<tr>
 		<td>SMS</td><td></td>
+		</tr>
+	<tr>
 		<td>Mail</td><td></td>
+		</tr>
+	<tr>
 		<td>PushOver</td><td></td>
+		</tr>
+	<tr>
 		<td>Custom message</td><td></td>
+		</tr>
+	<tr>
 		<td>Priority</td><td></td>
+		</tr>
+	<tr>
 		<td>Ignore interval</td><td></td>
+		</tr>
+	<tr>
 		<td>Recovery</td><td></td>
+		</tr>
+	<tr>
 		<td>Active</td><td></td>
+		</tr>
+	<tr>
 	</tr>
 
 
