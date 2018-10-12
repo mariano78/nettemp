@@ -1,3 +1,28 @@
+<?php
+$ntype = isset($_POST['ntype']) ? $_POST['ntype'] : '';
+$nwhen = isset($_POST['nwhen']) ? $_POST['nwhen'] : '';
+$nvalue = isset($_POST['nvalue']) ? $_POST['nvalue'] : '';
+$smsonoff = isset($_POST['smsonoff']) ? $_POST['smsonoff'] : '';
+$mailonoff = isset($_POST['mailonoff']) ? $_POST['mailonoff'] : '';
+$poonoff = isset($_POST['poonoff']) ? $_POST['poonoff'] : '';
+$nmessage = isset($_POST['nmessage']) ? $_POST['nmessage'] : '';
+$npriority = isset($_POST['npriority']) ? $_POST['npriority'] : '';
+$intervalonoff = isset($_POST['intervalonoff']) ? $_POST['intervalonoff'] : '';
+$recoveryonoff = isset($_POST['recoveryonoff']) ? $_POST['recoveryonoff'] : '';
+$nadd = isset($_POST['nadd']) ? $_POST['nadd'] : '';
+$nrom = isset($_POST['nrom']) ? $_POST['nrom'] : '';
+
+if(!empty($nrom) && ($nadd == "nadd")) { 
+	$db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("INSERT INTO notifications ('rom', 'type, 'wheen', 'value', 'sms', 'mail', 'pov', 'message', 'priority', 'iginterval', 'recovery', 'active') 
+	VALUES ('$nrom', '$ntype', '$nwhen', '$nvalue', '$smsonoff', '$mailonoff', '$poonoff', '$nmessage', '$npriority', '$intervalonoff', '$recoveryonoff', 'on')");
+	header("location: " . $_SERVER['REQUEST_URI']);
+	exit();	
+} 
+
+?>
+
+
 
 <div class="panel panel-default">
 <div class="panel-heading">Notifications</div>
@@ -96,7 +121,7 @@
 	<tr>
 		<td><label>Type:</label></td>
 		<td>
-			<select id="auth" name="ntype" class="form-control input-sm">
+			<select name="ntype" class="form-control input-sm">
 				<option value="value" >Value</option>
 				<option value="lupdate" >Last Update</option>
 			</select>
@@ -105,7 +130,7 @@
 	<tr>	
 		<td><label>When:</label></td>
 		<td>
-			<select id="auth" name="nwhen" class="form-control input-sm">
+			<select name="nwhen" class="form-control input-sm">
 				<option value="1" ><</option>
 				<option value="2" ><=</option>
 				<option value="3" >></option>
@@ -116,7 +141,7 @@
 	<tr>
 		<td><label>Value:</label></td>
 		<td>
-			<input id="port" name="nvalue" class="form-control input-sm" required="" type="text" value="">
+			<input name="nvalue" class="form-control input-sm" required="" type="text" value="">
 		</td>
 	</tr>
 	<tr>
@@ -140,13 +165,13 @@
 	<tr>
 		<td><label>Message:</label></td>
 		<td>
-			<input id="port" name="nmessage" placeholder="optional" class="form-control input-md" required="" type="text" value="">
+			<input name="nmessage" placeholder="optional" class="form-control input-md" required="" type="text" value="">
 		</td>
 	</tr>
 	<tr>
 		<td><label>Priority:</label></td>
 		<td>
-			<select id="auth" name="npriority" class="form-control input-sm">
+			<select name="npriority" class="form-control input-sm">
 				<option value="verylow" >Very Low</option>
 				<option value="moderate" >Moderate</option>
 				<option value="normal" >Normal</option>
