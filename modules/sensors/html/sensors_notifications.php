@@ -37,7 +37,12 @@
 			</select>
 		</td>
 		
-		<td></td>
+		<td>
+		
+		<div class="custom-control custom-checkbox">
+  <input type="checkbox" class="custom-control-input" id="customCheck1">
+  <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+</div></td>
 		<td></td>
 		<td></td>
 		<td></td>
