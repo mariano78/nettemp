@@ -14,7 +14,7 @@ $nrom = isset($_POST['nrom']) ? $_POST['nrom'] : '';
 
 if(!empty($nrom) && ($nadd == "nadd")) { 
 	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("INSERT INTO notifications ('rom', 'type, 'wheen', 'value', 'sms', 'mail', 'pov', 'message', 'priority', 'iginterval', 'recovery', 'active') VALUES ('$nrom', '$ntype', '$nwhen', '$nvalue', '$smsonoff', '$mailonoff', '$poonoff', '$nmessage', '$npriority', '$intervalonoff', '$recoveryonoff', 'on')");
+	$db->exec("INSERT INTO notifications ('rom', 'type, 'wheen', 'value', 'sms', 'mail', 'pov', 'message', 'priority', 'iginterval', 'recovery', 'active') VALUES ('$nrom', '$ntype', '$nwhen', '$nvalue', '$smsonoff', '$mailonoff', '$poonoff', '$nmessage', '$npriority', '$intervalonoff', '$recoveryonoff', 'on')") or die ($db->lastErrorMsg());
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();	
 } 
