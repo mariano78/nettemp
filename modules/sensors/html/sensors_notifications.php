@@ -91,37 +91,37 @@
 <div class="table-responsive">
 <table class="table table-hover table-condensed small">
 	<tr>
-		<td>Type</td><td></td>
+		<td><label>TypeŁ</label></td><td></td>
 	</tr>
 	<tr>	
-		<td>When</td><td></td>
+		<td><label>WhenŁ</label></td><td></td>
 		</tr>
 	<tr>
-		<td>Value</td><td></td>
+		<td><label>Value:</label></td><td></td>
 		</tr>
 	<tr>
-		<td>SMS</td><td></td>
+		<td><label>SMS:</label></td><td></td>
 		</tr>
 	<tr>
-		<td>Mail</td><td></td>
+		<td><label>>Mail:</label></td><td></td>
 		</tr>
 	<tr>
-		<td>PushOver</td><td></td>
+		<td><label>PushOver:</label></td><td></td>
 		</tr>
 	<tr>
-		<td>Custom message</td><td></td>
+		<td><label>Custom message:</label></td><td></td>
 		</tr>
 	<tr>
-		<td>Priority</td><td></td>
+		<td><label>Priority:</label></td><td></td>
 		</tr>
 	<tr>
-		<td>Ignore interval</td><td></td>
+		<td><label>Ignore interval:</label></td><td></td>
 		</tr>
 	<tr>
-		<td>Recovery</td><td></td>
+		<td><label>Recovery:</label></td><td></td>
 		</tr>
 	<tr>
-		<td>Active</td><td></td>
+		<td><label>Active:</label></td><td></td>
 		</tr>
 	<tr>
 	</tr>
