@@ -7,6 +7,7 @@
 	<tr>
 		<th>Type</th>
 		<th>When</th>
+		<th>Value</th>
 		<th>SMS</th>
 		<th>Mail</th>
 		<th>PoshOver</th>
