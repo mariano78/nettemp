@@ -121,7 +121,7 @@ if(!empty($nrom) && ($nadd == "nadd")) {
 		<td><label>Type:</label></td>
 		<td>
 			<select name="ntype" class="form-control input-sm">
-				<option value="value" >Value</option>
+				<option value="valaaaaa" >Value</option>
 				<option value="lupdate" >Last Update</option>
 			</select>
 		</td>
@@ -140,7 +140,7 @@ if(!empty($nrom) && ($nadd == "nadd")) {
 	<tr>
 		<td><label>Value:</label></td>
 		<td>
-			<input name="nvalue" class="form-control input-sm" required="10" type="text" value="">
+			<input name="nvalue" class="form-control input-sm" required="" type="text" value="11">
 		</td>
 	</tr>
 	<tr>
@@ -171,11 +171,11 @@ if(!empty($nrom) && ($nadd == "nadd")) {
 		<td><label>Priority:</label></td>
 		<td>
 			<select name="npriority" class="form-control input-sm">
-				<option value="verylow" >Very Low</option>
-				<option value="moderate" >Moderate</option>
-				<option value="normal" >Normal</option>
-				<option value="high" >High</option>
-				<option value="emergency" >Emergency</option>
+				<option value="verylow">Very Low</option>
+				<option value="moderate">Moderate</option>
+				<option value="normal">Normal</option>
+				<option value="high">High</option>
+				<option value="emergency">Emergency</option>
 			</select>
 		</td>
 	</tr>
@@ -196,7 +196,7 @@ if(!empty($nrom) && ($nadd == "nadd")) {
 		<td></td>
 		<td>
 			<input type="text" name="nrom" value="<?php echo $a["rom"]; ?>" />
-			<input type="hidden" name="nadd" value="nadd" />
+			<input type="text" name="nadd" value="nadd" />
 			<button id="nsave" name="nsave" class="btn btn-xs btn-success">Add</button>
 		</td>	
 	</tr>
