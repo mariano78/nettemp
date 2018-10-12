@@ -14,7 +14,8 @@ $nrom = isset($_POST['nrom']) ? $_POST['nrom'] : '';
 
 if(!empty($nrom) && ($nadd == "nadd")) { 
 	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("INSERT INTO notifications ('rom', 'type', 'wheen', 'value', 'sms', 'mail', 'pov', 'message', 'priority', 'iginterval', 'recovery', 'active') VALUES ('$nrom', '$ntype', '$nwhen', '$nvalue', '$smsonoff', '$mailonoff', '$poonoff', '$nmessage', '$npriority', '$intervalonoff', '$recoveryonoff', 'on')") or die ($db->lastErrorMsg());
+	$db->exec("INSERT INTO notifications ('rom', 'type', 'wheen', 'value', 'sms', 'mail', 'pov', 'message', 'priority', 'iginterval', 'recovery', 'active') 
+	VALUES ('$nrom', '$ntype', '$nwhen', '$nvalue', '$smsonoff', '$mailonoff', '$poonoff', '$nmessage', '$npriority', '$intervalonoff', '$recoveryonoff', 'on')");
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();	
 } 
@@ -121,7 +122,7 @@ if(!empty($nrom) && ($nadd == "nadd")) {
 		<td><label>Type:</label></td>
 		<td>
 			<select name="ntype" class="form-control input-sm">
-				<option value="valaaaaa" >Value</option>
+				<option value="value" >Value</option>
 				<option value="lupdate" >Last Update</option>
 			</select>
 		</td>
@@ -140,63 +141,63 @@ if(!empty($nrom) && ($nadd == "nadd")) {
 	<tr>
 		<td><label>Value:</label></td>
 		<td>
-			<input name="nvalue" class="form-control input-sm" required="" type="text" value="11">
+			<input name="nvalue" class="form-control input-sm" required="" type="text" value="">
 		</td>
 	</tr>
 	<tr>
 		<td><label>SMS:</label></td>
 		<td>
-			<input type="checkbox" value="1" data-toggle="toggle" data-size="mini"  name="smsonoff">
+			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="smsonoff">
 		</td>
 	</tr>
 	<tr>
 		<td><label>Mail:</label></td>
 		<td>
-			<input type="checkbox" value="1" data-toggle="toggle" data-size="mini"  name="mailonoff">
+			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="mailonoff">
 		</td>
 	</tr>
 	<tr>
 		<td><label>PushOver:</label></td>
 		<td>
-			<input type="checkbox" value="1" data-toggle="toggle" data-size="mini"  name="poonoff">
+			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="poonoff">
 		</td>
 	</tr>
 	<tr>
 		<td><label>Message:</label></td>
 		<td>
-			<input name="nmessage" placeholder="optional" class="form-control input-md" type="text" value="xxxxx">
+			<input name="nmessage" placeholder="optional" class="form-control input-md" required="" type="text" value="">
 		</td>
 	</tr>
 	<tr>
 		<td><label>Priority:</label></td>
 		<td>
 			<select name="npriority" class="form-control input-sm">
-				<option value="verylow">Very Low</option>
-				<option value="moderate">Moderate</option>
-				<option value="normal">Normal</option>
-				<option value="high">High</option>
-				<option value="emergency">Emergency</option>
+				<option value="verylow" >Very Low</option>
+				<option value="moderate" >Moderate</option>
+				<option value="normal" >Normal</option>
+				<option value="high" >High</option>
+				<option value="emergency" >Emergency</option>
 			</select>
 		</td>
 	</tr>
 	<tr>
 		<td><label>Ignore interval:</label></td>
 		<td>
-			<input type="checkbox" value="1" data-toggle="toggle" data-size="mini"  name="intervalonoff">
+			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="intervalonoff">
 		</td>
 	</tr>
 	<tr>
 		<td><label>Recovery:</label></td>
 		<td>
-			<input type="checkbox" value="1" data-toggle="toggle" data-size="mini"  name="recoveryonoff">
+			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="recoveryonoff">
 		</td>
 	</tr>
 	<tr>
 	</tr>
 		<td></td>
 		<td>
-			<input type="text" name="nrom" value="<?php echo $a["rom"]; ?>" />
-			<input type="text" name="nadd" value="nadd" />
+			<input type="hidden" name="nrom" value="<?php echo $a["rom"]; ?>" />
+			<input type="hidden" name="nadd" value="nadd" />
 			<button id="nsave" name="nsave" class="btn btn-xs btn-success">Add</button>
 		</td>	
 	</tr>
