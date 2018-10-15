@@ -148,7 +148,6 @@ if(!empty($nrom) && ($nadd == "nadd")) {
 		<td><label>SMS:</label></td>
 		<td>
 			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="smsonoff" value="on">
-			
 		</td>
 	</tr>
 	<tr>
