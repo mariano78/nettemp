@@ -35,7 +35,7 @@ try {
 	$url = "https://airapi.airly.eu/v2/installations/nearest?lat=$lati&lng=$long&maxDistanceKM=3.0&maxResults=3&apikey=$api";
 	//$url = "https://airapi.airly.eu/v1/nearestSensor/measurements?latitude=$lati&longitude=$long&maxDistance=1000&apikey=$api";
 	
-	https://airapi.airly.eu/v2/installations/nearest?lat=$lati&lng=$long&maxDistanceKM=3.0&maxResults=3&apikey=$api
+	//https://airapi.airly.eu/v2/installations/nearest?lat=$lati&lng=$long&maxDistanceKM=3.0&maxResults=3&apikey=$api
 	
 	
 	$json = file_get_contents($url);
