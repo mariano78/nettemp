@@ -114,7 +114,7 @@ if ($hide == 'off') {
        			$unit=$ty['unit2'];
        		} else {
 				
-				if (substr($a['type'],0,3) == 'max'){
+				if (substr($a['type'],0,3) == 'max' || substr($a['type'],0,3) == 'min'){
 					
 					$val = $db->query("SELECT type FROM sensors WHERE rom='$bindsensor'") or die('virtual max type error');
 					$val = $val->fetch(); 
