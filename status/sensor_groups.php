@@ -252,8 +252,10 @@ if ($hide == 'off') {
 						echo $stat_min;
 						echo $stat_max;
 					}
-					if ($a['type'] != 'trigger') {
-							echo $updo; 
+					if ($a['status']=='error') {
+							
+					} elseif ($a['type'] != 'trigger'){
+						echo $updo; 
 					}
 				?>
 			</td>
