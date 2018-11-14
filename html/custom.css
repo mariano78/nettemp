@@ -50,13 +50,13 @@ body {
 	background: rgba(0,0,0,0) !important; 
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 880px) {
 .container-nettemp {
 padding: 10px;
 }
 .grid-item { width: 100% !important }
 }
-@media screen and (min-width: 680px) {
+@media screen and (min-width: 880px) {
 .container-nettemp {
 padding: 0px 15px;
 }
