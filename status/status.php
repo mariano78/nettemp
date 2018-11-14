@@ -24,7 +24,7 @@
 /* ---- grid-item ---- */
 
 .grid-item {
-    width: 380px;
+    width: 340px;
     float: left;
     border-radius: 5px;
 }
@@ -142,7 +142,7 @@ $(document).ready( function() {
 
   $('.grid').masonry({
     itemSelector: '.grid-item',
-    columnWidth: 380,
+    columnWidth: 350,
   });
 
   
