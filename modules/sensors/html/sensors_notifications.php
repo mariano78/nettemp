@@ -113,6 +113,7 @@ $notifs = $notif->fetchAll();
 			<td> <?php echo $n[iginterval]; ?> </td>
 			<td> <?php echo $n[recovery]; ?> </td>
 			<td> <?php echo $n[active]; ?> </td>
+			<td> <?php echo kosz; ?> </td>
 		</tr>
 <?php    
 }
