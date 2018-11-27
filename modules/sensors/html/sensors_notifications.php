@@ -72,8 +72,7 @@ $notifs = $notif->fetchAll();
 			<td> 
 				<?php if ($n[wheen] == '1') {echo "<";} elseif ($n[wheen] == '2') {echo "<=";} elseif ($n[wheen] == '3') {echo ">";} elseif ($n[wheen] == '4') {echo ">=";}  ?> 
 			</td>
-			
-			<?php echo $n[wheen]; ?> </td>
+		
 			<td> <?php echo $n[value]; ?> </td>
 			<td> <?php echo $n[sms]; ?> </td>
 			<td> <?php echo $n[mail]; ?> </td>
