@@ -264,7 +264,7 @@ $notifs = $notif->fetchAll();
 </div>
 
 <div class="panel panel-default">
-<div class="panel-heading">Notifications</div>
+<div class="panel-heading">Add Notifications</div>
 <div class="table-responsive">
 <table class="table table-hover table-condensed small">
 
