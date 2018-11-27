@@ -216,10 +216,8 @@ $notifs = $notif->fetchAll();
 				<input type="hidden" name="prio_onoff" value="onoff" />
 				<input type="hidden" name="prio_not_id" value="<?php echo $n['id']; ?>" />
 				</form>
-		
+			</td>
 			
-			
-			<?php echo $n[priority]; ?> </td>
 			<td> 
 				<form action="" method="post" style="display:inline!important;">
 					<input type="hidden" name="interval_not_id" value="<?php echo $n['id']; ?>" />
