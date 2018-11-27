@@ -23,7 +23,7 @@ if(!empty($nrom) && ($nadd == "nadd")) {
 
 
 $db = new PDO("sqlite:$root/dbf/nettemp.db");	
-$notif = $db->query("SELECT * FROM notifications");
+$notif = $db->query("SELECT * FROM notifications WHERE rom=$a["rom"];");
 $notifs = $notif->fetchAll();	
 
 ?>
