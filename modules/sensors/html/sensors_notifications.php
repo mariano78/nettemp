@@ -54,6 +54,23 @@ if(!empty($not_mes_id) && ($new_not_mes == "new_not_mes")) {
 	$db->exec("UPDATE notifications SET message = '$mes_new' WHERE id='$not_mes_id'");
 }
 
+//SMS
+$notsms = isset($_POST['notsms']) ? $_POST['notsms'] : '';
+$sms_not_id = isset($_POST['sms_not_id']) ? $_POST['sms_not_id'] : '';
+$not_sms_onoff = isset($_POST['not_sms_onoff']) ? $_POST['not_sms_onoff'] : '';
+
+if(!empty($sms_not_id) && ($not_sms_onoff == "onoff")) { 
+	$db = new PDO("sqlite:$root/dbf/nettemp.db");
+	
+	$db->exec("UPDATE notifications SET sms = '$notsms' WHERE id='$sms_not_id'");
+}
+
+
+
+//Mail
+//Pov
+
+
 
 
 
