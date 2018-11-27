@@ -314,7 +314,7 @@ $notifs = $notif->fetchAll();
 		</td>
 		
 		<td>
-			<input name="nvalue"  required="" type="text" value="">
+			<input name="nvalue"  required="" type="text" size="1" value="">
 		</td>
 		
 		<td>
