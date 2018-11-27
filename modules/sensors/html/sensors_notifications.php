@@ -213,6 +213,8 @@ $notifs = $notif->fetchAll();
 					<option value="high" <?php echo $n[priority] == 'high'? 'selected="selected"' : ''; ?> >High</option>
 					<option value="emergency" <?php echo $n[priority] == 'emergency'? 'selected="selected"' : ''; ?> >Emergency</option>
 				</select>
+				<input type="hidden" name="prio_onoff" value="onoff" />
+				<input type="hidden" name="prio_not_id" value="<?php echo $n['id']; ?>" />
 				</form>
 		
 			
