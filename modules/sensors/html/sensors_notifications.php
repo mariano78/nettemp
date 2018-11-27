@@ -76,7 +76,7 @@ $not_pov_onoff = isset($_POST['not_pov_onoff']) ? $_POST['not_pov_onoff'] : '';
 
 if(!empty($pov_not_id) && ($not_pov_onoff == "onoff")) { 
 	$db = new PDO("sqlite:$root/dbf/nettemp.db");
-	$db->exec("UPDATE notifications SET pov = '$notsms' WHERE id='$pov_not_id'");
+	$db->exec("UPDATE notifications SET pov = '$notpov' WHERE id='$pov_not_id'");
 }
 
 
