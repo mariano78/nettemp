@@ -62,11 +62,55 @@ $notifs = $notif->fetchAll();
 	</tr>
 </thead>
 
-
+	<tr>
+		<td>
+			<select class="selectpicker" data-width="50px" name="upsbacklight" class="form-control input-sm">
+			<option value="1">Value</option>
+			<option value="2">Last Update</option>
+			</select>
+		</td>
+		
+		<td>
+			<select class="selectpicker" data-width="50px" name="upsbacklight" class="form-control input-sm">
+			<option value="1">></option>
+			<option value="2">>=</option>
+			<option value="3"><</option>
+			<option value="4"><=</option>
+			</select>
+		</td>
+		
+		<td>
+		
+		<div class="custom-control custom-checkbox">
+  <input type="checkbox" class="custom-control-input" id="customCheck1">
+  
+</div></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		
+		<td>
+		
+		
+		
+		
+		</td>
+		
+		
+	</tr>
 <?php	
 	foreach ($notifs as $n) { ?>
 		<tr>
-			<td> <?php echo $n[type]; ?> </td>
+			<td> 
+				<?php if ($n[type] == 'value') {echo Value} else if if ($n[type] == 'lupdate') {echo Last update}  ?> 
+		
+		
+			</td>
 			<td> <?php echo $n[wheen]; ?> </td>
 			<td> <?php echo $n[value]; ?> </td>
 			<td> <?php echo $n[sms]; ?> </td>
@@ -188,7 +232,7 @@ $notifs = $notif->fetchAll();
 	<tr>
 		<td><label>Recovery:</label></td>
 		<td>
-			<input type="checkbox"  name="recoveryonoff" value="on">
+			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="recoveryonoff" value="on">
 		</td>
 	</tr>
 	<tr>
