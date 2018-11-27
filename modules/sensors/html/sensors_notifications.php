@@ -114,6 +114,7 @@ $notifs = $notif->fetchAll();
 			<td> <?php echo $n[recovery]; ?> </td>
 			<td> <?php echo $n[active]; ?> </td>
 			<td> <?php echo kosz; ?> </td>
+			<td> <?php echo $n[rom]; ?> </td>
 		</tr>
 <?php    
 }
