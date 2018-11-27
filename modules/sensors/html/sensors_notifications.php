@@ -295,19 +295,15 @@ $notifs = $notif->fetchAll();
 	</tr>
 </thead>
 
-<form action="" method="post">	
-
 	<tr>
-		<td><label>Type:</label></td>
+		<form action="" method="post">	
 		<td>
 			<select name="ntype" class="form-control input-sm">
 				<option value="value" >Value</option>
 				<option value="lupdate" >Last Update</option>
 			</select>
 		</td>
-	</tr>
-	<tr>	
-		<td><label>When:</label></td>
+	
 		<td>
 			<select name="nwhen" class="form-control input-sm">
 				<option value="1" ><</option>
@@ -316,40 +312,27 @@ $notifs = $notif->fetchAll();
 				<option value="4" >>=</option>
 			</select>
 		</td>
-	</tr>
-	<tr>
-		<td><label>Value:</label></td>
+		
 		<td>
 			<input name="nvalue" class="form-control input-sm" required="" type="text" value="">
 		</td>
-	</tr>
-	<tr>
-		<td><label>SMS:</label></td>
+		
 		<td>
 			<input type="checkbox" name="smsonoff" value="on">
 		</td>
-	</tr>
-	<tr>
-		<td><label>Mail:</label></td>
+		
 		<td>
 			<input type="checkbox"  name="mailonoff" value="on">
 		</td>
-	</tr>
-	<tr>
-		<td><label>PushOver:</label></td>
+		
 		<td>
 			<input type="checkbox"  name="poonoff" value="on">
-			
 		</td>
-	</tr>
-	<tr>
-		<td><label>Message:</label></td>
+		
 		<td>
 			<input name="nmessage" placeholder="optional" class="form-control input-md" type="text" value="">
 		</td>
-	</tr>
-	<tr>
-		<td><label>Priority:</label></td>
+		
 		<td>
 			<select name="npriority" class="form-control input-sm">
 				<option value="verylow">Very Low</option>
@@ -359,29 +342,27 @@ $notifs = $notif->fetchAll();
 				<option value="emergency">Emergency</option>
 			</select>
 		</td>
-	</tr>
-	<tr>
-		<td><label>Ignore interval:</label></td>
+		
 		<td>
 			<input type="checkbox"  name="intervalonoff" value="on">
 		</td>
-	</tr>
-	<tr>
-		<td><label>Recovery:</label></td>
+		
 		<td>
 			<input type="checkbox" name="recoveryonoff" value="on">
 		</td>
-	</tr>
-	<tr>
-	</tr>
-		<td></td>
+		
 		<td>
 			<input type="hidden" name="nrom" value="<?php echo $a["rom"]; ?>" />
 			<input type="hidden" name="nadd" value="nadd" />
 			<button id="nsave" name="nsave" class="btn btn-xs btn-success">Add</button>
 		</td>	
-	</tr>
 	</form>
+	
+	
+	
+	</tr>
+
+
 
 
 
