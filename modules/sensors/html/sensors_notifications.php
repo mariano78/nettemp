@@ -126,7 +126,7 @@ $notifs = $notif->fetchAll();
 			<td> 
 				<form action="" method="post" style="display:inline!important;">
 					<input type="hidden" name="pov_not_id" value="<?php echo $n['id']; ?>" />
-					<input type="checkbox" data-toggle="toggle" data-size="mini"  name="povmail" value="on" <?php echo $n["pov"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+					<input type="checkbox" data-toggle="toggle" data-size="mini"  name="notpov" value="on" <?php echo $n["pov"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
 					<input type="hidden" name="not_pov_onoff" value="onoff" />
 				</form>
 			</td>
@@ -141,9 +141,29 @@ $notifs = $notif->fetchAll();
 			</td>
 			
 			<td> <?php echo $n[priority]; ?> </td>
-			<td> <?php echo $n[iginterval]; ?> </td>
-			<td> <?php echo $n[recovery]; ?> </td>
-			<td> <?php echo $n[active]; ?> </td>
+			<td> 
+				<form action="" method="post" style="display:inline!important;">
+					<input type="hidden" name="interval_not_id" value="<?php echo $n['id']; ?>" />
+					<input type="checkbox" data-toggle="toggle" data-size="mini"  name="notinterv" value="on" <?php echo $n["iginterval"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+					<input type="hidden" name="not_iginterval_onoff" value="onoff" />
+				</form>
+			</td>
+			
+			<td> 
+				<form action="" method="post" style="display:inline!important;">
+					<input type="hidden" name="recv_not_id" value="<?php echo $n['id']; ?>" />
+					<input type="checkbox" data-toggle="toggle" data-size="mini"  name="notrecv" value="on" <?php echo $n["recovery"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+					<input type="hidden" name="not_rec_onoff" value="onoff" />
+				</form>
+			</td>
+				
+			<td>
+				<form action="" method="post" style="display:inline!important;">
+					<input type="hidden" name="actv_not_id" value="<?php echo $n['id']; ?>" />
+					<input type="checkbox" data-toggle="toggle" data-size="mini"  name="notactv" value="on" <?php echo $n["active"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+					<input type="hidden" name="not_actv_onoff" value="onoff" />
+				</form>
+			</td>
 			
 			<td> 
 				<form action="" method="post" style="display:inline!important;">
