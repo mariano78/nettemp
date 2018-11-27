@@ -305,7 +305,7 @@ $notifs = $notif->fetchAll();
 		</td>
 	
 		<td>
-			<select name="nwhen" class="form-control input-sm">
+			<select name="nwhen" >
 				<option value="1" ><</option>
 				<option value="2" ><=</option>
 				<option value="3" >></option>
@@ -314,7 +314,7 @@ $notifs = $notif->fetchAll();
 		</td>
 		
 		<td>
-			<input name="nvalue" class="form-control input-sm" required="" type="text" value="">
+			<input name="nvalue"  required="" type="text" value="">
 		</td>
 		
 		<td>
@@ -330,7 +330,7 @@ $notifs = $notif->fetchAll();
 		</td>
 		
 		<td>
-			<input name="nmessage" placeholder="optional" class="form-control input-md" type="text" value="">
+			<input name="nmessage" placeholder="optional"  type="text" value="">
 		</td>
 		
 		<td>
