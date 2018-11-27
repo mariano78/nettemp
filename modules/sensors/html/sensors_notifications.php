@@ -107,6 +107,16 @@ if(!empty($actv_not_id) && ($not_actv_onoff == "onoff")) {
 	$db->exec("UPDATE notifications SET active = '$notactv' WHERE id='$actv_not_id'");
 }
 
+//Priority
+$priorityselect = isset($_POST['priorityselect']) ? $_POST['priorityselect'] : '';
+$prio_not_id = isset($_POST['prio_not_id']) ? $_POST['prio_not_id'] : '';
+$prio_onoff = isset($_POST['prio_onoff']) ? $_POST['prio_onoff'] : '';
+
+if(!empty($prio_not_id) && ($prio_onoff == "onoff")) { 
+	$db = new PDO("sqlite:$root/dbf/nettemp.db");
+	$db->exec("UPDATE notifications SET priority = '$priorityselect' WHERE id='$prio_not_id'");
+}
+
 
 
 
