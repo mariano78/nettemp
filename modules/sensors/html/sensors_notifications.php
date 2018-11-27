@@ -195,14 +195,15 @@ $notifs = $notif->fetchAll();
 			</td>
 			
 			<td> 
-			<select name="npriority" class="form-control input-sm">
-				<option value="verylow">Very Low</option>
-				<option value="moderate">Moderate</option>
-				<option value="normal">Normal</option>
-				<option value="high">High</option>
-				<option value="emergency">Emergency</option>
-			</select>
 			
+				<select class="selectpicker" data-width="50px" name="priorityselect" class="form-control input-sm" onchange="this.form.submit()">
+					<option value="verylow" <?php echo $n[priority] == 'verylow' ? 'selected="selected"' : ''; ?> >Very low</option>
+					<option value="moderate" <?php echo $n[priority] == 'moderate'? 'selected="selected"' : ''; ?> >Moderate</option>
+					<option value="normal" <?php echo $n[priority] == 'normal'? 'selected="selected"' : ''; ?> >Normal</option>
+					<option value="high" <?php echo $n[priority] == 'high'? 'selected="selected"' : ''; ?> >High</option>
+					<option value="emergency" <?php echo $n[priority] == 'emergency'? 'selected="selected"' : ''; ?> >Emergency</option>
+				</select>
+		
 			
 			
 			<?php echo $n[priority]; ?> </td>
