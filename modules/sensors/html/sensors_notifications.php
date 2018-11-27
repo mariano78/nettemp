@@ -191,7 +191,7 @@ $notifs = $notif->fetchAll();
 	<tr>
 		<td><label>Mail:</label></td>
 		<td>
-			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="mailonoff">
+			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="mailonoff" value="on">
 		</td>
 	</tr>
 	<tr>
@@ -222,13 +222,13 @@ $notifs = $notif->fetchAll();
 	<tr>
 		<td><label>Ignore interval:</label></td>
 		<td>
-			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="intervalonoff">
+			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="intervalonoff" value="on">
 		</td>
 	</tr>
 	<tr>
 		<td><label>Recovery:</label></td>
 		<td>
-			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="recoveryonoff">
+			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="recoveryonoff" value="on">
 		</td>
 	</tr>
 	<tr>
