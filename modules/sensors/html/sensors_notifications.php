@@ -185,7 +185,7 @@ $notifs = $notif->fetchAll();
 	<tr>
 		<td><label>SMS:</label></td>
 		<td>
-			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="smsonoff" value="on">
+			<input type="checkbox" name="smsonoff" value="on">
 		</td>
 	</tr>
 	<tr>
