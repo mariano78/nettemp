@@ -20,8 +20,19 @@ if(!empty($nrom) && ($nadd == "nadd")) {
 	exit();	
 } 
 
+//DEL z bazy
+$del_not_rom = isset($_POST['del_not_rom']) ? $_POST['del_not_rom'] : '';
+$del_not = isset($_POST['del_not']) ? $_POST['del_not'] : '';
+$del_not_id = isset($_POST['del_not_id']) ? $_POST['del_not_id'] : '';
 
-$romnot=$a["rom"];
+
+if(!empty($del_not_rom) && ($del_not == "del_not") && !empty($del_not_id) ) { 
+	$db = new PDO("sqlite:$root/dbf/nettemp.db");
+	
+	$db->exec("DELETE FROM notifications WHERE id='$del_not_id'");
+}
+
+
 $db = new PDO("sqlite:$root/dbf/nettemp.db");	
 $notif = $db->query("SELECT * FROM notifications WHERE rom='$device_rom'");
 $notifs = $notif->fetchAll();	
@@ -86,11 +97,9 @@ $notifs = $notif->fetchAll();
 		<td>
 		
 		<form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="rom" value="<?php echo $a["rom"]; ?>" />
-		<input type="hidden" name="type" value="<?php echo $a["type"]; ?>" />
-		<input type="hidden" name="gpio" value="<?php echo $a["gpio"]; ?>" />
-		<input type="hidden" name="ip" value="<?php echo $a["ip"]; ?>" />
-		<input type="hidden" name="usun2222" value="usun333333" />
+		<input type="hidden" name="del_not_rom" value="<?php echo $n["rom"]; ?>" />
+		<input type="hidden" name="del_not_id" value="<?php echo $n["id"]; ?>" />
+		<input type="hidden" name="del_not" value="del_not" />
 		<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
     </form>
 		
