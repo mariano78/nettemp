@@ -9,13 +9,14 @@ $nmessage = isset($_POST['nmessage']) ? $_POST['nmessage'] : '';
 $npriority = isset($_POST['npriority']) ? $_POST['npriority'] : '';
 $intervalonoff = isset($_POST['intervalonoff']) ? $_POST['intervalonoff'] : '';
 $recoveryonoff = isset($_POST['recoveryonoff']) ? $_POST['recoveryonoff'] : '';
+$activeonoff = isset($_POST['activeonoff']) ? $_POST['activeonoff'] : '';
 $nadd = isset($_POST['nadd']) ? $_POST['nadd'] : '';
 $nrom = isset($_POST['nrom']) ? $_POST['nrom'] : '';
 
 if(!empty($nrom) && ($nadd == "nadd")) { 
 	$db = new PDO('sqlite:dbf/nettemp.db');
 	$db->exec("INSERT INTO notifications ('rom', 'type', 'wheen', 'value', 'sms', 'mail', 'pov', 'message', 'priority', 'iginterval', 'recovery', 'active') 
-	VALUES ('$nrom', '$ntype', '$nwhen', '$nvalue', '$smsonoff', '$mailonoff', '$poonoff', '$nmessage', '$npriority', '$intervalonoff', '$recoveryonoff', 'on')");
+	VALUES ('$nrom', '$ntype', '$nwhen', '$nvalue', '$smsonoff', '$mailonoff', '$poonoff', '$nmessage', '$npriority', '$intervalonoff', '$recoveryonoff', '$activeonoff')");
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();	
 } 
@@ -349,6 +350,10 @@ $notifs = $notif->fetchAll();
 		
 		<td>
 			<input type="checkbox" name="recoveryonoff" value="on">
+		</td>
+		
+		<td>
+			<input type="checkbox" name="activeonoff" value="on">
 		</td>
 		
 		<td>
