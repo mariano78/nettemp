@@ -102,8 +102,17 @@ $notifs = $notif->fetchAll();
 <?php	
 	foreach ($notifs as $n) { ?>
 		<tr>
-			<td> <?php echo $n[type]; ?>
-			</td>
+			<td> <?php echo $n[type]; ?> </td>
+			<td> <?php echo $n[wheen]; ?> </td>
+			<td> <?php echo $n[value]; ?> </td>
+			<td> <?php echo $n[sms]; ?> </td>
+			<td> <?php echo $n[mail]; ?> </td>
+			<td> <?php echo $n[pov]; ?> </td>
+			<td> <?php echo $n[message]; ?> </td>
+			<td> <?php echo $n[priority]; ?> </td>
+			<td> <?php echo $n[iginterval]; ?> </td>
+			<td> <?php echo $n[recovery]; ?> </td>
+			<td> <?php echo $n[active]; ?> </td>
 		</tr>
 <?php    
 }
