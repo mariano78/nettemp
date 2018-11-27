@@ -43,6 +43,20 @@ if(!empty($val_new) && ($val_ok == "val_ok")) {
 	$db->exec("UPDATE notifications SET value = '$val_new' WHERE id='$val_id'");
 }
 
+//New message
+$mes_new = isset($_POST['mes_new']) ? $_POST['mes_new'] : '';
+$not_mes_id = isset($_POST['not_mes_id']) ? $_POST['not_mes_id'] : '';
+$new_not_mes = isset($_POST['new_not_mes']) ? $_POST['new_not_mes'] : '';
+
+if(!empty($not_mes_id) && ($new_not_mes == "new_not_mes")) { 
+	$db = new PDO("sqlite:$root/dbf/nettemp.db");
+	
+	$db->exec("UPDATE notifications SET message = '$mes_new' WHERE id='$not_mes_id'");
+}
+
+
+
+
 
 $db = new PDO("sqlite:$root/dbf/nettemp.db");	
 $notif = $db->query("SELECT * FROM notifications WHERE rom='$device_rom'");
@@ -84,23 +98,28 @@ $notifs = $notif->fetchAll();
 				<?php if ($n[wheen] == '1') {echo "<";} elseif ($n[wheen] == '2') {echo "<=";} elseif ($n[wheen] == '3') {echo ">";} elseif ($n[wheen] == '4') {echo ">=";}  ?> 
 			</td>
 		
-			<td> 
-			
+			<td>
 				<form action="" method="post" style="display:inline!important;"> 
 					<input type="hidden" name="val_id" value="<?php echo $n['id']; ?>" />
 					<input type="text" name="val_new" size="1" value="<?php echo $n['value']; ?>" />
 					<input type="hidden" name="val_ok" value="val_ok" />
 					<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 				</form>
+			</td>
 			
-			
-			
-			
-			<?php echo $n[value]; ?> </td>
 			<td> <?php echo $n[sms]; ?> </td>
 			<td> <?php echo $n[mail]; ?> </td>
 			<td> <?php echo $n[pov]; ?> </td>
-			<td> <?php echo $n[message]; ?> </td>
+			
+			<td> 
+				<form action="" method="post" style="display:inline!important;">
+					<input type="text" name="mes_new" size="10" maxlength="30" value="<?php echo $n["message"]; ?>" />
+					<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+					<input type="hidden" name="not_mes_id" value="<?php echo $n['id']; ?>" />
+					<input type="hidden" name="new_not_mes" value="new_not_mes"/>
+				</form>
+			</td>
+			
 			<td> <?php echo $n[priority]; ?> </td>
 			<td> <?php echo $n[iginterval]; ?> </td>
 			<td> <?php echo $n[recovery]; ?> </td>
