@@ -107,7 +107,18 @@ $notifs = $notif->fetchAll();
 				</form>
 			</td>
 			
-			<td> <?php echo $n[sms]; ?> </td>
+			<td> 
+			
+				<form action="" method="post" style="display:inline!important;">
+					<input type="hidden" name="sms_not_id" value="<?php echo $n['id']; ?>" />
+					<input type="checkbox" data-toggle="toggle" data-size="mini"  name="notsms" value="on" <?php echo $n["sms"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+					<input type="hidden" name="not_sms_onoff" value="onoff" />
+				</form>
+			
+			
+			
+			
+			<?php echo $n[sms]; ?> </td>
 			<td> <?php echo $n[mail]; ?> </td>
 			<td> <?php echo $n[pov]; ?> </td>
 			
@@ -235,7 +246,7 @@ $notifs = $notif->fetchAll();
 	<tr>
 		<td><label>Recovery:</label></td>
 		<td>
-			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="recoveryonoff" value="on">
+			<input type="checkbox" name="recoveryonoff" value="on">
 		</td>
 	</tr>
 	<tr>
