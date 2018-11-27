@@ -20,7 +20,7 @@ if(!empty($nrom) && ($nadd == "nadd")) {
 	exit();	
 } 
 
-//DEL z bazy
+//DEL from Base
 $del_not_rom = isset($_POST['del_not_rom']) ? $_POST['del_not_rom'] : '';
 $del_not = isset($_POST['del_not']) ? $_POST['del_not'] : '';
 $del_not_id = isset($_POST['del_not_id']) ? $_POST['del_not_id'] : '';
@@ -30,6 +30,17 @@ if(!empty($del_not_rom) && ($del_not == "del_not") && !empty($del_not_id) ) {
 	$db = new PDO("sqlite:$root/dbf/nettemp.db");
 	
 	$db->exec("DELETE FROM notifications WHERE id='$del_not_id'");
+}
+
+//New Value
+$val_new = isset($_POST['val_new']) ? $_POST['val_new'] : '';
+$val_id = isset($_POST['val_id']) ? $_POST['val_id'] : '';
+$val_ok = isset($_POST['val_ok']) ? $_POST['val_ok'] : '';
+
+if(!empty($val_new) && ($val_ok == "val_ok")) { 
+	$db = new PDO("sqlite:$root/dbf/nettemp.db");
+	
+	$db->exec("UPDATE notifications SET value = '$val_new' WHERE id='$val_id'");
 }
 
 
@@ -73,7 +84,19 @@ $notifs = $notif->fetchAll();
 				<?php if ($n[wheen] == '1') {echo "<";} elseif ($n[wheen] == '2') {echo "<=";} elseif ($n[wheen] == '3') {echo ">";} elseif ($n[wheen] == '4') {echo ">=";}  ?> 
 			</td>
 		
-			<td> <?php echo $n[value]; ?> </td>
+			<td> 
+			
+				<form action="" method="post" style="display:inline!important;"> 
+					<input type="hidden" name="val_id" value="<?php echo $n['id']; ?>" />
+					<input type="text" name="val_new" size="1" value="<?php echo $n['value']; ?>" />
+					<input type="hidden" name="val_ok" value="val_ok" />
+					<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+				</form>
+			
+			
+			
+			
+			<?php echo $n[value]; ?> </td>
 			<td> <?php echo $n[sms]; ?> </td>
 			<td> <?php echo $n[mail]; ?> </td>
 			<td> <?php echo $n[pov]; ?> </td>
