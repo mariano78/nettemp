@@ -107,7 +107,7 @@ $notifs = $notif->fetchAll();
 	foreach ($notifs as $n) { ?>
 		<tr>
 			<td> 
-				<?php if ($n[type] == 'value') {echo Value} else if if ($n[type] == 'lupdate') {echo Last update}  ?> 
+				<?php if ($n[type] == 'value') {echo Value} else if ($n[type] == 'lupdate') {echo Last update}  ?> 
 		
 		
 			</td>
