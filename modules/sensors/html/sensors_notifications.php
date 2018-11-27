@@ -108,19 +108,28 @@ $notifs = $notif->fetchAll();
 			</td>
 			
 			<td> 
-			
 				<form action="" method="post" style="display:inline!important;">
 					<input type="hidden" name="sms_not_id" value="<?php echo $n['id']; ?>" />
 					<input type="checkbox" data-toggle="toggle" data-size="mini"  name="notsms" value="on" <?php echo $n["sms"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
 					<input type="hidden" name="not_sms_onoff" value="onoff" />
 				</form>
+			</td>
 			
+			<td>
+				<form action="" method="post" style="display:inline!important;">
+					<input type="hidden" name="mail_not_id" value="<?php echo $n['id']; ?>" />
+					<input type="checkbox" data-toggle="toggle" data-size="mini"  name="notmail" value="on" <?php echo $n["mail"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+					<input type="hidden" name="not_mail_onoff" value="onoff" />
+				</form>
+			</td>
 			
-			
-			
-			<?php echo $n[sms]; ?> </td>
-			<td> <?php echo $n[mail]; ?> </td>
-			<td> <?php echo $n[pov]; ?> </td>
+			<td> 
+				<form action="" method="post" style="display:inline!important;">
+					<input type="hidden" name="pov_not_id" value="<?php echo $n['id']; ?>" />
+					<input type="checkbox" data-toggle="toggle" data-size="mini"  name="povmail" value="on" <?php echo $n["pov"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+					<input type="hidden" name="not_pov_onoff" value="onoff" />
+				</form>
+			</td>
 			
 			<td> 
 				<form action="" method="post" style="display:inline!important;">
