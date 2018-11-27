@@ -298,7 +298,7 @@ $notifs = $notif->fetchAll();
 	<tr>
 		<form action="" method="post">	
 		<td>
-			<select name="ntype" class="form-control input-sm">
+			<select name="ntype" >
 				<option value="value" >Value</option>
 				<option value="lupdate" >Last Update</option>
 			</select>
