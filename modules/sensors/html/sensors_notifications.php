@@ -96,12 +96,7 @@ $notifs = $notif->fetchAll();
 		
 		<td>
 		
-		<form action="" method="post" style="display:inline!important;">
-		<input type="hidden" name="del_not_rom" value="<?php echo $n["rom"]; ?>" />
-		<input type="hidden" name="del_not_id" value="<?php echo $n["id"]; ?>" />
-		<input type="hidden" name="del_not" value="del_not" />
-		<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
-    </form>
+		
 		
 		
 		</td>
@@ -122,8 +117,16 @@ $notifs = $notif->fetchAll();
 			<td> <?php echo $n[iginterval]; ?> </td>
 			<td> <?php echo $n[recovery]; ?> </td>
 			<td> <?php echo $n[active]; ?> </td>
-			<td> <?php echo kosz; ?> </td>
-			<td> <?php echo $n[rom]; ?> </td>
+			
+			<td> 
+				<form action="" method="post" style="display:inline!important;">
+					<input type="hidden" name="del_not_rom" value="<?php echo $n["rom"]; ?>" />
+					<input type="hidden" name="del_not_id" value="<?php echo $n["id"]; ?>" />
+					<input type="hidden" name="del_not" value="del_not" />
+					<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+				</form>
+			</td>
+			
 		</tr>
 <?php    
 }
