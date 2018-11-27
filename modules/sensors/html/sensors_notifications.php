@@ -278,6 +278,23 @@ $notifs = $notif->fetchAll();
 <div class="table-responsive">
 <table class="table table-hover table-condensed small">
 
+<thead>
+	<tr>
+		<th>Type</th>
+		<th>When</th>
+		<th>Value</th>
+		<th>SMS</th>
+		<th>Mail</th>
+		<th>PushOver</th>
+		<th>Custom message</th>
+		<th>Priority</th>
+		<th>Ignore interval</th>
+		<th>Recovery</th>
+		<th>Active</th>
+		<th></th>
+	</tr>
+</thead>
+
 <form action="" method="post">	
 
 	<tr>
