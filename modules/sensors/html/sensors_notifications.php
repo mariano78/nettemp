@@ -20,6 +20,12 @@ if(!empty($nrom) && ($nadd == "nadd")) {
 	exit();	
 } 
 
+
+
+$db = new PDO("sqlite:$root/dbf/nettemp.db");	
+$notif = $db->query("SELECT * FROM notifications");
+$notifs = $notif->fetchAll();	
+
 ?>
 
 
@@ -93,6 +99,12 @@ if(!empty($nrom) && ($nadd == "nadd")) {
 		
 		
 	</tr>
+<?php	
+	foreach ($notifs as $n) {
+    echo $n[type];
+}
+
+?>
 
 
 </table>
