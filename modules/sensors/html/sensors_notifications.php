@@ -197,8 +197,8 @@ $notifs = $notif->fetchAll();
 	<tr>
 		<td><label>PushOver:</label></td>
 		<td>
-			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="poonoff">
-			<button  name="smail" value="<?php echo $tr["smail"] == 'on' ? 'off' : 'on'; ?>" <?php echo $tr["smail"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>><?php echo $tr["smail"] == 'on' ? 'ON' : 'OFF'; ?></button>
+			<input type="checkbox" data-toggle="toggle" data-size="mini"  name="poonoff" value="on">
+			
 		</td>
 	</tr>
 	<tr>
