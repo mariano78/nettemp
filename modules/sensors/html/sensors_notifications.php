@@ -78,6 +78,34 @@ if(!empty($pov_not_id) && ($not_pov_onoff == "onoff")) {
 	$db = new PDO("sqlite:$root/dbf/nettemp.db");
 	$db->exec("UPDATE notifications SET pov = '$notpov' WHERE id='$pov_not_id'");
 }
+//Interval
+$notinterv = isset($_POST['notinterv']) ? $_POST['notinterv'] : '';
+$interval_not_id = isset($_POST['interval_not_id']) ? $_POST['interval_not_id'] : '';
+$not_interval_onoff = isset($_POST['not_interval_onoff']) ? $_POST['not_interval_onoff'] : '';
+
+if(!empty($interval_not_id) && ($not_interval_onoff == "onoff")) { 
+	$db = new PDO("sqlite:$root/dbf/nettemp.db");
+	$db->exec("UPDATE notifications SET iginterval = '$notinterv' WHERE id='$interval_not_id'");
+}
+//Recovery
+$notrecv = isset($_POST['notrecv']) ? $_POST['notrecv'] : '';
+$recv_not_id = isset($_POST['recv_not_id']) ? $_POST['recv_not_id'] : '';
+$not_rec_onoff = isset($_POST['not_rec_onoff']) ? $_POST['not_rec_onoff'] : '';
+
+if(!empty($recv_not_id) && ($not_rec_onoff == "onoff")) { 
+	$db = new PDO("sqlite:$root/dbf/nettemp.db");
+	$db->exec("UPDATE notifications SET recovery = '$notrecv' WHERE id='$recv_not_id'");
+}
+
+//Active
+$notactv = isset($_POST['notactv']) ? $_POST['notactv'] : '';
+$actv_not_id = isset($_POST['actv_not_id']) ? $_POST['actv_not_id'] : '';
+$not_actv_onoff = isset($_POST['not_actv_onoff']) ? $_POST['not_actv_onoff'] : '';
+
+if(!empty($actv_not_id) && ($not_actv_onoff == "onoff")) { 
+	$db = new PDO("sqlite:$root/dbf/nettemp.db");
+	$db->exec("UPDATE notifications SET active = '$notactv' WHERE id='$actv_not_id'");
+}
 
 
 
