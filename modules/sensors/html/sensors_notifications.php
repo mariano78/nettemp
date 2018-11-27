@@ -81,9 +81,9 @@ if(!empty($pov_not_id) && ($not_pov_onoff == "onoff")) {
 //Interval
 $notinterv = isset($_POST['notinterv']) ? $_POST['notinterv'] : '';
 $interval_not_id = isset($_POST['interval_not_id']) ? $_POST['interval_not_id'] : '';
-$not_interval_onoff = isset($_POST['not_interval_onoff']) ? $_POST['not_interval_onoff'] : '';
+$not_iginterval_onoff = isset($_POST['not_iginterval_onoff']) ? $_POST['not_iginterval_onoff'] : '';
 
-if(!empty($interval_not_id) && ($not_interval_onoff == "onoff")) { 
+if(!empty($interval_not_id) && ($not_iginterval_onoff == "onoff")) { 
 	$db = new PDO("sqlite:$root/dbf/nettemp.db");
 	$db->exec("UPDATE notifications SET iginterval = '$notinterv' WHERE id='$interval_not_id'");
 }
