@@ -194,7 +194,18 @@ $notifs = $notif->fetchAll();
 				</form>
 			</td>
 			
-			<td> <?php echo $n[priority]; ?> </td>
+			<td> 
+			<select name="npriority" class="form-control input-sm">
+				<option value="verylow">Very Low</option>
+				<option value="moderate">Moderate</option>
+				<option value="normal">Normal</option>
+				<option value="high">High</option>
+				<option value="emergency">Emergency</option>
+			</select>
+			
+			
+			
+			<?php echo $n[priority]; ?> </td>
 			<td> 
 				<form action="" method="post" style="display:inline!important;">
 					<input type="hidden" name="interval_not_id" value="<?php echo $n['id']; ?>" />
