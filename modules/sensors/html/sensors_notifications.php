@@ -334,7 +334,7 @@ $notifs = $notif->fetchAll();
 		</td>
 		
 		<td>
-			<select name="npriority" class="form-control input-sm">
+			<select name="npriority" class="selectpicker"">
 				<option value="verylow">Very Low</option>
 				<option value="moderate">Moderate</option>
 				<option value="normal">Normal</option>
