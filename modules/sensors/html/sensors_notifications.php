@@ -28,7 +28,6 @@ $del_not_id = isset($_POST['del_not_id']) ? $_POST['del_not_id'] : '';
 
 if(!empty($del_not_rom) && ($del_not == "del_not") && !empty($del_not_id) ) { 
 	$db = new PDO("sqlite:$root/dbf/nettemp.db");
-	
 	$db->exec("DELETE FROM notifications WHERE id='$del_not_id'");
 }
 
@@ -39,7 +38,6 @@ $val_ok = isset($_POST['val_ok']) ? $_POST['val_ok'] : '';
 
 if(!empty($val_new) && ($val_ok == "val_ok")) { 
 	$db = new PDO("sqlite:$root/dbf/nettemp.db");
-	
 	$db->exec("UPDATE notifications SET value = '$val_new' WHERE id='$val_id'");
 }
 
@@ -50,7 +48,6 @@ $new_not_mes = isset($_POST['new_not_mes']) ? $_POST['new_not_mes'] : '';
 
 if(!empty($not_mes_id) && ($new_not_mes == "new_not_mes")) { 
 	$db = new PDO("sqlite:$root/dbf/nettemp.db");
-	
 	$db->exec("UPDATE notifications SET message = '$mes_new' WHERE id='$not_mes_id'");
 }
 
@@ -61,14 +58,26 @@ $not_sms_onoff = isset($_POST['not_sms_onoff']) ? $_POST['not_sms_onoff'] : '';
 
 if(!empty($sms_not_id) && ($not_sms_onoff == "onoff")) { 
 	$db = new PDO("sqlite:$root/dbf/nettemp.db");
-	
 	$db->exec("UPDATE notifications SET sms = '$notsms' WHERE id='$sms_not_id'");
 }
-
-
-
 //Mail
+$notmail = isset($_POST['notmail']) ? $_POST['notmail'] : '';
+$mail_not_id = isset($_POST['mail_not_id']) ? $_POST['mail_not_id'] : '';
+$not_mail_onoff = isset($_POST['not_mail_onoff']) ? $_POST['not_mail_onoff'] : '';
+
+if(!empty($mail_not_id) && ($not_mail_onoff == "onoff")) { 
+	$db = new PDO("sqlite:$root/dbf/nettemp.db");
+	$db->exec("UPDATE notifications SET mail = '$notmail' WHERE id='$mail_not_id'");
+}
 //Pov
+$notpov = isset($_POST['notpov']) ? $_POST['notpov'] : '';
+$pov_not_id = isset($_POST['pov_not_id']) ? $_POST['pov_not_id'] : '';
+$not_pov_onoff = isset($_POST['not_pov_onoff']) ? $_POST['not_pov_onoff'] : '';
+
+if(!empty($pov_not_id) && ($not_pov_onoff == "onoff")) { 
+	$db = new PDO("sqlite:$root/dbf/nettemp.db");
+	$db->exec("UPDATE notifications SET pov = '$notsms' WHERE id='$pov_not_id'");
+}
 
 
 
