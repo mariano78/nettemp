@@ -100,10 +100,13 @@ $notifs = $notif->fetchAll();
 		
 	</tr>
 <?php	
-	foreach ($notifs as $n) {
-    echo $n[type];
+	foreach ($notifs as $n) { ?>
+		<tr>
+			<td> <?php echo $n[type]; ?>
+			</td>
+		</tr>
+<?php    
 }
-
 ?>
 
 
