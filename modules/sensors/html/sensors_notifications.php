@@ -195,7 +195,7 @@ $notifs = $notif->fetchAll();
 			</td>
 			
 			<td> 
-			
+				<form action="" method="post"  class="form-inline">
 				<select class="selectpicker" data-width="50px" name="priorityselect" class="form-control input-sm" onchange="this.form.submit()">
 					<option value="verylow" <?php echo $n[priority] == 'verylow' ? 'selected="selected"' : ''; ?> >Very low</option>
 					<option value="moderate" <?php echo $n[priority] == 'moderate'? 'selected="selected"' : ''; ?> >Moderate</option>
@@ -203,6 +203,7 @@ $notifs = $notif->fetchAll();
 					<option value="high" <?php echo $n[priority] == 'high'? 'selected="selected"' : ''; ?> >High</option>
 					<option value="emergency" <?php echo $n[priority] == 'emergency'? 'selected="selected"' : ''; ?> >Emergency</option>
 				</select>
+				</form>
 		
 			
 			
