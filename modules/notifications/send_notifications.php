@@ -58,6 +58,7 @@ try {
 				
 				echo $sname." Type is < -  tmp is".$stmp." - Not Value is ".$nvalue."\n";
 				//send_not($sname, $date);
+				if ($stmp < $nvalue) {echo "Notification sent";}
 				
 				
 			}elseif ($nwhen == '2') {
