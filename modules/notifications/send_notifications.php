@@ -19,27 +19,27 @@ try {
     
     foreach($result as $sn) {
 		
-		$nrom=$sn[rom];
-		$ntype=$sn[type];
-		$nwhen=$sn[wheen];
-		$nvalue=$sn[value];
-		$nsms=$sn[sms];
-		$nmail=$sn[mail];
-		$npov=$sn[pov];
-		$nmsg=$sn[message];
-		$npriority=$sn[priority];
-		$niginterval=$sn[iginterval];
-		$nrecovery=$sn[recovery];
+		$nrom=$sn['rom'];
+		$ntype=$sn['type'];
+		$nwhen=$sn['wheen'];
+		$nvalue=$sn['value'];
+		$nsms=$sn['sms'];
+		$nmail=$sn['mail'];
+		$npov=$sn['pov'];
+		$nmsg=$sn['message'];
+		$npriority=$sn['priority'];
+		$niginterval=$sn['iginterval'];
+		$nrecovery=$sn['recovery'];
 		
 		$sensor = $db->query("SELECT name,tmp,current,type FROM sensors WHERE rom='$nrom'");
 		$sensors = $sensor->fetchAll();
 		
 		foreach ($sensors as $sen) {
 			
-			$sname=$sen[name];
-			$stmp=$sen[tmp];
-			$scurrent=$sen[current];
-			$stype=$sen[type];
+			$sname=$sen['name'];
+			$stmp=$sen['tmp'];
+			$scurrent=$sen['current'];
+			$stype=$sen['type'];
 			
 		}
 		
