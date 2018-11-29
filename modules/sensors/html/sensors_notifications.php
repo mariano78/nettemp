@@ -13,10 +13,14 @@ $activeonoff = isset($_POST['activeonoff']) ? $_POST['activeonoff'] : '';
 $nadd = isset($_POST['nadd']) ? $_POST['nadd'] : '';
 $nrom = isset($_POST['nrom']) ? $_POST['nrom'] : '';
 
+//Add to Base
 if(!empty($nrom) && ($nadd == "nadd")) { 
 	$db = new PDO('sqlite:dbf/nettemp.db');
 	$db->exec("INSERT INTO notifications ('rom', 'type', 'wheen', 'value', 'sms', 'mail', 'pov', 'message', 'priority', 'iginterval', 'recovery', 'active') 
 	VALUES ('$nrom', '$ntype', '$nwhen', '$nvalue', '$smsonoff', '$mailonoff', '$poonoff', '$nmessage', '$npriority', '$intervalonoff', '$recoveryonoff', '$activeonoff')");
+	
+	$db->exec("UPDATE sensors SET notif = 'on' WHERE rom='$nrom'");
+	
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();	
 } 

@@ -202,4 +202,6 @@ $updates['2018-10-05 08:06:25'][]="INSERT INTO nt_settings ('option', 'value') V
 $updates['2018-10-12 10:29:48'][]="CREATE TABLE notifications (id INTEGER PRIMARY KEY, rom TEXT , type TEXT, wheen TEXT, value TEXT, sms TEXT, mail TEXT, pov TEXT, message TEXT, priority TEXT, iginterval TEXT, recovery TEXT, active TEXT)";
 
 $updates['2018-11-08 10:26:46'][]="ALTER TABLE gpio ADD token TEXT";
+
+$updates['2018-11-29 13:43:11'][]="ALTER TABLE sensors ADD notif TEXT";
 ?>
