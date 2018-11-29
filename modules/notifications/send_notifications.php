@@ -65,25 +65,19 @@ try {
 				
 				
 				
-			}
-			
-			if ($nwhen == '4') {
+			}elseif ($nwhen == '4') {
 				
 				echo $date." Type is >= ".$sname." - sensor\n";
 				
 				
 				
-			}
-			
-			if ($nwhen == '5') {
+			}elseif ($nwhen == '5') {
 				
 				echo $date." Type is == ".$sname." - sensor\n";
 				
 				
 				
-			}
-			
-			if ($nwhen == '6') {
+			}elseif ($nwhen == '6') {
 				
 				echo $date." Type is != ".$sname." - sensor\n";
 				
