@@ -1,9 +1,9 @@
 <?php
 $ROOT=dirname(dirname(dirname(__FILE__)));
 
-function send_not($nam, $dat){
+function send_not ($notname,$notmessage,$notsms,$notmail,$notpov){
 	
-	echo $dat." Type is < ".$nam." - z funkcji \n";
+	echo $notname."-".$notmessage."-"."\n";
 }
 
 
@@ -58,7 +58,19 @@ try {
 				
 				echo $sname." Type is < -  tmp is".$stmp." - Not Value is ".$nvalue."\n";
 				//send_not($sname, $date);
-				if ($stmp < $nvalue) {echo "Notification sent \n";}
+				if ($stmp < $nvalue) {
+					
+					if (!empty($nmsg)) {$message = $nmsg
+					}else {
+						$message = "domyślna wiadomosc z NT\n"
+						
+					}
+					
+					send_not($sname,$message,$nsms,$nmail,$npov);
+				
+					
+					
+					}
 				
 				
 			}elseif ($nwhen == '2') {
