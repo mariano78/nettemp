@@ -56,8 +56,8 @@ try {
 
 			if ($nwhen == '1') {
 				
-				//echo $date." Type is < ".$sname." - sensor\n";
-				send_not($sname, $date);
+				echo $sname." Type is < -  tmp is".$stmp." - Not Value is ".$nvalue."\n";
+				//send_not($sname, $date);
 				
 				
 			}elseif ($nwhen == '2') {
