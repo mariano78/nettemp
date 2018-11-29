@@ -60,9 +60,10 @@ try {
 				//send_not($sname, $date);
 				if ($stmp < $nvalue) {
 					
-					if (!empty($nmsg)) {$message = $nmsg
+					if (!empty($nmsg)) {
+						$message = $nmsg;
 					}else {
-						$message = "domyślna wiadomosc z NT\n"
+						$message = "domyślna wiadomosc z NT\n";
 						
 					}
 					
