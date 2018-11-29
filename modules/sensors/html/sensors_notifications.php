@@ -164,7 +164,7 @@ $notifs = $notif->fetchAll();
 			</td>
 			
 			<td> 
-				<?php if ($n[wheen] == '1') {echo "<";} elseif ($n[wheen] == '2') {echo "<=";} elseif ($n[wheen] == '3') {echo ">";} elseif ($n[wheen] == '4') {echo ">=";}  ?> 
+				<?php if ($n[wheen] == '1') {echo "<";} elseif ($n[wheen] == '2') {echo "<=";} elseif ($n[wheen] == '3') {echo ">";} elseif ($n[wheen] == '4') {echo ">=";} elseif ($n[wheen] == '5') {echo "==";} elseif ($n[wheen] == '6') {echo "!=";}  ?> 
 			</td>
 		
 			<td>
@@ -304,6 +304,8 @@ $notifs = $notif->fetchAll();
 				<option value="2" ><=</option>
 				<option value="3" >></option>
 				<option value="4" >>=</option>
+				<option value="5" >==</option>
+				<option value="6" >!=</option>
 			</select>
 		</td>
 		
