@@ -1,5 +1,12 @@
 <?php
 $ROOT=dirname(dirname(dirname(__FILE__)));
+
+function send_not($nam, $dat){
+	
+	echo $dat." Type is < ".$nam." - z funkcji \n";
+}
+
+
  
 $date = date("Y-m-d H:i:s"); 
 $hostname=gethostname(); 
@@ -49,8 +56,8 @@ try {
 
 			if ($nwhen == '1') {
 				
-				echo $date." Type is < ".$sname." - sensor\n";
-				
+				//echo $date." Type is < ".$sname." - sensor\n";
+				send_not($name, $date);
 				
 				
 			}elseif ($nwhen == '2') {
