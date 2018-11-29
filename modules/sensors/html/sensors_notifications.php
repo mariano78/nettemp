@@ -19,7 +19,7 @@ if(!empty($nrom) && ($nadd == "nadd")) {
 	$db->exec("INSERT INTO notifications ('rom', 'type', 'wheen', 'value', 'sms', 'mail', 'pov', 'message', 'priority', 'iginterval', 'recovery', 'active') 
 	VALUES ('$nrom', '$ntype', '$nwhen', '$nvalue', '$smsonoff', '$mailonoff', '$poonoff', '$nmessage', '$npriority', '$intervalonoff', '$recoveryonoff', '$activeonoff')");
 	
-	$db->exec("UPDATE sensors SET notif = 'on' WHERE rom='$nrom'");
+	//$db->exec("UPDATE sensors SET notif = 'on' WHERE rom='$nrom'");
 	
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();	

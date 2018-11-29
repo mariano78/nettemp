@@ -203,5 +203,5 @@ $updates['2018-10-12 10:29:48'][]="CREATE TABLE notifications (id INTEGER PRIMAR
 
 $updates['2018-11-08 10:26:46'][]="ALTER TABLE gpio ADD token TEXT";
 
-$updates['2018-11-29 13:43:11'][]="ALTER TABLE sensors ADD notif TEXT";
+//$updates['2018-11-29 13:43:11'][]="ALTER TABLE sensors ADD notif TEXT";
 ?>
