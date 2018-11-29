@@ -32,6 +32,8 @@ try {
 		$niginterval=$sn['iginterval'];
 		$nrecovery=$sn['recovery'];
 		
+		echo $ntype." is type \n";
+		
 		$sensor = $db->query("SELECT name,tmp,current,type FROM sensors WHERE rom='$nrom'");
 		$sensors = $sensor->fetchAll();
 		
