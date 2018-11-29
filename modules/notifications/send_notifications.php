@@ -18,6 +18,7 @@ try {
     $result= $query->fetchAll();
     
     foreach($result as $sn) {
+		echo $date." More than one \n";
 		
 		$nrom=$sn['rom'];
 		$ntype=$sn['type'];
