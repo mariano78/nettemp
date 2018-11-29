@@ -49,7 +49,7 @@ try {
 		
 //check type 
 
-			if ($ntype == '1') {
+			if ($nwhen == '1') {
 				
 				echo $date." Type is < ".$sname." - sensor\n";
 				
@@ -57,7 +57,7 @@ try {
 				
 			}
 			
-			if ($ntype == '2') {
+			if ($nwhen == '2') {
 				
 				echo $date." Type is <= ".$sname." - sensor\n";
 				
@@ -65,7 +65,7 @@ try {
 				
 			}
 			
-			if ($ntype == '3') {
+			if ($nwhen == '3') {
 				
 				echo $date." Type is > ".$sname." - sensor\n";
 				
@@ -73,7 +73,7 @@ try {
 				
 			}
 			
-			if ($ntype == '4') {
+			if ($nwhen == '4') {
 				
 				echo $date." Type is >= ".$sname." - sensor\n";
 				
@@ -81,7 +81,7 @@ try {
 				
 			}
 			
-			if ($ntype == '5') {
+			if ($nwhen == '5') {
 				
 				echo $date." Type is == ".$sname." - sensor\n";
 				
@@ -89,7 +89,7 @@ try {
 				
 			}
 			
-			if ($ntype == '6') {
+			if ($nwhen == '6') {
 				
 				echo $date." Type is != ".$sname." - sensor\n";
 				
