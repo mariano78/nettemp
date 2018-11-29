@@ -43,6 +43,61 @@ try {
 			
 		}
 		
+		
+//check type 
+
+			if ($ntype == '1') {
+				
+				echo $date." Type is < ".$sname." - sensor\n";
+				
+				
+				
+			}
+			
+			if ($ntype == '2') {
+				
+				echo $date." Type is <= ".$sname." - sensor\n";
+				
+				
+				
+			}
+			
+			if ($ntype == '3') {
+				
+				echo $date." Type is > ".$sname." - sensor\n";
+				
+				
+				
+			}
+			
+			if ($ntype == '4') {
+				
+				echo $date." Type is >= ".$sname." - sensor\n";
+				
+				
+				
+			}
+			
+			if ($ntype == '5') {
+				
+				echo $date." Type is == ".$sname." - sensor\n";
+				
+				
+				
+			}
+			
+			if ($ntype == '6') {
+				
+				echo $date." Type is != ".$sname." - sensor\n";
+				
+				
+				
+			}
+		
+		
+		
+		
+		
 //sms	
 		if ($nsms == "on") {
 			
