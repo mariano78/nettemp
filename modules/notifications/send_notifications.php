@@ -18,7 +18,6 @@ try {
     $result= $query->fetchAll();
     
     foreach($result as $sn) {
-		echo $date." More than one \n";
 		
 		$nrom=$sn['rom'];
 		$ntype=$sn['type'];
@@ -32,7 +31,6 @@ try {
 		$niginterval=$sn['iginterval'];
 		$nrecovery=$sn['recovery'];
 		
-		echo $ntype." is type \n";
 		
 		$sensor = $db->query("SELECT name,tmp,current,type FROM sensors WHERE rom='$nrom'");
 		$sensors = $sensor->fetchAll();
@@ -55,17 +53,13 @@ try {
 				
 				
 				
-			}
-			
-			if ($nwhen == '2') {
+			}elseif ($nwhen == '2') {
 				
 				echo $date." Type is <= ".$sname." - sensor\n";
 				
 				
 				
-			}
-			
-			if ($nwhen == '3') {
+			}elseif ($nwhen == '3') {
 				
 				echo $date." Type is > ".$sname." - sensor\n";
 				
