@@ -56,49 +56,69 @@ try {
 
 			if ($nwhen == '1') {
 				
-				echo $sname." Type is < -  tmp is".$stmp." - Not Value is ".$nvalue."\n";
-				//send_not($sname, $date);
 				if ($stmp < $nvalue) {
-					
 					if (!empty($nmsg)) {
 						$message = $nmsg;
 					}else {
-						$message = $sname." value is ".$stmp." < ".$nvalue."\n";
-						
+						$message = $sname." value is ".$stmp." < ".$nvalue."\n";	
+					}
+					send_not($sname,$message,$nsms,$nmail,$npov);
+					}
+					
+			}elseif ($nwhen == '2') {
+				
+				if ($stmp <= $nvalue) {
+					if (!empty($nmsg)) {
+						$message = $nmsg;
+					}else {
+						$message = $sname." value is ".$stmp." <= ".$nvalue."\n";	
 					}
 					send_not($sname,$message,$nsms,$nmail,$npov);
 					}
 				
-				
-			}elseif ($nwhen == '2') {
-				
-				echo $date." Type is <= ".$sname." - sensor\n";
-				
-				
-				
 			}elseif ($nwhen == '3') {
 				
-				echo $date." Type is > ".$sname." - sensor\n";
-				
-				
-				
+				if ($stmp > $nvalue) {
+					if (!empty($nmsg)) {
+						$message = $nmsg;
+					}else {
+						$message = $sname." value is ".$stmp." > ".$nvalue."\n";	
+					}
+					send_not($sname,$message,$nsms,$nmail,$npov);
+					}
+	
 			}elseif ($nwhen == '4') {
 				
-				echo $date." Type is >= ".$sname." - sensor\n";
-				
-				
+				if ($stmp >= $nvalue) {
+					if (!empty($nmsg)) {
+						$message = $nmsg;
+					}else {
+						$message = $sname." value is ".$stmp." >= ".$nvalue."\n";	
+					}
+					send_not($sname,$message,$nsms,$nmail,$npov);
+					}
 				
 			}elseif ($nwhen == '5') {
 				
-				echo $date." Type is == ".$sname." - sensor\n";
-				
-				
+				if ($stmp == $nvalue) {
+					if (!empty($nmsg)) {
+						$message = $nmsg;
+					}else {
+						$message = $sname." value is ".$stmp." = ".$nvalue."\n";	
+					}
+					send_not($sname,$message,$nsms,$nmail,$npov);
+					}	
 				
 			}elseif ($nwhen == '6') {
 				
-				echo $date." Type is != ".$sname." - sensor\n";
-				
-				
+				if ($stmp != $nvalue) {
+					if (!empty($nmsg)) {
+						$message = $nmsg;
+					}else {
+						$message = $sname." value is ".$stmp." != ".$nvalue."\n";	
+					}
+					send_not($sname,$message,$nsms,$nmail,$npov);
+					}
 				
 			}
 		
