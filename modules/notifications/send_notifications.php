@@ -2,6 +2,7 @@
 $ROOT=dirname(dirname(dirname(__FILE__)));
 
 try {
+	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 	$query = $db->query("SELECT * FROM nt_settings");
     $result= $query->fetchAll();
     
