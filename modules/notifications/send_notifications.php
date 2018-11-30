@@ -29,7 +29,7 @@ try {
 
 
 
-function send_not ($notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho){
+function send_not ($notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$pushoukey,$pushoakey){
 	
 	if ($notsms == 'on') {
 		
