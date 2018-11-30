@@ -1,7 +1,7 @@
 <?php
 $ROOT=dirname(dirname(dirname(__FILE__)));
 
-
+try {
 	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 	$query = $db->query("SELECT * FROM nt_settings");
     $result= $query->fetchAll();
@@ -21,7 +21,10 @@ $ROOT=dirname(dirname(dirname(__FILE__)));
 			$pushoakey=$s['value'];
 		}
 	}
-
+}catch (Exception $e) {
+    echo $date." Error\n";
+    exit;
+}
 
 
 
@@ -128,7 +131,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." < ".$nvalue;	
 					}
-					send_not($sname,$message,$nsms,$nmail,$npov,$npriority);
+					send_not($sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
 					}
 					
 			}elseif ($nwhen == '2') {
@@ -139,7 +142,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." <= ".$nvalue;	
 					}
-					send_not($sname,$message,$nsms,$nmail,$npov,$npriority);
+					send_not($sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
 					}
 				
 			}elseif ($nwhen == '3') {
@@ -150,7 +153,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." > ".$nvalue;	
 					}
-					send_not($sname,$message,$nsms,$nmail,$npov,$npriority);
+					send_not($sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
 					}
 	
 			}elseif ($nwhen == '4') {
@@ -161,7 +164,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." >= ".$nvalue;	
 					}
-					send_not($sname,$message,$nsms,$nmail,$npov,$npriority);
+					send_not($sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
 					}
 				
 			}elseif ($nwhen == '5') {
@@ -172,7 +175,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." = ".$nvalue;	
 					}
-					send_not($sname,$message,$nsms,$nmail,$npov,$npriority);
+					send_not($sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
 					}	
 				
 			}elseif ($nwhen == '6') {
@@ -183,7 +186,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." != ".$nvalue;	
 					}
-					send_not($sname,$message,$nsms,$nmail,$npov,$npriority);
+					send_not($sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
 					}
 				
 			}
