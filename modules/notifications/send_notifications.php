@@ -54,8 +54,8 @@ function send_not ($notname,$notmessage,$notsms,$notmail,$notpov,$priority,$push
 						curl_setopt_array($ch = curl_init(), array(
 						  CURLOPT_URL => "https://api.pushover.net/1/messages.json",
 						  CURLOPT_POSTFIELDS => array(
-							"token" => "$nts_pusho_api_key",
-							"user" => "$nts_pusho_user_key",
+							"token" => "$pushoakey",
+							"user" => "$pushoukey",
 							"message" => "$notmessage",
 							"priority" => "$priority",
 						  ),
