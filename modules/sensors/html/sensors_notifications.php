@@ -212,11 +212,11 @@ $notifs = $notif->fetchAll();
 			<td> 
 				<form action="" method="post"  class="form-inline">
 				<select class="selectpicker" data-width="50px" name="priorityselect" class="form-control input-sm" onchange="this.form.submit()">
-					<option value="verylow" <?php echo $n[priority] == 'verylow' ? 'selected="selected"' : ''; ?> >Very low</option>
-					<option value="moderate" <?php echo $n[priority] == 'moderate'? 'selected="selected"' : ''; ?> >Moderate</option>
-					<option value="normal" <?php echo $n[priority] == 'normal'? 'selected="selected"' : ''; ?> >Normal</option>
-					<option value="high" <?php echo $n[priority] == 'high'? 'selected="selected"' : ''; ?> >High</option>
-					<option value="emergency" <?php echo $n[priority] == 'emergency'? 'selected="selected"' : ''; ?> >Emergency</option>
+					<option value="-2" <?php echo $n[priority] == '-2' ? 'selected="selected"' : ''; ?> >Lowest</option>
+					<option value="-1" <?php echo $n[priority] == '-1'? 'selected="selected"' : ''; ?> >Low</option>
+					<option value="0" <?php echo $n[priority] == '0'? 'selected="selected"' : ''; ?> >Normal</option>
+					<option value="1" <?php echo $n[priority] == '1'? 'selected="selected"' : ''; ?> >High</option>
+					<option value="2" <?php echo $n[priority] == '2'? 'selected="selected"' : ''; ?> >Emergency</option>
 				</select>
 				<input type="hidden" name="prio_onoff" value="onoff" />
 				<input type="hidden" name="prio_not_id" value="<?php echo $n['id']; ?>" />

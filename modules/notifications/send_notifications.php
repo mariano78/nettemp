@@ -61,7 +61,7 @@ function send_not ($notname,$notmessage,$notsms,$notmail,$notpov,$priority,$push
 							"token" => "$pushoakey",
 							"user" => "$pushoukey",
 							"message" => "$notmessage",
-							"priority" => "1",
+							"priority" => "$priority",
 						  ),
 						  CURLOPT_SAFE_UPLOAD => true,
 						  CURLOPT_RETURNTRANSFER => true,
