@@ -47,7 +47,11 @@ function send_not ($notname,$notmessage,$notsms,$notmail,$notpov,$priority1,$pus
 	
 	if ($notpov == 'on') {
 		
-		echo "Wysyłam PushOver - ".$notmessage..$pusho1..$pushoakey1..$pushoukey1..$priority1"\n";
+		echo "Wysyłam PushOver - ".$notmessage."\n";
+		echo "Wysyłam PushOver - ".$pusho1."\n";
+		echo "Wysyłam PushOver - ".$pushoakey1."\n";
+		echo "Wysyłam PushOver - ".$pushoukey1."\n";
+		echo "Wysyłam PushOver - ".$priority1."\n";
 		
 		if (($pusho1 == "on") ){
 						
