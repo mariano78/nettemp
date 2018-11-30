@@ -35,7 +35,7 @@ try {
 
 
 
-function send_not ($nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$pushoukey,$pushoakey){
+function send_not ($nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval){
 	
 	$ROOT=dirname(dirname(dirname(__FILE__)));
 	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
@@ -132,7 +132,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." < ".$nvalue;	
 					}
-					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
+					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval);
 					}
 					
 			}elseif ($nwhen == '2') {
@@ -143,7 +143,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." <= ".$nvalue;	
 					}
-					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
+					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval);
 					}
 				
 			}elseif ($nwhen == '3') {
@@ -154,7 +154,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." > ".$nvalue;	
 					}
-					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
+					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval);
 					}
 	
 			}elseif ($nwhen == '4') {
@@ -165,7 +165,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." >= ".$nvalue;	
 					}
-					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
+					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval);
 					}
 				
 			}elseif ($nwhen == '5') {
@@ -176,7 +176,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." = ".$nvalue;	
 					}
-					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
+					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval);
 					}	
 				
 			}elseif ($nwhen == '6') {
@@ -187,7 +187,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." != ".$nvalue;	
 					}
-					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
+					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval);
 					}	
 			}
 	
