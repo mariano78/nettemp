@@ -1,8 +1,7 @@
 <?php
 $ROOT=dirname(dirname(dirname(__FILE__)));
-$pusho='';
 
-try {
+
 	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 	$query = $db->query("SELECT * FROM nt_settings");
     $result= $query->fetchAll();
@@ -22,10 +21,7 @@ try {
 			$pushoakey=$s['value'];
 		}
 	}
-}catch (Exception $e) {
-    echo $date." Error\n";
-    exit;
-}
+
 
 
 
