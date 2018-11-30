@@ -1,5 +1,6 @@
 <?php
 $ROOT=dirname(dirname(dirname(__FILE__)));
+$pusho='';
 
 try {
 	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
