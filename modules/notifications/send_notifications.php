@@ -20,6 +20,12 @@ try {
 		if($s['option']=='pusho_api_key') {
 			$pushoakey=$s['value'];
 		}
+		if($s['option']=='sensorinterval') {
+			$sens_interval=$a['value'];
+		}
+		if($s['option']=='switchinterval') {
+			$sw_interval=$a['value'];
+		}
 	}
 }catch (Exception $e) {
     echo $date." Error\n";
