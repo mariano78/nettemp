@@ -148,7 +148,7 @@ $notifs = $notif->fetchAll();
 		<th>Mail</th>
 		<th>PushOver</th>
 		<th>Custom message</th>
-		<th>Priority</th>
+		<th>PO Priority</th>
 		<th>Ignore interval</th>
 		<th>Recovery</th>
 		<th>Active</th>
@@ -281,7 +281,7 @@ $notifs = $notif->fetchAll();
 		<th>Mail</th>
 		<th>PushOver</th>
 		<th>Custom message</th>
-		<th>Priority</th>
+		<th>PO Priority</th>
 		<th>Ignore interval</th>
 		<th>Recovery</th>
 		<th>Active</th>
