@@ -7,21 +7,21 @@ function send_not ($notname,$notmessage,$notsms,$notmail,$notpov){
 	
 	if ($notsms == 'on') {
 		
-		echo "Wysyłam SMS - "$notmessage."\n";
+		echo "Wysyłam SMS - ".$notmessage."\n";
 		
 		
 	}
 	
 	if ($notmail == 'on') {
 		
-		echo "Wysyłam Mail - "$notmessage."\n";
+		echo "Wysyłam Mail - ".$notmessage."\n";
 		
 		
 	}
 	
 	if ($notpov == 'on') {
 		
-		echo "Wysyłam PushOver - "$notmessage."\n";
+		echo "Wysyłam PushOver - ".$notmessage."\n";
 		
 		
 	}
