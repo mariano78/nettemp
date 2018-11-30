@@ -4,6 +4,32 @@ $ROOT=dirname(dirname(dirname(__FILE__)));
 function send_not ($notname,$notmessage,$notsms,$notmail,$notpov){
 	
 	echo $notmessage."\n";
+	
+	if ($notsms == 'on') {
+		
+		echo "Wysyłam SMS - "$notmessage."\n";
+		
+		
+	}
+	
+	if ($notmail == 'on') {
+		
+		echo "Wysyłam Mail - "$notmessage."\n";
+		
+		
+	}
+	
+	if ($notpov == 'on') {
+		
+		echo "Wysyłam PushOver - "$notmessage."\n";
+		
+		
+	}
+	
+	
+	
+	
+	
 }
 
 
