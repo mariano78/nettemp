@@ -63,7 +63,7 @@ try {
 					if (!empty($nmsg)) {
 						$message = $nmsg;
 					}else {
-						$message = $sname" value is ".$stmp.". < ".$nvalue."\n";
+						$message = $sname." value is ".$stmp.". < ".$nvalue."\n";
 						
 					}
 					send_not($sname,$message,$nsms,$nmail,$npov);
