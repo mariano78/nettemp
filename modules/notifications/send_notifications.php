@@ -1,7 +1,30 @@
 <?php
 $ROOT=dirname(dirname(dirname(__FILE__)));
 
-function send_not ($notname,$notmessage,$notsms,$notmail,$notpov){
+try {
+	$query = $db->query("SELECT * FROM nt_settings");
+    $result= $query->fetchAll();
+    
+    foreach($result as $s) {
+		//if($s['option']=='mail_onoff' && $s['value']!='on') {
+		//	echo $date." Cannot send mail bacause fucntion is off, go to settings.\n";
+		//	exit();
+		//}
+		if($s['option']=='pusho_active') {
+			$pusho=$s['value'];
+		}
+		if($s['option']=='pusho_user_key') {
+			$pushoukey=$s['value'];
+		}
+		if($s['option']=='pusho_api_key') {
+			$pushoakey=$s['value'];
+		}
+	}
+
+
+
+
+function send_not ($notname,$notmessage,$notsms,$notmail,$notpov,$priority){
 	
 	if ($notsms == 'on') {
 		
@@ -20,6 +43,23 @@ function send_not ($notname,$notmessage,$notsms,$notmail,$notpov){
 	if ($notpov == 'on') {
 		
 		echo "Wysyłam PushOver - ".$notmessage."\n";
+		
+		if (($pusho == "on") ){
+						
+						curl_setopt_array($ch = curl_init(), array(
+						  CURLOPT_URL => "https://api.pushover.net/1/messages.json",
+						  CURLOPT_POSTFIELDS => array(
+							"token" => "$nts_pusho_api_key",
+							"user" => "$nts_pusho_user_key",
+							"message" => "$notmessage",
+							"priority" => "$priority",
+						  ),
+						  CURLOPT_SAFE_UPLOAD => true,
+						  CURLOPT_RETURNTRANSFER => true,
+						));
+						curl_exec($ch);
+						curl_close($ch);	
+					}
 		
 		
 	}
@@ -86,7 +126,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." < ".$nvalue;	
 					}
-					send_not($sname,$message,$nsms,$nmail,$npov);
+					send_not($sname,$message,$nsms,$nmail,$npov,$npriority);
 					}
 					
 			}elseif ($nwhen == '2') {
@@ -97,7 +137,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." <= ".$nvalue;	
 					}
-					send_not($sname,$message,$nsms,$nmail,$npov);
+					send_not($sname,$message,$nsms,$nmail,$npov,$npriority);
 					}
 				
 			}elseif ($nwhen == '3') {
@@ -108,7 +148,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." > ".$nvalue;	
 					}
-					send_not($sname,$message,$nsms,$nmail,$npov);
+					send_not($sname,$message,$nsms,$nmail,$npov,$npriority);
 					}
 	
 			}elseif ($nwhen == '4') {
@@ -119,7 +159,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." >= ".$nvalue;	
 					}
-					send_not($sname,$message,$nsms,$nmail,$npov);
+					send_not($sname,$message,$nsms,$nmail,$npov,$npriority);
 					}
 				
 			}elseif ($nwhen == '5') {
@@ -130,7 +170,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." = ".$nvalue;	
 					}
-					send_not($sname,$message,$nsms,$nmail,$npov);
+					send_not($sname,$message,$nsms,$nmail,$npov,$npriority);
 					}	
 				
 			}elseif ($nwhen == '6') {
@@ -141,7 +181,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." != ".$nvalue;	
 					}
-					send_not($sname,$message,$nsms,$nmail,$npov);
+					send_not($sname,$message,$nsms,$nmail,$npov,$npriority);
 					}
 				
 			}
