@@ -37,6 +37,8 @@ try {
 
 function send_not ($nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$pushoukey,$pushoakey){
 	
+	$ROOT=dirname(dirname(dirname(__FILE__)));
+	
 	if ($notsms == 'on') {
 		
 		echo "Wysyłam SMS - ".$notmessage."\n";
@@ -51,9 +53,9 @@ function send_not ($nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority
 		
 	}
 	
-	if ($notpov == 'on') {
+	if ($notpov == 'on') { //if notification for po is on
 		
-		if (($pusho == "on") ){
+				if (($pusho == "on") ){ //if global po is on
 			
 						curl_setopt_array($ch = curl_init(), array(
 						  CURLOPT_URL => "https://api.pushover.net/1/messages.json",
@@ -72,10 +74,10 @@ function send_not ($nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority
 						curl_exec($ch);
 						curl_close($ch);	
 						//$postatus = 1;
-						$ROOT=dirname(dirname(dirname(__FILE__)));
+						
 						$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 						$db->exec("UPDATE sensors SET posend='sent' WHERE rom='$nrom'");
-					}
+				}
 	}
 		
 }
