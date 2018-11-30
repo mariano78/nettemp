@@ -73,14 +73,8 @@ function send_not ($notname,$notmessage,$notsms,$notmail,$notpov,$priority,$push
 						curl_close($ch);	
 					}
 	}
-	
-	
-	
-	
-	
+		
 }
-
-
  
 $date = date("Y-m-d H:i:s"); 
 $hostname=gethostname(); 
@@ -111,8 +105,7 @@ try {
 		$npriority=$sn['priority'];
 		$niginterval=$sn['iginterval'];
 		$nrecovery=$sn['recovery'];
-		
-		
+				
 		$sensor = $db->query("SELECT name,tmp,current,type FROM sensors WHERE rom='$nrom'");
 		$sensors = $sensor->fetchAll();
 		
@@ -123,9 +116,7 @@ try {
 			$scurrent=$sen['current'];
 			$stype=$sen['type'];
 			
-		}
-		
-		
+		}	
 //check type 
 
 			if ($nwhen == '1') {
@@ -137,7 +128,6 @@ try {
 						$message = $sname." value is ".$stmp." < ".$nvalue;	
 					}
 					send_not($sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
-					echo $pushoakey;
 					}
 					
 			}elseif ($nwhen == '2') {
@@ -193,13 +183,10 @@ try {
 						$message = $sname." value is ".$stmp." != ".$nvalue;	
 					}
 					send_not($sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
-					}
-				
+					}	
 			}
 	
-	
 	}
-	
 	
 //try end	
 } catch (Exception $e) {
