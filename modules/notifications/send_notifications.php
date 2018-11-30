@@ -3,7 +3,7 @@ $ROOT=dirname(dirname(dirname(__FILE__)));
 
 function send_not ($notname,$notmessage,$notsms,$notmail,$notpov){
 	
-	echo $notname."-".$notmessage."-"."\n";
+	echo $notmessage."\n";
 }
 
 
@@ -63,7 +63,7 @@ try {
 					if (!empty($nmsg)) {
 						$message = $nmsg;
 					}else {
-						$message = $sname." value is ".$stmp.". < ".$nvalue."\n";
+						$message = $sname." value is ".$stmp." < ".$nvalue."\n";
 						
 					}
 					send_not($sname,$message,$nsms,$nmail,$npov);
