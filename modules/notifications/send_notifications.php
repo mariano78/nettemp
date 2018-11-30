@@ -54,6 +54,8 @@ function send_not ($notname,$notmessage,$notsms,$notmail,$notpov,$priority,$push
 		echo "Wysyłam PushOver - ".$priority."\n";
 		
 		if (($pusho == "on") ){
+			
+			
 						
 						curl_setopt_array($ch = curl_init(), array(
 						  CURLOPT_URL => "https://api.pushover.net/1/messages.json",
@@ -62,12 +64,10 @@ function send_not ($notname,$notmessage,$notsms,$notmail,$notpov,$priority,$push
 							"user" => "$pushoukey",
 							"message" => "$notmessage",
 							"priority" => "$priority",
-							if ($priority =='2') {
-								
-								"retry" => "30",
-								"expire" => "3600",
+							"retry" => "30",
+							"expire" => "3600",
 							
-							}
+							
 						  ),
 						  CURLOPT_SAFE_UPLOAD => true,
 						  CURLOPT_RETURNTRANSFER => true,
