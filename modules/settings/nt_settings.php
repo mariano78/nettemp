@@ -206,6 +206,12 @@ foreach ($result as $a) {
 	if($a['option']=='domopass') {
        	$nts_domo_pass=$a['value'];
     }
+	if($a['option']=='sensorinterval') {
+       	$nts_sens_interval=$a['value'];
+    }
+	if($a['option']=='switchinterval') {
+       	$nts_sw_interval=$a['value'];
+    }
 }
 
 //different way..

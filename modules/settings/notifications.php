@@ -23,23 +23,23 @@
 
 <?php
 
-	$po_onoff = isset($_POST['po_onoff']) ? $_POST['po_onoff'] : '';
-    $po_onoff1 = isset($_POST['po_onoff1']) ? $_POST['po_onoff1'] : '';
-    if (($po_onoff1 == "po_onoff2") ){
+
+	
+	$sensinterval = isset($_POST['sensinterval']) ? $_POST['sensinterval'] : '';
+    $sensint_upd = isset($_POST['sensint_upd']) ? $_POST['sensint_upd'] : '';
+	
+    if (!empty($sensint_upd) && ($sensint_upd == "upd") ){
     $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("UPDATE nt_settings SET value='$po_onoff' WHERE option='pusho_active'") or die ($db->lastErrorMsg());
+    $db->exec("UPDATE nt_settings SET value='$sensinterval' WHERE option='sensorinterval'") or die ($db->lastErrorMsg());
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+	$switchinterval = isset($_POST['switchinterval']) ? $_POST['switchinterval'] : '';
+    $swint_upd = isset($_POST['swint_upd']) ? $_POST['swint_upd'] : '';
 	
-	$pouserkey = isset($_POST['pouserkey']) ? $_POST['pouserkey'] : '';
-    $poapikey = isset($_POST['poapikey']) ? $_POST['poapikey'] : '';
-	$posave = isset($_POST['posave']) ? $_POST['posave'] : '';
-	
-    if (($posave == "posave") ){
+    if (!empty($swint_upd) && ($swint_upd == "upd") ){
     $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("UPDATE nt_settings SET value='$pouserkey' WHERE option='pusho_user_key'") or die ($db->lastErrorMsg());
-	$db->exec("UPDATE nt_settings SET value='$poapikey' WHERE option='pusho_api_key'") or die ($db->lastErrorMsg());
+    $db->exec("UPDATE nt_settings SET value='$switchinterval' WHERE option='switchinterval'") or die ($db->lastErrorMsg());
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
@@ -57,19 +57,18 @@
 			<tr>
 				<td><label>Sensors:</label></td>
 				<td>
-					<<form action="" method="post"  class="form-inline">
+					<form action="" method="post"  class="form-inline">
 						<select class="selectpicker" data-width="50px" name="sensinterval" class="form-control input-sm" onchange="this.form.submit()">
-							<option value="1m" <?php echo $n[priority] == '1m' ? 'selected="selected"' : ''; ?> >1 Minute</option>
-							<option value="5m" <?php echo $n[priority] == '5m'? 'selected="selected"' : ''; ?> >5 Minutes</option>
-							<option value="15m" <?php echo $n[priority] == '15m'? 'selected="selected"' : ''; ?> >10 Minutes</option>
-							<option value="30m" <?php echo $n[priority] == '30m'? 'selected="selected"' : ''; ?> >30 Minutes</option>
-							<option value="1h" <?php echo $n[priority] == '1h'? 'selected="selected"' : ''; ?> >1 Hour</option>
-							<option value="2h" <?php echo $n[priority] == '2h'? 'selected="selected"' : ''; ?> >2 Hours</option>
-							<option value="5h" <?php echo $n[priority] == '5h'? 'selected="selected"' : ''; ?> >5 Hours</option>
-							<option value="12h" <?php echo $n[priority] == '12h'? 'selected="selected"' : ''; ?> >12 Huors</option>
+							<option value="1m" <?php echo $nts_sens_interval == '1m' ? 'selected="selected"' : ''; ?> >1 Minute</option>
+							<option value="5m" <?php echo $nts_sens_interval] == '5m'? 'selected="selected"' : ''; ?> >5 Minutes</option>
+							<option value="15m" <?php echo $nts_sens_interval == '15m'? 'selected="selected"' : ''; ?> >10 Minutes</option>
+							<option value="30m" <?php echo $nts_sens_interval == '30m'? 'selected="selected"' : ''; ?> >30 Minutes</option>
+							<option value="1h" <?php echo $nts_sens_interval] == '1h'? 'selected="selected"' : ''; ?> >1 Hour</option>
+							<option value="2h" <?php echo $nts_sens_interval == '2h'? 'selected="selected"' : ''; ?> >2 Hours</option>
+							<option value="5h" <?php echo $nts_sens_interval == '5h'? 'selected="selected"' : ''; ?> >5 Hours</option>
+							<option value="12h" <?php echo $nts_sens_interval == '12h'? 'selected="selected"' : ''; ?> >12 Huors</option>
 						</select>
-						<input type="hidden" name="prio_onoff" value="onoff" />
-						<input type="hidden" name="prio_not_id" value="<?php echo $n['id']; ?>" />
+						<input type="hidden" name="sensint_upd" value="upd" />
 					</form>
 				</td>
 			</tr>
@@ -79,18 +78,17 @@
 				<td>
 					<form action="" method="post"  class="form-inline">
 						<select class="selectpicker" data-width="50px" name="switchinterval" class="form-control input-sm" onchange="this.form.submit()">
-							<option value="0m" <?php echo $n[priority] == '0m' ? 'selected="selected"' : ''; ?> >Immediately</option>
-							<option value="1m" <?php echo $n[priority] == '1m' ? 'selected="selected"' : ''; ?> >1 Minute</option>
-							<option value="5m" <?php echo $n[priority] == '5m'? 'selected="selected"' : ''; ?> >5 Minutes</option>
-							<option value="15m" <?php echo $n[priority] == '15m'? 'selected="selected"' : ''; ?> >10 Minutes</option>
-							<option value="30m" <?php echo $n[priority] == '30m'? 'selected="selected"' : ''; ?> >30 Minutes</option>
-							<option value="1h" <?php echo $n[priority] == '1h'? 'selected="selected"' : ''; ?> >1 Hour</option>
-							<option value="2h" <?php echo $n[priority] == '2h'? 'selected="selected"' : ''; ?> >2 Hours</option>
-							<option value="5h" <?php echo $n[priority] == '5h'? 'selected="selected"' : ''; ?> >5 Hours</option>
-							<option value="12h" <?php echo $n[priority] == '12h'? 'selected="selected"' : ''; ?> >12 Huors</option>
+							<option value="0m" <?php echo $nts_sw_interval == '0m' ? 'selected="selected"' : ''; ?> >Immediately</option>
+							<option value="1m" <?php echo $nts_sw_interval == '1m' ? 'selected="selected"' : ''; ?> >1 Minute</option>
+							<option value="5m" <?php echo $nts_sw_interval == '5m'? 'selected="selected"' : ''; ?> >5 Minutes</option>
+							<option value="15m" <?php echo $nts_sw_interval == '15m'? 'selected="selected"' : ''; ?> >10 Minutes</option>
+							<option value="30m" <?php echo $nts_sw_interval == '30m'? 'selected="selected"' : ''; ?> >30 Minutes</option>
+							<option value="1h" <?php echo $nts_sw_interval == '1h'? 'selected="selected"' : ''; ?> >1 Hour</option>
+							<option value="2h" <?php echo $nts_sw_interval == '2h'? 'selected="selected"' : ''; ?> >2 Hours</option>
+							<option value="5h" <?php echo $nts_sw_interval == '5h'? 'selected="selected"' : ''; ?> >5 Hours</option>
+							<option value="12h" <?php echo $nts_sw_interval == '12h'? 'selected="selected"' : ''; ?> >12 Huors</option>
 						</select>
-						<input type="hidden" name="prio_onoff" value="onoff" />
-						<input type="hidden" name="prio_not_id" value="<?php echo $n['id']; ?>" />
+						<input type="hidden" name="swint_upd" value="upd" />
 					</form>
 				</td>
 			</tr>
