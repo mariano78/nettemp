@@ -75,7 +75,8 @@ function send_not ($nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority
 						
 					}
 	}
-return $postatus;	
+		$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
+		$db->exec("UPDATE sensors SET posend='sent' WHERE rom='$nrom'");
 }
  
 $date = date("Y-m-d H:i:s"); 
@@ -187,10 +188,7 @@ try {
 					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
 					}	
 			}
-	if ($postatus == 1) {
-		$db->exec("UPDATE sensors SET posend='sent' WHERE rom='$nrom'");
-		
-	}
+	
 	}
 	
 //try end	
