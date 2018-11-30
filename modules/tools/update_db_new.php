@@ -206,5 +206,8 @@ $updates['2018-11-08 10:26:46'][]="ALTER TABLE gpio ADD token TEXT";
 $updates['2018-11-30 12:46:25'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('sensorinterval','1h')";
 $updates['2018-11-30 12:46:25'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('switchinterval','0m')";
 
+$updates['2018-11-30 12:47:41'][]="ALTER TABLE sensors ADD smssend TEXT";
+$updates['2018-11-30 12:47:42'][]="ALTER TABLE sensors ADD posend TEXT";
+
 //$updates['2018-11-29 13:43:11'][]="ALTER TABLE sensors ADD notif TEXT";
 ?>
