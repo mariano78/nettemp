@@ -29,7 +29,7 @@ try {
 
 
 
-function send_not ($notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$pushoukey,$pushoakey){
+function send_not ($notname,$notmessage,$notsms,$notmail,$notpov,$priority1,$pusho1,$pushoukey1,$pushoakey1){
 	
 	if ($notsms == 'on') {
 		
@@ -49,15 +49,15 @@ function send_not ($notname,$notmessage,$notsms,$notmail,$notpov,$priority,$push
 		
 		echo "Wysyłam PushOver - ".$notmessage."\n";
 		
-		if (($pusho == "on") ){
+		if (($pusho1 == "on") ){
 						
 						curl_setopt_array($ch = curl_init(), array(
 						  CURLOPT_URL => "https://api.pushover.net/1/messages.json",
 						  CURLOPT_POSTFIELDS => array(
-							"token" => "$pushoakey",
-							"user" => "$pushoukey",
+							"token" => "$pushoakey1",
+							"user" => "$pushoukey1",
 							"message" => "$notmessage",
-							"priority" => "$priority",
+							"priority" => "$priority1",
 						  ),
 						  CURLOPT_SAFE_UPLOAD => true,
 						  CURLOPT_RETURNTRANSFER => true,
