@@ -21,10 +21,10 @@ try {
 			$pushoakey=$s['value'];
 		}
 		if($s['option']=='sensorinterval') {
-			$sens_interval=$a['value'];
+			$sens_interval=$s['value'];
 		}
 		if($s['option']=='switchinterval') {
-			$sw_interval=$a['value'];
+			$sw_interval=$s['value'];
 		}
 	}
 }catch (Exception $e) {
