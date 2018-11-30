@@ -35,7 +35,7 @@ try {
 
 
 
-function send_not ($notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$pushoukey,$pushoakey){
+function send_not ($nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$pushoukey,$pushoakey){
 	
 	if ($notsms == 'on') {
 		
