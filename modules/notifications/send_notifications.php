@@ -71,6 +71,8 @@ function send_not ($notname,$notmessage,$notsms,$notmail,$notpov,$priority,$push
 						));
 						curl_exec($ch);
 						curl_close($ch);	
+						
+						$db->exec("UPDATE sensors SET posend='sent' WHERE rom='$nrom'");
 					}
 	}
 		
@@ -127,7 +129,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." < ".$nvalue;	
 					}
-					send_not($sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
+					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
 					}
 					
 			}elseif ($nwhen == '2') {
@@ -138,7 +140,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." <= ".$nvalue;	
 					}
-					send_not($sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
+					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
 					}
 				
 			}elseif ($nwhen == '3') {
@@ -149,7 +151,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." > ".$nvalue;	
 					}
-					send_not($sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
+					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
 					}
 	
 			}elseif ($nwhen == '4') {
@@ -160,7 +162,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." >= ".$nvalue;	
 					}
-					send_not($sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
+					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
 					}
 				
 			}elseif ($nwhen == '5') {
@@ -171,7 +173,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." = ".$nvalue;	
 					}
-					send_not($sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
+					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
 					}	
 				
 			}elseif ($nwhen == '6') {
@@ -182,7 +184,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." != ".$nvalue;	
 					}
-					send_not($sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
+					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
 					}	
 			}
 	
