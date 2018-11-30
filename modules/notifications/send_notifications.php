@@ -132,6 +132,7 @@ try {
 						$message = $sname." value is ".$stmp." < ".$nvalue;	
 					}
 					send_not($sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
+					echo $pushoakey;
 					}
 					
 			}elseif ($nwhen == '2') {
