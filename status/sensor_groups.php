@@ -156,7 +156,7 @@ if ($hide == 'off') {
 		    if($a['type'] == 'temp'){ $type='<img src="media/ico/temp_low.png" alt=""/>';}
 		    $label='danger';
 		}
-		if(!empty($a['mail']) || !empty($a['readerrsend']) ) {$mail='<img src="media/ico/message-icon.png" alt="" title="Message was send!"/>';}
+		if(!empty($a['mail']) || !empty($a['readerrsend']) || !empty($a['posend'])) {$mail='<img src="media/ico/message-icon.png" alt="" title="Message was send!"/>';}
 ?>
 
 		    <tr>
