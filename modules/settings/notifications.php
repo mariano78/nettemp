@@ -48,7 +48,7 @@
 
 <div class="grid-item">
 		<div class="panel panel-default">
-			<div class="panel-heading">Notification Intervals)</div>
+			<div class="panel-heading">Notification Intervals</div>
 			
 		<div class="table-responsive">
 		<table class="table table-hover table-condensed">
@@ -57,9 +57,19 @@
 			<tr>
 				<td><label>Sensors:</label></td>
 				<td>
-					<form action="" method="post" style="display:inline!important;">
-						<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="po_onoff" value="on" <?php echo $nts_pusho_active == 'on' ? 'checked="checked"' : ''; ?>  />
-						<input type="hidden" name="po_onoff1" value="po_onoff2" />
+					<<form action="" method="post"  class="form-inline">
+						<select class="selectpicker" data-width="50px" name="sensinterval" class="form-control input-sm" onchange="this.form.submit()">
+							<option value="1m" <?php echo $n[priority] == '1m' ? 'selected="selected"' : ''; ?> >1 Minute</option>
+							<option value="5m" <?php echo $n[priority] == '5m'? 'selected="selected"' : ''; ?> >5 Minutes</option>
+							<option value="15m" <?php echo $n[priority] == '15m'? 'selected="selected"' : ''; ?> >10 Minutes</option>
+							<option value="30m" <?php echo $n[priority] == '30m'? 'selected="selected"' : ''; ?> >30 Minutes</option>
+							<option value="1h" <?php echo $n[priority] == '1h'? 'selected="selected"' : ''; ?> >1 Hour</option>
+							<option value="2h" <?php echo $n[priority] == '2h'? 'selected="selected"' : ''; ?> >2 Hours</option>
+							<option value="5h" <?php echo $n[priority] == '5h'? 'selected="selected"' : ''; ?> >5 Hours</option>
+							<option value="12h" <?php echo $n[priority] == '12h'? 'selected="selected"' : ''; ?> >12 Huors</option>
+						</select>
+						<input type="hidden" name="prio_onoff" value="onoff" />
+						<input type="hidden" name="prio_not_id" value="<?php echo $n['id']; ?>" />
 					</form>
 				</td>
 			</tr>
@@ -67,7 +77,21 @@
 			<tr>
 				<td><label>Switches/GPIO:</label></td>
 				<td>
-					<input name="pouserkey" class="form-control input-md"  type="text" value="<?php echo $nts_pusho_user_key; ?>">
+					<form action="" method="post"  class="form-inline">
+						<select class="selectpicker" data-width="50px" name="switchinterval" class="form-control input-sm" onchange="this.form.submit()">
+							<option value="0m" <?php echo $n[priority] == '0m' ? 'selected="selected"' : ''; ?> >Immediately</option>
+							<option value="1m" <?php echo $n[priority] == '1m' ? 'selected="selected"' : ''; ?> >1 Minute</option>
+							<option value="5m" <?php echo $n[priority] == '5m'? 'selected="selected"' : ''; ?> >5 Minutes</option>
+							<option value="15m" <?php echo $n[priority] == '15m'? 'selected="selected"' : ''; ?> >10 Minutes</option>
+							<option value="30m" <?php echo $n[priority] == '30m'? 'selected="selected"' : ''; ?> >30 Minutes</option>
+							<option value="1h" <?php echo $n[priority] == '1h'? 'selected="selected"' : ''; ?> >1 Hour</option>
+							<option value="2h" <?php echo $n[priority] == '2h'? 'selected="selected"' : ''; ?> >2 Hours</option>
+							<option value="5h" <?php echo $n[priority] == '5h'? 'selected="selected"' : ''; ?> >5 Hours</option>
+							<option value="12h" <?php echo $n[priority] == '12h'? 'selected="selected"' : ''; ?> >12 Huors</option>
+						</select>
+						<input type="hidden" name="prio_onoff" value="onoff" />
+						<input type="hidden" name="prio_not_id" value="<?php echo $n['id']; ?>" />
+					</form>
 				</td>
 			</tr>
 
