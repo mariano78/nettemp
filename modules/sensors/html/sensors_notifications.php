@@ -331,11 +331,11 @@ $notifs = $notif->fetchAll();
 		
 		<td>
 			<select name="npriority" class="selectpicker"">
-				<option value="verylow">Very Low</option>
-				<option value="moderate">Moderate</option>
-				<option value="normal">Normal</option>
-				<option value="high">High</option>
-				<option value="emergency">Emergency</option>
+				<option value="-2">Lowest</option>
+				<option value="-1">Low</option>
+				<option value="0">Normal</option>
+				<option value="1">High</option>
+				<option value="2">Emergency</option>
 			</select>
 		</td>
 		
