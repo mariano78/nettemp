@@ -62,6 +62,12 @@ function send_not ($notname,$notmessage,$notsms,$notmail,$notpov,$priority,$push
 							"user" => "$pushoukey",
 							"message" => "$notmessage",
 							"priority" => "$priority",
+							if ($priority =='2') {
+								
+								"retry" => "30",
+								"expire" => "3600",
+							
+							}
 						  ),
 						  CURLOPT_SAFE_UPLOAD => true,
 						  CURLOPT_RETURNTRANSFER => true,
