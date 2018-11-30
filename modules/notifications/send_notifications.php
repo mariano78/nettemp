@@ -71,11 +71,11 @@ function send_not ($nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority
 						));
 						curl_exec($ch);
 						curl_close($ch);	
+						$postatus = 1;
 						
-						$db->exec("UPDATE sensors SET posend='sent' WHERE rom='$nrom'");
 					}
 	}
-		
+return $postatus;	
 }
  
 $date = date("Y-m-d H:i:s"); 
@@ -187,7 +187,10 @@ try {
 					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey);
 					}	
 			}
-	
+	if ($postatus == 1) {
+		$db->exec("UPDATE sensors SET posend='sent' WHERE rom='$nrom'");
+		
+	}
 	}
 	
 //try end	
