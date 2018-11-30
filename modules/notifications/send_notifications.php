@@ -3,8 +3,6 @@ $ROOT=dirname(dirname(dirname(__FILE__)));
 
 function send_not ($notname,$notmessage,$notsms,$notmail,$notpov){
 	
-	echo $notmessage."\n";
-	
 	if ($notsms == 'on') {
 		
 		echo "Wysyłam SMS - ".$notmessage."\n";
