@@ -29,7 +29,7 @@ try {
 
 
 
-function send_not ($notname,$notmessage,$notsms,$notmail,$notpov,$priority1,$pusho1,$pushoukey1,$pushoakey1){
+function send_not ($notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$pushoukey,$pushoakey){
 	
 	if ($notsms == 'on') {
 		
@@ -48,18 +48,18 @@ function send_not ($notname,$notmessage,$notsms,$notmail,$notpov,$priority1,$pus
 	if ($notpov == 'on') {
 		
 		echo "Wysyłam PushOver - ".$notmessage."\n";
-		echo "Wysyłam PushOver - ".$pusho1."\n";
-		echo "Wysyłam PushOver - ".$pushoakey1."\n";
-		echo "Wysyłam PushOver - ".$pushoukey1."\n";
-		echo "Wysyłam PushOver - ".$priority1."\n";
+		//echo "Wysyłam PushOver - ".$pusho1."\n";
+		//echo "Wysyłam PushOver - ".$pushoakey1."\n";
+		//echo "Wysyłam PushOver - ".$pushoukey1."\n";
+		//echo "Wysyłam PushOver - ".$priority1."\n";
 		
-		if (($pusho1 == "on") ){
+		if (($pusho == "on") ){
 						
 						curl_setopt_array($ch = curl_init(), array(
 						  CURLOPT_URL => "https://api.pushover.net/1/messages.json",
 						  CURLOPT_POSTFIELDS => array(
-							"token" => "$pushoakey1",
-							"user" => "$pushoukey1",
+							"token" => "$pushoakey",
+							"user" => "$pushoukey",
 							"message" => "$notmessage",
 							"priority" => "1",
 						  ),
