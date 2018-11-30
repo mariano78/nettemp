@@ -38,6 +38,7 @@ try {
 function send_not ($nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$pushoukey,$pushoakey){
 	
 	$ROOT=dirname(dirname(dirname(__FILE__)));
+	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 	
 	if ($notsms == 'on') {
 		
@@ -73,9 +74,7 @@ function send_not ($nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority
 						));
 						curl_exec($ch);
 						curl_close($ch);	
-						//$postatus = 1;
-						
-						$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
+
 						$db->exec("UPDATE sensors SET posend='sent' WHERE rom='$nrom'");
 				}
 	}
