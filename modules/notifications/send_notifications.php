@@ -20,6 +20,9 @@ try {
 			$pushoakey=$s['value'];
 		}
 	}
+}catch (Exception $e) {
+    echo $date." Error\n";
+    exit;
 }
 
 
