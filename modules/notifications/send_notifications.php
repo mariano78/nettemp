@@ -145,32 +145,6 @@ try {
 					}
 				
 			}
-		
-		
-		
-		
-		
-//sms	
-		if ($nsms == "on") {
-			
-			
-		}
-// sms end
-
-//mail	
-		if ($nmail == "on") {
-			
-			
-		}
-//mail end
-	
-//poshover	
-		if ($npov == "on") {
-			
-			
-		}
-//poshover end	
-
 	
 	
 	}
