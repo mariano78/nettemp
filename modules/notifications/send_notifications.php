@@ -75,12 +75,6 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 				}
 		
 		
-		
-		
-		
-		echo "Wysyłam Mail - ".$notmessage."\n";
-		
-		
 	}
 	
 	if ($pusho == 'on') { //if global notification for po is on
