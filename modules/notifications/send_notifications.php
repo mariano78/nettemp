@@ -134,7 +134,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 		
 	}
 	
-	if ($pusho == 'on') { //if global notification for po is on
+	if ($pusho == 'onn') { //if global notification for po is on
 		
 				if (($notpov == 'on' && $nsent == '') ){ //Send Notification PO
 			
