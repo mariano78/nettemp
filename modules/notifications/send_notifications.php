@@ -35,6 +35,44 @@ try {
 			$mailonoff=$s['value'];
 		}
 	}
+	
+	$query = $db->query("SELECT mail FROM users WHERE maila='yes'");
+    $result= $query->fetchAll();
+    foreach($result as $s) {
+		$get_addr[]=$s['mail'];
+	}
+	if(empty($get_addr)) {
+		echo $date." Add users to nettemp settings!\n"; // dopisac obsluge bledu/logów
+		exit;
+	}
+	
+    $string = rtrim(implode(' ', $get_addr), ',');
+    $addr = rtrim(implode(' ', $get_addr), ',');
+    
+    $cfile = '/etc/msmtprc';
+	$fh = fopen($cfile, 'r');
+	$theData = fread($fh, filesize($cfile));
+	$cread = array();
+	$my_array = explode(PHP_EOL, $theData);
+	foreach($my_array as $line)
+		{
+			if (!empty($line)) {
+				$tmp = explode(" ", $line);
+				$cread[$tmp[0]] = $tmp[1];
+			}
+		}
+	fclose($fh);
+	$a=$cread;
+	$headers = "From: ".$a['user']."\r\n";
+	$headers .= "MIME-Version: 1.0" . "\r\n";
+	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+	
+	
+	
+	
+	
+	
+	
 }catch (Exception $e) {
     echo $date." Error\n";
     exit;
