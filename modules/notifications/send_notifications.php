@@ -192,12 +192,7 @@ try {
 					if (!empty($nmsg)) {
 						$message = $nmsg;
 					}else {
-						
-							if ($ntype == 'value'){
-								$message = $sname." value is ".$stmp." >= ".$nvalue;	
-							}else {
-								$message = $sname." - read error. Last read >= ".$nvalue;	
-							}
+						$message = $sname." value is ".$stmp." >= ".$nvalue;	
 					}
 					send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent);
 					}
