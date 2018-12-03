@@ -36,7 +36,36 @@ try {
 		}
 	}
 	
-	$query = $db->query("SELECT mail FROM users WHERE maila='yes'");
+	
+	
+	
+	
+	
+	
+}catch (Exception $e) {
+    echo $date." Error\n";
+    exit;
+}
+
+
+
+
+function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent){
+	
+	$ROOT=dirname(dirname(dirname(__FILE__)));
+	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
+	
+	if ($notsms == 'on') {
+		
+		echo "Wysyłam SMS - ".$notmessage."\n";
+		
+		
+	}
+	
+	if ($mailonoff == 'on') {
+		
+		
+		$query = $db->query("SELECT mail FROM users WHERE maila='yes'");
     $result= $query->fetchAll();
     foreach($result as $s) {
 		$get_addr[]=$s['mail'];
@@ -87,35 +116,25 @@ try {
 			 </html>';
 	return $body;
 	}
-	
-	
-	
-	
-	
-}catch (Exception $e) {
-    echo $date." Error\n";
-    exit;
-}
-
-
-
-
-function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent){
-	
-	$ROOT=dirname(dirname(dirname(__FILE__)));
-	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
-	
-	if ($notsms == 'on') {
-		
-		echo "Wysyłam SMS - ".$notmessage."\n";
 		
 		
-	}
-	
-	if ($mailonoff == 'on') {
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		if (($notmail == 'on' && $nsent == '') ){ //Send Notification PO
+		
+		
+		
+		
+		
+		
+		
 			
 						echo "Wysyłam mail - ".$notmessage."\n";
 						if ( mail ($addr, $mail_topic, message($name,0,$date,"Lost connecion","#FF0000"), $headers ) ) {
