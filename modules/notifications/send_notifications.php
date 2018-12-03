@@ -40,7 +40,7 @@ try {
 
 
 
-function send_not ($nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval){
+function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent){
 	
 	$ROOT=dirname(dirname(dirname(__FILE__)));
 	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
@@ -80,6 +80,7 @@ function send_not ($nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority
 						curl_close($ch);	
 
 						$db->exec("UPDATE sensors SET posend='sent' WHERE rom='$nrom'");
+						$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
 				}
 	}
 		
@@ -101,6 +102,7 @@ try {
     
     foreach($result as $sn) {
 		
+		$nid=$sn['id'];
 		$nrom=$sn['rom'];
 		$ntype=$sn['type'];
 		$nwhen=$sn['wheen'];
@@ -135,7 +137,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." < ".$nvalue;	
 					}
-					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval);
+					send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent);
 					}
 					
 			}elseif ($nwhen == '2') {
@@ -146,7 +148,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." <= ".$nvalue;	
 					}
-					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval);
+					send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent);
 					}
 				
 			}elseif ($nwhen == '3') {
@@ -157,7 +159,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." > ".$nvalue;	
 					}
-					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval);
+					send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent);
 					}
 	
 			}elseif ($nwhen == '4') {
@@ -168,7 +170,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." >= ".$nvalue;	
 					}
-					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval);
+					send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent);
 					}
 				
 			}elseif ($nwhen == '5') {
@@ -179,7 +181,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." = ".$nvalue;	
 					}
-					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval);
+					send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent);
 					}	
 				
 			}elseif ($nwhen == '6') {
@@ -190,7 +192,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." != ".$nvalue;	
 					}
-					send_not($nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval);
+					send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent);
 					}	
 			}
 	
