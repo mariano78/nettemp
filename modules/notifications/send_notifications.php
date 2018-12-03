@@ -100,7 +100,7 @@ try {
 
 
 
-function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$recovery){
+function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent){
 	
 	$ROOT=dirname(dirname(dirname(__FILE__)));
 	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
@@ -117,13 +117,13 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 		
 		if (($notmail == 'on' && $nsent == '') ){ //Send Notification MAIL
 			
-						echo "Wysyłam mail - ".$notmessage." recovery = ".$recovery." sent = ".$nsent."\n";
+						echo "Wysyłam mail - ".$notmessage."\n";
 						$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
 						$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
 						
-				}else if ($notmail == 'on' && $nsent == 'sent' && $recovery == 1){ //RECOVERY MAIL
+				}else if ($notmail == 'on' && $nsent == 'sent'){ //RECOVERY MAIL
 				
-						echo "Wysyłam mail Recovery - ".$notmessage." recovery = ".$recovery." sent = ".$nsent."\n";
+						echo "Wysyłam mail - RECOVERY".$notmessage."\n";
 						$db->exec("UPDATE sensors SET mail='' WHERE rom='$nrom'");
 						$db->exec("UPDATE notifications SET sent='' WHERE id='$nid'");
 					
@@ -134,7 +134,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 		
 	}
 	
-	if ($pusho == 'onn') { //if global notification for po is on
+	if ($pusho == 'on') { //if global notification for po is on
 		
 				if (($notpov == 'on' && $nsent == '') ){ //Send Notification PO
 			
@@ -236,17 +236,7 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." < ".$nvalue;	
 					}
-					$recovery = 0;	
-					send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$recovery);
-					} elseif ($stmp > $nvalue) {
-					if (!empty($nmsg)) {
-						$message = $nmsg;
-					}else {
-						$message = $sname." value is ".$stmp." < ".$nvalue;
-							
-					}
-					$recovery = 1;	
-					send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$recovery);
+					send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent);;
 					}
 					
 			}elseif ($nwhen == '2') {
