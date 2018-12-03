@@ -67,7 +67,26 @@ try {
 	$headers .= "MIME-Version: 1.0" . "\r\n";
 	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 	
-	
+	function message($name,$value,$date,$state,$color)
+	{
+	$body = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+			 <html>
+			 <head>
+			 <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+	         <style>* { margin: 0; padding: 0; } a {text-decoration: none;} th, td {  padding: 5px;} table, th, td { border: 1px solid black;  border-collapse: collapse;} * {font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;}</style>
+			 </head>
+			 <body bgcolor="#ffffff" text="#000000">
+			 <h4>Hi, this is notification from <a href="http://'.trim(shell_exec("hostname -I | cut -d' ' -f1")).'">'.trim(shell_exec("hostname -I | cut -d' ' -f1")).'</a></br></h4><br>
+			 <table border="1" style="">
+			 <tr><th>Name</th><th>Value</th><th>Date</th><th>Status</th></tr><tr>
+			 <td>'.$name.'</td><td>'.$value.'</td><td>'.$date.'</td><td bgcolor="'.$color.'">'.$state.'</td>
+			 </tr></table><br><br>
+			 <a href="http://techfreak.pl/tag/nettemp"> <img src="http://techfreak.pl/wp-content/uploads/2012/12/nettemp.pl_.png" style="width:120px;height:40px;"></a><br>
+			 </div>
+			 </body>
+			 </html>';
+	return $body;
+	}
 	
 	
 	
@@ -99,6 +118,14 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 		if (($notmail == 'on' && $nsent == '') ){ //Send Notification PO
 			
 						echo "Wysyłam mail - ".$notmessage."\n";
+						if ( mail ($addr, $mail_topic, message($name,0,$date,"Lost connecion","#FF0000"), $headers ) ) {
+				echo $date." Lost cnnection with: ".$name." - Mail send OK\n";
+			} else {
+				echo $date." Lost cnnection with: ".$name." - Mail send problem\n";
+			}
+						
+						
+						
 						$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
 						$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
 						
