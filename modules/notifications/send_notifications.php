@@ -88,7 +88,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						  CURLOPT_POSTFIELDS => array(
 							"token" => "$pushoakey",
 							"user" => "$pushoukey",
-							"message" => "Recovery"."$notmessage",
+							"message" => "Recovery - "."$notmessage",
 							"priority" => "$priority",
 							"retry" => "30",
 							"expire" => "3600",						
