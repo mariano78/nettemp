@@ -137,10 +137,10 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 		
 			
 						echo "Wysyłam mail - ".$notmessage."\n";
-						if ( mail ($addr, $mail_topic, message($name,0,$date,"Lost connecion","#FF0000"), $headers ) ) {
-				echo $date." Lost cnnection with: ".$name." - Mail send OK\n";
+						if ( mail ($addr, "Topic maila", message($name,0,$date,"Lost connecion","#FF0000"), $headers ) ) {
+				//echo $date." Lost cnnection with: ".$name." - Mail send OK\n";
 			} else {
-				echo $date." Lost cnnection with: ".$name." - Mail send problem\n";
+				//echo $date." Lost cnnection with: ".$name." - Mail send problem\n";
 			}
 						
 						
