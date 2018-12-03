@@ -121,7 +121,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
 						$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
 						
-				}else if ($notmail == 'on' && $nsent == 'sent'){ //RECOVERY MAIL
+				}else if ($notmail == 'on' && $nsent == 'sent' && $recovery == 1){ //RECOVERY MAIL
 				
 						echo "Wysyłam mail - RECOVERY".$notmessage."\n";
 						$db->exec("UPDATE sensors SET mail='' WHERE rom='$nrom'");
