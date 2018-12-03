@@ -31,6 +31,9 @@ try {
 		if($s['option']=='switchinterval') {
 			$sw_interval=$s['value'];
 		}
+		if($s['option']=='mail_onoff') {
+			$mailonoff=$s['value'];
+		}
 	}
 }catch (Exception $e) {
     echo $date." Error\n";
@@ -52,7 +55,29 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 		
 	}
 	
-	if ($notmail == 'on') {
+	if ($mailonoff == 'on') {
+		
+		
+		if (($notmail == 'on' && $nsent == '') ){ //if PO notification is on and not sent
+			
+
+						$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
+						$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
+						
+				}else if ($notmail == 'on' && $nsent == 'sent'){ 
+				
+							
+
+						$db->exec("UPDATE sensors SET mail='' WHERE rom='$nrom'");
+						$db->exec("UPDATE notifications SET sent='' WHERE id='$nid'");
+					
+					
+					
+				}
+		
+		
+		
+		
 		
 		echo "Wysyłam Mail - ".$notmessage."\n";
 		
@@ -79,7 +104,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						curl_exec($ch);
 						curl_close($ch);	
 
-						$db->exec("UPDATE sensors SET posend='sent' WHERE rom='$nrom'");
+						$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
 						$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
 						
 				}else if ($notpov == 'on' && $nsent == 'sent'){ 
@@ -100,7 +125,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						curl_exec($ch);
 						curl_close($ch);	
 
-						$db->exec("UPDATE sensors SET posend='' WHERE rom='$nrom'");
+						$db->exec("UPDATE sensors SET mail='' WHERE rom='$nrom'");
 						$db->exec("UPDATE notifications SET sent='' WHERE id='$nid'");
 					
 					
