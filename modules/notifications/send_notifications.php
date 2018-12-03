@@ -36,36 +36,7 @@ try {
 		}
 	}
 	
-	
-	
-	
-	
-	
-	
-}catch (Exception $e) {
-    echo $date." Error\n";
-    exit;
-}
-
-
-
-
-function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent){
-	
-	$ROOT=dirname(dirname(dirname(__FILE__)));
-	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
-	
-	if ($notsms == 'on') {
-		
-		echo "Wysyłam SMS - ".$notmessage."\n";
-		
-		
-	}
-	
-	if ($mailonoff == 'on') {
-		
-		
-		$query = $db->query("SELECT mail FROM users WHERE maila='yes'");
+	$query = $db->query("SELECT mail FROM users WHERE maila='yes'");
     $result= $query->fetchAll();
     foreach($result as $s) {
 		$get_addr[]=$s['mail'];
@@ -116,39 +87,41 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 			 </html>';
 	return $body;
 	}
+	
+	
+	
+	
+	
+}catch (Exception $e) {
+    echo $date." Error\n";
+    exit;
+}
+
+
+
+
+function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$recovery){
+	
+	$ROOT=dirname(dirname(dirname(__FILE__)));
+	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
+	
+	if ($notsms == 'on') {
+		
+		echo "Wysyłam SMS - ".$notmessage."\n";
 		
 		
+	}
+	
+	if ($mailonoff == 'on') {
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		if (($notmail == 'on' && $nsent == '') ){ //Send Notification PO
-		
-		
-		
-		
-		
-		
-		
+		if (($notmail == 'on' && $nsent == '') ){ //Send Notification MAIL
 			
 						echo "Wysyłam mail - ".$notmessage."\n";
-						if ( mail ($addr, "Topic maila", message($name,0,$date,"Lost connecion","#FF0000"), $headers ) ) {
-				//echo $date." Lost cnnection with: ".$name." - Mail send OK\n";
-			} else {
-				//echo $date." Lost cnnection with: ".$name." - Mail send problem\n";
-			}
-						
-						
-						
 						$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
 						$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
 						
-				}else if ($notmail == 'on' && $nsent == 'sent'){ //RECOVERY
+				}else if ($notmail == 'on' && $nsent == 'sent'){ //RECOVERY MAIL
 				
 						echo "Wysyłam mail - RECOVERY".$notmessage."\n";
 						$db->exec("UPDATE sensors SET mail='' WHERE rom='$nrom'");
@@ -184,7 +157,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
 						$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
 						
-				}else if ($notpov == 'on' && $nsent == 'sent'){  // RECOVERY
+				}else if ($notpov == 'on' && $nsent == 'sent'){  // RECOVERY PO
 				
 						curl_setopt_array($ch = curl_init(), array(
 						  CURLOPT_URL => "https://api.pushover.net/1/messages.json",
@@ -263,7 +236,17 @@ try {
 					}else {
 						$message = $sname." value is ".$stmp." < ".$nvalue;	
 					}
-					send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent);;
+					$recovery = 0;	
+					send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$recovery);
+					} elseif ($stmp > $nvalue) {
+					if (!empty($nmsg)) {
+						$message = $nmsg;
+					}else {
+						$message = $sname." value is ".$stmp." < ".$nvalue;
+							
+					}
+					$recovery = 1;	
+					send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$recovery);
 					}
 					
 			}elseif ($nwhen == '2') {
