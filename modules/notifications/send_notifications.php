@@ -1,6 +1,11 @@
 <?php
 $ROOT=dirname(dirname(dirname(__FILE__)));
 
+$date = date("Y-m-d H:i:s"); 
+$hostname=gethostname(); 
+$minute=date('i');
+$hour=date('H');
+
 try {
 	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 	$query = $db->query("SELECT * FROM nt_settings");
@@ -66,8 +71,7 @@ function send_not ($nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority
 							"message" => "$notmessage",
 							"priority" => "$priority",
 							"retry" => "30",
-							"expire" => "3600",
-													
+							"expire" => "3600",						
 						  ),
 						  CURLOPT_SAFE_UPLOAD => true,
 						  CURLOPT_RETURNTRANSFER => true,
@@ -81,9 +85,7 @@ function send_not ($nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority
 		
 }
  
-$date = date("Y-m-d H:i:s"); 
-$hostname=gethostname(); 
-$minute=date('i');
+
 
 try {
     $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
@@ -110,6 +112,7 @@ try {
 		$npriority=$sn['priority'];
 		$niginterval=$sn['iginterval'];
 		$nrecovery=$sn['recovery'];
+		$nsent=$sn['sent'];
 				
 		$sensor = $db->query("SELECT name,tmp,current,type FROM sensors WHERE rom='$nrom'");
 		$sensors = $sensor->fetchAll();

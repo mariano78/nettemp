@@ -208,6 +208,7 @@ $updates['2018-11-30 12:46:25'][]="INSERT INTO nt_settings ('option', 'value') V
 
 $updates['2018-11-30 12:47:41'][]="ALTER TABLE sensors ADD smssend TEXT";
 $updates['2018-11-30 12:47:42'][]="ALTER TABLE sensors ADD posend TEXT";
+$updates['2018-12-01 12:40:12'][]="ALTER TABLE notifications ADD sent TEXT";
 
 //$updates['2018-11-29 13:43:11'][]="ALTER TABLE sensors ADD notif TEXT";
 ?>
