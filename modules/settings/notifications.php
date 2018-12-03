@@ -65,8 +65,9 @@
 							<option value="30m" <?php echo $nts_sens_interval == '30m'? 'selected="selected"' : ''; ?> >30 Minutes</option>
 							<option value="1h" <?php echo $nts_sens_interval == '1h'? 'selected="selected"' : ''; ?> >1 Hour</option>
 							<option value="2h" <?php echo $nts_sens_interval == '2h'? 'selected="selected"' : ''; ?> >2 Hours</option>
-							<option value="5h" <?php echo $nts_sens_interval == '5h'? 'selected="selected"' : ''; ?> >5 Hours</option>
+							<option value="6h" <?php echo $nts_sens_interval == '6h'? 'selected="selected"' : ''; ?> >5 Hours</option>
 							<option value="12h" <?php echo $nts_sens_interval == '12h'? 'selected="selected"' : ''; ?> >12 Huors</option>
+							<option value="24h" <?php echo $nts_sens_interval == '24h'? 'selected="selected"' : ''; ?> >24 Huors</option>
 						</select>
 						<input type="hidden" name="sensint_upd" value="upd" />
 					</form>
@@ -85,8 +86,9 @@
 							<option value="30m" <?php echo $nts_sw_interval == '30m'? 'selected="selected"' : ''; ?> >30 Minutes</option>
 							<option value="1h" <?php echo $nts_sw_interval == '1h'? 'selected="selected"' : ''; ?> >1 Hour</option>
 							<option value="2h" <?php echo $nts_sw_interval == '2h'? 'selected="selected"' : ''; ?> >2 Hours</option>
-							<option value="5h" <?php echo $nts_sw_interval == '5h'? 'selected="selected"' : ''; ?> >5 Hours</option>
+							<option value="6h" <?php echo $nts_sw_interval == '6h'? 'selected="selected"' : ''; ?> >6 Hours</option>
 							<option value="12h" <?php echo $nts_sw_interval == '12h'? 'selected="selected"' : ''; ?> >12 Huors</option>
+							<option value="12h" <?php echo $nts_sw_interval == '24h'? 'selected="selected"' : ''; ?> >24 Huors</option>
 						</select>
 						<input type="hidden" name="swint_upd" value="upd" />
 					</form>

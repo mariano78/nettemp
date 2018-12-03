@@ -81,7 +81,8 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 
 						$db->exec("UPDATE sensors SET posend='sent' WHERE rom='$nrom'");
 						$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
-				}else if ($notpov == 'on' && $nsent == 'sent'){ // Recovery
+						
+				}else if ($notpov == 'on' && $nsent == 'sent'){ 
 				
 						curl_setopt_array($ch = curl_init(), array(
 						  CURLOPT_URL => "https://api.pushover.net/1/messages.json",
