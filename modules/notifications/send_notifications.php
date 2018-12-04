@@ -101,14 +101,9 @@ try {
 
 
 function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent){
-		
+	
 	$ROOT=dirname(dirname(dirname(__FILE__)));
 	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
-	
-	$sent = 0;
-	$rec = 0;
-	
-	
 	
 	if ($notsms == 'on') {
 		
@@ -123,16 +118,14 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 		if (($notmail == 'on' && $nsent == '') ){ //Send Notification MAIL
 			
 						echo "Wysyłam mail - ".$notmessage."\n";
-						//$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
-						//$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
-						$sent = 1;
+						$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
+						$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
 						
 				}else if ($notmail == 'on' && $nsent == 'sent'){ //RECOVERY MAIL
 				
 						echo "Wysyłam mail - RECOVERY".$notmessage."\n";
-						//$db->exec("UPDATE sensors SET mail='' WHERE rom='$nrom'");
-						//$db->exec("UPDATE notifications SET sent='' WHERE id='$nid'");
-						$rec = 1;
+						$db->exec("UPDATE sensors SET mail='' WHERE rom='$nrom'");
+						$db->exec("UPDATE notifications SET sent='' WHERE id='$nid'");
 					
 					
 					
@@ -161,9 +154,9 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						curl_exec($ch);
 						curl_close($ch);	
 
-						//$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
-						//$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
-						$sent = 1;
+						$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
+						$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
+						
 				}else if ($notpov == 'on' && $nsent == 'sent'){  // RECOVERY PO
 				
 						curl_setopt_array($ch = curl_init(), array(
@@ -182,30 +175,13 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						curl_exec($ch);
 						curl_close($ch);	
 
-						//$db->exec("UPDATE sensors SET mail='' WHERE rom='$nrom'");
-						//$db->exec("UPDATE notifications SET sent='' WHERE id='$nid'");
-						$rec = 1;
+						$db->exec("UPDATE sensors SET mail='' WHERE rom='$nrom'");
+						$db->exec("UPDATE notifications SET sent='' WHERE id='$nid'");
+					
 					
 					
 				}
 	}
-	
-	if ($sent == 1){
-		
-		$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
-						$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
-	}
-	
-	if ($rec ==1){
-		
-		$db->exec("UPDATE sensors SET mail='' WHERE rom='$nrom'");
-						$db->exec("UPDATE notifications SET sent='' WHERE id='$nid'");
-		
-		
-	}
-	
-	$sent = 0;
-	$rec = 0;
 		
 }
  
