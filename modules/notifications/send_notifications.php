@@ -203,6 +203,9 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 		
 		
 	}
+	
+	$sent = 0;
+	$rec = 0;
 		
 }
  
