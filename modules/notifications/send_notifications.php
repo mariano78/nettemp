@@ -171,7 +171,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						  CURLOPT_POSTFIELDS => array(
 							"token" => "$pushoakey",
 							"user" => "$pushoukey",
-							"message" => "Recovery - "."$notmessage",
+							"message" => "$notmessage",
 							"priority" => "$priority",
 							"retry" => "30",
 							"expire" => "3600",						
@@ -257,47 +257,30 @@ try {
 			if ($nwhen == '1') {
 				
 				if (($stmp < $nvalue) && $nsent == '') {
-					
 					$notsent = 1;
-					echo "aa\n";
-					echo "aanotsent = ".$notsent."\n";
-					echo "aanotsentrec = ".$notsentrec."\n";
-					
 					}elseif (($stmp > $nvalue) && $nsent == 'sent') {
-						
 						$notsentrec = 1;
-						echo "bb\n";
-						echo "bbnotsent = ".$notsent."\n";
-						echo "bbnotsentrec = ".$notsentrec."\n";
 					}
-					
-					if ($notsent == 1) {
-						
-						if (!empty($nmsg)) {
-						$message = $nmsg;
-						echo "msg1\n";
-					}else {
-						$message = $sname." value is ".$stmp." < ".$nvalue;	
-						echo "msg2notsent = ".$notsent."\n";
-						echo "msg2notsentrec = ".$notsentrec."\n";
-						echo "msg2\n";
+						if ($notsent == 1) {
+							
+							if (!empty($nmsg)) {
+							$message = $nmsg;
+							
+							}else {
+								$message = $sname." value is ".$stmp." < ".$nvalue;	
+							}
 						}
-					}
-					
-					if ($notsentrec == 1) {
-						
-						if (!empty($nmsg)) {
-						$message = $nmsg;
-						echo "msg3\n";
-					}else {
-						$message = "Recovery - ".$sname." value is ".$stmp." > ".$nvalue;	
-						echo "msg4notsent = ".$notsent."\n";
-						echo "msg4notsentrec = ".$notsentrec."\n";
-						echo "msg4\n";
+				
+						if ($notsentrec == 1) {
+							
+							if (!empty($nmsg)) {
+							$message = $nmsg;
+							
+							}else {
+								$message = "Recovery - ".$sname." value is ".$stmp." > ".$nvalue;	
+							}
 						}
-					}
-					
-			send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec);
+						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec);
 					
 					
 			}elseif ($nwhen == '2') {
