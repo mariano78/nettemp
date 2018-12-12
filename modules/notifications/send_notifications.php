@@ -162,7 +162,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						//$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
 						$notsent = 1;
 						
-				}else if ($notpov == 'on' && $nsentrec == 1){  // RECOVERY PO
+				}else if ($notpov == 'on' && $notsentrec == 1){  // RECOVERY PO
 				
 						curl_setopt_array($ch = curl_init(), array(
 						  CURLOPT_URL => "https://api.pushover.net/1/messages.json",
