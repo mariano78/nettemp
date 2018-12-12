@@ -258,10 +258,12 @@ try {
 						$message = $sname." value is ".$stmp." < ".$nvalue;	
 					}
 					$notsent = 1;
+					echo "aa\n";
 					
 					}elseif (($stmp > $nvalue) && $nsent == 'sent') {
 						
 						$notsentrec = 1;
+						echo "bb\n";
 					}
 					
 			send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec);
