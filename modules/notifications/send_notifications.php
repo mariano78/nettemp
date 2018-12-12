@@ -140,7 +140,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 	
 	if ($pusho == 'on') { //if global notification for po is on
 		
-				if (($notpov == 'on' && $nsent == '') ){ //Send Notification PO
+				if (($notpov == 'on' && $notsent == 1) ){ //Send Notification PO
 			
 						curl_setopt_array($ch = curl_init(), array(
 						  CURLOPT_URL => "https://api.pushover.net/1/messages.json",
@@ -158,11 +158,11 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						curl_exec($ch);
 						curl_close($ch);	
 
-						$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
+						//$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
 						//$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
 						$notsent = 1;
 						
-				}else if ($notpov == 'on' && $nsent == 'sent'){  // RECOVERY PO
+				}else if ($notpov == 'on' && $nsentrec == 1){  // RECOVERY PO
 				
 						curl_setopt_array($ch = curl_init(), array(
 						  CURLOPT_URL => "https://api.pushover.net/1/messages.json",
@@ -180,7 +180,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						curl_exec($ch);
 						curl_close($ch);	
 
-						$db->exec("UPDATE sensors SET mail='' WHERE rom='$nrom'");
+						//$db->exec("UPDATE sensors SET mail='' WHERE rom='$nrom'");
 						//$db->exec("UPDATE notifications SET sent='' WHERE id='$nid'");
 						$notsentrec = 1;
 					
