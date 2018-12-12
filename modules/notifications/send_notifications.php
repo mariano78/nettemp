@@ -271,7 +271,9 @@ try {
 						echo "bbnotsentrec = ".$notsentrec."\n";
 					}
 					
-					if ((!empty($nmsg)) && ($notsent == 1)) {
+					if ($notsent == 1) {
+						
+						if (!empty($nmsg)) {
 						$message = $nmsg;
 						echo "msg1\n";
 					}else {
@@ -279,9 +281,12 @@ try {
 						echo "msg2notsent = ".$notsent."\n";
 						echo "msg2notsentrec = ".$notsentrec."\n";
 						echo "msg2\n";
+						}
 					}
 					
-					if ((!empty($nmsg)) && $notsentrec == 1) {
+					if ($notsentrec == 1) {
+						
+						if (!empty($nmsg)) {
 						$message = $nmsg;
 						echo "msg3\n";
 					}else {
@@ -289,6 +294,7 @@ try {
 						echo "msg4notsent = ".$notsent."\n";
 						echo "msg4notsentrec = ".$notsentrec."\n";
 						echo "msg4\n";
+						}
 					}
 					
 			send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec);
