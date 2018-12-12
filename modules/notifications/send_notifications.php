@@ -255,11 +255,7 @@ try {
 			if ($nwhen == '1') {
 				
 				if (($stmp < $nvalue) && $nsent != 'sent') {
-					if (!empty($nmsg)) {
-						$message = $nmsg;
-					}else {
-						$message = $sname." value is ".$stmp." < ".$nvalue;	
-					}
+					
 					$notsent = 1;
 					echo "aa\n";
 					
@@ -267,6 +263,18 @@ try {
 						
 						$notsentrec = 1;
 						echo "bb\n";
+					}
+					
+					if (!empty($nmsg) && $notsent == 1) {
+						$message = $nmsg;
+					}else {
+						$message = $sname." value is ".$stmp." < ".$nvalue;	
+					}
+					
+					if (!empty($nmsg) && $notsentrec == 1) {
+						$message = $nmsg;
+					}else {
+						$message = "Recovery - ".$sname." value is ".$stmp." > ".$nvalue;	
 					}
 					
 			send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec);
