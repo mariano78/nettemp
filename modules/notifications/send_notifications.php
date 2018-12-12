@@ -100,13 +100,13 @@ try {
 
 
 
-function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent){
+function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec){
 	
 	$ROOT=dirname(dirname(dirname(__FILE__)));
 	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 	
-	$notsent = 0;
-	$notsentrec = 0;
+	//$notsent = 0;
+	//$notsentrec = 0;
 	
 	if ($notsms == 'on') {
 		
@@ -126,7 +126,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						//$notsent = 1;
 				}else if ($notmail == 'on' && $nsent == 'sent'){ //RECOVERY MAIL
 				
-						echo "Wysyłam mail - RECOVERY".$notmessage."\n";
+						echo "Wysyłam mail - RECOVERY - ".$notmessage."\n";
 						$db->exec("UPDATE sensors SET mail='' WHERE rom='$nrom'");
 						//$db->exec("UPDATE notifications SET sent='' WHERE id='$nid'");
 						//$notsentrec = 1;
@@ -249,14 +249,21 @@ try {
 
 			if ($nwhen == '1') {
 				
-				if ($stmp < $nvalue) {
+				if (($stmp < $nvalue) && $nsent != 'sent') {
 					if (!empty($nmsg)) {
 						$message = $nmsg;
 					}else {
 						$message = $sname." value is ".$stmp." < ".$nvalue;	
 					}
-					send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent);
+					$notsent = 1;
+					
+					}elseif (($stmp > $nvalue) && $nsent == 'sent') {
+						
+						$notsentrec = 1;
 					}
+					
+			send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec);
+					
 					
 			}elseif ($nwhen == '2') {
 				
