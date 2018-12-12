@@ -269,13 +269,13 @@ try {
 						echo "notsentrec = ".$notsentrec."\n";
 					}
 					
-					if (!empty($nmsg) && $notsent == 1) {
+					if ((!empty($nmsg)) && $notsent == 1) {
 						$message = $nmsg;
 					}else {
 						$message = $sname." value is ".$stmp." < ".$nvalue;	
 					}
 					
-					if (!empty($nmsg) && $notsentrec == 1) {
+					if ((!empty($nmsg)) && $notsentrec == 1) {
 						$message = $nmsg;
 					}else {
 						$message = "Recovery - ".$sname." value is ".$stmp." > ".$nvalue;	
