@@ -258,15 +258,15 @@ try {
 					
 					$notsent = 1;
 					echo "aa\n";
-					echo "notsent = ".$notsent."\n";
-					echo "notsentrec = ".$notsentrec."\n";
+					echo "aanotsent = ".$notsent."\n";
+					echo "aanotsentrec = ".$notsentrec."\n";
 					
 					}elseif (($stmp > $nvalue) && $nsent == 'sent') {
 						
 						$notsentrec = 1;
 						echo "bb\n";
-						echo "notsent = ".$notsent."\n";
-						echo "notsentrec = ".$notsentrec."\n";
+						echo "bbnotsent = ".$notsent."\n";
+						echo "bbnotsentrec = ".$notsentrec."\n";
 					}
 					
 					if ((!empty($nmsg)) && $notsent == 1) {
