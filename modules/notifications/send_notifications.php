@@ -271,14 +271,18 @@ try {
 					
 					if ((!empty($nmsg)) && $notsent == 1) {
 						$message = $nmsg;
+						echo "msg1\n";
 					}else {
 						$message = $sname." value is ".$stmp." < ".$nvalue;	
+						echo "msg2\n";
 					}
 					
 					if ((!empty($nmsg)) && $notsentrec == 1) {
 						$message = $nmsg;
+						echo "msg3\n";
 					}else {
 						$message = "Recovery - ".$sname." value is ".$stmp." > ".$nvalue;	
+						echo "msg4\n";
 					}
 					
 			send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec);
