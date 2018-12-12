@@ -254,7 +254,7 @@ try {
 
 			if ($nwhen == '1') {
 				
-				if (($stmp < $nvalue) && $nsent != 'sent') {
+				if (($stmp < $nvalue) && $nsent == '') {
 					
 					$notsent = 1;
 					echo "aa\n";
