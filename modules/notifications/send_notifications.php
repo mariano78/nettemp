@@ -233,6 +233,8 @@ try {
 		$niginterval=$sn['iginterval'];
 		$nrecovery=$sn['recovery'];
 		$nsent=$sn['sent'];
+		$notsent = 0;
+		$notsentrec = 0;
 				
 		$sensor = $db->query("SELECT name,tmp,current,type FROM sensors WHERE rom='$nrom'");
 		$sensors = $sensor->fetchAll();
