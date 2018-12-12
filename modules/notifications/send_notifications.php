@@ -160,7 +160,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 
 						//$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
 						//$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
-						$notsent = 1;
+						//$notsent = 1;
 						echo "Wysyłam PoshOver - ".$notmessage."\n";
 						
 				}else if ($notpov == 'on' && $notsentrec == 1){  // RECOVERY PO
@@ -183,7 +183,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 
 						//$db->exec("UPDATE sensors SET mail='' WHERE rom='$nrom'");
 						//$db->exec("UPDATE notifications SET sent='' WHERE id='$nid'");
-						$notsentrec = 1;
+						//$notsentrec = 1;
 						echo "Wysyłam PoshOver - Recovery - ".$notmessage."\n";
 					
 					
