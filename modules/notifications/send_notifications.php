@@ -191,11 +191,13 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 	
 	if ($notsentrec == 1){
 		$db->exec("UPDATE notifications SET sent='' WHERE id='$nid'");
+		echo "Robie recovery\n";
 		
 	}
 	
 	if ($notsent == 1){
 		$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
+		echo "Robie normal\n";
 		
 	}
 	
