@@ -274,6 +274,8 @@ try {
 						echo "msg1\n";
 					}else {
 						$message = $sname." value is ".$stmp." < ".$nvalue;	
+						echo "msg2notsent = ".$notsent."\n";
+						echo "msg2notsentrec = ".$notsentrec."\n";
 						echo "msg2\n";
 					}
 					
@@ -282,6 +284,8 @@ try {
 						echo "msg3\n";
 					}else {
 						$message = "Recovery - ".$sname." value is ".$stmp." > ".$nvalue;	
+						echo "msg4notsent = ".$notsent."\n";
+						echo "msg4notsentrec = ".$notsentrec."\n";
 						echo "msg4\n";
 					}
 					
