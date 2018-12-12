@@ -269,7 +269,7 @@ try {
 						echo "bbnotsentrec = ".$notsentrec."\n";
 					}
 					
-					if ((!empty($nmsg)) && $notsent == 1) {
+					if ((!empty($nmsg)) && ($notsent == 1)) {
 						$message = $nmsg;
 						echo "msg1\n";
 					}else {
