@@ -225,10 +225,21 @@ $notifs = $notif->fetchAll();
 			</td>
 			
 			<td> 
-				<form action="" method="post" style="display:inline!important;">
-					<input type="hidden" name="interval_not_id" value="<?php echo $n['id']; ?>" />
-					<input type="checkbox" data-toggle="toggle" data-size="mini"  name="notinterv" value="on" <?php echo $n["iginterval"] == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
-					<input type="hidden" name="not_iginterval_onoff" value="onoff" />
+				<form action="" method="post"  class="form-inline">
+				<select class="selectpicker" data-width="50px" name="intervalselect" class="form-control input-sm" onchange="this.form.submit()">
+					<option value="-2" <?php echo $n[interval] == '1m' ? 'selected="selected"' : ''; ?> >1 minute</option>
+					<option value="-1" <?php echo $n[interval] == '2m'? 'selected="selected"' : ''; ?> >2 minutes</option>
+					<option value="0" <?php echo $n[interval] == '5m'? 'selected="selected"' : ''; ?> >5 minutes</option>
+					<option value="1" <?php echo $n[interval] == '15m'? 'selected="selected"' : ''; ?> >15 minutes</option>
+					<option value="2" <?php echo $n[interval] == '30m'? 'selected="selected"' : ''; ?> >30 minutes</option>
+					<option value="2" <?php echo $n[interval] == '1h'? 'selected="selected"' : ''; ?> >1 Hour</option>
+					<option value="2" <?php echo $n[interval] == '2h'? 'selected="selected"' : ''; ?> >2 Hours</option>
+					<option value="2" <?php echo $n[interval] == '6h'? 'selected="selected"' : ''; ?> >6 Hours</option>
+					<option value="2" <?php echo $n[interval] == '12h'? 'selected="selected"' : ''; ?> >12 Hours</option>
+					<option value="2" <?php echo $n[interval] == '24h'? 'selected="selected"' : ''; ?> >24 Hours</option>
+				</select>
+				<input type="hidden" name="interval_set" value="set" />
+				<input type="hidden" name="interval_not_id" value="<?php echo $n['id']; ?>" />
 				</form>
 			</td>
 			
@@ -331,7 +342,7 @@ $notifs = $notif->fetchAll();
 		</td>
 		
 		<td>
-			<select name="npriority" class="selectpicker"">
+			<select name="npriority" class="selectpicker">
 				<option value="-2">Lowest</option>
 				<option value="-1">Low</option>
 				<option value="0">Normal</option>
@@ -341,17 +352,17 @@ $notifs = $notif->fetchAll();
 		</td>
 		
 		<td>
-			<select name="ninterval" class="selectpicker"">
-				<option value="1m">Lowest</option>
-				<option value="2m">Low</option>
-				<option value="5m">Normal</option>
-				<option value="15m">High</option>
-				<option value="30m">Emergency</option>
-				<option value="1h">Emergency</option>
-				<option value="2h">Emergency</option>
-				<option value="6h">Emergency</option>
-				<option value="12h">Emergency</option>
-				<option value="24h">Emergency</option>
+			<select name="ninterval" class="selectpicker">
+				<option value="1m">1 minute</option>
+				<option value="2m">2 minutes</option>
+				<option value="5m">5 minutes</option>
+				<option value="15m">15 minutes</option>
+				<option value="30m">30 minutes</option>
+				<option value="1h">1 Hour</option>
+				<option value="2h">2 Hours</option>
+				<option value="6h">6 Hours</option>
+				<option value="12h">12 Hours</option>
+				<option value="24h">24 Hours</option>
 			</select>
 		</td>
 		
