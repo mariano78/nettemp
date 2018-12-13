@@ -59,7 +59,7 @@
 				<td>
 					<form action="" method="post"  class="form-inline">
 						<select class="selectpicker" data-width="50px" name="sensinterval" class="form-control input-sm" onchange="this.form.submit()">
-							<option value="1m" <?php echo $nts_sens_interval == '1m' ? 'selected="selected"' : ''; ?> >1 Minute</option>
+							<option value="2m" <?php echo $nts_sens_interval == '2m' ? 'selected="selected"' : ''; ?> >2 Minute</option>
 							<option value="5m" <?php echo $nts_sens_interval == '5m'? 'selected="selected"' : ''; ?> >5 Minutes</option>
 							<option value="15m" <?php echo $nts_sens_interval == '15m'? 'selected="selected"' : ''; ?> >10 Minutes</option>
 							<option value="30m" <?php echo $nts_sens_interval == '30m'? 'selected="selected"' : ''; ?> >30 Minutes</option>
