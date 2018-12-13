@@ -7,7 +7,8 @@ $mailonoff = isset($_POST['mailonoff']) ? $_POST['mailonoff'] : '';
 $poonoff = isset($_POST['poonoff']) ? $_POST['poonoff'] : '';
 $nmessage = isset($_POST['nmessage']) ? $_POST['nmessage'] : '';
 $npriority = isset($_POST['npriority']) ? $_POST['npriority'] : '';
-$intervalonoff = isset($_POST['intervalonoff']) ? $_POST['intervalonoff'] : '';
+$ninterval = isset($_POST['ninterval']) ? $_POST['ninterval'] : '';
+//$intervalonoff = isset($_POST['intervalonoff']) ? $_POST['intervalonoff'] : '';
 $recoveryonoff = isset($_POST['recoveryonoff']) ? $_POST['recoveryonoff'] : '';
 $activeonoff = isset($_POST['activeonoff']) ? $_POST['activeonoff'] : '';
 $nadd = isset($_POST['nadd']) ? $_POST['nadd'] : '';
@@ -16,8 +17,8 @@ $nrom = isset($_POST['nrom']) ? $_POST['nrom'] : '';
 //Add to Base
 if(!empty($nrom) && ($nadd == "nadd")) { 
 	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("INSERT INTO notifications ('rom', 'type', 'wheen', 'value', 'sms', 'mail', 'pov', 'message', 'priority', 'iginterval', 'recovery', 'active') 
-	VALUES ('$nrom', '$ntype', '$nwhen', '$nvalue', '$smsonoff', '$mailonoff', '$poonoff', '$nmessage', '$npriority', '$intervalonoff', '$recoveryonoff', '$activeonoff')");
+	$db->exec("INSERT INTO notifications ('rom', 'type', 'wheen', 'value', 'sms', 'mail', 'pov', 'message', 'priority', 'iginterval', 'recovery', 'active', 'interval') 
+	VALUES ('$nrom', '$ntype', '$nwhen', '$nvalue', '$smsonoff', '$mailonoff', '$poonoff', '$nmessage', '$npriority', '$intervalonoff', '$recoveryonoff', '$activeonoff', '$ninterval')");
 	
 	//$db->exec("UPDATE sensors SET notif = 'on' WHERE rom='$nrom'");
 	
@@ -340,7 +341,18 @@ $notifs = $notif->fetchAll();
 		</td>
 		
 		<td>
-			<input type="checkbox"  name="intervalonoff" value="on">
+			<select name="ninterval" class="selectpicker"">
+				<option value="1m">Lowest</option>
+				<option value="2m">Low</option>
+				<option value="5m">Normal</option>
+				<option value="15m">High</option>
+				<option value="30m">Emergency</option>
+				<option value="1h">Emergency</option>
+				<option value="2h">Emergency</option>
+				<option value="6h">Emergency</option>
+				<option value="12h">Emergency</option>
+				<option value="24h">Emergency</option>
+			</select>
 		</td>
 		
 		<td>
