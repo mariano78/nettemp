@@ -106,7 +106,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 	
 	//$notsent = 0;
-	//$notsentrec = 0;
+	$notsentrec2 = 0;
 	
 	if ($notsms == 'on') {
 		
@@ -177,21 +177,25 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						));
 						curl_exec($ch);
 						curl_close($ch);	
+						
+						$notsentrec2 = 1;
 
 						echo "Wysyłam PoshOver - Recovery - ".$notmessage."\n";
 					
 				}
 	}
 	
-	if ($notsentrec == 1){
-		$db->exec("UPDATE notifications SET sent='' WHERE id='$nid'");
-		echo "Robie recovery\n";
-	}
-	
 	if ($notsent == 1){
 		$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
 		echo "Robie normal\n";
 	}
+	
+	if ($notsentrec == 1 && $notsentrec2 == 1){
+		$db->exec("UPDATE notifications SET sent='' WHERE id='$nid'");
+		echo "Robie recovery\n";
+	}
+	
+	
 	
 		
 }
