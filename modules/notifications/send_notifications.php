@@ -1,6 +1,11 @@
 <?php
 $ROOT=dirname(dirname(dirname(__FILE__)));
 
+
+var_dump($argv);
+parse_str($argv[1],$interval_param);
+$interval=$interval_param['ninterval'];
+
 $date = date("Y-m-d H:i:s"); 
 $hostname=gethostname(); 
 $minute=date('i');
@@ -209,7 +214,7 @@ try {
 }
 
 try {
-	$query = $db->query("SELECT * FROM notifications WHERE active='on'");
+	$query = $db->query("SELECT * FROM notifications WHERE active='on' AND interval = '$interval'");
     $result= $query->fetchAll();
     
     foreach($result as $sn) {
