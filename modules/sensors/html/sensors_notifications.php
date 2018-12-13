@@ -85,13 +85,13 @@ if(!empty($pov_not_id) && ($not_pov_onoff == "onoff")) {
 	$db->exec("UPDATE notifications SET pov = '$notpov' WHERE id='$pov_not_id'");
 }
 //Interval
-$notinterv = isset($_POST['notinterv']) ? $_POST['notinterv'] : '';
+$intervalselect = isset($_POST['intervalselect']) ? $_POST['intervalselect'] : '';
 $interval_not_id = isset($_POST['interval_not_id']) ? $_POST['interval_not_id'] : '';
-$not_iginterval_onoff = isset($_POST['not_iginterval_onoff']) ? $_POST['not_iginterval_onoff'] : '';
+$interval_set = isset($_POST['interval_set']) ? $_POST['interval_set'] : '';
 
-if(!empty($interval_not_id) && ($not_iginterval_onoff == "onoff")) { 
+if(!empty($interval_not_id) && ($interval_set == "set")) { 
 	$db = new PDO("sqlite:$root/dbf/nettemp.db");
-	$db->exec("UPDATE notifications SET iginterval = '$notinterv' WHERE id='$interval_not_id'");
+	$db->exec("UPDATE notifications SET interval = '$intervalselect' WHERE id='$interval_not_id'");
 }
 //Recovery
 $notrecv = isset($_POST['notrecv']) ? $_POST['notrecv'] : '';
@@ -150,7 +150,7 @@ $notifs = $notif->fetchAll();
 		<th>PushOver</th>
 		<th>Custom message</th>
 		<th>PO Priority</th>
-		<th>Ignore interval</th>
+		<th>Interval</th>
 		<th>Recovery</th>
 		<th>Active</th>
 		<th></th>
@@ -227,16 +227,16 @@ $notifs = $notif->fetchAll();
 			<td> 
 				<form action="" method="post"  class="form-inline">
 				<select class="selectpicker" data-width="50px" name="intervalselect" class="form-control input-sm" onchange="this.form.submit()">
-					<option value="-2" <?php echo $n[interval] == '1m' ? 'selected="selected"' : ''; ?> >1 minute</option>
-					<option value="-1" <?php echo $n[interval] == '2m'? 'selected="selected"' : ''; ?> >2 minutes</option>
-					<option value="0" <?php echo $n[interval] == '5m'? 'selected="selected"' : ''; ?> >5 minutes</option>
-					<option value="1" <?php echo $n[interval] == '15m'? 'selected="selected"' : ''; ?> >15 minutes</option>
-					<option value="2" <?php echo $n[interval] == '30m'? 'selected="selected"' : ''; ?> >30 minutes</option>
-					<option value="2" <?php echo $n[interval] == '1h'? 'selected="selected"' : ''; ?> >1 Hour</option>
-					<option value="2" <?php echo $n[interval] == '2h'? 'selected="selected"' : ''; ?> >2 Hours</option>
-					<option value="2" <?php echo $n[interval] == '6h'? 'selected="selected"' : ''; ?> >6 Hours</option>
-					<option value="2" <?php echo $n[interval] == '12h'? 'selected="selected"' : ''; ?> >12 Hours</option>
-					<option value="2" <?php echo $n[interval] == '24h'? 'selected="selected"' : ''; ?> >24 Hours</option>
+					<option value="1m" <?php echo $n[interval] == '1m' ? 'selected="selected"' : ''; ?> >1 minute</option>
+					<option value="2m" <?php echo $n[interval] == '2m'? 'selected="selected"' : ''; ?> >2 minutes</option>
+					<option value="5m" <?php echo $n[interval] == '5m'? 'selected="selected"' : ''; ?> >5 minutes</option>
+					<option value="15m" <?php echo $n[interval] == '15m'? 'selected="selected"' : ''; ?> >15 minutes</option>
+					<option value="30m" <?php echo $n[interval] == '30m'? 'selected="selected"' : ''; ?> >30 minutes</option>
+					<option value="1h" <?php echo $n[interval] == '1h'? 'selected="selected"' : ''; ?> >1 Hour</option>
+					<option value="2h" <?php echo $n[interval] == '2h'? 'selected="selected"' : ''; ?> >2 Hours</option>
+					<option value="6h" <?php echo $n[interval] == '6h'? 'selected="selected"' : ''; ?> >6 Hours</option>
+					<option value="12h" <?php echo $n[interval] == '12h'? 'selected="selected"' : ''; ?> >12 Hours</option>
+					<option value="24h" <?php echo $n[interval] == '24h'? 'selected="selected"' : ''; ?> >24 Hours</option>
 				</select>
 				<input type="hidden" name="interval_set" value="set" />
 				<input type="hidden" name="interval_not_id" value="<?php echo $n['id']; ?>" />
@@ -294,7 +294,7 @@ $notifs = $notif->fetchAll();
 		<th>PushOver</th>
 		<th>Custom message</th>
 		<th>PO Priority</th>
-		<th>Ignore interval</th>
+		<th>Interval</th>
 		<th>Recovery</th>
 		<th>Active</th>
 		<th></th>
