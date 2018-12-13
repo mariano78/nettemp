@@ -100,7 +100,7 @@ try {
 
 
 
-function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec){
+function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery){
 	
 	$ROOT=dirname(dirname(dirname(__FILE__)));
 	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
@@ -157,14 +157,10 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						));
 						curl_exec($ch);
 						curl_close($ch);	
-
-						//$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
-						//$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
-						//$notsent = 1;
-						echo "Wysyłam PoshOver - ".$notmessage."\n";
-						echo "xx\n";
 						
-				}else if ($notpov == 'on' && $notsentrec == 1){  // RECOVERY PO
+						echo "Wysyłam PoshOver - ".$notmessage."\n";
+						
+				}else if ($nrecovery == 'on' && $notpov == 'on' && $notsentrec == 1){  // RECOVERY PO
 				
 						curl_setopt_array($ch = curl_init(), array(
 						  CURLOPT_URL => "https://api.pushover.net/1/messages.json",
@@ -182,13 +178,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						curl_exec($ch);
 						curl_close($ch);	
 
-						//$db->exec("UPDATE sensors SET mail='' WHERE rom='$nrom'");
-						//$db->exec("UPDATE notifications SET sent='' WHERE id='$nid'");
-						//$notsentrec = 1;
 						echo "Wysyłam PoshOver - Recovery - ".$notmessage."\n";
-						echo "yy\n";
-					
-					
 					
 				}
 	}
@@ -196,19 +186,15 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 	if ($notsentrec == 1){
 		$db->exec("UPDATE notifications SET sent='' WHERE id='$nid'");
 		echo "Robie recovery\n";
-		
 	}
 	
 	if ($notsent == 1){
 		$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
 		echo "Robie normal\n";
-		
 	}
 	
 		
 }
- 
-
 
 try {
     $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
@@ -280,7 +266,7 @@ try {
 								$message = "Recovery - ".$sname." value is ".$stmp." > ".$nvalue;	
 							}
 						}
-						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec);
+						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery);
 					
 					
 			}elseif ($nwhen == '2') {
