@@ -275,58 +275,143 @@ try {
 					
 			}elseif ($nwhen == '2') {
 				
-				if ($stmp <= $nvalue) {
-					if (!empty($nmsg)) {
-						$message = $nmsg;
-					}else {
-						$message = $sname." value is ".$stmp." <= ".$nvalue;	
+				if (($stmp <= $nvalue) && $nsent == '') {
+					$notsent = 1;
+					}elseif (($stmp >= $nvalue) && $nsent == 'sent') {
+						$notsentrec = 1;
 					}
-					send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery);
-					}
+						if ($notsent == 1) {
+							
+							if (!empty($nmsg)) {
+							$message = $nmsg;
+							
+							}else {
+								$message = $sname." value is ".$stmp." <= ".$nvalue;	
+							}
+						}
+				
+						if ($notsentrec == 1) {
+							
+							if (!empty($nmsg)) {
+							$message = $nmsg;
+							
+							}else {
+								$message = "Recovery - ".$sname." value is ".$stmp." >= ".$nvalue;	
+							}
+						}
+						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery);
 				
 			}elseif ($nwhen == '3') {
 				
-				if ($stmp > $nvalue) {
-					if (!empty($nmsg)) {
-						$message = $nmsg;
-					}else {
-						$message = $sname." value is ".$stmp." > ".$nvalue;	
+				if (($stmp > $nvalue) && $nsent == '') {
+					$notsent = 1;
+					}elseif (($stmp < $nvalue) && $nsent == 'sent') {
+						$notsentrec = 1;
 					}
-					send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery);
-					}
+						if ($notsent == 1) {
+							
+							if (!empty($nmsg)) {
+							$message = $nmsg;
+							
+							}else {
+								$message = $sname." value is ".$stmp." > ".$nvalue;	
+							}
+						}
+				
+						if ($notsentrec == 1) {
+							
+							if (!empty($nmsg)) {
+							$message = $nmsg;
+							
+							}else {
+								$message = "Recovery - ".$sname." value is ".$stmp." < ".$nvalue;	
+							}
+						}
+						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery);
 	
 			}elseif ($nwhen == '4') {
 				
-				if ($stmp >= $nvalue) {
-					if (!empty($nmsg)) {
-						$message = $nmsg;
-					}else {
-						$message = $sname." value is ".$stmp." >= ".$nvalue;	
+				if (($stmp >= $nvalue) && $nsent == '') {
+					$notsent = 1;
+					}elseif (($stmp <= $nvalue) && $nsent == 'sent') {
+						$notsentrec = 1;
 					}
-					send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery);
-					}
+						if ($notsent == 1) {
+							
+							if (!empty($nmsg)) {
+							$message = $nmsg;
+							
+							}else {
+								$message = $sname." value is ".$stmp." >= ".$nvalue;	
+							}
+						}
+				
+						if ($notsentrec == 1) {
+							
+							if (!empty($nmsg)) {
+							$message = $nmsg;
+							
+							}else {
+								$message = "Recovery - ".$sname." value is ".$stmp." <= ".$nvalue;	
+							}
+						}
+						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery);
 				
 			}elseif ($nwhen == '5') {
 				
-				if ($stmp == $nvalue) {
-					if (!empty($nmsg)) {
-						$message = $nmsg;
-					}else {
-						$message = $sname." value is ".$stmp." = ".$nvalue;	
+				if (($stmp == $nvalue) && $nsent == '') {
+					$notsent = 1;
+					}elseif (($stmp != $nvalue) && $nsent == 'sent') {
+						$notsentrec = 1;
 					}
-					send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery);
-					}	
+						if ($notsent == 1) {
+							
+							if (!empty($nmsg)) {
+							$message = $nmsg;
+							
+							}else {
+								$message = $sname." value is ".$stmp." == ".$nvalue;	
+							}
+						}
+				
+						if ($notsentrec == 1) {
+							
+							if (!empty($nmsg)) {
+							$message = $nmsg;
+							
+							}else {
+								$message = "Recovery - ".$sname." value is ".$stmp." != ".$nvalue;	
+							}
+						}
+						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery);	
 				
 			}elseif ($nwhen == '6') {
 				
-				if ($stmp != $nvalue) {
-					if (!empty($nmsg)) {
-						$message = $nmsg;
-					}else {
-						$message = $sname." value is ".$stmp." != ".$nvalue;	
+				if (($stmp != $nvalue) && $nsent == '') {
+					$notsent = 1;
+					}elseif (($stmp == $nvalue) && $nsent == 'sent') {
+						$notsentrec = 1;
 					}
-					send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery);
-					}	
+						if ($notsent == 1) {
+							
+							if (!empty($nmsg)) {
+							$message = $nmsg;
+							
+							}else {
+								$message = $sname." value is ".$stmp." != ".$nvalue;	
+							}
+						}
+				
+						if ($notsentrec == 1) {
+							
+							if (!empty($nmsg)) {
+							$message = $nmsg;
+							
+							}else {
+								$message = "Recovery - ".$sname." value is ".$stmp." == ".$nvalue;	
+							}
+						}
+						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery);	
 			}
 	
 	}
