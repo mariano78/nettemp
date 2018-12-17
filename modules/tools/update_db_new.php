@@ -199,7 +199,7 @@ $updates['2018-10-05 08:06:21'][]="INSERT INTO nt_settings ('option', 'value') V
 $updates['2018-10-05 08:06:22'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('domolog','')";
 $updates['2018-10-05 08:06:25'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('domopass','')";
 
-$updates['2018-10-12 10:29:48'][]="CREATE TABLE notifications (id INTEGER PRIMARY KEY, rom TEXT , type TEXT, wheen TEXT, value TEXT, sms TEXT, mail TEXT, pov TEXT, message TEXT, priority TEXT, iginterval TEXT, recovery TEXT, active TEXT)";
+$updates['2018-10-12 10:29:48'][]="CREATE TABLE notifications (id INTEGER PRIMARY KEY, rom TEXT , type TEXT, wheen TEXT, value TEXT, sms TEXT, mail TEXT, pov TEXT, message TEXT, priority TEXT, interval TEXT, recovery TEXT, active TEXT, sent TEXT)";
 
 $updates['2018-11-08 10:26:46'][]="ALTER TABLE gpio ADD token TEXT";
 
@@ -208,8 +208,8 @@ $updates['2018-11-30 12:46:25'][]="INSERT INTO nt_settings ('option', 'value') V
 
 //$updates['2018-11-30 12:47:41'][]="ALTER TABLE sensors ADD smssend TEXT";
 //$updates['2018-11-30 12:47:42'][]="ALTER TABLE sensors ADD posend TEXT";
-$updates['2018-12-01 12:40:12'][]="ALTER TABLE notifications ADD sent TEXT";
-$updates['2018-12-13 12:30:12'][]="ALTER TABLE notifications ADD interval TEXT";
+//$updates['2018-12-01 12:40:12'][]="ALTER TABLE notifications ADD sent TEXT";
+//$updates['2018-12-13 12:30:12'][]="ALTER TABLE notifications ADD interval TEXT";
 
 //$updates['2018-11-29 13:43:11'][]="ALTER TABLE sensors ADD notif TEXT";
 ?>
