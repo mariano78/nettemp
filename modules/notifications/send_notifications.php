@@ -119,9 +119,9 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 			
 						
 						if ( mail ($addr, $mail_topic, message($notname,$notmessage,$date,"stan","#FF0000"), $headers ) ) {
-							echo $date." Lost cnnection with: ".$notname." - Mail send OK\n";
+							echo $date."Mail send OK\n";
 						} else {
-						echo " Lost cnnection with - Mail send problem\n";
+						echo $date."Mail send problem\n";
 						}
 					
 
@@ -130,11 +130,12 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						
 				}else if ($nrecovery == 'on' && $notmail == 'on' && $notsentrec == 1){ //RECOVERY MAIL
 				
-				
-				
-				
-				
-				
+				if ( mail ($addr, $mail_topic, message($notname,$notmessage,$date,"stan","#FF0000"), $headers ) ) {
+							echo $date."Mail send OK\n";
+						} else {
+						echo $date."Mail send problem\n";
+						}
+					
 				
 				
 						$notsentrec2 = 1;
