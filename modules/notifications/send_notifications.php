@@ -6,7 +6,6 @@ var_dump($argv);
 parse_str($argv[1],$interval_param);
 $ninterval=$interval_param['ninterval'];
 
-echo "interwał".$ninterval;
 
 $date = date("Y-m-d H:i:s"); 
 $hostname=gethostname(); 
@@ -216,7 +215,7 @@ try {
 }
 
 try {
-	$query = $db->query("SELECT * FROM notifications WHERE active='on' AND interval = '$ninterval'");
+	$query = $db->query("SELECT * FROM notifications WHERE active='on' ");
     $result= $query->fetchAll();
     
     foreach($result as $sn) {
@@ -237,6 +236,8 @@ try {
 		$notsent = 0;
 		$notsentrec = 0;
 		$message = '';
+		
+		if ($ninterval == ''){$nsent = '';}
 				
 		$sensor = $db->query("SELECT name,tmp,current,type FROM sensors WHERE rom='$nrom'");
 		$sensors = $sensor->fetchAll();
