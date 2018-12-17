@@ -6,7 +6,7 @@ var_dump($argv);
 parse_str($argv[1],$interval_param);
 $ninterval=$interval_param['ninterval'];
 
-echo $ninterval;
+echo "interwał".$ninterval;
 
 $date = date("Y-m-d H:i:s"); 
 $hostname=gethostname(); 
