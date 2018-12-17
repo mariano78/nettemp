@@ -237,7 +237,7 @@ try {
 		$notsentrec = 0;
 		$message = '';
 		
-		if ($ninterval == ''){$nsent = '';}
+		if ($ninterval != ''){$nsent = '';}
 				
 		$sensor = $db->query("SELECT name,tmp,current,type FROM sensors WHERE rom='$nrom'");
 		$sensors = $sensor->fetchAll();
