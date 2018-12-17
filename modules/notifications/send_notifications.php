@@ -85,7 +85,7 @@ try {
 			 <h4>Hi, this is notification from <a href="http://'.trim(shell_exec("hostname -I | cut -d' ' -f1")).'">'.trim(shell_exec("hostname -I | cut -d' ' -f1")).'</a></br></h4><br>
 			 <table border="1" style="">
 			 <tr><th>Name</th><th>Value</th><th>Date</th><th>Status</th></tr><tr>
-			 <td>'.$name.'</td><td>'.$value.'</td><td>'.$date.'</td><td bgcolor="'.$color.'">'.$state.'</td>
+			 <td>'.$name.'</td><td>'.$notmessage.'</td><td>'.$date.'</td><td bgcolor="'.$color.'">'.$state.'</td>
 			 </tr></table><br
 			 </div>
 			 </body>
@@ -127,7 +127,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 			
 						
 						if ( mail ($addr, $mail_topic, message($notname,$notmessage,$date,"stan","#FF0000"), $headers ) ) {
-							echo $date." Lost cnnection with: ".$name." - Mail send OK\n";
+							echo $date." Lost cnnection with: ".$notname." - Mail send OK\n";
 						} else {
 						echo $date." Lost cnnection with: ".$name." - Mail send problem\n";
 						}
