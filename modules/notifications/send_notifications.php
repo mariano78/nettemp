@@ -251,7 +251,7 @@ try {
 
 			if ($nwhen == '1') {
 				
-				if (($stmp < $nvalue) && $nsent == 'sent') {
+				if (($stmp < $nvalue) && $nsent == '') {
 					$notsent = 1;
 					}elseif (($stmp > $nvalue) && $nsent == 'sent') {
 						$notsentrec = 1;
