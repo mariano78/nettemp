@@ -215,7 +215,15 @@ try {
 }
 
 try {
-	$query = $db->query("SELECT * FROM notifications WHERE active='on' ");
+	
+	if ($ninterval != ''){
+		
+		$query = $db->query("SELECT * FROM notifications WHERE active='on' AND interval = '$ninterval'");
+		}else 
+			{
+				$query = $db->query("SELECT * FROM notifications WHERE active='on' ");
+			}
+	
     $result= $query->fetchAll();
     
     foreach($result as $sn) {
