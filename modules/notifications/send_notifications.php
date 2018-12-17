@@ -84,7 +84,7 @@ $hour=date('H');
 	         <style>* { margin: 0; padding: 0; } a {text-decoration: none;} th, td {  padding: 5px;} table, th, td { border: 1px solid black;  border-collapse: collapse;} * {font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;}</style>
 			 </head>
 			 <body bgcolor="#ffffff" text="#000000">
-			 <h4>Hi, this is notification from <a href="http://'.trim(shell_exec("hostname -I | cut -d' ' -f1")).'">'.trim(shell_exec("hostname -I | cut -d' ' -f1")).'</a></br></h4><br>
+			 <h4>Hi, this is notification from '.trim(shell_exec("hostname -I | cut -d' ' -f1")).'</a></br></h4><br>
 			 <table border="1" style="">
 			 <tr><th>Date</th><th>Message</th></tr><tr>
 			 <td>'.$date.'</td><td>'.$notmessage.'</td>
