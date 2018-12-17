@@ -136,7 +136,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 					
 						echo "Wysyłam mail - ".$notmessage."\n";
 						
-				}else if ($nrecovery == 'on' $notmail == 'on' && $notsentrec == 1){ //RECOVERY MAIL
+				}else if ($nrecovery == 'on' && $notmail == 'on' && $notsentrec == 1){ //RECOVERY MAIL
 				
 				
 				
