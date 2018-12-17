@@ -86,8 +86,8 @@ $hour=date('H');
 			 <body bgcolor="#ffffff" text="#000000">
 			 <h4>Hi, this is notification from <a href="http://'.trim(shell_exec("hostname -I | cut -d' ' -f1")).'">'.trim(shell_exec("hostname -I | cut -d' ' -f1")).'</a></br></h4><br>
 			 <table border="1" style="">
-			 <tr><th>Name</th><th>Value</th><th>Date</th><th>Status</th></tr><tr>
-			 <td>'.$name.'</td><td>'.$notmessage.'</td><td>'.$date.'</td><td bgcolor="'.$color.'">'.$state.'</td>
+			 <tr><th>Date</th><th>Message</th></tr><tr>
+			 <td>'.$date.'</td><td>'.$notmessage.'</td>
 			 </tr></table><br
 			 </div>
 			 </body>
