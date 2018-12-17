@@ -129,7 +129,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						if ( mail ($addr, $mail_topic, message($notname,$notmessage,$date,"stan","#FF0000"), $headers ) ) {
 							echo $date." Lost cnnection with: ".$notname." - Mail send OK\n";
 						} else {
-						echo $date." Lost cnnection with: ".$name." - Mail send problem\n";
+						echo " Lost cnnection with - Mail send problem\n";
 						}
 					
 
