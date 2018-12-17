@@ -19,11 +19,7 @@
 <?php include('modules/mail/html/mail_settings.php'); ?>
 <?php include('modules/pushover/html/pushover_settings.php'); ?>
 
-
-
 <?php
-
-
 	
 	$sensinterval = isset($_POST['sensinterval']) ? $_POST['sensinterval'] : '';
     $sensint_upd = isset($_POST['sensint_upd']) ? $_POST['sensint_upd'] : '';
@@ -100,9 +96,6 @@
 		</div>
 		</div>
 	</div>
-
-
-
 
 </div>
 </div>
