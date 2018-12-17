@@ -216,7 +216,7 @@ try {
 
 try {
 	
-	if ($ninterval != ''){
+	if ($ninterval != '0m'){
 		
 		$query = $db->query("SELECT * FROM notifications WHERE active='on' AND interval = '$ninterval'");
 		}else 
@@ -245,7 +245,7 @@ try {
 		$notsentrec = 0;
 		$message = '';
 		
-		if ($ninterval != ''){$nsent = '';}
+		if ($ninterval != '0m'){$nsent = '';}
 				
 		$sensor = $db->query("SELECT name,tmp,current,type FROM sensors WHERE rom='$nrom'");
 		$sensors = $sensor->fetchAll();
