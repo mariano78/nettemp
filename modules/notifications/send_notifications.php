@@ -73,7 +73,7 @@ try {
 	$headers .= "MIME-Version: 1.0" . "\r\n";
 	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 	
-	function message($name,$value,$date,$state,$color)
+	function message($notname,$notmessage,$date,$state,$color)
 	{
 	$body = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 			 <html>
@@ -86,8 +86,7 @@ try {
 			 <table border="1" style="">
 			 <tr><th>Name</th><th>Value</th><th>Date</th><th>Status</th></tr><tr>
 			 <td>'.$name.'</td><td>'.$value.'</td><td>'.$date.'</td><td bgcolor="'.$color.'">'.$state.'</td>
-			 </tr></table><br><br>
-			 <a href="http://techfreak.pl/tag/nettemp"> <img src="http://techfreak.pl/wp-content/uploads/2012/12/nettemp.pl_.png" style="width:120px;height:40px;"></a><br>
+			 </tr></table><br
 			 </div>
 			 </body>
 			 </html>';
@@ -124,21 +123,30 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 	if ($mailonoff == 'on') {
 		
 		
-		if (($notmail == 'on' && $nsent == '') ){ //Send Notification MAIL
+		if (($notmail == 'on' && $notsent == 1) ){ //Send Notification MAIL
 			
+						
+						if ( mail ($addr, $mail_topic, message($notname,$notmessage,$date,"stan","#FF0000"), $headers ) ) {
+							echo $date." Lost cnnection with: ".$name." - Mail send OK\n";
+						} else {
+						echo $date." Lost cnnection with: ".$name." - Mail send problem\n";
+						}
+					
+
+					
 						echo "Wysyłam mail - ".$notmessage."\n";
-						$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
-						//$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
-						//$notsent = 1;
-				}else if ($notmail == 'on' && $nsent == 'sent'){ //RECOVERY MAIL
+						
+				}else if ($nrecovery == 'on' $notmail == 'on' && $notsentrec == 1){ //RECOVERY MAIL
 				
-						echo "Wysyłam mail - RECOVERY - ".$notmessage."\n";
-						$db->exec("UPDATE sensors SET mail='' WHERE rom='$nrom'");
-						//$db->exec("UPDATE notifications SET sent='' WHERE id='$nid'");
-						//$notsentrec = 1;
-					
-					
-					
+				
+				
+				
+				
+				
+				
+				
+						$notsentrec2 = 1;
+						echo "Wysyłam mail - RECOVERY - ".$notmessage."\n";	
 				}
 		
 		
