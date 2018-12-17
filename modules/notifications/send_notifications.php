@@ -12,7 +12,6 @@ $hostname=gethostname();
 $minute=date('i');
 $hour=date('H');
 
-try {
 	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 	$query = $db->query("SELECT * FROM nt_settings");
     $result= $query->fetchAll();
@@ -39,6 +38,9 @@ try {
 		}
 		if($s['option']=='mail_onoff') {
 			$mailonoff=$s['value'];
+		}
+		if($s['option']=='mail_topic') {
+			$mail_topic=$s['value'];
 		}
 	}
 	
@@ -92,16 +94,6 @@ try {
 			 </html>';
 	return $body;
 	}
-	
-	
-	
-	
-	
-}catch (Exception $e) {
-    echo $date." Error\n";
-    exit;
-}
-
 
 
 
