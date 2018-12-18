@@ -399,7 +399,7 @@ $notifs = $notif->fetchAll();
 </div>
 
 <script type="text/javascript">
-
+$(document).ready(function () {
 $("#ntype").change(function() { //po zmianie
 var typ = $("#ntype").val(); //pobierasz value
 
@@ -411,5 +411,5 @@ $("select#nwhen").attr('disabled',true);
 $("select#nwhen").removeAttr("disabled"); 
 }
 });
-
+});
 </script>
