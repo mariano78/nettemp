@@ -478,7 +478,7 @@ try {
 	 
 	 if($sstatus == 'error' && $nsent == '') {
 		 $notsent = 1;
-	 }elseif ($sstatus != 'error') && $nsent == 'sent') {
+	 }elseif ($sstatus != 'error' && $nsent == 'sent') {
 		 $notsentrec = 1;
 	 }
 	 
