@@ -102,7 +102,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 	$ROOT=dirname(dirname(dirname(__FILE__)));
 	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 	
-	//$notsent = 0;
+	$notsent = 0;
 	$notsentrec2 = 0;
 	
 	if ($notsms == 'on') {
