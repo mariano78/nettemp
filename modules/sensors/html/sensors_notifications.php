@@ -405,8 +405,8 @@ var typ = $("#ntype").val(); //pobierasz value
 
 if(typ == 'lupdate') //
 {
-$("#nwhen").html("<option value="3" >></option>");
-//$("select#nwhen").attr('disabled',true);
+//$("#nwhen").html("<option value="3" >></option>");
+$("select#nwhen").attr('disabled',true);
 } else {
 $("select#nwhen").removeAttr("disabled"); 
 }
