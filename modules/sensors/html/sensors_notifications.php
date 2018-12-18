@@ -17,8 +17,8 @@ $nrom = isset($_POST['nrom']) ? $_POST['nrom'] : '';
 //Add to Base
 if(!empty($nrom) && ($nadd == "nadd")) { 
 	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("INSERT INTO notifications ('rom', 'type', 'wheen', 'value', 'sms', 'mail', 'pov', 'message', 'priority', 'iginterval', 'recovery', 'active', 'interval') 
-	VALUES ('$nrom', '$ntype', '$nwhen', '$nvalue', '$smsonoff', '$mailonoff', '$poonoff', '$nmessage', '$npriority', '$intervalonoff', '$recoveryonoff', '$activeonoff', '$ninterval')");
+	$db->exec("INSERT INTO notifications ('rom', 'type', 'wheen', 'value', 'sms', 'mail', 'pov', 'message', 'priority', 'recovery', 'active', 'interval') 
+	VALUES ('$nrom', '$ntype', '$nwhen', '$nvalue', '$smsonoff', '$mailonoff', '$poonoff', '$nmessage', '$npriority', '$recoveryonoff', '$activeonoff', '$ninterval')");
 	
 	//$db->exec("UPDATE sensors SET notif = 'on' WHERE rom='$nrom'");
 	
