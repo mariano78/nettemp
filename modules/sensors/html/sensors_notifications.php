@@ -409,6 +409,7 @@ $("#nwhen").html("<option value='3' >></option>");
 $("select#nwhen").attr('disabled',true);
 } else {
 $("select#nwhen").removeAttr("disabled"); 
+$("#nwhen").html("<option value='1' ><</option><option value='2' ><=</option><option value='3' >></option><option value='4' >>=</option><option value='5' >=</option><option value='6' >!=</option>");
 }
 });
 });
