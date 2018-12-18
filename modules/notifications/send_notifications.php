@@ -248,7 +248,7 @@ try {
 		
 		if ($ninterval != '0m'){$nsent = '';}
 				
-		$sensor = $db->query("SELECT name,tmp,current,type,time FROM sensors WHERE rom='$nrom'");
+		$sensor = $db->query("SELECT name,tmp,current,type,time, status FROM sensors WHERE rom='$nrom'");
 		$sensors = $sensor->fetchAll();
 		
 		foreach ($sensors as $sen) {
@@ -258,6 +258,7 @@ try {
 			$scurrent=$sen['current'];
 			$stype=$sen['type'];
 			$stime=$sen['time'];
+			$sstatus=$sen['status'];
 			
 			if ($stype == 'elec' || $stype == 'water' || $stype == 'gas'){
 				$stmp = $scurrent;
@@ -468,13 +469,41 @@ try {
 							}
 						}
 						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers);	
-		 
 
 	 
+	}	elseif ($ntype == 'lhost') {
 	 
+	 echo "Lost hoooooooooooooooooost\n";
+	
 	 
+	 if($sstatus == 'error' && $nsent == '') {
+		 $notsent = 1;
+	 }elseif ($sstatus != 'error') && $nsent == 'sent') {
+		 $notsentrec = 1;
+	 }
 	 
-	}	
+		if ($notsent == 1) {
+							
+							if (!empty($nmsg)) {
+							$message = $nmsg;
+							
+							}else {
+								$message = $sname." - Lost connection with host";	
+							}
+						}
+				
+						if ($notsentrec == 1) {
+							
+							if (!empty($nmsg)) {
+							$message = "Recovery - ".$nmsg;
+							
+							}else {
+								$message = $sname." - Recovered connection with host";	
+							}
+						}
+						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers);	
+
+	}
 	
 	}
 	
