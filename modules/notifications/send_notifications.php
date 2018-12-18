@@ -260,6 +260,7 @@ try {
 			
 		}	
 //check type 
+ if ($ntype == 'value') {
 
 			if ($nwhen == '1') {
 				
@@ -431,6 +432,9 @@ try {
 						}
 						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers);	
 			}
+ } elseif ($ntype == 'lupdate') {
+	 
+	 echo "Last uuuupppdate \n"
 	
 	}
 	
