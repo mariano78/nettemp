@@ -403,11 +403,11 @@ $notifs = $notif->fetchAll();
 $("#ntype").change(function() { //po zmianie
 var typ = $("#ntype").val(); //pobierasz value
 
-if(typ == 'lupdate') //rozne od polski
+if(typ == 'lupdate') //
 {
-$("select#nwhen").attr("disabled","disabled"); //to wylacz
+$("select#nwhen").attr('disabled',true);
 } else {
-$("select#nwhen").removeAttr("disabled"); //else wlacz
+$("select#nwhen").removeAttr("disabled"); 
 }
 });
 
