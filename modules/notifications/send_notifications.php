@@ -51,7 +51,7 @@ $hour=date('H');
 	}
 	if(empty($get_addr)) {
 		echo $date." Add users to nettemp settings!\n"; // dopisac obsluge bledu/logów
-		exit;
+		//exit;
 	}
 	
     $string = rtrim(implode(' ', $get_addr), ',');
