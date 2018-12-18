@@ -441,9 +441,9 @@ try {
 	 
 	 echo "Last uuuupppdate \n";
 	 
-	 if(strtotime($ntime)<(time()-($nvalue*60))) {
+	 if(strtotime($stime)<(time()-($nvalue*60))) {
 		 $notsent = 1;
-	 }elseif (strtotime($ntime)>(time()- 60)) {
+	 }elseif (strtotime($stime)>(time()- 60)) {
 		 $notsentrec = 1;
 	 }
 	 
