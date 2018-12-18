@@ -403,7 +403,7 @@ $(document).ready(function () {
 $("#ntype").change(function() { //po zmianie
 var typ = $("#ntype").val(); //pobierasz value
 
-if(typ == 'lupdate') //
+if(typ == "lupdate") //
 {
 $("#nwhen").html("<option value="3" >></option>");
 $("select#nwhen").attr('disabled',true);
