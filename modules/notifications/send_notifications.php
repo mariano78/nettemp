@@ -265,7 +265,7 @@ try {
 				
 				if (($stmp < $nvalue) && $nsent == '') {
 					$notsent = 1;
-					}elseif (($stmp > $nvalue) && $nsent == 'sent') {
+					}elseif (($stmp >= $nvalue) && $nsent == 'sent') {
 						$notsentrec = 1;
 					}
 						if ($notsent == 1) {
@@ -274,17 +274,17 @@ try {
 							$message = $nmsg;
 							
 							}else {
-								$message = $sname." value is ".$stmp." < ".$nvalue;	
+								$message = $sname." - value is ".$stmp."[ < ".$nvalue." ]";	
 							}
 						}
 				
 						if ($notsentrec == 1) {
 							
 							if (!empty($nmsg)) {
-							$message = $nmsg;
+							$message = "Recovery - ".$nmsg;
 							
 							}else {
-								$message = "Recovery - ".$sname." value is ".$stmp." > ".$nvalue;	
+								$message = "Recovery - ".$sname." - value is ".$stmp."[ > ".$nvalue." ]";	
 							}
 						}
 						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers);
@@ -294,7 +294,7 @@ try {
 				
 				if (($stmp <= $nvalue) && $nsent == '') {
 					$notsent = 1;
-					}elseif (($stmp >= $nvalue) && $nsent == 'sent') {
+					}elseif (($stmp > $nvalue) && $nsent == 'sent') {
 						$notsentrec = 1;
 						echo $notsentrec."/n"
 ;					}
@@ -304,17 +304,17 @@ try {
 							$message = $nmsg;
 							
 							}else {
-								$message = $sname." value is ".$stmp." <= ".$nvalue;	
+								$message = $sname." - value is ".$stmp."[ <= ".$nvalue." ]";	
 							}
 						}
 				
 						if ($notsentrec == 1) {
 							
 							if (!empty($nmsg)) {
-							$message = $nmsg;
+							$message = "Recovery - ".$nmsg;
 							
 							}else {
-								$message = "Recovery - ".$sname." value is ".$stmp." >= ".$nvalue;	
+								$message = "Recovery - ".$sname." - value is ".$stmp."[ >= ".$nvalue." ]";	
 							}
 						}
 						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers);
@@ -322,34 +322,6 @@ try {
 			}elseif ($nwhen == '3') {
 				
 				if (($stmp > $nvalue) && $nsent == '') {
-					$notsent = 1;
-					}elseif (($stmp < $nvalue) && $nsent == 'sent') {
-						$notsentrec = 1;
-					}
-						if ($notsent == 1) {
-							
-							if (!empty($nmsg)) {
-							$message = $nmsg;
-							
-							}else {
-								$message = $sname." value is ".$stmp." > ".$nvalue;	
-							}
-						}
-				
-						if ($notsentrec == 1) {
-							
-							if (!empty($nmsg)) {
-							$message = $nmsg;
-							
-							}else {
-								$message = "Recovery - ".$sname." value is ".$stmp." < ".$nvalue;	
-							}
-						}
-						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers);
-	
-			}elseif ($nwhen == '4') {
-				
-				if (($stmp >= $nvalue) && $nsent == '') {
 					$notsent = 1;
 					}elseif (($stmp <= $nvalue) && $nsent == 'sent') {
 						$notsentrec = 1;
@@ -360,17 +332,45 @@ try {
 							$message = $nmsg;
 							
 							}else {
-								$message = $sname." value is ".$stmp." >= ".$nvalue;	
+								$message = $sname." - value is ".$stmp."[ > ".$nvalue." ]";	
 							}
 						}
 				
 						if ($notsentrec == 1) {
 							
 							if (!empty($nmsg)) {
+							$message = "Recovery - ".$nmsg;
+							
+							}else {
+								$message = "Recovery - ".$sname." - value is ".$stmp."[ < ".$nvalue." ]";		
+							}
+						}
+						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers);
+	
+			}elseif ($nwhen == '4') {
+				
+				if (($stmp >= $nvalue) && $nsent == '') {
+					$notsent = 1;
+					}elseif (($stmp < $nvalue) && $nsent == 'sent') {
+						$notsentrec = 1;
+					}
+						if ($notsent == 1) {
+							
+							if (!empty($nmsg)) {
 							$message = $nmsg;
 							
 							}else {
-								$message = "Recovery - ".$sname." value is ".$stmp." <= ".$nvalue;	
+								$message = $sname." - value is ".$stmp."[ >= ".$nvalue." ]";	
+							}
+						}
+				
+						if ($notsentrec == 1) {
+							
+							if (!empty($nmsg)) {
+							$message = "Recovery - ".$nmsg;
+							
+							}else {
+								$message = "Recovery - ".$sname." - value is ".$stmp."[ <= ".$nvalue." ]";	
 							}
 						}
 						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers);
@@ -388,17 +388,17 @@ try {
 							$message = $nmsg;
 							
 							}else {
-								$message = $sname." value is ".$stmp." == ".$nvalue;	
+								$message = $sname." - value is ".$stmp."[ == ".$nvalue." ]";	
 							}
 						}
 				
 						if ($notsentrec == 1) {
 							
 							if (!empty($nmsg)) {
-							$message = $nmsg;
+							$message = "Recovery - ".$nmsg;
 							
 							}else {
-								$message = "Recovery - ".$sname." value is ".$stmp." != ".$nvalue;	
+								$message = "Recovery - ".$sname." - value is ".$stmp."[ != ".$nvalue." ]";	
 							}
 						}
 						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers);	
@@ -416,17 +416,17 @@ try {
 							$message = $nmsg;
 							
 							}else {
-								$message = $sname." value is ".$stmp." != ".$nvalue;	
+								$message = $sname." - value is ".$stmp."[ != ".$nvalue." ]";	
 							}
 						}
 				
 						if ($notsentrec == 1) {
 							
 							if (!empty($nmsg)) {
-							$message = $nmsg;
+							$message = "Recovery - ".$nmsg;
 							
 							}else {
-								$message = "Recovery - ".$sname." value is ".$stmp." == ".$nvalue;	
+								$message = "Recovery - ".$sname." - value is ".$stmp."[ == ".$nvalue." ]";	
 							}
 						}
 						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers);	
