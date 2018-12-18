@@ -413,6 +413,7 @@ var typ = $("#ntype").val(); //pobierasz value
 if(typ == "lupdate") //
 {
 	$("#nwhen").html("<option value='3' >></option>");
+	$("input#nvalue").attr('disabled',false);
 //$("select#nwhen").attr('disabled',true);
 
 } else if  (typ == "lhost"){
