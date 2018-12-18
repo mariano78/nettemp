@@ -169,7 +169,7 @@ $notifs = $notif->fetchAll();
 			</td>
 		
 			<td>
-			<?php if ($a["type"] != 'host' && $n[type] == 'lhost' ){?>
+			<?php if ($a["type"] != 'host' && $n['type'] == 'lhost' ){?>
 			
 				<form action="" method="post" style="display:inline!important;"> 
 					<input type="hidden" name="val_id" value="<?php echo $n['id']; ?>" />
