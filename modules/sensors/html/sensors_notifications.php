@@ -161,11 +161,11 @@ $notifs = $notif->fetchAll();
 	foreach ($notifs as $n) { ?>
 		<tr>
 			<td> 
-				<?php if ($n[type] == 'value') {echo "Value";} elseif ($n[type] == 'lupdate') {echo "Last update (min.)";}  ?> 
+				<?php if ($n[type] == 'value') {echo "Value";} elseif ($n[type] == 'lupdate') {echo "Last update (min.)";} elseif ($n[type] == 'lhost') {echo "Lost Host";}  ?> 
 			</td>
 			
 			<td> 
-				<?php if ($n[wheen] == '1') {echo "<";} elseif ($n[wheen] == '2') {echo "<=";} elseif ($n[wheen] == '3') {echo ">";} elseif ($n[wheen] == '4') {echo ">=";} elseif ($n[wheen] == '5') {echo "==";} elseif ($n[wheen] == '6') {echo "!=";}  ?> 
+				<?php if ($n[wheen] == '1') {echo "<";} elseif ($n[wheen] == '2') {echo "<=";} elseif ($n[wheen] == '3') {echo ">";} elseif ($n[wheen] == '4') {echo ">=";} elseif ($n[wheen] == '5') {echo "==";} elseif ($n[wheen] == '6') {echo "!=";} elseif ($n[wheen] == '7') {echo "";}  ?> 
 			</td>
 		
 			<td>
@@ -307,6 +307,7 @@ $notifs = $notif->fetchAll();
 			<select name="ntype" id="ntype" >
 				<option value="value" >Value</option>
 				<option value="lupdate" >Last Update (min.)</option>
+				<option value="lhost" >Lost Host</option>
 			</select>
 		</td>
 	
@@ -318,6 +319,7 @@ $notifs = $notif->fetchAll();
 				<option value="4" >>=</option>
 				<option value="5" >=</option>
 				<option value="6" >!=</option>
+				<option value="7" ></option>
 			</select>
 		</td>
 		
@@ -405,8 +407,13 @@ var typ = $("#ntype").val(); //pobierasz value
 
 if(typ == "lupdate") //
 {
-$("#nwhen").html("<option value='3' >></option>");
+	$("#nwhen").html("<option value='3' >></option>");
 //$("select#nwhen").attr('disabled',true);
+
+} else if  (typ == "lhost")
+	$("#nwhen").html("<option value='7' ></option>");
+{
+
 } else {
 $("select#nwhen").removeAttr("disabled"); 
 $("#nwhen").html("<option value='1' ><</option><option value='2' ><=</option><option value='3' >></option><option value='4' >>=</option><option value='5' >=</option><option value='6' >!=</option>");
