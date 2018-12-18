@@ -122,6 +122,14 @@ if(!empty($prio_not_id) && ($prio_onoff == "onoff")) {
 	$db = new PDO("sqlite:$root/dbf/nettemp.db");
 	$db->exec("UPDATE notifications SET priority = '$priorityselect' WHERE id='$prio_not_id'");
 }
+//Clear
+$clr_not = isset($_POST['clr_not']) ? $_POST['clr_not'] : '';
+$clr_not_id = isset($_POST['clr_not_id']) ? $_POST['clr_not_id'] : '';
+
+if(!empty($clr_not) && ($clr_not == "clr_not")) { 
+	$db = new PDO("sqlite:$root/dbf/nettemp.db");
+	$db->exec("UPDATE notifications SET sent = '' WHERE id='$clr_not_id'");
+}
 
 
 
@@ -270,6 +278,7 @@ $notifs = $notif->fetchAll();
 					
 				<form action="" method="post" style="display:inline!important;">
 				<input type="hidden" name="clr_not" value="clr_not" />
+				<input type="hidden" name="clr_not_id" value="<?php echo $n["id"]; ?>" />
 				<input type="image" src="media/ico/message-icon.png" alt="Clear Notifications" />
 				</form>
 				<?php
