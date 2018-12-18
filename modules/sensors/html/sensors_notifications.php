@@ -169,12 +169,17 @@ $notifs = $notif->fetchAll();
 			</td>
 		
 			<td>
+			<?php if ($a["device"] != 'host'){?>
+			
 				<form action="" method="post" style="display:inline!important;"> 
 					<input type="hidden" name="val_id" value="<?php echo $n['id']; ?>" />
 					<input type="text" name="val_new" size="1" value="<?php echo $n['value']; ?>" />
 					<input type="hidden" name="val_ok" value="val_ok" />
 					<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 				</form>
+			<?php
+			} 
+			?>
 			</td>
 			
 			<td> 
