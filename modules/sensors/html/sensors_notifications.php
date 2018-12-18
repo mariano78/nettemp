@@ -271,6 +271,7 @@ $notifs = $notif->fetchAll();
 				<form action="" method="post" style="display:inline!important;">
 				<input type="hidden" name="clr_not" value="clr_not" />
 				<input type="image" src="media/ico/message-icon.png" alt="Clear Notifications" />
+				</form>
 				<?php
 				}
 				?>
