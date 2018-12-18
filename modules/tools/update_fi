@@ -75,9 +75,9 @@ if  ! sudo cat /var/spool/cron/crontabs/root |grep -q '/thing_send.php intv=30'
     sudo sed -i '$a*/30 * * * * php -f /var/www/nettemp/modules/thingspeak/thing_send.php intv=30' /var/spool/cron/crontabs/root
 fi
 
-if   sudo cat /var/spool/cron/crontabs/root |grep -q '/thing_send.php intv=60'
+if  ! sudo cat /var/spool/cron/crontabs/root |grep -q '/thing_send.php intv=60'
     then
-    sudo sed -i '' /var/spool/cron/crontabs/root
+    sudo sed -i '$a0 * * * * php -f /var/www/nettemp/modules/thingspeak/thing_send.php intv=60' /var/spool/cron/crontabs/root
 fi
 
 if  ! sudo cat /var/spool/cron/crontabs/root |grep -q '/piups_read.php'
