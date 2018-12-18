@@ -498,7 +498,7 @@ $row = $rows->fetchAll();
 <th>Sensor Min/Max</th>
 <th>JustGage</th>
 <th></th>
-<th>Delete</th>
+<th></th>
 </tr>
 </thead>
 
@@ -726,7 +726,7 @@ $row = $rows->fetchAll();
     </td>
 	<td>
 	
-	<a href="index.php?id=<?php echo $id ?>&type=devices&device_group=<?php echo $device_group?>&device_type=<?php echo $device_type?>&device_menu=expand_device&device id=<?php if (!empty($device_id)) {echo $device_id;} else {echo $a['id'];}?>&device_rom=<?php echo $a["rom"]; ?>"><button class="btn btn-xs btn-info">Settings</button></a>
+	<a href="index.php?id=<?php echo $id ?>&type=devices&device_group=<?php echo $device_group?>&device_type=<?php echo $device_type?>&device_menu=expand_device&device id=<?php if (!empty($device_id)) {echo $device_id;} else {echo $a['id'];}?>&device_rom=<?php echo $a["rom"]; ?>"><button class="btn btn-xs btn-info">More</button></a>
 	
 	</td>
     
