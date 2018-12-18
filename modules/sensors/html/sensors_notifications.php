@@ -410,9 +410,8 @@ if(typ == "lupdate") //
 	$("#nwhen").html("<option value='3' >></option>");
 //$("select#nwhen").attr('disabled',true);
 
-} else if  (typ == "lhost")
+} else if  (typ == "lhost"){
 	$("#nwhen").html("<option value='7' ></option>");
-{
 
 } else {
 $("select#nwhen").removeAttr("disabled"); 
