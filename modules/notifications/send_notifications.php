@@ -257,6 +257,7 @@ try {
 			$stmp=$sen['tmp'];
 			$scurrent=$sen['current'];
 			$stype=$sen['type'];
+			$stime=$sen['time'];
 			
 		}	
 //check type 
@@ -435,6 +436,39 @@ try {
  } elseif ($ntype == 'lupdate') {
 	 
 	 echo "Last uuuupppdate \n";
+	 
+	 if(strtotime($ntime)<(time()-($nvalue*60))) {
+		 $notsent = 1;
+	 }elseif (strtotime($ntime)>(time()- 60)) {
+		 $notsentrec = 1;
+	 }
+	 
+		if ($notsent == 1) {
+							
+							if (!empty($nmsg)) {
+							$message = $nmsg;
+							
+							}else {
+								$message = $sname." - Lost communications";	
+							}
+						}
+				
+						if ($notsentrec == 1) {
+							
+							if (!empty($nmsg)) {
+							$message = "Recovery - ".$nmsg;
+							
+							}else {
+								$message = $sname." - Recovered communications";	
+							}
+						}
+						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers);	
+		 
+
+	 
+	 
+	 
+	 
 	}	
 	
 	}
