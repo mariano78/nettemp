@@ -435,6 +435,7 @@ try {
  } elseif ($ntype == 'lupdate') {
 	 
 	 echo "Last uuuupppdate \n"
+	}	
 	
 	}
 	
