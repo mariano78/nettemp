@@ -2,4 +2,4 @@
 
 dir=$( cd "$( dirname "$0" )" && cd ../../ && pwd )
 $dir/modules/tools/check_update
-php-cgi -f /var/www/nettemp/modules/notifications/send_notifications.php ninterval=1h
+php-cgi -f /var/www/nettemp/modules/notifications/send_notifications.php ninterval=6h
