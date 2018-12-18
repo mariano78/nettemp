@@ -403,7 +403,7 @@ $notifs = $notif->fetchAll();
 $("#ntype").change(function() { //po zmianie
 var typ = $("#ntype").val(); //pobierasz value
 
-if(typ == lupdate) //rozne od polski
+if(typ == 'lupdate') //rozne od polski
 {
 $("select#nwhen").attr("disabled","disabled"); //to wylacz
 } else {
