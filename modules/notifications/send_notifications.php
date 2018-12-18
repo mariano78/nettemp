@@ -75,7 +75,7 @@ $hour=date('H');
 	$headers .= "MIME-Version: 1.0" . "\r\n";
 	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 	
-	function message($notname,$notmessage,$date,$state,$color)
+	function message($notname,$notmessage,$date,$color)
 	{
 	$body = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 			 <html>
@@ -87,7 +87,7 @@ $hour=date('H');
 			 <h4>Hi, this is notification from '.trim(shell_exec("hostname -I | cut -d' ' -f1")).'</a></br></h4><br>
 			 <table border="1" style="">
 			 <tr><th>Date</th><th>Message</th></tr><tr>
-			 <td>'.$date.'</td><td>'.$notmessage.'</td>
+			 <td>'.$date.'</td><td bgcolor="'.$color.'">'.$notmessage.'</td>
 			 </tr></table><br
 			 </div>
 			 </body>
@@ -118,7 +118,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 		if (($notmail == 'on' && $notsent == 1) ){ //Send Notification MAIL
 			
 						
-						if ( mail ($addr, $mail_topic, message($notname,$notmessage,$date,"stan","#FF0000"), $headers ) ) {
+						if ( mail ($addr, $mail_topic, message($notname,$notmessage,$date,"#FF0000"), $headers ) ) {
 							echo $date."Mail send OK\n";
 						} else {
 						echo $date."Mail send problem\n";
@@ -130,7 +130,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						
 				}else if ($nrecovery == 'on' && $notmail == 'on' && $notsentrec == 1){ //RECOVERY MAIL
 				
-				if ( mail ($addr, $mail_topic, message($notname,$notmessage,$date,"stan","#FF0000"), $headers ) ) {
+				if ( mail ($addr, $mail_topic, message($notname,$notmessage,$date,"#00FF00"), $headers ) ) {
 							echo $date."Mail send OK\n";
 						} else {
 						echo $date."Mail send problem\n";
