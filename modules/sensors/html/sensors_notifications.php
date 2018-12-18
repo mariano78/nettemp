@@ -306,7 +306,7 @@ $notifs = $notif->fetchAll();
 		<td>
 			<select name="ntype" id="ntype" >
 				<option value="value" >Value</option>
-				<option value="lupdate" >Last Update</option>
+				<option value="lupdate" >Last Update (min.)</option>
 			</select>
 		</td>
 	
