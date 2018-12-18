@@ -266,7 +266,12 @@ $notifs = $notif->fetchAll();
 			</td>
 			
 			<td>
-				<?php if ($n["sent"] == 'sent') {echo '<img src="media/ico/message-icon.png" alt="" title="Message was send!"/>';
+				<?php if ($n["sent"] == 'sent') {?>
+					
+				<form action="" method="post" style="display:inline!important;">
+				<input type="hidden" name="clr_not" value="clr_not" />
+				<input type="image" src="media/ico/message-icon.png" alt="Clear Notifications" />
+				<?php
 				}
 				?>
 			</td>
