@@ -497,7 +497,8 @@ $row = $rows->fetchAll();
 <th>Status Min/Max</th>
 <th>Sensor Min/Max</th>
 <th>JustGage</th>
-<th>Remote NT</th>
+<th>Rem. NT</th>
+<th>Rem. Domoticz</th>
 <th></th>
 </tr>
 </thead>
@@ -737,6 +738,24 @@ $row = $rows->fetchAll();
 		<?php 
 		}
 		?>
+		</td>
+		
+	<!--Remote Domoticz-->
+		<td class="col-md-0">
+		<form action="" method="post" style="display:inline!important;"> 	
+			<input type="hidden" name="remotedomoticz_id" value="<?php echo $a["id"]; ?>" />
+			<button type="submit" name="domoticzon" value="<?php echo $a["domoticz"] == 'on' ? 'off' : 'on'; ?>" <?php echo $a["domoticz"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
+			<?php echo $a["domoticz"] == 'on' ? 'ON' : 'OFF'; ?></button>
+			<input type="hidden" name="domoticzonoff" value="domoticzonoff" />
+		</form>
+		<label>IDX: </label>
+		<form action="" method="post" style="display:inline!important;"> 
+			<input type="hidden" name="domoticz_id" value="<?php echo $a['id']; ?>" />
+			<input type="text" name="domoticz_idx" size="1" value="<?php echo $a['domoticzidx']; ?>" />
+			<input type="hidden" name="domoticzidx" value="domoticzidx" />
+		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+		</form>
+    
 		</td>
 	
 	<td>
