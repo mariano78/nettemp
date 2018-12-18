@@ -497,7 +497,7 @@ $row = $rows->fetchAll();
 <th>Status Min/Max</th>
 <th>Sensor Min/Max</th>
 <th>JustGage</th>
-<th></th>
+<th>Remote NT</th>
 <th></th>
 </tr>
 </thead>
