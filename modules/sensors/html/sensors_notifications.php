@@ -422,6 +422,7 @@ if(typ == "lupdate") //
 
 } else {
 $("select#nwhen").removeAttr("disabled"); 
+$("input#nvalue").attr('disabled',false);
 $("#nwhen").html("<option value='1' ><</option><option value='2' ><=</option><option value='3' >></option><option value='4' >>=</option><option value='5' >=</option><option value='6' >!=</option>");
 }
 });
