@@ -440,6 +440,7 @@ try {
  } elseif ($ntype == 'lupdate') {
 	 
 	 echo "Last uuuupppdate \n";
+	 echo strtotime($stime);
 	 
 	 if(strtotime($stime)<(time()-($nvalue*60))) {
 		 $notsent = 1;
