@@ -248,7 +248,7 @@ try {
 		
 		if ($ninterval != '0m'){$nsent = '';}
 				
-		$sensor = $db->query("SELECT name,tmp,current,type FROM sensors WHERE rom='$nrom'");
+		$sensor = $db->query("SELECT name,tmp,current,type,time FROM sensors WHERE rom='$nrom'");
 		$sensors = $sensor->fetchAll();
 		
 		foreach ($sensors as $sen) {
@@ -258,6 +258,10 @@ try {
 			$scurrent=$sen['current'];
 			$stype=$sen['type'];
 			$stime=$sen['time'];
+			
+			if ($type == 'elec' || $type == 'water' || $type == 'gas'){
+				$stmp = $scurrent;
+			}
 			
 		}	
 //check type 
