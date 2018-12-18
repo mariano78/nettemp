@@ -119,9 +119,9 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 			
 						
 						if ( mail ($addr, $mail_topic, message($notname,$notmessage,$date,"#FF0000"), $headers ) ) {
-							echo $date."Mail send OK\n";
+							echo "Mail send OK\n";
 						} else {
-						echo $date."Mail send problem\n";
+						echo "Mail send problem\n";
 						}
 					
 
@@ -131,18 +131,13 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 				}else if ($nrecovery == 'on' && $notmail == 'on' && $notsentrec == 1){ //RECOVERY MAIL
 				
 				if ( mail ($addr, $mail_topic, message($notname,$notmessage,$date,"#00FF00"), $headers ) ) {
-							echo $date."Mail send OK\n";
+							echo "Mail send OK\n";
 						} else {
-						echo $date."Mail send problem\n";
+						echo "Mail send problem\n";
 						}
-					
-				
-				
 						$notsentrec2 = 1;
 						echo "Wysyłam mail - RECOVERY - ".$notmessage."\n";	
 				}
-		
-		
 	}
 	
 	if ($pusho == 'on') { //if global notification for po is on
@@ -195,17 +190,12 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 	if ($notsent == 1){
 		$db->exec("UPDATE notifications SET sent='sent' WHERE id='$nid'");
 		$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
-		echo "Robie normal\n";
 	}
 	
 	if ($notsentrec == 1 && $notsentrec2 == 1){
 		$db->exec("UPDATE notifications SET sent='' WHERE id='$nid'");
 		$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
-		echo "Robie recovery\n";
 	}
-	
-	
-	
 		
 }
 
@@ -471,9 +461,6 @@ try {
 
 	 
 	}	elseif ($ntype == 'lhost') {
-	 
-	 echo "Lost hoooooooooooooooooost\n";
-	
 	 
 	 if($sstatus == 'error' && $nsent == '') {
 		 $notsent = 1;
