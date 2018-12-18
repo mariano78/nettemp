@@ -304,14 +304,14 @@ $notifs = $notif->fetchAll();
 	<tr>
 		<form action="" method="post">	
 		<td>
-			<select name="ntype" >
+			<select name="ntype" id="ntype" >
 				<option value="value" >Value</option>
 				<option value="lupdate" >Last Update</option>
 			</select>
 		</td>
 	
 		<td>
-			<select name="nwhen" >
+			<select name="nwhen" id="nwhen" >
 				<option value="1" ><</option>
 				<option value="2" ><=</option>
 				<option value="3" >></option>
