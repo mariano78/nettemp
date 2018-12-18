@@ -500,6 +500,7 @@ $row = $rows->fetchAll();
 <th>Rem. NT</th>
 <th>Rem. Domoticz</th>
 <th></th>
+<th></th>
 </tr>
 </thead>
 
