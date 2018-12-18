@@ -397,3 +397,18 @@ $notifs = $notif->fetchAll();
 </div>
 <a href="index.php?id=<?php echo $id ?>&type=devices&device_group=<?php echo $device_group?>&device_type=<?php echo $device_type?>&device_menu=settings&device id=<?php  if($device_group == '' && $device_type == '') {echo '';} else {echo $a["id"];} ?>" ><button class="btn btn-xs btn-info">Back</button></a>
 </div>
+
+<script type="text/javascript">
+
+$("#ntype").change(function() { //po zmianie
+var typ = $("#ntype").val(); //pobierasz value
+
+if(typ == lupdate) //rozne od polski
+{
+$("select#nwhen").attr("disabled","disabled"); //to wylacz
+} else {
+$("select#nwhen").removeAttr("disabled"); //else wlacz
+}
+});
+
+</script>
