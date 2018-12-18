@@ -489,12 +489,13 @@ $row = $rows->fetchAll();
 <th>Rom</th>
 <th>IP</th>
 <th>Type</th>
+<th>Adjust</th>
 <th>New group</th>
 <th>Group</th>
 <th>Log out</th>
 <th>Charts</th>
 <th>Status Min/Max</th>
-<th>Alarm Min/Max</th>
+<th>Sensor Min/Max</th>
 <th>JustGage</th>
 <th></th>
 <th>Delete</th>
@@ -588,6 +589,21 @@ $row = $rows->fetchAll();
 		}
 		?>
 	</td>
+	
+	<!--Adjust-->
+	
+		<td class="col-md-0">
+		<?php if ($a["device"] != 'remote') { ?>
+		<form action="" method="post" style="display:inline!important;">
+		<input type="text" name="adj" size="2" maxlength="30" value="<?php echo $a["adj"]; ?>" required="" <?php echo $a["device"] == 'remote' ? 'disabled' : ''; ?> />
+		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+		<input type="hidden" name="name_id" value="<?php echo $a["id"]; ?>" />
+		<input type="hidden" name="adj1" value="adj2"/>
+		</form>
+		<?php
+		}
+		?>
+		</td>
     
        
     <!--NEW GROUP-->
