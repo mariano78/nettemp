@@ -724,6 +724,21 @@ $row = $rows->fetchAll();
 		<input type="hidden" name="jg" value="jg" />
     </form>
     </td>
+	
+	<!--Remote NT-->
+		<td class="col-md-0">
+		<?php if ($a["device"] != 'remote' && $a["device"] != 'gpio') { ?>
+		<form action="" method="post" style="display:inline!important;"> 	
+			<input type="hidden" name="remote" value="<?php echo $a["id"]; ?>" />
+			<button type="submit" name="remoteon" value="<?php echo $a["remote"] == 'on' ? 'off' : 'on'; ?>" <?php echo $a["remote"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
+			<?php echo $a["remote"] == 'on' ? 'ON' : 'OFF'; ?></button>
+			<input type="hidden" name="remoteonoff" value="onoff" />
+		</form>
+		<?php 
+		}
+		?>
+		</td>
+	
 	<td>
 	
 	<a href="index.php?id=<?php echo $id ?>&type=devices&device_group=<?php echo $device_group?>&device_type=<?php echo $device_type?>&device_menu=expand_device&device id=<?php if (!empty($device_id)) {echo $device_id;} else {echo $a['id'];}?>&device_rom=<?php echo $a["rom"]; ?>"><button class="btn btn-xs btn-info">More</button></a>
