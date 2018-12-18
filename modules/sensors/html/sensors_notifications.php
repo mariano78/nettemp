@@ -266,7 +266,7 @@ $notifs = $notif->fetchAll();
 			</td>
 			
 			<td>
-				<?php if ($n["sent" == 'sent']) {echo '<img src="media/ico/message-icon.png" alt="" title="Message was send!"/>';
+				<?php if ($n["sent"] == 'sent') {echo '<img src="media/ico/message-icon.png" alt="" title="Message was send!"/>';
 				}
 				?>
 			</td>
