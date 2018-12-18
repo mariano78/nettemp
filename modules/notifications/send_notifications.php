@@ -259,7 +259,7 @@ try {
 			$stype=$sen['type'];
 			$stime=$sen['time'];
 			
-			if ($type == 'elec' || $type == 'water' || $type == 'gas'){
+			if ($stype == 'elec' || $stype == 'water' || $stype == 'gas'){
 				$stmp = $scurrent;
 			}
 			
