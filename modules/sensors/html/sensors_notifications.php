@@ -149,10 +149,11 @@ $notifs = $notif->fetchAll();
 		<th>Mail</th>
 		<th>PushOver</th>
 		<th>Custom message</th>
-		<th>PO Priority</th>
+		<th>PushO Priority</th>
 		<th>Interval</th>
 		<th>Recovery</th>
 		<th>Active</th>
+		<th></th>
 		<th></th>
 	</tr>
 </thead>
@@ -264,6 +265,12 @@ $notifs = $notif->fetchAll();
 				</form>
 			</td>
 			
+			<td>
+				<?php if ($n["sent" == 'sent']) {echo '<img src="media/ico/message-icon.png" alt="" title="Message was send!"/>';
+				}
+				?>
+			</td>
+			
 			<td> 
 				<form action="" method="post" style="display:inline!important;">
 					<input type="hidden" name="del_not_rom" value="<?php echo $n["rom"]; ?>" />
@@ -298,7 +305,7 @@ $notifs = $notif->fetchAll();
 		<th>Mail</th>
 		<th>PushOver</th>
 		<th>Custom message</th>
-		<th>PO Priority</th>
+		<th>PushO Priority</th>
 		<th>Interval</th>
 		<th>Recovery</th>
 		<th>Active</th>
