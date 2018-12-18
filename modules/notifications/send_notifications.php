@@ -305,7 +305,7 @@ try {
 					$notsent = 1;
 					}elseif (($stmp > $nvalue) && $nsent == 'sent') {
 						$notsentrec = 1;
-						echo $notsentrec."/n"
+						
 ;					}
 						if ($notsent == 1) {
 							
