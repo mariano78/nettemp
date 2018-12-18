@@ -324,7 +324,7 @@ $notifs = $notif->fetchAll();
 		</td>
 		
 		<td>
-			<input name="nvalue"  required="" type="text" size="1" value="">
+			<input name="nvalue" id="nvalue"  required="" type="text" size="1" value="">
 		</td>
 		
 		<td>
@@ -412,6 +412,8 @@ if(typ == "lupdate") //
 
 } else if  (typ == "lhost"){
 	$("#nwhen").html("<option value='7' ></option>");
+	$("select#nwhen").attr('disabled',true);
+	$("input#nvalue").attr('disabled',true);
 
 } else {
 $("select#nwhen").removeAttr("disabled"); 
