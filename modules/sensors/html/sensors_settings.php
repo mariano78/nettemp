@@ -612,7 +612,7 @@ $row = $rows->fetchAll();
     <td class="col-md-0">
     <form action="" method="post" style="display:inline!important;">
 		<input type="text" name="position_group" size="1" value="<?php echo $a['position_group']; ?>" />
-		<input type="text" name="addch_groupon" size="8" maxlength="30" value="<?php echo $a["ch_group"]; ?>" />
+		<input type="text" name="addch_groupon" size="6" maxlength="30" value="<?php echo $a["ch_group"]; ?>" />
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 		<input type="hidden" name="addch_group" value="<?php echo $a["id"]; ?>" />
 		<input type="hidden" name="addch_grouponoff" value="onoff"/>
