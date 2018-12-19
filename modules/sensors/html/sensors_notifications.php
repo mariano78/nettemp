@@ -149,7 +149,6 @@ $notifs = $notif->fetchAll();
 		<th>Recovery</th>
 		<th>Active</th>
 		<th></th>
-		<th></th>
 	</tr>
 </thead>
 
