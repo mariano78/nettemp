@@ -156,11 +156,11 @@ $notifs = $notif->fetchAll();
 	foreach ($notifs as $n) { ?>
 		<tr>
 			<td> 
-				<?php if ($n[type] == 'value') {echo "Value";} elseif ($n[type] == 'lupdate') {echo "Last update (min.)";} elseif ($n[type] == 'lhost') {echo "Lost Host";}  ?> 
+				<?php if ($n['type'] == 'value') {echo "Value";} elseif ($n['type'] == 'lupdate') {echo "Last update (min.)";} elseif ($n['type'] == 'lhost') {echo "Lost Host";}  ?> 
 			</td>
 			
 			<td> 
-				<?php if ($n[wheen] == '1') {echo "<";} elseif ($n[wheen] == '2') {echo "<=";} elseif ($n[wheen] == '3') {echo ">";} elseif ($n[wheen] == '4') {echo ">=";} elseif ($n[wheen] == '5') {echo "==";} elseif ($n[wheen] == '6') {echo "!=";} elseif ($n[wheen] == '7') {echo "";}  ?> 
+				<?php if ($n['wheen'] == '1') {echo "<";} elseif ($n['wheen'] == '2') {echo "<=";} elseif ($n['wheen'] == '3') {echo ">";} elseif ($n['wheen'] == '4') {echo ">=";} elseif ($n['wheen'] == '5') {echo "==";} elseif ($n['wheen'] == '6') {echo "!=";} elseif ($n['wheen'] == '7') {echo "";}  ?> 
 			</td>
 		
 			<td>
@@ -227,16 +227,16 @@ $notifs = $notif->fetchAll();
 			<td> 
 				<form action="" method="post"  class="form-inline">
 				<select class="selectpicker" data-width="50px" name="intervalselect" class="form-control input-sm" onchange="this.form.submit()">
-					<option value="1m" <?php echo $n[interval] == '1m' ? 'selected="selected"' : ''; ?> >1 minute</option>
-					<option value="2m" <?php echo $n[interval] == '2m'? 'selected="selected"' : ''; ?> >2 minutes</option>
-					<option value="5m" <?php echo $n[interval] == '5m'? 'selected="selected"' : ''; ?> >5 minutes</option>
-					<option value="15m" <?php echo $n[interval] == '15m'? 'selected="selected"' : ''; ?> >15 minutes</option>
-					<option value="30m" <?php echo $n[interval] == '30m'? 'selected="selected"' : ''; ?> >30 minutes</option>
-					<option value="1h" <?php echo $n[interval] == '1h'? 'selected="selected"' : ''; ?> >1 Hour</option>
-					<option value="2h" <?php echo $n[interval] == '2h'? 'selected="selected"' : ''; ?> >2 Hours</option>
-					<option value="6h" <?php echo $n[interval] == '6h'? 'selected="selected"' : ''; ?> >6 Hours</option>
-					<option value="12h" <?php echo $n[interval] == '12h'? 'selected="selected"' : ''; ?> >12 Hours</option>
-					<option value="24h" <?php echo $n[interval] == '24h'? 'selected="selected"' : ''; ?> >24 Hours</option>
+					<option value="1m" <?php echo $n['interval'] == '1m' ? 'selected="selected"' : ''; ?> >1 minute</option>
+					<option value="2m" <?php echo $n['interval'] == '2m'? 'selected="selected"' : ''; ?> >2 minutes</option>
+					<option value="5m" <?php echo $n['interval'] == '5m'? 'selected="selected"' : ''; ?> >5 minutes</option>
+					<option value="15m" <?php echo $n['interval'] == '15m'? 'selected="selected"' : ''; ?> >15 minutes</option>
+					<option value="30m" <?php echo $n['interval'] == '30m'? 'selected="selected"' : ''; ?> >30 minutes</option>
+					<option value="1h" <?php echo $n['interval'] == '1h'? 'selected="selected"' : ''; ?> >1 Hour</option>
+					<option value="2h" <?php echo $n['interval'] == '2h'? 'selected="selected"' : ''; ?> >2 Hours</option>
+					<option value="6h" <?php echo $n['interval'] == '6h'? 'selected="selected"' : ''; ?> >6 Hours</option>
+					<option value="12h" <?php echo $n['interval'] == '12h'? 'selected="selected"' : ''; ?> >12 Hours</option>
+					<option value="24h" <?php echo $n['interval'] == '24h'? 'selected="selected"' : ''; ?> >24 Hours</option>
 				</select>
 				<input type="hidden" name="interval_set" value="set" />
 				<input type="hidden" name="interval_not_id" value="<?php echo $n['id']; ?>" />
