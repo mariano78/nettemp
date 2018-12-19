@@ -504,5 +504,6 @@ try {
     echo $date." Error\n";
     exit;
 }
+unset($ninterval);
 
 ?>
