@@ -204,7 +204,7 @@ if ($hide == 'off') {
 				
 				    if (($a['tmp'] == 'error') || ($a['status'] == 'error') || ($label=='danger')){
 					echo 'class="label label-danger"';
-				    } elseif (strtotime($a['time'])<(time()-($a['readerr']*60)) && !empty($a['readerr'])){
+				    } elseif (!empty($a['readerrsend'])){
 					echo 'class="label label-warning"';
 				    }else{
 					echo 'class="label label-success"';
