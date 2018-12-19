@@ -188,14 +188,14 @@ if ($hide == 'off') {
 			    <a href="index.php?id=view&type=<?php echo $a['type']?>&max=<?php echo $_SESSION['nts_charts_max']; ?>&single=<?php echo $a['name']?>" title="Go to charts, last update: <?php echo $a['time']?>"
 				<?php 
 					if ($a['type']=='trigger' && $a['tmp'] == '1.0') {
-						if (strtotime($a['time'])<(time()-($a['readerr']*60)) && !empty($a['readerr'])){
+						if (!empty($a['readerr'])){
 							echo 'class="label label-warning"';
 						}else { 
 								echo "class=\"label ".$a['trigoneclr']."\"";
 						}
 						
 						}elseif ($a['type']=='trigger' && $a['tmp'] == '0.0') {
-						if (strtotime($a['time'])<(time()-($a['readerr']*60)) && !empty($a['readerr'])){
+						if (!empty($a['readerr'])){
 							echo 'class="label label-warning"';
 						}else { 
 								echo "class=\"label ".$a['trigzeroclr']."\"";
