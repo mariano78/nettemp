@@ -22,6 +22,16 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db");
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();
 	 }
+	 
+$clr_not = isset($_POST['clr_not']) ? $_POST['clr_not'] : '';
+$clr_rom = isset($_POST['clr_rom']) ? $_POST['clr_rom'] : '';
+
+if(!empty($clr_not) && ($clr_not == "clr_not")) { 
+	$db = new PDO("sqlite:$root/dbf/nettemp.db");
+	$db->exec("UPDATE sensors SET mail = '' WHERE rom='$clr_rom'");
+	header("location: " . $_SERVER['REQUEST_URI']);
+	exit();
+}	 
 
 $query = $db->query("SELECT * FROM types");
 $result_t = $query->fetchAll();
@@ -156,7 +166,13 @@ if ($hide == 'off') {
 		    if($a['type'] == 'temp'){ $type='<img src="media/ico/temp_low.png" alt=""/>';}
 		    $label='danger';
 		}
-		if(!empty($a['mail']) || !empty($a['readerrsend'])) {$mail='<img src="media/ico/message-icon.png" alt="" title="Message was send!"/>';}
+		if(!empty($a['mail']) || !empty($a['readerrsend'])) {$mail='
+		
+				<form action="" method="post" style="display:inline!important;">
+				<input type="hidden" name="clr_not" value="clr_not" />
+				<input type="hidden" name="clr_rom" value="<?php echo $a["rom"]; ?>" />
+				<input type="image" src="media/ico/message-icon.png" alt="Clear Notifications" />
+				</form>';}
 ?>
 
 		    <tr>
