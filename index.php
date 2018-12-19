@@ -121,7 +121,7 @@ function new_seen($seen){
 }
 if($nts_info=='on') {
 ?>
-<li <?php echo $id == 'info' ? ' class="active"' : ''; ?>><a href="index.php?-d=info"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"> Info</span></a></li>
+<li <?php echo $id == 'info' ? ' class="active"' : ''; ?>><a href="index.php?id=info"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"> Info</span></a></li>
 <?php
 	}
 	?>
