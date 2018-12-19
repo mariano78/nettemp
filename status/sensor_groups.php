@@ -23,6 +23,18 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db");
 	exit();
 	 }
 
+//Clear
+$clr_not = isset($_POST['clr_not']) ? $_POST['clr_not'] : '';
+$clr_rom = isset($_POST['clr_rom']) ? $_POST['clr_rom'] : '';
+
+if(!empty($clr_not) && ($clr_not == "clr_not")) { 
+	$db = new PDO("sqlite:$root/dbf/nettemp.db");
+	$db->exec("UPDATE sensors SET mail = '' WHERE rom='$clr_rom'");
+	header("location: " . $_SERVER['REQUEST_URI']);
+	exit();
+}
+
+
 $query = $db->query("SELECT * FROM types");
 $result_t = $query->fetchAll();
 
