@@ -112,8 +112,8 @@ function new_seen($seen){
 	?>
 
 	<li <?php echo $id == 'map' ? ' class="active"' : ''; ?>><a href="index.php?id=map"><span class="glyphicon glyphicon-picture" aria-hidden="true"> Map</span> </a></li><?php }?>
-<li <?php echo $id == 'device' ? ' class="active"' : ''; ?>><a href="device"><span class="glyphicon glyphicon-cog" aria-hidden="true"> Device <?php echo new_seen($seen);?></span></a></li>
-<li <?php echo $id == 'security' ? ' class="active"' : ''; ?>><a href="security"><span class="glyphicon glyphicon-lock" aria-hidden="true"> Security</span></a></li>
+<li <?php echo $id == 'device' ? ' class="active"' : ''; ?>><a href="index.php?id=device&type=devices&device_group=&device_menu=settings"><span class="glyphicon glyphicon-cog" aria-hidden="true"> Device <?php echo new_seen($seen);?></span></a></li>
+<li <?php echo $id == 'security' ? ' class="active"' : ''; ?>><a href="index.php?id=security&type=fw"><span class="glyphicon glyphicon-lock" aria-hidden="true"> Security</span></a></li>
 <li <?php echo $id == 'settings' ? ' class="active"' : ''; ?>><a href="settings"><span class="glyphicon glyphicon-tasks" aria-hidden="true"> Settings</span></a></li>
 <li <?php echo $id == 'tools' ? ' class="active"' : ''; ?>><a href="tools"><span class="glyphicon glyphicon-wrench" aria-hidden="true"> Tools</span></a></li>
 <?php
