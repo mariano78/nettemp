@@ -261,8 +261,8 @@ if ($hide == 'off') {
 			</td>
 			<td>
 			
-			<?php if(!empty($a['mail']) { ?>
-			<form action="" method="post" style="display:inline!important;">
+			<?php if(!empty($a['mail'])) { ?>
+				<form action="" method="post" style="display:inline!important;">
 				<input type="hidden" name="clr_not" value="clr_not" />
 				<input type="hidden" name="clr_rom" value="<?php echo $a["rom"]; ?>" />
 
