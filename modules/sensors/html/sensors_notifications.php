@@ -17,8 +17,8 @@ $nrom = isset($_POST['nrom']) ? $_POST['nrom'] : '';
 //Add to Base
 if(!empty($nrom) && ($nadd == "nadd")) { 
 	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("INSERT INTO notifications ('rom', 'type', 'wheen', 'value', 'sms', 'mail', 'pov', 'message', 'priority', 'recovery', 'active', 'interval') 
-	VALUES ('$nrom', '$ntype', '$nwhen', '$nvalue', '$smsonoff', '$mailonoff', '$poonoff', '$nmessage', '$npriority', '$recoveryonoff', '$activeonoff', '$ninterval')");
+	$db->exec("INSERT INTO notifications ('rom', 'type', 'wheen', 'value', 'sms', 'mail', 'pov', 'message', 'priority', 'recovery', 'active', 'interval', 'fc') 
+	VALUES ('$nrom', '$ntype', '$nwhen', '$nvalue', '$smsonoff', '$mailonoff', '$poonoff', '$nmessage', '$npriority', '$recoveryonoff', '$activeonoff', '$ninterval', 'on')");
 	
 	//$db->exec("UPDATE sensors SET notif = 'on' WHERE rom='$nrom'");
 	
@@ -110,7 +110,7 @@ $not_actv_onoff = isset($_POST['not_actv_onoff']) ? $_POST['not_actv_onoff'] : '
 
 if(!empty($actv_not_id) && ($not_actv_onoff == "onoff")) { 
 	$db = new PDO("sqlite:$root/dbf/nettemp.db");
-	$db->exec("UPDATE notifications SET active = '$notactv' WHERE id='$actv_not_id'");
+	$db->exec("UPDATE notifications SET active = '$notactv', fc = 'on' WHERE id='$actv_not_id'");
 }
 
 //Priority
