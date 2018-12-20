@@ -91,7 +91,7 @@ $interval_set = isset($_POST['interval_set']) ? $_POST['interval_set'] : '';
 
 if(!empty($interval_not_id) && ($interval_set == "set")) { 
 	$db = new PDO("sqlite:$root/dbf/nettemp.db");
-	$db->exec("UPDATE notifications SET interval = '$intervalselect' WHERE id='$interval_not_id'");
+	$db->exec("UPDATE notifications SET interval = '$intervalselect' , fc = 'on' WHERE id='$interval_not_id'");
 }
 //Recovery
 $notrecv = isset($_POST['notrecv']) ? $_POST['notrecv'] : '';
