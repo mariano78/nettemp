@@ -39,8 +39,6 @@ $last = array_slice($filearray,-100);
 		echo $log['date']." - ".$log['message'];		
 	}
 	
-	echo $ROOT;
-	
 	
 	
 ?>

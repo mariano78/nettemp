@@ -1,6 +1,8 @@
 <?php
 $ROOT=dirname(dirname(dirname(__FILE__)));
 
+include("$ROOT/common/functions.php");
+
 
 var_dump($argv);
 parse_str($argv[1],$interval_param);
@@ -162,6 +164,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						curl_close($ch);	
 						
 						echo "Wysyłam PoshOver - ".$notmessage."\n";
+						log('data','typ', 'wiadomosc')
 						
 				}else if ($nrecovery == 'on' && $notpov == 'on' && $notsentrec == 1){  // RECOVERY PO
 				
