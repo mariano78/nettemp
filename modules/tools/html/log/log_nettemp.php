@@ -1,4 +1,7 @@
 <?php	
+
+$ROOT=dirname(dirname(dirname(__FILE__)));
+
 $dir = '';
 $log_del = isset($_POST['log_del']) ? $_POST['log_del'] : '';
 	if ($log_del == "Clear"){
