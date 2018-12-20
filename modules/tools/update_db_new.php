@@ -208,6 +208,6 @@ $updates['2018-11-30 12:46:25'][]="INSERT INTO nt_settings ('option', 'value') V
 
 $updates['2018-12-20 12:30:12'][]="ALTER TABLE notifications ADD fc TEXT";
 
-$updates['2018-10-20 13:29:42'][]="CREATE TABLE logs (id INTEGER PRIMARY KEY, date TEXT , type TEXT, message TEXT)";
+$updates['2018-12-20 13:39:47'][]="CREATE TABLE logs (id INTEGER PRIMARY KEY, date TEXT , type TEXT, message TEXT)";
 
 ?>
