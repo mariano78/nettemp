@@ -36,7 +36,7 @@ $last = array_slice($filearray,-100);
 	
     foreach($result as $log) {
 		
-		echo $log['date']." - ".$log['message'];		
+		echo $log['date']." - ".$log['message']."\n";		
 	}
 	
 	
