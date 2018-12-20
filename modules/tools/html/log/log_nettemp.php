@@ -1,6 +1,6 @@
 <?php	
 
-$ROOT=dirname(dirname(dirname(dirname(__FILE__))));
+$ROOT=dirname(dirname(dirname(__FILE__)));
 
 $dir = '';
 $log_del = isset($_POST['log_del']) ? $_POST['log_del'] : '';
