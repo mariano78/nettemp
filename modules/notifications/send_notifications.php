@@ -44,10 +44,11 @@ $hour=date('H');
 		}
 	}
 	
-	$query = $db->query("SELECT mail FROM users WHERE maila='yes'");
+	$query = $db->query("SELECT mail, tel FROM users WHERE maila='yes' OR smsa='yes' ");
     $result= $query->fetchAll();
     foreach($result as $s) {
 		$get_addr[]=$s['mail'];
+		$get_tel[]=$s['tel'];
 	}
 	if(empty($get_addr)) {
 		echo $date." Add users to nettemp settings!\n"; // dopisac obsluge bledu/logów

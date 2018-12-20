@@ -25,6 +25,20 @@ $last = array_slice($filearray,-100);
     foreach($last as $f){
     	echo $f;
     }
+	
+	$filearray = file("tmp/log.txt");
+	$last = array_slice($filearray,-100);
+    foreach($last as $f){
+    	echo $f;
+    }
+	
+    foreach($result as $log) {
+		
+		echo $log['date']." - ".$log['message'];		
+	}
+	
+	
+	
 ?>
 </pre>
 </div>

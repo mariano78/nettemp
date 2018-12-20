@@ -1,4 +1,9 @@
-<?php 
+
+
+<?php
+
+$ROOT=dirname(dirname(dirname(dirname(__FILE__))));
+ 
 if(!isset($_SESSION['user'])){ header("Location: denied"); } 
 $log=isset($_GET['log']) ? $_GET['log'] : '';
 ?>
