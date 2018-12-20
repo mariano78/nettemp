@@ -222,6 +222,7 @@ try {
 			{
 				$query = $db->query("SELECT * FROM notifications WHERE active='on' ");
 			}
+	unset($ninterval);		
 	
     $result= $query->fetchAll();
     
@@ -504,6 +505,6 @@ try {
     echo $date." Error\n";
     exit;
 }
-//unset($ninterval);
+
 
 ?>
