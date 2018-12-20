@@ -220,7 +220,7 @@ try {
 		$query = $db->query("SELECT * FROM notifications WHERE active='on' AND interval = '$ninterval'");
 		}else 
 			{
-				$query = $db->query("SELECT * FROM notifications WHERE active='on' ");
+				$query = $db->query("SELECT * FROM notifications WHERE active='on' AND fc = 'on' ");
 			}
 	unset($ninterval);		
 	
@@ -497,7 +497,7 @@ try {
 						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers,$ntype);	
 
 	}
-	
+	$db->exec("UPDATE notifications SET fc='' WHERE id='$nid'");
 	}
 	
 //try end	
