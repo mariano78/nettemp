@@ -30,7 +30,7 @@ $last = array_slice($filearray,-100);
     }
 	
 	
-	$db = new PDO("sqlite:var/www/nettemp/dbf/nettemp.db");
+	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 	$query = $db->query("SELECT * FROM logs");
     $result= $query->fetchAll();
 	
