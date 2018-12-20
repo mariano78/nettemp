@@ -26,16 +26,17 @@ $last = array_slice($filearray,-100);
     	echo $f;
     }
 	
-	$filearray = file("tmp/log.txt");
-	$last = array_slice($filearray,-100);
-    foreach($last as $f){
-    	echo $f;
-    }
+	
+	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
+	$query = $db->query("SELECT * FROM logs");
+    $result= $query->fetchAll();
 	
     foreach($result as $log) {
 		
 		echo $log['date']." - ".$log['message'];		
 	}
+	
+	echo $ROOT;
 	
 	
 	
