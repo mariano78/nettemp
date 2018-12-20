@@ -164,7 +164,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						curl_close($ch);	
 						
 						echo "Wysyłam PoshOver - ".$notmessage."\n";
-						logs('data','typ', 'wiadomosc');
+						logs('data','typ','wiadomosc');
 						
 				}else if ($nrecovery == 'on' && $notpov == 'on' && $notsentrec == 1){  // RECOVERY PO
 				
