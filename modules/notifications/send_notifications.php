@@ -19,10 +19,10 @@ $hour=date('H');
     $result= $query->fetchAll();
     
     foreach($result as $s) {
-		//if($s['option']=='mail_onoff' && $s['value']!='on') {
-		//	echo $date." Cannot send mail bacause fucntion is off, go to settings.\n";
-		//	exit();
-		//}
+		if($s['option']=='mail_onoff' && $s['value']!='on') {
+		logs($date,'Notifications','Cannot send mail bacause fucntion is off, go to settings.'); 
+		
+		}
 		if($s['option']=='pusho_active') {
 			$pusho=$s['value'];
 		}
@@ -125,11 +125,9 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 							echo "Mail send OK\n";
 						} else {
 						echo "Mail send problem\n";
-						}
-					
-
-					
+						}					
 						echo "Wysyłam mail - ".$notmessage."\n";
+						logs($date,'Notifications',$notmessage);
 						
 				}else if ($nrecovery == 'on' && $notmail == 'on' && $notsentrec == 1){ //RECOVERY MAIL
 				
@@ -139,7 +137,8 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						echo "Mail send problem\n";
 						}
 						$notsentrec2 = 1;
-						echo "Wysyłam mail - RECOVERY - ".$notmessage."\n";	
+						echo "Wysyłam mail - RECOVERY - ".$notmessage."\n";
+						logs($date,'Notifications',$notmessage);
 				}
 	}
 	
@@ -164,7 +163,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						curl_close($ch);	
 						
 						echo "Wysyłam PoshOver - ".$notmessage."\n";
-						logs('data','typ','wiadomosc');
+						logs($date,'Notifications',$notmessage);
 						
 				}else if ($nrecovery == 'on' && $notpov == 'on' && $notsentrec == 1){  // RECOVERY PO
 				
@@ -187,7 +186,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						$notsentrec2 = 1;
 
 						echo "Wysyłam PoshOver - Recovery - ".$notmessage."\n";
-					
+						logs($date,'Notifications',$notmessage);
 				}
 	}
 	
