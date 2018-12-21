@@ -20,7 +20,7 @@ $hour=date('H');
     
     foreach($result as $s) {
 		if($s['option']=='mail_onoff' && $s['value']!='on') {
-		logs($date,'Notifications','Cannot send mail bacause fucntion is off, go to settings.'); 
+		logs($date,'Error','Cannot send mail bacause fucntion is off, go to settings.'); 
 		
 		}
 		if($s['option']=='pusho_active') {
@@ -53,8 +53,9 @@ $hour=date('H');
 		$get_tel[]=$s['tel'];
 	}
 	if(empty($get_addr)) {
-		echo $date." Add users to nettemp settings!\n"; // dopisac obsluge bledu/logów
-		//exit;
+		echo $date." Add users to nettemp settings!\n";
+		logs($date,'Error','Cannot send mail bacause user doesnt have email adress , go to settings - users.'); 
+		
 	}
 	
     $string = rtrim(implode(' ', $get_addr), ',');
