@@ -24,10 +24,10 @@ $log_del = isset($_POST['log_del']) ? $_POST['log_del'] : '';
 <div class="panel-body">
 
 <form action="index.php?id=tools&type=log" method="post">
-    <input type="submit" name="log_del" value="Clear logs" class="btn btn-xs btn-danger" />
+    <input type="submit" name="log_del" value="Clear" class="btn btn-xs btn-danger" />
 </form>
 <br />
-<div style="height:300px;overflow:auto;padding:5px;">
+<div style="height:600px;overflow:auto;padding:2px;">
 <pre>
 <?php
 $filearray = file("tmp/log.txt");
