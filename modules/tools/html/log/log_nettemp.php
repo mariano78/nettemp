@@ -21,7 +21,7 @@ $log_del = isset($_POST['log_del']) ? $_POST['log_del'] : '';
 	 ?>	
 <div class="panel panel-default">
 <div class="panel-heading">All logs</div>
-<div class="panel-body">
+<div class="panel-body logs">
 
 <form action="index.php?id=tools&type=log" method="post">
     <input type="submit" name="log_del" value="Clear" class="btn btn-xs btn-danger" />
@@ -53,4 +53,13 @@ $last = array_slice($filearray,-100);
 </div>
 </div>
 </div>
+
+<script type="text/javascript">
+    setInterval( function() {
+		
+    $('.logs').load("modules/tools/html/log/log_nettemp.php");
+   
+	
+}, 5000);
+</script>
 
