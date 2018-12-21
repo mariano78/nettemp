@@ -2,22 +2,29 @@
 
 $ROOT=dirname(dirname(dirname(dirname(dirname(__FILE__)))));
 
+$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
+
 $dir = '';
 $log_del = isset($_POST['log_del']) ? $_POST['log_del'] : '';
 	if ($log_del == "Clear"){
 	exec("echo log cleared > tmp/log.txt");	
 	echo $dir; 
+	
+	$db->exec("DELETE FROM logs");
+	
+	
+	
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();
 	 } 
 
 	 ?>	
 <div class="panel panel-default">
-<div class="panel-heading">Logs <?php echo $ROOT; ?></div>
+<div class="panel-heading">All logs</div>
 <div class="panel-body">
 
 <form action="index.php?id=tools&type=log" method="post">
-    <input type="submit" name="log_del" value="Clear" class="btn btn-xs btn-danger" />
+    <input type="submit" name="log_del" value="Clear logs" class="btn btn-xs btn-danger" />
 </form>
 <br />
 <div style="height:300px;overflow:auto;padding:5px;">
@@ -30,7 +37,7 @@ $last = array_slice($filearray,-100);
     }
 	
 	
-	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
+	
 	$query = $db->query("SELECT * FROM logs");
     $result= $query->fetchAll();
 	
