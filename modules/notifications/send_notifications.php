@@ -30,7 +30,7 @@ $array30m = array("0", "30");
     
     foreach($result as $s) {
 		if($s['option']=='mail_onoff' && $s['value']!='on') {
-		//logs($date,'Error','Cannot send mail bacause fucntion is off, go to settings.'); 
+		logs($date,'Error','Cannot send mail bacause fucntion is off, go to settings.'); 
 		
 		}
 		if($s['option']=='pusho_active') {
