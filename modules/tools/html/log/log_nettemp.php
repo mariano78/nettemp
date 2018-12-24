@@ -20,7 +20,7 @@ $log_del = isset($_POST['log_del']) ? $_POST['log_del'] : '';
 
 	 ?>	
 <div class="panel panel-default">
-<div class="panel-heading">All logs</div>
+<div class="panel-heading">All logs <?php echo $ROOT; ?></div>
 <div class="panel-body logs" id="logs">
 
 <form action="index.php?id=tools&type=log" method="post">
