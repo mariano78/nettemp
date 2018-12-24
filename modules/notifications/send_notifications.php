@@ -281,7 +281,7 @@ try {
 				
 				if (($stmp < $nvalue) && $nsent == '') {
 					$notsent = 1;
-					echo "aaaaaaaaaaaaaa\n";
+					//echo "aaaaaaaaaaaaaa\n";
 					}elseif (($stmp >= $nvalue) && ($nsent == 'sent')) {
 						$notsentrec = 1;
 						//echo "Ustawione Recovery\n";
@@ -451,7 +451,7 @@ try {
 			}
  } elseif ($ntype == 'lupdate') {
 	 
-	 if((strtotime($stime)<(time()-($nvalue*60))) && $nsent == '') {
+	 if((strtotime($stime)<(time()-($nvalue*60)))) {
 		 $notsent = 1;
 	 }elseif ((strtotime($stime)>(time()- 60)) && $nsent == 'sent') {
 		 $notsentrec = 1;
