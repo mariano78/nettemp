@@ -21,13 +21,13 @@ $log_del = isset($_POST['log_del']) ? $_POST['log_del'] : '';
 	 ?>	
 <div class="panel panel-default">
 <div class="panel-heading">All logs <?php echo $ROOT; ?></div>
-<div class="panel-body logs" id="logs">
+<div class="panel-body">
 
 <form action="index.php?id=tools&type=log" method="post">
     <input type="submit" name="log_del" value="Clear" class="btn btn-xs btn-danger" />
 </form>
 <br />
-<div style="height:600px;overflow:auto;padding:2px;">
+<div id="logs" style="height:600px;overflow:auto;padding:2px;">
 <pre>
 <?php
 $filearray = file("tmp/log.txt");
@@ -56,7 +56,7 @@ $last = array_slice($filearray,-100);
 
 <script type="text/javascript">
     setInterval( function() {
-		$('#logs').load('log_nettemp.php/ #logs');
+		$('#logs').load('$ROOT/modules/tools/html/log/log_nettemp.php #logs');
 		
     
    
