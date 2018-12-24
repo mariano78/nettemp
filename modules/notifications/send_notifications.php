@@ -137,8 +137,8 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						} else {
 						echo "Mail send problem\n";
 						}					
-						echo "Wysyłam mail - ".$notmessage."\n";
-						logs($date,'Notifications',$notmessage);
+						//echo "Wysyłam mail - ".$notmessage."\n";
+						logs($date,'Notifications',$notmessage." - Mail");
 						
 				}else if ($nrecovery == 'on' && $notmail == 'on' && $notsentrec == 1){ //RECOVERY MAIL
 				
@@ -148,8 +148,8 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						echo "Mail send problem\n";
 						}
 						$notsentrec2 = 1;
-						echo "Wysyłam mail - RECOVERY - ".$notmessage."\n";
-						logs($date,'Notifications',$notmessage);
+						//echo "Wysyłam mail - RECOVERY - ".$notmessage."\n";
+						logs($date,'Notifications',$notmessage." - Mail");
 				}
 	}
 	
@@ -174,7 +174,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						curl_close($ch);	
 						
 						echo "Wysyłam PoshOver - ".$notmessage."\n";
-						logs($date,'Notifications',$notmessage);
+						logs($date,'Notifications',$notmessage." - PushOver");
 						
 				}else if ($nrecovery == 'on' && $notpov == 'on' && $notsentrec == 1){  // RECOVERY PO
 				
@@ -197,7 +197,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 						$notsentrec2 = 1;
 
 						echo "Wysyłam PoshOver - Recovery - ".$notmessage."\n";
-						logs($date,'Notifications',$notmessage);
+						logs($date,'Notifications',$notmessage." - PushOver");
 				}
 	}
 	
