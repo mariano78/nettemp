@@ -56,7 +56,7 @@ $last = array_slice($filearray,-100);
 
 <script type="text/javascript">
     setInterval( function() {
-		$('#logs').load('localhost/index.php?id=tools&type=log #logs');
+		$('#logs').load('http://31.6.65.11:8888/index.php?id=tools&type=log #logs');
 		
     
    
