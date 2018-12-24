@@ -279,7 +279,7 @@ try {
 				//echo $nvalue."\n";
 				//echo $nsent."\n";
 				
-				if (($stmp < $nvalue) && $nsent == '') {
+				if (($stmp < $nvalue)) {
 					$notsent = 1;
 					//echo "aaaaaaaaaaaaaa\n";
 					}elseif (($stmp >= $nvalue) && ($nsent == 'sent')) {
@@ -310,7 +310,7 @@ try {
 					
 			}elseif ($nwhen == '2') {
 				
-				if (($stmp <= $nvalue) && $nsent == '') {
+				if (($stmp <= $nvalue)) {
 					$notsent = 1;
 					}elseif (($stmp > $nvalue) && $nsent == 'sent') {
 						$notsentrec = 1;
@@ -339,7 +339,7 @@ try {
 				
 			}elseif ($nwhen == '3') {
 				
-				if (($stmp > $nvalue) && $nsent == '') {
+				if (($stmp > $nvalue)) {
 					$notsent = 1;
 					}elseif (($stmp <= $nvalue) && $nsent == 'sent') {
 						$notsentrec = 1;
@@ -367,7 +367,7 @@ try {
 	
 			}elseif ($nwhen == '4') {
 				
-				if (($stmp >= $nvalue) && $nsent == '') {
+				if (($stmp >= $nvalue)) {
 					$notsent = 1;
 					}elseif (($stmp < $nvalue) && $nsent == 'sent') {
 						$notsentrec = 1;
@@ -395,7 +395,7 @@ try {
 				
 			}elseif ($nwhen == '5') {
 				
-				if (($stmp == $nvalue) && $nsent == '') {
+				if (($stmp == $nvalue)) {
 					$notsent = 1;
 					}elseif (($stmp != $nvalue) && $nsent == 'sent') {
 						$notsentrec = 1;
@@ -423,7 +423,7 @@ try {
 				
 			}elseif ($nwhen == '6') {
 				
-				if (($stmp != $nvalue) && $nsent == '') {
+				if (($stmp != $nvalue)) {
 					$notsent = 1;
 					}elseif (($stmp == $nvalue) && $nsent == 'sent') {
 						$notsentrec = 1;
@@ -481,7 +481,7 @@ try {
 	 
 	}	elseif ($ntype == 'lhost') {
 	 
-	 if($sstatus == 'error' && $nsent == '') {
+	 if($sstatus == 'error') {
 		 $notsent = 1;
 	 }elseif ($sstatus != 'error' && $nsent == 'sent') {
 		 $notsentrec = 1;
