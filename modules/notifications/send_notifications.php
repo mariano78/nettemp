@@ -275,16 +275,16 @@ try {
 
 			if ($nwhen == '1') {
 				
-				echo $stmp."\n";
-				echo $nvalue."\n";
-				echo $nsent."\n";
+				//echo $stmp."\n";
+				//echo $nvalue."\n";
+				//echo $nsent."\n";
 				
 				if (($stmp < $nvalue) && $nsent == '') {
 					$notsent = 1;
 					echo "aaaaaaaaaaaaaa\n";
 					}elseif (($stmp >= $nvalue) && ($nsent == 'sent')) {
 						$notsentrec = 1;
-						echo "Ustawione Recovery\n";
+						//echo "Ustawione Recovery\n";
 					}
 						if ($notsent == 1) {
 							
