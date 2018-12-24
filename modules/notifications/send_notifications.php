@@ -285,6 +285,8 @@ try {
 			if ($nwhen == '1') {
 				
 				echo $stmp."\n";
+				echo $nvalue."\n";
+				echo $nsent."\n";
 				
 				if (($stmp < $nvalue) && $nsent == '') {
 					$notsent = 1;
