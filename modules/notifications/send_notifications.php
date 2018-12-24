@@ -260,7 +260,7 @@ try {
 		$notsentrec = 0;
 		$message = '';
 		
-		if ($ninterval != '0m'){//$nsent = '';}
+		if ($ninterval == '0m'){$nsent = '';}
 				
 		$sensor = $db->query("SELECT name,tmp,current,type,time, status FROM sensors WHERE rom='$nrom'");
 		$sensors = $sensor->fetchAll();
