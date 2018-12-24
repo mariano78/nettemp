@@ -27,7 +27,7 @@ $log_del = isset($_POST['log_del']) ? $_POST['log_del'] : '';
     <input type="submit" name="log_del" value="Clear" class="btn btn-xs btn-danger" />
 </form>
 <br />
-<div id="logs" style="height:600px;overflow:auto;padding:2px;">
+<div id="logs" >
 <pre>
 <?php
 $filearray = file("tmp/log.txt");
