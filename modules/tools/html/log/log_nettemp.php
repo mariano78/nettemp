@@ -56,7 +56,7 @@ $last = array_slice($filearray,-100);
 
 <script type="text/javascript">
     setInterval( function() {
-		$('#logs').load('$ROOT/modules/tools/html/log/log_nettemp.php #logs');
+		$('#logs').load('log/log_nettemp.php #logs');
 		
     
    
