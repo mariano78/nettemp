@@ -288,6 +288,7 @@ try {
 					$notsent = 1;
 					}elseif (($stmp >= $nvalue) && $nsent == 'sent') {
 						$notsentrec = 1;
+						echo "Ustawione Recovery\n"
 					}
 						if ($notsent == 1) {
 							
