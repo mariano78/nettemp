@@ -14,6 +14,16 @@ $hostname=gethostname();
 $minute=date('i');
 $hour=date('H');
 
+$array2m = array("2", "4", "6", "8", "10", "12", "14", "16", "18", "20", "22", "24", "26", "28", "30","32", "34", "36", "38", "40", "42", "44", "46", "48", "50", "52", "54", "56", "58", "00");
+
+$array5m = array("0", "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55");
+
+$array15m = array("0", "15", "30", "45");
+
+$array30m = array("0", "30");
+
+
+
 	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 	$query = $db->query("SELECT * FROM nt_settings");
     $result= $query->fetchAll();
@@ -226,7 +236,7 @@ try {
 			{
 				$query = $db->query("SELECT * FROM notifications WHERE active='on' AND fc = 'on' ");
 			}
-	//unset($ninterval);		
+	unset($ninterval);		
 	
     $result= $query->fetchAll();
     
