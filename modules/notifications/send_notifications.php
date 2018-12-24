@@ -289,7 +289,7 @@ try {
 				if (($stmp < $nvalue) && $nsent == '') {
 					$notsent = 1;
 					echo "aaaaaaaaaaaaaa\n";
-					}elseif (($stmp >= $nvalue) && $nsent == 'sent') {
+					}elseif (($stmp >= $nvalue) && ($nsent == 'sent')) {
 						$notsentrec = 1;
 						echo "Ustawione Recovery\n";
 					}
