@@ -30,7 +30,8 @@ $array30m = array("0", "30");
     
     foreach($result as $s) {
 		if($s['option']=='mail_onoff' && $s['value']!='on') {
-		logs($date,'Error','Cannot send mail bacause fucntion is off, go to settings.'); 
+			
+		logs($date,'Error','Cannot send mail because function is off, go to settings.'); 
 		
 		}
 		if($s['option']=='pusho_active') {
@@ -64,7 +65,7 @@ $array30m = array("0", "30");
 	}
 	if(empty($get_addr)) {
 		echo $date." Add users to nettemp settings!\n";
-		logs($date,'Error','Cannot send mail bacause user doesnt have email adress , go to settings - users.'); 
+		logs($date,'Error','Cannot send mail because user doesnt have email, go to settings - users.'); 
 		
 	}
 	
