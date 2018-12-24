@@ -237,7 +237,7 @@ try {
 			{
 				$query = $db->query("SELECT * FROM notifications WHERE active='on' AND fc = 'on' ");
 			}
-	unset($ninterval);		
+	//unset($ninterval);		
 	
     $result= $query->fetchAll();
     
