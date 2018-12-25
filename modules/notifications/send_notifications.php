@@ -203,6 +203,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 	
 	if ($notsentrec == 1 && $notsentrec2 == 1){
 		$db->exec("UPDATE notifications SET sent='' WHERE id='$nid'");
+		$db->exec("UPDATE notifications SET fc='on' WHERE id='$nid'");
 		$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
 		if ($ntype =='lupdate'){
 			$db->exec("UPDATE sensors SET readerrsend='' WHERE rom='$nrom'");
@@ -223,10 +224,10 @@ try {
 	
 	if ($ninterval != '0m'){
 		
-		$query = $db->query("SELECT * FROM notifications WHERE active='on' AND interval = '$ninterval'");
+		$query = $db->query("SELECT * FROM notifications WHERE active='on' AND interval = '$ninterval' ");
 		}else 
 			{
-				$query = $db->query("SELECT * FROM notifications WHERE active='on' AND fc = 'on' ");
+				$query = $db->query("SELECT * FROM notifications WHERE active='on' ");
 			}
 	//unset($ninterval);		
 	
@@ -250,8 +251,12 @@ try {
 		$notsent = 0;
 		$notsentrec = 0;
 		$message = '';
-		
-		if ($ninterval == '0m'){$nsent = '';}
+		$onlyrec = '';
+		//if ($ninterval == '0m'){$nsent = '';}
+				if ($ninterval == '0m' && $nsent = 'sent'){$onlyrec = 'on';}
+				
+				
+				
 				
 		$sensor = $db->query("SELECT name,tmp,current,type,time, status FROM sensors WHERE rom='$nrom'");
 		$sensors = $sensor->fetchAll();
@@ -275,11 +280,8 @@ try {
 
 			if ($nwhen == '1') {
 				
-				//echo $stmp."\n";
-				//echo $nvalue."\n";
-				//echo $nsent."\n";
-				
-				if (($stmp < $nvalue)) {
+			
+				if (($stmp < $nvalue) && $onlyrec != 'on') {
 					$notsent = 1;
 					//echo "aaaaaaaaaaaaaa\n";
 					}elseif (($stmp >= $nvalue) && ($nsent == 'sent')) {
