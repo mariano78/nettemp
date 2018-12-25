@@ -108,7 +108,6 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 	$ROOT=dirname(dirname(dirname(__FILE__)));
 	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 	
-	//$notsent = 0;
 	$notsentrec2 = 0;
 	
 	if ($notsms == 'on') {
@@ -203,7 +202,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 	
 	if ($notsentrec == 1 && $notsentrec2 == 1){
 		$db->exec("UPDATE notifications SET sent='' WHERE id='$nid'");
-		$db->exec("UPDATE notifications SET fc='on' WHERE id='$nid'");
+		//$db->exec("UPDATE notifications SET fc='on' WHERE id='$nid'");
 		$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
 		if ($ntype =='lupdate'){
 			$db->exec("UPDATE sensors SET readerrsend='' WHERE rom='$nrom'");
@@ -511,7 +510,7 @@ try {
 						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$sens_interval,$sw_interval,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers,$ntype);	
 
 	}
-	$db->exec("UPDATE notifications SET fc='' WHERE id='$nid'");
+	//$db->exec("UPDATE notifications SET fc='' WHERE id='$nid'");
 	}
 	
 //try end	
