@@ -312,7 +312,7 @@ try {
 					
 			}elseif ($nwhen == '2') {
 				
-				if (($stmp <= $nvalue)) {
+				if (($stmp <= $nvalue) && $onlyrec != 'on') {
 					$notsent = 1;
 					}elseif (($stmp > $nvalue) && $nsent == 'sent') {
 						$notsentrec = 1;
@@ -341,7 +341,7 @@ try {
 				
 			}elseif ($nwhen == '3') {
 				
-				if (($stmp > $nvalue)) {
+				if (($stmp > $nvalue) && $onlyrec != 'on') {
 					$notsent = 1;
 					}elseif (($stmp <= $nvalue) && $nsent == 'sent') {
 						$notsentrec = 1;
@@ -369,7 +369,7 @@ try {
 	
 			}elseif ($nwhen == '4') {
 				
-				if (($stmp >= $nvalue)) {
+				if (($stmp >= $nvalue) && $onlyrec != 'on') {
 					$notsent = 1;
 					}elseif (($stmp < $nvalue) && $nsent == 'sent') {
 						$notsentrec = 1;
@@ -397,7 +397,7 @@ try {
 				
 			}elseif ($nwhen == '5') {
 				
-				if (($stmp == $nvalue)) {
+				if (($stmp == $nvalue) && $onlyrec != 'on') {
 					$notsent = 1;
 					}elseif (($stmp != $nvalue) && $nsent == 'sent') {
 						$notsentrec = 1;
@@ -425,7 +425,7 @@ try {
 				
 			}elseif ($nwhen == '6') {
 				
-				if (($stmp != $nvalue)) {
+				if (($stmp != $nvalue) && $onlyrec != 'on') {
 					$notsent = 1;
 					}elseif (($stmp == $nvalue) && $nsent == 'sent') {
 						$notsentrec = 1;
@@ -453,7 +453,7 @@ try {
 			}
  } elseif ($ntype == 'lupdate') {
 	 
-	 if((strtotime($stime)<(time()-($nvalue*60)))) {
+	 if((strtotime($stime)<(time()-($nvalue*60))) && $onlyrec != 'on') {
 		 $notsent = 1;
 	 }elseif ((strtotime($stime)>(time()- 60)) && $nsent == 'sent') {
 		 $notsentrec = 1;
@@ -483,7 +483,7 @@ try {
 	 
 	}	elseif ($ntype == 'lhost') {
 	 
-	 if($sstatus == 'error') {
+	 if($sstatus == 'error' && $onlyrec != 'on') {
 		 $notsent = 1;
 	 }elseif ($sstatus != 'error' && $nsent == 'sent') {
 		 $notsentrec = 1;
