@@ -253,7 +253,7 @@ try {
 		$message = '';
 		$onlyrec = '';
 		//if ($ninterval == '0m'){$nsent = '';}
-				if ($ninterval == '0m' && $nsent = 'sent'){$onlyrec = 'on';}
+				if ($ninterval == '0m' && $nsent == 'sent'){$onlyrec = 'on';}
 				
 				
 				
