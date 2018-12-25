@@ -60,6 +60,7 @@ $last = array_slice($filearray,-100);
 		
 		var elem = document.getElementById('logs');
 		elem.scrollTop = elem.scrollHeight;
+		elem.animate({scrollTop: elem.scrollHeight});
 		
     
    
