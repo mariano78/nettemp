@@ -22,7 +22,7 @@ $hour=date('H');
     foreach($result as $s) {
 		if($s['option']=='mail_onoff' && $s['value']!='on') {
 			
-		//logs($date,'Error','Cannot send mail because function is off, go to settings.'); 
+		logs($date,'Error','Cannot send mail because function is off, go to settings.'); 
 		
 		}
 		if($s['option']=='pusho_active') {
@@ -48,14 +48,13 @@ $hour=date('H');
 		}
 	}
 	
-	$query = $db->query("SELECT mail, tel FROM users WHERE maila='yes' OR smsa='yes' ");
+	$query = $db->query("SELECT mail, tel FROM users WHERE maila='yes' ");
     $result= $query->fetchAll();
     foreach($result as $s) {
 		$get_addr[]=$s['mail'];
-		$get_tel[]=$s['tel'];
 	}
 	if(empty($get_addr)) {
-		echo $date." Add users to nettemp settings!\n";
+		echo $date." Cannot send mail because user doesnt have email, go to settings - users.\n";
 		logs($date,'Error','Cannot send mail because user doesnt have email, go to settings - users.'); 
 		
 	}
