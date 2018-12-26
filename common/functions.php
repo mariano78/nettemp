@@ -13,9 +13,6 @@ $db = new PDO("sqlite:$froot/dbf/nettemp.db");
 	}
 
 
-
-
-
 function logs($date,$type,$message)
 	{
 		global $logsonoff;
