@@ -13,6 +13,7 @@ $date = date("Y-m-d H:i:s");
 $hostname=gethostname(); 
 $minute=date('i');
 $hour=date('H');
+$nomail = 0;
 
 
 	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
@@ -22,7 +23,9 @@ $hour=date('H');
     foreach($result as $s) {
 		if($s['option']=='mail_onoff' && $s['value']!='on') {
 			
-		logs($date,'Error','Cannot send mail because function is off, go to settings.'); 
+			$nomail = 1 ;
+			
+		//logs($date,'Error','Cannot send mail because function is off, go to settings - notifications.'); 
 		
 		}
 		if($s['option']=='pusho_active') {
@@ -261,6 +264,12 @@ try {
 		//if ($ninterval == '0m'){$nsent = '';}
 		
 		if ($ninterval == '0m' && $nsent == 'sent'){$onlyrec = 'on';}
+		
+		if ($nmail == 'on' && $nomail == 1){
+			
+			logs($date,'Error','Cannot send mail because function is off, go to settings - notifications.'); 
+			$nomail = 0 ;
+			}
 				
 				
 				
