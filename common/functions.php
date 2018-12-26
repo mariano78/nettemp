@@ -34,8 +34,10 @@ $logroot = "/var/www/nettemp";
 	
 			if (!copy($filepath, $ftosend)) {
 			echo "Send failed.\n";
+			logs($date,'Error',$notmessage." - Unable to send SMS message - check configurations ");
 			} else {
 				echo "Send OK.\n";
+				logs($date,'Info',$notmessage." - SMS was sent.");
 			}
 			unlink($filepath);
 			}
