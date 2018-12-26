@@ -60,8 +60,7 @@ $('#logs').scrollTop($('#logs')[0].scrollHeight);
     setInterval( function() {
 		$('#logs').load('http://31.6.65.11:8888/index.php?id=tools&type=log #logs');
 		
-		var elem = document.getElementById('logs');
-		elem.scrollTop = elem.scrollHeight;
+		$('#logs').scrollTop($('#logs')[0].scrollHeight);
 		
     
    
