@@ -27,22 +27,22 @@ fi
 
 if  ! sudo cat /var/spool/cron/crontabs/root |grep -q 'cron/2h'
     then
-	sudo sed -i '$a* */2 * * * '$dir'/modules/cron/2h' /var/spool/cron/crontabs/root
+	sudo sed -i '$a01 */2 * * * '$dir'/modules/cron/2h' /var/spool/cron/crontabs/root
 fi
 
 if  ! sudo cat /var/spool/cron/crontabs/root |grep -q 'cron/6h'
     then
-	sudo sed -i '$a* */6 * * * '$dir'/modules/cron/6h' /var/spool/cron/crontabs/root
+	sudo sed -i '$a01 */6 * * * '$dir'/modules/cron/6h' /var/spool/cron/crontabs/root
 fi
 
 if  ! sudo cat /var/spool/cron/crontabs/root |grep -q 'cron/12h'
     then
-	sudo sed -i '$a* */12 * * * '$dir'/modules/cron/12h' /var/spool/cron/crontabs/root
+	sudo sed -i '$a01 */12 * * * '$dir'/modules/cron/12h' /var/spool/cron/crontabs/root
 fi
 
 if  ! sudo cat /var/spool/cron/crontabs/root |grep -q 'cron/24h'
     then
-	sudo sed -i '$a* */24 * * * '$dir'/modules/cron/24h' /var/spool/cron/crontabs/root
+	sudo sed -i '$a01 */24 * * * '$dir'/modules/cron/24h' /var/spool/cron/crontabs/root
 fi
 
 if  ! sudo cat /var/spool/cron/crontabs/root |grep -q 'cron/00h'
