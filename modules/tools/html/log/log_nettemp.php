@@ -55,6 +55,8 @@ $last = array_slice($filearray,-100);
 </div>
 
 <script type="text/javascript">
+$('#logs').scrollTop($('#logs')[0].scrollHeight);
+
     setInterval( function() {
 		$('#logs').load('http://31.6.65.11:8888/index.php?id=tools&type=log #logs');
 		
