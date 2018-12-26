@@ -201,13 +201,6 @@ $updates['2018-10-05 08:06:25'][]="INSERT INTO nt_settings ('option', 'value') V
 
 $updates['2018-10-12 10:29:48'][]="CREATE TABLE notifications (id INTEGER PRIMARY KEY, rom TEXT , type TEXT, wheen TEXT, value TEXT, sms TEXT, mail TEXT, pov TEXT, message TEXT, priority TEXT, interval TEXT, recovery TEXT, active TEXT, sent TEXT)";
 
-$updates['2018-11-08 10:26:46'][]="ALTER TABLE gpio ADD token TEXT";
-
-$updates['2018-11-30 12:46:25'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('sensorinterval','1h')";
-$updates['2018-11-30 12:46:25'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('switchinterval','0m')";
-
-$updates['2018-12-20 12:30:12'][]="ALTER TABLE notifications ADD fc TEXT";
-
 $updates['2018-12-20 13:39:47'][]="CREATE TABLE logs (id INTEGER PRIMARY KEY, date TEXT , type TEXT, message TEXT)";
 
 ?>

@@ -62,7 +62,7 @@ $('#logs').scrollTop($('#logs')[0].scrollHeight);
 		
 		$("#logs").load(location.href+" #logs>*",""); 
 		
-		//$('#logs').scrollTop($('#logs')[0].scrollHeight);
+		$('#logs').scrollTop($('#logs')[0].scrollHeight);
 		
     
    
