@@ -110,11 +110,17 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 	
 	$notsentrec2 = 0;
 	
-	if ($notsms == 'on') {
+	if ($notsms == 'on' && $notsent == 1) {
 		
 		echo "Wysyłam SMS - ".$notmessage."\n";
+		send_sms($date,'Notifications',$message);
 		
-		
+	}else if ($nrecovery == 'on' && $notsms == 'on' && $notsentrec == 1){ //RECOVERY SMS
+	
+		echo "Wysyłam SMS - ".$notmessage."\n";
+		send_sms($date,'Notifications',$message);
+		$notsentrec2 = 1;
+	
 	}
 	
 	if ($mailonoff == 'on') {
