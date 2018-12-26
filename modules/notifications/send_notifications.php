@@ -114,11 +114,13 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 		
 		echo "Wysyłam SMS - ".$notmessage."\n";
 		send_sms($date,'Notifications',$notmessage);
+		logs($date,'Notifications',$notmessage." - SMS");
 		
 	}else if ($nrecovery == 'on' && $notsms == 'on' && $notsentrec == 1){ //RECOVERY SMS
 	
 		echo "Wysyłam SMS - ".$notmessage."\n";
 		send_sms($date,'Notifications',$notmessage);
+		logs($date,'Notifications',$notmessage." - SMS");
 		$notsentrec2 = 1;
 	
 	}
