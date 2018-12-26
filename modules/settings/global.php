@@ -332,8 +332,9 @@
 				</td>
 				<td>
 					<form action="" method="post" style="display:inline!important;"> 
-					<input type="text" name="logs_his" size="3" value="<?php echo $nts_his_logs; ?>" />
+					<input type="text" name="logs_his" size="1" value="<?php echo $nts_his_logs; ?>" /><label> days</label>
 					<input type="hidden" name="logs_his1" value="logs_his1"  />
+					<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 					</form>
 				</td>
 			</tr>
