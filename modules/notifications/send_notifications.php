@@ -22,10 +22,8 @@ $nomail = 0;
     
     foreach($result as $s) {
 		if($s['option']=='mail_onoff' && $s['value']!='on') {
-			
+
 			$nomail = 1 ;
-			
-		//logs($date,'Error','Cannot send mail because function is off, go to settings - notifications.'); 
 		
 		}
 		if($s['option']=='pusho_active') {
@@ -267,7 +265,7 @@ try {
 		
 		if ($nmail == 'on' && $nomail == 1){
 			
-			logs($date,'Error','Cannot send mail because function is off, go to settings - notifications2.'); 
+			logs($date,'Error','Cannot send mail because function is off, go to settings - notifications.'); 
 			$nomail = 0 ;
 			}
 				
