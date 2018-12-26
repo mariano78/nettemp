@@ -4,7 +4,7 @@ function logs($date,$type,$message)
 	{
 	$logroot = "/var/www/nettemp";	
 		
-	$db = new PDO("sqlite:$logroot/dbf/nettemp.db");
+	$db = new PDO("sqlite:$logroot/dbf/nettemp.db") or die ("cannot open database");
 	$db->exec("INSERT INTO logs ('date', 'type', 'message') VALUES ('$date', '$type', '$message')");
 	}
 
@@ -13,7 +13,7 @@ function logs($date,$type,$message)
 function send_sms($date,$type,$message)
 {
 
-	$dbr = new PDO("sqlite:".__DIR__."/dbf/nettemp.db") or die ("cannot open database");
+	$dbr = new PDO("sqlite:$logroot/dbf/nettemp.db") or die ("cannot open database");
     $sthr = $dbr->query("SELECT tel FROM users WHERE smsa='yes'");
     $row = $sthr->fetchAll();
     foreach($row as $row) {
