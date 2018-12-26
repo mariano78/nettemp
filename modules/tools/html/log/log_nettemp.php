@@ -58,8 +58,6 @@ $last = array_slice($filearray,-100);
 $('#logs').scrollTop($('#logs')[0].scrollHeight);
 
     setInterval( function() {
-		//$('#logs').load('http://31.6.65.11:8888/index.php?id=tools&type=log #logs');
-		
 		$("#logs").load(location.href+" #logs>*",""); 
 		
 		$('#logs').scrollTop($('#logs')[0].scrollHeight);
@@ -67,6 +65,6 @@ $('#logs').scrollTop($('#logs')[0].scrollHeight);
     
    
 	
-}, 5000);
+}, 1000);
 </script>
 
