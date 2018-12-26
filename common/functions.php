@@ -20,8 +20,6 @@ function send_sms($date,$type,$message)
 		$smsto[]=$row['tel'];
     }
 	
-	
-	if ($sms == 'on') {
 			
 			for ($x = 0, $cnt = count($smsto); $x < $cnt; $x++){
 			$random=substr(rand(), 0, 4);
@@ -40,7 +38,7 @@ function send_sms($date,$type,$message)
 			}
 			unlink($filepath);
 			}
-		}	
+			
 }
 
 ?>
