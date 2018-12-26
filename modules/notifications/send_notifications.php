@@ -212,9 +212,15 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 		$db->exec("UPDATE notifications SET sent='' WHERE id='$nid'");
 		//$db->exec("UPDATE notifications SET fc='on' WHERE id='$nid'");
 		$db->exec("UPDATE sensors SET mail='sent' WHERE rom='$nrom'");
-		if ($ntype =='lupdate'){
-			$db->exec("UPDATE sensors SET readerrsend='' WHERE rom='$nrom'");
-		}
+		//if ($ntype =='lupdate'){
+			//$db->exec("UPDATE sensors SET readerrsend='' WHERE rom='$nrom'");
+		//}	
+	}
+	
+	if ($notsentrec == 1 && $ntype =='lupdate'){
+		
+		$db->exec("UPDATE sensors SET readerrsend='' WHERE rom='$nrom'");
+		
 	}
 		
 }
