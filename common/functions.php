@@ -10,7 +10,7 @@ function logs($date,$type,$message)
 
 
 	
-function send_sms($date,type,$message)
+function send_sms($date,$type,$message)
 {
 
 	$dbr = new PDO("sqlite:".__DIR__."/dbf/nettemp.db") or die ("cannot open database");
