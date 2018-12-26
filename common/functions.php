@@ -20,7 +20,6 @@ $logroot = "/var/www/nettemp";
 		$smsto[]=$row['tel'];
     }
 	
-	echo $smsto;
 	
 			
 			for ($x = 0, $cnt = count($smsto); $x < $cnt; $x++){
