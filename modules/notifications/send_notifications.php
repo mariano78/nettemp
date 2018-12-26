@@ -267,7 +267,7 @@ try {
 		
 		if ($nmail == 'on' && $nomail == 1){
 			
-			logs($date,'Error','Cannot send mail because function is off, go to settings - notifications.'); 
+			logs($date,'Error','Cannot send mail because function is off, go to settings - notifications2.'); 
 			$nomail = 0 ;
 			}
 				
