@@ -26,7 +26,7 @@ $logroot = "/var/www/nettemp";
 			$random=substr(rand(), 0, 4);
 			
 			$sms = "To: ".$smsto[$x]."\n\n".$message;
-			$filepath = "tmp/sms/message_".$date."_".$random.".sms";
+			$filepath = "/tmp/sms/message_".$date."_".$random.".sms";
 			$fsms = fopen($filepath, 'a+');
 			fwrite($fsms, $sms);
 			fclose($fsms);
