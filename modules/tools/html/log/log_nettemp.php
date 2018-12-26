@@ -65,6 +65,6 @@ $('#logs').scrollTop($('#logs')[0].scrollHeight);
     
    
 	
-}, 1000);
+}, 5000);
 </script>
 
