@@ -20,6 +20,8 @@ function send_sms($date,$type,$message)
 		$smsto[]=$row['tel'];
     }
 	
+	echo $smsto;
+	
 			
 			for ($x = 0, $cnt = count($smsto); $x < $cnt; $x++){
 			$random=substr(rand(), 0, 4);
