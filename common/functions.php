@@ -12,7 +12,7 @@ function logs($date,$type,$message)
 	
 function send_sms($date,$type,$message)
 {
-
+$logroot = "/var/www/nettemp";	
 	$dbr = new PDO("sqlite:$logroot/dbf/nettemp.db") or die ("cannot open database");
     $sthr = $dbr->query("SELECT tel FROM users WHERE smsa='yes'");
     $row = $sthr->fetchAll();
