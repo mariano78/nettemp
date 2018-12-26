@@ -1,11 +1,31 @@
 <?php
 $froot = "/var/www/nettemp";
+
+$db = new PDO("sqlite:$froot/dbf/nettemp.db");
+	$query = $db->query("SELECT * FROM nt_settings");
+    $result= $query->fetchAll();
+    
+    foreach($result as $s) {
+		
+		if($s['option']=='logs') {
+			$logsonoff=$s['value'];
+		}
+	}
+
+
+
+
+
 function logs($date,$type,$message)
 	{
-	$froot = "/var/www/nettemp";	
+		global $logsonoff;
 		
-	$db = new PDO("sqlite:$froot/dbf/nettemp.db") or die ("cannot open database");
-	$db->exec("INSERT INTO logs ('date', 'type', 'message') VALUES ('$date', '$type', '$message')");
+	if ($logsonoff == 'on') {
+		
+		$froot = "/var/www/nettemp";	
+		$db = new PDO("sqlite:$froot/dbf/nettemp.db") or die ("cannot open database");
+		$db->exec("INSERT INTO logs ('date', 'type', 'message') VALUES ('$date', '$type', '$message')");
+		}
 	}
 
 
