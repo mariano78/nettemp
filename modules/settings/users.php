@@ -278,7 +278,7 @@ foreach ($result as $a) {
 	
 	<td>
 	<form action="" method="post" style="display:inline!important;">
-		<input type="text" name="mail_new" size="25" maxlength="50" value="<?php echo $a["mail"]; ?>" />
+		<input type="text" name="mail_new" placeholder="48123456789" size="25" maxlength="50" value="<?php echo $a["mail"]; ?>" />
 		<input type="hidden" name="mail_id" value="<?php echo $a["id"]; ?>" />
 		<input type="hidden" name="new_mail" value="new_mail"/>
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
