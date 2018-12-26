@@ -1,10 +1,10 @@
 <?php
-$logroot = "/var/www/nettemp";
+$froot = "/var/www/nettemp";
 function logs($date,$type,$message)
 	{
-	$logroot = "/var/www/nettemp";	
+	$froot = "/var/www/nettemp";	
 		
-	$db = new PDO("sqlite:$logroot/dbf/nettemp.db") or die ("cannot open database");
+	$db = new PDO("sqlite:$froot/dbf/nettemp.db") or die ("cannot open database");
 	$db->exec("INSERT INTO logs ('date', 'type', 'message') VALUES ('$date', '$type', '$message')");
 	}
 
@@ -12,8 +12,8 @@ function logs($date,$type,$message)
 	
 function send_sms($date,$type,$message)
 {
-$logroot = "/var/www/nettemp";	
-	$dbr = new PDO("sqlite:$logroot/dbf/nettemp.db") or die ("cannot open database");
+$froot = "/var/www/nettemp";	
+	$dbr = new PDO("sqlite:$froot/dbf/nettemp.db") or die ("cannot open database");
     $sthr = $dbr->query("SELECT tel FROM users WHERE smsa='yes'");
     $row = $sthr->fetchAll();
     foreach($row as $row) {
@@ -26,7 +26,7 @@ $logroot = "/var/www/nettemp";
 			$random=substr(rand(), 0, 4);
 			
 			$sms = "To: ".$smsto[$x]."\n\n".$message;
-			$filepath = $logroot."/tmp/sms/message_".$date."_".$random.".sms";
+			$filepath = $froot."/tmp/sms/message_".$date."_".$random.".sms";
 			$fsms = fopen($filepath, 'a+');
 			fwrite($fsms, $sms);
 			fclose($fsms);
