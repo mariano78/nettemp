@@ -58,8 +58,7 @@ $last = array_slice($filearray,-100);
 $('#logs').scrollTop($('#logs')[0].scrollHeight);
 
     setInterval( function() {
-		$("#logs").load(location.href+" #logs>*",""); 
-		
+		$("#logs").load(location.href+" #logs"); 	
 		$('#logs').scrollTop($('#logs')[0].scrollHeight);
 		
     
