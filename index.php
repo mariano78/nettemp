@@ -213,7 +213,7 @@ window.setInterval( function() {
       <div class="container text-center">
 			<a href="https://nettemp.pl/forum/viewforum.php?f=35" target="_blank" class="btn btn-xs btn-primary"><?php passthru("/usr/bin/git branch |grep [*]|awk '{print $2}' && awk '/Changelog/{y=1;next}y' readme.md |head -2 |grep -v '^$'"); ?> </a>
 			
-		<button class="btn btn-xs btn-primary uptime">
+		<button id="uptime" class="btn btn-xs btn-primary uptime">
 			<?php include('html/index/uptime.php');?>
 		</button>
 			
@@ -237,6 +237,11 @@ window.setInterval( function() {
 		$('#timee').html(getTime()); 
 		
 		}, 1000); 
+		
+		setInterval( function() {
+		$("#uptime").load(location.href+" #uptime"); 
+		}, 5000);
+		
 </script>
 </footer>
 <?php 
