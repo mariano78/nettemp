@@ -57,7 +57,7 @@ fi
 
 if  sudo cat /var/spool/cron/crontabs/root |grep -q '/thing_send.php intv=2'
     then
-    sudo sed -e '/thing_send.php/d' /var/spool/cron/crontabs/root | more
+    sudo sed -i '/thing_send.php/d' /var/spool/cron/crontabs/root 
 fi
 
 if  ! sudo cat /var/spool/cron/crontabs/root |grep -q '/thing_send.php intv=5'
