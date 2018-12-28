@@ -13,7 +13,7 @@ $query = $db->query("SELECT * FROM nt_settings");
 			$logshistime=$s['value'];
 		}
 	}
-echo $loghistime;
+echo $logshistime;
 $db->exec("DELETE FROM logs WHERE date <= datetime('now','localtime','$logshistime')") or die ("No data to delete.\n" );
 
 
