@@ -212,15 +212,18 @@ window.setInterval( function() {
 <footer id="ftr" class="footer">
       <div class="container text-center">
 			<a href="https://nettemp.pl/forum/viewforum.php?f=35" target="_blank" class="btn btn-xs btn-primary"><?php passthru("/usr/bin/git branch |grep [*]|awk '{print $2}' && awk '/Changelog/{y=1;next}y' readme.md |head -2 |grep -v '^$'"); ?> </a>
-			
+		
+		<div id="uptime">
 		<button id="uptime" class="btn btn-xs btn-primary uptime">
 			<?php include('html/index/uptime.php');?>
 		</button>
-			
+		</div>
+		
 	    <?php include('html/info/paypal.php');?>
-			<button class="btn btn-xs btn-primary systime">
-			<div id="timee"></div>
-			</button>
+		
+		<button class="btn btn-xs btn-primary systime">
+		<div id="timee"></div>
+		</button>
 	    
 		<a href="http://wiki.abc-service.com.pl/doku.php" target="_blank" class="btn btn-xs btn-primary">NT WIKI </a>
 
