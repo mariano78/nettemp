@@ -11,6 +11,7 @@ $query = $db->query("SELECT * FROM nt_settings");
 		
 		if($s['option']=='logshis') {
 			$logshistime=$s['value'];
+			$logshistime="-".$logshistime." days";
 		}
 	}
 echo $logshistime;
