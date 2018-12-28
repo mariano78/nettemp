@@ -2,8 +2,6 @@
 <?php
 $root = "/var/www/nettemp";
 
-
-
 $db = new PDO("sqlite:$root/dbf/nettemp.db");
 
 $query = $db->query("SELECT * FROM nt_settings");
