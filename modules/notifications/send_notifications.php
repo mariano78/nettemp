@@ -305,7 +305,7 @@ try {
 						if ($notsent == 1) {
 							
 							if (!empty($nmsg)) {
-							$message = $nmsg;
+							$message = $nmsg." - ".$Sname." - ".$stmp." [ < ".$nvalue." ]";
 							
 							}else {
 								$message = $sname." - value is ".$stmp." [ < ".$nvalue." ]";	
@@ -315,7 +315,8 @@ try {
 						if ($notsentrec == 1) {
 							
 							if (!empty($nmsg)) {
-							$message = "Recovery - ".$nmsg;
+							$message = "Recovery - ".$nmsg." - ".$Sname." - ".$stmp." [ < ".$nvalue." ]";
+
 							
 							}else {
 								$message = "Recovery - ".$sname." - value is ".$stmp." [ < ".$nvalue." ]";	
