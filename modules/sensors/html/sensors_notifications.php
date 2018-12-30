@@ -48,7 +48,7 @@ $val_ok = isset($_POST['val_ok']) ? $_POST['val_ok'] : '';
 
 if(!empty($val_new) && ($val_ok == "val_ok")) { 
 	$db = new PDO("sqlite:$root/dbf/nettemp.db");
-	$db->exec("UPDATE notifications SET value = '$val_new', sent = '' WHERE id='$val_id'");
+	$db->exec("UPDATE notifications SET value = '$val_new' WHERE id='$val_id'");
 }
 
 //New message
