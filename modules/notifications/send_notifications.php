@@ -305,7 +305,7 @@ try {
 						if ($notsent == 1) {
 							
 							if (!empty($nmsg)) {
-							$message = $nmsg." - ".$Sname." - ".$stmp." [ < ".$nvalue." ]";
+							$message = $nmsg." - ".$sname." - ".$stmp." [ < ".$nvalue." ]";
 							
 							}else {
 								$message = $sname." - value is ".$stmp." [ < ".$nvalue." ]";	
