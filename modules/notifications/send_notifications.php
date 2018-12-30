@@ -313,7 +313,7 @@ try {
 						if ($notsentrec == 1) {
 							
 							if (!empty($nmsg)) {
-							$message = "Recovery - ".$nmsg." - ".$Sname." - ".$stmp." [ < ".$nvalue." ]";
+							$message = "Recovery - ".$nmsg." - ".$sname." - ".$stmp." [ < ".$nvalue." ]";
 
 							
 							}else {
@@ -344,7 +344,7 @@ try {
 						if ($notsentrec == 1) {
 							
 							if (!empty($nmsg)) {
-							$message = "Recovery - ".$nmsg." - ".$Sname." - ".$stmp." [ <= ".$nvalue." ]";
+							$message = "Recovery - ".$nmsg." - ".$sname." - ".$stmp." [ <= ".$nvalue." ]";
 							
 							}else {
 								$message = "Recovery - ".$sname." - value is ".$stmp." [ <= ".$nvalue." ]";	
@@ -372,7 +372,7 @@ try {
 						if ($notsentrec == 1) {
 							
 							if (!empty($nmsg)) {
-							$message = "Recovery - ".$nmsg." - ".$Sname." - ".$stmp." [ > ".$nvalue." ]";
+							$message = "Recovery - ".$nmsg." - ".$sname." - ".$stmp." [ > ".$nvalue." ]";
 							
 							}else {
 								$message = "Recovery - ".$sname." - value is ".$stmp." [ > ".$nvalue." ]";		
@@ -400,7 +400,7 @@ try {
 						if ($notsentrec == 1) {
 							
 							if (!empty($nmsg)) {
-							$message = "Recovery - ".$nmsg." - ".$Sname." - ".$stmp." [ >= ".$nvalue." ]";
+							$message = "Recovery - ".$nmsg." - ".$sname." - ".$stmp." [ >= ".$nvalue." ]";
 							
 							}else {
 								$message = "Recovery - ".$sname." - value is ".$stmp." [ >= ".$nvalue." ]";	
@@ -428,7 +428,7 @@ try {
 						if ($notsentrec == 1) {
 							
 							if (!empty($nmsg)) {
-							$message = "Recovery - ".$nmsg." - ".$Sname." - ".$stmp." [ == ".$nvalue." ]";
+							$message = "Recovery - ".$nmsg." - ".$sname." - ".$stmp." [ == ".$nvalue." ]";
 							
 							}else {
 								$message = "Recovery - ".$sname." - value is ".$stmp." [ == ".$nvalue." ]";	
@@ -456,7 +456,7 @@ try {
 						if ($notsentrec == 1) {
 							
 							if (!empty($nmsg)) {
-							$message = "Recovery - ".$nmsg." - ".$Sname." - ".$stmp." [!= ".$nvalue." ]";
+							$message = "Recovery - ".$nmsg." - ".$sname." - ".$stmp." [!= ".$nvalue." ]";
 							
 							}else {
 								$message = "Recovery - ".$sname." - value is ".$stmp." [ != ".$nvalue." ]";	
