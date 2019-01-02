@@ -39,7 +39,12 @@ foreach ($row as $a) {
 		<tr>
 			<td class="col-md-0">
 			
-			<?php echo $a['month']; ?>
+			<?php 
+				$monthraw = $a['month']; 
+				$month= date("l",strtotime($monthraw)); 
+				echo $monthraw.$month;
+			
+			?>
 			
 			</td>
 			<td class="col-md-0">
