@@ -20,7 +20,7 @@ foreach ($row as $a) {
 </thead>
 <tr>
     <td class="col-md-0">
-		
+		Counter total: <?php echo $a["sum"]; ?>
 	</td>
 	    <!--NEW GROUP-->
 
