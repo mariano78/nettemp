@@ -42,7 +42,7 @@ foreach ($row as $a) {
 			<?php 
 				$monthraw = $a['month']; 
 				$month= date("F",strtotime($monthraw)); 
-				echo $monthraw.$month;
+				echo $monthraw." . ".$month;
 			
 			?>
 			
