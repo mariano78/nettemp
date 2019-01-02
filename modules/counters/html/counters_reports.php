@@ -8,10 +8,12 @@ $rows = $db->query("SELECT * FROM sensors WHERE rom='$crom'");
 $row = $rows->fetchAll();
 $count = count($row);
 if ($count >= "1") {
+foreach ($row as $a) { 	
 ?>
+
 <div class="panel panel-default">
 <div class="panel-heading">
-<h3 class="panel-title"><?php echo $row['name']; ?> </h3></div>
+<h3 class="panel-title"><?php echo $a["name"]; ?> </h3></div>
 <div class="table-responsive">
 <table class="table table-hover table-condensed small" border="0">
 <thead>
@@ -20,9 +22,6 @@ if ($count >= "1") {
 <th>Counters</th>
 <th>Show in status</th>
 </thead>
-<?php
-foreach ($row as $a) { 	
-?>
 <tr>
     <td class="col-md-0">
 		<?php echo $a["name"]; ?>
