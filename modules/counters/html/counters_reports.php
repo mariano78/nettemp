@@ -38,7 +38,6 @@ if ($count >= "1") {
 <th>Type</th>
 <th>Counters</th>
 <th>Show in status</th>
-<th></th>
 </thead>
 <?php
 foreach ($row as $a) { 	
@@ -69,9 +68,6 @@ foreach ($row as $a) {
     <input type="hidden" name="ch_grouponoff" value="onoff" />
     <input type="hidden" name="ch_group" value="<?php echo $a['id']; ?>" />
     </form>
-    </td>
-	<td class="col-md-9">
-   Go to reports
     </td>
 </tr>
 <?php
