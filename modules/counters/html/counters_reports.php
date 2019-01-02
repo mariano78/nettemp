@@ -34,7 +34,7 @@ foreach ($row as $a) {
 		$rows = $dbs->query("select time,strftime('%d',time),sum(value) from def where time BETWEEN datetime('now','localtime','start of month') and datetime('now','localtime') group by strftime('%d',time)") or die('lol');
 		
 		$i = $rows->fetch(); 
-		echo $i['sums'];
+		echo $i['time'];
 		?>
 	
     
