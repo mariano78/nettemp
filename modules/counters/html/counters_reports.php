@@ -23,6 +23,29 @@ foreach ($row as $a) {
 		Counter total: <?php echo $a["sum"]; ?>
 	</td>
 	    <!--NEW GROUP-->
+		
+<?php		
+		$db = new PDO('sqlite:db/$crom.sql');
+$rows = $db->query("select time,strftime('%d',time) AS date,sum(value) from def where time BETWEEN datetime('now','localtime','start of month') and datetime('now','localtime') group by strftime('%d',time) "");
+$row = $rows->fetchAll();
+$count = count($row);
+if ($count >= "1") {
+foreach ($row as $b) { 
+?>
+<tr>
+<td class="col-md-0">
+
+<?php echo $b["time"]; ?>
+    
+    </td>
+
+
+</tr>
+
+<?php
+}
+ ?>
+
 
     <td class="col-md-9">
     
