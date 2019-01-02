@@ -30,7 +30,7 @@ foreach ($row as $a) {
 	<?php
 		$rom=$a['rom'];
 		$dbs = new PDO("sqlite:$root/db/$rom.sql") or die('lol');
-		$rows = $dbs->query("SELECT time AS date,strftime('%m',time) AS day,sum(value) AS sums from def where time BETWEEN datetime('now','localtime','start of month') and datetime('now','localtime') group by strftime('%d',time)") or die('lol');
+		$rows = $dbs->query("SELECT time AS date,strftime('%m',time) AS month ,sum(value) AS sums from def where time BETWEEN datetime('now','localtime','start of year') and datetime('now','localtime') group by strftime('%m',time)") or die('lol');
 		
 		$row = $rows->fetchAll();
 		foreach ($row as $a) { 
@@ -39,7 +39,7 @@ foreach ($row as $a) {
 		<tr>
 			<td class="col-md-0">
 			
-			<?php echo $a['day']; ?>
+			<?php echo $a['month']; ?>
 			
 			</td>
 			<td class="col-md-0">
