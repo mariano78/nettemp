@@ -26,7 +26,7 @@ foreach ($row as $a) {
 		
 <?php		
 		$db = new PDO('sqlite:db/$crom.sql');
-$rows = $db->query("select time,strftime('%d',time) AS date,sum(value) from def where time BETWEEN datetime('now','localtime','start of month') and datetime('now','localtime') group by strftime('%d',time) "");
+$rows = $db->query("select time,strftime('%d',time) AS date,sum(value) from def where time BETWEEN datetime('now','localtime','start of month') and datetime('now','localtime') group by strftime('%d',time)");
 $row = $rows->fetchAll();
 $count = count($row);
 if ($count >= "1") {
