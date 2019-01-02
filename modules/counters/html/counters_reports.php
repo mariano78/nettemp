@@ -35,7 +35,7 @@ foreach ($row2 as $b) {
 <tr>
 <td class="col-md-0">
 
-<?php echo $b["time"]; ?>
+<?php echo 'tr'; ?>
     
     </td>
 
