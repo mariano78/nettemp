@@ -1,7 +1,3 @@
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 class="panel-title">Counters </h3></div>
-
 <?php
 
 $crom=isset($_GET['crom']) ? $_GET['crom'] : '';
@@ -13,6 +9,9 @@ $row = $rows->fetchAll();
 $count = count($row);
 if ($count >= "1") {
 ?>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title"><?php echo $row['name']; ?> </h3></div>
 <div class="table-responsive">
 <table class="table table-hover table-condensed small" border="0">
 <thead>
