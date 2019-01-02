@@ -33,8 +33,12 @@ foreach ($row as $a) {
 		$dbs = new PDO("sqlite:$root/db/$rom.sql") or die('lol');
 		$rows = $dbs->query("select time,strftime('%d',time),sum(value) from def where time BETWEEN datetime('now','localtime','start of month') and datetime('now','localtime') group by strftime('%d',time)") or die('lol');
 		
-		$i = $rows->fetch(); 
-		echo $i['time'];
+		$row = $rows->fetchAll();
+		foreach ($row as $a) { 
+		echo $a['time'];
+		}
+		
+		
 		?>
 	
     
