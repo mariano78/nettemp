@@ -35,7 +35,17 @@ foreach ($row as $a) {
 		
 		$row = $rows->fetchAll();
 		foreach ($row as $a) { 
-		echo $a['time'];
+		
+		?>
+		<tr>
+			<td class="col-md-0">
+			
+			<?php echo $a['time']; ?>
+			
+			</td>
+		</tr>
+		
+		<?php
 		}
 		
 		
