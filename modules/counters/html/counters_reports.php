@@ -17,16 +17,7 @@ foreach ($row as $a) {
 <div class="table-responsive">
 <table class="table table-hover table-condensed small" border="0">
 
-<tr>
-    <td class="col-md-0">
-		Counter total: <?php echo $a["sum"]; ?>
-	</td>
-	    <!--NEW GROUP-->
 
-
-
-    <td class="col-md-9">
-</tr>	
 
 <thead>
 <th>Month</th>
