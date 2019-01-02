@@ -40,7 +40,7 @@ foreach ($row as $a) {
 			<td class="col-md-0">
 			
 			<?php 
-				$monthraw = $a['month']; 
+				$monthraw = $a['date']; 
 				$month= date("F",strtotime($monthraw)); 
 				echo $monthraw." . ".$month;
 			
