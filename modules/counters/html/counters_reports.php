@@ -3,6 +3,9 @@
 <h3 class="panel-title">Counters </h3></div>
 
 <?php
+
+$crom=isset($_GET['crom']) ? $_GET['crom'] : '';
+
 $sum = isset($_POST['sum']) ? $_POST['sum'] : '';
 $sum1 = isset($_POST['sum1']) ? $_POST['sum1'] : '';
 $id = isset($_POST['id']) ? $_POST['id'] : '';
@@ -71,6 +74,8 @@ foreach ($row as $a) {
     </td>
 </tr>
 <?php
+echo $crom;
+
 	}
 ?>
 </table>
