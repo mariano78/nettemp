@@ -31,7 +31,8 @@ foreach ($row as $a) {
 	<?php
 		$rom=$a['rom'];
 		$dbs = new PDO("sqlite:$root/db/$rom.sql") or die('lol');
-		$rows = $dbs->query("SELECT round(sum(value),4) AS sums FROM def WHERE time >= datetime('now','localtime','-1 hour')") or die('lol');
+		$rows = $dbs->query("select time,strftime('%d',time),sum(value) from def where time BETWEEN datetime('now','localtime','start of month') and datetime('now','localtime') group by strftime('%d',time)") or die('lol');
+		
 		$i = $rows->fetch(); 
 		echo $i['sums'];
 		?>
