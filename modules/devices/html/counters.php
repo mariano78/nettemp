@@ -71,8 +71,10 @@ foreach ($row as $a) {
     </form>
     </td>
 	<td class="col-md-8">
-   Go to reports
-    </td>
+	
+	<a href="index.php?id=creports&crom=<?php echo $a["rom"]; ?>"><button class="btn btn-xs btn-info">Reports</button></a>
+
+   </td>
 </tr>
 <?php
 	}
