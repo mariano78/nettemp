@@ -36,7 +36,7 @@ if ($count >= "1") {
 <thead>
 <th>Name</th>
 <th>Type</th>
-<th>Counters</th>
+<th>Counter</th>
 <th>Show in status</th>
 <th></th>
 </thead>
@@ -48,11 +48,11 @@ foreach ($row as $a) {
 		<?php echo $a["name"]; ?>
 	</td>
 	<td class="col-md-0">
-		<?php echo $a["type"]; ?>
+		<?php if ($a["type"] == 'elec') {echo 'Electricity';} else if ($a["type"] == 'gas') {echo 'Gas';} if ($a["type"] == 'water') {echo 'Water';}  ?>
 	</td>
 	<td class="col-md-0">
 		<form action="" method="post" style="display:inline!important;">
-			<input type="text" name="sum" size="16" maxlength="30" value="<?php echo $a["sum"]; ?>" required=""/>
+			<input type="text" name="sum" size="10" maxlength="30" value="<?php echo $a["sum"]; ?>" required=""/>
 			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 			<input type="hidden" name="id" value="<?php echo $a["id"]; ?>" />
 			<input type="hidden" name="sum1" value="sum2"/>
