@@ -44,13 +44,13 @@ if ($count >= "1") {
 foreach ($row as $a) { 	
 ?>
 <tr>
-    <td class="col-md-0">
+    <td class="col-md-1">
 		<?php echo $a["name"]; ?>
 	</td>
-	<td class="col-md-0">
+	<td class="col-md-1">
 		<?php if ($a["type"] == 'elec') {echo 'Electricity';} else if ($a["type"] == 'gas') {echo 'Gas';} if ($a["type"] == 'water') {echo 'Water';}  ?>
 	</td>
-	<td class="col-md-0">
+	<td class="col-md-1">
 		<form action="" method="post" style="display:inline!important;">
 			<input type="text" name="sum" size="10" maxlength="30" value="<?php echo $a["sum"]; ?>" required=""/>
 			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
@@ -60,7 +60,7 @@ foreach ($row as $a) {
 	</td>
 	    <!--NEW GROUP-->
 
-    <td class="col-md-0">
+    <td class="col-md-1">
     <form action="" method="post"  class="form-inline">
     <select name="ch_groupon" class="form-control input-sm small" onchange="this.form.submit()" style="width: 80px;" >
 		<option value="sensors"  <?php echo $a['ch_group'] == 'sensors' ? 'selected="selected"' : ''; ?>  >Yes</option>
