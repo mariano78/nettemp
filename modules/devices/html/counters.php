@@ -70,7 +70,7 @@ foreach ($row as $a) {
     <input type="hidden" name="ch_group" value="<?php echo $a['id']; ?>" />
     </form>
     </td>
-	<td class="col-md-8">
+	<td class="col-md-7">
 	
 	<a href="index.php?id=creports&crom=<?php echo $a["rom"]; ?>"><button class="btn btn-xs btn-info">Reports</button></a>
 
