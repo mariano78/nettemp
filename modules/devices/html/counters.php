@@ -62,7 +62,7 @@ foreach ($row as $a) {
 
     <td class="col-md-0">
     <form action="" method="post"  class="form-inline">
-    <select name="ch_groupon" class="form-control input-sm small" onchange="this.form.submit()" style="width: 70px;" >
+    <select name="ch_groupon" class="form-control input-sm small" onchange="this.form.submit()" style="width: 80px;" >
 		<option value="sensors"  <?php echo $a['ch_group'] == 'sensors' ? 'selected="selected"' : ''; ?>  >Yes</option>
 		<option value="none"  <?php echo $a['ch_group'] == 'none' ? 'selected="selected"' : ''; ?>  >No</option>
     </select>
