@@ -60,7 +60,7 @@ foreach ($row as $a) {
 	</td>
 	    <!--NEW GROUP-->
 
-    <td class="col-md-2">
+    <td class="col-md-1">
     <form action="" method="post"  class="form-inline">
     <select name="ch_groupon" class="form-control input-sm small" onchange="this.form.submit()" style="width: 80px;" >
 		<option value="sensors"  <?php echo $a['ch_group'] == 'sensors' ? 'selected="selected"' : ''; ?>  >Yes</option>
@@ -70,7 +70,7 @@ foreach ($row as $a) {
     <input type="hidden" name="ch_group" value="<?php echo $a['id']; ?>" />
     </form>
     </td>
-	<td class="col-md-6">
+	<td class="col-md-7">
 	
 	<a href="index.php?id=creports&crom=<?php echo $a["rom"]; ?>"><button class="btn btn-xs btn-info">Reports</button></a>
 
