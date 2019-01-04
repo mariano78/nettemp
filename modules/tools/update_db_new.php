@@ -205,4 +205,9 @@ $updates['2018-10-12 10:29:48'][]="CREATE TABLE notifications (id INTEGER PRIMAR
 $updates['2018-12-20 13:39:47'][]="CREATE TABLE logs (id INTEGER PRIMARY KEY, date TEXT , type TEXT, message TEXT)";
 $updates['2018-12-26 08:06:22'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('logs','on')";
 $updates['2018-12-26 08:06:25'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('logshis','7')";
+
+$updates['2019-01-04 08:16:25'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('kwhcost1','0.65')";
+$updates['2019-01-04 08:16:26'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('kwhcost2','0.65')";
+$updates['2019-01-04 08:16:27'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('gascost1','0.65')";
+$updates['2019-01-04 08:16:28'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('watercost1','0.65')";
 ?>
