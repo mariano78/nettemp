@@ -54,7 +54,7 @@ foreach ($row as $a) {
 			</td>
 			<td class="col-md-0">
 			
-			<?php echo ($a['sums'] * 2); ?>
+			<?php echo ($a['sums'] * $nts_kwhcost1); ?>
 			
 			</td>
 		</tr>
