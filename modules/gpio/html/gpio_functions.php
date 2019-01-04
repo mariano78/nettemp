@@ -31,7 +31,7 @@ $map_num2=substr(rand(), 0, 6);
 	
 		// insert to sensors
 		$db->exec("INSERT OR IGNORE INTO sensors (position, name, rom, type, tmp, gpio, adj, charts, device, ch_group, position_group, logon, thing, ghide, hide) VALUES ('1','$randh','$id_rom_newh', 'humid', 'wait', '$gpio_post', '0', 'on', 'humid', 'sensors', '1', 'off', 'off', 'off', 'off')") or die ("cannot insert to DB humi" );
-		$db->exec("INSERT OR IGNORE INTO sensors (position, name, rom, type, alarm, tmp, gpio, adj, charts, device, ch_group, position_group, logon, thing, ghide, hide) VALUES ('1','$randt','$id_rom_newt', 'temp', 'wait', '$gpio_post', '0', 'on', 'temp', 'sensors', '1', 'off', 'off', 'off', 'off')") or die ("cannot insert to DB temp" );
+		$db->exec("INSERT OR IGNORE INTO sensors (position, name, rom, type, tmp, gpio, adj, charts, device, ch_group, position_group, logon, thing, ghide, hide) VALUES ('1','$randt','$id_rom_newt', 'temp', 'wait', '$gpio_post', '0', 'on', 'temp', 'sensors', '1', 'off', 'off', 'off', 'off')") or die ("cannot insert to DB temp" );
 
 		//add maps humid
 		$inserted=$db->query("SELECT id FROM sensors WHERE rom='$id_rom_newh'");
