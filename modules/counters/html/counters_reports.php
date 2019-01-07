@@ -83,8 +83,8 @@ foreach ($row as $a) {
 <table class="table table-hover table-condensed small" border="0">
 
 <tr>
-			<td class="col-md-1">Select year:
-			</td>
+			<td class="col-md-1">Select year: </td>
+			
 			
 			<td class="col-md-1">
 				<form action="" method="post" style="display:inline!important;">
@@ -96,8 +96,8 @@ foreach ($row as $a) {
 				</form>
 			</td>
 			
-			<td class="col-md-0">
-			</td>
+			<td class="col-md-0">T1 Costs: </td>
+			<td class="col-md-0">T2 Costs: </td>
 				
 		
 		</tr>
