@@ -7,8 +7,6 @@ $repyearselect = '';
 
 if(!empty($repyear)) {$repyearselect = $repyear;} else {$repyearselect = $thisyear;} 
 
-
-
 $db = new PDO('sqlite:dbf/nettemp.db');
 $rows = $db->query("SELECT * FROM sensors WHERE rom='$crom'");
 $row = $rows->fetchAll();
@@ -70,7 +68,7 @@ foreach ($row as $a) {
 		?>
 		
 		<tr>
-			<td>
+			<td class="col-md-2">
 				<form action="" method="post" style="display:inline!important;">
 					<select name="repyear" id="repyear" onchange="this.form.submit()">
 						<option value="<?php echo $thisyear; ?>" <?php echo $repyearselect == $thisyear ? 'selected="selected"' : ''; ?> ><?php echo $thisyear; ?></option>
@@ -78,6 +76,9 @@ foreach ($row as $a) {
 						<option value="<?php echo $thisyear -2; ?>" <?php echo $repyearselect == $thisyear-2 ? 'selected="selected"' : ''; ?>  ><?php echo $thisyear -2; ?></option>
 					</select>
 				</form>
+			</td>
+			
+			<td class="col-md-10">
 			</td>
 				
 		
