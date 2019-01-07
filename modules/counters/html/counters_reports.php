@@ -67,8 +67,23 @@ foreach ($row as $a) {
 		}
 		?>
 		
-		<tr>
-			<td class="col-md-2">
+		
+		
+<?php		
+}
+?>
+</table>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Report parameters </h3></div>
+<div class="table-responsive">
+<table class="table table-hover table-condensed small" border="0">
+
+<tr>
+			<td class="col-md-1">Year:
+			</td>
+			
+			<td class="col-md-1">
 				<form action="" method="post" style="display:inline!important;">
 					<select name="repyear" id="repyear" onchange="this.form.submit()">
 						<option value="<?php echo $thisyear; ?>" <?php echo $repyearselect == $thisyear ? 'selected="selected"' : ''; ?> ><?php echo $thisyear; ?></option>
@@ -78,16 +93,17 @@ foreach ($row as $a) {
 				</form>
 			</td>
 			
-			<td class="col-md-10">
+			<td class="col-md-0">
 			</td>
 				
 		
 		</tr>
-		
-<?php		
-}
-?>
+
+
+
 </table>
+</div>
+</div>
 <?php
 	} else { 
 		?>
