@@ -56,8 +56,8 @@ foreach ($row as $a) {
 			
 			<?php 
 			$costs = ($a['sums'] * $nts_kwhcost1);
-			number_format($costs, 2, '.', '');
-			echo $costs; ?>
+			echo number_format($costs, 2, '.', '');
+			 ?>
 			
 			</td>
 		</tr>
