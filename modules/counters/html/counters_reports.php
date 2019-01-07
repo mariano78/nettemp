@@ -3,8 +3,8 @@ $crom=isset($_GET['crom']) ? $_GET['crom'] : '';
 $repyear = isset($_POST['repyear']) ? $_POST['repyear'] : '';
 $costrom = isset($_POST['costrom']) ? $_POST['costrom'] : '';
 $costrom = isset($_POST['costrom']) ? $_POST['costrom'] : '';
-$cost1new = isset($_POST['cost1new']) ? $_POST['cost1new'] : '';
-$cost2new = isset($_POST['cost2new']) ? $_POST['cost2new'] : '';
+$cost1_new = isset($_POST['cost1new']) ? $_POST['cost1new'] : '';
+$cost2_new = isset($_POST['cost2new']) ? $_POST['cost2new'] : '';
 $c1 = isset($_POST['c1']) ? $_POST['c1'] : '';
 $c2 = isset($_POST['c2']) ? $_POST['c2'] : '';
 
@@ -13,7 +13,7 @@ $repyearselect = '';
 
 if(!empty($repyear)) {$repyearselect = $repyear;} else {$repyearselect = $thisyear;} 
 
-if ( !empty($costrom) && !empty($cost1new) && ($c1 == "ok")){
+if ( !empty($costrom) && !empty($cost1_new) && ($c1 == "ok")){
     $db = new PDO('sqlite:dbf/nettemp.db');
     $db->exec("UPDATE sensors SET cost1='$cost1new' WHERE rom='$crom'") or die ($db->lastErrorMsg());
     header("location: " . $_SERVER['REQUEST_URI']);
@@ -115,7 +115,7 @@ $t2cost = $a["cost2"];
 			<td class="col-md-0">T1 Costs: 
 				<form action="" method="post" style="display:inline!important;"> 
 					<input type="hidden" name="costrom" value="<?php echo $a['rom']; ?>" />
-					<input type="text" name="cost1_new" size="1" value="<?php echo $a['cost1']; ?>" />
+					<input type="text" name="cost1_new" size="1" value="<?php echo $t1cost; ?>" />
 					<input type="hidden" name="c1" value="ok" />
 					<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 				</form>
