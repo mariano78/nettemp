@@ -17,7 +17,7 @@ foreach ($row as $a) {
 
 <div class="panel panel-default">
 <div class="panel-heading">
-<h3 class="panel-title"><?php echo $a["name"]."1-".$thisyear."2-".$repyear."3-".$repyearselect; ?> </h3></div>
+<h3 class="panel-title"><?php echo $a["name"]?> </h3></div>
 <div class="table-responsive">
 <table class="table table-hover table-condensed small" border="0">
 
@@ -96,8 +96,8 @@ foreach ($row as $a) {
 				</form>
 			</td>
 			
-			<td class="col-md-0">T1 Costs: <?php echo $a['cost1']; ?></td> 
-			<td class="col-md-0">T2 Costs: <?php echo $a['cost1']; ?></td>
+			<td class="col-md-0">T1 Costs: <?php echo $a["cost1"]; ?></td> 
+			<td class="col-md-0">T2 Costs: <?php echo $a["cost2"]; ?></td>
 				
 		
 		</tr>
