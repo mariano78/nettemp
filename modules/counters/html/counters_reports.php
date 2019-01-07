@@ -76,16 +76,19 @@ $type = $a['type'];
 			
 			</td>
 			<td class="col-md-0">
+			<?php $usage = $a['sums']; 
+				  echo $usage;
 			
-			<?php echo $a['sums']; ?>
-			
+			$totalusage = $totalusage + $usage;
+			?>
 			</td>
 			<td class="col-md-0">
 			
 			<?php 
 			$costs = ($a['sums'] * $t1cost);
 			echo number_format($costs, 2, '.', '');
-			$totalusage = $totalusage + $costs;
+			
+			$totalcosts = $totalcosts + $costs;
 			 ?>
 			
 			</td>
