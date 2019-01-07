@@ -97,6 +97,12 @@ $type = $a['type'];
 		?>
 		<tr>
 		
+			<td class="col-md-0"></td>
+			<td class="col-md-0"></td>
+			<td class="col-md-0"></td>
+		</tr>
+		<tr>
+		
 			<td class="col-md-0"><label>Total:</label></td>
 			<td class="col-md-0"><label><?php echo $totalusage; ?></label></td>
 			<td class="col-md-0"><label><?php echo number_format($totalcosts, 2, '.', ''); ?></label></td>
