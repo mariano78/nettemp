@@ -30,7 +30,7 @@ foreach ($row as $a) {
 	<?php
 		$rom=$a['rom'];
 		$dbs = new PDO("sqlite:$root/db/$rom.sql") or die('lol');
-		$rows = $dbs->query("SELECT time AS date,strftime('%m',time) AS month ,round(sum(value),3) AS sums from def where time BETWEEN datetime('now','localtime','-2 year') and datetime('now','localtime') group by strftime('%m',time)") or die('lol');
+		$rows = $dbs->query("SELECT time AS date,strftime('%m',time) AS month ,round(sum(value),3) AS sums from def WHERE strftime('%Y',time)=2019 GROUP BY strftime('%m',time)") or die('lol');
 		
 		$row = $rows->fetchAll();
 		foreach ($row as $a) { 
@@ -87,4 +87,28 @@ foreach ($row as $a) {
 ?>
 </div>
 </div>
+
+<script type="text/javascript">
+
+$("#ntype").change(function() { //po zmianie
+var typ = $("#ntype").val(); //pobierasz value
+
+if(typ == "lupdate") //
+{
+	$("#nwhen").html("<option value='3' >></option>");
+	$("input#nvalue").attr('disabled',false);
+
+} else if  (typ == "lhost"){
+	$("#nwhen").html("<option value='7' ></option>");
+	$("select#nwhen").attr('disabled',true);
+	$("input#nvalue").attr('disabled',true);
+
+} else {
+$("select#nwhen").removeAttr("disabled"); 
+$("input#nvalue").attr('disabled',false);
+$("#nwhen").html("<option value='1' ><</option><option value='2' ><=</option><option value='3' >></option><option value='4' >>=</option><option value='5' >=</option><option value='6' >!=</option>");
+}
+});
+
+</script>
 
