@@ -57,6 +57,10 @@ foreach ($row as $a) {
 			</td>
 		</tr>
 		
+		<?php
+		}
+		?>
+		
 		<tr>
 			<td>
 				<form action="" method="post">	
@@ -70,8 +74,7 @@ foreach ($row as $a) {
 		
 		</tr>
 		
-		<?php
-		}
+<?php		
 }
 ?>
 </table>
