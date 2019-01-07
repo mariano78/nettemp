@@ -1,6 +1,8 @@
 <?php
 $crom=isset($_GET['crom']) ? $_GET['crom'] : '';
 
+$thisyear = date("Y");
+
 $db = new PDO('sqlite:dbf/nettemp.db');
 $rows = $db->query("SELECT * FROM sensors WHERE rom='$crom'");
 $row = $rows->fetchAll();
@@ -65,8 +67,9 @@ foreach ($row as $a) {
 			<td>
 				<form action="" method="post">	
 					<select name="repyear" id="ntype" >
-						<option value="2019" >2019</option>
-						<option value="2018" >2018</option>
+						<option value="<?php echo $thisyear; ?>" ><?php echo $thisyear; ?></option>
+						<option value="<?php echo $thisyear -1; ?>" ><?php echo $thisyear -1; ?></option>
+						<option value="<?php echo $thisyear -2; ?>" ><?php echo $thisyear -2; ?></option>
 					</select>
 				</form>
 			</td>
