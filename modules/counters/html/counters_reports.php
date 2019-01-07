@@ -54,6 +54,7 @@ $type = $a['type'];
 <th>Cost</th>
 
 </thead>
+<tbody>
 	
 	<?php
 		$rom=$a['rom'];
@@ -110,6 +111,7 @@ $type = $a['type'];
 <?php		
 }
 ?>
+</tbody>
 </table>
 </div>
 </div>
