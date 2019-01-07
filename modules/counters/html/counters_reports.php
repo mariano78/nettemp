@@ -61,7 +61,7 @@ $type = $a['type'];
 	<?php
 		$rom=$a['rom'];
 		$dbs = new PDO("sqlite:$root/db/$rom.sql") or die('lol');
-		$rows = $dbs->query("SELECT time AS date,round(sum(value),3) AS sums from def WHERE strftime('%Y',time) IN ('$repyearselect') GROUP BY strftime('%m',time)") or die('lol');
+		$rows = $dbs->query("SELECT time AS date,round(sum(value),3) AS sums from def WHERE strftime('%Y',time) IN ('$repyearselect') GROUP BY strftime('%m',time)") or die('Somethings is wrong');
 		
 		$row = $rows->fetchAll();
 		foreach ($row as $a) { 
