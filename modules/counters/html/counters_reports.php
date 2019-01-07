@@ -98,18 +98,10 @@ $type = $a['type'];
 		}
 		?>
 		<tr>
-		
 			<td class="col-md-0"><label>Total:</label></td>
 			<td class="col-md-0"><label><?php echo number_format($totalusage, 3, ',', '.'); ?></label></td>
 			<td class="col-md-0"><label><?php echo number_format($totalcosts, 2, ',', '.'); ?></label></td>
-		
-		
-		
 		</tr>
-		
-		
-		
-		
 <?php		
 }
 ?>
@@ -166,6 +158,7 @@ $type = $a['type'];
 
 
 </table>
+<a href="index.php?id=device&type=counters"><button class="btn btn-xs btn-info">Back to counters</button></a>
 </div>
 </div>
 <?php
