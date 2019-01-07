@@ -122,7 +122,7 @@ $romcost = $a["rom"];
 			
 			<td class="col-md-0">T1 Costs: 
 				<form action="" method="post" style="display:inline!important;"> 
-					<input type="hidden" name="costrom" value="<?php echo $romcost; ?>" />
+					<input type="hidden" name="cost1rom" value="<?php echo $romcost; ?>" />
 					<input type="text" name="cost1_new" size="1" value="<?php echo $t1cost; ?>" />
 					<input type="hidden" name="c1" value="ok" />
 					<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
@@ -130,7 +130,7 @@ $romcost = $a["rom"];
 			</td> 
 			<td class="col-md-0">T2 Costs: 
 				<form action="" method="post" style="display:inline!important;"> 
-					<input type="hidden" name="costrom" value="<?php echo $romcost; ?>" />
+					<input type="hidden" name="cost2rom" value="<?php echo $romcost; ?>" />
 					<input type="text" name="cost2_new" size="1" value="<?php echo $t2cost; ?>" />
 					<input type="hidden" name="c2" value="ok" />
 					<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
