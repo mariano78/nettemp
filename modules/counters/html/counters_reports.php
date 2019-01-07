@@ -1,7 +1,5 @@
 <?php
-
 $crom=isset($_GET['crom']) ? $_GET['crom'] : '';
-
 
 $db = new PDO('sqlite:dbf/nettemp.db');
 $rows = $db->query("SELECT * FROM sensors WHERE rom='$crom'");
@@ -17,13 +15,10 @@ foreach ($row as $a) {
 <div class="table-responsive">
 <table class="table table-hover table-condensed small" border="0">
 
-
-
 <thead>
 <th>Month</th>
 <th>Usage</th>
 <th>Cost</th>
-
 
 </thead>
 	
@@ -41,7 +36,7 @@ foreach ($row as $a) {
 			
 			<?php 
 				$monthraw = $a['date']; 
-				$month= date("F",strtotime($monthraw)); 
+				$month = date("F",strtotime($monthraw)); 
 				echo $month= date("n",strtotime($monthraw)).". ".$month;
 			
 			?>
@@ -60,6 +55,18 @@ foreach ($row as $a) {
 			 ?>
 			
 			</td>
+		</tr>
+		<tr>
+		
+			<form action="" method="post">	
+				<td>
+					<select name="repyear" id="ntype" >
+						<option value="2019" >2019</option>
+						<option value="2018" >2018</option>
+					</select>
+			</td>
+			</form>
+		
 		</tr>
 		
 		<?php
@@ -90,8 +97,8 @@ foreach ($row as $a) {
 
 <script type="text/javascript">
 
-$("#ntype").change(function() { //po zmianie
-var typ = $("#ntype").val(); //pobierasz value
+$("#repyear").change(function() { //po zmianie
+var ryear = $("#repyear").val(); //pobierasz value
 
 if(typ == "lupdate") //
 {
