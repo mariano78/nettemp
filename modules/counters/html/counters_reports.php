@@ -91,6 +91,15 @@ $type = $a['type'];
 		<?php
 		}
 		?>
+		<tr>
+		
+			<td>Total consumption: 
+			</td>
+		
+		
+		
+		</tr>
+		
 		
 		
 		
