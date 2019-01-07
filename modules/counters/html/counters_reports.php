@@ -45,8 +45,8 @@ $type = $a['type'];
 <div class="panel panel-default">
 <div class="panel-heading">
 <h3 class="panel-title"><?php echo $a["name"]?> </h3></div>
-<div class="table-responsive table-striped">
-<table class="table table-hover table-condensed small" border="0">
+<div class="table-responsive ">
+<table class="table table-hover table-striped table-condensed small" border="0">
 
 <thead>
 <th>Month</th>
