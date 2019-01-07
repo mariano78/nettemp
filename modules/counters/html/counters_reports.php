@@ -24,7 +24,7 @@ foreach ($row as $a) {
 <table class="table table-hover table-condensed small" border="0">
 
 <thead>
-<th>Month</th>
+<th>Month <?php echo $a["name"]."1-".$thisyear."2-".$repyear."3-".$repyearselect; ?> </th>
 <th>Usage</th>
 <th>Cost</th>
 
