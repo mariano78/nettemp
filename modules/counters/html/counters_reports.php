@@ -80,7 +80,7 @@ $type = $a['type'];
 			<td class="col-md-0">
 			<?php 
 				$usage = $a['sums']; 
-				echo $usage;
+				echo number_format($usage, 3, ',', '.');
 				$totalusage = $totalusage + $usage;
 			?>
 			</td>

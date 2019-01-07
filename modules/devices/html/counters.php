@@ -72,10 +72,6 @@ foreach ($row as $a) {
     </form>
     </td>
 	
-	<td class="col-md-1">
-		<?php echo $nts_kwhcost1; ?>
-	</td>
-	
 	<td class="col-md-6">
 	
 	<a href="index.php?id=creports&crom=<?php echo $a["rom"]; ?>"><button class="btn btn-xs btn-info">Reports</button></a>
