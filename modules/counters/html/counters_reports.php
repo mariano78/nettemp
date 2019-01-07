@@ -15,7 +15,14 @@ if(!empty($repyear)) {$repyearselect = $repyear;} else {$repyearselect = $thisye
 
 if ( !empty($costrom) && !empty($cost1_new) && ($c1 == "ok")){
     $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("UPDATE sensors SET cost1='$cost1new' WHERE rom='$crom'") or die ($db->lastErrorMsg());
+    $db->exec("UPDATE sensors SET cost1='$cost1_new' WHERE rom='$costrom'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    } 
+	
+if ( !empty($costrom) && !empty($cost2_new) && ($c2 == "ok")){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE sensors SET cost2='$cost2_new' WHERE rom='$costrom'") or die ($db->lastErrorMsg());
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     } 
