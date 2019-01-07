@@ -80,7 +80,7 @@ $romcost = $a["rom"];
 			<td class="col-md-0">
 			
 			<?php 
-			$costs = ($a['sums'] * $nts_kwhcost1);
+			$costs = ($a['sums'] * $t1cost);
 			echo number_format($costs, 2, '.', '');
 			 ?>
 			
@@ -107,10 +107,8 @@ $romcost = $a["rom"];
 <table class="table table-hover table-condensed small" border="0">
 
 <tr>
-			<td class="col-md-1">Select year: </td>
+			<td class="col-md-0">Select year:
 			
-			
-			<td class="col-md-1">
 				<form action="" method="post" style="display:inline!important;">
 					<select name="repyear" id="repyear" onchange="this.form.submit()">
 						<option value="<?php echo $thisyear; ?>" <?php echo $repyearselect == $thisyear ? 'selected="selected"' : ''; ?> ><?php echo $thisyear; ?></option>
@@ -128,6 +126,9 @@ $romcost = $a["rom"];
 					<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 				</form>
 			</td> 
+			
+			<?php 
+			if ($a['type'] == 'elec'){ ?>
 			<td class="col-md-0">T2 Costs: 
 				<form action="" method="post" style="display:inline!important;"> 
 					<input type="hidden" name="cost2rom" value="<?php echo $romcost; ?>" />
@@ -135,11 +136,10 @@ $romcost = $a["rom"];
 					<input type="hidden" name="c2" value="ok" />
 					<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 				</form>
-			
-			
-			
 			</td>
-				
+			<?php
+			}
+			?>			
 		
 		</tr>
 
