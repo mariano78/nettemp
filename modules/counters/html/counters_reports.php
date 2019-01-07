@@ -28,7 +28,7 @@ foreach ($row as $a) {
 	<?php
 		$rom=$a['rom'];
 		$dbs = new PDO("sqlite:$root/db/$rom.sql") or die('lol');
-		$rows = $dbs->query("SELECT time AS date,strftime('%m',time) AS month ,round(sum(value),3) AS sums from def WHERE strftime('%Y',time) IN ('$repyear') GROUP BY strftime('%m',time)") or die('lol');
+		$rows = $dbs->query("SELECT time AS date,strftime('%m',time) AS month ,round(sum(value),3) AS sums from def WHERE strftime('%Y',time) IN ('$thisyear') GROUP BY strftime('%m',time)") or die('lol');
 		
 		$row = $rows->fetchAll();
 		foreach ($row as $a) { 
