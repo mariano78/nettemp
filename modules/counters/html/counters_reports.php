@@ -22,7 +22,7 @@ foreach ($row as $a) {
 <table class="table table-hover table-condensed small" border="0">
 
 <thead>
-<th>Month <?php echo $a["name"]."1-".$thisyear."2-".$repyear."3-".$repyearselect; ?> </th>
+<th>Month</th>
 <th>Usage</th>
 <th>Cost</th>
 
@@ -73,6 +73,9 @@ foreach ($row as $a) {
 }
 ?>
 </table>
+</div>
+</div>
+
 <div class="panel panel-default">
 <div class="panel-heading">
 <h3 class="panel-title">Report parameters </h3></div>
@@ -113,6 +116,5 @@ foreach ($row as $a) {
 		<?php
 	}
 ?>
-</div>
-</div>
+
 
