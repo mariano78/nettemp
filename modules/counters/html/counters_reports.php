@@ -4,6 +4,10 @@ $repyear = isset($_POST['repyear']) ? $_POST['repyear'] : '';
 
 $thisyear = date("Y");
 
+if(empty($repyear)) {$repyear = $thisyear;} 
+
+
+
 $db = new PDO('sqlite:dbf/nettemp.db');
 $rows = $db->query("SELECT * FROM sensors WHERE rom='$crom'");
 $row = $rows->fetchAll();
