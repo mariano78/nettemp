@@ -45,7 +45,7 @@ $type = $a['type'];
 <div class="panel panel-default">
 <div class="panel-heading">
 <h3 class="panel-title"><?php echo $a["name"]?> </h3></div>
-<div class="table-responsive">
+<div class="table-responsive table-striped">
 <table class="table table-hover table-condensed small" border="0">
 
 <thead>
@@ -96,7 +96,7 @@ $type = $a['type'];
 		?>
 		<tr>
 		
-			<td class="col-md-0"><h4><label>Total:</label></h4></td>
+			<td class="col-md-0"><label>Total:</label></td>
 			<td class="col-md-0"><label><?php echo $totalusage; ?></label></td>
 			<td class="col-md-0"><label><?php echo number_format($totalcosts, 2, '.', ''); ?></label></td>
 		
