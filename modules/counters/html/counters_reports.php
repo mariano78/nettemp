@@ -36,6 +36,7 @@ foreach ($row as $a) {
 $t1cost = $a["cost1"];
 $t2cost = $a["cost2"];
 $romcost = $a["rom"];
+$type = $a['type'];
 
 ?>
 
@@ -128,7 +129,7 @@ $romcost = $a["rom"];
 			</td> 
 			
 			<?php 
-			if ($a['type'] == 'elec'){ ?>
+			if ($type == 'elec'){ ?>
 			<td class="col-md-0">T2 Costs: 
 				<form action="" method="post" style="display:inline!important;"> 
 					<input type="hidden" name="cost2rom" value="<?php echo $romcost; ?>" />
