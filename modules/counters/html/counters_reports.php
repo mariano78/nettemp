@@ -97,12 +97,6 @@ $type = $a['type'];
 		?>
 		<tr>
 		
-			<td class="col-md-0"></td>
-			<td class="col-md-0"></td>
-			<td class="col-md-0"></td>
-		</tr>
-		<tr>
-		
 			<td class="col-md-0"><label>Total:</label></td>
 			<td class="col-md-0"><label><?php echo $totalusage; ?></label></td>
 			<td class="col-md-0"><label><?php echo number_format($totalcosts, 2, '.', ''); ?></label></td>
@@ -136,6 +130,8 @@ $type = $a['type'];
 						<option value="<?php echo $thisyear; ?>" <?php echo $repyearselect == $thisyear ? 'selected="selected"' : ''; ?> ><?php echo $thisyear; ?></option>
 						<option value="<?php echo $thisyear -1; ?>" <?php echo $repyearselect == $thisyear-1 ? 'selected="selected"' : ''; ?>  ><?php echo $thisyear -1; ?></option>
 						<option value="<?php echo $thisyear -2; ?>" <?php echo $repyearselect == $thisyear-2 ? 'selected="selected"' : ''; ?>  ><?php echo $thisyear -2; ?></option>
+						<option value="<?php echo $thisyear -3; ?>" <?php echo $repyearselect == $thisyear-3 ? 'selected="selected"' : ''; ?>  ><?php echo $thisyear -3; ?></option>
+						<option value="<?php echo $thisyear -4; ?>" <?php echo $repyearselect == $thisyear-4 ? 'selected="selected"' : ''; ?>  ><?php echo $thisyear -4; ?></option>
 					</select>
 				</form>
 			</td>
