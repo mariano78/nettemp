@@ -16,6 +16,7 @@ $totalcosts = 0;
 if(!empty($repyear)) {$repyearselect = $repyear;} else {$repyearselect = $thisyear;} 
 
 if ( !empty($cost1rom) && !empty($cost1_new) && ($c1 == "ok")){
+	$cost1_new = str_replace(",", ".", $cost1_new);
     $db = new PDO('sqlite:dbf/nettemp.db');
     $db->exec("UPDATE sensors SET cost1='$cost1_new' WHERE rom='$cost1rom'") or die ($db->lastErrorMsg());
     header("location: " . $_SERVER['REQUEST_URI']);
@@ -23,6 +24,7 @@ if ( !empty($cost1rom) && !empty($cost1_new) && ($c1 == "ok")){
     } 
 	
 if ( !empty($cost2rom) && !empty($cost2_new) && ($c2 == "ok")){
+	$cost2_new = str_replace(",", ".", $cost2_new);
     $db = new PDO('sqlite:dbf/nettemp.db');
     $db->exec("UPDATE sensors SET cost2='$cost2_new' WHERE rom='$cost2rom'") or die ($db->lastErrorMsg());
     header("location: " . $_SERVER['REQUEST_URI']);
@@ -98,8 +100,8 @@ $type = $a['type'];
 		<tr>
 		
 			<td class="col-md-0"><label>Total:</label></td>
-			<td class="col-md-0"><label><?php echo $totalusage; ?></label></td>
-			<td class="col-md-0"><label><?php echo number_format($totalcosts, 2, '.', ''); ?></label></td>
+			<td class="col-md-0"><label><?php echo number_format($totalusage, 2, ',', '.'); ?></label></td>
+			<td class="col-md-0"><label><?php echo number_format($totalcosts, 2, ',', '.'); ?></label></td>
 		
 		
 		
