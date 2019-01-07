@@ -3,8 +3,9 @@ $crom=isset($_GET['crom']) ? $_GET['crom'] : '';
 $repyear = isset($_POST['repyear']) ? $_POST['repyear'] : '';
 
 $thisyear = date("Y");
+$repyearselect = 0;
 
-if(empty($repyear)) {$repyear = $thisyear;} 
+if(!empty($repyear)) {$repyearselect = $repyear;} else {$repyearselect = $thisyear;} 
 
 
 
