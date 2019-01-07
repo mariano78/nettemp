@@ -71,7 +71,7 @@ foreach ($row as $a) {
 		
 		<tr>
 			<td>
-				<form action="" method="post" style="display:inline!important;">
+				<form action="" method="post" onchange="this.form.submit()" style="display:inline!important;">
 					<select name="repyear" id="repyear" >
 						<option value="<?php echo $thisyear; ?>" ><?php echo $thisyear; ?></option>
 						<option value="<?php echo $thisyear -1; ?>" ><?php echo $thisyear -1; ?></option>
