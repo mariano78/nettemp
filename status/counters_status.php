@@ -81,9 +81,9 @@ if ($nts_hide_counters == 'off') { ?>
 	
 	if(isset($_SESSION['user'])){ 
 	
-			$link='<a href="index.php?id=creports&crom=<?php echo $a["rom"]; ?>" title="Go to report"><img src="media/ico/gas-icon.png" alt=""/>'
+			$link='<a href="index.php?id=creports&crom=<?php echo $a["rom"]; ?>" title="Go to report"><img src="media/ico/gas-icon.png" alt=""/>';
 			} else{
-					$link='<img src="media/ico/gas-icon.png" alt=""/>'
+					$link='<img src="media/ico/gas-icon.png" alt=""/>';
 				}		
 
 ?>
