@@ -45,7 +45,7 @@ foreach ($row as $a) {
 			<?php 
 				$monthraw = $a['date']; 
 				$month = date("F",strtotime($monthraw)); 
-				echo $month= date("n",strtotime($monthraw)).". ".$month;
+				echo $month= date("m",strtotime($monthraw)).". ".$month;
 			
 			?>
 			
@@ -73,9 +73,9 @@ foreach ($row as $a) {
 			<td>
 				<form action="" method="post" style="display:inline!important;">
 					<select name="repyear" id="repyear" onchange="this.form.submit()">
-						<option value="<?php echo $thisyear; ?>" ><?php echo $thisyear; ?></option>
-						<option value="<?php echo $thisyear -1; ?>" ><?php echo $thisyear -1; ?></option>
-						<option value="<?php echo $thisyear -2; ?>" ><?php echo $thisyear -2; ?></option>
+						<option value="<?php echo $thisyear; ?>" <?php echo $repyearselect == $thisyear ? 'selected="selected"' : ''; ?> ><?php echo $thisyear; ?></option>
+						<option value="<?php echo $thisyear -1; ?>" <?php echo $repyearselect == $thisyear-1 ? 'selected="selected"' : ''; ?>  ><?php echo $thisyear -1; ?></option>
+						<option value="<?php echo $thisyear -2; ?>" <?php echo $repyearselect == $thisyear-2 ? 'selected="selected"' : ''; ?>  ><?php echo $thisyear -2; ?></option>
 					</select>
 				</form>
 			</td>
