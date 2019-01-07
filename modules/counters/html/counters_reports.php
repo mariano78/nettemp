@@ -123,7 +123,7 @@ $t2cost = $a["cost2"];
 			<td class="col-md-0">T2 Costs: 
 				<form action="" method="post" style="display:inline!important;"> 
 					<input type="hidden" name="costrom" value="<?php echo $a['rom']; ?>" />
-					<input type="text" name="cost2_new" size="1" value="<?php echo $a['cost2']; ?>" />
+					<input type="text" name="cost2_new" size="1" value="<?php echo $t2cost; ?>" />
 					<input type="hidden" name="c2" value="ok" />
 					<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 				</form>
