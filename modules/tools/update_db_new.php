@@ -206,8 +206,10 @@ $updates['2018-12-20 13:39:47'][]="CREATE TABLE logs (id INTEGER PRIMARY KEY, da
 $updates['2018-12-26 08:06:22'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('logs','on')";
 $updates['2018-12-26 08:06:25'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('logshis','7')";
 
-$updates['2019-01-04 08:16:25'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('kwhcost1','0.65')";
-$updates['2019-01-04 08:16:26'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('kwhcost2','0.65')";
-$updates['2019-01-04 08:16:27'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('gascost1','0.65')";
-$updates['2019-01-04 08:16:28'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('watercost1','0.65')";
+$updates['2019-01-07 10:01:46'][]="ALTER TABLE sensors ADD cost1 TEXT";
+$updates['2019-01-07 10:01:49'][]="ALTER TABLE sensors ADD cost2 TEXT";
+$updates['2019-01-07 10:01:50'][]="UPDATE sensors SET cost1=0.0";
+$updates['2019-01-07 10:01:52'][]="UPDATE sensors SET cost2=0.0";
+
+
 ?>

@@ -83,7 +83,7 @@ foreach ($row as $a) {
 <table class="table table-hover table-condensed small" border="0">
 
 <tr>
-			<td class="col-md-1">Year:
+			<td class="col-md-1">Select year:
 			</td>
 			
 			<td class="col-md-1">

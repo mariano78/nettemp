@@ -212,18 +212,6 @@ foreach ($result as $a) {
 	if($a['option']=='logshis') {
        	$nts_his_logs=$a['value'];
     }
-	if($a['option']=='kwhcost1') {
-       	$nts_kwhcost1=$a['value'];
-    }
-	if($a['option']=='kwhcost2') {
-       	$nts_kwhcost2=$a['value'];
-    }
-	if($a['option']=='gascost1') {
-       	$nts_gascost1=$a['value'];
-    }
-	if($a['option']=='watercost1') {
-       	$nts_watercost1=$a['value'];
-    }
 }
 
 //different way..
