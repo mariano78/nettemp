@@ -32,7 +32,7 @@ if ( !empty($cost2rom) && !empty($cost2_new) && ($c2 == "ok")){
     } 
 
 $db = new PDO('sqlite:dbf/nettemp.db');
-$rows = $db->query("SELECT * FROM sensors WHERE rom='$crom'");
+$rows = $db->query("SELECT * FROM sensors WHERE rom='$crom' AND type = 'elec' OR type = 'gas' OR type = 'water'");
 $row = $rows->fetchAll();
 $count = count($row);
 if ($count >= "1") {
