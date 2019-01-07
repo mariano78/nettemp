@@ -3,8 +3,8 @@ $crom=isset($_GET['crom']) ? $_GET['crom'] : '';
 $repyear = isset($_POST['repyear']) ? $_POST['repyear'] : '';
 $cost1rom = isset($_POST['cost1rom']) ? $_POST['cost1rom'] : '';
 $cost2rom = isset($_POST['cost2rom']) ? $_POST['cost2rom'] : '';
-$cost1_new = isset($_POST['cost1new']) ? $_POST['cost1new'] : '';
-$cost2_new = isset($_POST['cost2new']) ? $_POST['cost2new'] : '';
+$cost1_new = isset($_POST['cost1_new']) ? $_POST['cost1_new'] : '';
+$cost2_new = isset($_POST['cost2_new']) ? $_POST['cost2_new'] : '';
 $c1 = isset($_POST['c1']) ? $_POST['c1'] : '';
 $c2 = isset($_POST['c2']) ? $_POST['c2'] : '';
 
