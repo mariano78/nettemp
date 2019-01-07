@@ -19,7 +19,7 @@ foreach ($row as $a) {
 
 <div class="panel panel-default">
 <div class="panel-heading">
-<h3 class="panel-title"><?php echo $a["name"]; ?> </h3></div>
+<h3 class="panel-title"><?php echo $a["name"].$thisyear.$repyear.$repyearselect; ?> </h3></div>
 <div class="table-responsive">
 <table class="table table-hover table-condensed small" border="0">
 
