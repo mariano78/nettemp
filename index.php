@@ -223,10 +223,9 @@ window.setInterval( function() {
 		
 		
 	    <?php include('html/info/paypal.php');?>
-		<?php echo date('H:i:s');?>
 		
 		<button class="btn btn-xs btn-primary systime">
-		<div id="timee"></div>
+		<div id="timee"> <?php echo date('H:i:s');?></div>
 		</button>
 	    
 		<a href="http://wiki.abc-service.com.pl/doku.php" target="_blank" class="btn btn-xs btn-primary">NT WIKI </a>
