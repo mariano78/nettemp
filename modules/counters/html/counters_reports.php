@@ -1,5 +1,6 @@
 <?php
 $crom=isset($_GET['crom']) ? $_GET['crom'] : '';
+$repyear = isset($_POST['repyear']) ? $_POST['repyear'] : '';
 
 $thisyear = date("Y");
 
@@ -27,7 +28,7 @@ foreach ($row as $a) {
 	<?php
 		$rom=$a['rom'];
 		$dbs = new PDO("sqlite:$root/db/$rom.sql") or die('lol');
-		$rows = $dbs->query("SELECT time AS date,strftime('%m',time) AS month ,round(sum(value),3) AS sums from def WHERE strftime('%Y',time) IN ('2018') GROUP BY strftime('%m',time)") or die('lol');
+		$rows = $dbs->query("SELECT time AS date,strftime('%m',time) AS month ,round(sum(value),3) AS sums from def WHERE strftime('%Y',time) IN ('$repyear') GROUP BY strftime('%m',time)") or die('lol');
 		
 		$row = $rows->fetchAll();
 		foreach ($row as $a) { 
@@ -65,8 +66,8 @@ foreach ($row as $a) {
 		
 		<tr>
 			<td>
-				<form action="" method="post">	
-					<select name="repyear" id="ntype" >
+				<form action="" method="post" style="display:inline!important;">
+					<select name="repyear" id="repyear" >
 						<option value="<?php echo $thisyear; ?>" ><?php echo $thisyear; ?></option>
 						<option value="<?php echo $thisyear -1; ?>" ><?php echo $thisyear -1; ?></option>
 						<option value="<?php echo $thisyear -2; ?>" ><?php echo $thisyear -2; ?></option>
@@ -92,28 +93,4 @@ foreach ($row as $a) {
 ?>
 </div>
 </div>
-
-<script type="text/javascript">
-
-$("#repyear").change(function() { //po zmianie
-var ryear = $("#repyear").val(); //pobierasz value
-
-if(typ == "lupdate") //
-{
-	$("#nwhen").html("<option value='3' >></option>");
-	$("input#nvalue").attr('disabled',false);
-
-} else if  (typ == "lhost"){
-	$("#nwhen").html("<option value='7' ></option>");
-	$("select#nwhen").attr('disabled',true);
-	$("input#nvalue").attr('disabled',true);
-
-} else {
-$("select#nwhen").removeAttr("disabled"); 
-$("input#nvalue").attr('disabled',false);
-$("#nwhen").html("<option value='1' ><</option><option value='2' ><=</option><option value='3' >></option><option value='4' >>=</option><option value='5' >=</option><option value='6' >!=</option>");
-}
-});
-
-</script>
 
