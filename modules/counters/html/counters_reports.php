@@ -1,8 +1,8 @@
 <?php
 $crom=isset($_GET['crom']) ? $_GET['crom'] : '';
 $repyear = isset($_POST['repyear']) ? $_POST['repyear'] : '';
-$costrom = isset($_POST['costrom']) ? $_POST['costrom'] : '';
-$costrom = isset($_POST['costrom']) ? $_POST['costrom'] : '';
+$cost1rom = isset($_POST['cost1rom']) ? $_POST['cost1rom'] : '';
+$cost2rom = isset($_POST['cost2rom']) ? $_POST['cost2rom'] : '';
 $cost1_new = isset($_POST['cost1new']) ? $_POST['cost1new'] : '';
 $cost2_new = isset($_POST['cost2new']) ? $_POST['cost2new'] : '';
 $c1 = isset($_POST['c1']) ? $_POST['c1'] : '';
@@ -13,16 +13,16 @@ $repyearselect = '';
 
 if(!empty($repyear)) {$repyearselect = $repyear;} else {$repyearselect = $thisyear;} 
 
-if ( !empty($costrom) && !empty($cost1_new) && ($c1 == "ok")){
+if ( !empty($cost1rom) && !empty($cost1_new) && ($c1 == "ok")){
     $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("UPDATE sensors SET cost1='$cost1_new' WHERE rom='$costrom'") or die ($db->lastErrorMsg());
+    $db->exec("UPDATE sensors SET cost1='$cost1_new' WHERE rom='$cost1rom'") or die ($db->lastErrorMsg());
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     } 
 	
-if ( !empty($costrom) && !empty($cost2_new) && ($c2 == "ok")){
+if ( !empty($cost2rom) && !empty($cost2_new) && ($c2 == "ok")){
     $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("UPDATE sensors SET cost2='$cost2_new' WHERE rom='$costrom'") or die ($db->lastErrorMsg());
+    $db->exec("UPDATE sensors SET cost2='$cost2_new' WHERE rom='$cost2rom'") or die ($db->lastErrorMsg());
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     } 
