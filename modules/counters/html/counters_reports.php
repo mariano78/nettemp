@@ -96,8 +96,8 @@ foreach ($row as $a) {
 				</form>
 			</td>
 			
-			<td class="col-md-0">T1 Costs: </td>
-			<td class="col-md-0">T2 Costs: </td>
+			<td class="col-md-0">T1 Costs: <?php echo $a['cost1']; ?></td> 
+			<td class="col-md-0">T2 Costs: <?php echo $a['cost1']; ?></td>
 				
 		
 		</tr>
