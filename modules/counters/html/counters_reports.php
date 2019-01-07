@@ -99,7 +99,20 @@ $t2cost = $a["cost2"];
 				</form>
 			</td>
 			
-			<td class="col-md-0">T1 Costs: <?php echo $t1costs; ?></td> 
+			<td class="col-md-0">T1 Costs: 
+			
+			  <form action="" method="post" style="display:inline!important;"> 
+				<input type="hidden" name="costrom" value="<?php echo $a['rom']; ?>" />
+				<input type="text" name="cost1_new" size="1" value="<?php echo $a['cost1']; ?>" />
+				<input type="hidden" name="ok" value="ok" />
+				<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+			</form>
+			
+			
+			
+			
+			
+			<?php echo $t1costs; ?></td> 
 			<td class="col-md-0">T2 Costs: <?php echo $t2costs; ?></td>
 				
 		
