@@ -165,7 +165,7 @@ $type = $a['type'];
 	} else { 
 		?>
 		<div class="panel-body">
-		No counters in system
+		This is no counter device.
 		</div>
 		<?php
 	}
