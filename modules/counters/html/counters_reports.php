@@ -159,8 +159,8 @@ $type = $a['type'];
 
 </table>
 </div>
-<a href="index.php?id=device&type=counters"><button class="btn btn-xs btn-info">Back to counters</button></a>
 </div>
+<a href="index.php?id=device&type=counters"><button class="btn btn-xs btn-info">Back to counters</button></a>
 <?php
 	} else { 
 		?>
