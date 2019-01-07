@@ -13,6 +13,9 @@ $row = $rows->fetchAll();
 $count = count($row);
 if ($count >= "1") {
 foreach ($row as $a) { 	
+$t1cost = $a["cost1"];
+$t2cost = $a["cost2"];
+
 ?>
 
 <div class="panel panel-default">
@@ -96,8 +99,8 @@ foreach ($row as $a) {
 				</form>
 			</td>
 			
-			<td class="col-md-0">T1 Costs: <?php echo $a["cost1"]; ?></td> 
-			<td class="col-md-0">T2 Costs: <?php echo $a["cost2"]; ?></td>
+			<td class="col-md-0">T1 Costs: <?php echo $t1costs; ?></td> 
+			<td class="col-md-0">T2 Costs: <?php echo $t2costs; ?></td>
 				
 		
 		</tr>
