@@ -71,26 +71,23 @@ $type = $a['type'];
 				$monthraw = $a['date']; 
 				$month = date("F",strtotime($monthraw)); 
 				echo $month= date("m",strtotime($monthraw)).". ".$month;
-			
-			?>
-			
-			</td>
-			<td class="col-md-0">
-			<?php $usage = $a['sums']; 
-				  echo $usage;
-			
-			$totalusage = $totalusage + $usage;
 			?>
 			</td>
-			<td class="col-md-0">
 			
+			<td class="col-md-0">
 			<?php 
-			$costs = ($a['sums'] * $t1cost);
-			echo number_format($costs, 2, '.', '');
+				$usage = $a['sums']; 
+				echo $usage;
+				$totalusage = $totalusage + $usage;
+			?>
+			</td>
 			
-			$totalcosts = $totalcosts + $costs;
+			<td class="col-md-0">
+			<?php 
+				$costs = ($a['sums'] * $t1cost);
+				echo number_format($costs, 2, '.', '');
+				$totalcosts = $totalcosts + $costs;
 			 ?>
-			
 			</td>
 		</tr>
 		
@@ -99,9 +96,9 @@ $type = $a['type'];
 		?>
 		<tr>
 		
-			<td class="col-md-0">Total consumption: </td>
-			<td class="col-md-0"><?php echo $totalusage; ?></td>
-			<td class="col-md-0"><?php echo $totalcosts; ?></td>
+			<td class="col-md-0"><label>Total:</label></td>
+			<td class="col-md-0"><label><?php echo $totalusage; ?></label></td>
+			<td class="col-md-0"><label><?php echo number_format($totalcosts, 2, '.', ''); ?></label></td>
 		
 		
 		
