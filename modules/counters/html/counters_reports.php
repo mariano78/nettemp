@@ -75,7 +75,7 @@ foreach ($row as $a) {
 		</tr>
 		
 <?php		
-}
+} echo $ryear;
 ?>
 </table>
 <?php
