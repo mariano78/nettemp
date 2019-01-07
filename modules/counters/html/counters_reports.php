@@ -10,6 +10,8 @@ $c2 = isset($_POST['c2']) ? $_POST['c2'] : '';
 
 $thisyear = date("Y");
 $repyearselect = '';
+$totalusage = 0;
+$totalcosts = 0;
 
 if(!empty($repyear)) {$repyearselect = $repyear;} else {$repyearselect = $thisyear;} 
 
@@ -83,6 +85,7 @@ $type = $a['type'];
 			<?php 
 			$costs = ($a['sums'] * $t1cost);
 			echo number_format($costs, 2, '.', '');
+			$totalusage = $totalusage + $costs;
 			 ?>
 			
 			</td>
@@ -93,8 +96,9 @@ $type = $a['type'];
 		?>
 		<tr>
 		
-			<td>Total consumption: 
-			</td>
+			<td class="col-md-0">Total consumption: </td>
+			<td class="col-md-0"><?php echo $totalusage; ?></td>
+			<td class="col-md-0"><?php echo $totalcosts; ?></td>
 		
 		
 		
