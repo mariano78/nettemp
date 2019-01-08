@@ -36,7 +36,7 @@ try {
 	$json = file_get_contents($url);
 	
 	$obj = json_decode($json,true);
-	echo $obj->{'values'}->{'PM25'};
+	echo $obj->{'name'}->{'PM25'};
 	
 	if ($local_type == "airquality") {
 		$local_val = round($obj["airQualityIndex"]);
