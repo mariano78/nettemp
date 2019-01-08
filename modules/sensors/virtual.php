@@ -35,7 +35,7 @@ try {
 	$url = "https://airapi.airly.eu/v2/measurements/installation?installationId=204&apikey=$api";
 	$json = file_get_contents($url);
 	
-	var_dump(json_decode($json)->current->values->name->value);
+	var_dump(json_decode($json)->current->values->name);
 	
 	$obj = json_decode($json,true);
 	//echo $obj;
