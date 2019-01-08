@@ -35,10 +35,10 @@ try {
 	$url = "https://airapi.airly.eu/v2/measurements/installation?installationId=204&apikey=$api";
 	$json = file_get_contents($url);
 	
-	var_dump(json_decode($json,true)->values->name->value);
+	var_dump(json_decode($json,true)->current->values->name->value);
 	
 	$obj = json_decode($json,true);
-	echo $obj;
+	//echo $obj;
 	
 	if ($local_type == "airquality") {
 		$local_val = round($obj["airQualityIndex"]);
