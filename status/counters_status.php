@@ -78,20 +78,15 @@ if ($nts_hide_counters == 'off') { ?>
 	
 	$name2='<span class="label label-default" title="'.$a['name'].'">'.$a['name'].'</span>';
 	$name3='<a href="index.php?id=device&device_id='.$a['id'].'" title="Go to settings" class="label label-default">'.$a['name'].'</a>';
-	
-	if(isset($_SESSION['user'])){ 
-	
-			$link='<a href="index.php?id=creports&crom='.$a['rom'].'" title="Go to report"><img src="media/ico/gas-icon.png" alt=""/>';
-			} else{
-					$link='<img src="media/ico/gas-icon.png" alt=""/>';
-				}		
-
 ?>
+
 <tr>
     <td>
-    <?php if($a['type'] == 'gas'){ echo $link; $units='m3'; $units2='L';} ?></a>
-    <?php if($a['type'] == 'water'){ echo $link; $units='m3'; $units2='L'; } ?></a>
-    <?php if($a['type'] == 'elec'){ echo $link; $units='kWh' ; $units2='W';} ?></a>
+
+	<?php if($a['type'] == 'gas' && isset($_SESSION['user'])){ ?><a href="index.php?id=creports&crom=<?php echo $a["rom"]; ?>" title="Go to report"><img src="media/ico/gas-icon.png" alt=""/><?php $units='m3'; $units2='L';} ?></a>
+    <?php if($a['type'] == 'water' && isset($_SESSION['user'])){ ?><a href="index.php?id=creports&crom=<?php echo $a["rom"]; ?>" title="Go to report"><img src="media/ico/water-icon.png" alt=""/><?php $units='m3'; $units2='L'; } ?></a>
+    <?php if($a['type'] == 'elec' && isset($_SESSION['user'])){ ?><a href="index.php?id=creports&crom=<?php echo $a["rom"]; ?>" title="Go to report"><img src="media/ico/Lamp-icon.png" alt=""/><?php $units='kWh' ; $units2='W';} ?></a>
+
     <small>
 	<?php 
 					if(isset($_SESSION['user'])){
