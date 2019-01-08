@@ -83,22 +83,20 @@ if ($nts_hide_counters == 'off') { ?>
 <tr>
     <td>
 
-	<?php if($a['type'] == 'gas' && isset($_SESSION['user'])){ ?><a href="index.php?id=creports&crom=<?php echo $a["rom"]; ?>" title="Go to report"><img src="media/ico/gas-icon.png" alt=""/></a><?php $units='m3'; $units2='L';} 
-	else if ($a['type'] == 'gas') {?><img src="media/ico/gas-icon.png" alt=""/><?php $units='m3'; $units2='L';}?>
-    <?php if($a['type'] == 'water' && isset($_SESSION['user'])){ ?><a href="index.php?id=creports&crom=<?php echo $a["rom"]; ?>" title="Go to report"><img src="media/ico/water-icon.png" alt=""/></a><?php $units='m3'; $units2='L'; } 
-	else if ($a['type'] == 'water') {?><img src="media/ico/water-icon.png" alt=""/><?php $units='m3'; $units2='L';}?>
-    <?php if($a['type'] == 'elec' && isset($_SESSION['user'])){ ?><a href="index.php?id=creports&crom=<?php echo $a["rom"]; ?>" title="Go to report"><img src="media/ico/Lamp-icon.png" alt=""/></a><?php $units='kWh' ; $units2='W';} 
-	else if ($a['type'] == 'elec') {?><img src="media/ico/Lamp-icon.png" alt=""/><?php $units='kWh' ; $units2='W';}?>
+		<?php if($a['type'] == 'gas' && isset($_SESSION['user'])){ ?><a href="index.php?id=creports&crom=<?php echo $a["rom"]; ?>" title="Go to report"><img src="media/ico/gas-icon.png" alt=""/></a><?php $units='m3'; $units2='L';} 
+		else if ($a['type'] == 'gas') {?><img src="media/ico/gas-icon.png" alt=""/><?php $units='m3'; $units2='L';}?>
+		<?php if($a['type'] == 'water' && isset($_SESSION['user'])){ ?><a href="index.php?id=creports&crom=<?php echo $a["rom"]; ?>" title="Go to report"><img src="media/ico/water-icon.png" alt=""/></a><?php $units='m3'; $units2='L'; } 
+		else if ($a['type'] == 'water') {?><img src="media/ico/water-icon.png" alt=""/><?php $units='m3'; $units2='L';}?>
+		<?php if($a['type'] == 'elec' && isset($_SESSION['user'])){ ?><a href="index.php?id=creports&crom=<?php echo $a["rom"]; ?>" title="Go to report"><img src="media/ico/Lamp-icon.png" alt=""/></a><?php $units='kWh' ; $units2='W';} 
+		else if ($a['type'] == 'elec') {?><img src="media/ico/Lamp-icon.png" alt=""/><?php $units='kWh' ; $units2='W';}?>
 
-    <small>
-	<?php 
-					if(isset($_SESSION['user'])){
-						echo str_replace("_", " ", $name3);
-					} else {
-						echo str_replace("_", " ", $name2);
-					}
-				?>
-    </small>
+		<small>
+		<?php 
+						if(isset($_SESSION['user'])){ echo str_replace("_", " ", $name3);
+						} else { echo str_replace("_", " ", $name2);
+						}
+					?>
+		</small>
     </td>
 	
 	<td>
