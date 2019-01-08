@@ -40,7 +40,7 @@ try {
 	if ($local_type == "airquality") {
 		$local_val = round($obj["airQualityIndex"]);
 	}elseif ($local_type == "air_pm_25") {
-		$local_val = round($obj["pm25"]);
+		$local_val = round($obj["PM25"]);
 	}elseif ($local_type == "air_pm_10") {
 		$local_val = round($obj["pm10"]);
 	}
