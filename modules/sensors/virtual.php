@@ -40,7 +40,7 @@ try {
 	$obj = json_decode($json,true);
 	//var_dump($obj);
 	
-	echo $obj['values'][2]['value'];
+	echo $obj['current']['values'][2]['value'];
 	
 	if ($local_type == "airquality") {
 		$local_val = round($obj["airQualityIndex"]);
