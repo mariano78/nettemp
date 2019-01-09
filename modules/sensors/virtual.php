@@ -33,19 +33,10 @@ try {
 			$local_device = $vr['device'];
 			
 	$url = "https://airapi.airly.eu/v2/measurements/nearest?lat=$lati&lng=$long&maxDistanceKM=5&apikey=$api";
-	
-	
-	//$url = "https://airapi.airly.eu/v1/nearestSensor/measurements?latitude=$lati&longitude=$long
-	
-	
 	$json = file_get_contents($url);
-	
-	
 	
 	$obj = json_decode($json,true);
 	//var_dump($obj);
-	
-	 //$obj['current']['values'][2]['value'];
 	
 	if ($local_type == "airquality") {
 		$local_val = round($obj['current']['indexes'][0]['value']);
@@ -55,9 +46,7 @@ try {
 		$local_val = round($obj['current']['values'][2]['value']);
 	}
 		
-		//echo $local_rom."\n";
-		//echo $local_val."\n";
-		echo $local_rom." - ".$local_type." - ".$local_val;
+		echo $local_rom." - ".$local_type." - ".$local_val."\n";
 		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 			
 			
