@@ -96,7 +96,6 @@ if ($nts_hide_counters == 'off') { ?>
 						} else { echo str_replace("_", " ", $name2);
 						}
 					?>
-		</small>
     </td>
 	
 	<td>
