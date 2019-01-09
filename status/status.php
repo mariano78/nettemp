@@ -51,7 +51,7 @@ Go to device scan!
 <?php
 }
     //GROUPS
-    $rows = $db->query("SELECT ch_group,type FROM sensors ORDER BY position_group ASC") or header("Location: html/errors/db_error.php");
+    $rows = $db->query("SELECT ch_group FROM sensors ORDER BY position_group ASC") or header("Location: html/errors/db_error.php");
 	$result_ch_g = $rows->fetchAll();
 	$unique=array();
 	
