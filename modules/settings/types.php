@@ -104,6 +104,7 @@ $row = $rows->fetchAll();
 <th>Exclude Value2</th>
 <th>Exclude Value3</th>
 <th></th>
+<th></th>
 </tr>
 </thead>
 
@@ -160,9 +161,6 @@ $row = $rows->fetchAll();
     
     
     <td class="col-md-0">
-	
-    </td>
-	<td class="col-md-0">
 	
     </td>
     <td class="col-md-0">
