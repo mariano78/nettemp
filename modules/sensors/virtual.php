@@ -43,11 +43,11 @@ try {
 	 //$obj['current']['values'][2]['value'];
 	
 	if ($local_type == "airquality") {
-		$local_val = round($obj['current']['indexes'][0]['value'];);
+		$local_val = round($obj['current']['indexes'][0]['value']);
 	}elseif ($local_type == "air_pm_25") {
-		$local_val = round($obj['current']['values'][1]['value'];);
+		$local_val = round($obj['current']['values'][1]['value']);
 	}elseif ($local_type == "air_pm_10") {
-		$local_val = round($obj['current']['values'][2]['value'];"]);
+		$local_val = round($obj['current']['values'][2]['value']);
 	}
 		
 		echo $local_rom."\n";
