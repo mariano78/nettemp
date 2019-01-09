@@ -38,9 +38,9 @@ try {
 	
 	
 	$obj = json_decode($json,true);
-	var_dump($obj);
+	//var_dump($obj);
 	
-	//echo $obj;
+	echo $obj->current;
 	
 	if ($local_type == "airquality") {
 		$local_val = round($obj["airQualityIndex"]);
