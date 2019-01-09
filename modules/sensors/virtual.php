@@ -32,7 +32,12 @@ try {
 			$local_type = $vr['type'];
 			$local_device = $vr['device'];
 			
-	$url = "https://airapi.airly.eu/v2/measurements/installation?installationId=204&apikey=$api";
+	$url = "https://airapi.airly.eu/v2/measurements/nearest?lat=$lati&lng=$long&maxDistanceKM=5&apikey=$api";
+	
+	
+	//$url = "https://airapi.airly.eu/v1/nearestSensor/measurements?latitude=$lati&longitude=$long
+	
+	
 	$json = file_get_contents($url);
 	
 	
