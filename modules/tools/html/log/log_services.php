@@ -13,7 +13,7 @@
 
 switch ($service)
 { 
-default: case '$lighttpd': include('/var/log/lighttpd/error.log'); $last = array_slice($filearray,-40); foreach($last as $f){ echo $f; }; break;
+default: case '$lighttpd': $filearray = file("/var/log/lighttpd/error.log"); $last = array_slice($filearray,-40); foreach($last as $f){ echo $f; }; break;
 case 'msmtp': $filearray = file("/var/log/msmtp.log"); $last = array_slice($filearray,-40); foreach($last as $f){ echo $f; }; break;
 case 'smstools': $filearray = file("/var/log/smstools/smsd.log"); $last = array_slice($filearray,-40); foreach($last as $f){ echo $f; }; break;
 case 'lighttpd': $filearray = file("/var/log/lighttpd/error.log"); $last = array_slice($filearray,-40); foreach($last as $f){ echo $f; }; break;
