@@ -162,6 +162,9 @@ $row = $rows->fetchAll();
     <td class="col-md-0">
 	
     </td>
+	<td class="col-md-0">
+	
+    </td>
     <td class="col-md-0">
 		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span> </button>
 		<input type="hidden" name="add" value="add1"/>
