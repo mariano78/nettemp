@@ -1,5 +1,5 @@
 <?php
-$upsq = $db->query("SELECT value FROM nt_settings WHERE option='ups_status' OR option='hide_ups'");
+$upsq = $db->query("SELECT value, option FROM nt_settings WHERE option='ups_status' OR option='hide_ups'");
 $upsqr = $upsq->fetchAll();
 foreach ($upsqr as $ups) {
 	if($ups['option']=='hide_ups') {
