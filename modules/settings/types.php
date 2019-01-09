@@ -131,7 +131,7 @@ $row = $rows->fetchAll();
 			if(($filename!='.') && ($filename!='..')) 
 			{
 			?>
-			<option <?php echo $a['aico'] == $dir."/".$filename ? 'selected="selected"' : ''; ?> value="<?php echo $dir."/".$filename; ?>"> <?php echo $filename; ?></option>
+			<option <?php $dir."/".$filename ? 'selected="selected"' : ''; ?> value="<?php echo $dir."/".$filename; ?>"> <?php echo $filename; ?></option>
 			<?php
 			}
 		}
