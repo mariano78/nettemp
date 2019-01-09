@@ -40,14 +40,14 @@ try {
 	$obj = json_decode($json,true);
 	//var_dump($obj);
 	
-	echo $obj['current']['values'][2]['value'];
+	 //$obj['current']['values'][2]['value'];
 	
 	if ($local_type == "airquality") {
-		$local_val = round($obj["airQualityIndex"]);
+		$local_val = round($obj['current']['indexes'][0]['value'];);
 	}elseif ($local_type == "air_pm_25") {
-		$local_val = round($obj["PM25"]);
+		$local_val = round($obj['current']['values'][1]['value'];);
 	}elseif ($local_type == "air_pm_10") {
-		$local_val = round($obj["pm10"]);
+		$local_val = round($obj['current']['values'][2]['value'];"]);
 	}
 		
 		echo $local_rom."\n";
