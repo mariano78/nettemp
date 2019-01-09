@@ -55,9 +55,9 @@ try {
 		$local_val = round($obj['current']['values'][2]['value']);
 	}
 		
-		echo $local_rom."\n";
-		echo $local_val."\n";
-		echo $local_type."\n";
+		//echo $local_rom."\n";
+		//echo $local_val."\n";
+		echo $local_rom." - ".$local_type." - ".$local_val;
 		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 			
 			
