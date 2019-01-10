@@ -35,20 +35,6 @@ try {
 		$res = preg_split ('/$\R?^/m', $res);
 		foreach ($res as $l) {
 			$line[]=trim($l);
-			echo "Line0 - ".$line[0]."\n";
-			echo "Line1 - ".$line[1]."\n";
-			echo "Line2 - ".$line[2]."\n";
-			echo "Line3 - ".$line[3]."\n";
-			echo "Line4 - ".$line[4]."\n";
-			echo "Line5 - ".$line[5]."\n";
-			echo "Line6 - ".$line[6]."\n";
-			echo "Line7 - ".$line[7]."\n";
-			echo "Line8 - ".$line[8]."\n";
-			echo "Line9 - ".$line[9]."\n";
-			echo "Line10 - ".$line[10]."\n";
-			echo "Line11 - ".$line[11]."\n";
-			echo "Line12 - ".$line[12]."\n";
-			echo "Line13 - ".$line[13]."\n";
 		}
 			
 		//L1
