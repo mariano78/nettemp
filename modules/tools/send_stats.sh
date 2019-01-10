@@ -39,7 +39,7 @@ NICK=$(sqlite3 -cmd ".timeout 2000" $DIR/dbf/nettemp.db "SELECT nick FROM statis
 LOCATION=$(sqlite3 -cmd ".timeout 2000" $DIR/dbf/nettemp.db "SELECT location FROM statistics WHERE id='1'")
 
 ## MAIN
-curl --connect-timeout 20 -G "http://stats.mmsite.pl/get.php?ver=$VER&nid=$NID&rpi=$RPI&os=$OS&time=$DATE"
+curl --connect-timeout 20 -G -k "http://stats.mmsite.pl/get.php?ver=$VER&nid=$NID&rpi=$RPI&os=$OS&time=$DATE"
 
 else
     echo "stats off"
