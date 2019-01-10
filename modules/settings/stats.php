@@ -38,7 +38,7 @@
 <div class="col-md-4 col-md-offset-4">
 
 If You want send anonymous info about Your nettemp write in agreement: <span class="label label-success">yes</span><br><br>
-Your nettemp will send ID (md5sum from mac-addres), os name, hardware type.<br><br>
+Your nettemp will send ID (md5sum from mac-addres),version, os name, hardware type.<br><br>
 
 </div>
 </div>
