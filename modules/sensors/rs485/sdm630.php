@@ -35,7 +35,7 @@ try {
 		$res = preg_split ('/$\R?^/m', $res);
 		foreach ($res as $l) {
 			$line[]=trim($l);
-			echo "Line - "$line."\n";
+			echo "Line - ".$line."\n";
 		}
 			
 		//L1
