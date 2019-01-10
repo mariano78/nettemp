@@ -63,33 +63,6 @@ Your nettemp will send ID (md5sum from mac-addres), os name, hardware type.<br><
 </div>
 
 <div class="form-group">   <label class="col-md-4 control-label" for="textinput">OS:</label>   <div class="col-md-4">   <input id="textinput"  placeholder="" class="form-control input-md" required="" type="text" value="<?php passthru('cat /etc/os-release | grep PRETT | sed \'s/^.*=\"\\(.*\\)\".*/\\1/g\'');?>" disabled>   </div> </div>
-<div class="form-group">
-  <label class="col-md-4 control-label" for="selectbasic">Sensor:</label>
-  <div class="col-md-4">
-    <select id="selectbasic" name="sensor_temp" class="form-control">
-	<?php foreach($sensors as $a) { ?>
-	    <option value="<?php echo $a['id'] ?>"  <?php echo $a['id'] == $sensor_temp ? 'selected="selected"' : ''; ?> ><?php echo $a['name'] ?></option>
-	<?php
-	    }
-	?>
-		    <option value="none" <?php echo $sensor_temp == 'none' ? 'selected="selected"' : ''; ?>  >none</option>
-    </select>
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="latitude">Location:</label>  
-  <div class="col-md-4">
-  <input id="latitude" name="location" placeholder="" class="form-control input-md"  type="text" value="<?php echo $location; ?>">
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Nickname:</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="nick" placeholder="" class="form-control input-md"  type="text" value="<?php echo $nick; ?>">
-  </div>
-</div>
 
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Agreement:</label>  
