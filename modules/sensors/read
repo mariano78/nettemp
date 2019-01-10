@@ -31,7 +31,6 @@ php-cgi -f $dir/modules/sensors/GPIO/HCS04/read.php
 php-cgi -f $dir/modules/gpio/gpio_scan.php
 php-cgi -f $dir/modules/sensors/node.php
 
-#in test
 #$dir/modules/sensors/other/ups
 php-cgi -f $dir/modules/lcd/lcd.php
 php-cgi -f $dir/modules/mysql/mysql_send.php
