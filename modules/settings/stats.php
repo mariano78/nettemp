@@ -40,6 +40,7 @@ If You want send anonymous info about Your nettemp write in agreement: <span cla
 Your nettemp will send ID (md5sum from mac-addres), os name, hardware type, nick, location and value from sensor if set.<br>
 
 </div>
+<br>
 
 <form action="" method="post" class="form-horizontal">
 <fieldset>
