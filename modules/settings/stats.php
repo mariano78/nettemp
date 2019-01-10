@@ -34,11 +34,13 @@
 <h3 class="panel-title">Statistics</h3>
 </div>
 <div class="panel-body">
+<div class="row">
 <div class="col-md-2 col-md-offset-5">
 
 If You want send anonymous info about Your nettemp write in agreement: <span class="label label-success">yes</span><br>
 Your nettemp will send ID (md5sum from mac-addres), os name, hardware type, nick, location and value from sensor if set.<br>
 
+</div>
 </div>
 <br>
 
