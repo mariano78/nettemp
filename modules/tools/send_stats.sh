@@ -16,7 +16,7 @@ VER=$(echo $VER1|sed 's/ /%20/g')
 
 ## ID
 ETH=$(cat /sys/class/net/eth0/address)
-WLAN=$(cat /sys/class/net/wlan0/address)
+WLAN=$(cat /sys/class/net/wwan0/address)
 
 #HW
 if [[ -e /usr/local/bin/gpio ]]; then
