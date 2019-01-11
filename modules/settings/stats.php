@@ -9,7 +9,7 @@
     $db->exec("UPDATE statistics SET location='$location', nick='$nick', agreement='$agreement', sensor_temp='$sensor_temp' WHERE id='1'");
 	if ($agreement == "yes"){
 		$ROOT=dirname(dirname(dirname(__FILE__)));
-		shell_exec("$ROOT/modules/tools/send_stats.sh");
+		shell_exec("/var/www/nettemp/modules/tools/send_stats.sh");
 	}
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
