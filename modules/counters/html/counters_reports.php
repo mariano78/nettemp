@@ -226,6 +226,31 @@ $rom=$a['rom'];
 </table>
 </div>
 </div>
+
+<?php 
+$theme=$nts_charts_theme;
+?>
+<script type="text/javascript" src="html/highcharts/highstock.js"></script>
+<script type="text/javascript" src="html/highcharts/exporting.js"></script>
+<?php if ($theme == 'black') { ?>
+<script type="text/javascript" src="html/highcharts/dark-unica.js"></script>
+<?php 
+    }
+if ($theme == 'sand') { ?>
+<script type="text/javascript" src="html/highcharts/sand-signika.js"></script>
+<?php 
+    }
+if ($theme == 'grid') { ?>
+<script type="text/javascript" src="html/highcharts/grid-light.js"></script>
+<?php 
+    }
+?>
+
+<script type="text/javascript" src="html/highcharts/no-data-to-display.js"></script>
+
+<div id="container" style="height: 700px; min-width: 310px"></div>
+
+
 <a href="index.php?id=device&type=counters"><button class="btn btn-xs btn-info">Back to counters</button></a>
 <?php
 	} else { 
