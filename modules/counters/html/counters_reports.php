@@ -263,7 +263,7 @@ var chart = new Highcharts.Chart({
       },
 	  
 	  title: {
-            text: [<?php echo $title; ?>]
+            text: <?php echo $title; ?>,
 		},
 	  
 	  xAxis: {
