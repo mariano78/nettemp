@@ -87,7 +87,7 @@ $rom=$a['rom'];
 		
 		if ($exp != 1) {
 		$xaxis[] = date("m",strtotime($a['date']));
-		$title = 'Year '.$repyearselect;
+		$title = strval('Year '.$repyearselect);
 		} else {
 			
 		$xaxis[] = date("d",strtotime($a['date']));
@@ -273,11 +273,23 @@ var chart = new Highcharts.Chart({
          renderTo: 'container',
 		 type: 'column'
       },
+	  title: {
+            text: 'Yearly Website Ratio'
+        },
 	  
 	  
 	  xAxis: {
             categories: [<?php echo join($xaxis, ',') ?>]
         },
+		
+	xAxis: {
+		type: 'datetime',          
+		labels: {
+		formatter: function() {
+             return Highcharts.dateFormat('%b-%Y', this.value);
+        }
+		}
+	},
 		
       series: [{
 		  name: [<?php echo $a["name"]; ?>],
