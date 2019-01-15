@@ -15,6 +15,7 @@ $thisyear = date("Y");
 $totalusage = 0;
 $totalcosts = 0;
 $sufix = '';
+$exp = 0;
 
 //if (empty($monthexp)) {$monthexp = '%';}
 
