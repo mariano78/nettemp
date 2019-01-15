@@ -90,7 +90,7 @@ $type = $a['type'];
 			<form action="" method="post" style="display:inline!important;">
 				
 				<input type="hidden" name="monthexp" value="<?php echo $month = date("m",strtotime($monthraw)); ?>" />
-				<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+				<button><span class="glyphicon glyphicon-menu-down"></span> </button>
 				
 			</form>
 			
