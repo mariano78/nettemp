@@ -151,6 +151,8 @@ $rom=$a['rom'];
 			<td class="col-md-0"></td>
 		</tr>
 		
+		<?php if ($exp == 1) { ?>
+		
 		<tr>
 			<td class="col-md-0">
 				<form action="" method="post" style="display:inline!important;">
@@ -163,6 +165,9 @@ $rom=$a['rom'];
 			<td class="col-md-0"></td>
 			<td class="col-md-0"></td>
 		</tr>
+		<?php 
+		}
+		?>
 <?php		
 }
 ?>
