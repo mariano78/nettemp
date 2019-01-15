@@ -291,7 +291,7 @@ var chart = new Highcharts.Chart({
 		
 		
       series: [{
-		 name: [<?php echo $a["name"]; ?>],
+		 name: 'Total usage',
          data: [<?php echo join($data, ','); ?>]
          
       }]
