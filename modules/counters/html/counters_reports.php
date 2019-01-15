@@ -133,6 +133,7 @@ $rom=$a['rom'];
 			<td class="col-md-0"><label>Total:</label></td>
 			<td class="col-md-0"><label><?php echo number_format($totalusage, 3, ',', '.'); ?></label></td>
 			<td class="col-md-0"><label><?php echo number_format($totalcosts, 2, ',', '.'); ?></label></td>
+			<td class="col-md-0"></td>
 		</tr>
 <?php		
 }
