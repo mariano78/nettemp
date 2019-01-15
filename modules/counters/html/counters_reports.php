@@ -257,9 +257,8 @@ var chart = new Highcharts.Chart({
          renderTo: 'container'
       },
       series: [{
-         data: [<?php echo join($data, ',') ?>],
-         pointStart: 0,
-         pointInterval
+         data: [<?php echo join($data, ',') ?>]
+         
       }]
 });
 </script>
