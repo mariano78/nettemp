@@ -262,9 +262,6 @@ var chart = new Highcharts.Chart({
 		 type: 'column'
       },
 	  
-	  title: {
-            text: <?php echo $title; ?>,
-		},
 	  
 	  xAxis: {
             categories: [<?php echo join($xaxis, ',') ?>]
