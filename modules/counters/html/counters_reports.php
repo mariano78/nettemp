@@ -280,20 +280,12 @@ var chart = new Highcharts.Chart({
 	  
 	  
 	  xAxis: {
-            categories: [<?php echo join($xaxis, ',') ?>]
+            categories: ['<?php echo join($xaxis, ',') ?>']
         },
 		
-	xAxis: {
-		type: 'datetime',          
-		labels: {
-		formatter: function() {
-             return Highcharts.dateFormat('%b-%Y', this.value);
-        }
-		}
-	},
 		
       series: [{
-		  name: [<?php echo $a["name"]; ?>],
+		 name: [<?php echo $a["name"]; ?>],
          data: [<?php echo join($data, ',') ?>]
          
       }]
