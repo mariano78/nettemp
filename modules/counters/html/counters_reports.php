@@ -258,6 +258,7 @@ var chart = new Highcharts.Chart({
 		 type: 'column'
       },
       series: [{
+		  name: [<?php echo $a["name"]; ?>],
          data: [<?php echo join($data, ',') ?>]
          
       }]
