@@ -68,6 +68,10 @@ $type = $a['type'];
 		if (empty($month)) {
 		
 		$rows = $dbs->query("SELECT time AS date,round(sum(value),3) AS sums from def WHERE strftime('%Y',time) IN ('$repyearselect') GROUP BY strftime('%m',time)") or die('Something is wrong');
+		} else {
+			
+			$rows = $dbs->query("SELECT time AS date,round(sum(value),3) AS sums from def WHERE strftime('%Y',time) IN ('$repyearselect') AND strftime('%m',time) LIKE '$month'  GROUP BY strftime('%m',time), strftime('%d',time)") or die('Something is wrong');
+			
 		}
 		
 		$row = $rows->fetchAll();
@@ -80,8 +84,8 @@ $type = $a['type'];
 			<?php 
 				$monthraw = $a['date']; 
 				$month = date("F",strtotime($monthraw)); 
-				//echo $month= date("m",strtotime($monthraw)).". ".$month;
-				echo $monthraw;
+				echo $month= date("m",strtotime($monthraw)).". ".$month;
+				//echo $monthraw;
 			?>
 			</td>
 			
