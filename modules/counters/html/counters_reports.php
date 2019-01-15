@@ -112,7 +112,7 @@ $type = $a['type'];
 			<td>
 				<form action="" method="post" style="display:inline!important;">
 				<input type="hidden" name="monthexp" value="<?php echo $month = date("m",strtotime($monthraw)); ?>" />
-				<input type="hidden" name="repyearselect" value="<?php echo $repyearselect; ?>" />
+				<input type="hidden" name="repyearselect" value="<?php echo $repyear; ?>" />
 				<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-menu-down"></span> </button>
 			</form>
 			</td>
