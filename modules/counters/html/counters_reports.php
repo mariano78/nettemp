@@ -93,7 +93,7 @@ $rom=$a['rom'];
 				
 				$monthraw = $a['date']; 
 				$month = date("F",strtotime($monthraw)); 
-				echo $month = date("m",strtotime($monthraw)).". ".$month;
+				echo $month = date("m",strtotime($monthraw)).". ".$month.". ".$repyearselect;
 				
 				
 				
@@ -102,7 +102,7 @@ $rom=$a['rom'];
 				$monthraw = $a['date']; 
 				$month = date("F",strtotime($monthraw)); 
 				$day = date("d",strtotime($monthraw)); 
-				echo $day.". ".$month;
+				echo $day.". ".$month.". ".$repyearselect;
 					
 				
 				
