@@ -277,7 +277,7 @@ if ($theme == 'grid') { ?>
 
 <div class="row">
 <div class="col-md-10 col-md-offset-1">
-<div id="container" style="height: 700px; min-width: 310px padding: 20px"></div>
+<div id="container" style="height: 700px; min-width: 310px; padding: 20px"></div>
 
 <script type="text/javascript"> 
 var chart = new Highcharts.Chart({
