@@ -83,6 +83,8 @@ $rom=$a['rom'];
 	
 		foreach ($row as $a) { 
 		
+		$data[] = $a['sums']; 
+		
 		?>
 		<tr>
 			<td class="col-md-0">
@@ -247,8 +249,20 @@ if ($theme == 'grid') { ?>
 ?>
 
 <script type="text/javascript" src="html/highcharts/no-data-to-display.js"></script>
-
 <div id="container" style="height: 700px; min-width: 310px"></div>
+
+<script type="text/javascript"> 
+var chart = new Highcharts.Chart({
+      chart: {
+         renderTo: 'container'
+      },
+      series: [{
+         data: [<?php echo join($data, ',') ?>],
+         pointStart: 0,
+         pointInterval
+      }]
+});
+</script>
 
 
 <a href="index.php?id=device&type=counters"><button class="btn btn-xs btn-info">Back to counters</button></a>
