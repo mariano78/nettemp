@@ -89,7 +89,7 @@ $rom=$a['rom'];
 			
 			<?php 
 			
-				<?php if ($exp != 1) { 
+				if ($exp != 1) { 
 				
 				$monthraw = $a['date']; 
 				$month = date("F",strtotime($monthraw)); 
