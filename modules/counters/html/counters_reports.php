@@ -85,6 +85,7 @@ $rom=$a['rom'];
 		
 		$data[] = $a['sums']; 
 		$xaxis[] = date("m",strtotime($a['date']));
+		$title = 'Year '.$repyearselect;
 		
 		
 		?>
@@ -260,6 +261,10 @@ var chart = new Highcharts.Chart({
          renderTo: 'container',
 		 type: 'column'
       },
+	  
+	  title: {
+            text: <?php echo '$title' ?>
+		},
 	  
 	  xAxis: {
             categories: [<?php echo join($xaxis, ',') ?>]
