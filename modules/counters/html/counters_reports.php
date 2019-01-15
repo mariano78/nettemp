@@ -7,14 +7,14 @@ $cost1_new = isset($_POST['cost1_new']) ? $_POST['cost1_new'] : '';
 $cost2_new = isset($_POST['cost2_new']) ? $_POST['cost2_new'] : '';
 $c1 = isset($_POST['c1']) ? $_POST['c1'] : '';
 $c2 = isset($_POST['c2']) ? $_POST['c2'] : '';
-$month = isset($_POST['month']) ? $_POST['month'] : '';
+$monthexp = isset($_POST['monthexp']) ? $_POST['monthexp'] : '';
 
 $thisyear = date("Y");
 $repyearselect = '';
 $totalusage = 0;
 $totalcosts = 0;
 
-
+if (empty($monthexp)) {$monthexp = '%';}
 
 if(!empty($repyear)) {$repyearselect = $repyear;} else {$repyearselect = $thisyear;} 
 
@@ -65,12 +65,12 @@ $type = $a['type'];
 		$rom=$a['rom'];
 		$dbs = new PDO("sqlite:$root/db/$rom.sql") or die('lol');
 		
-		if (empty($month)) {
+		if (empty($monthexp)) {
 		
 		$rows = $dbs->query("SELECT time AS date,round(sum(value),3) AS sums from def WHERE strftime('%Y',time) IN ('$repyearselect') GROUP BY strftime('%m',time)") or die('Something is wrong');
 		} else {
 			
-			$rows = $dbs->query("SELECT time AS date,round(sum(value),3) AS sums from def WHERE strftime('%Y',time) IN ('$repyearselect') AND strftime('%m',time) LIKE '$month'  GROUP BY strftime('%m',time), strftime('%d',time)") or die('Something is wrong');
+			$rows = $dbs->query("SELECT time AS date,round(sum(value),3) AS sums from def WHERE strftime('%Y',time) IN ('$repyearselect') AND strftime('%m',time) LIKE '$monthexp'  GROUP BY strftime('%m',time), strftime('%d',time)") or die('Something is wrong');
 			
 		}
 		
@@ -84,9 +84,16 @@ $type = $a['type'];
 			<?php 
 				$monthraw = $a['date']; 
 				$month = date("F",strtotime($monthraw)); 
-				echo $month= date("m",strtotime($monthraw)).". ".$month;
+				echo $month = date("m",strtotime($monthraw)).". ".$month;
 				//echo $monthraw;
 			?>
+			<form action="" method="post" style="display:inline!important;">
+				
+				<input type="hidden" name="monthexp" value="<?php echo $month = date("m",strtotime($monthraw)); ?>" />
+				<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+				
+			</form>
+			
 			</td>
 			
 			<td class="col-md-0">
