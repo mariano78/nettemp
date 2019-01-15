@@ -88,10 +88,21 @@ $rom=$a['rom'];
 			<td class="col-md-0">
 			
 			<?php 
+			
+				<?php if ($exp != 1) { 
+				
+				$monthraw = $a['date']; 
+				$month = date("F",strtotime($monthraw)); 
+				$day = date("d",strtotime($monthraw)); 
+				echo $day.". ".$month;
+				
+				} else {
+					
 				$monthraw = $a['date']; 
 				$month = date("F",strtotime($monthraw)); 
 				echo $month = date("m",strtotime($monthraw)).". ".$month;
-				//echo $monthraw;
+				
+				} //echo $monthraw;
 			?>
 			
 			</td>
