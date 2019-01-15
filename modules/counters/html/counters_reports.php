@@ -84,6 +84,8 @@ $rom=$a['rom'];
 		foreach ($row as $a) { 
 		
 		$data[] = $a['sums']; 
+		$xaxis[] = $month = date("m",strtotime($a['date']));
+		
 		
 		?>
 		<tr>
@@ -96,6 +98,7 @@ $rom=$a['rom'];
 				$monthraw = $a['date']; 
 				$month = date("F",strtotime($monthraw)); 
 				echo $month = date("m",strtotime($monthraw)).". ".$month." ".$repyearselect;
+				$xaxis[] = $month = date("m",strtotime($monthraw));
 				
 				
 				
@@ -105,7 +108,7 @@ $rom=$a['rom'];
 				$month = date("F",strtotime($monthraw)); 
 				$day = date("d",strtotime($monthraw)); 
 				echo $day.". ".$month." ".$repyearselect;
-					
+				
 				
 				
 				} //echo $monthraw;
@@ -257,6 +260,11 @@ var chart = new Highcharts.Chart({
          renderTo: 'container',
 		 type: 'column'
       },
+	  
+	  xAxis: {
+            categories: [<?php echo join($xaxis, ',') ?>]
+        },
+		
       series: [{
 		  name: [<?php echo $a["name"]; ?>],
          data: [<?php echo join($data, ',') ?>]
