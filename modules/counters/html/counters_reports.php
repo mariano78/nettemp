@@ -113,7 +113,7 @@ $rom=$a['rom'];
 			 ?>
 			</td>
 			
-			<td> <?php if ($exp == 1) { ?>
+			<td> <?php if ($exp != 1) { ?>
 				<form action="" method="post" style="display:inline!important;">
 				<input type="hidden" name="monthexp" value="<?php echo $month = date("m",strtotime($monthraw)); ?>" />
 				<input type="hidden" name="repyear" value="<?php echo $repyear; ?>" />
