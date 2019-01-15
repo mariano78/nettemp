@@ -86,7 +86,7 @@ $rom=$a['rom'];
 		$data[] = $a['sums']; 
 		
 		if ($exp != 1) {
-		$xaxis[] = date("m",strtotime($a['date']));
+		$xaxis[] = date("M",strtotime($a['date']));
 		$title = 'Year '.$repyearselect;
 		} else {
 			
