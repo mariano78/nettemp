@@ -262,7 +262,7 @@ var chart = new Highcharts.Chart({
       },
 	  
 	  xAxis: {
-            categories: [<?php echo join('$xaxis', ',') ?>]
+            labels: [<?php echo join($xaxis, ',') ?>]
         },
 		
       series: [{
