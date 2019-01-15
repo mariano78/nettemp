@@ -84,8 +84,16 @@ $rom=$a['rom'];
 		foreach ($row as $a) { 
 		
 		$data[] = $a['sums']; 
+		
+		if ($exp != 1) {
 		$xaxis[] = date("m",strtotime($a['date']));
 		$title = 'Year '.$repyearselect;
+		} else {
+			
+		$xaxis[] = date("d",strtotime($a['date']));
+		$title = 'Year ';
+			
+		}
 		
 		
 		?>
