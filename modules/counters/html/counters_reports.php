@@ -84,7 +84,7 @@ $rom=$a['rom'];
 		foreach ($row as $a) { 
 		
 		$data[] = $a['sums']; 
-		$xlabel = date("m",strtotime($a['date']));
+		$xlabel = date("F",strtotime($a['date']));
 		$xaxis[] = $xlabel;
 		
 		
