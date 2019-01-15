@@ -75,7 +75,8 @@ $type = $a['type'];
 			<?php 
 				$monthraw = $a['date']; 
 				$month = date("F",strtotime($monthraw)); 
-				echo $month= date("m",strtotime($monthraw)).". ".$month;
+				//echo $month= date("m",strtotime($monthraw)).". ".$month;
+				echo $monthraw;
 			?>
 			</td>
 			
