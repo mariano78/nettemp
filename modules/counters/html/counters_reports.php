@@ -274,7 +274,7 @@ var chart = new Highcharts.Chart({
 		 type: 'column'
       },
 	  title: {
-            text: <?php echo $title; ?>
+            text: <?php echo '$title'; ?>
         },
 	  
 	  
