@@ -283,6 +283,12 @@ var chart = new Highcharts.Chart({
             categories: ['<?php echo join($xaxis, "', '") ?>']
         },
 		
+	  yAxis: {
+            title: {
+                text: 'kWh'
+            }
+        },
+		
 		
       series: [{
 		 name: [<?php echo $a["name"]; ?>],
