@@ -280,7 +280,7 @@ var chart = new Highcharts.Chart({
 	  
 	  
 	  xAxis: {
-            categories: ['<?php echo $xaxis ?>']
+            categories: '<?php echo $xaxis ?>'
         },
 		
 		
