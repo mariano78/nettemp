@@ -233,6 +233,10 @@ $rom=$a['rom'];
 </div>
 </div>
 
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Charts</h3></div>
+
 <?php 
 $theme=$nts_charts_theme;
 ?>
@@ -274,6 +278,11 @@ var chart = new Highcharts.Chart({
       }]
 });
 </script>
+
+</div>
+
+
+
 
 
 <a href="index.php?id=device&type=counters"><button class="btn btn-xs btn-info">Back to counters</button></a>
