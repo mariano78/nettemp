@@ -84,8 +84,7 @@ $rom=$a['rom'];
 		foreach ($row as $a) { 
 		
 		$data[] = $a['sums']; 
-		$xlabel = date("M",strtotime($a['date']));
-		$xaxis[] = $xlabel;
+		$xaxis[] = date("m",strtotime($a['date']));
 		
 		
 		?>
@@ -262,14 +261,9 @@ var chart = new Highcharts.Chart({
 		 type: 'column'
       },
 	  
-		
-	xAxis: {
-        tickInterval: 1,
-        labels: {
-            enabled: true,
-            formatter: function() { return $xaxis[this.value];},
-        }
-		},
+	  xAxis: {
+            categories: [<?php echo join($xaxis, ',') ?>]
+        },
 		
       series: [{
 		  name: [<?php echo $a["name"]; ?>],
