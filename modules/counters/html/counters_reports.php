@@ -66,7 +66,7 @@ $rom=$a['rom'];
 
 <div class="panel panel-default">
 <div class="panel-heading">
-<h3 class="panel-title"><?php echo $a["name"].$monthexp.$repyearselect.$exp ?> </h3></div>
+<h3 class="panel-title"><?php echo $a["name"]." Year ".$repyearselect.$exp ?> </h3></div>
 <div class="table-responsive ">
 <table class="table table-hover table-striped table-condensed small" border="0">
 
