@@ -129,7 +129,7 @@ $rom=$a['rom'];
 			</td>
 			
 			<td> <?php if ($exp != 1) { ?>
-				<form action="" method="post" style="display:inline!important;">
+			<form action="" method="post" style="display:inline!important;">
 				<input type="hidden" name="monthexp" value="<?php echo $month = date("m",strtotime($monthraw)); ?>" />
 				<input type="hidden" name="repyear" value="<?php echo $repyear; ?>" />
 				<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-menu-down"></span> </button>
@@ -148,6 +148,19 @@ $rom=$a['rom'];
 			<td class="col-md-0"><label>Total:</label></td>
 			<td class="col-md-0"><label><?php echo number_format($totalusage, 3, ',', '.'); ?></label></td>
 			<td class="col-md-0"><label><?php echo number_format($totalcosts, 2, ',', '.'); ?></label></td>
+			<td class="col-md-0"></td>
+		</tr>
+		
+		<tr>
+			<td class="col-md-0">
+				<form action="" method="post" style="display:inline!important;">
+					<input type="hidden" name="repyear" value="<?php echo $repyear; ?>" />
+					<button class="btn btn-xs btn-info">Back </button>
+				</form>
+			</td>
+			
+			<td class="col-md-0"></td>
+			<td class="col-md-0"></td>
 			<td class="col-md-0"></td>
 		</tr>
 <?php		
