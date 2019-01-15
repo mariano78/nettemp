@@ -247,7 +247,7 @@ if ($theme == 'grid') { ?>
 <?php 
     }
 ?>
-
+<script src="https://code.highcharts.com/highcharts.js"></script>
 <script type="text/javascript" src="html/highcharts/no-data-to-display.js"></script>
 <div id="container" style="height: 700px; min-width: 310px"></div>
 
