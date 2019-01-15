@@ -274,7 +274,7 @@ var chart = new Highcharts.Chart({
 		 type: 'column'
       },
 	  title: {
-            text: 'Yearly Website Ratio'
+            text: <?php echo $title; ?>
         },
 	  
 	  
