@@ -98,9 +98,6 @@ $rom=$a['rom'];
 				$monthraw = $a['date']; 
 				$month = date("F",strtotime($monthraw)); 
 				echo $month = date("m",strtotime($monthraw)).". ".$month." ".$repyearselect;
-				$xaxis[] = $month = date("m",strtotime($monthraw));
-				
-				
 				
 				} else {
 					
