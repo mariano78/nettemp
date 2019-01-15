@@ -84,7 +84,7 @@ $rom=$a['rom'];
 		foreach ($row as $a) { 
 		
 		$data[] = $a['sums']; 
-		$xaxis[] = date("F",strtotime($a['date']));
+		$xaxis[] = $month = date("m",strtotime($a['date']));
 		
 		
 		?>
@@ -98,6 +98,9 @@ $rom=$a['rom'];
 				$monthraw = $a['date']; 
 				$month = date("F",strtotime($monthraw)); 
 				echo $month = date("m",strtotime($monthraw)).". ".$month." ".$repyearselect;
+				
+				
+				
 				
 				} else {
 					
