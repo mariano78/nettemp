@@ -8,9 +8,10 @@ $cost2_new = isset($_POST['cost2_new']) ? $_POST['cost2_new'] : '';
 $c1 = isset($_POST['c1']) ? $_POST['c1'] : '';
 $c2 = isset($_POST['c2']) ? $_POST['c2'] : '';
 $monthexp = isset($_POST['monthexp']) ? $_POST['monthexp'] : '';
+$repyearselect = isset($_POST['repyearselect']) ? $_POST['repyearselect'] : '';
 
 $thisyear = date("Y");
-$repyearselect = '';
+//$repyearselect = '';
 $totalusage = 0;
 $totalcosts = 0;
 
@@ -49,7 +50,7 @@ $type = $a['type'];
 
 <div class="panel panel-default">
 <div class="panel-heading">
-<h3 class="panel-title"><?php echo $a["name"].$monthexp ?> </h3></div>
+<h3 class="panel-title"><?php echo $a["name"].$monthexp.$repyearselect ?> </h3></div>
 <div class="table-responsive ">
 <table class="table table-hover table-striped table-condensed small" border="0">
 
@@ -111,6 +112,7 @@ $type = $a['type'];
 			<td>
 				<form action="" method="post" style="display:inline!important;">
 				<input type="hidden" name="monthexp" value="<?php echo $month = date("m",strtotime($monthraw)); ?>" />
+				<input type="hidden" name="repyearselect" value="<?php echo $repyearselect; ?>" />
 				<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-menu-down"></span> </button>
 			</form>
 			</td>
