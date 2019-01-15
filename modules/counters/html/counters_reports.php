@@ -7,11 +7,14 @@ $cost1_new = isset($_POST['cost1_new']) ? $_POST['cost1_new'] : '';
 $cost2_new = isset($_POST['cost2_new']) ? $_POST['cost2_new'] : '';
 $c1 = isset($_POST['c1']) ? $_POST['c1'] : '';
 $c2 = isset($_POST['c2']) ? $_POST['c2'] : '';
+$month = isset($_POST['month']) ? $_POST['month'] : '';
 
 $thisyear = date("Y");
 $repyearselect = '';
 $totalusage = 0;
 $totalcosts = 0;
+
+if ($month == '') {$month = '*';}
 
 if(!empty($repyear)) {$repyearselect = $repyear;} else {$repyearselect = $thisyear;} 
 
@@ -61,7 +64,7 @@ $type = $a['type'];
 	<?php
 		$rom=$a['rom'];
 		$dbs = new PDO("sqlite:$root/db/$rom.sql") or die('lol');
-		$rows = $dbs->query("SELECT time AS date,round(sum(value),3) AS sums from def WHERE strftime('%Y',time) IN ('$repyearselect') AND strftime('%m',time) IN ('08')  GROUP BY strftime('%m',time), strftime('%d',time)") or die('Something is wrong');
+		$rows = $dbs->query("SELECT time AS date,round(sum(value),3) AS sums from def WHERE strftime('%Y',time) IN ('$repyearselect') AND strftime('%m',time) IN ('$month')  GROUP BY strftime('%m',time), strftime('%d',time)") or die('Something is wrong');
 		
 		$row = $rows->fetchAll();
 		foreach ($row as $a) { 
