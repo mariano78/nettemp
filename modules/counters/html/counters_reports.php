@@ -50,7 +50,7 @@ $type = $a['type'];
 
 <div class="panel panel-default">
 <div class="panel-heading">
-<h3 class="panel-title"><?php echo $a["name"].$monthexp.$repyearselect ?> </h3></div>
+<h3 class="panel-title"><?php echo $a["name"].$monthexp.$repyearselect.$exp ?> </h3></div>
 <div class="table-responsive ">
 <table class="table table-hover table-striped table-condensed small" border="0">
 
@@ -73,7 +73,7 @@ $type = $a['type'];
 		} else {
 			
 			$rows = $dbs->query("SELECT time AS date,round(sum(value),3) AS sums from def WHERE strftime('%Y',time) IN ('$repyearselect') AND strftime('%m',time) LIKE '$monthexp'  GROUP BY strftime('%m',time), strftime('%d',time)") or die('Something is wrong');
-			
+			$exp = 1;
 		}
 		
 		$row = $rows->fetchAll();
@@ -110,17 +110,11 @@ $type = $a['type'];
 			</td>
 			
 			<td>
-			<?php
-			if(!empty($monthexp)) {?>
-			
 				<form action="" method="post" style="display:inline!important;">
 				<input type="hidden" name="monthexp" value="<?php echo $month = date("m",strtotime($monthraw)); ?>" />
 				<input type="hidden" name="repyear" value="<?php echo $repyear; ?>" />
 				<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-menu-down"></span> </button>
 			</form>
-			<?php
-			}
-			?>
 			</td>
 		</tr>
 		
