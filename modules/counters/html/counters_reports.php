@@ -14,7 +14,7 @@ $repyearselect = '';
 $totalusage = 0;
 $totalcosts = 0;
 
-if (empty($monthexp)) {$monthexp = '%';}
+//if (empty($monthexp)) {$monthexp = '%';}
 
 if(!empty($repyear)) {$repyearselect = $repyear;} else {$repyearselect = $thisyear;} 
 
