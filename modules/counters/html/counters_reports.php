@@ -289,6 +289,12 @@ var chart = new Highcharts.Chart({
             }
         },
 		
+		tooltip: {
+		    valueSuffix: kWh, 
+                    
+                }
+	    },
+		
 		
       series: [{
 		 name: 'Total usage',
