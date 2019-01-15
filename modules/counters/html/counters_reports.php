@@ -254,7 +254,8 @@ if ($theme == 'grid') { ?>
 <script type="text/javascript"> 
 var chart = new Highcharts.Chart({
       chart: {
-         renderTo: 'container'
+         renderTo: 'container',
+		 type: 'column'
       },
       series: [{
          data: [<?php echo join($data, ',') ?>]
