@@ -46,6 +46,22 @@ $t2cost = $a["cost2"];
 $romcost = $a["rom"];
 $type = $a['type'];
 
+
+
+$rom=$a['rom'];
+		$dbs = new PDO("sqlite:$root/db/$rom.sql") or die('lol');
+		
+		if (empty($monthexp)) {
+		
+		$rows = $dbs->query("SELECT time AS date,round(sum(value),3) AS sums from def WHERE strftime('%Y',time) IN ('$repyearselect') GROUP BY strftime('%m',time)") or die('Something is wrong');
+		} else {
+			
+			$rows = $dbs->query("SELECT time AS date,round(sum(value),3) AS sums from def WHERE strftime('%Y',time) IN ('$repyearselect') AND strftime('%m',time) LIKE '$monthexp'  GROUP BY strftime('%m',time), strftime('%d',time)") or die('Something is wrong');
+			$exp = 1;
+		}
+		
+		$row = $rows->fetchAll();
+
 ?>
 
 <div class="panel panel-default">
@@ -64,19 +80,7 @@ $type = $a['type'];
 <tbody>
 	
 	<?php
-		$rom=$a['rom'];
-		$dbs = new PDO("sqlite:$root/db/$rom.sql") or die('lol');
-		
-		if (empty($monthexp)) {
-		
-		$rows = $dbs->query("SELECT time AS date,round(sum(value),3) AS sums from def WHERE strftime('%Y',time) IN ('$repyearselect') GROUP BY strftime('%m',time)") or die('Something is wrong');
-		} else {
-			
-			$rows = $dbs->query("SELECT time AS date,round(sum(value),3) AS sums from def WHERE strftime('%Y',time) IN ('$repyearselect') AND strftime('%m',time) LIKE '$monthexp'  GROUP BY strftime('%m',time), strftime('%d',time)") or die('Something is wrong');
-			$exp = 1;
-		}
-		
-		$row = $rows->fetchAll();
+	
 		foreach ($row as $a) { 
 		
 		?>
