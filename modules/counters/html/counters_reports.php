@@ -275,6 +275,8 @@ if ($theme == 'grid') { ?>
 
 <script type="text/javascript" src="html/highcharts/no-data-to-display.js"></script>
 <div id="container" style="height: 700px; min-width: 310px"></div>
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
 
 <script type="text/javascript"> 
 var chart = new Highcharts.Chart({
@@ -311,7 +313,8 @@ var chart = new Highcharts.Chart({
       }]
 });
 </script>
-
+</div>
+</div>
 </div>
 
 
