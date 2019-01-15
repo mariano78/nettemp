@@ -14,6 +14,7 @@ $thisyear = date("Y");
 //$repyearselect = '';
 $totalusage = 0;
 $totalcosts = 0;
+$sufix = '';
 
 //if (empty($monthexp)) {$monthexp = '%';}
 
@@ -45,6 +46,12 @@ $t1cost = $a["cost1"];
 $t2cost = $a["cost2"];
 $romcost = $a["rom"];
 $type = $a['type'];
+
+if ($type == 'water' OR $type == 'gas') {
+	$sufix = 'm3';
+} else if ($type == 'elec') {
+	$sufix = 'kWh';
+}
 
 
 
@@ -290,7 +297,7 @@ var chart = new Highcharts.Chart({
         },
 		
 		tooltip: {
-		    valueSuffix: ' kWh'
+		    valueSuffix: ' <?php echo $sufix; ?>'
                     
                 },
 	    
