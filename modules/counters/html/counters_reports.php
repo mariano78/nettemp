@@ -262,9 +262,14 @@ var chart = new Highcharts.Chart({
 		 type: 'column'
       },
 	  
-	  xAxis: {
-            categories: [<?php echo join($xaxis, ',') ?>]
-        },
+		
+	xAxis: {
+        tickInterval: 1,
+        labels: {
+            enabled: true,
+            formatter: function() { return $xaxis[this.value];},
+        }
+		},
 		
       series: [{
 		  name: [<?php echo $a["name"]; ?>],
