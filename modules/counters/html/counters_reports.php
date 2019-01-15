@@ -283,7 +283,8 @@ if ($theme == 'grid') { ?>
 var chart = new Highcharts.Chart({
       chart: {
          renderTo: 'container',
-		 type: 'column'
+		 type: 'column',
+		 spacingTop: 50
       },
 	  title: {
             text: '<?php echo $title; ?>'
