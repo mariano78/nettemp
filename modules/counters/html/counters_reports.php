@@ -290,10 +290,10 @@ var chart = new Highcharts.Chart({
         },
 		
 		tooltip: {
-		    valueSuffix: 'kWh'
+		    valueSuffix: kWh
                     
-                }
-	    },
+                },
+	    
 		
 		
       series: [{
