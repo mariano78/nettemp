@@ -93,14 +93,18 @@ $rom=$a['rom'];
 				
 				$monthraw = $a['date']; 
 				$month = date("F",strtotime($monthraw)); 
-				$day = date("d",strtotime($monthraw)); 
-				echo $day.". ".$month;
+				echo $month = date("m",strtotime($monthraw)).". ".$month;
+				
+				
 				
 				} else {
 					
 				$monthraw = $a['date']; 
 				$month = date("F",strtotime($monthraw)); 
-				echo $month = date("m",strtotime($monthraw)).". ".$month;
+				$day = date("d",strtotime($monthraw)); 
+				echo $day.". ".$month;
+					
+				
 				
 				} //echo $monthraw;
 			?>
