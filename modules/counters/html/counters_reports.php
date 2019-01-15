@@ -87,11 +87,12 @@ $rom=$a['rom'];
 		
 		if ($exp != 1) {
 		$xaxis[] = date("m",strtotime($a['date']));
-		$title = strval('Year '.$repyearselect);
+		$title = 'Year '.$repyearselect;
 		} else {
 			
 		$xaxis[] = date("d",strtotime($a['date']));
-		$title = 'Year ';
+		$month = date("F",strtotime($a['date'])); 
+		$title = $month." ".$repyearselect;
 			
 		}
 		
