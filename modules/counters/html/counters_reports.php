@@ -84,7 +84,7 @@ $rom=$a['rom'];
 		foreach ($row as $a) { 
 		
 		$data[] = $a['sums']; 
-		$xaxis[] = $month = date("m",strtotime($a['date']));
+		$xaxis[] = $month = date("F",strtotime($a['date']));
 		
 		
 		?>
