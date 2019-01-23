@@ -171,7 +171,7 @@ if ($hide == 'off') {
 		if(!empty($a['mail'])) {$mail='<img src="media/ico/message-icon.png" alt="" title="Message was send!"/>';}
 ?>
 
-		    <tr class="table-danger">
+		    <tr class="bg-danger">
 			<td>
 				<?php echo $type;?>
 			</td>
