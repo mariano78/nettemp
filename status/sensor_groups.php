@@ -169,9 +169,23 @@ if ($hide == 'off') {
 		    $label='danger';
 		}
 		if(!empty($a['mail'])) {$mail='<img src="media/ico/message-icon.png" alt="" title="Message was send!"/>';}
+		
+		
+		if (strtotime($a['time'])<(time()-($nts_readerr*60))){
+					echo '<tr class="bg-danger">';
+				    }else{
+					echo '<tr>';
+				    }
+		
+		
+		
 ?>
 
-		    <tr class="bg-danger">
+
+
+
+
+		  
 			<td>
 				<?php echo $type;?>
 			</td>

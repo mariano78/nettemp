@@ -211,12 +211,11 @@ $updates['2019-01-07 10:01:49'][]="ALTER TABLE sensors ADD cost2 TEXT";
 $updates['2019-01-07 10:01:50'][]="UPDATE sensors SET cost1=0.0";
 $updates['2019-01-07 10:01:52'][]="UPDATE sensors SET cost2=0.0";
 
-$updates['2019-01-17 10:01:41'][]="ALTER TABLE sensors ADD t1start TEXT";
-$updates['2019-01-07 10:01:42'][]="ALTER TABLE sensors ADD t1stop TEXT";
-
-$updates['2019-01-17 10:01:46'][]="ALTER TABLE sensors ADD t2start TEXT";
-$updates['2019-01-17 10:01:49'][]="ALTER TABLE sensors ADD t2stop TEXT";
-
+//$updates['2019-01-17 10:01:41'][]="ALTER TABLE sensors ADD t1start TEXT";
+//$updates['2019-01-07 10:01:42'][]="ALTER TABLE sensors ADD t1stop TEXT";
+//$updates['2019-01-17 10:01:46'][]="ALTER TABLE sensors ADD t2start TEXT";
+//$updates['2019-01-17 10:01:49'][]="ALTER TABLE sensors ADD t2stop TEXT";
+$updates['2019-01-23 08:55:27'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('readerr','60')";
 
 
 ?>
