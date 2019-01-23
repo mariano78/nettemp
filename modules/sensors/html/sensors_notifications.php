@@ -117,6 +117,7 @@ if(!empty($actv_not_id) && ($not_actv_onoff == "onoff")) {
 	$db = new PDO("sqlite:$root/dbf/nettemp.db");
 	$db->exec("UPDATE notifications SET active = '$notactv', sent = '' WHERE id='$actv_not_id'");
 	$db->exec("UPDATE sensors SET readerrsend='' WHERE rom='$actv_not_rom'");
+	$db->exec("UPDATE sensors SET mail='' WHERE rom='$actv_not_rom'");
 }
 
 //Priority
