@@ -176,16 +176,8 @@ if ($hide == 'off') {
 				    }else{
 					echo '<tr>';
 				    }
-		
-		
-		
 ?>
 
-
-
-
-
-		  
 			<td>
 				<?php echo $type;?>
 			</td>
@@ -322,7 +314,7 @@ if ($hide == 'off') {
 					</span>
 					</td>
 					<td>
-						<?php if (substr($a['type'],0,3) != 'max' || substr($a['type'],0,3) != 'sun'){echo $updo;} ?>
+						<?php if (substr($a['type'],0,3) != 'max' || substr($a['type'],0,3) != 'min' || substr($a['type'],0,3) != 'sun'){echo $updo;} ?>
 					</td>
 					<td>
 						<?php echo $mail; ?>
