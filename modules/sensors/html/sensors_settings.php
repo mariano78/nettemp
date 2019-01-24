@@ -460,6 +460,7 @@ $row = $rows->fetchAll();
 <th>IP</th>
 <th>Type</th>
 <th>Adjust</th>
+<th>Read err.</th>
 <th>New group</th>
 <th>Group</th>
 <th>Log out</th>
