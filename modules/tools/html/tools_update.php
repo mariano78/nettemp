@@ -114,6 +114,10 @@ echo (isset($NT_SETTINGS['DB_VER']) && isset($NT_SETTINGS['DB_LAST_UPDATE'])) ? 
 <div class="panel-heading">Changelog</div>
 <div class="panel-body">
 
+<pre>
+		<?php include("changelog.txt"); ?>
+</pre>
+
 
 
 </div>

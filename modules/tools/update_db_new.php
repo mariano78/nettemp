@@ -202,6 +202,4 @@ $updates['2019-01-24 11:40:18'][]="ALTER TABLE sensors ADD readerrtime TEXT";
 $updates['2019-01-24 11:40:19'][]="UPDATE sensors SET readerrtime='60'";
 
 
-
-
 ?>
