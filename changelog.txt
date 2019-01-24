@@ -1,10 +1,5 @@
 
 4.8.3
 
-Informacja o braku odczytu z czujnika
-Changelog w zakładce tools->update
-
-4.8.3
-
-Informacja o braku odczytu z czujnika
+Informacja o braku odczytu z czujnika - <a href="http://wiki.abc-service.com.pl/doku.php" target="_blank" class="btn btn-xs btn-primary">NT WIKI </a>
 Changelog w zakładce tools->update
