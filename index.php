@@ -16,7 +16,6 @@ if( !file_exists($dbfile) || !is_readable($dbfile) || filesize($dbfile) == 0 ){
 	
 //variables in session
 $_SESSION['nts_charts_max'] = $nts_charts_max;
-$_SESSION['readerr'] = $nts_readerr;
 
 ?>
 <!DOCTYPE html>

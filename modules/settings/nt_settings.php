@@ -212,9 +212,6 @@ foreach ($result as $a) {
 	if($a['option']=='logshis') {
        	$nts_his_logs=$a['value'];
     }
-	if($a['option']=='readerr') {
-       	$nts_readerr=$a['value'];
-    }
 }
 
 //different way..
