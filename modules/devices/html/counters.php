@@ -28,7 +28,6 @@ if ($count >= "1") {
 <th>Name</th>
 <th>Type</th>
 <th>Counter</th>
-<th>Show in status</th>
 <th>Costs</th>
 </thead>
 <?php
