@@ -1,3 +1,4 @@
+
 4.8.3
 
 Informacja o braku odczytu z czujnika
