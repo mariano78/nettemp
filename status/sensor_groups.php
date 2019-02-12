@@ -283,7 +283,7 @@ if ($hide == 'off') {
 				<form action="" method="post" style="display:inline!important;">
 				<input type="hidden" name="clr_not" value="clr_not" />
 				<input type="hidden" name="clr_rom" value="<?php echo $a["rom"]; ?>" />
-				<button type="submit" <img src="media/ico/message-icon.png" alt="Clear Notifications"> <button/>
+				<button type="submit"><img src="media/ico/message-icon.png" alt="Clear Notifications"> <button/>
 				</form>
 				<?php
 				} else {echo $mail; }
