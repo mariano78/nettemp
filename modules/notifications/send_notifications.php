@@ -40,6 +40,23 @@ $nomail = 0;
 		}
 	}
 	
+	//---------------------
+	
+	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db") or die ("cannot open database");
+    $query = $db->query("SELECT tel FROM users WHERE smsa='yes' AND tel != '' ");
+    $row = $sthr->fetchAll();
+	
+	$numRows = count($row);
+	if ($numRows > 0 ) {
+		
+			$sms = 1;
+			
+	}
+	//---------------------
+	
+	
+	
+	
 	$query = $db->query("SELECT mail FROM users WHERE maila='yes' ");
     $result= $query->fetchAll();
     foreach($result as $s) {
@@ -92,7 +109,7 @@ $nomail = 0;
 	return $body;
 	}
 
-function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$mailonoff,$pushoukey,$pushoakey,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers,$ntype){
+function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$priority,$pusho,$mailonoff,$pushoukey,$pushoakey,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers,$ntype,$sms){
 	
 	$ROOT=dirname(dirname(dirname(__FILE__)));
 	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
@@ -306,7 +323,7 @@ try {
 								$message = "Recovery - ".$sname." - value is ".$stmp." [ < ".$nvalue." ]";	
 							}
 						}
-						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers,$ntype);
+						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers,$ntype,$sms);
 					
 					
 			}elseif ($nwhen == '2') {
@@ -336,7 +353,7 @@ try {
 								$message = "Recovery - ".$sname." - value is ".$stmp." [ <= ".$nvalue." ]";	
 							}
 						}
-						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers,$ntype);
+						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers,$ntype,$sms);
 				
 			}elseif ($nwhen == '3') {
 				
@@ -364,7 +381,7 @@ try {
 								$message = "Recovery - ".$sname." - value is ".$stmp." [ > ".$nvalue." ]";		
 							}
 						}
-						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers,$ntype);
+						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers,$ntype,$sms);
 	
 			}elseif ($nwhen == '4') {
 				
@@ -392,7 +409,7 @@ try {
 								$message = "Recovery - ".$sname." - value is ".$stmp." [ >= ".$nvalue." ]";	
 							}
 						}
-						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers,$ntype);
+						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers,$ntype,$sms);
 				
 			}elseif ($nwhen == '5') {
 				
@@ -420,7 +437,7 @@ try {
 								$message = "Recovery - ".$sname." - value is ".$stmp." [ == ".$nvalue." ]";	
 							}
 						}
-						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers,$ntype);	
+						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers,$ntype,$sms);	
 				
 			}elseif ($nwhen == '6') {
 				
@@ -448,7 +465,7 @@ try {
 								$message = "Recovery - ".$sname." - value is ".$stmp." [ != ".$nvalue." ]";	
 							}
 						}
-						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers,$ntype);	
+						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers,$ntype,$sms);	
 			}
  } elseif ($ntype == 'lupdate') {
 	 
@@ -477,7 +494,7 @@ try {
 								$message = $sname." - Recovered communications";	
 							}
 						}
-						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers,$ntype);	
+						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers,$ntype,$sms);	
 
 	 
 	}	elseif ($ntype == 'lhost') {
@@ -507,7 +524,7 @@ try {
 								$message = $sname." - Recovered connection with host";	
 							}
 						}
-						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers,$ntype);	
+						send_not($nid,$nrom,$sname,$message,$nsms,$nmail,$npov,$npriority,$pusho,$mailonoff,$pushoukey,$pushoakey,$nsent,$notsent,$notsentrec,$nrecovery,$addr,$mail_topic,$date,$headers,$ntype,$sms);	
 
 	}
 	
