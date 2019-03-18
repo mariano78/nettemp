@@ -44,9 +44,9 @@ $nomail = 0;
 	
 	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db") or die ("cannot open database");
     $query = $db->query("SELECT tel FROM users WHERE smsa='yes' AND tel != '' ");
-    $row = $sthr->fetchAll();
+    $result = $query->fetchAll();
 	
-	$numRows = count($row);
+	$numRows = count($result);
 	if ($numRows > 0 ) {
 		
 			$sms = 1;
