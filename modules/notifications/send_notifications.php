@@ -116,7 +116,7 @@ function send_not ($nid,$nrom,$notname,$notmessage,$notsms,$notmail,$notpov,$pri
 	
 	$notsentrec2 = 0;
 	
-	if ($sms == 1;) {
+	if ($sms == 1) {
 	
 		if ($notsms == 'on' && $notsent == 1) {
 			
