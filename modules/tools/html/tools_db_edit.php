@@ -39,14 +39,18 @@ if(!empty($rom) && !empty($delolder)) {
 <th>Name</th>
 <th>Rom</th>
 <th>Delete older than:</th>
-<th>Edit</th>
 <th>Size</th>
+<th>Edit</th>
+
 </tr>
 </thead>
 
 
 <?php 
     foreach ($row as $a) { 	
+	
+	$file = $a['rom'];
+	$file2 = "db/$file";
 ?>
 <tr>
     <td class="col-md-1"><?php echo $a['name']?></td>
@@ -84,7 +88,10 @@ if(!empty($rom) && !empty($delolder)) {
     </form>
     </td>
 	
-	<td class="col-md-7">
+	<td class="col-md-1">
+	
+		<span class="label label-default"><?php $filesize = (filesize("$file2") * .0009765625) * .0009765625; echo round($filesize, 3)."MB" ?></span>
+	
 	
 	</td>
 	
