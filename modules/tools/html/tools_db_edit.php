@@ -40,6 +40,7 @@ if(!empty($rom) && !empty($delolder)) {
 <th>Rom</th>
 <th>Delete older than:</th>
 <th>Edit</th>
+<th>Size</th>
 </tr>
 </thead>
 
@@ -83,8 +84,12 @@ if(!empty($rom) && !empty($delolder)) {
     </form>
     </td>
 	
+	<td class="col-md-7">
 	
-    <td class="col-md-8">
+	</td>
+	
+	
+    <td class="col-md-7">
     <form action="?id=tools&type=dbedit2&file=<?php echo $a['rom']?>" method="post" style="display:inline!important;">
     <input type="hidden" name="file" value="<?php echo $a['rom']?>" />
     <button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span></button>
