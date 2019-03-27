@@ -49,7 +49,7 @@ if(!empty($rom) && !empty($delolder)) {
 <?php 
     foreach ($row as $a) { 	
 	
-	$file = $a['rom'].'sql';
+	$file = $a['rom'].'.sql';
 	$file2 = "db/$file";
 ?>
 <tr>
