@@ -91,6 +91,9 @@ if(!empty($rom) && !empty($delolder)) {
 	<td class="col-md-1">
 	
 		<span class="label label-default"><?php $filesize = (filesize("$file2") * .0009765625) * .0009765625; echo round($filesize, 3)."MB" ?></span>
+		<?php
+		echo $file2;
+		?>
 	
 	
 	</td>
