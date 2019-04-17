@@ -128,7 +128,7 @@ $file=$rom .".sql";
 	<td><span class="label label-info"><?php echo number_format($m['mmin'], 2, '.', '')?></span><span class="label label-warning"><?php echo number_format($m['mmax'], 2, '.', '')?></span></td>
     </tr>
     <?php
-     } else { ?>
+     } elseif { ?>
     <tr>
 	<td><span class="label label-default"><?php echo str_replace("_", " ", $a['name']) ?></span></td>
 	
