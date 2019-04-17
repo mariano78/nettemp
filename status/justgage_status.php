@@ -39,7 +39,8 @@ if ( $numRows > '0' ) { ?>
 <?php echo $ch_g
 
 if(isset($_SESSION['user'])){
-						echo '<a href="index.php?id=device&type=device&device_group='.$ch_g.'&device_menu=settings" title="Go to group settings" class="group-name" >'.str_replace("_", " ", $ch_g).'</a>';
+						$ch_g2 = '<a href="index.php?id=device&type=device&device_group='.$ch_g.'&device_menu=settings" title="Go to group settings" class="group-name" >'.str_replace("_", " ", $ch_g).'</a>';
+						echo $ch_g2;
 					} else {
 						echo str_replace("_", " ", $ch_g);
 					}
