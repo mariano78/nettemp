@@ -31,7 +31,23 @@ if ( $numRows > '0' ) { ?>
 
 <div class="grid-item sgjg<?php echo $ch_g ?>">
 <div class="panel panel-default">
-<div class="panel-heading"><?php echo $ch_g?></div>
+<div class="panel-heading">
+
+
+
+
+<?php echo $ch_g
+
+if(isset($_SESSION['user'])){
+						echo '<a href="index.php?id=device&type=device&device_group='.$ch_g.'&device_menu=settings" title="Go to group settings" class="group-name" >'.str_replace("_", " ", $ch_g).'</a>';
+					} else {
+						echo str_replace("_", " ", $ch_g);
+					}
+
+
+
+?>
+</div>
 <div class="panel-body">
 
 
