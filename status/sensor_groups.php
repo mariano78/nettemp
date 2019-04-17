@@ -160,9 +160,9 @@ if ($hide == 'off') {
 		
 		if($a['stat_max'] && ($a['type']=='sunrise' || $a['type']=='sunset')) 
 		
-		{ $stat_max='<span class="label label-danger" title="Greatest value from sensor '.$unit.'">'.date('H:i', $a['stat_max']).'</span>';} 
+		{ $stat_max='<span class="label label-warning" title="Greatest value from sensor '.$unit.'">'.date('H:i', $a['stat_max']).'</span>';} 
 		else {	
-			$stat_max='<span class="label label-danger" title="Greatest value from sensor '.$unit.'">'.number_format($a['stat_max'], 1, '.', ',').'</span>';	
+			$stat_max='<span class="label label-warning" title="Greatest value from sensor '.$unit.'">'.number_format($a['stat_max'], 1, '.', ',').'</span>';	
 		}
 		
 		if($a['tmp'] >= $a['tmp_max'] && !empty($a['tmp']) && !empty($a['tmp_max'])) { 
