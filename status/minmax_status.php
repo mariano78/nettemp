@@ -128,17 +128,15 @@ $file=$rom .".sql";
 	<td><span class="label label-info"><?php echo number_format($m['mmin'], 2, '.', '')?></span><span class="label label-warning"><?php echo number_format($m['mmax'], 2, '.', '')?></span></td>
     </tr>
     <?php
-     } elseif { ?>
+     } else { ?>
     <tr>
 	<td><span class="label label-default"><?php echo str_replace("_", " ", $a['name']) ?></span></td>
-	
-	
-	
-	<td><span class="label label-info"><?php echo date('H:i', $d['dmin'])?></span><span class="label label-warning"><?php echo number_format($d['dmax'], 1, '.', '')?></span></td>
-	<td><span class="label label-info"><?php echo date('H:i', $w['wmin'])?></span><span class="label label-warning"><?php echo number_format($w['wmax'], 1, '.', '')?></span></td>
-	<td><span class="label label-info"><?php echo date('H:i', $m['mmin'])?></span><span class="label label-warning"><?php echo number_format($m['mmax'], 1, '.', '')?></span></td>
+	<td><span class="label label-info"><?php echo number_format($d['dmin'], 1, '.', '')?></span><span class="label label-warning"><?php echo number_format($d['dmax'], 1, '.', '')?></span></td>
+	<td><span class="label label-info"><?php echo number_format($w['wmin'], 1, '.', '')?></span><span class="label label-warning"><?php echo number_format($w['wmax'], 1, '.', '')?></span></td>
+	<td><span class="label label-info"><?php echo number_format($m['mmin'], 1, '.', '')?></span><span class="label label-warning"><?php echo number_format($m['mmax'], 1, '.', '')?></span></td>
     </tr>
     <?php
+    }
  	 } else {
 
 	//option2    
