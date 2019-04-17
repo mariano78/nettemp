@@ -161,10 +161,10 @@ $file=$rom .".sql";
 	} elseif ($a['type'] == 'sunrise' || $a['type'] == 'sunset') { ?>
     <tr>
 	<td><span class="label label-default"><?php echo str_replace("_", " ", $a['name']) ?></span></td>
-	<td><span class="label label-info"><?php echo date('H:i', ($h['hmax']-$h['hmin']))?></span></td>
-	<td><span class="label label-info"><?php echo date('H:i', ($d['dmax']-$d['dmin']))?></span></td>
-	<td><span class="label label-info"><?php echo date('H:i', ($w['wmax']-$w['wmin']))?></span></td>
-	<td><span class="label label-info"><?php echo date('H:i', ($m['mmax']-$m['mmin']))?></span></td>
+	<td><span class="label label-info"><?php echo date('i', ($h['hmax']-$h['hmin']))?></span></td>
+	<td><span class="label label-info"><?php echo date('i', ($d['dmax']-$d['dmin']))?></span></td>
+	<td><span class="label label-info"><?php echo date('i', ($w['wmax']-$w['wmin']))?></span></td>
+	<td><span class="label label-info"><?php echo date('i', ($m['mmax']-$m['mmin']))?></span></td>
     </tr>
     <?php
      } else { ?>
