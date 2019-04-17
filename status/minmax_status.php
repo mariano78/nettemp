@@ -161,9 +161,10 @@ $file=$rom .".sql";
 	} elseif ($a['type'] == 'sunrise' || $a['type'] == 'sunset') { ?>
     <tr>
 	<td><span class="label label-default"><?php echo str_replace("_", " ", $a['name']) ?></span></td>
-	<td><span class="label label-info"><?php echo date('H:i', ($d['dmax']-$d['dmin']))?></span><span class="label label-warning"><?php echo date('H:i', $d['dmax'])?></span></td>
-	<td><span class="label label-info"><?php echo date('H:i', $w['wmin'])?></span><span class="label label-warning"><?php echo date('H:i', $w['wmax'])?></span></td>
-	<td><span class="label label-info"><?php echo date('H:i', $m['mmin'])?></span><span class="label label-warning"><?php echo date('H:i', $m['mmax'])?></span></td>
+	<td><span class="label label-info"><?php echo date('H:i', ($h['hmax']-$h['hmin']))?></span></td>
+	<td><span class="label label-info"><?php echo date('H:i', ($d['dmax']-$d['dmin']))?></span></td>
+	<td><span class="label label-info"><?php echo date('H:i', ($w['wmax']-$w['wmin']))?></span></td>
+	<td><span class="label label-info"><?php echo date('H:i', ($m['mmax']-$m['mmin']))?></span></td>
     </tr>
     <?php
      } else { ?>
