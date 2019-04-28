@@ -79,13 +79,13 @@ function procmsg($topic, $msg){
 	$type=$arr['3'];
 	$gpio=$arr['4'];
     
-	$local_device	=	'mqtt';
+	$local_device	=	'gpio';
 	$local_type	=	$type;
 	$local_val	=	$output;
 	$local_name	=	$name;
 	$local_ip	=	$ip;
 	$local_gpio	=	$gpio;
-	$local_rom=$local_device."_".$local_name."_".$local_type."_".$local_gpio;
+	$local_rom="mqtt_".$local_name."_".$local_type."_".$local_gpio;
     }
     else {
 	$ip=$arr['1'];
