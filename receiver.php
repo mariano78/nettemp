@@ -352,9 +352,9 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 								$dbr->exec("UPDATE gpio SET ip='$ip' WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert IP to gpio\n" );
 							}
 							
-							if($val == '1.0') {
+							if($val == '1.0' || $val == '1' ) {
 								$dbr->exec("UPDATE gpio SET status='ON' WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert status to gpio\n" );
-							} elseif($val == '0.0') {
+							} elseif($val == '0.0' || $val == '0') {
 								$dbr->exec("UPDATE gpio SET status='OFF' WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert status to gpio\n" );
 							}
 						}
