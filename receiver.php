@@ -337,7 +337,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 						$dbr->exec("UPDATE sensors SET tmp='$val' WHERE rom='$rom'") or die ("cannot insert to trigger status2\n");
 						
 					}
-					//sensors status
+					//sensors status - GPIO tutaj
 					else {
 						$dbr->exec("UPDATE sensors SET tmp='$val', status='ok', ip='$ip' WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert value to status\n" );
 						echo $rom." okb\n";
@@ -345,9 +345,20 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 						if ($val<$stat_min || empty($stat_min)) {$dbr->exec("UPDATE sensors SET stat_min='$val' WHERE rom='$rom'");
 						} elseif ($val>$stat_max || empty($stat_max)) {$dbr->exec("UPDATE sensors SET stat_max='$val' WHERE rom='$rom'");}
 						
-						if(!is_null($ip) && $device == 'gpio') {
-						    $dbr->exec("UPDATE gpio SET ip='$ip' WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert IP to gpio\n" );
+						//if(!is_null($ip) && $device == 'gpio') {
+						if($device == 'gpio') {
+							
+							if(!is_null($ip)) {
+								$dbr->exec("UPDATE gpio SET ip='$ip' WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert IP to gpio\n" );
+							}
+							
+							if($val == '1.0') {
+								$dbr->exec("UPDATE gpio SET status='ON' WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert status to gpio\n" );
+							} elseif($val == '0.0') {
+								$dbr->exec("UPDATE gpio SET status='OFF' WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert status to gpio\n" );
+							}
 						}
+						
 						
 					}
 				}		
