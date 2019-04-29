@@ -345,7 +345,6 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 						if ($val<$stat_min || empty($stat_min)) {$dbr->exec("UPDATE sensors SET stat_min='$val' WHERE rom='$rom'");
 						} elseif ($val>$stat_max || empty($stat_max)) {$dbr->exec("UPDATE sensors SET stat_max='$val' WHERE rom='$rom'");}
 						
-						//if(!is_null($ip) && $device == 'gpio') {
 						if($type == 'gpio') {
 							
 							if(!is_null($ip)) {
