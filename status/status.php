@@ -57,9 +57,45 @@ Go to device scan!
 	$order = $morder->fetchAll();
 	foreach($order as $or) {
 		$module = $or['modulename'];
+		
+		
+		
+		
+		
+		
 		 if ($module == "MinMax") {
-		include('status/minmax_status.php');
-	}
+			include('status/minmax_status.php');
+		}else  if ($module == "Counters") {
+			include('status/counters_status.php');
+		}else  if ($module == "Controls/GPIO") {
+			include('status/controls.php');
+		}else  if ($module == "Meteo") {
+			include('status/meteo_status.php');
+		}else  if ($module == "IP Cam") {
+			include('status/ipcam_status.php');
+		}else  if ($module == "UPS") {
+			include('status/ups_status.php');
+		}else  if ($module == "Widget") {
+			//OW
+			$rowsow = $db->query("SELECT * FROM ownwidget WHERE onoff='on' ") or header("Location: html/errors/db_error.php");
+			$owresult = $rowsow->fetchAll();
+			$uniquec=array();
+				foreach($owresult as $owg) {
+					$owb = $owg['body'];
+					$own = $owg['name'];
+					$owh = $owg['hide'];
+					//$ref = $owg['refresh'];
+					include('status/ownwidget.php');
+				}
+		}
+	
+	
+	
+	
+	
+	
+	
+	
 	}
 
     //GROUPS
@@ -85,22 +121,22 @@ Go to device scan!
 	}	
 	//END JG GROUPS
 	//OW
-    $rowsow = $db->query("SELECT * FROM ownwidget WHERE onoff='on' ") or header("Location: html/errors/db_error.php");
-	$owresult = $rowsow->fetchAll();
-	$uniquec=array();
-	foreach($owresult as $owg) {
-		$owb = $owg['body'];
-		$own = $owg['name'];
-		$owh = $owg['hide'];
+  //  $rowsow = $db->query("SELECT * FROM ownwidget WHERE onoff='on' ") or header("Location: html/errors/db_error.php");
+	//$owresult = $rowsow->fetchAll();
+	//$uniquec=array();
+	//foreach($owresult as $owg) {
+	//	$owb = $owg['body'];
+	//	$own = $owg['name'];
+	//	$owh = $owg['hide'];
 		//$ref = $owg['refresh'];
-		include('status/ownwidget.php');
-	}
-    include('status/minmax_status.php'); 
-    include('status/counters_status.php');
-    include('status/controls.php');
-    include('status/meteo_status.php');
-    include('status/ipcam_status.php');
-    include('status/ups_status.php');
+		//include('status/ownwidget.php');
+	//}
+    //include('status/minmax_status.php'); 
+    //include('status/counters_status.php');
+    //include('status/controls.php');
+    //include('status/meteo_status.php');
+    //include('status/ipcam_status.php');
+    //include('status/ups_status.php');
     ?>
 </div>
 
