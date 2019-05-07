@@ -17,13 +17,21 @@
 		<?php
 		
 			foreach($morder as $mor) {
+			$moduleid = $mor['id'];
 			$moduleposition = $mor['position'];
 			$modulename = $mor['modulename'];
 		?>
+		<tr>
+		<td class="col-md-0">
+		<form action="" method="post" style="display:inline!important;">
+		<input type="hidden" name="module_id" value="<?php echo $moduleid; ?>" />
+		<input type="text" name="module_position" size="1" maxlength="3" value="<?php echo $moduleposition; ?>" />
+		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+		<input type="hidden" name="module_positionok" value="ok" />
+		</form>
+		</td>
 		
-			<tr>
-			
-				<td><?php echo $moduleposition ?></td><td><?php echo $modulename ?></td>
+		<td><?php echo $modulename; ?></td>
 			
 			</tr>
 		<?php
