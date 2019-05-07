@@ -53,15 +53,14 @@ Go to device scan!
 
 //Modules ORDER
 
- $morder = $db->query("SELECT * FROM statusorder ORDERBY BY position") or header("Location: html/errors/db_error.php");
+ $morder = $db->query("SELECT * FROM statusorder ORDERBY BY position ASC") or header("Location: html/errors/db_error.php");
 	$order = $morder->fetchAll();
-	$uniquec=array();
 	foreach($order as $or) {
 		$module = $or['modulename'];
-		 if ($module == "MinMax")
+		 if ($module == "MinMax") {
 		include('status/minmax_status.php');
 	}
-
+	}
 
     //GROUPS
     $rows = $db->query("SELECT ch_group,type FROM sensors ORDER BY position_group ASC") or header("Location: html/errors/db_error.php");
