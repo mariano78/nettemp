@@ -360,6 +360,9 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 						
 						
 					}
+					
+					$dbr->exec("UPDATE nt_settings SET value = value +1  WHERE option='refreshcount'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert count to table\n" );
+					
 				}		
 				else {
 					echo $rom." ".$val." not in range \n";
