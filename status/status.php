@@ -124,9 +124,6 @@ Go to device scan!
 	
 	if ($reff > 0 ) {
 	
-	?>
-
-    <?php
 		foreach ($unique as $key => $ch_g) { 
 	?>
 		$('.sg<?php echo $ch_g?>').load("status/sensor_groups.php?ch_g=<?php echo $ch_g?>");
@@ -152,25 +149,19 @@ Go to device scan!
 		}
 	?>
 	
-	
-	
     $('.co').load("status/counters_status.php");
     $('.ms').load("status/meteo_status.php");
     $('.mm').load("status/minmax_status.php");
     $('.ups').load("status/ups_status.php");
-	
     $('.swcon').load("status/controls.php", function() {		
 	$('[id="onoffstatus"]').bootstrapToggle({size : 'mini', off : 'Off', on : 'On',});
 	$('[id="lockstatus"]').bootstrapToggle({size : 'mini', off : 'lock', on : 'lock',});	
 	});	
 
 	$('.uptime').load("html/index/uptime.php");
-	//$('.systime').load("html/index/systime.php");
-	
 	
 	<?php
 	$db->exec("UPDATE nt_settings SET value = 0  WHERE option='refreshcount'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert count to table\n" );
-	
 	}
 	?>
 }, 5000);
