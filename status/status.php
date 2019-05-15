@@ -122,7 +122,7 @@ Go to device scan!
 	$reff = $ref2['value'];
 	}
 	
-	if ($reff > 0 ) {
+	if ($reff != 0 ) {
 	
 		foreach ($unique as $key => $ch_g) { 
 	?>
