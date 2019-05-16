@@ -220,6 +220,7 @@ $updates['2019-05-07 11:48:01'][]="INSERT INTO statusorder ('position', 'modulen
 
 //Update - modules order in status
 $updates['2019-05-15 08:48:21'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('refreshcount','0')";
+$updates['2019-05-16 12:40:00'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('logrefresh','off')";
 
 
 
