@@ -97,16 +97,6 @@ $local_ip='';
 $local_gpio='';
 $local_usb='';
 
-function logsr($content){
-global $ROOT;
-
-	$f = fopen("tmp/incoming_sms.txt", "a");
-
-fwrite($f, $content);
-fclose($f); 
-}
-
-
 $dbr = new PDO("sqlite:".__DIR__."/dbf/nettemp.db") or die ("cannot open database");
 
 $sth = $dbr->query("SELECT * FROM nt_settings");
@@ -200,9 +190,7 @@ function trigger($rom, $val) {
 				echo "Send OK.\n";
 			}
 			unlink($filepath);
-				
-			$content = $date." - ".$name." - !!! ALARM !!!\n";
-			logsr($content);
+			logs(date("Y-m-d H:i:s"),'Info',$name." - !!! ALARM !!!");
 			}
 		}
 		if ($mail == 'on') {
@@ -211,8 +199,6 @@ function trigger($rom, $val) {
 			
 			}
 		if (!empty($pscript)) {
-			
-			//include("scripts/$pscript");
 			shell_exec(__DIR__."/scripts/$pscript");
 		}	
 	// from 1 to 0	
@@ -237,8 +223,7 @@ function trigger($rom, $val) {
 				echo "Send OK.\n";
 			}
 			unlink($filepath);
-			$content = $date." - ".$name." - *** RECOVERY ***\n";
-			logsr($content);
+			logs(date("Y-m-d H:i:s"),'Info',$name." - *** RECOVERY ***");
 			}
 		}
 		if ($mail == 'on') {
@@ -247,8 +232,6 @@ function trigger($rom, $val) {
 			
 			}
 		if (!empty($pscript1)) {
-			
-			//include("scripts/$pscript1");
 			shell_exec(__DIR__."/scripts/$pscript1");
 		}
 	}
@@ -269,9 +252,6 @@ function check($val,$type) {
 			return 'range';
 		}
 	}
-    //$sthr=null;
-    //$dbr=null;	
-
 }
 
 
@@ -301,12 +281,10 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 				$val=adjust($val,$rom);
 				$val=check($val,$type);
 				if ($val != 'range'){
-					//// base
-					// counters can always put to base
-					//$arrayt = array("gas", "water", "elec", "amps", "volt", "watt", "temp", "humid", "trigger", "rainfall", "speed", "wind", "uv", "storm", "lighting", "battery");
-					$arrayt = array("gas", "water", "elec");
-					//$arrayd = array("wireless", "gpio", "usb", "ip", "ip_mqtt");
-					//if (in_array($type, $arrayt) &&  in_array($device, $arrayd)) {
+		
+				// counters can always put to base
+					
+				$arrayt = array("gas", "water", "elec");
 					if (in_array($type, $arrayt) ) {
 						if (isset($current) && is_numeric($current)) {
 							$dbfr->exec("INSERT OR IGNORE INTO def (value,current) VALUES ('$val','$current')") or die ("cannot insert to rom sql current\n" );
@@ -316,9 +294,13 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 							logs(date("Y-m-d H:i:s"),'Info',$rom." - Current value for counter updated - ".$current);
 						} else {
 							$dbfr->exec("INSERT OR IGNORE INTO def (value) VALUES ('$val')") or die ("cannot insert to rom sql\n" );
+							
+							echo $rom." - Value for counter updated ".$val." \n";
+							logs(date("Y-m-d H:i:s"),'Info',$rom." - Value for counter updated - ".$val);
 						}
 						//sum,current for counters
 						$dbr->exec("UPDATE sensors SET sum='$val'+sum WHERE rom='$rom'") or die ("cannot insert to status\n" );
+						
 						echo $rom." - Summary value for counter updated \n";
 						logs(date("Y-m-d H:i:s"),'Info',$rom." - Summary value for counter updated");
 					}
