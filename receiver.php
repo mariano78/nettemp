@@ -309,18 +309,21 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 						if (isset($current) && is_numeric($current)) {
 							$dbfr->exec("INSERT OR IGNORE INTO def (value,current) VALUES ('$val','$current')") or die ("cannot insert to rom sql current\n" );
 							$dbr->exec("UPDATE sensors SET current='$current' WHERE rom='$rom'") or die ("cannot insert to current\n" );
-							echo $rom." current ".$current." \n";
+							echo $rom." - Current value for counter updated ".$current." \n";
+							logs(date("Y-m-d H:i:s"),'Info',$rom." - Current value for counter updated - ".$current);
 						} else {
 							$dbfr->exec("INSERT OR IGNORE INTO def (value) VALUES ('$val')") or die ("cannot insert to rom sql\n" );
 						}
 						//sum,current for counters
 						$dbr->exec("UPDATE sensors SET sum='$val'+sum WHERE rom='$rom'") or die ("cannot insert to status\n" );
-						echo $rom." ok \n";
+						echo $rom." - Summary value for counter updated \n";
+						logs(date("Y-m-d H:i:s"),'Info',$rom." - Summary value for counter updated");
 					}
 					// time when you can put into base
 					elseif ((date('i', time())%$chmin==0) || (date('i', time())==00))  {
 						$dbfr->exec("INSERT OR IGNORE INTO def (value) VALUES ('$val')") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert to rom sql, time\n");
-						echo date("Y-m-d H:i:s")." ".$rom." ".$val." oka \n";
+						echo date("Y-m-d H:i:s")." ".$rom." ".$val." Value updated \n";
+						logs(date("Y-m-d H:i:s"),'Info',$rom." - Value updated - ".$val);
 					}
 					else {
 						echo "Not writed interval is ".$chmin." min\n";
@@ -338,12 +341,14 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 						trigger($rom,$val);
 						
 						$dbr->exec("UPDATE sensors SET tmp='$val' WHERE rom='$rom'") or die ("cannot insert to trigger status2\n");
+						logs(date("Y-m-d H:i:s"),'Info',$rom." - Value updated - ".$val);
 						
 					}
 					//sensors status and GPIO status
 					else {
 						$dbr->exec("UPDATE sensors SET tmp='$val', status='ok', ip='$ip' WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert value to status\n" );
-						echo $rom." okb\n";
+						echo $rom." Value updated\n";
+						logs(date("Y-m-d H:i:s"),'Info',$rom." - Value updated - ".$val);
 						//minmax light
 						if ($val<$stat_min || empty($stat_min)) {$dbr->exec("UPDATE sensors SET stat_min='$val' WHERE rom='$rom'");
 						} elseif ($val>$stat_max || empty($stat_max)) {$dbr->exec("UPDATE sensors SET stat_max='$val' WHERE rom='$rom'");}
@@ -380,6 +385,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 					$dbr->exec("UPDATE sensors SET status='error', tmp = 0 WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert status to sensors ".$rom.", not numeric\n");
 					$dbfr->exec("INSERT OR IGNORE INTO def (value) VALUES ('0')") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert to rom DB ".$rom.", not numeric\n");
 					echo date("Y-m-d H:i:s")." Puting value \"".$val."\" to ".$rom.", but value is not numieric!, inserting 0 to db\n";
+					logs(date("Y-m-d H:i:s"),'Error',$rom." - Value is not numeric - inserting 0 to database ");
 				}
 			}
 		}
@@ -387,14 +393,16 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 		else {
 			$name=substr(rand(), 0, 4);
 			$dbr->exec("INSERT OR IGNORE INTO newdev (rom,type,device,ip,gpio,i2c,usb,name) VALUES ('$rom','$type','$device','$ip','$gpio','$i2c','$usb','$name')");
-			echo "DB exist. Added ".$rom." to new sensors \n";
+			echo "Database exist. Added ".$rom." to new sensors \n";
+			logs(date("Y-m-d H:i:s"),'Info',$rom." - Database exist - Added to new sensors ");
 		}
 	}
 	//if base not exist
 	else {
 		$name=substr(rand(), 0, 4);
 		$dbr->exec("INSERT OR IGNORE INTO newdev (rom,type,device,ip,gpio,i2c,usb,name) VALUES ('$rom','$type','$device','$ip','$gpio','$i2c','$usb','$name')");
-		echo "No DB. Added ".$rom." to new sensors \n";
+		echo "Database not exist. Added ".$rom." to new sensors \n";
+		logs(date("Y-m-d H:i:s"),'Info',$rom." - Database not exist - Added to new sensors ");
 	}
 	//$sthr=null;
 	//$dbr=null;
@@ -406,6 +414,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 if (("$key" != "$skey") && (!defined('LOCAL')))
 {
     echo "wrong key\n";
+	logs(date("Y-m-d H:i:s"),'Error',"Receiver - wrong key ");
 } 
 else {
 
