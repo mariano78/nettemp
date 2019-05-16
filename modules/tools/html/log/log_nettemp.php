@@ -41,7 +41,6 @@ if(!empty($refresh) && ($refresh == "refresh")) {
 	<input type="hidden" name="refresh" value="refresh" />
 </form>
 
-
 <br />
 <div id="logs" style="height:600px; overflow:auto">
 <pre>
@@ -50,20 +49,14 @@ $filearray = file("tmp/log.txt");
 $last = array_slice($filearray,-100);
     foreach($last as $f){
     	echo $f;
-    }
-	
-	
-	
+    }	
 	$query = $db->query("SELECT * FROM logs");
     $result= $query->fetchAll();
 	
     foreach($result as $log) {
 		
 		echo $log['id']." - ".$log['date']." - ".$log['type']." - ".$log['message']."\n";		
-	}
-	
-	
-	
+	}	
 ?>
 </pre>
 </div>
@@ -73,17 +66,11 @@ $last = array_slice($filearray,-100);
 <script type="text/javascript">
 <?php 
 if ($nts_ref_logs == 'on'){ ?>
-	
-$('#logs').scrollTop($('#logs')[0].scrollHeight);
 
+$('#logs').scrollTop($('#logs')[0].scrollHeight);
     setInterval( function() {
-		$("#logs").load(location.href+" #logs>*",""); 
-		
-		$('#logs').scrollTop($('#logs')[0].scrollHeight);
-		
-    
-   
-	
+		$("#logs").load(location.href+" #logs>*",""); 		
+		$('#logs').scrollTop($('#logs')[0].scrollHeight);			
 }, 5000);
 <?php
 }

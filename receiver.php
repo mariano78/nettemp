@@ -314,8 +314,8 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 						logs(date("Y-m-d H:i:s"),'Info',$rom." - Value updated - ".$val);
 					}
 					else {
-						echo "Not writed, interval is ".$chmin." min\n";
-						logs(date("Y-m-d H:i:s"),'Error',$rom." - Not writed, interval is ".$chmin." min");
+						echo "Not writed to base, interval is ".$chmin." min\n";
+						logs(date("Y-m-d H:i:s"),'Error',$rom." - Not writed to base, interval is ".$chmin." min");
 					}
 		    
 					// 5ago arrow
@@ -334,8 +334,9 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 					//sensors status and GPIO status
 					else {
 						$dbr->exec("UPDATE sensors SET tmp='$val', status='ok', ip='$ip' WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert value to status\n" );
-						echo $rom." Value updated\n";
+						echo $rom." Value updated to sensors\n";
 						//logs(date("Y-m-d H:i:s"),'Info',$rom." - Value updated sensors - ".$val);
+						
 						//minmax light
 						if ($val<$stat_min || empty($stat_min)) {$dbr->exec("UPDATE sensors SET stat_min='$val' WHERE rom='$rom'");
 						} elseif ($val>$stat_max || empty($stat_max)) {$dbr->exec("UPDATE sensors SET stat_max='$val' WHERE rom='$rom'");}
@@ -356,7 +357,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 						
 					}
 					
-					$dbr->exec("UPDATE nt_settings SET value = value +1  WHERE option='refreshcount'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert count to table\n" );
+					$dbr->exec("UPDATE nt_settings SET value = value + 1  WHERE option='refreshcount'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert count to table\n" );
 					//logs(date("Y-m-d H:i:s"),'Receiver','test');
 					
 				}		
