@@ -401,7 +401,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 if (("$key" != "$skey") && (!defined('LOCAL')))
 {
     echo "wrong key\n";
-	logs(date("Y-m-d H:i:s"),'Error',"Receiver - wrong key ");
+	logs(date("Y-m-d H:i:s"),'Error',"Receiver - wrong key - ".$key.$rom);
 } 
 else {
 
