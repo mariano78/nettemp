@@ -303,12 +303,13 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 				if ($val != 'range'){
 					//// base
 					// counters can always put to base
-					$arrayt = array("gas", "water", "elec", "amps", "volt", "watt", "temp", "humid", "trigger", "rainfall", "speed", "wind", "uv", "storm", "lighting", "battery");
+					$arrayt = array("gas", "water", "elec", "amps", "volt", "watt", "humid", "trigger", "rainfall", "speed", "wind", "uv", "storm", "lighting", "battery");
 					$arrayd = array("wireless", "gpio", "usb", "ip", "ip_mqtt");
 					if (in_array($type, $arrayt) &&  in_array($device, $arrayd)) {
 						if (isset($current) && is_numeric($current)) {
 							$dbfr->exec("INSERT OR IGNORE INTO def (value,current) VALUES ('$val','$current')") or die ("cannot insert to rom sql current\n" );
 							$dbr->exec("UPDATE sensors SET current='$current' WHERE rom='$rom'") or die ("cannot insert to current\n" );
+							
 							echo $rom." - Current value for counter updated ".$current." \n";
 							logs(date("Y-m-d H:i:s"),'Info',$rom." - Current value for counter updated - ".$current);
 						} else {
