@@ -1,6 +1,6 @@
 <?php
 
-include("common/functions.php")
+include("common/functions.php");
 // name:
 // type: temp, humid, relay, lux, press, humid, gas, water, elec, volt, amps, watt, trigger
 // device: ip, wireless, remote, gpio, i2c, usb
