@@ -26,6 +26,15 @@ $log_del = isset($_POST['log_del']) ? $_POST['log_del'] : '';
 <form action="index.php?id=tools&type=log" method="post">
     <input type="submit" name="log_del" value="Clear" class="btn btn-xs btn-danger" />
 </form>
+
+<form action="" method="post" style="display:inline!important;">
+	<label>Refresh:</label>
+	<input type="hidden" name="id" value="<?php echo $z["id"]; ?>" />
+	<button type="submit" name="refresh" value="<?php echo $nts_ref_logs == 'on' ? 'off' : 'on'; ?>" <?php echo $nts_ref_logs == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>> <?php echo $nts_ref_logs == 'on' ? 'ON' : 'OFF'; ?></button>
+	<input type="hidden" name="refresh" value="refresh" />
+</form>
+
+
 <br />
 <div id="logs" style="height:600px; overflow:auto">
 <pre>
