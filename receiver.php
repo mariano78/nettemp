@@ -381,7 +381,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 			$name=substr(rand(), 0, 4);
 			$dbr->exec("INSERT OR IGNORE INTO newdev (rom,type,device,ip,gpio,i2c,usb,name) VALUES ('$rom','$type','$device','$ip','$gpio','$i2c','$usb','$name')");
 			echo "Database exist. Added ".$rom." to new sensors \n";
-			logs(date("Y-m-d H:i:s"),'Info',$rom." - Database exist - Added to new sensors ");
+			//logs(date("Y-m-d H:i:s"),'Info',$rom." - Database exist - Added to new sensors ");
 		}
 	}
 	//if base not exist
@@ -389,7 +389,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 		$name=substr(rand(), 0, 4);
 		$dbr->exec("INSERT OR IGNORE INTO newdev (rom,type,device,ip,gpio,i2c,usb,name) VALUES ('$rom','$type','$device','$ip','$gpio','$i2c','$usb','$name')");
 		echo "Database not exist. Added ".$rom." to new sensors \n";
-		logs(date("Y-m-d H:i:s"),'Info',$rom." - Database not exist - Added to new sensors ");
+		//logs(date("Y-m-d H:i:s"),'Info',$rom." - Database not exist - Added to new sensors ");
 	}
 	//$sthr=null;
 	//$dbr=null;
