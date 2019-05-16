@@ -11,26 +11,34 @@ $log_del = isset($_POST['log_del']) ? $_POST['log_del'] : '';
 	echo $dir; 
 	
 	$db->exec("DELETE FROM logs");
-	
-	
-	
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();
 	 } 
+	 
+	 
+//auto refresh
+$refresh = isset($_POST['refresh']) ? $_POST['refresh'] : '';
+$refvalue = isset($_POST['refvalue']) ? $_POST['refvalue'] : '';
+if(!empty($refresh) && ($refresh == "refresh")) { 
+	$db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("UPDATE nt_settings SET value = $refvalue  WHERE option='logrefresh'");
+	header("location: " . $_SERVER['REQUEST_URI']);
+	exit();	
+} 
 
 	 ?>	
 <div class="panel panel-default">
 <div class="panel-heading">Logs</div>
 <div class="panel-body">
 
-<form action="index.php?id=tools&type=log" method="post">
+<form action="index.php?id=tools&type=log" method="post" style="display:inline!important;">
     <input type="submit" name="log_del" value="Clear" class="btn btn-xs btn-danger" />
 </form>
 
 <form action="" method="post" style="display:inline!important;">
 	<label>Refresh:</label>
 	<input type="hidden" name="id" value="<?php echo $z["id"]; ?>" />
-	<button type="submit" name="refresh" value="<?php echo $nts_ref_logs == 'on' ? 'off' : 'on'; ?>" <?php echo $nts_ref_logs == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>> <?php echo $nts_ref_logs == 'on' ? 'ON' : 'OFF'; ?></button>
+	<button type="submit" name="refvalue" value="<?php echo $nts_ref_logs == 'on' ? 'off' : 'on'; ?>" <?php echo $nts_ref_logs == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>> <?php echo $nts_ref_logs == 'on' ? 'ON' : 'OFF'; ?></button>
 	<input type="hidden" name="refresh" value="refresh" />
 </form>
 
