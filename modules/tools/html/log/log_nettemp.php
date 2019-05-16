@@ -56,7 +56,8 @@ $last = array_slice($filearray,-100);
 
 <script type="text/javascript">
 <?php 
-if ($nts_ref_logs == 'on'){
+if ($nts_ref_logs == 'on'){ ?>
+	
 $('#logs').scrollTop($('#logs')[0].scrollHeight);
 
     setInterval( function() {
@@ -68,6 +69,6 @@ $('#logs').scrollTop($('#logs')[0].scrollHeight);
    
 	
 }, 5000);
-}?>
+<?php}?>
 </script>
 
