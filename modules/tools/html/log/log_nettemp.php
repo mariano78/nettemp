@@ -38,7 +38,7 @@ $last = array_slice($filearray,-100);
 	
 	
 	
-	$query = $db->query("SELECT * FROM logs");
+	$query = $db->query("SELECT * FROM logs LIMIT 300");
     $result= $query->fetchAll();
 	
     foreach($result as $log) {
