@@ -303,9 +303,11 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 				if ($val != 'range'){
 					//// base
 					// counters can always put to base
-					$arrayt = array("gas", "water", "elec", "amps", "volt", "watt", "temp", "humid", "trigger", "rainfall", "speed", "wind", "uv", "storm", "lighting", "battery");
-					$arrayd = array("wireless", "gpio", "usb", "ip", "ip_mqtt");
-					if (in_array($type, $arrayt) &&  in_array($device, $arrayd)) {
+					//$arrayt = array("gas", "water", "elec", "amps", "volt", "watt", "temp", "humid", "trigger", "rainfall", "speed", "wind", "uv", "storm", "lighting", "battery");
+					$arrayt = array("gas", "water", "elec");
+					//$arrayd = array("wireless", "gpio", "usb", "ip", "ip_mqtt");
+					//if (in_array($type, $arrayt) &&  in_array($device, $arrayd)) {
+					if (in_array($type, $arrayt) ) {
 						if (isset($current) && is_numeric($current)) {
 							$dbfr->exec("INSERT OR IGNORE INTO def (value,current) VALUES ('$val','$current')") or die ("cannot insert to rom sql current\n" );
 							$dbr->exec("UPDATE sensors SET current='$current' WHERE rom='$rom'") or die ("cannot insert to current\n" );
@@ -327,7 +329,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 						logs(date("Y-m-d H:i:s"),'Info',$rom." - Value updated time- ".$val);
 					}
 					else {
-						echo "Not writed interval is ".$chmin." min\n";
+						echo "Not writed, interval is ".$chmin." min\n";
 						logs(date("Y-m-d H:i:s"),'Error',$rom." - Not writed, interval is ".$chmin." min");
 					}
 		    
