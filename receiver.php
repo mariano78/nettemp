@@ -324,7 +324,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 					elseif ((date('i', time())%$chmin==0) || (date('i', time())==00))  {
 						$dbfr->exec("INSERT OR IGNORE INTO def (value) VALUES ('$val')") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert to rom sql, time\n");
 						echo date("Y-m-d H:i:s")." ".$rom." ".$val." Value updated \n";
-						logs(date("Y-m-d H:i:s"),'Info',$rom." - Value updated - ".$val);
+						logs(date("Y-m-d H:i:s"),'Info',$rom." - Value updated time- ".$val);
 					}
 					else {
 						echo "Not writed interval is ".$chmin." min\n";
@@ -342,14 +342,14 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 						trigger($rom,$val);
 						
 						$dbr->exec("UPDATE sensors SET tmp='$val' WHERE rom='$rom'") or die ("cannot insert to trigger status2\n");
-						logs(date("Y-m-d H:i:s"),'Info',$rom." - Value updated - ".$val);
+						logs(date("Y-m-d H:i:s"),'Info',$rom." - Value updated trigger - ".$val);
 						
 					}
 					//sensors status and GPIO status
 					else {
 						$dbr->exec("UPDATE sensors SET tmp='$val', status='ok', ip='$ip' WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert value to status\n" );
 						echo $rom." Value updated\n";
-						logs(date("Y-m-d H:i:s"),'Info',$rom." - Value updated - ".$val);
+						logs(date("Y-m-d H:i:s"),'Info',$rom." - Value updated sensors- ".$val);
 						//minmax light
 						if ($val<$stat_min || empty($stat_min)) {$dbr->exec("UPDATE sensors SET stat_min='$val' WHERE rom='$rom'");
 						} elseif ($val>$stat_max || empty($stat_max)) {$dbr->exec("UPDATE sensors SET stat_max='$val' WHERE rom='$rom'");}
