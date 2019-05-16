@@ -21,7 +21,7 @@ $refresh = isset($_POST['refresh']) ? $_POST['refresh'] : '';
 $refvalue = isset($_POST['refvalue']) ? $_POST['refvalue'] : '';
 if(!empty($refresh) && ($refresh == "refresh")) { 
 	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("UPDATE nt_settings SET value = $refvalue  WHERE option='logrefresh'");
+	$db->exec("UPDATE nt_settings SET value = '$refvalue'  WHERE option='logrefresh'");
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();	
 } 
@@ -37,7 +37,6 @@ if(!empty($refresh) && ($refresh == "refresh")) {
 
 <form action="" method="post" style="display:inline!important;">
 	<label>Refresh:</label>
-	<input type="hidden" name="id" value="<?php echo $z["id"]; ?>" />
 	<button type="submit" name="refvalue" value="<?php echo $nts_ref_logs == 'on' ? 'off' : 'on'; ?>" <?php echo $nts_ref_logs == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>> <?php echo $nts_ref_logs == 'on' ? 'ON' : 'OFF'; ?></button>
 	<input type="hidden" name="refresh" value="refresh" />
 </form>
