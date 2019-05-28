@@ -138,5 +138,6 @@ else
 </form>
 
 <?php
+echo $b['trigout']; 
 }
 ?>
