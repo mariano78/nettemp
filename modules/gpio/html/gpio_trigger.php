@@ -96,6 +96,7 @@ else
     <input type="hidden" name="toutonoff" value="onoff" />
 </form>
 <?php
+echo $b['trigout']; echo $gpio_post; 
 }
 ?>
      <form action="" method="post" style=" display:inline!important;">
@@ -138,6 +139,6 @@ else
 </form>
 
 <?php
-echo $b['trigout']; 
+
 }
 ?>
