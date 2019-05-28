@@ -41,9 +41,9 @@ $toutonoff = isset($_POST['toutonoff']) ? $_POST['toutonoff'] : '';
 $tout = isset($_POST['tout']) ? $_POST['tout'] : '';
 $toutgpio = isset($_POST['toutgpio']) ? $_POST['toutgpio'] : '';
 $trigromout = isset($_POST['trigromout']) ? $_POST['trigromout'] : '';
-if (($toutonoff == "onoff") &&  (!empty($tout)))  {
-    $tout == "off" ? $tout='' : "";
-    $db->exec("UPDATE gpio SET trigout='$gpio_post' WHERE gpio='$gpio_post' AND rom='$trigromout'") or exit(header("Location: html/errors/db_error.php"));
+if (($toutonoff == "onoff") &&  (!empty($toutgpio)))  {
+  
+    $db->exec("UPDATE gpio SET trigout='$gpio_post' WHERE gpio='$toutgpio' AND rom='$trigromout'") or exit(header("Location: html/errors/db_error.php"));
     $db = null;
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
