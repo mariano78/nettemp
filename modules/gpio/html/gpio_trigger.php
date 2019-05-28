@@ -38,15 +38,15 @@ if ($triggerrun == "off")  {
 
 
 $toutonoff = isset($_POST['toutonoff']) ? $_POST['toutonoff'] : '';
-foreach (range(1, 30) as $num) {
-$tout=isset($_POST["tout".$num]) ? $_POST["tout".$num] : '';
+$tout = isset($_POST['tout']) ? $_POST['tout'] : '';
+$gpio = isset($_POST['gpio']) ? $_POST['gpio'] : '';
+$trigromout = isset($_POST['trigromout']) ? $_POST['trigromout'] : '';
 if (($toutonoff == "onoff") &&  (!empty($tout)))  {
     $tout == "off" ? $tout='' : "";
-    $db->exec("UPDATE gpio SET tout$num='$tout' WHERE gpio='$gpio_post' AND rom='$rom'") or exit(header("Location: html/errors/db_error.php"));
+    $db->exec("UPDATE gpio SET trigout='$gpio_post' WHERE gpio='$gpio' AND rom='$trigromout'") or exit(header("Location: html/errors/db_error.php"));
     $db = null;
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
-}
 }
 
 $trigger_delay = isset($_POST['trigger_delay']) ? $_POST['trigger_delay'] : '';
@@ -67,7 +67,6 @@ if ($cononoff == "onoff") {
     exit();
 }
 
-
     $trigger_run=$a['trigger_run'];
     $status=$a['status'];
     if ($trigger_run == 'on') { 
@@ -86,12 +85,14 @@ else
     $rows = $db->query("SELECT * FROM gpio WHERE mode='triggerout'");
     $row = $rows->fetchAll();
     foreach ($row as $b) {
-    $sec=$a['gpio'];
-    $to="tout$sec";
+    //$sec=$a['gpio'];
+    //$to="tout$sec";
 ?>    
 <form action="" method="post" style=" display:inline!important;">
-    <button type="submit" name="<?php echo $to; ?>"  <?php echo $b["$to"] == 'on' ? 'class="btn btn-xs btn-danger" value="off"' : 'class="btn btn-xs btn-success" value="on"'; ?> onchange="this.form.submit()" ><?php echo $b['name']; ?></button>
+
+    <button type="submit" name="tout"  <?php echo $b["trigout"] == $gpio_post ? 'class="btn btn-xs btn-danger" value="off"' : 'class="btn btn-xs btn-success" value="on"'; ?> onchange="this.form.submit()" ><?php echo $b['name']; ?></button>
     <input type="hidden" name="gpio" value="<?php echo $b['gpio'] ?>" />
+	<input type="hidden" name="trigromout" value="<?php echo $b['rom'] ?>" />
     <input type="hidden" name="toutonoff" value="onoff" />
 </form>
 <?php

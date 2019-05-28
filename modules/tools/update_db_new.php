@@ -223,7 +223,9 @@ $updates['2019-05-15 08:48:21'][]="INSERT INTO nt_settings ('option', 'value') V
 $updates['2019-05-16 12:40:00'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('logrefresh','off')";
 
 
+//Update - trigger out
 
+$updates['2019-05-28 10:01:39'][]="ALTER TABLE gpio ADD trigout TEXT";
 
 
 
