@@ -139,6 +139,7 @@ echo $b['trigout']; echo $gpio_post;
 </form>
 
 <?php
+echo $a['trigout'];
 
 }
 ?>
