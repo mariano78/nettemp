@@ -39,7 +39,7 @@ if ($triggerrun == "off")  {
 
 $toutonoff = isset($_POST['toutonoff']) ? $_POST['toutonoff'] : '';
 $tout = isset($_POST['tout']) ? $_POST['tout'] : '';
-$gpio = isset($_POST['gpio']) ? $_POST['gpio'] : '';
+$toutgpio = isset($_POST['toutgpio']) ? $_POST['toutgpio'] : '';
 $trigromout = isset($_POST['trigromout']) ? $_POST['trigromout'] : '';
 if (($toutonoff == "onoff") &&  (!empty($tout)))  {
     $tout == "off" ? $tout='' : "";
@@ -89,7 +89,7 @@ else
 <form action="" method="post" style=" display:inline!important;">
 
     <button type="submit" name="tout"  <?php echo $b["trigout"] == $gpio_post ? 'class="btn btn-xs btn-danger" value="off"' : 'class="btn btn-xs btn-success" value="on"'; ?> onchange="this.form.submit()" ><?php echo $b['name']; ?></button>
-    <input type="hidden" name="gpio" value="<?php echo $b['gpio'] ?>" />
+    <input type="hidden" name="toutgpio" value="<?php echo $b['gpio'] ?>" />
 	<input type="hidden" name="trigromout" value="<?php echo $b['rom'] ?>" />
     <input type="hidden" name="toutonoff" value="onoff" />
 </form>
