@@ -8,8 +8,6 @@ if ($xtriggernoticeon == "xtriggernoticeON")  {
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
 }
-
-
 $triggerexit = isset($_POST['triggerexit']) ? $_POST['triggerexit'] : '';
 if (($triggerexit == "triggerexit") ){
     $db->exec("UPDATE gpio SET mode='' where gpio='$gpio_post' AND rom='$rom' ") or exit(header("Location: html/errors/db_error.php"));
@@ -17,8 +15,6 @@ if (($triggerexit == "triggerexit") ){
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
-
-
 $triggerrun = isset($_POST['triggerrun']) ? $_POST['triggerrun'] : '';
 if ($triggerrun == "on")  {
     $db->exec("UPDATE gpio SET trigger_run='on', status='Wait' WHERE gpio='$gpio_post' AND rom='$rom'") or exit(header("Location: html/errors/db_error.php"));
@@ -35,21 +31,17 @@ if ($triggerrun == "off")  {
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
 }
-
-
 $toutonoff = isset($_POST['toutonoff']) ? $_POST['toutonoff'] : '';
-$tout = isset($_POST['tout']) ? $_POST['tout'] : '';
-$toutgpio = isset($_POST['toutgpio']) ? $_POST['toutgpio'] : '';
-$triggpio = isset($_POST['triggpio']) ? $_POST['triggpio'] : '';
-$trigromout = isset($_POST['trigromout']) ? $_POST['trigromout'] : '';
-if (($toutonoff == "onoff") &&  (!empty($toutgpio)))  {
-  
-    $db->exec("UPDATE gpio SET trigout='$triggpio' WHERE gpio='$toutgpio' AND rom='$trigromout'") or exit(header("Location: html/errors/db_error.php"));
+foreach (range(1, 30) as $num) {
+$tout=isset($_POST["tout".$num]) ? $_POST["tout".$num] : '';
+if (($toutonoff == "onoff") &&  (!empty($tout)))  {
+    $tout == "off" ? $tout='' : "";
+    $db->exec("UPDATE gpio SET tout$num='$tout' WHERE gpio='$gpio_post' AND rom='$rom'") or exit(header("Location: html/errors/db_error.php"));
     $db = null;
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
 }
-
+}
 $trigger_delay = isset($_POST['trigger_delay']) ? $_POST['trigger_delay'] : '';
 $trigger_delay1 = isset($_POST['trigger_delay1']) ? $_POST['trigger_delay1'] : '';
 if ($trigger_delay1 == "trigger_delay1") {
@@ -58,7 +50,6 @@ if ($trigger_delay1 == "trigger_delay1") {
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
 }
-
 $con = isset($_POST['con']) ? $_POST['con'] : '';
 $cononoff = isset($_POST['cononoff']) ? $_POST['cononoff'] : '';
 if ($cononoff == "onoff") {
@@ -67,7 +58,6 @@ if ($cononoff == "onoff") {
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
 }
-
     $trigger_run=$a['trigger_run'];
     $status=$a['status'];
     if ($trigger_run == 'on') { 
@@ -86,17 +76,15 @@ else
     $rows = $db->query("SELECT * FROM gpio WHERE mode='triggerout'");
     $row = $rows->fetchAll();
     foreach ($row as $b) {
+    $sec=$a['gpio'];
+    $to="tout$sec";
 ?>    
 <form action="" method="post" style=" display:inline!important;">
-
-    <button type="submit" name="tout"  <?php echo $b["trigout"] == $gpio_post ? 'class="btn btn-xs btn-danger"' : 'class="btn btn-xs btn-success"'; ?> onchange="this.form.submit()" ><?php echo $b['name']; ?></button>
-	<input type="hidden" name="triggpio" value="<?php echo $a['gpio'] ?>" />
-    <input type="hidden" name="toutgpio" value="<?php echo $b['gpio'] ?>" />
-	<input type="hidden" name="trigromout" value="<?php echo $b['rom'] ?>" />
+    <button type="submit" name="<?php echo $to; ?>"  <?php echo $b["$to"] == 'on' ? 'class="btn btn-xs btn-danger" value="off"' : 'class="btn btn-xs btn-success" value="on"'; ?> onchange="this.form.submit()" ><?php echo $b['name']; ?></button>
+    <input type="hidden" name="gpio" value="<?php echo $b['gpio'] ?>" />
     <input type="hidden" name="toutonoff" value="onoff" />
 </form>
 <?php
-echo $b['trigout'];
 }
 ?>
      <form action="" method="post" style=" display:inline!important;">
@@ -139,7 +127,5 @@ echo $b['trigout'];
 </form>
 
 <?php
-echo $a['trigout'];
-
 }
 ?>
