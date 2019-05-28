@@ -43,7 +43,7 @@ $gpio = isset($_POST['gpio']) ? $_POST['gpio'] : '';
 $trigromout = isset($_POST['trigromout']) ? $_POST['trigromout'] : '';
 if (($toutonoff == "onoff") &&  (!empty($tout)))  {
     $tout == "off" ? $tout='' : "";
-    $db->exec("UPDATE gpio SET trigout='$gpio_post' WHERE gpio='$gpio' AND rom='$trigromout'") or exit(header("Location: html/errors/db_error.php"));
+    $db->exec("UPDATE gpio SET trigout='$gpio_post' WHERE gpio='$gpio_post' AND rom='$trigromout'") or exit(header("Location: html/errors/db_error.php"));
     $db = null;
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
@@ -85,8 +85,6 @@ else
     $rows = $db->query("SELECT * FROM gpio WHERE mode='triggerout'");
     $row = $rows->fetchAll();
     foreach ($row as $b) {
-    //$sec=$a['gpio'];
-    //$to="tout$sec";
 ?>    
 <form action="" method="post" style=" display:inline!important;">
 
