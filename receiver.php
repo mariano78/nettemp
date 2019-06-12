@@ -292,7 +292,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 						
 						if  ($type == 'elecesp') {
 								
-								$query = $db->query("SELECT sum FROM sensors WHERE rom='$rom'");
+								$query = $dbr->query("SELECT sum FROM sensors WHERE rom='$rom'");
 								$result = $query->fetchAll();
 								foreach ($result as $esp) {
 								$last=trim($esp['sum']);
