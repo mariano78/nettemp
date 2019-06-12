@@ -304,11 +304,6 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 								
 								echo $rom." - VAL_po ".$val." \n";
 								
-								if($last!=0){
-								$val=$espval;
-								} else{
-									$val='0';
-								}
 							}
 						
 						
