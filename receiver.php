@@ -296,8 +296,10 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 								$result = $query->fetchAll();
 								foreach ($result as $esp) {
 								$last=trim($esp['sum']);
+								echo $rom." - Last ".$last." \n";
 								}
 								$espval = trim($val-$last);
+								echo $rom." - ESPVAL ".$espval." \n";
 								$val = $espval;
 								
 								if($last!=0){
