@@ -298,7 +298,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 								$last=trim($esp['sum']);
 								echo $rom." - Last ".$last." \n";
 								}
-								$espval = trim($val-$last);
+								$espval = trim(round($val-$last,3));
 								echo $rom." - ESPVAL ".$espval." \n";
 								$val = $espval;
 								
