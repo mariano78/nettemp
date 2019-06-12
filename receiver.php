@@ -287,9 +287,26 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 					
 					//$arrayd = array("wireless", "gpio", "usb", "ip", "ip_mqtt");
 					//if (in_array($type, $arrayt) &&  in_array($device, $arrayd)) {
-				$arrayt = array("gas", "water", "elec");
+				$arrayt = array("gas", "water", "elec", "elecesp");
 					if (in_array($type, $arrayt) ) {
 						if (isset($current) && is_numeric($current)) {
+							
+							if  ($type == 'elecesp') {
+								
+								$query = $db->query("SELECT sum FROM sensors WHERE rom='$rom'");
+								$result = $query->fetchAll();
+								foreach ($result as $esp) {
+								$last=trim($esp['sum']);
+								}
+								$espval = trim($val-$last);
+								$val = $espval;
+								
+								if($last!=0){
+								$val=$espval;
+								} else{
+									$val='0';
+								}
+							}
 							$dbfr->exec("INSERT OR IGNORE INTO def (value,current) VALUES ('$val','$current')") or die ("cannot insert to rom sql current\n" );
 							$dbr->exec("UPDATE sensors SET current='$current' WHERE rom='$rom'") or die ("cannot insert to current\n" );
 							
