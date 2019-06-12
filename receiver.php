@@ -405,7 +405,9 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 	}
 	//if base not exist
 	else {
-		if  ($type == 'elecesp') {$type == 'elec'}
+		if  ($type == 'elecesp') {
+			$type == 'elec'
+			}
 		$name=substr(rand(), 0, 4);
 		$dbr->exec("INSERT OR IGNORE INTO newdev (rom,type,device,ip,gpio,i2c,usb,name) VALUES ('$rom','$type','$device','$ip','$gpio','$i2c','$usb','$name')");
 		echo "Database not exist. Added ".$rom." to new sensors \n";
