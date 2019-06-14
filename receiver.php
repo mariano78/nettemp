@@ -285,6 +285,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 					// counters can always put to base
 					
 					$arrayt2 = array();
+					$imptype = '';
 					
 					$query = $dbr->query("SELECT * FROM types");
 					$res_types = $query->fetchAll();
