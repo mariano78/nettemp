@@ -287,8 +287,8 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 					
 					$arrayd = array("wireless", "gpio", "usb", "ip", "ip_mqtt");
 					if (in_array($type, $arrayt) &&  in_array($device, $arrayd)) {
-					$arrayt = array("gas", "water", "elec", "elecesp");
-					if (in_array($type, $arrayt) ) {
+					//$arrayt = array("gas", "water", "elec", "elecesp");// wywal to
+					//if (in_array($type, $arrayt) ) { //wywal to
 						
 						if  ($type == 'elecesp') {
 								$query = $dbr->query("SELECT sum FROM sensors WHERE rom='$rom'");
