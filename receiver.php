@@ -372,10 +372,6 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 						
 						}
 					
-					
-					$dbr->exec("UPDATE nt_settings SET value = value + 1  WHERE option='refreshcount'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert count to table\n" );
-					//logs(date("Y-m-d H:i:s"),'Receiver','test');
-					
 				}		
 				else {
 					echo $rom." ".$val." - Value not in range \n";
@@ -414,6 +410,9 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 		echo "Database not exist. Added ".$rom." to new sensors \n";
 		//logs(date("Y-m-d H:i:s"),'Info',$rom." - Database not exist - Added to new sensors ");
 	}
+	
+	$dbr->exec("UPDATE nt_settings SET value = value + 1  WHERE option='refreshcount'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert count to table\n" );
+	//logs(date("Y-m-d H:i:s"),'Receiver','test');
 	//$sthr=null;
 	//$dbr=null;
 	//$dbfr=null;
