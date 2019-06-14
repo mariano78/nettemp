@@ -284,15 +284,10 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 					//// base
 					// counters can always put to base
 
-					$arrayt = array("gas", "water", "elec", "elecesp", "amps", "volt", "watt", "temp", "humid", "trigger", "rainfall", "speed", "wind", "uv", "storm", "lighting", "battery");
+					//$arrayt = array("gas", "water", "elec", "elecesp", "amps", "volt", "watt", "temp", "humid", "trigger", "rainfall", "speed", "wind", "uv", "storm", "lighting", "battery");
 					
 					$arrayd = array("wireless", "gpio", "usb", "ip", "ip_mqtt");
-					if (in_array($type, $arrayt) &&  in_array($device, $arrayd)) {
-					
-
-
-
-
+					if (in_array($device, $arrayd)) {
 					
 						if  ($type == 'elecesp') {
 								$query = $dbr->query("SELECT sum FROM sensors WHERE rom='$rom'");
