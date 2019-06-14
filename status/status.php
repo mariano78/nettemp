@@ -159,8 +159,6 @@ Go to device scan!
 	$('[id="lockstatus"]').bootstrapToggle({size : 'mini', off : 'lock', on : 'lock',});	
 	});	
 
-	//$('.uptime').load("html/index/uptime.php");
-	
 	
 }, 5000);
 
