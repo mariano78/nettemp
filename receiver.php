@@ -283,13 +283,29 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 				if ($val != 'range'){
 					//// base
 					// counters can always put to base
+					
+					$arrayt2 = array();
+					
+					$query = $dbr->query("SELECT * FROM types");
+					$res_types = $query->fetchAll();
+					foreach($res_types as $typ){
+						
+						$type2=$typ['type'];
+						echo $type2;
+						
+					}
+					
+					
 					$arrayt = array("gas", "water", "elec", "elecesp", "amps", "volt", "watt", "temp", "humid", "trigger", "rainfall", "speed", "wind", "uv", "storm", "lighting", "battery");
 					
 					$arrayd = array("wireless", "gpio", "usb", "ip", "ip_mqtt");
 					if (in_array($type, $arrayt) &&  in_array($device, $arrayd)) {
-					//$arrayt = array("gas", "water", "elec", "elecesp");// wywal to
-					//if (in_array($type, $arrayt) ) { //wywal to
-						
+					
+
+
+
+
+					
 						if  ($type == 'elecesp') {
 								$query = $dbr->query("SELECT sum FROM sensors WHERE rom='$rom'");
 								$result = $query->fetchAll();
