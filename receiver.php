@@ -284,6 +284,19 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 					//// base
 					// counters can always put to base
 					$arrayt = array("gas", "water", "elec", "elecesp", "amps", "volt", "watt", "temp", "humid", "trigger", "rainfall", "speed", "wind", "uv", "storm", "lighting", "battery");
+					$arrayt2 = array();
+					
+					$query = $dbr->query("SELECT * FROM types");
+					$res_types = $query->fetchAll();
+					foreach($res_types as $type){
+						
+						$type2=$type['type'];
+						echo $type2;
+						
+					}
+
+					
+					
 					
 					$arrayd = array("wireless", "gpio", "usb", "ip", "ip_mqtt");
 					if (in_array($type, $arrayt) &&  in_array($device, $arrayd)) {
