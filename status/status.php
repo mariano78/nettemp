@@ -163,7 +163,7 @@ Go to device scan!
 	$db->exec("UPDATE nt_settings SET value = '0'  WHERE option='refreshcount'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert count to table\n" );
 	}
 	?>
-}, 5000);
+}, 10000);
 
 $(document).ready( function() {
 
