@@ -292,7 +292,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 						
 						$type2=$typ['type'];
 						$imptype = implode(', ', $type2);
-						echo $type2;
+						//echo $type2;
 						
 					}
 					echo $imptype;
