@@ -158,9 +158,11 @@ Go to device scan!
 	$('[id="lockstatus"]').bootstrapToggle({size : 'mini', off : 'lock', on : 'lock',});	
 	});	
 
-	//$('.uptime').load("html/index/uptime.php");
 	
-	
+	<?php
+	$db->exec("UPDATE nt_settings SET value = '0'  WHERE option='refreshcount'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert count to table\n" );
+	}
+	?>
 }, 5000);
 
 $(document).ready( function() {
