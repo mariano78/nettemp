@@ -292,11 +292,11 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 					foreach($res_types as $typ){
 						
 						$type2=$typ['type'];
-						$imptype = implode(', ', $type2);
-						//echo $type2;
+						
+						echo $type2;
 						
 					}
-					echo $imptype;
+					
 					
 					
 					$arrayt = array("gas", "water", "elec", "elecesp", "amps", "volt", "watt", "temp", "humid", "trigger", "rainfall", "speed", "wind", "uv", "storm", "lighting", "battery");
