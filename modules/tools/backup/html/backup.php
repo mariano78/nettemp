@@ -79,7 +79,7 @@ if ($re == "re") {
 </form>
 
 <table class="table table-striped">
-<thead><tr><th>file</th><th>Size</th><th>Restore</th><th></th></tr></thead>
+<thead><tr><th>File</th><th>Size</th><th>Restore</th><th></th></tr></thead>
 
 <?php
 $dir = 'tmp/backup/';
@@ -139,7 +139,7 @@ foreach($files AS $file) {
 <table class="table table-striped condensed">
 <thead>
 	<tr>
-		<th>file</th>
+		<th>File</th>
 		<th>Size</th>
 		<th>Restore</th>
 		<th>Delete</th>
