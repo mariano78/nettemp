@@ -1,7 +1,7 @@
 acl
 lighttpd
 php7.3-cgi 
-php7.3-sqlite 
+php7.3-sqlite3 
 php7.3-fpm 
 php7.3-curl
 php7.3-mysql
@@ -11,7 +11,7 @@ sqlite3
 msmtp 
 digitemp 
 gammu 
-git-core
+git
 mc
 sysstat
 sharutils
@@ -42,7 +42,6 @@ libmodbus5
 iptables-persistent
 apcupsd
 smstools
-mysql-client
 mariadb-client-10.0
 python-pymodbus
 lm-sensors
