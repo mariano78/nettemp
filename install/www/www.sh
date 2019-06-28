@@ -49,7 +49,7 @@ sed -i 's/upload_max_filesize =.*/upload_max_filesize = 1024M/g'  /etc/php/7.3/f
 sed -i 's/post_max_size =.*/post_max_size = 1024M/g'  /etc/php/7.3/fpm/php.ini
 
 
-#PHP5-FPM
+#PHP7-FPM
 mv /etc/lighttpd/conf-available/15-fastcgi-php.conf /etc/lighttpd/conf-available/15-fastcgi-php.conf.old
 cp $dir/install/www/15-fastcgi-php.conf /etc/lighttpd/conf-available/
 sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 1024M/g' /etc/php/7.3/fpm/php.ini
