@@ -284,25 +284,25 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 					//// base
 					// counters can always put to base
 
-					$arrayt = array("gas", "water", "elec", "elecesp", "amps", "volt", "watt", "temp", "humid", "trigger", "rainfall", "speed", "wind", "uv", "storm", "lighting", "battery");
+					$arrayt = array("gas", "water", "elec", "elecesp" );
 					
 					$arrayd = array("wireless", "gpio", "usb", "ip", "ip_mqtt");
 					if (in_array($type, $arrayt) &&  in_array($device, $arrayd)) {
 					
-						if  ($type == 'elecesp') {
-								$query = $dbr->query("SELECT sum FROM sensors WHERE rom='$rom'");
-								$result = $query->fetchAll();
-								foreach ($result as $esp) {
-								$last=trim($esp['sum']);
-								echo $rom." - Last ".$last." \n";
-								}
-								$espval = trim(round($val-$last,3));
-								echo $rom." - ESPVAL ".$espval." \n";
-								$val = $espval;
-								
-								echo $rom." - VAL_po ".$val." \n";
-								
-							}
+													if  ($type == 'elecesp') {
+															$query = $dbr->query("SELECT sum FROM sensors WHERE rom='$rom'");
+															$result = $query->fetchAll();
+															foreach ($result as $esp) {
+															$last=trim($esp['sum']);
+															echo $rom." - Last ".$last." \n";
+															}
+															$espval = trim(round($val-$last,3));
+															echo $rom." - ESPVAL ".$espval." \n";
+															$val = $espval;
+															
+															echo $rom." - VAL_po ".$val." \n";
+															
+														}
 						
 						if (isset($current) && is_numeric($current)) {
 							
