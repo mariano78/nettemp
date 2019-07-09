@@ -282,9 +282,9 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 				$val=check($val,$type);
 				if ($val != 'range'){
 					//// base
-					// counters can always put to base
+					// counters and other dwvices in array can always put to base
 
-					$arrayt = array("gas", "water", "elec", "elecesp" );
+					$arrayt = array("gas", "water", "elec", "elecesp", "trigger" );
 					
 					$arrayd = array("wireless", "gpio", "usb", "ip", "ip_mqtt");
 					if (in_array($type, $arrayt) &&  in_array($device, $arrayd)) {
