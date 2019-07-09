@@ -212,6 +212,9 @@ foreach ($result as $a) {
 	if($a['option']=='logshis') {
        	$nts_his_logs=$a['value'];
     }
+	if($a['option']=='logrefresh') {
+       	$nts_ref_logs=$a['value'];
+    }
 }
 
 //different way..

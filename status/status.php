@@ -112,8 +112,18 @@ Go to device scan!
 
 <script type="text/javascript">
     setInterval( function() {
-
-    <?php
+	
+	<?php	
+	
+	$refr = $db->query("SELECT value FROM nt_settings WHERE option = 'refreshcount'") or header("Location: html/errors/db_error.php");
+	$ref = $refr->fetchAll();
+	foreach($ref as $ref2) {
+	
+	$reff = $ref2['value'];
+	}
+	
+	if ($reff != 0 ) {
+	
 		foreach ($unique as $key => $ch_g) { 
 	?>
 		$('.sg<?php echo $ch_g?>').load("status/sensor_groups.php?ch_g=<?php echo $ch_g?>");
@@ -139,22 +149,21 @@ Go to device scan!
 		}
 	?>
 	
-	
-	
     $('.co').load("status/counters_status.php");
     $('.ms').load("status/meteo_status.php");
     $('.mm').load("status/minmax_status.php");
     $('.ups').load("status/ups_status.php");
-	
     $('.swcon').load("status/controls.php", function() {		
 	$('[id="onoffstatus"]').bootstrapToggle({size : 'mini', off : 'Off', on : 'On',});
 	$('[id="lockstatus"]').bootstrapToggle({size : 'mini', off : 'lock', on : 'lock',});	
 	});	
 
-	$('.uptime').load("html/index/uptime.php");
-	//$('.systime').load("html/index/systime.php");
 	
-}, 60000);
+	<?php
+	$db->exec("UPDATE nt_settings SET value = '0'  WHERE option='refreshcount'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert count to table\n" );
+	}
+	?>
+}, 10000);
 
 $(document).ready( function() {
 

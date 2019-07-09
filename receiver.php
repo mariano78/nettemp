@@ -1,4 +1,6 @@
 <?php
+
+include("common/functions.php");
 // name:
 // type: temp, humid, relay, lux, press, humid, gas, water, elec, volt, amps, watt, trigger
 // device: ip, wireless, remote, gpio, i2c, usb
@@ -95,16 +97,6 @@ $local_ip='';
 $local_gpio='';
 $local_usb='';
 
-function logsr($content){
-global $ROOT;
-
-	$f = fopen("tmp/incoming_sms.txt", "a");
-
-fwrite($f, $content);
-fclose($f); 
-}
-
-
 $dbr = new PDO("sqlite:".__DIR__."/dbf/nettemp.db") or die ("cannot open database");
 
 $sth = $dbr->query("SELECT * FROM nt_settings");
@@ -198,9 +190,7 @@ function trigger($rom, $val) {
 				echo "Send OK.\n";
 			}
 			unlink($filepath);
-				
-			$content = $date." - ".$name." - !!! ALARM !!!\n";
-			logsr($content);
+			logs(date("Y-m-d H:i:s"),'Info',$name." - !!! ALARM !!!");
 			}
 		}
 		if ($mail == 'on') {
@@ -209,8 +199,6 @@ function trigger($rom, $val) {
 			
 			}
 		if (!empty($pscript)) {
-			
-			//include("scripts/$pscript");
 			shell_exec(__DIR__."/scripts/$pscript");
 		}	
 	// from 1 to 0	
@@ -235,8 +223,7 @@ function trigger($rom, $val) {
 				echo "Send OK.\n";
 			}
 			unlink($filepath);
-			$content = $date." - ".$name." - *** RECOVERY ***\n";
-			logsr($content);
+			logs(date("Y-m-d H:i:s"),'Info',$name." - *** RECOVERY ***");
 			}
 		}
 		if ($mail == 'on') {
@@ -245,8 +232,6 @@ function trigger($rom, $val) {
 			
 			}
 		if (!empty($pscript1)) {
-			
-			//include("scripts/$pscript1");
 			shell_exec(__DIR__."/scripts/$pscript1");
 		}
 	}
@@ -267,9 +252,6 @@ function check($val,$type) {
 			return 'range';
 		}
 	}
-    //$sthr=null;
-    //$dbr=null;	
-
 }
 
 
@@ -301,27 +283,55 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 				if ($val != 'range'){
 					//// base
 					// counters can always put to base
-					$arrayt = array("gas", "water", "elec", "amps", "volt", "watt", "temp", "humid", "trigger", "rainfall", "speed", "wind", "uv", "storm", "lighting", "battery");
+
+					$arrayt = array("gas", "water", "elec", "elecesp", "amps", "volt", "watt", "temp", "humid", "trigger", "rainfall", "speed", "wind", "uv", "storm", "lighting", "battery");
+					
 					$arrayd = array("wireless", "gpio", "usb", "ip", "ip_mqtt");
 					if (in_array($type, $arrayt) &&  in_array($device, $arrayd)) {
+					
+						if  ($type == 'elecesp') {
+								$query = $dbr->query("SELECT sum FROM sensors WHERE rom='$rom'");
+								$result = $query->fetchAll();
+								foreach ($result as $esp) {
+								$last=trim($esp['sum']);
+								echo $rom." - Last ".$last." \n";
+								}
+								$espval = trim(round($val-$last,3));
+								echo $rom." - ESPVAL ".$espval." \n";
+								$val = $espval;
+								
+								echo $rom." - VAL_po ".$val." \n";
+								
+							}
+						
 						if (isset($current) && is_numeric($current)) {
+							
 							$dbfr->exec("INSERT OR IGNORE INTO def (value,current) VALUES ('$val','$current')") or die ("cannot insert to rom sql current\n" );
 							$dbr->exec("UPDATE sensors SET current='$current' WHERE rom='$rom'") or die ("cannot insert to current\n" );
-							echo $rom." current ".$current." \n";
+							
+							echo $rom." - Current value for counter updated ".$current." \n";
+							logs(date("Y-m-d H:i:s"),'Info',$rom." - Current value for counter updated - ".$current);
 						} else {
 							$dbfr->exec("INSERT OR IGNORE INTO def (value) VALUES ('$val')") or die ("cannot insert to rom sql\n" );
+							
+							echo $rom." - Value for counter updated ".$val." \n";
+							logs(date("Y-m-d H:i:s"),'Info',$rom." - Value for counter updated - ".$val);
 						}
 						//sum,current for counters
 						$dbr->exec("UPDATE sensors SET sum='$val'+sum WHERE rom='$rom'") or die ("cannot insert to status\n" );
-						echo $rom." ok \n";
+						
+						echo $rom." - Summary value for counter updated \n";
+						logs(date("Y-m-d H:i:s"),'Info',$rom." - Summary value for counter updated");
 					}
 					// time when you can put into base
 					elseif ((date('i', time())%$chmin==0) || (date('i', time())==00))  {
 						$dbfr->exec("INSERT OR IGNORE INTO def (value) VALUES ('$val')") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert to rom sql, time\n");
-						echo date("Y-m-d H:i:s")." ".$rom." ".$val." oka \n";
+						echo date("Y-m-d H:i:s")." ".$rom." ".$val." Value updated \n";
+						logs(date("Y-m-d H:i:s"),'Info',$rom." - Value updated - ".$val);
 					}
 					else {
-						echo "Not writed interval is ".$chmin." min\n";
+						echo "Not writed to base, interval is ".$chmin." min\n";
+						logs(date("Y-m-d H:i:s"),'Error',$rom." - Not writed to base, interval is ".$chmin." min");
 					}
 		    
 					// 5ago arrow
@@ -333,14 +343,16 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 					if ($type == 'trigger') {
 						
 						trigger($rom,$val);
-						
 						$dbr->exec("UPDATE sensors SET tmp='$val' WHERE rom='$rom'") or die ("cannot insert to trigger status2\n");
+						logs(date("Y-m-d H:i:s"),'Info',$rom." - Value updated trigger - ".$val);
 						
 					}
 					//sensors status and GPIO status
 					else {
 						$dbr->exec("UPDATE sensors SET tmp='$val', status='ok', ip='$ip' WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert value to status\n" );
-						echo $rom." okb\n";
+						echo $rom." Value updated to sensors\n";
+						//logs(date("Y-m-d H:i:s"),'Info',$rom." - Value updated sensors - ".$val);
+						
 						//minmax light
 						if ($val<$stat_min || empty($stat_min)) {$dbr->exec("UPDATE sensors SET stat_min='$val' WHERE rom='$rom'");
 						} elseif ($val>$stat_max || empty($stat_max)) {$dbr->exec("UPDATE sensors SET stat_max='$val' WHERE rom='$rom'");}
@@ -358,11 +370,12 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 							}
 						}
 						
-						
-					}
+						}
+					
 				}		
 				else {
-					echo $rom." ".$val." not in range \n";
+					echo $rom." ".$val." - Value not in range \n";
+					logs(date("Y-m-d H:i:s"),'Error',$rom." - Value not in range");
 				}
 		
 			}
@@ -372,22 +385,34 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 					$dbr->exec("UPDATE sensors SET status='error', tmp = 0 WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert status to sensors ".$rom.", not numeric\n");
 					$dbfr->exec("INSERT OR IGNORE INTO def (value) VALUES ('0')") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert to rom DB ".$rom.", not numeric\n");
 					echo date("Y-m-d H:i:s")." Puting value \"".$val."\" to ".$rom.", but value is not numieric!, inserting 0 to db\n";
+					logs(date("Y-m-d H:i:s"),'Error',$rom." - Value is not numeric - inserting 0 to database ");
 				}
 			}
 		}
 		//if not in sensors table
 		else {
+			if  ($type == 'elecesp') {
+				$type = 'elec';
+				}
 			$name=substr(rand(), 0, 4);
 			$dbr->exec("INSERT OR IGNORE INTO newdev (rom,type,device,ip,gpio,i2c,usb,name) VALUES ('$rom','$type','$device','$ip','$gpio','$i2c','$usb','$name')");
-			echo "DB exist. Added ".$rom." to new sensors \n";
+			echo "Database exist. Added ".$rom." to new sensors \n";
+			//logs(date("Y-m-d H:i:s"),'Info',$rom." - Database exist - Added to new sensors ");
 		}
 	}
 	//if base not exist
 	else {
+		if  ($type == 'elecesp') {
+			$type = 'elec';
+			}
 		$name=substr(rand(), 0, 4);
 		$dbr->exec("INSERT OR IGNORE INTO newdev (rom,type,device,ip,gpio,i2c,usb,name) VALUES ('$rom','$type','$device','$ip','$gpio','$i2c','$usb','$name')");
-		echo "No DB. Added ".$rom." to new sensors \n";
+		echo "Database not exist. Added ".$rom." to new sensors \n";
+		//logs(date("Y-m-d H:i:s"),'Info',$rom." - Database not exist - Added to new sensors ");
 	}
+	
+	$dbr->exec("UPDATE nt_settings SET value = value + 1  WHERE option='refreshcount'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert count to table\n" );
+	//logs(date("Y-m-d H:i:s"),'Receiver','test');
 	//$sthr=null;
 	//$dbr=null;
 	//$dbfr=null;
@@ -398,6 +423,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 if (("$key" != "$skey") && (!defined('LOCAL')))
 {
     echo "wrong key\n";
+	logs(date("Y-m-d H:i:s"),'Error',"Receiver - wrong key - ".$key.$rom);
 } 
 else {
 

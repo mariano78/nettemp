@@ -8,8 +8,6 @@ if ($xtriggernoticeon == "xtriggernoticeON")  {
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
 }
-
-
 $triggerexit = isset($_POST['triggerexit']) ? $_POST['triggerexit'] : '';
 if (($triggerexit == "triggerexit") ){
     $db->exec("UPDATE gpio SET mode='' where gpio='$gpio_post' AND rom='$rom' ") or exit(header("Location: html/errors/db_error.php"));
@@ -17,8 +15,6 @@ if (($triggerexit == "triggerexit") ){
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
-
-
 $triggerrun = isset($_POST['triggerrun']) ? $_POST['triggerrun'] : '';
 if ($triggerrun == "on")  {
     $db->exec("UPDATE gpio SET trigger_run='on', status='Wait' WHERE gpio='$gpio_post' AND rom='$rom'") or exit(header("Location: html/errors/db_error.php"));
@@ -35,8 +31,6 @@ if ($triggerrun == "off")  {
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
 }
-
-
 $toutonoff = isset($_POST['toutonoff']) ? $_POST['toutonoff'] : '';
 
 $tout = isset($_POST['tout']) ? $_POST['tout'] : '';
@@ -51,7 +45,6 @@ if (($toutonoff == "onoff") &&  (!empty($tout)))  {
     exit();
 }
 
-
 $trigger_delay = isset($_POST['trigger_delay']) ? $_POST['trigger_delay'] : '';
 $trigger_delay1 = isset($_POST['trigger_delay1']) ? $_POST['trigger_delay1'] : '';
 if ($trigger_delay1 == "trigger_delay1") {
@@ -60,7 +53,6 @@ if ($trigger_delay1 == "trigger_delay1") {
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
 }
-
 $con = isset($_POST['con']) ? $_POST['con'] : '';
 $cononoff = isset($_POST['cononoff']) ? $_POST['cononoff'] : '';
 if ($cononoff == "onoff") {
@@ -69,8 +61,6 @@ if ($cononoff == "onoff") {
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
 }
-
-
     $trigger_run=$a['trigger_run'];
     $status=$a['status'];
     if ($trigger_run == 'on') { 
