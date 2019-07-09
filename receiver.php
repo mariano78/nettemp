@@ -314,7 +314,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 						} else {
 							$dbfr->exec("INSERT OR IGNORE INTO def (value) VALUES ('$val')") or die ("cannot insert to rom sql\n" );
 							
-							echo $rom." - Value for counter updated ".$val." \n";
+							echo $rom." - Value updated ".$val." \n";
 							logs(date("Y-m-d H:i:s"),'Info',$rom." - Value for counter updated - ".$val);
 						}
 						//sum,current for counters
