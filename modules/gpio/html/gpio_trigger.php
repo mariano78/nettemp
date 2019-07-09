@@ -32,16 +32,19 @@ if ($triggerrun == "off")  {
     exit();
 }
 $toutonoff = isset($_POST['toutonoff']) ? $_POST['toutonoff'] : '';
-foreach (range(1, 30) as $num) {
-$tout=isset($_POST["tout".$num]) ? $_POST["tout".$num] : '';
+
+$tout = isset($_POST['tout']) ? $_POST['tout'] : '';
+$togpio = isset($_POST['togpio']) ? $_POST['togpio'] : '';
+$rom2 = isset($_POST['rom2']) ? $_POST['rom2'] : '';
 if (($toutonoff == "onoff") &&  (!empty($tout)))  {
-    $tout == "off" ? $tout='' : "";
-    $db->exec("UPDATE gpio SET tout$num='$tout' WHERE gpio='$gpio_post' AND rom='$rom'") or exit(header("Location: html/errors/db_error.php"));
+  
+    $db->exec("UPDATE gpio SET trigout ='$tout' WHERE gpio='$togpio' AND rom='$rom'") or exit(header("Location: html/errors/db_error.php"));
+	$db->exec("UPDATE gpio SET trigsource ='$togpio' WHERE gpio='$tout' AND rom='$rom2'") or exit(header("Location: html/errors/db_error.php"));
     $db = null;
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
 }
-}
+
 $trigger_delay = isset($_POST['trigger_delay']) ? $_POST['trigger_delay'] : '';
 $trigger_delay1 = isset($_POST['trigger_delay1']) ? $_POST['trigger_delay1'] : '';
 if ($trigger_delay1 == "trigger_delay1") {
@@ -76,13 +79,17 @@ else
     $rows = $db->query("SELECT * FROM gpio WHERE mode='triggerout'");
     $row = $rows->fetchAll();
     foreach ($row as $b) {
-    $sec=$a['gpio'];
-    $to="tout$sec";
+    //$sec=$a['gpio'];
+	$trout=$b['gpio'];
+    //$to="tout$sec";
 ?>    
 <form action="" method="post" style=" display:inline!important;">
-    <button type="submit" name="<?php echo $to; ?>"  <?php echo $b["$to"] == 'on' ? 'class="btn btn-xs btn-danger" value="off"' : 'class="btn btn-xs btn-success" value="on"'; ?> onchange="this.form.submit()" ><?php echo $b['name']; ?></button>
-    <input type="hidden" name="gpio" value="<?php echo $b['gpio'] ?>" />
+    
+	<input type="hidden" name="togpio" value="<?php echo $a['gpio']; ?>" />
+	<input type="hidden" name="rom2" value="<?php echo $b['rom']; ?>" />
+	<input type="hidden" name="tout" value="<?php echo $trout; ?>" />
     <input type="hidden" name="toutonoff" value="onoff" />
+	<button type="submit" name="aname"  <?php echo $b["trigsource"] == $a["gpio"] ? 'class="btn btn-xs btn-danger"' : 'class="btn btn-xs btn-success"'; ?> onchange="this.form.submit()" ><?php echo $b['name']; ?></button>
 </form>
 <?php
 }
