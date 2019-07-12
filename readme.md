@@ -28,24 +28,15 @@ Debian, RaspberryPi:
 	download and run like root, script will install all requirements like php, www.
 
 	mkdir -p /var/www/nettemp && cd /var/www
+	sudo apt update -y
+	sudo apt-get upgrade -y
 	sudo apt-get -y install git
-	git clone https://github.com/mariano78/nettemp
-	cd nettemp && ./install_nettemp
-
-BETA:
-
-	mkdir -p /var/www/nettemp && cd /var/www 
-	apt-get update && apt-get install -y git
 	git clone https://github.com/mariano78/nettemp
 	cd nettemp && git checkout betamm && ./install_nettemp
 	
 	or all in one line
-	
-	mkdir -p /var/www/nettemp && cd /var/www && apt-get update && apt-get install -y git && git clone https://github.com/mariano78/nettemp && cd nettemp && git checkout betamm && ./install_nettemp   
 
-
-
-
+	mkdir -p /var/www/nettemp && cd /var/www && apt update -y && apt-get upgrade -y && apt-get install -y git && git clone https://github.com/mariano78/nettemp && cd nettemp && git checkout betamm && ./install_nettemp 	
 
 Changelog:
 
