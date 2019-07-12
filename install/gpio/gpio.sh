@@ -2,6 +2,7 @@
 
 
 {
+mkdir wiringPi
 cd wiringPi
 wget https://project-downloads.drogon.net/wiringpi-latest.deb
 dpkg -i wiringpi-latest.deb
