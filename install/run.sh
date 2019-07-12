@@ -16,7 +16,7 @@ source install/fw/fw.sh
 source install/sdm120/sdm120.sh
 source install/sms/sms.sh
 source install/ups/ups.sh
-#source install/vpn/vpn.sh
+source install/vpn/vpn.sh
 
 source install/www/www.sh
 source install/crontab/crontab.sh

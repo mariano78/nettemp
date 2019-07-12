@@ -6,7 +6,7 @@ mkdir wiringPi
 cd wiringPi
 wget https://project-downloads.drogon.net/wiringpi-latest.deb
 dpkg -i wiringpi-latest.deb
-ln -s /usr/bin/gpio /usr/local/bin/
+#ln -s /usr/bin/gpio /usr/local/bin/
 cd $dir
 
 } >> $dir/install_log.txt 2>&1
