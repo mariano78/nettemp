@@ -212,7 +212,7 @@ window.setInterval( function() {
 	if(($nts_footer=='on')&&($id!='screen')){ ?>
 <footer id="ftr" class="footer">
       <div class="container text-center">
-			<a href="https://nettemp.pl/forum/viewforum.php?f=35" target="_blank" class="btn btn-xs btn-primary"><?php passthru("/usr/bin/git branch |grep [*]|awk '{print $2}' && awk '/Changelog/{y=1;next}y' readme.md |head -2 |grep -v '^$'"); ?> </a>
+			<a href="http://forum.nettemp.tk/viewforum.php?f=7" target="_blank" class="btn btn-xs btn-primary"><?php passthru("/usr/bin/git branch |grep [*]|awk '{print $2}' && awk '/Changelog/{y=1;next}y' readme.md |head -2 |grep -v '^$'"); ?> </a>
 		
 		
 		<button class="btn btn-xs btn-primary uptime">
