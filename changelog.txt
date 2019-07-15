@@ -1,4 +1,10 @@
 
+4.8.5
+
+Odświeżanie statusu co 10 sekund - jeśli była zmiana na bazie.
+Linki do nettemp.tk - nowe logo
+Drobne poprawki w kodzie.
+
 4.8.4
 
 Możliwość ustawienia kolejności modułów w statusie - Settings->Status order
