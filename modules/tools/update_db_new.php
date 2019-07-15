@@ -218,14 +218,18 @@ $updates['2019-05-07 11:46:01'][]="INSERT INTO statusorder ('position', 'modulen
 $updates['2019-05-07 11:47:01'][]="INSERT INTO statusorder ('position', 'modulename') VALUES (7,'UPS')";
 $updates['2019-05-07 11:48:01'][]="INSERT INTO statusorder ('position', 'modulename') VALUES (8,'Widget')";
 
-
 //Update - referesh
 $updates['2019-07-09 08:48:21'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('refreshcount','0')";
 $updates['2019-07-09 10:40:00'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('logrefresh','off')";
 
-
 //Update - trigger out
 $updates['2019-07-05 10:01:41'][]="ALTER TABLE gpio ADD trigout TEXT";
 $updates['2019-07-05 10:02:31'][]="ALTER TABLE gpio ADD trigsource TEXT";
+
+$updates['2019-07-15 09:00:31'][]="UPDATE nt_settings SET value ='nettemp.tk' WHERE option = 'nettemp_alt'";
+$updates['2019-07-15 09:00:33'][]="UPDATE nt_settings SET value ='http://nettemp.tk' WHERE option = 'nettemp_link'";
+$updates['2019-07-15 09:00:35'][]="UPDATE nt_settings SET value ='media/png/nettemp.tk.png' WHERE option = 'nettemp_logo'";
+
+
 
 ?>
