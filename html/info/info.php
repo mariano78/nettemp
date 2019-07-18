@@ -2,8 +2,7 @@
 <div class="panel-heading">Info</div>
 <div class="panel-body">
 <center><h3>Support</h3></center>
-<center><a href="http://nettemp.pl" target="_blank">nettemp.tk</a></center>
-<center><a href="mailto:mariusz@mmsite.pl">mariusz@mmsite.pl</a></center>
+<center><a href="http://nettemp.tk" target="_blank">nettemp.tk</a></center>
 
 <center><h3>Donate for developing</h3></center>
 <center><?php include('paypal.php'); ?></center>
