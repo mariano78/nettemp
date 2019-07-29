@@ -41,12 +41,12 @@
 
     if (($ntp_onoff == "ntp_onoff") ){
     if (!empty($ntp)) {
-	shell_exec("sudo service ntp start");
-        shell_exec("sudo update-rc.d ntp enable ");
+	shell_exec("sudo systemctl start ntp.service");
+        shell_exec("sudo systemctl enable ntp");
     }
     else {	
-	shell_exec("sudo service ntp stop");
-        shell_exec("sudo update-rc.d ntp disable ");
+	shell_exec("sudo systemctl stop ntp.service");
+        shell_exec("sudo systemctl disable ntp");
     } 
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
@@ -109,12 +109,12 @@
 	shell_exec("echo \"extend .1.3.6.1.3.8 /bin/bash \"/usr/bin/awk -F: ''\'''{print ''\$''8}''\''' /var/www/nettemp/tmp/results\"\" | sudo tee -a /etc/snmp/snmpd.conf");
 
 	
-	shell_exec("sudo service snmpd start");
-        shell_exec("sudo update-rc.d snmpd enable ");
+	shell_exec("sudo systemctl start snmpd.service");
+        shell_exec("sudo systemctl enable snmpd");
     }
     else {	
-	shell_exec("sudo service snmpd stop");
-        shell_exec("sudo update-rc.d snmpd disable ");
+	shell_exec("sudo systemctl stop snmpd.service");
+        shell_exec("sudo systemctl disable snmpd ");
 	shell_exec("sudo cp -f /etc/snmp/snmpd.conf.bkp /etc/snmp/snmpd.conf");
     } 
     header("location: " . $_SERVER['REQUEST_URI']);
