@@ -39,16 +39,17 @@ include("$ROOT/receiver.php");
 			$rainlast=substr($rainfall['time'], 0, 10);
 			$rainlast2= substr($rainlast, 0, 10);
 			$rainlast2 = $rainlast2." 00:00:00";
+			$rainlast3 = $rainlast2;
 			db('rainlast',$rainlast2,'rainfalllast','virtual',$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 			
 	  }
 	  
-	  $query = $db2->query("SELECT sum(value) AS rainsum FROM def WHERE time  >= '$rainlast2'");
+	  $query = $db2->query("SELECT sum(value) AS rainsum FROM def WHERE time  >= '$rainlast3'");
 	  $result = $query->fetchAll();
 	  foreach($result as $rainfall) {
 	  
 			$rainlastsum=$rainfall['rainsum'];
-			db('rainlastsum',$rainlast2,'rainfallsum','virtual',$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+			db('rainlastsum',$rainlastsum,'rainfallsum','virtual',$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 	  }
 
       //db('rain24',$rain24h,'rainfall24h','virtual',$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
