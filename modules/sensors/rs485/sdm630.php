@@ -213,7 +213,12 @@ try {
 		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 		$db->exec("UPDATE sensors SET sum='$ALL' WHERE rom='$local_rom'");
 		
-		
+		$local_val=$line[14];
+		$local_type='total demand';
+		//$local_device='usb';
+		//$local_usb=$dev0;
+		//$local_rom="usb_".$dev."a".$addr."impb_".$local_type;
+		echo $date." SDM630 Total demand ".$local_val." ".$local_type.".\n";
 		
 	}
 

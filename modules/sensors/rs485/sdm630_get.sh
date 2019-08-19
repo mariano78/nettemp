@@ -114,6 +114,11 @@ result  = client.read_input_registers(0x4C, 2, unit=address)
 decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big, wordorder=Endian.Big)
 print '{0:0.2f}'.format(decoder.decode_32bit_float()), "\n",
 
+# 0x54 - Total system power demand (W)
+result  = client.read_input_registers(0x54, 2, unit=address)
+decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big, wordorder=Endian.Big)
+print '{0:0.2f}'.format(decoder.decode_32bit_float()), "\n",
+
 #---------------------------------------------------------------------------# 
 # close the client
 #---------------------------------------------------------------------------# 
