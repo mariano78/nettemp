@@ -1,5 +1,9 @@
 <?php
 
+$ROOT='/var/www/nettemp';
+include("$ROOT/receiver.php");
+$status2 = 3 ;
+
 	$url = "http://192.168.50.8/home.cgi/";
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -16,9 +20,19 @@
    
    
 
-$inputdata_expl = explode(" ", $inputdata);
+$inputdata_expl = explode("\n", $inputdata);
 
-echo $inputdata_expl[0];
-echo $inputdata_expl[1];
 
+
+$peak =  $inputdata_expl[10];
+$total =  $inputdata_expl[11];
+$status = $inputdata_expl[12];
+
+if ($status == 'OK') {$status2 = 0 ;}
+if ($status != 'OK') {$status2 = 1 ;}
+
+
+db('falownik_peak',$peak,'peak','ip',$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+db('falownik_total',$total,'total','ip',$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+db('falownik_status',$status2,'trigger','ip',$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 ?>
