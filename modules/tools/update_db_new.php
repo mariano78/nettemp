@@ -230,6 +230,9 @@ $updates['2019-07-15 09:00:31'][]="UPDATE nt_settings SET value ='nettemp.tk' WH
 $updates['2019-07-15 09:00:33'][]="UPDATE nt_settings SET value ='http://nettemp.tk' WHERE option = 'nettemp_link'";
 $updates['2019-07-15 09:00:35'][]="UPDATE nt_settings SET value ='media/png/nettemp.tk.png' WHERE option = 'nettemp_logo'";
 
+$updates['2019-08-21 07:00:35'][]="INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('elecesp', 'kWh', 'W', 'media/ico/Lamp-icon.png' ,'Electricity','0', '99999999')";
+
+
 
 
 ?>
