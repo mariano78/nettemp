@@ -37,6 +37,8 @@ expect
 socat
 build-essential
 python-dev
+python-pip
+python3-pip
 figlet
 libmodbus5
 iptables-persistent
