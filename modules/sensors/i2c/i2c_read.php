@@ -193,6 +193,7 @@ echo "Scanning...\n";
 foreach($bus as $bus) {
 	$a=array();
 	$bus=str_replace("i2c-","",$bus);
+	echo $bus;
 	if(file_exists("/dev/i2c-$bus")){
 		$cmd="/usr/sbin/i2cdetect -y ".$bus." |sed '1d' |cut -d \" \" -f 2-";
 		$out=shell_exec($cmd);
