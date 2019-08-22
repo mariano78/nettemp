@@ -29,7 +29,7 @@ Debian, RaspberryPi:
 
 	mkdir -p /var/www/nettemp && cd /var/www
 	sudo apt update -y
-	sudo apt-get upgrade -ymc
+	sudo apt-get upgrade -y
 	
 	sudo apt-get -y install git
 	git clone https://github.com/mariano78/nettemp
