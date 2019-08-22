@@ -7,6 +7,7 @@ mkdir -p $dir/tmp
 source install/apt/apt.sh
 source install/rpi/rpi.sh
 source install/1w/1w.sh
+source install/python/python.sh
 source install/dht/dht.sh
 source install/gpio/gpio.sh
 source install/i2c/i2c.sh
@@ -23,7 +24,7 @@ source install/crontab/crontab.sh
 source install/db/db.sh
 source install/perms/perms.sh
 source install/services/services.sh
-source install/vpn/vpn.sh
+#source install/vpn/vpn.sh
 
 
 if [[ "$SENDSTATS" == "yes" ]]; then
