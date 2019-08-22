@@ -1,7 +1,6 @@
 #! /bin/bash 
 
 {
-sudo pip install Adafruit-GPIO
 cd /tmp
 git clone https://github.com/adafruit/Adafruit_Python_BMP
 cd Adafruit_Python_BMP
