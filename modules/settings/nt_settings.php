@@ -215,6 +215,9 @@ foreach ($result as $a) {
 	if($a['option']=='logrefresh') {
        	$nts_ref_logs=$a['value'];
     }
+	if($a['option']=='chartsrefresh') {
+       	$nts_ref_charts=$a['value'];
+    }
 }
 
 //different way..
