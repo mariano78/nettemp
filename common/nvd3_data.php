@@ -10,6 +10,7 @@ $single=$_GET["single"];
 
 $data='';
 $adj='';
+$data = array();
 
 
 include($root."/modules/settings/nt_settings.php");
@@ -263,8 +264,8 @@ else {
     		query($max,$query);
     	}
 	   foreach ($dbh->query($query) as $row) {
-		    $data = array();
-			$data[]=array('x' => $row[0]*1000, 'y' => $row[1]);
+		    
+			$data[]= array('x' => $row[0]*1000, 'y' => $row[1]);
 		}
     		$array['key']=$name;
     		$array['values']=$data;
