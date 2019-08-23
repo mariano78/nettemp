@@ -104,6 +104,8 @@ if ($art!='meteogram') {
 	case 'meteogram': include('modules/charts/meteogram.php'); break;
 	}
 ?>
+<label>Auto refresh:</label>
+
 	<form action="" method="post">
 			<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()" type="checkbox" name="chartsrefresh" value="on"  <?php echo $nts_ref_charts == 'on' ? 'checked="checked"' : ''; ?> >
 			<input type="hidden" name="chartsrefresh1" value="chartsrefresh_onoff"  />

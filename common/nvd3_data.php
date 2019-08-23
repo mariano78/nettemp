@@ -263,6 +263,7 @@ else {
     		query($max,$query);
     	}
 	   foreach ($dbh->query($query) as $row) {
+		    $data = array();
 			$data[]=array('x' => $row[0]*1000, 'y' => $row[1]);
 		}
     		$array['key']=$name;
