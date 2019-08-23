@@ -26,6 +26,16 @@ if(($_SESSION["perms"] == 'adm') || (isset($_SESSION["user"]))) {
 	
 $temp_scale=$nts_temp_scale;
 
+$chartsrefresh = isset($_POST['chartsrefresh']) ? $_POST['chartsrefresh'] : '';
+$chartsrefresh1 = isset($_POST['chartsrefresh1']) ? $_POST['chartsrefresh1'] : '';
+
+    if (($chartsrefresh1 == "chartsrefresh_onoff") ){
+		$db = new PDO('sqlite:dbf/nettemp.db');
+		$db->exec("UPDATE nt_settings SET value='$chartsrefresh' WHERE option='chartsrefresh'") or die ($db->lastErrorMsg());
+		header("location: " . $_SERVER['REQUEST_URI']);
+		exit();
+    }
+
 ?>
 <p>
 <?php
@@ -96,11 +106,8 @@ if ($art!='meteogram') {
 ?>
 	<form action="" method="post">
 			<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()" type="checkbox" name="chartsrefresh" value="on"  <?php echo $nts_ref_charts == 'on' ? 'checked="checked"' : ''; ?> >
-			<input type="hidden" name="chartsrefresh" value="chartsrefresh_onoff"  />
+			<input type="hidden" name="chartsrefresh1" value="chartsrefresh_onoff"  />
 	</form>
-	
-	
-?>
 
 
 
