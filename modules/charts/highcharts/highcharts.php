@@ -319,8 +319,29 @@ var hc = function () {
 
 
 hc();
-setInterval(function() {
-	hc();
-}, 60000);
+
 </script>
+
+
+<?php	
+	
+	$crefr = $db->query("SELECT value FROM nt_settings WHERE option = 'chartsrefresh'") or header("Location: html/errors/db_error.php");
+	$cref = $crefr->fetchAll();
+	foreach($cref as $cref2) {
+	
+	$creff = $cref2['value'];
+	}
+	
+	if ($creff == 'on' ) {
+	?>
+	
+		<script>
+			setInterval(function() {
+				hc();
+			}, 60000);
+		</script>
+
+<?php
+	}
+?>
 
