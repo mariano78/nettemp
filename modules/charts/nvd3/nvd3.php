@@ -145,7 +145,7 @@ d3.json('common/nvd3_data.php?type='+type+'&name='+name+'&max='+max+'&mode='+mod
 
 nvd3();
 </script>
-
+<br>
 <?php	
 	
 	$crefr = $db->query("SELECT value FROM nt_settings WHERE option = 'chartsrefresh'") or header("Location: html/errors/db_error.php");
