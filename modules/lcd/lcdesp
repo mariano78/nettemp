@@ -30,10 +30,11 @@ line2=$(echo $line2 |sed 's/ //g')
 name=$(echo $line | awk 'BEGIN {FS="|"}{print $1}' | sed 'y/ęóąśćłżź/eoasclzz/')
 tmp=`echo $line | awk 'BEGIN {FS="|"}{print $2}'`
 type=$(echo $line | awk 'BEGIN {FS="|"}{print $3}' | sed 's/|/ /g' | sed 's/press/hPa/g' | sed 's/temp/'$temp_scale'/g' | sed 's/humid/%/g' | sed 's/volt/V/g' | sed 's/amps/A/g' | sed 's/watt/W/g' | sed 's/water/m3/g' | sed 's/gas/m3/g' | sed 's/elec/kWh/g' | sed 's/host/ms/g' | sed 's/air/ug\/m^3/g')
+type2=`echo $line | awk 'BEGIN {FS="|"}{print $3}'`
 
-echo $type
+echo $type2
 
-if [[$type == "elec"]]; then
+if [[$type2 == "elec"]]; then
 echo "typ elec"
 fi
 
