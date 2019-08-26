@@ -23,17 +23,13 @@ rowstart=$trow;
 dir=$( cd "$( dirname "$0" )" && cd ../../ && pwd )
 temp_scale=`sqlite3 -cmd ".timeout 2000" $dir/dbf/nettemp.db "SELECT temp_scale FROM settings"`
 check() {
-for line in `sqlite3 -cmd ".timeout 2000" $dir/dbf/nettemp.db "SELECT name,tmp,type,rom FROM sensors WHERE lcd='on' ORDER BY position ASC, id ASC "| sed 's/ /_/g'`; 
+for line in `sqlite3 -cmd ".timeout 2000" $dir/dbf/nettemp.db "SELECT name,tmp,type FROM sensors WHERE lcd='on' ORDER BY position ASC, id ASC "| sed 's/ /_/g'`; 
 
 do
 line2=$(echo $line2 |sed 's/ //g')
 name=$(echo $line | awk 'BEGIN {FS="|"}{print $1}' | sed 'y/ęóąśćłżź/eoasclzz/')
 tmp=`echo $line | awk 'BEGIN {FS="|"}{print $2}'`
 type=$(echo $line | awk 'BEGIN {FS="|"}{print $3}' | sed 's/|/ /g' | sed 's/press/hPa/g' | sed 's/temp/'$temp_scale'/g' | sed 's/humid/%/g' | sed 's/volt/V/g' | sed 's/amps/A/g' | sed 's/watt/W/g' | sed 's/water/m3/g' | sed 's/gas/m3/g' | sed 's/elec/kWh/g' | sed 's/host/ms/g' | sed 's/air/ug\/m^3/g')
-tmp=`echo $line | awk 'BEGIN {FS="|"}{print $4}'`
-
-echo $rom
-
 
 if 
 count=$(echo "$tmp$type" | wc -m )
