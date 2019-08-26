@@ -33,6 +33,13 @@ type=$(echo $line | awk 'BEGIN {FS="|"}{print $3}' | sed 's/|/ /g' | sed 's/pres
 
 echo $type
 
+if [ $type = "elec"]
+
+echo "typ elec"
+
+fi
+
+
 count=$(echo "$tmp$type" | wc -m )
 count1=$(echo "$name" | wc -m )
 column1=$(($column - ($count1 + $count) + 1 ))
