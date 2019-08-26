@@ -33,7 +33,7 @@ type=$(echo $line | awk 'BEGIN {FS="|"}{print $3}' | sed 's/|/ /g' | sed 's/pres
 
 echo $type
 
-if [[$type = "elec"]]; then
+if [[$type == "elec"]]; then
 echo "typ elec"
 fi
 
