@@ -1,4 +1,11 @@
 
+4.8.6
+
+SDM630 Fix 
+On/Off refresh for charts
+NVD3 Fix
+BME280 Fix
+
 4.8.5
 
 Odświeżanie statusu co 10 sekund - jeśli była zmiana na bazie.

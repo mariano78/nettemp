@@ -41,6 +41,13 @@ Debian, RaspberryPi:
 
 Changelog:
 
+4.8.6
+
+SDM630 Fix 
+On/Off refresh for charts
+NVD3 Fix
+BME280 Fix
+
 4.8.5
 
 Status refresh every 10 seconds - only if base was modified, only for sensors
