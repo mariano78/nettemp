@@ -318,7 +318,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 								logs(date("Y-m-d H:i:s"),'Info',$rom." - Value in base updated - ".$val);
 							}
 							//sum,current for counters
-							if (in_array($type, $arraycounters){
+							if (in_array($type, $arraycounters)){
 								$dbr->exec("UPDATE sensors SET sum='$val'+sum WHERE rom='$rom'") or die ("cannot insert to status\n" );
 								logs(date("Y-m-d H:i:s"),'Info',$rom." - Summary value for counter updated");
 							}
