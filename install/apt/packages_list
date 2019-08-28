@@ -23,7 +23,6 @@ ntp
 watchdog
 python-smbus
 i2c-tools
-openvpn
 iptables
 rcconf
 arp-scan

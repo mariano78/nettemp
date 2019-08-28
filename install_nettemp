@@ -60,22 +60,10 @@ if [ $exitstatus = 1 ]; then
     exit 1s
 fi
 
-whiptail  --backtitle "Nettemp.pl" --title "Nettemp installer" --yesno "Do You want generate OpenVPN certificate? (Long installation)" 8 78
-exitstatus2=$?
-if [ $exitstatus2 = 0 ]; then
-    OVCA=yes
-fi
-
 whiptail  --backtitle "Nettemp.pl" --title "Nettemp installer" --yesno "Do You want start APC UPS?" 8 78
 exitstatus2=$?
 if [ $exitstatus2 = 0 ]; then
     APCUPS=yes
-fi
-
-whiptail  --backtitle "Nettemp.pl" --title "Nettemp installer" --yesno "Do You want start RADIUS Server?" 8 78
-exitstatus2=$?
-if [ $exitstatus2 = 0 ]; then
-    RADIUS=yes
 fi
 
 whiptail  --backtitle "Nettemp.pl" --title "Nettemp installer" --yesno "Do You want send anonymous stats about Nettemp" 8 78
