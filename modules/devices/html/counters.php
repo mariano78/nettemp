@@ -17,7 +17,7 @@ if ($sum1 == 'sum2'){
 
 
 $db = new PDO('sqlite:dbf/nettemp.db');
-$rows = $db->query("SELECT * FROM sensors WHERE type='elec' OR type='water' OR type='gas'");
+$rows = $db->query("SELECT * FROM sensors WHERE type='elec' OR type='water' OR type='gas' ORDER BY position ASC");
 $row = $rows->fetchAll();
 $count = count($row);
 if ($count >= "1") {

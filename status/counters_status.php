@@ -39,7 +39,15 @@ if ( $numRows > '0' ) { ?>
 <div class="grid-item co">
 <div class="panel panel-default">
 <div class="panel-heading"> 
-<div class="pull-left">Counters</div>
+<div class="pull-left">
+	<?php
+		if(isset($_SESSION['user'])){
+							echo '<a href="index.php?id=device&type=counters" title="Go to group settings" class="group-name" >'
+						} else {
+							echo 'Counters';
+						}
+	?>
+</div>
 <div class="pull-right">
 		<div class="text-right">
 			 <form action="" method="post" style="display:inline!important;">
