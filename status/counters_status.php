@@ -42,7 +42,7 @@ if ( $numRows > '0' ) { ?>
 <div class="pull-left">
 	<?php
 		if(isset($_SESSION['user'])){
-							echo '<a href="index.php?id=device&type=counters" title="Go to group settings" class="group-name" >'
+							echo '<a href="index.php?id=device&type=counters" title="Go to counters" class="group-name" >'.'Counters'.'</a>';
 						} else {
 							echo 'Counters';
 						}
