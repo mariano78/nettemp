@@ -53,6 +53,8 @@ php-cgi -f $dir/modules/sensors/node.php
 #node domoticz
 php-cgi -f $dir/modules/sensors/send_domoticz.php
 
+#own scripts 
+$dir/tmp/ownscriptsexecute
 
 
 
