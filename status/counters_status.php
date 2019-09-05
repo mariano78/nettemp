@@ -25,11 +25,11 @@ foreach ($hide_resc as $hc) {
 //logon or logoff
 if(($_SESSION["perms"] == 'adm') || (isset($_SESSION["user"]))) {
 
-	$rows = $db->query("SELECT * FROM sensors WHERE hide ='off' AND  (type='gas' OR type='elec' OR type='water')");
+	$rows = $db->query("SELECT * FROM sensors WHERE hide ='off' AND  (type='gas' OR type='elec' OR type='water') ORDER BY position ASC");
 	
 } else { 
 
-	$rows = $db->query("SELECT * FROM sensors WHERE hide ='off' AND logon ='on' AND (type='gas' OR type='elec' OR type='water')");
+	$rows = $db->query("SELECT * FROM sensors WHERE hide ='off' AND logon ='on' AND (type='gas' OR type='elec' OR type='water') ORDER BY position ASC");
 	
 	}
 	
