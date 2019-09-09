@@ -327,7 +327,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 					
 					
 					// time when you can put into base
-					elseif ((date('i', time())%$chmin==0) || (date('i', time())==00))  {
+					elseif (((date('i', time())%$chmin)==0) || (date('i', time())==00))  {
 						
 						echo $currdat = (date('i', time()));
 						$dbfr->exec("INSERT OR IGNORE INTO def (value) VALUES ('$val')") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert to rom sql, time\n");
