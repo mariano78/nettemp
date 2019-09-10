@@ -166,7 +166,7 @@ try {
 			//$temprom = $vr['dpromtemp'];
 			//$humidrom = $vr['dpromtemp'];
 			
-			$temprom = 'ip_meteo_id9_temp';
+			$temprom = 'domo_Salon';
 			$humidrom = 'domo_Wilgotnosc';
 			
 			$sth = $db->query("SELECT tmp FROM sensors WHERE rom = '$temprom'");
