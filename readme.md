@@ -41,6 +41,10 @@ Debian, RaspberryPi:
 
 Changelog:
 
+4.8.7
+
+DewPoint - virtual sensor 
+
 4.8.6
 
 SDM630 Fix 
