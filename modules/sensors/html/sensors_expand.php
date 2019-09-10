@@ -92,15 +92,9 @@
 		<form action="" method="post" style="display:inline!important;"> 
 			<input type="hidden" name="dp_id" value="<?php echo $a['id']; ?>" />
 			<input type="text" name="dptempbindsensor" size="15" value="<?php echo $a['dpromtemp']; ?>" />
-			<input type="hidden" name="cht_bsensor" value="cht_bsensorok" />
-			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
-		</form>
-		
 		<label> Humid rom: </label>
-		<form action="" method="post" style="display:inline!important;"> 
-			
 			<input type="text" name="dphumbindsensor" size="15" value="<?php echo $a['dpromhumid']; ?>" />
-			<input type="hidden" name="chh_bsensor" value="chh_bsensorok" />
+			<input type="hidden" name="cht_bsensor" value="cht_bsensorok" />
 			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 		</form>
 		<?php
