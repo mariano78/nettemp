@@ -86,6 +86,27 @@
 		<?php
 		}
 		?>
+		<?php
+		if ($a['device'] == 'virtual' && ($a['type'] == 'dewpoint')) { ?>
+		<label> Temp rom: </label>
+		<form action="" method="post" style="display:inline!important;"> 
+			<input type="hidden" name="bsens_id" value="<?php echo $a['id']; ?>" />
+			<input type="text" name="bindsensor" size="15" value="<?php echo $a['dpromtemp']; ?>" />
+			<input type="hidden" name="ch_bsensor" value="ch_bsensorok" />
+			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+		</form>
+		
+		<label> Humid rom: </label>
+		<form action="" method="post" style="display:inline!important;"> 
+			<input type="hidden" name="bsens_id" value="<?php echo $a['id']; ?>" />
+			<input type="text" name="bindsensor" size="15" value="<?php echo $a['dpromhumid']; ?>" />
+			<input type="hidden" name="ch_bsensor" value="ch_bsensorok" />
+			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+		</form>
+		<?php
+		}
+		?>
+		
 		</td>
 		
 		
