@@ -181,7 +181,7 @@ try {
 			$sth->execute();
 			$hresult = $sth->fetchAll();
 			
-			foreach(htresult as $humid) {
+			foreach($hresult as $humid) {
 				$humiddewpoint=$humid['tmp'];
 			}
 	
