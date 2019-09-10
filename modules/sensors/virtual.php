@@ -164,7 +164,7 @@ try {
 			$local_device = $vr['device'];
 			
 			$temprom = $vr['dpromtemp'];
-			$humidrom = $vr['dpromtemp'];
+			$humidrom = $vr['dpromhumid'];
 	
 			$sth = $db->query("SELECT tmp FROM sensors WHERE rom = '$temprom'");
 			$sth->execute();
