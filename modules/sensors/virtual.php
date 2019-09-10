@@ -168,11 +168,19 @@ try {
 			
 			$sth = $db->query("SELECT tmp FROM sensors WHERE rom = '$temprom'");
 			$sth->execute();
-			$tempdewpoint = $sth->fetchAll();
+			$tresult = $sth->fetchAll();
+			
+			foreach($tresult as $temp) {
+				$tempdewpoint=$temp['tmp'];
+			}
 			
 			$sth = $db->query("SELECT tmp FROM sensors WHERE rom = '$humidrom'");
 			$sth->execute();
-			$humiddewpoint = $sth->fetchAll();
+			$hresult = $sth->fetchAll();
+			
+			foreach(htresult as $humid) {
+				$humiddewpoint=$humid['tmp'];
+			}
 	
 			echo $tempdewpoint."\n";
 			echo $humiddewpoint."\n";
