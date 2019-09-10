@@ -189,7 +189,8 @@ try {
 			echo $humiddewpoint."\n";
 			
 				
-			$local_val=243.12*(((LOG10($humiddewpoint)-2)/0.4343)+(17.5*$tempdewpoint)/(243.12+$tempdewpoint))/(17.62-(((LOG10($humiddewpoint)-2)/0.4343)+(17.5*$tempdewpoint)/(243.12+$tempdewpoint)));
+			$val=243.12*(((LOG10($humiddewpoint)-2)/0.4343)+(17.5*$tempdewpoint)/(243.12+$tempdewpoint))/(17.62-(((LOG10($humiddewpoint)-2)/0.4343)+(17.5*$tempdewpoint)/(243.12+$tempdewpoint)));
+			$local_val = number_format ( $val, 2 );
 		
 		echo $local_rom."\n";
 		echo $local_val."\n";
