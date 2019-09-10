@@ -163,12 +163,9 @@ try {
 			$local_type = $vr['type'];
 			$local_device = $vr['device'];
 			
-			//$temprom = $vr['dpromtemp'];
-			//$humidrom = $vr['dpromtemp'];
-			
-			$temprom = 'domo_Salon';
-			$humidrom = 'domo_Wilgotnosc';
-			
+			$temprom = $vr['dpromtemp'];
+			$humidrom = $vr['dpromtemp'];
+	
 			$sth = $db->query("SELECT tmp FROM sensors WHERE rom = '$temprom'");
 			$sth->execute();
 			$tresult = $sth->fetchAll();
