@@ -163,8 +163,11 @@ try {
 			$local_type = $vr['type'];
 			$local_device = $vr['device'];
 			
-			$temprom = $vr['dpromtemp'];
-			$humidrom = $vr['dpromtemp'];
+			//$temprom = $vr['dpromtemp'];
+			//$humidrom = $vr['dpromtemp'];
+			
+			$temprom = 'ip_meteo_id9_temp';
+			$humidrom = 'domo_Wilgotnosc';
 			
 			$sth = $db->query("SELECT tmp FROM sensors WHERE rom = '$temprom'");
 			$sth->execute();
