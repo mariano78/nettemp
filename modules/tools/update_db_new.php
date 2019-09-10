@@ -235,6 +235,10 @@ $updates['2019-08-21 07:00:35'][]="INSERT OR IGNORE INTO types (type, unit, unit
 //Update - charts referesh
 $updates['2019-08-23 10:40:05'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('chartsrefresh','off')";
 
+//Dew Point
+$updates['2019-09-10 07:10:37'][]="INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('dewpoint', '°C', '°F', 'media/ico/Dewpoint-icon.png' ,'Temperature','-1000', '1000')";
+$updates['2019-09-10 10:12:08'][]="INSERT OR IGNORE INTO virtual  ('name', 'rom', 'type', 'device', 'description') VALUES ('DewPoint', 'devpoint', 'devpoint', 'virtual','Dew Point')";
+
 
 
 
