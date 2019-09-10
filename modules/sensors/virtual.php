@@ -155,6 +155,38 @@ try {
 			
 			
 	}
+	
+	if ($vr['type'] == 'dewpoint'){
+		
+		
+			$local_rom = $vr['rom'];
+			$local_type = $vr['type'];
+			$local_device = $vr['device'];
+			
+			$temprom = $vr['dpromtemp'];
+			$humidrom = $vr['dpromtemp'];
+			
+			$sth = $db->query("SELECT tmp FROM sensors WHERE rom = '$temprom'");
+			$sth->execute();
+			$tempdewpoint = $sth->fetchAll();
+			
+			$sth = $db->query("SELECT tmp FROM sensors WHERE rom = '$humidrom'");
+			$sth->execute();
+			$humiddewpoint = $sth->fetchAll();
+	
+			echo $tempdewpoint."\n";
+			echo $humiddewpoint."\n";
+			
+				
+			$local_val=243.12*(((LOG10($humiddewpoint)-2)/0.4343)+(17.5*$tempdewpoint)/(243.12+$tempdewpoint))/(17.62-(((LOG10($humiddewpoint)-2)/0.4343)+(17.5*$tempdewpoint)/(243.12+$tempdewpoint)));
+		
+		echo $local_rom."\n";
+		echo $local_val."\n";
+		echo $local_type."\n";
+		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+			
+			
+	}
 
 	}
 
