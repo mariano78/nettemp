@@ -78,7 +78,6 @@ if (in_array('elec', $typearr))  {?>
 if($id!='screen'&&isset($_SESSION['user'])) {
 ?>
 
-<a href="index.php?id=<?php echo $id ?>&type=system&max=<?php echo $max ?>" ><button class="btn btn-xs btn-default <?php echo $art == 'system' ? ' active' : ''; ?>">System stats</button></a>
 <a href="index.php?id=<?php echo $id ?>&type=meteogram" ><button class="btn btn-xs btn-default <?php echo $art == 'meteogram' ? ' active' : ''; ?>">Meteogram</button></a>
 
 </p>
