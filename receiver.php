@@ -287,7 +287,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 					$arrayt = array("gas", "water", "elec", "elecesp", "trigger" );
 					$arraycounters = array("gas", "water", "elec", "elecesp");
 					
-					$arrayd = array("wireless", "gpio", "usb", "ip", "ip_mqtt");
+					$arrayd = array("wireless", "gpio", "usb", "ip", "ip_mqtt", "system");
 					if (in_array($type, $arrayt) &&  in_array($device, $arrayd)) {
 					
 													if  ($type == 'elecesp') {
