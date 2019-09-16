@@ -41,6 +41,10 @@ Debian, RaspberryPi:
 
 Changelog:
 
+4.8.8
+
+CPU and Memory usage as normal sensors
+
 4.8.7
 
 DewPoint - virtual sensor 
