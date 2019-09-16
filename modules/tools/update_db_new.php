@@ -241,6 +241,9 @@ $updates['2019-09-10 10:12:08'][]="INSERT OR IGNORE INTO virtual  ('name', 'rom'
 $updates['2019-09-10 10:21:46'][]="ALTER TABLE sensors ADD dpromtemp TEXT";
 $updates['2019-09-10 10:21:48'][]="ALTER TABLE sensors ADD dpromhumid TEXT";
 
+$updates['2019-09-16 10:40:32'][]="INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('cpuusage', '%', '%', 'media/ico/processor-icon.png' ,'CPU Usage','0', '100')";
+$updates['2019-09-16 10:41:32'][]="INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('memoryusage', '%', '%', 'media/ico/ram-icon.png' ,'Memory Usage','0', '100')";
+
 
 
 ?>

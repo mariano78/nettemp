@@ -1,7 +1,7 @@
 <?php
 $ROOT=dirname(dirname(dirname(__FILE__)));
 $date = date("Y-m-d H:i:s"); 
-
+include("$ROOT/receiver.php");
 
 function get_server_cpu_usage(){
  
@@ -31,20 +31,28 @@ $system=array("system_cpu","system_memory");
 //var_dump($system);
 foreach($system as $file) {
 	try {
-		if(!file_exists("$ROOT/db/$file.sql")){
-			$db = new PDO("sqlite:$ROOT/db/$file.sql");
-			$db->exec("CREATE TABLE def (time DATE DEFAULT (datetime('now','localtime')), value INTEGER)");
-			echo $date." New database for system_cpu created.\n";
-		}
-		$db = new PDO("sqlite:$ROOT/db/$file.sql");
-		$db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-		if($file=='system_cpu'){ 
-			$db->exec("INSERT OR IGNORE INTO def (value) VALUES ('$cpu')");
-			echo $date." Insert to ".$file." ".$cpu.".\n";
+		
+		
+		if($file=='system_cpu'){
+			
+		$local_rom = 'system_cpu';
+		$local_val = $cpu;
+		$local_type = 'cpuusage';
+		$local_device = 'system';
+			
+		
+		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+		
 		} 
 		if($file=='system_memory'){ 
-			$db->exec("INSERT OR IGNORE INTO def (value) VALUES ('$mem')");
-			echo $date." Insert to ".$file." ".$mem.".\n";
+			
+		$local_rom = 'system_memory';
+		$local_val = $mem;
+		$local_type = 'memoryusage';
+		$local_device = 'system';
+			
+		
+		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 		} 
 		
 	} catch (Exception $e) {

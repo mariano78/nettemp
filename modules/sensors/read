@@ -29,6 +29,8 @@ php-cgi -f $dir/modules/sensors/1wire/owfs.php
 php-cgi -f $dir/modules/sensors/snmp/snmp_read.php
 php-cgi -f $dir/modules/sensors/GPIO/HCS04/read.php
 php-cgi -f $dir/modules/gpio/gpio_scan.php
+php-cgi -f $dir/modules/hosts/host_read.php
+php-cgi -f $dir/modules/tools/system_stats.php
 
 # wireless old sensors
 $dir/modules/sensors/wireless/esp8266_read
