@@ -15,6 +15,7 @@ $query = $db->query("SELECT * FROM nt_settings");
 		}
 	}
 $db->exec("DELETE FROM logs WHERE date <= datetime('now','localtime','$logshistime')") or die ($db->lastErrorMsg());
+$db->exec("vacuum") or die ("No vacuum." );
 
 
 ?>
