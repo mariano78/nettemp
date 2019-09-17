@@ -44,6 +44,7 @@ Changelog:
 4.8.8
 
 CPU and Memory usage as normal sensors
+Hdd free space - virtual sensor
 
 4.8.7
 
