@@ -206,10 +206,17 @@ try {
 			$dirtocheck = $vr['hddpath'];
 			
 			$df = disk_free_space("$dirtocheck");
-			
+			$Index=0;
 			 while($df>=1024)
 			  {
-				$df/=1024;		
+				$df/=1024;	
+				$Index++;
+					
+					if ($Index ==2) 
+					{
+						$df/=1024;
+					}
+				
 			  }
 		
 
