@@ -206,10 +206,14 @@ try {
 			$dirtocheck = $vr['hddpath'];
 			
 			$df = disk_free_space("$dirtocheck");
-			$df/=1024;
-			$df/=1024;
+			
+			 while($df>=1024)
+			  {
+				$df/=1024;		
+			  }
+		
 
-			$local_val = $df;
+			$local_val = number_format ( $df, 2 );
 		
 		echo $local_rom."\n";
 		echo $local_val."\n";
