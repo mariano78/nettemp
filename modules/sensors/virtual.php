@@ -196,6 +196,28 @@ try {
 			
 			
 	}
+	
+	if ($vr['type'] == 'freespace'){
+		
+		
+			$local_rom = $vr['rom'];
+			$local_type = $vr['type'];
+			$local_device = $vr['device'];
+			$dirtocheck = $vr['hddpath'];
+			
+			$df = disk_free_space("$dirtocheck");
+			$df/=1024;
+			$df/=1024;
+
+			$local_val = $df;
+		
+		echo $local_rom."\n";
+		echo $local_val."\n";
+		echo $local_type."\n";
+		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+			
+			
+	}
 
 	}
 

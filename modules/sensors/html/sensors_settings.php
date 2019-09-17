@@ -382,7 +382,8 @@ if ( $lcd == "lcd"){
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
-	
+
+//Dew Point - virtual sensor	
 	$dptempbindsensor = isset($_POST['dptempbindsensor']) ? $_POST['dptempbindsensor'] : '';
 	$dphumbindsensor = isset($_POST['dphumbindsensor']) ? $_POST['dphumbindsensor'] : '';
     $dp_id = isset($_POST['dp_id']) ? $_POST['dp_id'] : '';
@@ -395,13 +396,14 @@ if ( $lcd == "lcd"){
     exit();
     } 
 	
-	$dphumbindsensor = isset($_POST['dphumbindsensor']) ? $_POST['dphumbindsensor'] : '';
-    $dp_id = isset($_POST['dp_id']) ? $_POST['dp_id'] : '';
-	$chh_bsensor = isset($_POST['chh_bsensor']) ? $_POST['chh_bsensor'] : '';
+//Free disk space - virtual sensor
+	$diskpath_id = isset($_POST['diskpath_id']) ? $_POST['diskpath_id'] : '';
+    $diskpath = isset($_POST['diskpath']) ? $_POST['diskpath'] : '';
+	$ch_diskpath = isset($_POST['ch_diskpath']) ? $_POST['ch_diskpath'] : '';
 	
-	if (!empty($dp_id) && $chh_bsensor == "cht_bsensorok"){
+	if (!empty($diskpath_id) && $ch_diskpath == "ch_diskpathok"){
     $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("UPDATE sensors SET dpromhumid='$dphumbindsensor' WHERE id='$dp_id'") or die ($db->lastErrorMsg());
+    $db->exec("UPDATE sensors SET hddpath='$diskpath' WHERE id='$diskpath_id'") or die ($db->lastErrorMsg());
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     } 

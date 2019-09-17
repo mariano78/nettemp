@@ -100,6 +100,18 @@
 		<?php
 		}
 		?>
+		<?php
+		if ($a['device'] == 'virtual' && ($a['type'] == 'freespace')) { ?>
+		<label> Disk path: </label>
+		<form action="" method="post" style="display:inline!important;"> 
+			<input type="hidden" name="diskpath_id" value="<?php echo $a['id']; ?>" />
+			<input type="text" name="diskpath" size="15" value="<?php echo $a['hddpath']; ?>" />
+			<input type="hidden" name="ch_diskpath" value="ch_diskpathok" />
+			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+		</form>
+		<?php
+		}
+		?>
 		
 		</td>
 		
