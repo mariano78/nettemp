@@ -177,7 +177,7 @@ foreach ($row as $b) {
 <div data-need="<?php echo $b['map_num']?>" id="<?php echo "data-need".$b['map_num']?>" data-dst="sensors" 
 											class="ui-widget-content draggable" 
 											title="<?php echo $a['name'].' - Last update: '.$a['time']; ?>" 
-											ondblclick="location.href='index.php?id=view&type=<?php $a['time']; ?>&max=day&single=<?php echo $a['name']; ?>'">
+											ondblclick="location.href='index.php?id=view&type=<?php $a['type']; ?>&max=day&single=<?php echo $a['name']; ?>'">
     <?php 
 			$display_style='style=""';
 			if(($a['tmp'] == 'error') || ($label=='danger') || ($a['status'] =='error') || ($a['tmp'] == 'wait')) {
