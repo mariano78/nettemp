@@ -97,7 +97,7 @@
 	$ntp='';
 	}
 
-	    $snmpd_onoff = isset($_POST['snmpd_onoff']) ? $_POST['snmpd_onoff'] : '';
+	$snmpd_onoff = isset($_POST['snmpd_onoff']) ? $_POST['snmpd_onoff'] : '';
     $snmpd = isset($_POST['snmpd']) ? $_POST['snmpd'] : '';
 
     if (($snmpd_onoff == "snmpd_onoff") ){

@@ -250,6 +250,9 @@ $updates['2019-09-17 10:10:08'][]="INSERT OR IGNORE INTO virtual  ('name', 'rom'
 $updates['2019-09-17 10:40:32'][]="INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('freespace', 'GB', 'GB', 'media/ico/disc-icon.png' ,'Free disk space','0', '1000000')";
 $updates['2019-09-17 10:41:46'][]="ALTER TABLE sensors ADD hddpath TEXT";
 
+//mapon logout
+$updates['2019-09-27 09:40:05'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('maponlogout','off')";
+
 
 
 ?>
