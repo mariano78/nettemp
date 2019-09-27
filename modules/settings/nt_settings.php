@@ -218,6 +218,9 @@ foreach ($result as $a) {
 	if($a['option']=='chartsrefresh') {
        	$nts_ref_charts=$a['value'];
     }
+	if($a['option']=='maponlogout') {
+       	$nts_maponlogout=$a['value'];
+    }
 }
 
 //different way..

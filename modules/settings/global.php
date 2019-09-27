@@ -34,6 +34,14 @@
     exit();
     }
 	
+	$map_onoffl = isset($_POST['map_onoffl']) ? $_POST['map_onoffl'] : '';
+    $map_onoff1l = isset($_POST['map_onoff1l']) ? $_POST['map_onoff1l'] : '';
+    if (($map_onoff1l == "map_onoff2l") ){
+    $db->exec("UPDATE nt_settings SET value='$map_onoffl' WHERE option='maponlogout'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+	
 	$ntp_onoff = isset($_POST['ntp_onoff']) ? $_POST['ntp_onoff'] : '';
     $rtc_onoff = isset($_POST['rtc_onoff']) ? $_POST['rtc_onoff'] : '';
     $rtc = isset($_POST['rtc']) ? $_POST['rtc'] : '';
@@ -211,6 +219,17 @@
 					<form action="" method="post">
 					<input type="hidden" name="map_onoff1" value="map_onoff2"  />
 					<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()" type="checkbox" name="map_onoff" value="on"  <?php echo $nts_mapon == 'on' ? 'checked="checked"' : ''; ?> >
+					</form>
+				</td>
+			</tr>
+			
+			<tr>
+				<td><label>Map - logout</label>
+				</td>
+				<td>
+					<form action="" method="post">
+					<input type="hidden" name="map_onoff1l" value="map_onoff2l"  />
+					<input data-toggle="toggle" data-size="mini" onchange="this.form.submit()" type="checkbox" name="map_onoffl" value="on"  <?php echo $nts_maponlogout == 'on' ? 'checked="checked"' : ''; ?> >
 					</form>
 				</td>
 			</tr>
