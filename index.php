@@ -119,12 +119,6 @@ function new_seen($seen){
 <?php
 	}
 }
-
-if ($nts_maponlogout == 'on'){
-	?>
-	<li <?php echo $id == 'map' ? ' class="active"' : ''; ?>><a href="index.php?id=map"><span class="glyphicon glyphicon-picture" aria-hidden="true"> Map</span> </a></li><?php 
-	}
-	
 if($nts_info=='on') {
 ?>
 <li <?php echo $id == 'info' ? ' class="active"' : ''; ?>><a href="index.php?id=info"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"> Info</span></a></li>
