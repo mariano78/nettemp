@@ -25,8 +25,13 @@ $snmp_add1 = isset($_POST['snmp_add1']) ? $_POST['snmp_add1'] : '';
 	$map_num=substr(rand(), 0, 4);
 	$db->exec("INSERT OR IGNORE INTO snmp (name, rom, community, host, oid, divider, type, version ) VALUES ('$snmp_name','$rom','$snmp_community', '$snmp_host', '$snmp_oid', '$snmp_divider', '$snmp_type', '$snmp_version')") or die ("cannot insert to DB 1" );
 	$dbn->exec("INSERT OR IGNORE INTO newdev (list) VALUES ('$rom')");
-    $dbn->exec("INSERT OR IGNORE INTO sensors (name, rom, type, tmp, device, adj, charts, position, ch_group, ghide, hide, readerrtime, tobase) VALUES ('$snmp_name','$rom','$snmp_type', 'wait', 'snmp', 0, 'on', '1', 'snmp', 'off', 'off', '60', 'on')") or die ("cannot insert to DB 2" );
-
+    $dbn->exec("INSERT OR IGNORE INTO sensors (name, rom, type, tmp, device, adj, charts) VALUES ('$snmp_name','$rom','$snmp_type', 'wait', 'snmp', 0, 'on')") or die ("cannot insert to DB 2" );
+	
+	//maps settings
+	$inserted=$db->query("SELECT id FROM sensors WHERE rom='$rom'");
+	$inserted_id=$inserted->fetchAll();
+	$inserted_id=$inserted_id[0];
+	$db->exec("INSERT OR IGNORE INTO maps (type, map_pos, map_num,map_on,element_id) VALUES ('$snmp_type','{left:0,top:0}','$map_num','on','$inserted_id[id]')") or die ("Update maps error");
 
 	$dbnew = new PDO("sqlite:db/$rom.sql");
 	$dbnew->exec("CREATE TABLE def (time DATE DEFAULT (datetime('now','localtime')), value INTEGER, current INTEGER, last INTEGER)");
