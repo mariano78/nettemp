@@ -115,6 +115,7 @@ foreach ($result as $a) {
 		<td><?php echo $a["oid"]; ?></td>
 		<td><?php echo $a["divider"]; ?></td>
 		<td><?php echo $a["type"]; ?></td>
+		<td></td>
 	
 	</tr>
 <?php 
