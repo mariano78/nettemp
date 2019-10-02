@@ -66,6 +66,7 @@ function procmsg($topic, $msg){
     global $local_ip;
     global $local_gpio;
     global $local_usb;
+	global $local_tskname;
 
     $output = trim($msg);
 
@@ -78,6 +79,7 @@ function procmsg($topic, $msg){
 	$name=$arr['2'];
 	$type=$arr['3'];
 	$gpio=$arr['4'];
+	$tskname=$arr['5'];
     
 	$local_device	=	'ip_mqtt';
 	$local_type	=	$type;
@@ -85,19 +87,22 @@ function procmsg($topic, $msg){
 	$local_name	=	$name;
 	$local_ip	=	$ip;
 	$local_gpio	=	$gpio;
-	$local_rom=$local_device."_".$local_name."_".$local_type."_".$local_gpio;
+	$local_tskname = $tskname;
+	$local_rom=$local_device."_".$local_name."_".$local_type."_".$local_gpio."_".$local_tskname;
     }
     else {
 	$ip=$arr['1'];
 	$name=$arr['2'];
 	$type=$arr['3'];
+	$tskname=$arr['4'];
     
     $local_device	=	'ip_mqtt';
 	$local_type	=	$type;
 	$local_val	=	$output;
 	$local_name	=	$name;
 	$local_ip	=	$ip;
-	$local_rom=$local_device."_".$local_name."_".$local_type;
+	$local_tskname = $tskname;
+	$local_rom=$local_device."_".$local_name."_".$local_type."_".$local_tskname;
     }
     echo $date." Rom:".$local_rom." Name: ".$local_name." Value: ".$output." IP: ".$local_ip." GPIO: ".$local_gpio."\n";
     db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
