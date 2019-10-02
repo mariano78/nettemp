@@ -41,6 +41,10 @@ Debian, RaspberryPi:
 
 Changelog:
 
+4.8.9
+
+Save to database - ON/OFF for sensors
+
 4.8.8
 
 CPU and Memory usage as normal sensors
