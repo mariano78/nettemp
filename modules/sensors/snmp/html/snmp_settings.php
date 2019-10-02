@@ -31,7 +31,7 @@ $snmp_add1 = isset($_POST['snmp_add1']) ? $_POST['snmp_add1'] : '';
 	$inserted=$db->query("SELECT id FROM sensors WHERE rom='$rom'");
 	$inserted_id=$inserted->fetchAll();
 	$inserted_id=$inserted_id[0];
-	$db->exec("INSERT OR IGNORE INTO maps (type, map_pos, map_num,map_on,element_id) VALUES ('$snmp_type','{left:0,top:0}','$map_num','on','$inserted_id[id]')") or die ("Update maps error");
+	$db->exec("INSERT OR IGNORE INTO maps (type, map_pos, map_num,map_on,element_id) VALUES ('sensors','{left:0,top:0}','$map_num','on','$inserted_id[id]')") or die ("Update maps error");
 
 	$dbnew = new PDO("sqlite:db/$rom.sql");
 	$dbnew->exec("CREATE TABLE def (time DATE DEFAULT (datetime('now','localtime')), value INTEGER, current INTEGER, last INTEGER)");
