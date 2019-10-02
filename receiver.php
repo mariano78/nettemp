@@ -262,12 +262,13 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 	$dbr = new PDO("sqlite:".__DIR__."/dbf/nettemp.db") or die ("cannot open database");
 	if(file_exists(__DIR__."/db/".$file)&&filesize(__DIR__."/db/".$file)!=0){
 		$dbfr = new PDO("sqlite:".__DIR__."/db/$file");
-		$sthr = $dbr->query("SELECT stat_min,stat_max,rom,adj FROM sensors WHERE rom='$rom'");
+		$sthr = $dbr->query("SELECT stat_min,stat_max,rom,adj,tobase FROM sensors WHERE rom='$rom'");
 		$row = $sthr->fetchAll();
 		foreach($row as $row) {
 			$adj=$row['adj']; 
 			$stat_min=$row['stat_min'];
 			$stat_max=$row['stat_max'];
+			$to_base=$row['tobase'];
 			
 			if ($type != 'host'){
 				$val=$val+$adj;  
@@ -307,15 +308,23 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 						
 							if (isset($current) && is_numeric($current)) {
 								
-								$dbfr->exec("INSERT OR IGNORE INTO def (value,current) VALUES ('$val','$current')") or die ("cannot insert to rom sql current\n" );
+								if ($to_base == 'on'){
+								
+									$dbfr->exec("INSERT OR IGNORE INTO def (value,current) VALUES ('$val','$current')") or die ("cannot insert to rom sql current\n" );	
+								}
+								
 								$dbr->exec("UPDATE sensors SET current='$current' WHERE rom='$rom'") or die ("cannot insert to current\n" );
 								
 								echo $rom." - Current value for counter updated ".$current." \n";
 								logs(date("Y-m-d H:i:s"),'Info',$rom." - Current value for counter updated - ".$current);
 								
 							} else {
-								$dbfr->exec("INSERT OR IGNORE INTO def (value) VALUES ('$val')") or die ("cannot insert to rom sql\n" );
-								logs(date("Y-m-d H:i:s"),'Info',$rom." - Value in base updated - ".$val);
+								
+								if ($to_base == 'on'){
+									
+									$dbfr->exec("INSERT OR IGNORE INTO def (value) VALUES ('$val')") or die ("cannot insert to rom sql\n" );
+									logs(date("Y-m-d H:i:s"),'Info',$rom." - Value in base updated - ".$val);
+								}
 							}
 							//sum,current for counters
 							if (in_array($type, $arraycounters)){
@@ -329,9 +338,12 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 					// time when you can put into base
 					elseif ((date('i', time())%$chmin==0) || (date('i', time())==00))  {
 						
-						$dbfr->exec("INSERT OR IGNORE INTO def (value) VALUES ('$val')") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert to rom sql, time\n");
-						echo date("Y-m-d H:i:s")." ".$rom." ".$val." Value in base updated \n";
-						logs(date("Y-m-d H:i:s"),'Info',$rom." - Value in base updated - ".$val);
+						if ($to_base == 'on'){
+						
+							$dbfr->exec("INSERT OR IGNORE INTO def (value) VALUES ('$val')") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert to rom sql, time\n");
+							echo date("Y-m-d H:i:s")." ".$rom." ".$val." Value in base updated \n";
+							logs(date("Y-m-d H:i:s"),'Info',$rom." - Value in base updated - ".$val);
+						}
 					}
 					else {
 						echo "Not writed to base, interval is ".$chmin." min\n";
@@ -387,9 +399,13 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 			else {
 				if($device!='gpio' && $type!='gpio'){
 					$dbr->exec("UPDATE sensors SET status='error', tmp = 0 WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert status to sensors ".$rom.", not numeric\n");
-					$dbfr->exec("INSERT OR IGNORE INTO def (value) VALUES ('0')") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert to rom DB ".$rom.", not numeric\n");
-					echo date("Y-m-d H:i:s")." Puting value \"".$val."\" to ".$rom.", but value is not numieric!, inserting 0 to db\n";
-					logs(date("Y-m-d H:i:s"),'Error',$rom." - Value is not numeric - inserting 0 to database ");
+					
+					if ($to_base == 'on'){
+						
+						$dbfr->exec("INSERT OR IGNORE INTO def (value) VALUES ('0')") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert to rom DB ".$rom.", not numeric\n");
+						echo date("Y-m-d H:i:s")." Puting value \"".$val."\" to ".$rom.", but value is not numieric!, inserting 0 to db\n";
+						logs(date("Y-m-d H:i:s"),'Error',$rom." - Value is not numeric - inserting 0 to database ");
+					}
 				}
 			}
 		}

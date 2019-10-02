@@ -250,6 +250,10 @@ $updates['2019-09-17 10:10:08'][]="INSERT OR IGNORE INTO virtual  ('name', 'rom'
 $updates['2019-09-17 10:40:32'][]="INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('freespace', 'GB', 'GB', 'media/ico/disc-icon.png' ,'Free disk space','0', '1000000')";
 $updates['2019-09-17 10:41:46'][]="ALTER TABLE sensors ADD hddpath TEXT";
 
+//Write to base - ON/OFF
+
+$updates['2019-10-01 10:21:28'][]="ALTER TABLE sensors ADD tobase TEXT";
+$updates['2019-10-01 10:21:38'][]="UPDATE sensors SET tobase='on'";
 
 
 ?>

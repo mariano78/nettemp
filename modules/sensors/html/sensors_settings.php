@@ -197,6 +197,15 @@ if ( $lcd == "lcd"){
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+	
+	$savebase_id = isset($_POST['savebase_id']) ? $_POST['savebase_id'] : '';
+    $savebase_on = isset($_POST['savebase_on']) ? $_POST['savebase_on'] : '';
+    $tobase_on = isset($_POST['tobase_on']) ? $_POST['tobase_on'] : '';
+    if ($tobase_on == "tobase_on"){
+    $db->exec("UPDATE sensors SET tobase='$savebase_on' WHERE id='$savebase_id'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
     
 	$logon_id = isset($_POST['logon_id']) ? $_POST['logon_id'] : '';
     $logon_on = isset($_POST['logon_on']) ? $_POST['logon_on'] : '';

@@ -8,7 +8,7 @@
 		<th>Thing Speak</th>
 		
 		<th>LCD</th>
-		<th></th>
+		<th>Save to base</th>
 		<th></th>
 	
 	</tr>
@@ -36,6 +36,17 @@
 			<input type="hidden" name="lcd" value="lcd" />
 		</form>
 		</td>
+		
+		<!--Save to base-->
+		<td class="col-md-0">
+		<form action="" method="post" style="display:inline!important;" > 	
+			<input type="hidden" name="savebase_id" value="<?php echo $a["id"]; ?>" />
+			<button type="submit" name="savebase_on" value="<?php echo $a["tobase"] == 'on' ? 'off' : 'on'; ?>" <?php echo $a["tobase"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
+			<?php echo $a["tobase"] == 'on' ? 'ON' : 'OFF'; ?></button>
+			<input type="hidden" name="tobase_on" value="tobase_on" />
+		</form>
+		</td>
+		
 		<td>
 		<?php if ($a['device'] == 'virtual' && substr($a['type'],0,3) == 'air') { ?>
 		<label> API Key: </label>
