@@ -11,6 +11,9 @@ $delallnewrom = isset($_POST['delallnewrom']) ? $_POST['delallnewrom'] : '';
 if ($delallnewrom=='yes'){
     $db = new PDO('sqlite:dbf/nettemp.db');
     $db->exec("DELETE FROM newdev");
+	shell_exec("sudo service mosquitto stop");
+	shell_exec("sudo rm /var/lib/mosquitto/mosquitto.db");
+	shell_exec("sudo service mosquitto start");
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
 }
