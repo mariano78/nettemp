@@ -55,6 +55,7 @@ $row = $rows->fetchAll();
     <div class="form-group">
     
 	<td class="col-md-1">
+		<img src="media/ico/inverter-icon.png" />
 		<input type="text" name="invname" value="" class="form-control input-sm" required=""/>
     </td>
     
@@ -86,7 +87,7 @@ $row = $rows->fetchAll();
 ?>
 <tr>
     <td class="col-md-1">
-	<img src="media/ico/TO-220-icon.png" />
+	<img src="media/ico/inverter-icon.png" />
 	<?php echo $a['name']; ?>
     </td>
     
