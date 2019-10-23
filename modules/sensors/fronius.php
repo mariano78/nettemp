@@ -29,11 +29,11 @@ $statuscode = $reads['Body']['Data']['DeviceStatus']['StatusCode'] ;
 			$udc			= $reads['Body']['Data']['UDC']['Value'];
 			$year_energy	= $reads['Body']['Data']['YEAR_ENERGY']['Value'];
 
-				echo $day_energy."\n"
-				echo $year_energy."\n"
+				echo $day_energy."\n";
+				echo $year_energy."\n";
 			
 			}else {
-				echo "Fronius inverter - state other than running\n"
+				echo "Fronius inverter - state other than running\n";
 				echo $statuscode."\n";
 			}
 
