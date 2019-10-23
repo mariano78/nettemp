@@ -12,13 +12,29 @@ $result=curl_exec($ch);
 curl_close($ch);
 
 // Will dump a beauty json :3
-var_dump(json_decode($result, true));
+//var_dump(json_decode($result, true));
 
 $reads = json_decode($result,true);
-//$array[];
-$dayenergy = $reads["Body"]["Data"]["DAY_ENERGY"]["Value"];
 
-echo $dayenergy;
+$statuscode = $reads['Body']['Data']['DeviceStatus']['StatusCode'] ;
+			if( $statuscode == 7) {
+		
+			$day_energy		= $reads['Body']['Data']['DAY_ENERGY']['Value'];
+			$fac			= $reads['Body']['Data']['FAC']['Value'];
+			$iac			= $reads['Body']['Data']['IAC']['Value'];
+			$idc			= $reads['Body']['Data']['IDC']['Value'];
+			$pac			= $reads['Body']['Data']['PAC']['Value'];
+			$total_energy	= $reads['Body']['Data']['TOTAL_ENERGY']['Value'];
+			$uac			= $reads['Body']['Data']['UAC']['Value'];
+			$udc			= $reads['Body']['Data']['UDC']['Value'];
+			$year_energy	= $reads['Body']['Data']['YEAR_ENERGY']['Value'];
 
+				echo $day_energy."\n"
+				echo $year_energy."\n"
+			
+			}else {
+				echo "Fronius inverter - state other than running\n"
+				echo $statuscode."\n";
+			}
 
 ?>
