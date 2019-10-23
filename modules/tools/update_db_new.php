@@ -255,5 +255,8 @@ $updates['2019-09-17 10:41:46'][]="ALTER TABLE sensors ADD hddpath TEXT";
 $updates['2019-10-01 10:21:28'][]="ALTER TABLE sensors ADD tobase TEXT";
 $updates['2019-10-01 10:21:38'][]="UPDATE sensors SET tobase='on'";
 
+//Solar Inverters
+$updates['2019-10-23 13:39:40'][]="CREATE TABLE inverters (id INTEGER PRIMARY KEY, name TEXT, ip TEXT , type TEXT)";
+
 
 ?>
