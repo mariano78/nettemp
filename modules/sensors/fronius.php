@@ -13,8 +13,10 @@ curl_close($ch);
 
 // Will dump a beauty json :3
 var_dump(json_decode($result, true));
-$array[];
-$dayenergy = $array["Body"]["Data"]["DAY_ENERGY"]["Unit"]["Value"];
-echo $dayenergy;
+//$array[];
+//$dayenergy = $array["Body"]["Data"]["DAY_ENERGY"]["Unit"]["Value"];
+$reads = json_decode($result);
+
+echo $reads->DAY_ENERGY->Value;
 
 ?>
