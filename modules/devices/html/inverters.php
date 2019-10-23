@@ -22,9 +22,6 @@ $invadd = isset($_POST['invadd']) ? $_POST['invadd'] : '';
     exit();
     }
 
-    header("location: " . $_SERVER['REQUEST_URI']);
-    exit();	
-    }
 ?>
 
 
