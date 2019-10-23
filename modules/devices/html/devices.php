@@ -16,6 +16,7 @@
 <a href="index.php?id=device&type=ups" ><button class="btn btn-xs btn-default <?php echo $art == 'ups' ? 'active' : ''; ?>">UPS</button></a>
 <a href="index.php?id=device&type=piups" ><button class="btn btn-xs btn-default <?php echo $art == 'piups' ? 'active' : ''; ?>">PiUPS</button></a>
 <a href="index.php?id=device&type=counters" ><button class="btn btn-xs btn-default <?php echo $art == 'counters' ? 'active' : ''; ?>">Counters</button></a>
+<a href="index.php?id=device&type=inverters" ><button class="btn btn-xs btn-default <?php echo $art == 'inverters' ? 'active' : ''; ?>">Inverters</button></a>
 <a href="index.php?id=device&type=thing" ><button class="btn btn-xs btn-default <?php echo $art == 'thing' ? 'active' : ''; ?>">Thing Speak</button></a>
 </p>
 
@@ -36,6 +37,7 @@ case 'lcd' : include('modules/devices/html/lcdswitcher.php'); break;
 case 'rs485' : include('modules/devices/html/rs485.php'); break;
 case 'piups' : include('modules/devices/html/piups.php'); break;
 case 'counters' : include('modules/devices/html/counters.php'); break;
+case 'inverters' : include('modules/devices/html/inverters.php'); break;
 case 'thing' : include('modules/thingspeak/html/thing.php'); break;
 
 }
