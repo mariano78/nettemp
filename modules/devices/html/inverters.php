@@ -51,7 +51,7 @@ $row = $rows->fetchAll();
 </thead>
 
 <tr>	
-    <form action="" method="post" class="form-horizontal" >
+    <form action="" method="post" class="form-horizontal" style="display:inline!important;">
 	
     <div class="form-group">
    
