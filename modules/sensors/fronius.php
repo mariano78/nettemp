@@ -16,7 +16,7 @@ var_dump(json_decode($result, true));
 
 $reads = json_decode($result,true);
 //$array[];
-$dayenergy = $reads["Body"]["Data"]["DAY_ENERGY"]["Unit"]["Value"];
+$dayenergy = $reads["Body"]["Data"]["DAY_ENERGY"]["Value"];
 
 echo $dayenergy;
 
