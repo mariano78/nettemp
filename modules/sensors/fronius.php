@@ -12,7 +12,7 @@ $result=curl_exec($ch);
 curl_close($ch);
 
 // Will dump a beauty json :3
-//var_dump(json_decode($result, true));
+var_dump(json_decode($result, true));
 
 $reads = json_decode($result,true);
 
