@@ -3,6 +3,7 @@ $invid = isset($_POST['invid']) ? $_POST['invid'] : '';
 $rminv = isset($_POST['rminv']) ? $_POST['rminv'] : '';
 
 $ipaddr = isset($_POST['ipaddr']) ? $_POST['ipaddr'] : '';
+$invport = isset($_POST['invport']) ? $_POST['invport'] : '';
 $invname = isset($_POST['invname']) ? $_POST['invname'] : '';
 $invtype = isset($_POST['invtype']) ? $_POST['invtype'] : '';
 
@@ -17,7 +18,7 @@ $invadd = isset($_POST['invadd']) ? $_POST['invadd'] : '';
 
     if ($_POST['invadd'] == "invadd"){
     $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("INSERT OR IGNORE INTO inverters (name, ip, type) VALUES ('$invname','$ipaddr', '$invtype')") or die ("cannot insert to DB" );
+    $db->exec("INSERT OR IGNORE INTO inverters (name, ip, port, type) VALUES ('$invname','$ipaddr','$invport', '$invtype')") or die ("cannot insert to DB" );
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
@@ -45,15 +46,13 @@ $row = $rows->fetchAll();
 <tr>
 <th>Name</th>
 <th>IP Address</th>
+<th>Port</th>
 <th>Type</th>
 <th></th>
 </tr>
 </thead>
 
 <tr>	
-	<td class="col-md-1">
-		<img src="media/ico/inverter-icon.png" style="display:inline!important;" />
-	</td>
 	
     <form action="" method="post" class="form-horizontal" style="display:inline!important;">
 	
@@ -66,6 +65,10 @@ $row = $rows->fetchAll();
     
 	<td class="col-md-1">
 		<input type="text" name="ipaddr" value="" class="form-control input-sm" required=""/>
+    </td>
+	
+	<td class="col-md-1">
+		<input type="text" name="invport" value="" class="form-control input-sm" required=""/>
     </td>
 	
 	<td class="col-md-1">
@@ -98,6 +101,10 @@ $row = $rows->fetchAll();
     
 	<td class="col-md-1">
 	<?php echo  $a["ip"] ;?>
+    </td>
+	
+	<td class="col-md-1">
+	<?php echo  $a["port"] ;?>
     </td>
 	
 	<td class="col-md-1">
