@@ -1,34 +1,26 @@
 <?php
-$rs485id = isset($_POST['rs485id']) ? $_POST['rs485id'] : '';
-$rmrs485 = isset($_POST['rmrs485']) ? $_POST['rmrs485'] : '';
+$invid = isset($_POST['invid']) ? $_POST['invid'] : '';
+$rminv = isset($_POST['rminv']) ? $_POST['rminv'] : '';
 
-$addr = isset($_POST['addr']) ? $_POST['addr'] : '';
-$name = isset($_POST['name']) ? $_POST['name'] : '';
-$baud = isset($_POST['baud']) ? $_POST['baud'] : '';
+$ipaddr = isset($_POST['ipaddr']) ? $_POST['ipaddr'] : '';
+$invname = isset($_POST['invname']) ? $_POST['invname'] : '';
+$invtype = isset($_POST['invtype']) ? $_POST['invtype'] : '';
 
-$add = isset($_POST['add']) ? $_POST['add'] : '';
+$invadd = isset($_POST['invadd']) ? $_POST['invadd'] : '';
 
-    if (!empty($rs485id) && ($_POST['rmrs485'] == "rmrs485") ){
+    if (!empty($invid) && ($_POST['rminv'] == "rminv") ){
     $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("DELETE FROM rs485 WHERE id='$rs485id'") or die ($db->lastErrorMsg());
+    $db->exec("DELETE FROM inverters WHERE id='$invid'") or die ($db->lastErrorMsg());
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
 
-    if ($_POST['add'] == "add"){
+    if ($_POST['invadd'] == "invadd"){
     $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("INSERT OR IGNORE INTO rs485 (dev, addr, baudrate) VALUES ('$name','$addr', '$baud')") or die ("cannot insert to DB" );
+    $db->exec("INSERT OR IGNORE INTO inverters (name, ip, type) VALUES ('$invname','$ipaddr', '$invtype')") or die ("cannot insert to DB" );
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
-
-    $default = isset($_POST['default']) ? $_POST['default'] : '';
-    if ($default == "default") { 
-    $db = new PDO("sqlite:dbf/nettemp.db");	
-    $db->exec("DELETE from rs485") or header("Location: html/errors/db_error.php");
-    $db->exec("INSERT OR IGNORE INTO rs485 (dev, addr, baudrate) VALUES ('SDM120','2', '9600')") or header("Location: html/errors/db_error.php");
-    $db->exec("INSERT OR IGNORE INTO rs485 (dev, addr, baudrate) VALUES ('SDM630','1', '9600')") or header("Location: html/errors/db_error.php");
-    
 
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();	
@@ -80,7 +72,7 @@ $row = $rows->fetchAll();
 		</select>
     </td>
 	
-	<input type="hidden" name="add" value="add" class="form-control"/>
+	<input type="hidden" name="invadd" value="invadd" class="form-control"/>
     <td class="col-md-9">
 	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span></button>
     </td>
