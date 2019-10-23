@@ -53,9 +53,9 @@ $row = $rows->fetchAll();
 <tr>	
     <form action="" method="post" class="form-horizontal" >
     <div class="form-group">
-    
+    <img src="media/ico/inverter-icon.png" style="display:inline!important; />
 	<td class="col-md-1">
-		<img src="media/ico/inverter-icon.png" style="display:inline!important; />
+		
 		<input type="text" name="invname" value="" class="form-control input-sm" required=""/>
     </td>
     
