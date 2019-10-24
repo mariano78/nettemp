@@ -49,7 +49,7 @@ try {
 						if( $statuscode == 7) {
 					
 							$day_energy		= $reads['Body']['Data']['DAY_ENERGY']['Value'];
-							$local_rom = $rom."_day"
+							$local_rom = $rom."_day";
 							db($local_rom,$day_energy,'kwatt','ip',$local_current,$inv_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 							$fac			= $reads['Body']['Data']['FAC']['Value'];
 							$iac			= $reads['Body']['Data']['IAC']['Value'];
