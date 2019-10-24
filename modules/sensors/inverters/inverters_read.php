@@ -52,10 +52,15 @@ try {
 							$local_rom = $rom."_day";
 							$day_energy = $day_energy / 1000;
 							db($local_rom,$day_energy,'kwatt','ip',$local_current,$inv_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+							
 							$fac			= $reads['Body']['Data']['FAC']['Value'];
 							$iac			= $reads['Body']['Data']['IAC']['Value'];
 							$idc			= $reads['Body']['Data']['IDC']['Value'];
 							$pac			= $reads['Body']['Data']['PAC']['Value'];
+							$local_rom = $rom."_pac";
+							
+							db($local_rom,$pac,'watt','ip',$local_current,$inv_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+							
 							$total_energy	= $reads['Body']['Data']['TOTAL_ENERGY']['Value'];
 							$uac			= $reads['Body']['Data']['UAC']['Value'];
 							$udc			= $reads['Body']['Data']['UDC']['Value'];
