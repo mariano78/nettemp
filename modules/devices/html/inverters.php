@@ -64,11 +64,11 @@ $row = $rows->fetchAll();
     </td>
     
 	<td class="col-md-1">
-		<input type="text" name="ipaddr" value="" class="form-control input-sm" required=""/>
+		<input type="text" name="ipaddr" placeholder="192.168.0.1"  value="" class="form-control input-sm" required=""/>
     </td>
 	
 	<td class="col-md-1">
-		<input type="text" name="invport" value="" class="form-control input-sm" required=""/>
+		<input type="text" name="invport" placeholder="80" value="" class="form-control input-sm" required=""/>
     </td>
 	
 	<td class="col-md-1">
