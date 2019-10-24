@@ -50,6 +50,7 @@ try {
 					
 							$day_energy		= $reads['Body']['Data']['DAY_ENERGY']['Value'];
 							$local_rom = $rom."_day";
+							$day_energy = $day_energy / 1000;
 							db($local_rom,$day_energy,'kwatt','ip',$local_current,$inv_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 							$fac			= $reads['Body']['Data']['FAC']['Value'];
 							$iac			= $reads['Body']['Data']['IAC']['Value'];
