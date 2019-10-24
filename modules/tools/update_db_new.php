@@ -258,7 +258,7 @@ $updates['2019-10-01 10:21:38'][]="UPDATE sensors SET tobase='on'";
 //Solar Inverters
 $updates['2019-10-23 13:39:40'][]="CREATE TABLE inverters (id INTEGER PRIMARY KEY, name TEXT, ip TEXT , port TEXT, type TEXT)";
 $updates['2019-10-24 09:40:32'][]="INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('frequency', 'Hz', 'kHz', 'media/ico/freq-icon.png' ,'Frequency','0', '1000000')";
-$updates['2019-10-24 09:40:38'][]="INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('watt', 'kWh', 'kWh', 'media/ico/watt.png' ,'kWh','0', '1000000')";
+$updates['2019-10-24 09:40:38'][]="INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('watt', 'kWh', 'kWh', 'media/ico/watt.png' ,'kWh','-10000', '1000000')";
 
 
 ?>
