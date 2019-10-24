@@ -113,11 +113,7 @@ try {
 							$local_val = $year_energy / 1000;
 							$local_type = 'kwatt';
 							db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
-
-							echo $day_energy."\n";
-							echo $year_energy."\n";
 							
-							//db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 						
 						}	else {
 								logs(date("Y-m-d H:i:s"),'Info',"Fronius inverter - state other than running ".$statuscode);
