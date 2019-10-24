@@ -50,6 +50,12 @@ try {
 					
 						if( $statuscode == 7) {
 							
+							// Status
+							$local_rom = $rom."_status";
+							$local_val = 1;
+							$local_type = 'trigger';
+							db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+							
 							// Day Energy
 							$day_energy		= $reads['Body']['Data']['DAY_ENERGY']['Value'];
 							$local_rom = $rom."_day";
@@ -117,6 +123,12 @@ try {
 						
 						}	else {
 								logs(date("Y-m-d H:i:s"),'Info',"Fronius inverter - state other than running ".$statuscode);
+								
+								// Status
+								$local_rom = $rom."_status";
+								$local_val = 1;
+								$local_type = 'trigger';
+								db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 							}
 					
 					
