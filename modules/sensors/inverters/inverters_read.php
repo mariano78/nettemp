@@ -57,20 +57,62 @@ try {
 							$local_type = 'kwatt';
 							db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 							
+							// AC Frequency
 							$fac			= $reads['Body']['Data']['FAC']['Value'];
+							$local_rom = $rom."_fac";
+							$local_val = $fac;
+							$local_type = 'frequency';
+							db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+							
+							// AC Current
 							$iac			= $reads['Body']['Data']['IAC']['Value'];
+							$local_rom = $rom."_iac";
+							$local_val = $iac;
+							$local_type = 'amps';
+							db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+							
+							// DC Current
 							$idc			= $reads['Body']['Data']['IDC']['Value'];
+							$local_rom = $rom."_idc";
+							$local_val = $idc;
+							$local_type = 'amps';
+							db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+							
 							
 							//Current produced energy - PAC
 							$pac			= $reads['Body']['Data']['PAC']['Value'];
 							$local_rom = $rom."_pac";
 							$local_val = $pac;
+							$local_type = 'watt';
 							db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 							
+							// Total produced energy
 							$total_energy	= $reads['Body']['Data']['TOTAL_ENERGY']['Value'];
+							$local_rom = $rom."_total";
+							$local_val = $total_energy / 1000;
+							$local_type = 'kwatt';
+							db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+							
+							//  AC Valtage
 							$uac			= $reads['Body']['Data']['UAC']['Value'];
+							$local_rom = $rom."_uac";
+							$local_val = $uac;
+							$local_type = 'volt';
+							db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+							
+							// DC Voltage
 							$udc			= $reads['Body']['Data']['UDC']['Value'];
+							$local_rom = $rom."_udc";
+							$local_val = $udc;
+							$local_type = 'volt';
+							db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+							
+							// Year produced energy
 							$year_energy	= $reads['Body']['Data']['YEAR_ENERGY']['Value'];
+							$local_rom = $rom."_year";
+							$local_val = $year_energy / 1000;
+							$local_type = 'kwatt';
+							db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 
 							echo $day_energy."\n";
 							echo $year_energy."\n";
