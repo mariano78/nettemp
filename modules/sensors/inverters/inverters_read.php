@@ -29,6 +29,7 @@ try {
 			$inv_type = $invr['type'];
 			$local_device = 'ip';
 			$rom = "inv_".$inv_name; 
+			$local_ip = $inv_ip;
 			
 			
 				if ($inv_type == 'fronius'){
