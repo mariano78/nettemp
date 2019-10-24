@@ -27,6 +27,7 @@ try {
 			$inv_ip = $invr['ip'];
 			$inv_port = $invr['port'];
 			$inv_type = $invr['type'];
+			$rom = "inv_".$inv_name; 
 			
 				if ($inv_type == 'fronius'){
 					
@@ -47,15 +48,17 @@ try {
 					
 						if( $statuscode == 7) {
 					
-						$day_energy		= $reads['Body']['Data']['DAY_ENERGY']['Value'];
-						$fac			= $reads['Body']['Data']['FAC']['Value'];
-						$iac			= $reads['Body']['Data']['IAC']['Value'];
-						$idc			= $reads['Body']['Data']['IDC']['Value'];
-						$pac			= $reads['Body']['Data']['PAC']['Value'];
-						$total_energy	= $reads['Body']['Data']['TOTAL_ENERGY']['Value'];
-						$uac			= $reads['Body']['Data']['UAC']['Value'];
-						$udc			= $reads['Body']['Data']['UDC']['Value'];
-						$year_energy	= $reads['Body']['Data']['YEAR_ENERGY']['Value'];
+							$day_energy		= $reads['Body']['Data']['DAY_ENERGY']['Value'];
+							$local_rom = $rom."_day"
+							db($local_rom,$day_energy,'kwatt','ip',$local_current,$inv_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+							$fac			= $reads['Body']['Data']['FAC']['Value'];
+							$iac			= $reads['Body']['Data']['IAC']['Value'];
+							$idc			= $reads['Body']['Data']['IDC']['Value'];
+							$pac			= $reads['Body']['Data']['PAC']['Value'];
+							$total_energy	= $reads['Body']['Data']['TOTAL_ENERGY']['Value'];
+							$uac			= $reads['Body']['Data']['UAC']['Value'];
+							$udc			= $reads['Body']['Data']['UDC']['Value'];
+							$year_energy	= $reads['Body']['Data']['YEAR_ENERGY']['Value'];
 
 							echo $day_energy."\n";
 							echo $year_energy."\n";
@@ -63,8 +66,7 @@ try {
 							//db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 						
 						}	else {
-								echo "Fronius inverter - state other than running\n";
-								echo $statuscode."\n";
+								logs(date("Y-m-d H:i:s"),'Info',"Fronius inverter - state other than running ".$statuscode);
 							}
 					
 					
