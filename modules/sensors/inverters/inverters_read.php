@@ -122,7 +122,7 @@ try {
 							
 						
 						}	else {
-								logs(date("Y-m-d H:i:s"),'Info',"Fronius inverter - state other than running ".$statuscode);
+								logs(date("Y-m-d H:i:s"),'Info',"Fronius ".$inv_name." inverter - state other than running ".$statuscode);
 								
 								// Status
 								$local_rom = $rom."_status";
@@ -130,6 +130,73 @@ try {
 								$local_type = 'trigger';
 								db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 							}
+					
+					
+				}
+				
+				if ($inv_type == 'zeversolar'){
+					
+					$url = "http://".$inv_ip.":".$inv_port."/home.cgi";
+					
+					$ch = curl_init();
+					curl_setopt($ch, CURLOPT_URL, $url);
+					curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+					curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+					curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+					curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+					if(!empty($post)) {
+						curl_setopt($ch, CURLOPT_POST, true);
+						curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+					}
+					$inputdata = curl_exec($ch);
+					curl_close($ch);
+					
+					$inputdata_expl = explode("\n", $inputdata);
+					
+					
+					$statuscode = $inputdata_expl[12];
+					
+					if( $statuscode == 'OK') {
+						
+						
+						//Current produced energy - PAC
+						$peak =  $inputdata_expl[10];
+						$local_rom = $rom."_pac";
+						$local_val = $peak;
+						$local_type = 'watt';
+						db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+						
+						//Day Energy
+						$day_energy =  $inputdata_expl[11];
+						$local_rom = $rom."_day";
+						$local_val = $day_energy;
+						$local_type = 'kwatt';
+						db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+						
+						//Status
+						$local_rom = $rom."_status";
+						$local_val = 1;
+						$local_type = 'trigger';
+						db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+						
+						
+						
+					} else {
+						
+						logs(date("Y-m-d H:i:s"),'Info',"Zeversolar ".$inv_name."inverter - state other than running ".$statuscode);
+								
+						// Status
+						$local_rom = $rom."_status";
+						$local_val = 0;
+						$local_type = 'trigger';
+						db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+					}
+					
+					
+					
+					
+					
+					
 					
 					
 				}
