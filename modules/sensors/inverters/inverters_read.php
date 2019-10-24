@@ -31,7 +31,7 @@ try {
 			$rom = "inv_".$inv_name; 
 			$local_ip = $inv_ip;
 			
-			
+// Fronius Inverters		
 				if ($inv_type == 'fronius'){
 					
 					$url = "http://".$inv_ip.":".$inv_port."/solar_api/v1/GetInverterRealtimeData.cgi?Scope=Device&DeviceID=1&DataCollection=CommonInverterData";
@@ -135,6 +135,7 @@ try {
 					
 				}
 				
+// Zeversolar Inverters					
 				if ($inv_type == 'zeversolar'){
 					
 					$url = "http://".$inv_ip.":".$inv_port."/home.cgi";
@@ -158,8 +159,7 @@ try {
 					$statuscode = $inputdata_expl[12];
 					
 					if( $statuscode == 'OK') {
-						
-						
+								
 						//Current produced energy - PAC
 						$peak =  $inputdata_expl[10];
 						$local_rom = $rom."_pac";
@@ -179,8 +179,7 @@ try {
 						$local_val = 1;
 						$local_type = 'trigger';
 						db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
-						
-						
+
 						
 					} else {
 						
@@ -192,14 +191,7 @@ try {
 						$local_type = 'trigger';
 						db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 					}
-					
-					
-					
-					
-					
-					
-					
-					
+	
 				}
 			
 		}
