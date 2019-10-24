@@ -28,7 +28,7 @@ try {
 			$inv_port = $invr['port'];
 			$inv_type = $invr['type'];
 			$local_device = 'ip';
-			$rom = "inv_".$inv_name; 
+			$lrom = "inv_".$inv_name; 
 			
 			
 				if ($inv_type == 'fronius'){
@@ -52,7 +52,7 @@ try {
 							
 							// Day Energy
 							$day_energy		= $reads['Body']['Data']['DAY_ENERGY']['Value'];
-							$local_rom = $rom."_day";
+							$local_rom = $lrom."_day";
 							$local_val = $day_energy / 1000;
 							$local_type = 'kwatt';
 							db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
@@ -63,7 +63,7 @@ try {
 							
 							//Current produced energy - PAC
 							$pac			= $reads['Body']['Data']['PAC']['Value'];
-							$local_rom = $rom."_pac";
+							$local_rom = $lrom."_pac";
 							$local_val = $pac;
 							db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 							
