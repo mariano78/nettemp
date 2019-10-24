@@ -3,8 +3,6 @@
 $ROOT=dirname(dirname(dirname(dirname(__FILE__))));
 $date = date("Y-m-d H:i:s"); 
 
-
-
 try {
     $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
     $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
@@ -131,10 +129,8 @@ try {
 								$local_type = 'trigger';
 								db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 							}
-					
-					
-				}
-				
+
+				}		
 // Zeversolar Inverters					
 				if ($inv_type == 'zeversolar'){
 					
@@ -154,7 +150,6 @@ try {
 					curl_close($ch);
 					
 					$inputdata_expl = explode("\n", $inputdata);
-					
 					
 					$statuscode = $inputdata_expl[12];
 					
