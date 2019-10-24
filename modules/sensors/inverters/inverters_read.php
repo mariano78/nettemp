@@ -76,7 +76,7 @@ try {
 	} logs(date("Y-m-d H:i:s"),'Info',"No inverters in system");
 	
 		
-    }
+    
    	
 		
 } catch (Exception $e) {
