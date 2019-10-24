@@ -15,7 +15,6 @@ try {
 
 try {
     include("$ROOT/receiver.php");
-	include("$ROOT/common/functions.php");
     $query = $db->query("SELECT * FROM inverters");
     $result= $query->fetchAll();
 	$inv = count($result);
