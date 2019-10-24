@@ -27,7 +27,9 @@ try {
 			$inv_ip = $invr['ip'];
 			$inv_port = $invr['port'];
 			$inv_type = $invr['type'];
+			$local_device = 'ip';
 			$rom = "inv_".$inv_name; 
+			
 			
 				if ($inv_type == 'fronius'){
 					
@@ -47,19 +49,23 @@ try {
 					$statuscode = $reads['Body']['Data']['DeviceStatus']['StatusCode'] ;
 					
 						if( $statuscode == 7) {
-					
+							
+							// Day Energy
 							$day_energy		= $reads['Body']['Data']['DAY_ENERGY']['Value'];
 							$local_rom = $rom."_day";
-							$day_energy = $day_energy / 1000;
-							db($local_rom,$day_energy,'kwatt','ip',$local_current,$inv_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+							$local_val = $day_energy / 1000;
+							$local_type = 'kwatt';
+							db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 							
 							$fac			= $reads['Body']['Data']['FAC']['Value'];
 							$iac			= $reads['Body']['Data']['IAC']['Value'];
 							$idc			= $reads['Body']['Data']['IDC']['Value'];
+							
+							//Current produced energy - PAC
 							$pac			= $reads['Body']['Data']['PAC']['Value'];
 							$local_rom = $rom."_pac";
-							
-							db($local_rom,$pac,'watt','ip',$local_current,$inv_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+							$local_val = $pac;
+							db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 							
 							$total_energy	= $reads['Body']['Data']['TOTAL_ENERGY']['Value'];
 							$uac			= $reads['Body']['Data']['UAC']['Value'];
