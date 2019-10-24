@@ -8,3 +8,6 @@ mkdir -p $dir/tmp/debug/time
 (time $dir/modules/sms/sms_check) 2> $dir/tmp/debug/time/sms_check
 
 $dir/modules/lcd/easyesp_disp
+
+#own scripts 
+$dir/tmp/ownscriptsexecute

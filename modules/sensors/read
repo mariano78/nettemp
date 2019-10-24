@@ -56,8 +56,7 @@ php-cgi -f $dir/modules/sensors/send_domoticz.php
 #PV Inverters
 php-cgi -f $dir/modules/sensors/inverters/inverters_read.php
 
-#own scripts 
-#$dir/tmp/ownscriptsexecute
+
 
 
 
