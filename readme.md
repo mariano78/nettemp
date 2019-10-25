@@ -41,6 +41,11 @@ Debian, RaspberryPi:
 
 Changelog:
 
+4.9.0
+
+Simple integration with PV inverters - Fronius, Zeversolar
+Go to Device -> Inverters
+
 4.8.9
 
 Save to database - ON/OFF for sensors
