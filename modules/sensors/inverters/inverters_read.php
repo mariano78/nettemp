@@ -128,6 +128,26 @@ try {
 								$local_val = 0;
 								$local_type = 'trigger';
 								db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+								// UDC
+								$local_rom = $rom."_udc";
+								$local_val = 0;
+								$local_type = 'volt';
+								db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+								// UAC
+								$local_rom = $rom."_uac";
+								$local_val = 0;
+								$local_type = 'volt';
+								db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+								// AC Current
+								$local_rom = $rom."_iac";
+								$local_val = 0;
+								$local_type = 'amps';
+								db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+								// DC Current
+								$local_rom = $rom."_idc";
+								$local_val = 0;
+								$local_type = 'amps';
+								db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 							}
 
 				}		
