@@ -4,6 +4,7 @@
 $link = isset($_POST['link']) ? $_POST['link'] : '';
 $name = isset($_POST['name']) ? $_POST['name'] : '';
 $id = isset($_POST['id']) ? $_POST['id'] : '';
+$del = isset($_POST['del']) ? $_POST['del'] : '';
 
 if (!empty($name)  && !empty($link) && ($_POST['add'] == "add")){
 	$db = new PDO('sqlite:dbf/nettemp.db');
@@ -26,7 +27,7 @@ if (!empty($name)  && !empty($link) && ($_POST['add'] == "add")){
 	exit();
 }
 
-if ($_POST['del'] == "del"){
+if ($del == "del"){
 	$db = new PDO('sqlite:dbf/nettemp.db');
 	$db->exec("DELETE FROM camera WHERE id='$id'") or die ($db->lastErrorMsg());
 	
