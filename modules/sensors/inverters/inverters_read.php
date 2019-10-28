@@ -233,7 +233,7 @@ try {
 						$local_type = 'watt';
 						db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 						
-						if ($hour == 12 && $minute > 30) {
+						if ($hour == 23 && $minute > 55) {
 								
 							//Day Energy
 							$local_rom = $rom."_day";
