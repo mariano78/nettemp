@@ -6,6 +6,7 @@ $ipaddr = isset($_POST['ipaddr']) ? $_POST['ipaddr'] : '';
 $invport = isset($_POST['invport']) ? $_POST['invport'] : '';
 $invname = isset($_POST['invname']) ? $_POST['invname'] : '';
 $invtype = isset($_POST['invtype']) ? $_POST['invtype'] : '';
+$invadd = isset($_POST['invadd']) ? $_POST['invadd'] : '';
 
 $invadd = isset($_POST['invadd']) ? $_POST['invadd'] : '';
 
@@ -16,7 +17,7 @@ $invadd = isset($_POST['invadd']) ? $_POST['invadd'] : '';
     exit();
     }
 
-    if ($_POST['invadd'] == "invadd"){
+    if ($invadd == "invadd"){
     $db = new PDO('sqlite:dbf/nettemp.db');
     $db->exec("INSERT OR IGNORE INTO inverters (name, ip, port, type) VALUES ('$invname','$ipaddr','$invport', '$invtype')") or die ("cannot insert to DB" );
     header("location: " . $_SERVER['REQUEST_URI']);
