@@ -122,7 +122,7 @@ if ($hide == 'off') {
 	
 		foreach($result_t as $ty){
        	if($ty['type']==$a['type']){
-     			if($nts_temp_scale == 'F'){
+     			if(  $_SESSION['nts_temp_scale'] == 'F'){
        			$unit=$ty['unit2'];
        		} else {
 				
