@@ -1,5 +1,7 @@
 <?php 
-
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 //hide cam in status
 	$hidecamid = isset($_POST['hidecamid']) ? $_POST['hidecamid'] : '';
