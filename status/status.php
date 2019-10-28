@@ -74,6 +74,8 @@ Go to device scan!
 			
 			//JG GROUPS
 			foreach($result_ch_g as $uniqa) {
+				
+				$uniquea[];
 				if(!empty($uniqa['ch_group'])&&$uniqa['ch_group']!='none'&&!in_array($uniqa['ch_group'], $uniquea)) {
 					$uniquea[]=$uniqa['ch_group'];
 					$ch_g=$uniqa['ch_group'];
