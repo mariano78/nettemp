@@ -63,6 +63,7 @@ Go to device scan!
 			$rows = $db->query("SELECT ch_group,type FROM sensors ORDER BY position_group ASC") or header("Location: html/errors/db_error.php");
 			$result_ch_g = $rows->fetchAll();
 			$unique=array();
+			$uniquea=array();
 	
 			foreach($result_ch_g as $uniq) {
 				if(!empty($uniq['ch_group'])&&$uniq['ch_group']!='none'&&!in_array($uniq['ch_group'], $unique)) {
