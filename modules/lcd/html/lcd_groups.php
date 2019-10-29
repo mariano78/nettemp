@@ -160,6 +160,7 @@ if( count($groups) > 0 ){
 	$result = $sth->fetchAll();
 	foreach ($result as $n) {
 	    $active[$n['rom']]=$n['grpkey'];
+		echo $active[$n['rom']];
 	}
 ?>
 	<div class="table-responsive">
