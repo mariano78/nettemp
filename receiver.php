@@ -347,7 +347,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 					}
 					else {
 						echo "Not writed to base, interval is ".$chmin." min\n";
-						logs(date("Y-m-d H:i:s"),'Error',$rom." - Not writed to base, interval is ".$chmin." min");
+						logs(date("Y-m-d H:i:s"),'Info',$rom." - Not writed to base, interval is ".$chmin." min");
 					}
 		    
 					// 5ago arrow
