@@ -193,7 +193,7 @@ if( count($groups) > 0 ){
 ?>
 	<div class="panel-footer">
 <?php
-	$sth = $db->prepare("select server_key from settings WHERE id='1'");
+	$sth = $db->prepare("select server_key from nt_settings WHERE id='1'");
 	$sth->execute();
 	$result = $sth->fetch();
 	$skey=$result['server_key'];
