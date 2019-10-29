@@ -92,7 +92,7 @@ function lcd($db,$group,$format,$avg){
     $sth = $db->prepare($q) or die ("Blad przygotowania danych");
     $sth->execute();
     $result = $sth->fetchall();
-    $out='';
+    $out= array();
     if($format == 'csv'){
         if(count($result)>0){
             $out[] = ("name;value;unit;time");
