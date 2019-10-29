@@ -35,6 +35,10 @@ if ($update == "UPDATE") {
     include("$ROOT/modules/tools/update_db.php");
     include("$ROOT/modules/tools/check_packages.php");
 	
+	if (!file_exists("$ROOT/dbf/nettemp_log.db")) {
+		shell_exec("sqlite3 -cmd '.timeout 2000' $ROOT/dbf/nettemp_log.db < $ROOT/modules/tools/nettemp_log.sql");
+	}
+	
 	if (file_exists("$ROOT/tmp/update")) {
 		
             unlink("$ROOT/tmp/update");
