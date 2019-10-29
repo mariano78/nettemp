@@ -20,7 +20,7 @@ function logs($date,$type,$message)
 	if ($logsonoff == 'on') {
 		
 		$froot = "/var/www/nettemp";	
-		$db = new PDO("sqlite:$froot/dbf/nettemp.db") or die ("cannot open database");
+		$db = new PDO("sqlite:$froot/dbf/nettemp_log.db") or die ("cannot open database");
 		$db->exec("INSERT INTO logs ('date', 'type', 'message') VALUES ('$date', '$type', '$message')");
 		}
 	}

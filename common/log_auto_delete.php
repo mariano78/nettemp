@@ -3,6 +3,7 @@
 $root = "/var/www/nettemp";
 
 $db = new PDO("sqlite:$root/dbf/nettemp.db");
+$dbl = new PDO("sqlite:$root/dbf/nettemp_log.db");
 
 $query = $db->query("SELECT * FROM nt_settings");
     $result= $query->fetchAll();
@@ -14,8 +15,8 @@ $query = $db->query("SELECT * FROM nt_settings");
 			$logshistime="-".$logshistime." days";
 		}
 	}
-$db->exec("DELETE FROM logs WHERE date <= datetime('now','localtime','$logshistime')") or die ($db->lastErrorMsg());
-$db->exec("vacuum") or die ("No vacuum." );
+$dbl->exec("DELETE FROM logs WHERE date <= datetime('now','localtime','$logshistime')") or die ($dbl->lastErrorMsg());
+$dbl->exec("vacuum") or die ("No vacuum." );
 
 
 ?>
