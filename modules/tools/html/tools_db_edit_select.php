@@ -7,7 +7,7 @@ $id = isset($_POST['id']) ? $_POST['id'] : '';
 $replace= isset($_POST['replace']) ? $_POST['replace'] : '';
 $sreplace= isset($_POST['sreplace']) ? $_POST['sreplace'] : '';
 $rreplace= isset($_POST['rreplace']) ? $_POST['rreplace'] : '';
-$search= $_POST['search'];
+$search= isset($_POST['search']) ? $_POST['search'] : '';
 //$search= isset($_POST['search']) ? $_POST['search'] : '';
 if(empty($search)) {
 	$search= isset($_GET['search']) ? $_GET['search'] : '';
