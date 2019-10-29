@@ -3,7 +3,7 @@
 $ROOT=dirname(dirname(dirname(dirname(dirname(__FILE__)))));
 
 $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
-$db2 = new PDO("sqlite:$ROOT/dbf/nettemp.db");
+$db2 = new PDO("sqlite:$ROOT/dbf/nettemp_log.db");
 
 $dir = '';
 $log_del = isset($_POST['log_del']) ? $_POST['log_del'] : '';
