@@ -158,6 +158,7 @@ if( count($groups) > 0 ){
 	$sth = $db->prepare("select rom,grpkey from lcd_group_assign WHERE grpkey = '$edit'") or die ($err."<pre>".print_r($db->errorInfo(), true)."</pre>");
 	$sth->execute();
 	$result = $sth->fetchAll();
+	$active = array();
 	foreach ($result as $n) {
 	    $active[$n['rom']]=$n['grpkey'];
 		echo "avtive - ".$active[$n['rom']]."active2 - ".$n['grpkey'];
