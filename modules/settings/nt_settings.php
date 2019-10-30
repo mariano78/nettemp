@@ -218,6 +218,10 @@ foreach ($result as $a) {
 	if($a['option']=='chartsrefresh') {
        	$nts_ref_charts=$a['value'];
     }
+	if($a['option']=='logs_type') {
+       	$nts_logs_type=$a['value'];
+    }
+	
 }
 
 //different way..
