@@ -354,14 +354,14 @@
 					<fieldset>
 					
 					
-					  <div class="col-md-2">
+					  
 						<select  name="logs_type" onchange="this.form.submit()" class="form-control input-sm">
 						<?php $ar=array("All","Errors");
 						 foreach ($ar as $ltype) { ?>
 							<option <?php echo $nts_logs_type == "$ltype" ? 'selected="selected"' : ''; ?> value="<?php echo $ltype; ?>"><?php echo $ltype ." "; ?></option>   
 						<?php } ?>
 						</select>
-					  </div>
+					 
 					
 					</fieldset>
 					<input type="hidden" name="set_log_type" value="set_log_type" />
