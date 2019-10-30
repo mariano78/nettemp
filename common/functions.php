@@ -10,18 +10,29 @@ $db = new PDO("sqlite:$froot/dbf/nettemp.db");
 		if($s['option']=='logs') {
 			$logsonoff=$s['value'];
 		}
+		if($s['option']=='logs_type') {
+			$logs_type=$s['value'];
+		}
 	}
 // Logs Function
 
 function logs($date,$type,$message)
 	{
 		global $logsonoff;
+		global $logs_type;
 		
-	if ($logsonoff == 'on') {
+	if ($logsonoff == 'on' && $logs_type == 'All') {
 		
-		$froot = "/var/www/nettemp";	
-		$db = new PDO("sqlite:$froot/dbf/nettemp_log.db") or die ("cannot open database");
-		$db->exec("INSERT INTO logs ('date', 'type', 'message') VALUES ('$date', '$type', '$message')");
+			$froot = "/var/www/nettemp";	
+			$db = new PDO("sqlite:$froot/dbf/nettemp_log.db") or die ("cannot open database");
+			$db->exec("INSERT INTO logs ('date', 'type', 'message') VALUES ('$date', '$type', '$message')");
+		
+		}else if ($logsonoff == 'on' && $logs_type == 'Errors' && $type == 'Error'){
+			
+			$froot = "/var/www/nettemp";	
+			$db = new PDO("sqlite:$froot/dbf/nettemp_log.db") or die ("cannot open database");
+			$db->exec("INSERT INTO logs ('date', 'type', 'message') VALUES ('$date', '$type', '$message')");
+			
 		}
 	}
 
