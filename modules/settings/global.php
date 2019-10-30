@@ -170,8 +170,6 @@
 ?>
 
 
-
- 
  <div class="grid-item settings">
 	<div class="panel panel-default">
 		<div class="panel-heading">Global settings</div>
@@ -352,9 +350,9 @@
 				</td>
 				<td>
 				
-					<form class="form-horizontal" action="" method="post">
+					<form action="" method="post" style="display:inline!important;"> 
 					<fieldset>
-					<div class="form-group">
+					
 					
 					  <div class="col-md-2">
 						<select  name="logs_type" onchange="this.form.submit()" class="form-control input-sm">
@@ -364,7 +362,7 @@
 						<?php } ?>
 						</select>
 					  </div>
-					</div>
+					
 					</fieldset>
 					<input type="hidden" name="set_log_type" value="set_log_type" />
 					</form>
