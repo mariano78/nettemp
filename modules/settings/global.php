@@ -157,6 +157,14 @@
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+	
+	$logs_type = isset($_POST['logs_type']) ? $_POST['logs_type'] : '';
+    $logs_onoff1 = isset($_POST['logs_onoff1']) ? $_POST['logs_onoff1'] : '';
+    if (($logs_onoff1 == "logs_onoff1") ){
+    $db->exec("UPDATE nt_settings SET value='$logs_onoff' WHERE option='logs'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
 
 
 ?>
@@ -336,6 +344,30 @@
 					<input type="hidden" name="logs_his1" value="logs_his1"  />
 					<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 					</form>
+				</td>
+			</tr>
+			
+			<tr>
+				<td><label>Logs type</label>
+				</td>
+				<td>
+				
+					<form class="form-horizontal" action="" method="post">
+					<fieldset>
+					
+					  <div class="col-md-2">
+						<select id="selectbasic" name="logs_type" onchange="this.form.submit()" class="form-control input-sm">
+						<?php $ar=array("All","Errors");
+						 foreach ($ar as $ltype) { ?>
+							<option <?php echo $nts_logs_type == "$ltype" ? 'selected="selected"' : ''; ?> value="<?php echo $ltype; ?>"><?php echo $ltype ." "; ?></option>   
+						<?php } ?>
+						</select>
+					  </div>
+				
+					</fieldset>
+					<input type="hidden" name="set_log_type" value="set_log_type" />
+					</form>
+
 				</td>
 			</tr>
 			
