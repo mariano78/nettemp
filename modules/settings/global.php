@@ -348,7 +348,7 @@
 			</tr>
 			
 			<tr>
-				<td><label>Logs type</label>
+				<td><label>Logs type <?php echo $nts_logs_type?></label>
 				</td>
 				<td>
 				
