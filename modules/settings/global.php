@@ -354,6 +354,7 @@
 				
 					<form class="form-horizontal" action="" method="post">
 					<fieldset>
+					<div class="form-group">
 					
 					  <div class="col-md-2">
 						<select id="selectbasic" name="logs_type" onchange="this.form.submit()" class="form-control input-sm">
@@ -363,7 +364,7 @@
 						<?php } ?>
 						</select>
 					  </div>
-				
+					</div>
 					</fieldset>
 					<input type="hidden" name="set_log_type" value="set_log_type" />
 					</form>
