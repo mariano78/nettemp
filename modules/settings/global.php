@@ -346,27 +346,21 @@
 			</tr>
 			
 			<tr>
-				<td><label>Logs type <?php echo $nts_logs_type?></label>
+				<td><label>Logs type</label>
 				</td>
 				<td>
 				
 					<form action="" method="post" style="display:inline!important;"> 
 					<fieldset>
-					
-					
-					  
 						<select  name="logs_type" onchange="this.form.submit()" class="form-control input-sm">
 						<?php $ar=array("All","Errors");
 						 foreach ($ar as $ltype) { ?>
 							<option <?php echo $nts_logs_type == "$ltype" ? 'selected="selected"' : ''; ?> value="<?php echo $ltype; ?>"><?php echo $ltype ." "; ?></option>   
 						<?php } ?>
 						</select>
-					 
-					
 					</fieldset>
 					<input type="hidden" name="set_log_type" value="set_log_type" />
 					</form>
-
 				</td>
 			</tr>
 			
