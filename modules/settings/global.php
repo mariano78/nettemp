@@ -334,7 +334,7 @@
 			</tr>
 			
 			<tr>
-				<td><label>Logs History</label>
+				<td><label>Logs history</label>
 				</td>
 				<td>
 					<form action="" method="post" style="display:inline!important;"> 
