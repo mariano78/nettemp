@@ -159,9 +159,9 @@
     }
 	
 	$logs_type = isset($_POST['logs_type']) ? $_POST['logs_type'] : '';
-    $logs_onoff1 = isset($_POST['logs_onoff1']) ? $_POST['logs_onoff1'] : '';
-    if (($logs_onoff1 == "logs_onoff1") ){
-    $db->exec("UPDATE nt_settings SET value='$logs_onoff' WHERE option='logs'") or die ($db->lastErrorMsg());
+    $set_log_type_ = isset($_POST['set_log_type']) ? $_POST['set_log_type'] : '';
+    if (($set_log_type == "set_log_type") ){
+    $db->exec("UPDATE nt_settings SET value='$logs_type' WHERE option='logs_type'") or die ($db->lastErrorMsg());
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
