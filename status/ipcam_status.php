@@ -33,7 +33,16 @@ $hide=$a['hide'];
 <div class="grid-item">
     <div class="panel panel-default">
 	<div class="panel-heading"> 
-	<div class="pull-left"><?php echo $name; ?></div>
+	<div class="pull-left">
+	<?php 
+		if(isset($_SESSION['user'])){
+							echo '<a href="index.php?id=device&type=ipcam" title="Go to IP Cameras" class="group-name" >'.$name.'</a>';
+						} else {
+							echo $name;
+						}
+	
+	
+	?></div>
 	<div class="pull-right">
 		<div class="text-right">
 			<form action="" method="post" style="display:inline!important;">
