@@ -263,5 +263,8 @@ $updates['2019-10-24 09:41:38'][]="INSERT OR IGNORE INTO types (type, unit, unit
 //Logs
 $updates['2019-10-30 08:10:05'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('logs_type','All')";
 
+//Dark Theme
+$updates['2019-10-31 08:20:05'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('theme','Default')";
+
 
 ?>

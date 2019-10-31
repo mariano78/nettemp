@@ -165,6 +165,14 @@
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+	
+	$nt_theme= isset($_POST['nt_theme']) ? $_POST['nt_theme'] : '';
+    $set_nt_theme = isset($_POST['set_nt_theme']) ? $_POST['set_nt_theme'] : '';
+    if ($set_nt_theme == "set_nt_theme") {
+    $db->exec("UPDATE nt_settings SET value='$nt_theme' WHERE option='theme'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
 
 
 ?>
@@ -360,6 +368,25 @@
 						</select>
 					</fieldset>
 					<input type="hidden" name="set_log_type" value="set_log_type" />
+					</form>
+				</td>
+			</tr>
+			
+			<tr>
+				<td><label>Theme</label>
+				</td>
+				<td>
+				
+					<form action="" method="post" style="display:inline!important;"> 
+					<fieldset>
+						<select  name="nt_theme" onchange="this.form.submit()" class="form-control input-sm">
+						<?php $ar=array("Default","Dark");
+						 foreach ($ar as $theme) { ?>
+							<option <?php echo $nts_theme == "$theme" ? 'selected="selected"' : ''; ?> value="<?php echo $theme; ?>"><?php echo $theme ." "; ?></option>   
+						<?php } ?>
+						</select>
+					</fieldset>
+					<input type="hidden" name="set_nt_theme" value="set_nt_theme" />
 					</form>
 				</td>
 			</tr>

@@ -17,6 +17,7 @@ if( !file_exists($dbfile) || !is_readable($dbfile) || filesize($dbfile) == 0 ){
 //variables in session
 $_SESSION['nts_charts_max'] = $nts_charts_max;
 $_SESSION['nts_temp_scale'] = $nts_temp_scale;
+$_SESSION['nts_theme'] = $nts_theme;
 
 ?>
 <!DOCTYPE html>
@@ -29,10 +30,20 @@ $_SESSION['nts_temp_scale'] = $nts_temp_scale;
     <title>nettemp <?php echo gethostname(); ?></title>
 
     <!-- Bootstrap -->
-    <link href="html/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="html/custom.css" rel="stylesheet">
+	<?php
+		if ($_SESSION['nts_theme'] == 'Default'){ ?>
+	
+			<link href="html/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+			<!-- Custom styles for this template -->
+			<link href="html/custom.css" rel="stylesheet">
+		<?php } else if ($_SESSION['nts_theme'] == 'Dark'){ ?>
+		
+			<link href="html/bootstrap/css/dark_bootstrap.min.css" rel="stylesheet">
+			<!-- Custom styles for this template -->
+			<link href="html/custom.css" rel="stylesheet">
+		<?php }
+	
+	?>
 
     <!-- jQuery -->
     <script src="html/jquery/jquery-1.11.3.min.js"></script>

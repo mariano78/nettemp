@@ -221,6 +221,9 @@ foreach ($result as $a) {
 	if($a['option']=='logs_type') {
        	$nts_logs_type=$a['value'];
     }
+	if($a['option']=='theme') {
+       	$nts_theme=$a['value'];
+    }
 	
 }
 
