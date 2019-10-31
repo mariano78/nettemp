@@ -165,7 +165,7 @@ if($nts_info=='on') {
 	    <button type="submit" class="btn btn-xs btn-success">Log Out</button>
 	</form>
 	<form action="" method="post" class="navbar-form navbar-right">
-		Remember me:
+		<label>Remember me:</label>
 		<input type="checkbox" data-toggle="toggle" data-size="mini" name="autologout_value" value="on" <?php echo $autologout == 'on' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
 		<input type="hidden" name="setautologout" value="onoff" />
     </form>
