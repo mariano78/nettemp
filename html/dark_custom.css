@@ -122,7 +122,12 @@ label {
     color:#c8c8c8;
 }
 
-form {
+.form-control {
+  
+  background-color:#f2f2f2;
+}
+
+.input {
   
   background-color:#f2f2f2;
 }
