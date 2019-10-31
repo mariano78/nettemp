@@ -41,9 +41,9 @@
 <div class="row">
 <div class="col-md-4 col-md-offset-4">
 
-If You want send anonymous info about Your nettemp write in agreement: <span class="label label-success">yes</span><br><br>
-Your nettemp will send ID (md5sum from mac-addres),version, os name, hardware type.<br><br>
-Go to <a href="https://stats.mmsite.pl" target="_blank" class="label label-info">stats.mmsite.pl</a> and check what looks statistic. <br><br>
+<label>If You want send anonymous info about Your nettemp write in agreement:</label> <span class="label label-success">yes</span><br><br>
+<label>Your nettemp will send ID (md5sum from mac-addres),version, os name, hardware type.</label><br><br>
+<label>Go to <a href="https://stats.mmsite.pl" target="_blank" class="label label-info">stats.mmsite.pl</a> and check what looks statistic.</label> <br><br>
 
 </div>
 </div>
