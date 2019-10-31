@@ -122,6 +122,11 @@ label {
     color:#c8c8c8;
 }
 
+.form-group {
+  
+  background-color: #006dcc;
+}
+
 
 
 /* on map default white color is invisible on white background */
