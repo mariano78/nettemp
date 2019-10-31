@@ -40,7 +40,7 @@ $_SESSION['nts_theme'] = $nts_theme;
 		
 			<link href="html/bootstrap/css/dark_bootstrap.min.css" rel="stylesheet">
 			<!-- Custom styles for this template -->
-			<link href="html/custom.css" rel="stylesheet">
+			<link href="html/dark_custom.css" rel="stylesheet">
 		<?php }
 	
 	?>

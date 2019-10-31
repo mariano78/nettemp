@@ -1,0 +1,133 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 30px;
+    color: black;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  padding: 5px;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 30px;
+  //background-color: #f5f5f5;
+}
+
+.label-sensors
+{
+	background: #5cb85c;
+	/*color: navy;
+	font-size: 16px;
+	border:none 1px white;
+	*/
+}
+
+.label-to-high
+{
+	background: #d9534f;
+	color:white;
+}
+
+.label-to-low
+{
+	background: #337ab7;
+	color:white;
+}
+.sensor_settings_header
+{
+	width: 100%;
+	text-align: center;
+}
+
+.transparent-background
+{
+	background: rgba(0,0,0,0) !important; 
+}
+
+@media screen and (max-width: 680px) {
+.container-nettemp {
+padding: 10px;
+}
+.grid-item { width: 100% !important }
+}
+@media screen and (min-width: 680px) {
+.container-nettemp {
+padding: 0px 15px;
+}
+.grid-item { width:350px; }
+}
+
+
+.container-controls {
+	width: 100px;
+}
+
+
+.map-settings
+{
+	text-align:left;
+	padding: 5px;
+}
+
+.scrollable
+{
+	height:800px;
+	overflow-y: auto;
+	overflow: auto;
+}
+
+.hidearrow
+{
+display:inline-block;
+padding:1px 1px;
+margin-bottom:0;
+font-size:14px;
+font-weight:400;
+line-height:1.42857143;
+text-align:center;
+white-space:nowrap;
+vertical-align:middle;
+cursor:pointer;
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+user-select:none;
+background-image:none;
+border:0px solid transparent;
+background-color: transparent;
+color: #808080;
+border-radius:0px}
+
+a.group-name
+{
+	text-decoration:none;
+	color:#262626;
+}
+
+
+
+
+/* on map default white color is invisible on white background */
+input[name='time_offset']
+{
+	color: black;
+}
+
+.grid-item {
+    width: 350px;
+    float: left;
+    border-radius: 5px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+
+.table > tbody > tr > td {
+     vertical-align: middle;
+}
+
