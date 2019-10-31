@@ -12,13 +12,13 @@ FEATURES:
     Read servers temperature over SNMP
     Read value from BMP180, TSL2561, HTU21D, HIH6130, TMP102, MPL3115A2 over I2C - thanks to ro-an nad kamami.pl
     Read temperatures form lm-sensors
+	Read values from ESPEasy soft
     Read internal temperature from Raspberry Pi, Banana Pi
-    View charts with temeratures and humidity
-    Send mail notofication when temperature is to high or to low, You can set value.
+    View charts with temeratures, humidity and other sensors
+    Send mail, sms, poshover notofication when value is to high or to low, You can set value.
     Set gpio on/off, gpio temperature on/off, gpio time on/off
     You can connect APC UPS over USB and recieve notification from UPS
-    OpenVPN server. User + Pass + CRT
-    Radius server 802.1x EAP TLS
+	PV Inverters integrations - Zeversolar, Fronius
     Firewall function
     System stats
 
@@ -40,6 +40,10 @@ Debian, RaspberryPi:
 	mkdir -p /var/www/nettemp && cd /var/www && apt update -y && apt-get upgrade -y && apt-get install -y git && git clone https://github.com/mariano78/nettemp && cd nettemp && git checkout betamm && ./install_nettemp 	
 
 Changelog:
+
+4.9.1
+
+Dark theme for nettemp
 
 4.9.0
 
