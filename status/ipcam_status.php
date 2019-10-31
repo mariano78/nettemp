@@ -40,8 +40,6 @@ $hide=$a['hide'];
 						} else {
 							echo $name;
 						}
-	
-	
 	?></div>
 	<div class="pull-right">
 		<div class="text-right">
