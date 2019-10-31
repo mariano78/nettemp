@@ -111,10 +111,9 @@ if(!empty($dbintegrity)){
 ?>
 
 </div>
-
 <?php
 //Show DB version if is set..
-echo (isset($NT_SETTINGS['DB_VER']) && isset($NT_SETTINGS['DB_LAST_UPDATE'])) ? '<div class="panel-footer">Last successful DB update: '.$NT_SETTINGS['DB_LAST_UPDATE'].'<br><h4><span class="label label-info">DB Version: '.$NT_SETTINGS['DB_VER'].'</span></h4></div>' : '';
+echo (isset($NT_SETTINGS['DB_VER']) && isset($NT_SETTINGS['DB_LAST_UPDATE'])) ? '<div class="panel-footer"><label>Last successful DB update: '.$NT_SETTINGS['DB_LAST_UPDATE'].'<br><h4><span class="label label-info">DB Version: '.$NT_SETTINGS['DB_VER'].'</span></h4></label></div>' : '';
 ?>
 
 </div>
