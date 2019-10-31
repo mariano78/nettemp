@@ -122,14 +122,12 @@ label {
     color:#c8c8c8;
 }
 
-.form-control {
-  
+form-control {  
   background-color:#f2f2f2;
 }
 
 input, textarea{
     background-color:#f2f2f2;
-    
 }
 
 
