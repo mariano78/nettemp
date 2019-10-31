@@ -127,9 +127,9 @@ label {
   background-color:#f2f2f2;
 }
 
-.input {
-  
-  background-color:#3366ff;
+input, textarea{
+    background-color:#666;
+    color: #FFF;
 }
 
 
