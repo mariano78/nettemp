@@ -161,7 +161,7 @@ if($nts_info=='on') {
     }
 		if(isset($_SESSION["user"])) {?>
 	<form method="post" action="index.php?id=logout" class="navbar-form navbar-right" >
-	    <?php echo $_SESSION["user"];?>
+	    <label><?php echo $_SESSION["user"];?></label>
 	    <button type="submit" class="btn btn-xs btn-success">Log Out</button>
 	</form>
 	<form action="" method="post" class="navbar-form navbar-right">
