@@ -76,6 +76,7 @@ if($tmpval >= $a['tmp_max'] && !empty($tmpval) && !empty($a['tmp_max'])) {
 		    $valfoncol='#d9534f'; 
 		} elseif($tmpval <= $a['tmp_min'] && !empty($tmpval) && !empty($a['tmp_min'])) { 
 		    $valfoncol='#5bc0de'; 
+		} elseif ($nts_theme == 'Dark') {$valfoncol='#c8c8c8'; 
 		} else {$valfoncol='black'; }
 		
 // title colours - read colours
