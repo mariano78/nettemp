@@ -73,6 +73,8 @@ Go to device scan!
 				}
 			}//END GROUPS
 			
+		}else if ($module == "Just Gage") {
+			
 			//JG GROUPS
 			foreach($result_ch_g as $uniqa) {
 				if(!empty($uniqa['ch_group'])&&$uniqa['ch_group']!='none'&&!in_array($uniqa['ch_group'], $uniquea)) {

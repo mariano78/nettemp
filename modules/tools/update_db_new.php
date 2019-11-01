@@ -266,5 +266,7 @@ $updates['2019-10-30 08:10:05'][]="INSERT INTO nt_settings ('option', 'value') V
 //Dark Theme
 $updates['2019-10-31 08:20:05'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('theme','Default')";
 
+//Status order
+$updates['2019-11-01 11:48:05'][]="INSERT INTO statusorder ('position', 'modulename') VALUES (9,'Just Gage')";
 
 ?>
