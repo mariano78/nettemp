@@ -90,7 +90,7 @@ Go to device scan!
 					//$ch_g=$uniqa['ch_group'];
 					//include('status/justgage_status.php');
 				//}
-			}//END JG GROUPS
+			//}//END JG GROUPS
 
 		}else if ($module == "MinMax") {
 			include('status/minmax_status.php');
