@@ -70,7 +70,7 @@ Go to device scan!
 					$unique[]=$uniq['ch_group'];
 					$ch_g=$uniq['ch_group'];
 					include('status/sensor_groups.php');
-					if ($uniq['ch_group'] == 'on') {
+					if ($uniq['jg'] == 'on') {
 						
 						include('status/justgage_status.php');
 					}
