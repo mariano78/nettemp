@@ -60,28 +60,23 @@ Go to device scan!
 		
 		if ($module == "Sensors") {
 			 //GROUPS
-			$rows = $db->query("SELECT ch_group,jg FROM sensors ORDER BY position_group ASC") or header("Location: html/errors/db_error.php");
+			$rows = $db->query("SELECT ch_group,type FROM sensors ORDER BY position_group ASC") or header("Location: html/errors/db_error.php");
 			$result_ch_g = $rows->fetchAll();
 			$unique=array();
 			$uniquea=array();
 	
 			foreach($result_ch_g as $uniq) {
-				$jg = $uniq['jg'];
 				if(!empty($uniq['ch_group'])&&$uniq['ch_group']!='none'&&!in_array($uniq['ch_group'], $unique)) {
 					$unique[]=$uniq['ch_group'];
 					$ch_g=$uniq['ch_group'];
-					
-					if ($jg == 'on') {
-						echo $jg;
-						include('status/justgage_status.php');
-					} 
+					include('status/sensor_groups.php');
 				}
 			}//END GROUPS
 			
 		}else if ($module == "Just Gage") {
 			
 			//JG GROUPS
-			$rows = $db->query("SELECT ch_group,jg FROM sensors ORDER BY position_group ASC") or header("Location: html/errors/db_error.php");
+			$rows = $db->query("SELECT ch_group,type FROM sensors ORDER BY position_group ASC") or header("Location: html/errors/db_error.php");
 			$result_ch_g = $rows->fetchAll();
 			//$unique=array();
 			$uniquea=array();
@@ -89,7 +84,7 @@ Go to device scan!
 				if(!empty($uniqa['ch_group'])&&$uniqa['ch_group']!='none'&&!in_array($uniqa['ch_group'], $uniquea)) {
 					$uniquea[]=$uniqa['ch_group'];
 					$ch_g=$uniqa['ch_group'];
-					//include('status/justgage_status.php');
+					include('status/justgage_status.php');
 				}
 			}//END JG GROUPS
 
