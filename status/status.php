@@ -70,7 +70,7 @@ Go to device scan!
 					$unique[]=$uniq['ch_group'];
 					$ch_g=$uniq['ch_group'];
 					include('status/sensor_groups.php');
-				} else {
+				} else if (!empty($uniq['ch_group'])&&$uniq['ch_group']!='none'&&!in_array($uniq['ch_group'], $unique)&&$uniq['jg'] == 'on'){
 					$unique[]=$uniq['ch_group'];
 					$ch_g=$uniq['ch_group'];
 					
