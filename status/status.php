@@ -71,7 +71,7 @@ Go to device scan!
 					$ch_g=$uniq['ch_group'];
 					include('status/sensor_groups.php');
 				} else if (!empty($uniqa['ch_group'])&&$uniqa['ch_group']!='none'&&!in_array($uniqa['ch_group'], $uniquea)&&$uniqa['jg'] == 'on'){
-					$uniquea[]=$uniq['ch_group'];
+					$uniquea[]=$uniqa['ch_group'];
 					$ch_g=$uniqa['ch_group'];
 					
 					include('status/justgage_status.php');}
