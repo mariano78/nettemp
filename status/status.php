@@ -71,10 +71,9 @@ Go to device scan!
 					$unique[]=$uniq['ch_group'];
 					$ch_g=$uniq['ch_group'];
 					
-					if ($jg == 'on') {
-						echo $jg;
+					
 						include('status/justgage_status.php');
-					} else {include('status/sensor_groups.php');}
+					 //include('status/sensor_groups.php')
 				}
 			}//END GROUPS
 			
