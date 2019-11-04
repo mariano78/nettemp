@@ -70,7 +70,11 @@ Go to device scan!
 					$unique[]=$uniq['ch_group'];
 					$ch_g=$uniq['ch_group'];
 					include('status/sensor_groups.php');
-				} else {include('status/justgage_status.php');}
+				} else {
+					$unique[]=$uniq['ch_group'];
+					$ch_g=$uniq['ch_group'];
+					
+					include('status/justgage_status.php');}
 			}//END GROUPS
 			
 		}else if ($module == "Just Gage") {
