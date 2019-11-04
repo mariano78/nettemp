@@ -70,7 +70,7 @@ Go to device scan!
 					$unique[]=$uniq['ch_group'];
 					$ch_g=$uniq['ch_group'];
 					include('status/sensor_groups.php');
-				}
+				} else {include('status/justgage_status.php');}
 			}//END GROUPS
 			
 		}else if ($module == "Just Gage") {
@@ -84,7 +84,7 @@ Go to device scan!
 				if(!empty($uniqa['ch_group'])&&$uniqa['ch_group']!='none'&&!in_array($uniqa['ch_group'], $uniquea)) {
 					$uniquea[]=$uniqa['ch_group'];
 					$ch_g=$uniqa['ch_group'];
-					include('status/justgage_status.php');
+					//include('status/justgage_status.php');
 				}
 			}//END JG GROUPS
 
