@@ -66,10 +66,11 @@ Go to device scan!
 			$uniquea=array();
 	
 			foreach($result_ch_g as $uniq) {
+				$jg = $uniq['jg'];
 				if(!empty($uniq['ch_group'])&&$uniq['ch_group']!='none'&&!in_array($uniq['ch_group'], $unique)) {
 					$unique[]=$uniq['ch_group'];
 					$ch_g=$uniq['ch_group'];
-					$jg = $uniq['jg'];
+					
 					if ($jg == 'on') {
 						echo $jg;
 						include('status/justgage_status.php');
