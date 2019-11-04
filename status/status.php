@@ -70,9 +70,9 @@ Go to device scan!
 					$unique[]=$uniq['ch_group'];
 					$ch_g=$uniq['ch_group'];
 					include('status/sensor_groups.php');
-				} else if (!empty($uniq['ch_group'])&&$uniq['ch_group']!='none'&&!in_array($uniq['ch_group'], $unique)&&$uniq['jg'] == 'on'){
-					$unique[]=$uniq['ch_group'];
-					$ch_g=$uniq['ch_group'];
+				} else if (!empty($uniqa['ch_group'])&&$uniqa['ch_group']!='none'&&!in_array($uniqa['ch_group'], $unique)&&$uniqa['jg'] == 'on'){
+					$uniquea[]=$uniq['ch_group'];
+					$ch_g=$uniqa['ch_group'];
 					
 					include('status/justgage_status.php');}
 			}//END GROUPS
