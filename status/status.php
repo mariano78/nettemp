@@ -78,7 +78,7 @@ Go to device scan!
 			}//END GROUPS
 			
 		}else if ($module == "Just Gage") {
-			
+			echo '1';
 			//JG GROUPS
 			//$rows = $db->query("SELECT ch_group FROM sensors ORDER BY position_group ASC") or header("Location: html/errors/db_error.php");
 			//$result_ch_g = $rows->fetchAll();
