@@ -66,31 +66,27 @@ Go to device scan!
 			$uniquea=array();
 	
 			foreach($result_ch_g as $uniq) {
-				if(!empty($uniq['ch_group'])&&$uniq['ch_group']!='none'&&!in_array($uniq['ch_group'], $unique)&&$uniq['jg'] != 'on') {
+				if(!empty($uniq['ch_group'])&&$uniq['ch_group']!='none'&&!in_array($uniq['ch_group'], $unique)) {
 					$unique[]=$uniq['ch_group'];
 					$ch_g=$uniq['ch_group'];
 					include('status/sensor_groups.php');
-				} else if (!empty($uniqa['ch_group'])&&$uniqa['ch_group']!='none'&&!in_array($uniqa['ch_group'], $uniquea)&&$uniqa['jg'] == 'on'){
-					$uniquea[]=$uniqa['ch_group'];
-					$ch_g=$uniqa['ch_group'];
-					
-					include('status/justgage_status.php');}
+				}
 			}//END GROUPS
 			
 		}else if ($module == "Just Gage") {
-			echo '1';
+			
 			//JG GROUPS
-			//$rows = $db->query("SELECT ch_group FROM sensors ORDER BY position_group ASC") or header("Location: html/errors/db_error.php");
-			//$result_ch_g = $rows->fetchAll();
+			$rows = $db->query("SELECT ch_group FROM sensors ORDER BY position_group ASC") or header("Location: html/errors/db_error.php");
+			$result_ch_g = $rows->fetchAll();
 			//$unique=array();
-			//$uniquea=array();
-			//foreach($result_ch_g as $uniqa) {
-				//if(!empty($uniqa['ch_group'])&&$uniqa['ch_group']!='none'&&!in_array($uniqa['ch_group'], $uniquea)) {
-					//$uniquea[]=$uniqa['ch_group'];
-					//$ch_g=$uniqa['ch_group'];
-					//include('status/justgage_status.php');
-				//}
-			//}//END JG GROUPS
+			$uniquea=array();
+			foreach($result_ch_g as $uniqa) {
+				if(!empty($uniqa['ch_group'])&&$uniqa['ch_group']!='none'&&!in_array($uniqa['ch_group'], $uniquea)) {
+					$uniquea[]=$uniqa['ch_group'];
+					$ch_g=$uniqa['ch_group'];
+					include('status/justgage_status.php');
+				}
+			}//END JG GROUPS
 
 		}else if ($module == "MinMax") {
 			include('status/minmax_status.php');
