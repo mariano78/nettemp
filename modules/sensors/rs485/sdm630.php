@@ -166,7 +166,7 @@ try {
 		echo "4. val ".$VAL."\n";
 
 		if($last!=0){
-			$local_val=$VAL;
+			$local_val= number_format($VAL,4);
 			//$local_current=$WATsum;
 			//db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 			//$db->exec("UPDATE sensors SET sum='$ALL' WHERE rom='$local_rom'");
@@ -204,7 +204,7 @@ try {
 		#echo "4. ".$VAL."\n";
 		
 		if($last!=0){
-			$local_val=$VAL;
+			$local_val= number_format($VAL,4);
 			
 		} else {
 			$local_val='0';
