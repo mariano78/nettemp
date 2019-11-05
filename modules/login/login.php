@@ -7,8 +7,12 @@ if(!function_exists('hash_equals')) {
 }
 session_start();
 
-$user=$_SESSION['user'];
-$autologout='';
+$user = '';
+
+if (isset($_SESSION['user'])) {
+	$user=$_SESSION['user'];	
+}
+$autologout = '';
 
 //if (empty($_SESSION['user']) && !empty($_COOKIE['stay_login'])) {
 if (!empty($_COOKIE['stay_login'])) {	
