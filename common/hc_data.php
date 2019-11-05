@@ -1,4 +1,5 @@
 <?php
+ini_set('memory_limit', '1024M');
 $root = "/var/www/nettemp";
 $dir = "$root/db";
 $dst = "$root/tmp/highcharts";
