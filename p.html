@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>trivial color picker</title>
+
+
+<style>
+
+    .washHSV {
+        top:0;
+        left:0;
+        position:absolute;
+        width: 200px;
+        height: 200px;
+        border:1px solid black;
+        background:
+        -webkit-linear-gradient(bottom,black,transparent),
+        -webkit-linear-gradient(right,white,red);
+    }
+
+    .washHSV2 {
+        top:5px;
+        left:250px;
+        position:absolute;
+        width: 173px;
+        height: 200px;
+
+        background:
+        -webkit-linear-gradient(right,transparent,red),
+        -webkit-linear-gradient(bottom,black,white);
+
+        /*bgTemplate:*/
+        /*-webkit-linear-gradient(right,transparent,red),*/
+        /*-webkit-linear-gradient(bottom,black,white);*/
+
+
+        /*clip-path: circle(50px, 50px, 50px);*/
+    }
+
+        .shadow {
+            top:4px;
+            left:247px;
+            position:absolute;
+            width: 177px;
+            height: 202px;
+            background: black;
+
+        }
+
+    [data-triangle='true'] {
+        -webkit-clip-path: polygon(0px 50%, 100% 0px, 100% 100%);
+    }
+
+
+    .washHSL {
+        top:250px;
+        left:25px;
+        position:absolute;
+        width: 100px;
+        height: 100px;
+        border:1px solid black;
+        background:
+        -webkit-linear-gradient(bottom,black,transparent,white),
+        -webkit-linear-gradient(right,white,red);
+    }
+
+    .washRound {
+
+        top:50px;
+        left:500px;
+        width: 200px;
+        height: 200px;
+        position:absolute;
+        border:1px solid black;
+        border-radius: 50%;
+        background:
+        radial-gradient(circle farthest-corner at 60% 20%,
+        white, white 5%, rgba(256,256,256,0) 60%),
+        radial-gradient(circle farthest-side at 55% 35%,
+        transparent, transparent 50%, rgba(0,0,0,.4) 90%, black),
+        -webkit-linear-gradient(165deg,white 5%,red 95%);
+    }
+
+
+    .hue {
+        top:250px;
+        left:250px;
+        position:absolute;
+
+        width: 200px;
+        -webkit-appearance: none;
+        background:
+        -webkit-gradient(linear, left top, right top,
+        color-stop(0%, #800),
+        color-stop(5%, #f00),
+        color-stop(20%, #ff0),
+        color-stop(35%, #0f0),
+        color-stop(50%, #0ff),
+        color-stop(65%, #00f),
+        color-stop(80%, #f0f),
+        color-stop(95%, #f00),
+        color-stop(100%, #800)
+        )
+    ;
+    }
+
+    .hue::-webkit-slider-thumb {
+
+        -webkit-appearance: none;
+        position: relative;
+        margin: -5px;
+        top: 0px;
+        z-index: 1;
+        width: 11px;
+        height: 21px;
+        cursor: pointer;
+        border: 1px solid black;
+        -webkit-border-radius: 40px;
+        border-radius: 40px;
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ebf1f6), color-stop(50%,#abd3ee), color-stop(51%,#89c3eb), color-stop(100%,#d5ebfb));
+    }
+
+    #swatch {
+        top: 300px;
+        left: 250px;
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+        position: absolute;
+    }
+
+.hueRing {
+
+    top: 25px;
+    left: 475px;
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 1px solid black;
+
+    background:
+    radial-gradient(circle, black 55%, transparent 65%),
+    radial-gradient(circle at 00% 50%,  red,transparent 65%),
+    radial-gradient(circle  at 75% 7%,  #0f0,transparent 65%),
+    radial-gradient(circle  at 25% 7%,  #ff0,transparent 65%),
+    radial-gradient(circle  at 75% 93%,  #00f,transparent 65%),
+    radial-gradient(circle  at 100% 50%, #0ff,transparent 65%),
+    radial-gradient(circle  at 25% 93%,  #f0f,transparent 65%),
+    black;
+;
+}
+
+
+</style>
+
+
+</head>
+
+<body>
+
+<div class='washHSV'></div>
+<div class="shadow" data-triangle="true"></div>
+<div class='washHSV2' data-triangle="true"></div>
+
+<div class="hueRing"></div>
+    <div class='washHSL'></div>
+    <div class='washRound'></div>
+    <input class="hue" type="range" min='0' max='360'/>
+    <div id='swatch'></div>
+
+
+<script language="JavaScript">
+
+    function rewash(hue) {
+        var wash = document.querySelector(".washHSV");
+        var hsl = "hsl("+hue+",100%,50%)"
+
+        wash.style.background = "-webkit-linear-gradient(bottom,black,transparent),"+
+                "-webkit-linear-gradient(right,white,"+hsl+")"
+
+        wash = document.querySelector(".washHSL");
+        wash.style.background = "-webkit-linear-gradient(bottom,black,transparent,white),"+
+                "-webkit-linear-gradient(right,white,"+hsl+")"
+
+
+        wash = document.querySelector(".washRound");
+
+
+        wash.style.background = "radial-gradient(circle farthest-corner at 60% 20%,white, white 5%, rgba(256,256,256,0) 60%),"+
+        "radial-gradient(circle farthest-side at 55% 35%, transparent, transparent 50%, rgba(0,0,0,.4) 90%, black),"+
+        "-webkit-linear-gradient(165deg,white 10%,"+hsl+" 90%)"
+
+        wash = document.querySelector(".washHSV2");
+        wash.style.background = "-webkit-linear-gradient(right,transparent,"+hsl+"),-webkit-linear-gradient(bottom,black,white)"
+
+    }
+
+    function syncHue() {
+
+        var h = document.querySelector(".hue").value;
+        rewash(h);
+    }
+
+
+    function pickColorHSL(event) {
+
+
+//        if(event.button != 0)
+//         return;
+
+        console.log(event, event.button, event.buttons);
+
+        event.stopPropagation();
+        event.preventDefault();
+
+        var target = document.querySelector("#swatch")
+
+
+        var t = event.currentTarget;
+        console.log(t, event)
+        var sat = 1- event.offsetX / t.offsetWidth;
+        var l = (1 - event.offsetY / t.offsetHeight);
+        var hue =  document.querySelector(".hue").value;
+        var styleStr =  "hsl("+hue+","+sat*100+"%,"+l*100+"%)"
+
+         console.log(styleStr)
+
+
+        target.style.background =styleStr
+
+    }
+
+    function pickColorHSV(event) {
+
+        console.log(event, event.button, event.buttons);
+
+        event.stopPropagation();
+        event.preventDefault();
+
+        var target = document.querySelector("#swatch")
+
+
+        var t = event.currentTarget;
+        console.log(t, event)
+        var sat = 1- event.offsetX / t.offsetWidth;
+        var val = (1 - event.offsetY / t.offsetHeight);
+        var hue =  document.querySelector(".hue").value;
+
+        var l = .5*val*(2-sat)
+
+        var styleStr =  "hsl("+hue+","+sat*100+"%,"+l*100+"%)"
+        console.log(styleStr)
+
+        target.style.background =styleStr
+
+    }
+
+    function hslToRgb(h, s, l){
+        var r, g, b;
+
+        if(s == 0){
+            r = g = b = l; // achromatic
+        }else{
+            function hue2rgb(p, q, t){
+                if(t < 0) t += 1;
+                if(t > 1) t -= 1;
+                if(t < 1/6) return p + (q - p) * 6 * t;
+                if(t < 1/2) return q;
+                if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+                return p;
+            }
+
+            var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+            var p = 2 * l - q;
+            r = hue2rgb(p, q, h + 1/3);
+            g = hue2rgb(p, q, h);
+            b = hue2rgb(p, q, h - 1/3);
+        }
+
+        return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+    }
+
+
+    function startDrag() {
+
+
+    }
+
+    document.querySelector(".hue").addEventListener("change", syncHue);
+    document.querySelector(".washHSL").addEventListener("click", pickColorHSL);
+    document.querySelector(".washHSV").addEventListener("click", pickColorHSV);
+
+    document.querySelector(".hue").value = "0";
+
+ //   document.querySelector(".wash").addEventListener("mousemove", pickColor);
+    // document.querySelector(".wash").addEventListener("mousedown", startDrag);
+   // document.querySelector(".wash").addEventListener("mousup", pickColor);
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
