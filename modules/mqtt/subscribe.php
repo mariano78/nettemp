@@ -78,13 +78,13 @@ function procmsg($topic, $msg){
 	if ($arr['0']=='shellies') {
 		
 		$ip='';
-		$name=$arr['1'];
-		$t_type=(explode("-",$arr['2']));
+		
+		$t_type=(explode("-",$arr['1']));
 			foreach($t_type as $tt) {
 				$arr2[]=$tt;
 			}
 		
-		
+		$name=$arr1['1'];
 		$type = $arr2['0'];
 		$id = $arr2['1'];
 		//$gpio=$arr['4'];
