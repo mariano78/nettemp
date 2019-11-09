@@ -73,7 +73,34 @@ function procmsg($topic, $msg){
     $gpio='';
     $local_gpio='';
     
-    if ($arr['3']=='gpio') {
+	
+	// Shelly devices
+	if ($arr['1']=='shellies') {
+		
+		$ip='';
+		$name=$arr['2'];
+		$t_type=(explode("-",$arr['2']));
+			foreach($t_type as $tt) {
+				$arr2[]=$tt;
+			}
+		
+		
+		$type = $arr2['1'];
+		$id = $arr2['2'];
+		//$gpio=$arr['4'];
+		//$tskname=$arr['5'];
+		
+		$local_device	=	'mqtt';
+		$local_type	=	$type;
+		$local_val	=	$output;
+		$local_name	=	$name;
+		$local_ip	=	$ip;
+		//$local_gpio	=	$gpio;
+		//$local_tskname = $tskname;
+		$local_rom=$local_device."_".$local_name."_".$local_type;
+		
+		
+	} else if ($arr['3']=='gpio') {
 		
 	$ip=$arr['1'];
 	$name=$arr['2'];
