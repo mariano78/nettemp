@@ -391,7 +391,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 				}		
 				else {
 					echo $rom." ".$val." - Value not in range \n";
-					logs(date("Y-m-d H:i:s"),'Error',$rom." - Value not in range");
+					logs(date("Y-m-d H:i:s"),'Error',$rom." - Value not in range".$val);
 				}
 		
 			}
