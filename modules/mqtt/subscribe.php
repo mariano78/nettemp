@@ -75,7 +75,7 @@ function procmsg($topic, $msg){
     
 	
 	// Shelly devices
-	if ($arr['1']=='shellies') {
+	if ($arr['0']=='shellies') {
 		
 		$ip='';
 		$name=$arr['2'];
