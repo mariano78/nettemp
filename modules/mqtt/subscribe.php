@@ -85,8 +85,8 @@ function procmsg($topic, $msg){
 			}
 		
 		
-		$type = $arr2['1'];
-		$id = $arr2['2'];
+		$type = $arr2['0'];
+		$id = $arr2['1'];
 		//$gpio=$arr['4'];
 		//$tskname=$arr['5'];
 		
