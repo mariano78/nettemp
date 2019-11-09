@@ -78,7 +78,7 @@ function procmsg($topic, $msg){
 	if ($arr['0']=='shellies') {
 		
 		$ip='';
-		$name=$arr['2'];
+		$name=$arr['1'];
 		$t_type=(explode("-",$arr['2']));
 			foreach($t_type as $tt) {
 				$arr2[]=$tt;
