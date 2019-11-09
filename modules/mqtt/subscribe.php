@@ -97,7 +97,7 @@ function procmsg($topic, $msg){
 		$local_ip	=	$ip;
 		//$local_gpio	=	$gpio;
 		//$local_tskname = $tskname;
-		$local_rom=$local_device."_".$local_name."_".$local_type;
+		$local_rom=$local_name;
 		
 		
 	} else if ($arr['3']=='gpio') {
