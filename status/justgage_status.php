@@ -136,8 +136,8 @@ var g<?php echo $ch_g?><?=$KtoryWidget++?> = new JustGage({
         								}
         			?>,
 
-		<?php if(isset($a['jg_min'])) {echo "min:".$a['jg_min'].",";} else {echo "min:0";} ?>
-		<?php if(isset($a['jg_max'])) {echo "max:".$a['jg_max'].",";} else {echo "max:100";}?>
+		<?php if(isset($a['jg_min'])) {echo "min:".$a['jg_min'].",";} else {echo "min:0,";} ?>
+		<?php if(isset($a['jg_max'])) {echo "max:".$a['jg_max'].",";} else {echo "max:100,";}?>
         titleFontColor: "<?php echo $titfoncol ?>",
 		title: "<?php if ($err=='1') {echo "!! ".str_replace("_", " ", $a['name'])." !!";} else {echo str_replace("_", " ", $a['name']);}?>",
         label: n_units
