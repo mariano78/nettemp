@@ -110,11 +110,16 @@ function procmsg($topic, $msg){
 					if ( $arr[$last] == 'status'){
 					
 						$reads = json_decode($output,true);
-						echo $reads["ison"]."\n";
-						echo $reads["mode"]."\n";
-						echo $reads["red"]."\n";
-						echo $reads["green"]."\n";
-						echo $reads["blue"]."\n";
+						echo "ison = ".$reads["ison"]."\n";
+						echo "mode = ".$reads["mode"]."\n";
+						echo "red = ".$reads["red"]."\n";
+						echo "green = ".$reads["green"]."\n";
+						echo "blue = ".$reads["blue"]."\n";
+						echo "white = ".$reads["white"]."\n";
+						echo "gain = ".$reads["gain"]."\n";
+						echo "effect = ".$reads["effect"]."\n";
+						echo "power = ".$reads["power"]."\n";
+						echo "overpower = ".$reads["overpower"]."\n";
 					}
 				}  
 			
