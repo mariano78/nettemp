@@ -77,34 +77,43 @@ function procmsg($topic, $msg){
 	// Shelly devices
 	if ($arr['0']=='shellies') {
 		
-		$ip='';
+		// Check type of shelly device
 		
 		$t_type=(explode("-",$arr['1']));
 			foreach($t_type as $tt) {
 				$arr2[]=$tt;
 			}
+			
+			$type = $arr2['0']; //rgbw2, shelly2.5 or another shelly device
+			$id = $arr2['1']; //unique ID
+				
+				if ($type = 'rgbw2') {
+					
+					$ip='';
 		
-		$name=$arr['1'];
-		$type = $arr2['0'];
-		$id = $arr2['1'];
-		//$gpio=$arr['4'];
-		//$tskname=$arr['5'];
+					$name=$arr['1']; //rgbw2-XXXXXX
+					$type = $arr2['0']; //rgbw2
+					$id = $arr2['1']; // id = XXXXXX
+					
+					$local_device	=	'mqtt';
+					$local_type		=	$type;
+					$local_val		=	$output;
+					$local_name		=	$name;
+					$local_ip		=	$ip;
+					//$local_gpio	=	$gpio;
+					//$local_tskname = $tskname;
+					$local_rom=$local_name;
+					
+					$reads = json_decode($output,true);
+					echo $reads["ison"];
+					echo $reads["mode"];
+					echo $reads["red"];
+					echo $reads["green"];
+					echo $reads["blue"];
+					
+				}  
+			
 		
-		$local_device	=	'mqtt';
-		$local_type	=	$type;
-		$local_val	=	$output;
-		$local_name	=	$name;
-		$local_ip	=	$ip;
-		//$local_gpio	=	$gpio;
-		//$local_tskname = $tskname;
-		$local_rom=$local_name;
-		
-		$reads = json_decode($output,true);
-		echo $reads["ison"];
-		echo $reads["mode"];
-		echo $reads["red"];
-		echo $reads["green"];
-		echo $reads["blue"];
 		
 		
 	} else if ($arr['3']=='gpio') {
