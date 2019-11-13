@@ -96,10 +96,12 @@ function procmsg($topic, $msg){
 					$last = array_key_last($arr);
 					
 					if ( $arr[$last] == 'status' && $rgbw2_mode == 'white'){
-					
+						
+						$chanel = $arr[3] + 1;
+						echo "Chanel = ".$chanel."\n";
 						echo "ison = ".$reads["ison"]."\n";
 						echo "mode = ".$reads["mode"]."\n";
-						echo "brightnes = ".$reads["gain"]."\n";
+						echo "brightnes = ".$reads["brightnes"]."\n";
 						echo "power = ".$reads["power"]."\n";
 						echo "overpower = ".$reads["overpower"]."\n";
 						
