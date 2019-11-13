@@ -118,7 +118,7 @@ function procmsg($topic, $msg){
 						echo "power = ".$reads["power"]."\n";
 						echo "overpower = ".$reads["overpower"]."\n";
 						
-						$value = $reads["ison"];
+						$output = $reads["ison"];
 						
 					}
 					
@@ -130,7 +130,7 @@ function procmsg($topic, $msg){
 					
 					$local_device	=	'mqtt';
 					$local_type		=	$type;
-					$local_val		=	$value;
+					$local_val		=	$output;
 					$local_name		=	$name;
 					$local_ip		=	$ip;
 					//$local_gpio	=	$gpio;
