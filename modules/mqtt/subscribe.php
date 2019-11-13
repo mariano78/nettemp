@@ -104,13 +104,15 @@ function procmsg($topic, $msg){
 					//$local_tskname = $tskname;
 					$local_rom=$local_name;
 					
-					$reads = json_decode($output,true);
-					echo $reads["ison"];
-					echo $reads["mode"];
-					echo $reads["red"];
-					echo $reads["green"];
-					echo $reads["blue"];
+					if ( array_key_last ( array $arr ) == 'status'){
 					
+						$reads = json_decode($output,true);
+						echo $reads["ison"];
+						echo $reads["mode"];
+						echo $reads["red"];
+						echo $reads["green"];
+						echo $reads["blue"];
+					}
 				}  
 			
 		
