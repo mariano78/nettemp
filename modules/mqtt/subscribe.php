@@ -110,6 +110,8 @@ function procmsg($topic, $msg){
 					
 						$output = ($reads["ison"] === 'true') ? 1 : 0 ;
 						
+						echo "output = ".$output."\n";
+						
 						echo "ison = ".$reads["ison"]."\n";
 						echo "mode = ".$reads["mode"]."\n";
 						echo "red = ".$reads["red"]."\n";
