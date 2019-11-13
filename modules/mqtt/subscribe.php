@@ -107,6 +107,9 @@ function procmsg($topic, $msg){
 						
 					} else if ( $arr[$last] == 'status' && $rgbw2_mode == 'color'){
 						
+					
+						$output = ($reads["ison"] === 'true') ? 1 : 0 ;
+						
 						echo "ison = ".$reads["ison"]."\n";
 						echo "mode = ".$reads["mode"]."\n";
 						echo "red = ".$reads["red"]."\n";
