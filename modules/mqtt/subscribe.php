@@ -105,7 +105,8 @@ function procmsg($topic, $msg){
 					//$local_gpio	=	$gpio;
 					//$local_tskname = $tskname;
 					$local_rom=$local_name;
-					
+					$last = array_key_last($arr);
+					echo "LAST __".$last;
 					if ( array_key_last($arr) == 'status'){
 					
 						$reads = json_decode($output,true);
