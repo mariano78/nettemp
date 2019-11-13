@@ -121,7 +121,6 @@ function procmsg($topic, $msg){
 						echo "power = ".$reads["power"]."\n";
 						echo "overpower = ".$reads["overpower"]."\n";
 						
-						$output = $reads["ison"];
 						
 					}
 					
