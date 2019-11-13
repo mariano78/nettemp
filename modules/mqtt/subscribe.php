@@ -77,7 +77,7 @@ function procmsg($topic, $msg){
 	// Shelly devices
 	if ($arr['0']=='shellies') {
 		
-		echo "_____________________shellies____________________";
+		echo "_____________________shellies____________________"."\n";
 		
 		// Check type of shelly device
 		
@@ -97,11 +97,11 @@ function procmsg($topic, $msg){
 					
 					if ( $arr[$last] == 'status' && $rgbw2_mode == 'white'){
 						
-						$chanel = $arr[3] + 1;
-						echo "Chanel = ".$chanel."\n";
+						$channel = $arr[3] + 1;
+						echo "channel = ".$channel."\n";
 						echo "ison = ".$reads["ison"]."\n";
 						echo "mode = ".$reads["mode"]."\n";
-						echo "brightnes = ".$reads["brightnes"]."\n";
+						echo "brightness = ".$reads["brightness"]."\n";
 						echo "power = ".$reads["power"]."\n";
 						echo "overpower = ".$reads["overpower"]."\n";
 						
