@@ -44,7 +44,7 @@ $mqtt->close();
 
 
 function procmsg($topic, $msg){
-		echo "Msg Recieved:\n";
+		echo "Msg Recieved: {$msg}\n";
 		echo "Topic: {$topic}\n\n";
 	//	echo "\t$msg\n\n";
 
@@ -110,11 +110,11 @@ function procmsg($topic, $msg){
 					if ( $arr[$last] == 'status'){
 					
 						$reads = json_decode($output,true);
-						echo $reads["ison"];
-						echo $reads["mode"];
-						echo $reads["red"];
-						echo $reads["green"];
-						echo $reads["blue"];
+						echo $reads["ison"]."\n";
+						echo $reads["mode"]."\n";
+						echo $reads["red"]."\n";
+						echo $reads["green"]."\n";
+						echo $reads["blue"]."\n";
 					}
 				}  
 			
