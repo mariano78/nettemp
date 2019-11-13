@@ -91,6 +91,33 @@ function procmsg($topic, $msg){
 				
 				if ($type = 'rgbw2') {
 					
+					$reads = json_decode($output,true);
+					$rgbw2_mode = $reads["mode"];
+					$last = array_key_last($arr);
+					
+					if ( $arr[$last] == 'status' && $rgbw2_mode == 'white'){
+					
+						echo "ison = ".$reads["ison"]."\n";
+						echo "mode = ".$reads["mode"]."\n";
+						echo "brightnes = ".$reads["gain"]."\n";
+						echo "power = ".$reads["power"]."\n";
+						echo "overpower = ".$reads["overpower"]."\n";
+						
+					} else if ( $arr[$last] == 'status' && $rgbw2_mode == 'color'){
+						
+						echo "ison = ".$reads["ison"]."\n";
+						echo "mode = ".$reads["mode"]."\n";
+						echo "red = ".$reads["red"]."\n";
+						echo "green = ".$reads["green"]."\n";
+						echo "blue = ".$reads["blue"]."\n";
+						echo "white = ".$reads["white"]."\n";
+						echo "gain = ".$reads["gain"]."\n";
+						echo "effect = ".$reads["effect"]."\n";
+						echo "power = ".$reads["power"]."\n";
+						echo "overpower = ".$reads["overpower"]."\n";
+						
+					}
+					
 					$ip='';
 		
 					$name=$arr['1']; //rgbw2-XXXXXX
@@ -105,22 +132,7 @@ function procmsg($topic, $msg){
 					//$local_gpio	=	$gpio;
 					//$local_tskname = $tskname;
 					$local_rom=$local_name;
-					$last = array_key_last($arr);
-					echo "LAST __".$last."\n";
-					if ( $arr[$last] == 'status'){
 					
-						$reads = json_decode($output,true);
-						echo "ison = ".$reads["ison"]."\n";
-						echo "mode = ".$reads["mode"]."\n";
-						echo "red = ".$reads["red"]."\n";
-						echo "green = ".$reads["green"]."\n";
-						echo "blue = ".$reads["blue"]."\n";
-						echo "white = ".$reads["white"]."\n";
-						echo "gain = ".$reads["gain"]."\n";
-						echo "effect = ".$reads["effect"]."\n";
-						echo "power = ".$reads["power"]."\n";
-						echo "overpower = ".$reads["overpower"]."\n";
-					}
 				}  
 			
 		
