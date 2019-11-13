@@ -77,6 +77,8 @@ function procmsg($topic, $msg){
 	// Shelly devices
 	if ($arr['0']=='shellies') {
 		
+		echo "_____________________shellies____________________";
+		
 		// Check type of shelly device
 		
 		$t_type=(explode("-",$arr['1']));
