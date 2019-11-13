@@ -107,7 +107,7 @@ function procmsg($topic, $msg){
 					$local_rom=$local_name;
 					$last = array_key_last($arr);
 					echo "LAST __".$last;
-					if ( array_key_last($arr) == 'status'){
+					if ( $arr[$last] == 'status'){
 					
 						$reads = json_decode($output,true);
 						echo $reads["ison"];
