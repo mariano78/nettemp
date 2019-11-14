@@ -98,6 +98,9 @@ function procmsg($topic, $msg){
 					if ( $arr[$last] == 'status' && $rgbw2_mode == 'white'){
 						
 						$channel = $arr[3] + 1;
+						$output = (int)$reads["ison"];
+						
+						echo "output = ".$output."\n";
 						echo "channel = ".$channel."\n";
 						echo "ison = ".$reads["ison"]."\n";
 						echo "mode = ".$reads["mode"]."\n";
@@ -107,12 +110,9 @@ function procmsg($topic, $msg){
 						
 					} else if ( $arr[$last] == 'status' && $rgbw2_mode == 'color'){
 						
-					
-						//$output = ($reads["ison"] === '1') ? 1 : 0 ;
 						$output = (int)$reads["ison"];
 						
 						echo "output = ".$output."\n";
-						
 						echo "ison = ".$reads["ison"]."\n";
 						echo "mode = ".$reads["mode"]."\n";
 						echo "red = ".$reads["red"]."\n";

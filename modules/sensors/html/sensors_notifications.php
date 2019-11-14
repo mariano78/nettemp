@@ -314,7 +314,7 @@ $notifs = $notif->fetchAll();
 	<tr>
 		<form action="" method="post">	
 		<td>
-			<select name="ntype" id="ntype" >
+			<select name="ntype" id="ntype" class="form-control input-sm small">
 				<option value="value" >Value</option>
 				<option value="lupdate" >Last Update (min.)</option>
 				<?php if ($a['type'] == 'host' ){?> <option value="lhost" >Lost Host</option> <?php } ?>
