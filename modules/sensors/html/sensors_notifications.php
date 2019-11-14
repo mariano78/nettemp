@@ -312,7 +312,7 @@ $notifs = $notif->fetchAll();
 </thead>
 
 	<tr>
-		<form action="" method="post">	
+		<form class="form-horizontal" action="" method="post">	
 		<td>
 			<select name="ntype" id="ntype" >
 				<option value="value" >Value</option>
