@@ -18,7 +18,7 @@ $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 
 $state = $db->query("SELECT status FROM gpio WHERE rom = '$rom' AND gpio = '$gpio'");
 
-echo $state->fetch()[status];
+echo $state->fetch()['status'];
 
 if ($act == 'auto'){
 	
