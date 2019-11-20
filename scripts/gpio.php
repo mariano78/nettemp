@@ -39,7 +39,7 @@ function scurl($ip,$gpio,$action){
 			//curl_setopt( $ch, CURLOPT_POSTFIELDS, $data);
 			//curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
 			 
-			//$response = curl_exec( $ch );
+			curl_exec( $ch );
 			//$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 			curl_close($ch);
 	
