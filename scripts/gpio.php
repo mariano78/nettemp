@@ -1,21 +1,14 @@
 <?php
-
 //var_dump($argv);
-
 parse_str($argv[1],$params);
 $rom=$params['rom'];
-
 parse_str($argv[2],$params);
 $gpio=$params['gpio'];
-
 parse_str($argv[3],$params);
 $act=$params['act'];
-
 $ROOT=dirname(dirname(__FILE__));
 $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
-
 $action = '';
-
 $rows = $db->query("SELECT status, ip FROM gpio WHERE rom = '$rom' AND gpio = '$gpio'");
 $row = $rows->fetchAll();
 
@@ -33,8 +26,6 @@ function scurl($ip,$gpio,$action){
 			curl_setopt( $ch, CURLOPT_POST, 1);
 			curl_exec( $ch );
 			curl_close($ch);
-	
-	
 }
 
 if ($act == 'auto'){
@@ -65,6 +56,4 @@ if ($act == 'auto'){
 		echo "State is ".$state."\n"; 
 	
 }
-
-
 ?>
