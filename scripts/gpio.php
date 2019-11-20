@@ -16,7 +16,7 @@ echo $ROOT;
 $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 
 
-$row = $db->query("SELECT status, ip FROM gpio WHERE rom = '$rom' AND gpio = '$gpio'");
+$rows = $db->query("SELECT status, ip FROM gpio WHERE rom = '$rom' AND gpio = '$gpio'");
 $row = $rows->fetchAll();
 
 foreach ($row as $a) {
