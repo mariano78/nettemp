@@ -103,7 +103,7 @@ if  ($factoryups == "factoryups") {
 //***********************************************************
 
 $db = new PDO("sqlite:$root/dbf/nettemp.db");
-$rows = $db->query("SELECT name, tmp, rom, type, trigone, trigzero, trigoneclr, trigzeroclr, readerr, time, position FROM sensors WHERE rom LIKE '%UPS_id%' ORDER BY position ASC");
+$rows = $db->query("SELECT name, tmp, rom, type, trigone, trigzero, trigoneclr, trigzeroclr, readerrtime, time, position FROM sensors WHERE rom LIKE '%UPS_id%' ORDER BY position ASC");
 $row = $rows->fetchAll();
 
 ?>
@@ -137,14 +137,14 @@ $row = $rows->fetchAll();
 			<?php
 			
 			if ($a['type']=='trigger' && $a['tmp'] == '1.0') {
-						if (strtotime($a['time'])<(time()-($a['readerr']*60)) && !empty($a['readerr'])){
+						if (strtotime($a['time'])<(time()-($a['readerrtime']*60)) && !empty($a['readerrtime'])){
 							echo '<span class="label label-warning">';
 						}else { 
 								echo "<span class=\"label ".$a['trigoneclr']."\">";
 						}
 						
 						}elseif ($a['type']=='trigger' && $a['tmp'] == '0.0') {
-						if (strtotime($a['time'])<(time()-($a['readerr']*60)) && !empty($a['readerr'])){
+						if (strtotime($a['time'])<(time()-($a['readerrtime']*60)) && !empty($a['readerrtime'])){
 							echo '<span class="label label-warning">';
 						}else{ 
 								echo "<span class=\"label ".$a['trigzeroclr']."\">";
