@@ -16,13 +16,21 @@ echo $ROOT;
 $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 
 
-$state = $db->query("SELECT status, ip FROM gpio WHERE rom = '$rom' AND gpio = '$gpio'");
+$row = $db->query("SELECT status, ip FROM gpio WHERE rom = '$rom' AND gpio = '$gpio'");
+$row = $rows->fetchAll();
 
-$state->fetch()['status'];
-$ip->fetch()['ip'];
+foreach ($row as $a) {
+	
+	$state = $a['status'];
+	$ip = $a['ip'];
+}
+
+
 
 echo $status;
 echo $ip;
+
+
 if ($act == 'auto'){
 	
 }else if ($act == 'on'){
