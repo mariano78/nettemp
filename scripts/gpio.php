@@ -27,8 +27,8 @@ foreach ($row as $a) {
 	$ip = $a['ip'];
 }
 
-echo $state;
-echo $ip;
+//echo $state;
+//echo $ip;
 
 function scurl($ip,$gpio,$action){
 	
@@ -71,7 +71,7 @@ if ($act == 'auto'){
 	
 }else if ($act == 'status'){
 	
-		echo $state; 
+		echo "State is ".$state."\n"; 
 	
 }
 
