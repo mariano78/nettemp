@@ -16,7 +16,7 @@ echo $ROOT;
 $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 
 
-$state = $db->querySingle("SELECT status FROM gpio WHERE rom = '$rom' AND gpio = '$gpio'");
+$state = $db->query("SELECT status FROM gpio WHERE rom = '$rom' AND gpio = '$gpio'");
 
 echo $state;
 
