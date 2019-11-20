@@ -11,8 +11,8 @@ $gpio=$params['gpio'];
 parse_str($argv[3],$params);
 $act=$params['act'];
 
-$ROOT=dirname(__FILE__)));
-echo $ROOTt;
+$ROOT=dirname(__FILE__);
+echo $ROOT;
 $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 
 
