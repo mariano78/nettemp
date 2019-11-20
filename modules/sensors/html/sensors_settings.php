@@ -493,6 +493,7 @@ $row = $rows->fetchAll();
 <th>DB</th>
 <th>Rom</th>
 <th>IP</th>
+<th>Device</th>
 <th>Type</th>
 <th>Adjust</th>
 <th>Read err.</th>
@@ -584,6 +585,10 @@ $row = $rows->fetchAll();
 	else { ?> 
 		<td class="col-md-0"><span class="label label-danger">Error</span></td>
 		<?php } ?>
+		
+	<td class="col-md-0">
+		<span class="label label-default"><?php echo $a['device']?></span>
+	</td>
 
 	<td class="col-md-0">
 		<?php if($a['type']=='gpio') { 
