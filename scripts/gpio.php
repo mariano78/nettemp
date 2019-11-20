@@ -12,7 +12,7 @@ parse_str($argv[3],$params);
 $act=$params['act'];
 
 $ROOT=dirname(dirname(__FILE__));
-echo $ROOT;
+//echo $ROOT;
 $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 
 $action = '';
