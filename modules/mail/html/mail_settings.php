@@ -213,7 +213,7 @@ $conf = array (
 				<?php
 				$test_mail = isset($_POST['test_mail']) ? $_POST['test_mail'] : '';
 				$send = isset($_POST['send']) ? $_POST['send'] : '';
-				$headers = "From: <".$a['user'].">\r\n";
+				$headers = "From: ".$a['user']."\r\n";
 
 				if  ($send == "send") {
 					 $test_mail1=escapeshellarg($test_mail);
