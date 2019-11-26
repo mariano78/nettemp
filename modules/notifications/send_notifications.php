@@ -85,7 +85,7 @@ $nomail = 0;
 		}
 	fclose($fh);
 	$a=$cread;
-	$headers = "From: ".$a['user']."\r\n";
+	//$headers = "From: ".$a['user']."\r\n";
 	$headers .= "MIME-Version: 1.0" . "\r\n";
 	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 	
