@@ -217,7 +217,7 @@ $conf = array (
 
 				if  ($send == "send") {
 					 $test_mail1=escapeshellarg($test_mail);
-					 if ( mail ($test_mail, $mail_topic, 'Working Fine.', $headers ) ) {
+					 if ( mail ($test_mail, $mail_topic, 'Working Fine.') ) {
 				?>
 							<span class="label label-success">Test OK</span>
 				<?php
