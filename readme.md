@@ -41,6 +41,13 @@ Debian, RaspberryPi:
 
 Changelog:
 
+4.9.2
+
+Mail fix - double from header
+ 
+
+Dark theme for nettemp
+
 4.9.1
 
 Dark theme for nettemp

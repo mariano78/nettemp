@@ -237,7 +237,7 @@ function trigger($rom, $val) {
 	}
 }
 
-function check($val,$type) {
+function check($val,$type,$rom) {
 	$dbr = new PDO("sqlite:".__DIR__."/dbf/nettemp.db") or die ("cannot open database");
 	$sthr = $dbr->query("SELECT * FROM types WHERE type='$type'");
     $row = $sthr->fetchAll();
@@ -245,10 +245,12 @@ function check($val,$type) {
     {
 		if (($range['min'] <= $val) && ($val <= $range['max']) && ($val != $range['value1']) && ($val != $range['value2']) && ($val != $range['value3'])) 
 		{
+			
 			return "$val";
 		}
 		else 
-		{
+		{	
+			logs(date("Y-m-d H:i:s"),'Error',$rom." - Value not in range - ".$val);
 			return 'range';
 		}
 	}
@@ -280,7 +282,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 			if (is_numeric($val)) {
 				$val=scale($val,$type);
 				$val=adjust($val,$rom);
-				$val=check($val,$type);
+				$val=check($val,$type,$rom);
 				if ($val != 'range'){
 					//// base
 					// counters and other dwvices in array can always put to base
@@ -391,7 +393,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 				}		
 				else {
 					echo $rom." ".$val." - Value not in range \n";
-					logs(date("Y-m-d H:i:s"),'Error',$rom." - Value not in range - ".$val);
+					//logs(date("Y-m-d H:i:s"),'Error',$rom." - Value not in range - ".$val);
 				}
 		
 			}
