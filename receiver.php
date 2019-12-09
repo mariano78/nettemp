@@ -118,23 +118,6 @@ foreach ($result as $a) {
 }
 
 
-function adjust($val,$rom) { 
-	$dbr = new PDO("sqlite:".__DIR__."/dbf/nettemp.db") or die ("cannot open database");
-	$sthr = $dbr->query("SELECT * FROM adjust WHERE rom='$rom' ORDER by threshold ASC");
-    $row = $sthr->fetchAll();
-    foreach($row as $row) {
-		$threshold=$row['threshold'];
-		$end=$row['end'];
-		$add=$row['addvalue'];
-		if($val>=$threshold&&$val<$end)
-		{ 
-			$val=$val+$add;
-			break;
-		}
-    }
-    return "$val";
-}
-
 function scale($val,$type) {
 	global $scale;
 	// scale F->C
@@ -281,7 +264,6 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 		if ( $c >= "1") {
 			if (is_numeric($val)) {
 				$val=scale($val,$type);
-				$val=adjust($val,$rom);
 				$val=check($val,$type,$rom);
 				if ($val != 'range'){
 					//// base
