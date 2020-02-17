@@ -233,7 +233,7 @@ if ($hide == 'off') {
 				    if (is_numeric($a['tmp']) && $a['type']=='elec' || $a['type']=='gas' || $a['type']=='water' )  {
 						echo 	number_format($a['tmp'], 3, '.', ',')." ".$unit." ".$max." ".$min;
 				    } 
-				    elseif (is_numeric($a['tmp']) && $a['type']=='volt' || $a['type']=='amps' || $a['type']=='watt' || substr($a['type'],0,3) == 'max' || substr($a['type'],0,3) == 'min' )  {
+				    elseif (is_numeric($a['tmp']) && $a['type']=='volt' || $a['type']=='amps' || $a['type']=='watt' || $a['type']=='ph' || substr($a['type'],0,3) == 'max' || substr($a['type'],0,3) == 'min' )  {
 						echo 	number_format($a['tmp'], 2, '.', ',')." ".$unit." ".$max." ".$min;
 				    } 
 					 elseif (is_numeric($a['tmp']) && $a['type']=='lux' || $a['type']=='airquality' )  {
