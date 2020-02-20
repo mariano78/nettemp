@@ -52,3 +52,10 @@ try {
     exit;
 }
 ?>
+
+<script>
+function printMe() {
+    window.print()
+}
+</script>
+<input type="button" value="Print" onclick="printMe()">
