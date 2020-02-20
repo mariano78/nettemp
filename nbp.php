@@ -5,20 +5,45 @@
 try {
  
 	
-	
-	$url = "http://api.nbp.pl/api/exchangerates/rates/a/EUR/last/100/?format=json";
-	$json = file_get_contents($url);
-	
-	$obj = json_decode($json,true);
-	//var_dump($obj);
-	
+	$first =  date("Y-m-d", strtotime("first day of previous month"));
+    $last =  date("Y-m-d", strtotime("last day of previous month"));
 
-	  foreach($obj['rates'] as $key=>$val){// this can be ommited if only 0 index is there after 
-//league and $data['league'][0]['events'] can be used in below foreach instead of $val['events'].
-        echo $val['effectiveDate']." - Kurs - ".$val['mid']."\n"; 
-    }  
+	$urleur = "http://api.nbp.pl/api/exchangerates/rates/a/EUR/".$first."/".$last."/?format=json";
+	$jsoneur = file_get_contents($urleur);
+	
+	$urlczk = "http://api.nbp.pl/api/exchangerates/rates/a/czk/".$first."/".$last."/?format=json";
+	$jsonczk = file_get_contents($urlczk);
+	
+	$objeur = json_decode($jsoneur,true);
+	$objczk = json_decode($jsonczk,true);
+	
+?>
+<p>
     
-    //effectiveDate
+    <b> Kurs EUR - </b></td> <td><b> <?php echo $first." - ".$last?></b> 
+    
+</p>    
+	<table>
+	    <tbody>
+	      
+	        
+	            <?php 
+            	  foreach($objeur['rates'] as $key=>$val){ ?>
+            	      
+            	        <tr>
+	                         <td><b> <?php echo $val['effectiveDate'];?></b></td> <td><b>  - - -  <?php echo number_format($val['mid'],4);?></b> </td> 
+	                    </tr>
+            
+                 <?php
+            	      
+            	  }
+	                ?>
+	        
+	        
+	    </tbody>
+	</table>
+<?php 
+	  
 	
 	
 	} catch (Exception $e) {
