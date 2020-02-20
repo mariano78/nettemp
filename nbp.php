@@ -15,7 +15,7 @@ try {
 	foreach ($obj as $value) {
 		
 		$value2 = $obj['no'];
-		echo $value2
+		echo $value2;
 	}
 	
 	
