@@ -19,33 +19,42 @@ try {
 	
 ?>
 <p>
-    
     <b> Kurs EUR - </b></td> <td><b> <?php echo $first." - ".$last?></b> 
-    
 </p>    
 	<table>
 	    <tbody>
-	      
-	        
 	            <?php 
             	  foreach($objeur['rates'] as $key=>$val){ ?>
-            	      
             	        <tr>
-	                         <td><b> <?php echo $val['effectiveDate'];?></b></td> <td><b>  - - -  <?php echo number_format($val['mid'],4);?></b> </td> 
+	                         <td><b><span style="font-size: x-large"><?php echo $val['effectiveDate'];?></span></b></td> <td><b><span style="font-size: x-large">  - - -  <?php echo number_format($val['mid'],4);?></span></b> </td> 
 	                    </tr>
-            
                  <?php
             	      
             	  }
 	                ?>
-	        
-	        
+
 	    </tbody>
 	</table>
+<p>
+    <b> Kurs CZK - </b></td> <td><b> <?php echo $first." - ".$last?></b> 
+</p>    
+	<table>
+	    <tbody>
+	            <?php 
+            	  foreach($objczk['rates'] as $key=>$val){ ?>
+            	        <tr>
+	                         <td><b><span style="font-size: x-large"><?php echo $val['effectiveDate'];?></span></b></td> <td><b><span style="font-size: x-large">  - - -  <?php echo number_format($val['mid'],4);?></span></b> </td> 
+	                    </tr>
+                 <?php
+            	      
+            	  }
+	                ?>
+
+	    </tbody>
+	</table>
+	
 <?php 
-	  
-	
-	
+
 	} catch (Exception $e) {
     echo $date." Error.\n";
     echo $e;
@@ -58,4 +67,4 @@ function printMe() {
     window.print()
 }
 </script>
-<input type="button" value="Print" onclick="printMe()">
+<input type="button" value="Drukuj" onclick="printMe()">
