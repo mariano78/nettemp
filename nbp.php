@@ -26,7 +26,7 @@ try {
 	            <?php 
             	  foreach($objeur['rates'] as $key=>$val){ ?>
             	        <tr>
-	                         <td><b><span style="font-size: x-large"><?php echo $val['effectiveDate'];?></span></b></td> <td><b><span style="font-size: x-large">  - - -  <?php echo number_format($val['mid'],4);?></span></b> </td> 
+	                         <td><span style="font-size: 1.3em"><?php echo $val['effectiveDate'];?></span></td> <td><span style="font-size: 1.3em">  - - -  <?php echo number_format($val['mid'],4);?></span> </td> 
 	                    </tr>
                  <?php
             	      
@@ -43,7 +43,7 @@ try {
 	            <?php 
             	  foreach($objczk['rates'] as $key=>$val){ ?>
             	        <tr>
-	                         <td><b><span style="font-size: x-large"><?php echo $val['effectiveDate'];?></span></b></td> <td><b><span style="font-size: x-large">  - - -  <?php echo number_format($val['mid'],4);?></span></b> </td> 
+	                         <td><span style="font-size: 1.3em"><?php echo $val['effectiveDate'];?></span></td> <td><span style="font-size: 1.3em">  - - -  <?php echo number_format($val['mid'],4);?></span> </td> 
 	                    </tr>
                  <?php
             	      
