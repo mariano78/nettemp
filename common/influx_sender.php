@@ -1,7 +1,5 @@
 <?php
 
-
-  
 function sendInflux($s_value, $s_current, $rom, $name, $type){ 
  
 	$root= "/var/www/nettemp";
@@ -34,41 +32,55 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
       	if($a['option']=='inflbase') {
          	$influxdb_base=$a['value'];
       	}
+		if($a['option']=='inflbaseuser') {
+			$influxdb_log=$a['value'];
+		}
+		if($a['option']=='inflbasepassword') {
+			$influxdb_pass=$a['value'];
+		}
    	}
     
-    	if(!empty($influxdb_ip)&&!empty($influxdb_port)&&!empty($influxdb_base)&&$influxdb_on=='on'){
+    	if(!empty($influxdb_ip) && !empty($influxdb_port) && !empty($influxdb_base) && $influxdb_on == 'on'){
+			
+			$url = "http://$influxdb_ip:$influxdb_port/write?db=$influxdb_base --data-binary ";
 		
-			require $root."/other/composer/vendor/autoload.php";
-   		$client = new InfluxDB\Client($influxdb_ip, $influxdb_port);
-   		$database = $client->selectDB($influxdb_base);
+		//require $root."/other/composer/vendor/autoload.php";
+   		//$client = new InfluxDB\Client($influxdb_ip, $influxdb_port);
+   		//$database = $client->selectDB($influxdb_base);
 
          $value=floatval($s_value);
          
          
 			if (isset($current) && is_numeric($current)) {
 				$current=floatval($s_current);
-				$points = [
-	                 new InfluxDB\Point(
-	                     'nt_'.$type, // the name of the measurement
-	                     $value, // measurement value
-	                     ['name' => $name, 'rom' => $rom], // measurement tags
-	                     ['current' => $current], // additional measurement fields
-	                     exec('date +%s%N') // timestamp in nanoseconds on Linux ONLY
-	                 )
-	             ];						
+				
+				$points = "'nt_.$type,name=$name,rom=$rom current=$current,value=$value'"		
 			}               
          else {
-	         $points = [
-	                 new InfluxDB\Point(
-	                     'nt_'.$type, // the name of the measurement
-	                     $value, // measurement value
-	                     ['name' => $name, 'rom' => $rom], // measurement tags
-	                     [], // additional measurement fields
-	                     exec('date +%s%N') // timestamp in nanoseconds on Linux ONLY
-	                 )
-	             ];
+	         $points = "'nt_.$type,name=$name,rom=$rom value=$value'"
+	               
 	      }
-	      $toinflux = $database->writePoints($points);
+		  
+		$url += $points;
+		  
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			//curl_setopt($ch, CURLOPT_HTTPHEADER,$headers);
+			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT,5);
+			curl_setopt($ch, CURLOPT_TIMEOUT,10);
+			
+				if(!empty($influxdb_log) && !empty($influxdb_pass)){
+					$auths = $influxdb_log . ':' . $influxdb_pass;
+					curl_setopt($ch, CURLOPT_USERPWD,$auths);
+				}
+			
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			$server_output = curl_exec ($ch);
+			curl_close ($ch);
+			echo $url;
+			echo $server_output;
+		  
+		  
 	      $to_send = false;
 	      echo $name." to influx\n";
 	      echo $toinflux;	
