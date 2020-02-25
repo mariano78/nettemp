@@ -57,7 +57,7 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
 				$points = "'nt_.$type,name=$name,rom=$rom current=$current,value=$value'";	
 			}               
          else {
-	         $points = "'nt_.$type,name=$name,rom=$rom value=$value'";
+	         $points = "'nt_$type,name=$name,rom=$rom value=$value'";
 	               
 	      }
 		  
@@ -77,8 +77,8 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			$server_output = curl_exec ($ch);
 			curl_close ($ch);
-			echo $url;
-			echo $server_output;
+			echo $url."\n";
+			echo $server_output."\n";
 		  
 		  
 	      $to_send = false;
