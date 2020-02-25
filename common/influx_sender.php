@@ -83,7 +83,10 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
 			}
 
 		  echo $status;
-      }
+      } else {
+		  
+		  logs(date("Y-m-d H:i:s"),'Error',"Check InfluxDB configuration. ");
+	  }
     } 
     catch (Exception $e) {
     	echo $date." Error.\n";
