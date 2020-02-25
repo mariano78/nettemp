@@ -276,7 +276,6 @@ $updates['2020-02-16 10:00:03'][]="INSERT INTO nt_settings ('option', 'value') V
 $updates['2020-02-16 10:00:04'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('inflport','')";
 $updates['2020-02-16 10:00:05'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('inflon','')";
 $updates['2020-02-16 10:00:06'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('inflbase','')";
-$updates['2020-02-16 10:00:07'][]="CREATE TABLE influxdb (id INTEGER PRIMARY KEY, time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, name TEXT, sent_value REAL)";
-$updates['2020-02-25 10:00:06'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('inflbaseuser','')";
+$updates['2020-02-25 10:00:07'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('inflbaseuser','')";
 $updates['2020-02-25 10:00:08'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('inflbasepassword','')";
 ?>
