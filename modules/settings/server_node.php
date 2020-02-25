@@ -386,14 +386,14 @@ if ($nts_domo_auth == 'on'){
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Username:</label>  
   <div class="col-md-4">
-  <input id="textinput" name="influx_login" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_influx_log; ?>">
+  <input id="textinput" name="influx_login" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_infl_log; ?>">
   </div>
 </div>
 
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Password:</label>  
   <div class="col-md-4">
-  <input id="textinput" name="influx_pass" placeholder="" class="form-control input-md" required="" type="password" value="<?php echo $nts_influx_pass; ?>">
+  <input id="textinput" name="influx_pass" placeholder="" class="form-control input-md" required="" type="password" value="<?php echo $nts_infl_pass; ?>">
   <input type="hidden" name="influxdbsave" value="influxdbsave" />
   </div>
 </div>
