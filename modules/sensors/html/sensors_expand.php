@@ -9,6 +9,7 @@
 		
 		<th>LCD</th>
 		<th>Save to base</th>
+		<th>Send to InfluxDB</th>
 		<th></th>
 	
 	</tr>
@@ -44,6 +45,16 @@
 			<button type="submit" name="savebase_on" value="<?php echo $a["tobase"] == 'on' ? 'off' : 'on'; ?>" <?php echo $a["tobase"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
 			<?php echo $a["tobase"] == 'on' ? 'ON' : 'OFF'; ?></button>
 			<input type="hidden" name="tobase_on" value="tobase_on" />
+		</form>
+		</td>
+		
+		<!--Send to influxdb-->
+		<td class="col-md-0">
+		<form action="" method="post" style="display:inline!important;" > 	
+			<input type="hidden" name="sendinflux_id" value="<?php echo $a["id"]; ?>" />
+			<button type="submit" name="sendinflux_on" value="<?php echo $a["influxdb"] == 'on' ? 'off' : 'on'; ?>" <?php echo $a["influxdb"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
+			<?php echo $a["influxdb"] == 'on' ? 'ON' : 'OFF'; ?></button>
+			<input type="hidden" name="toinfluxdb_on" value="toinfluxdb_on" />
 		</form>
 		</td>
 		

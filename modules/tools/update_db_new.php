@@ -269,4 +269,13 @@ $updates['2019-10-31 08:20:05'][]="INSERT INTO nt_settings ('option', 'value') V
 //Status order
 $updates['2019-11-01 11:48:05'][]="INSERT INTO statusorder ('position', 'modulename') VALUES (9,'Just Gage')";
 
+//influxdb
+$updates['2020-02-16 10:00:01'][]="ALTER TABLE sensors ADD influxdb TEXT";
+$updates['2020-02-16 10:00:02'][]="UPDATE sensors SET influxdb='off'";
+$updates['2020-02-16 10:00:03'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('inflip','')";
+$updates['2020-02-16 10:00:04'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('inflport','')";
+$updates['2020-02-16 10:00:05'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('inflon','')";
+$updates['2020-02-16 10:00:06'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('inflbase','')";
+$updates['2020-02-16 10:00:07'][]="CREATE TABLE influxdb (id INTEGER PRIMARY KEY, time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, name TEXT, sent_value REAL)";
+
 ?>

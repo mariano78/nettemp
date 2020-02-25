@@ -208,6 +208,15 @@ if ( $lcd == "lcd"){
     exit();
     }
     
+    $sendinflux_id = isset($_POST['sendinflux_id']) ? $_POST['sendinflux_id'] : '';
+    $sendinflux_on = isset($_POST['sendinflux_on']) ? $_POST['sendinflux_on'] : '';
+    $indluxdb_on = isset($_POST['toinfluxdb_on']) ? $_POST['toinfluxdb_on'] : '';
+    if ($indluxdb_on == "toinfluxdb_on"){
+    $db->exec("UPDATE sensors SET influxdb='$sendinflux_on' WHERE id='$sendinflux_id'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+    
 	$logon_id = isset($_POST['logon_id']) ? $_POST['logon_id'] : '';
     $logon_on = isset($_POST['logon_on']) ? $_POST['logon_on'] : '';
     $log_on = isset($_POST['log_on']) ? $_POST['log_on'] : '';

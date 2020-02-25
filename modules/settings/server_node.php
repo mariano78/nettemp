@@ -92,6 +92,32 @@
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+    
+    
+    //InfluxDB
+    $influxdbsave = isset($_POST['influxdbsave']) ? $_POST['influxdbsave'] : '';
+    $influxdbip = isset($_POST['influxdbip']) ? $_POST['influxdbip'] : '';
+	$influxdbport = isset($_POST['influxdbport']) ? $_POST['influxdbport'] : '';
+	$influxdbbase = isset($_POST['influxdbbase']) ? $_POST['influxdbbase'] : '';
+   
+    if ($influxdbsave == "influxdbsave"){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE nt_settings SET value='$influxdbip' WHERE option='inflip'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$influxdbport' WHERE option='inflport'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$influxdbbase' WHERE option='inflbase'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+	
+	$influxdbon = isset($_POST['influxdbon']) ? $_POST['influxdbon'] : '';
+	$inflon = isset($_POST['inflon']) ? $_POST['inflon'] : '';
+	
+	if ($influxdbon == "influxdbon"){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE nt_settings SET value='$inflon' WHERE option='inflon'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
 	
 
 $cip=$nts_client_ip;
@@ -315,5 +341,56 @@ if ($nts_domo_auth == 'on'){
 
 </div>
 </div>
+
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">InfluxDB Server</h3>
+</div>
+<div class="panel-body">
+
+<form action="" method="post">
+    <input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="inflon" value="on" <?php echo $nts_infl_on == 'on' ? 'checked="checked"' : ''; ?>  />
+    <input type="hidden" name="influxdbon" value="influxdbon" />
+</form>
+
+<form action="" method="post" class="form-horizontal">
+<fieldset>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Database name</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="influxdbbase" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_infl_base; ?>">
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">IP/Hostname</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="influxdbip" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_infl_ip; ?>">
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Port</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="influxdbport" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_infl_port; ?>">
+  <input type="hidden" name="influxdbsave" value="influxdbsave" />
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-xs btn-success">Save</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+</div>
+</div>
+
 
 

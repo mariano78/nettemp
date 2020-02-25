@@ -224,6 +224,18 @@ foreach ($result as $a) {
 	if($a['option']=='theme') {
        	$nts_theme=$a['value'];
     }
+    if($a['option']=='inflip') {
+       	$nts_infl_ip=$a['value'];
+    }
+	if($a['option']=='inflport') {
+       	$nts_infl_port=$a['value'];
+    }
+	if($a['option']=='inflon') {
+       	$nts_infl_on=$a['value'];
+    }
+    if($a['option']=='inflbase') {
+       	$nts_infl_base=$a['value'];
+    }
 	
 }
 
