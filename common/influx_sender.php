@@ -57,7 +57,7 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
 				$points = "'nt_.$type,name=$name,rom=$rom current=$current,value=$value'";	
 			}               
          else {
-	         $points = "nt_$type,name=$name,rom=$rom value=$value";
+	         $points = "'nt_$type,name=$name,rom=$rom value=$value'";
 	               
 	      }
 		  
@@ -80,10 +80,11 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
 			curl_close ($ch);
 			echo $url."\n";
 			echo $server_output."\n";
+			$status   = (string)curl_getinfo($ch, CURLINFO_HTTP_CODE);
 		  
 		  
 	   
-		  echo $auths;
+		  echo $status;
       }
     } 
     catch (Exception $e) {
