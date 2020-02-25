@@ -72,7 +72,7 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
 			
 				if(!empty($influxdb_log) && !empty($influxdb_pass)){
 					$auths = $influxdb_log . ':' . $influxdb_pass;
-					curl_setopt($ch, CURLOPT_USERPWD,$auths);
+					//curl_setopt($ch, CURLOPT_USERPWD,$auths);
 				}
 			
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
