@@ -61,10 +61,11 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
 	               
 	      }
 		  
-		$url = $url.$points;
+		$url = $url;
 		  
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 			//curl_setopt($ch, CURLOPT_HTTPHEADER,$headers);
 			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT,5);
@@ -75,7 +76,7 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
 					//curl_setopt($ch, CURLOPT_USERPWD,$auths);
 				}
 			
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $points);
 			$server_output = curl_exec ($ch);
 			$status   = (string)curl_getinfo($ch, CURLINFO_HTTP_CODE);
 			curl_close ($ch);
