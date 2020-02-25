@@ -83,6 +83,9 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
 			
 			if ($status == 204) {
 				logs(date("Y-m-d H:i:s"),'Info',$rom." - Value sent to influxdb - ".$value);
+			} else {
+				
+				logs(date("Y-m-d H:i:s"),'Error',$rom." - Error sending data to InfluxDB");
 			}
 
 		  echo $status;
