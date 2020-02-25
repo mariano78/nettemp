@@ -303,7 +303,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 								if ($to_influx == 'on'){				
 									require __DIR__."/common/influx_sender.php";
 									sendInflux($val, $current, $rom, $iname, $type);
-									logs(date("Y-m-d H:i:s"),'Error',$rom." - Tu flaga - ".$val);
+									logs(date("Y-m-d H:i:s"),'Error',$rom." - Tu flaga - ".$current);
 								}
 								
 								$dbr->exec("UPDATE sensors SET current='$current' WHERE rom='$rom'") or die ("cannot insert to current\n" );
