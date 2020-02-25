@@ -80,9 +80,12 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
 			$server_output = curl_exec ($ch);
 			$status   = (string)curl_getinfo($ch, CURLINFO_HTTP_CODE);
 			curl_close ($ch);
-			echo $url."\n";
-			echo $server_output."\n";
-			
+			//echo $url."\n";
+			//echo $server_output."\n";
+			if ($status == 204) {
+				
+				logs(date("Y-m-d H:i:s"),'Info',$rom." - Value sent to influxdb - ".$val);
+			}
 		  
 		  
 	   
