@@ -81,9 +81,7 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
 			echo $server_output."\n";
 		  
 		  
-	      $to_send = false;
-	      echo $name." to influx\n";
-	      echo $toinflux;	
+	   
 		  echo $auths;
       }
     } 
