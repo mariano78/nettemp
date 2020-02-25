@@ -122,7 +122,6 @@ foreach ($result as $a) {
 	}
 }
 if ($influxon == 'on') {
-	
 	include("common/influx_sender.php");
 }
 
@@ -325,7 +324,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 									logs(date("Y-m-d H:i:s"),'Info',$rom." - Value in base updated - ".$val);
 								}
 								
-								if ($to_influx == 'on'){				
+								if ($to_influx == 'on' && $influxon == 'on'){				
 									
 									sendInflux($val, $current, $rom, $iname, $type);
 								}
@@ -352,7 +351,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 							logs(date("Y-m-d H:i:s"),'Info',$rom." - Value in base updated - ".$val);
 						}
 						
-						if ($to_influx == 'on'){				
+						if ($to_influx == 'on' && $influxon == 'on'){				
 							
 							sendInflux($val, $current, $rom, $iname, $type);
 						}
