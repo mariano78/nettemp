@@ -99,12 +99,17 @@
     $influxdbip = isset($_POST['influxdbip']) ? $_POST['influxdbip'] : '';
 	$influxdbport = isset($_POST['influxdbport']) ? $_POST['influxdbport'] : '';
 	$influxdbbase = isset($_POST['influxdbbase']) ? $_POST['influxdbbase'] : '';
+	$influxdblogin = isset($_POST['influx_login']) ? $_POST['influx_login'] : '';
+	$influxdbpass = isset($_POST['influx_pass']) ? $_POST['influx_pass'] : '';
+	
    
     if ($influxdbsave == "influxdbsave"){
     $db = new PDO('sqlite:dbf/nettemp.db');
     $db->exec("UPDATE nt_settings SET value='$influxdbip' WHERE option='inflip'") or die ($db->lastErrorMsg());
 	$db->exec("UPDATE nt_settings SET value='$influxdbport' WHERE option='inflport'") or die ($db->lastErrorMsg());
 	$db->exec("UPDATE nt_settings SET value='$influxdbbase' WHERE option='inflbase'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$influxdblogin' WHERE option='inflbaseuser'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$influxdbpass' WHERE option='inflbasepassword'") or die ($db->lastErrorMsg());
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
@@ -375,6 +380,20 @@ if ($nts_domo_auth == 'on'){
   <label class="col-md-4 control-label" for="textinput">Port</label>  
   <div class="col-md-4">
   <input id="textinput" name="influxdbport" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_infl_port; ?>">
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Username:</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="influx_login" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_influx_log; ?>">
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Password:</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="influx_pass" placeholder="" class="form-control input-md" required="" type="password" value="<?php echo $nts_influx_pass; ?>">
   <input type="hidden" name="influxdbsave" value="influxdbsave" />
   </div>
 </div>
