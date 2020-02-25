@@ -313,11 +313,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 								}
 							}
 							
-							if ($to_influx == 'on' && $influxon == 'on'){				
-									require "/var/www/nettemp/common/influx_sender.php";
-									sendInflux($val, $current, $rom, $iname, $type);
-									logs(date("Y-m-d H:i:s"),'Info',$rom." - Value sent to influxdb - ".$val);
-								}							
+														
 							
 							//sum,current for counters
 							if (in_array($type, $arraycounters)){
@@ -337,6 +333,12 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 							echo date("Y-m-d H:i:s")." ".$rom." ".$val." Value in base updated \n";
 							logs(date("Y-m-d H:i:s"),'Info',$rom." - Value in base updated - ".$val);
 						}
+						
+						if ($to_influx == 'on' && $influxon == 'on'){				
+									require "/var/www/nettemp/common/influx_sender.php";
+									sendInflux($val, $current, $rom, $iname, $type);
+									logs(date("Y-m-d H:i:s"),'Info',$rom." - Value sent to influxdb - ".$val);
+								}
 					}
 					else {
 						echo "Not writed to base, interval is ".$chmin." min\n";
