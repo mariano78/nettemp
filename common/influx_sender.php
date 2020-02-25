@@ -84,7 +84,7 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
 			//echo $server_output."\n";
 			if ($status == 204) {
 				
-				logs(date("Y-m-d H:i:s"),'Info',$rom." - Value sent to influxdb - ".$val);
+				logs(date("Y-m-d H:i:s"),'Info',$rom." - Value sent to influxdb - ".$value);
 			}
 		  
 		  
