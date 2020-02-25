@@ -84,6 +84,7 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
 	      $to_send = false;
 	      echo $name." to influx\n";
 	      echo $toinflux;	
+		  echo $auths;
       }
     } 
     catch (Exception $e) {
