@@ -314,7 +314,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 							}
 							
 							if ($to_influx == 'on' && $influxon == 'on'){				
-									require "common/influx_sender.php";
+									require "/var/www/nettemp/common/influx_sender.php";
 									sendInflux($val, $current, $rom, $iname, $type);
 									logs(date("Y-m-d H:i:s"),'Info',$rom." - Value sent to influxdb - ".$val);
 								}							
