@@ -61,7 +61,7 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
 	               
 	      }
 		  
-		$url += $points;
+		$url = $url.$points;
 		  
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $url);
