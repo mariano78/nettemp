@@ -115,6 +115,9 @@ foreach ($result as $a) {
 	if($a['option']=='mail_topic') {
 		$mail_topic=$a['value'];
 	}
+	if($a['option']=='inflon') {
+		$influxon=$a['value'];
+	}
 }
 
 function scale($val,$type) {
@@ -310,10 +313,10 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 								}
 							}
 							
-							if ($to_influx == 'on'){				
+							if ($to_influx == 'on' && $influxon == 'on'){				
 									require "common/influx_sender.php";
 									sendInflux($val, $current, $rom, $iname, $type);
-									logs(date("Y-m-d H:i:s"),'Info',$rom." - Value sent to influx - ".$val);
+									logs(date("Y-m-d H:i:s"),'Info',$rom." - Value sent to influxdb - ".$val);
 								}							
 							
 							//sum,current for counters
