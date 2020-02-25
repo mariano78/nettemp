@@ -49,9 +49,10 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
    		//$database = $client->selectDB($influxdb_base);
 
          $value=floatval($s_value);
+		 
          
          
-			if (isset($current) && is_numeric($current)) {
+			if (isset($s_current) && is_numeric($s_current)) {
 				$current=floatval($s_current);
 				
 				$points = "nt_.$type,name=$name,rom=$rom current=$current,value=$value";	
@@ -67,7 +68,6 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
 			curl_setopt($ch, CURLOPT_URL, $url);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-			//curl_setopt($ch, CURLOPT_HTTPHEADER,$headers);
 			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT,5);
 			curl_setopt($ch, CURLOPT_TIMEOUT,10);
 			
@@ -80,15 +80,11 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
 			$server_output = curl_exec ($ch);
 			$status   = (string)curl_getinfo($ch, CURLINFO_HTTP_CODE);
 			curl_close ($ch);
-			//echo $url."\n";
-			//echo $server_output."\n";
+			
 			if ($status == 204) {
-				
 				logs(date("Y-m-d H:i:s"),'Info',$rom." - Value sent to influxdb - ".$value);
 			}
-		  
-		  
-	   
+
 		  echo $status;
       }
     } 
