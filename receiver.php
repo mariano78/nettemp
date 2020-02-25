@@ -97,7 +97,7 @@ $local_name='';
 $local_ip='';
 $local_gpio='';
 $local_usb='';
-$influxon='';
+$influxdbon='';
 
 $dbr = new PDO("sqlite:".__DIR__."/dbf/nettemp.db") or die ("cannot open database");
 
@@ -124,6 +124,7 @@ foreach ($result as $a) {
 if ($influxon == 'on') {
 	
 	include("common/influx_sender.php");
+	$influxdbon = 'on';
 }
 
 
@@ -306,7 +307,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 									$dbfr->exec("INSERT OR IGNORE INTO def (value,current) VALUES ('$val','$current')") or die ("cannot insert to rom sql current\n" );	
 								}
 								
-								if ($to_influx == 'on'){				
+								if ($to_influx == 'on' && $influxdbon == 'on'){				
 									sendInflux($val, $current, $rom, $iname, $type);
 									
 								}
