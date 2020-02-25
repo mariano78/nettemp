@@ -1,6 +1,7 @@
 <?php
 
 include("common/functions.php");
+
 // name:
 // type: temp, humid, relay, lux, press, humid, gas, water, elec, volt, amps, watt, trigger
 // device: ip, wireless, remote, gpio, i2c, usb
@@ -120,6 +121,11 @@ foreach ($result as $a) {
 		$influxon=$a['value'];
 	}
 }
+if ($influxon == 'on') {
+	
+	include("common/influx_sender.php");
+}
+
 
 function scale($val,$type) {
 	global $scale;
@@ -301,7 +307,6 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 								}
 								
 								if ($to_influx == 'on'){				
-									require __DIR__."/common/influx_sender.php";
 									sendInflux($val, $current, $rom, $iname, $type);
 									
 								}
@@ -320,7 +325,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 								}
 								
 								if ($to_influx == 'on'){				
-									require __DIR__."/common/influx_sender.php";
+									
 									sendInflux($val, $current, $rom, $iname, $type);
 								}
 							}
@@ -347,7 +352,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 						}
 						
 						if ($to_influx == 'on'){				
-							require __DIR__."/common/influx_sender.php";
+							
 							sendInflux($val, $current, $rom, $iname, $type);
 						}
 					}
