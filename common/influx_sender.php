@@ -42,7 +42,7 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
     
     	if(!empty($influxdb_ip) && !empty($influxdb_port) && !empty($influxdb_base) && $influxdb_on == 'on'){
 			
-			$url = "http://$influxdb_ip:$influxdb_port/write?db=$influxdb_base&u=nettemp&p=Ala1Ala2";
+			$url = "http://$influxdb_ip:$influxdb_port/write?db=$influxdb_base";
 		
 		//require $root."/other/composer/vendor/autoload.php";
    		//$client = new InfluxDB\Client($influxdb_ip, $influxdb_port);
@@ -73,7 +73,7 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
 			
 				if(!empty($influxdb_log) && !empty($influxdb_pass)){
 					$auths = $influxdb_log . ':' . $influxdb_pass;
-					//curl_setopt($ch, CURLOPT_USERPWD,$auths);
+					curl_setopt($ch, CURLOPT_USERPWD,$auths);
 				}
 			
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $points);
