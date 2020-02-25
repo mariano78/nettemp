@@ -96,6 +96,7 @@ $local_name='';
 $local_ip='';
 $local_gpio='';
 $local_usb='';
+$influxon='';
 
 $dbr = new PDO("sqlite:".__DIR__."/dbf/nettemp.db") or die ("cannot open database");
 
@@ -299,7 +300,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 									$dbfr->exec("INSERT OR IGNORE INTO def (value,current) VALUES ('$val','$current')") or die ("cannot insert to rom sql current\n" );	
 								}
 								
-								if ($to_influx == 'on'){				
+								if ($to_influx == 'on' && $influxon == 'on'){				
 									require __DIR__."/common/influx_sender.php";
 									sendInflux($val, $current, $rom, $iname, $type);
 									//logs(date("Y-m-d H:i:s"),'Info',$rom." - Value sent to influxdb - ".$val);
@@ -318,7 +319,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 									logs(date("Y-m-d H:i:s"),'Info',$rom." - Value in base updated - ".$val);
 								}
 								
-								if ($to_influx == 'on'){				
+								if ($to_influx == 'on' && $influxon == 'on'){				
 									require __DIR__."/common/influx_sender.php";
 									sendInflux($val, $current, $rom, $iname, $type);
 									//logs(date("Y-m-d H:i:s"),'Info',$rom." - Value sent to influxdb - ".$val);
@@ -346,7 +347,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 							logs(date("Y-m-d H:i:s"),'Info',$rom." - Value in base updated - ".$val);
 						}
 						
-						if ($to_influx == 'on'){				
+						if ($to_influx == 'on' && $influxon == 'on'){				
 							require __DIR__."/common/influx_sender.php";
 							sendInflux($val, $current, $rom, $iname, $type);
 							//logs(date("Y-m-d H:i:s"),'Info',$rom." - Value sent to influxdb - ".$val);
