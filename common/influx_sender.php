@@ -50,9 +50,8 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
          
          
 			if (isset($s_current) && is_numeric($s_current)) {
-				$current=floatval($s_current);
 				
-				$points = "nt_$type,name=$name,rom=$rom current=$current,value=$value";	
+				$points = "nt_$type,name=$name,rom=$rom current=$s_current,value=$value";	
 			}               
 			else {
 				$points = "nt_$type,name=$name,rom=$rom value=$value";
