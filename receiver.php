@@ -117,7 +117,6 @@ foreach ($result as $a) {
 	}
 }
 
-
 function scale($val,$type) {
 	global $scale;
 	// scale F->C
@@ -220,7 +219,7 @@ function trigger($rom, $val) {
 	}
 }
 
-function check($val,$type,$rom) {
+function check($val,$type) {
 	$dbr = new PDO("sqlite:".__DIR__."/dbf/nettemp.db") or die ("cannot open database");
 	$sthr = $dbr->query("SELECT * FROM types WHERE type='$type'");
     $row = $sthr->fetchAll();
@@ -228,12 +227,10 @@ function check($val,$type,$rom) {
     {
 		if (($range['min'] <= $val) && ($val <= $range['max']) && ($val != $range['value1']) && ($val != $range['value2']) && ($val != $range['value3'])) 
 		{
-			
 			return "$val";
 		}
 		else 
-		{	
-			logs(date("Y-m-d H:i:s"),'Error',$rom." - Value not in range - ".$val);
+		{
 			return 'range';
 		}
 	}
@@ -247,13 +244,15 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 	$dbr = new PDO("sqlite:".__DIR__."/dbf/nettemp.db") or die ("cannot open database");
 	if(file_exists(__DIR__."/db/".$file)&&filesize(__DIR__."/db/".$file)!=0){
 		$dbfr = new PDO("sqlite:".__DIR__."/db/$file");
-		$sthr = $dbr->query("SELECT stat_min,stat_max,rom,adj,tobase FROM sensors WHERE rom='$rom'");
+		$sthr = $dbr->query("SELECT stat_min,stat_max,rom,adj,tobase,influxdb,name  FROM sensors WHERE rom='$rom'");
 		$row = $sthr->fetchAll();
 		foreach($row as $row) {
 			$adj=$row['adj']; 
 			$stat_min=$row['stat_min'];
 			$stat_max=$row['stat_max'];
 			$to_base=$row['tobase'];
+			$to_influx=$row['influxdb'];
+			$iname=$row['name'];
 			
 			if ($type != 'host'){
 				$val=$val+$adj;  
@@ -264,7 +263,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 		if ( $c >= "1") {
 			if (is_numeric($val)) {
 				$val=scale($val,$type);
-				$val=check($val,$type,$rom);
+				$val=check($val,$type);
 				if ($val != 'range'){
 					//// base
 					// counters and other dwvices in array can always put to base
@@ -310,6 +309,13 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 									logs(date("Y-m-d H:i:s"),'Info',$rom." - Value in base updated - ".$val);
 								}
 							}
+							
+							if ($to_influx == 'on'){				
+									require "common/influx_sender.php";
+									sendInflux($val, $current, $rom, $iname, $type);
+									logs(date("Y-m-d H:i:s"),'Info',$rom." - Value sent to influx - ".$val);
+								}							
+							
 							//sum,current for counters
 							if (in_array($type, $arraycounters)){
 								$dbr->exec("UPDATE sensors SET sum='$val'+sum WHERE rom='$rom'") or die ("cannot insert to status\n" );
@@ -375,7 +381,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 				}		
 				else {
 					echo $rom." ".$val." - Value not in range \n";
-					//logs(date("Y-m-d H:i:s"),'Error',$rom." - Value not in range - ".$val);
+					logs(date("Y-m-d H:i:s"),'Error',$rom." - Value not in range");
 				}
 		
 			}
@@ -427,7 +433,7 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 if (("$key" != "$skey") && (!defined('LOCAL')))
 {
     echo "wrong key\n";
-	logs(date("Y-m-d H:i:s"),'Error',"Receiver - wrong key - ".$key." - ".$rom);
+	logs(date("Y-m-d H:i:s"),'Error',"Receiver - wrong key - ".$key.$rom);
 } 
 else {
 
