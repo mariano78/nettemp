@@ -57,7 +57,7 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
 				$points = "'nt_.$type,name=$name,rom=$rom current=$current,value=$value'";	
 			}               
          else {
-	         $points = "'nt_$type,name=$name,rom=$rom value=$value'";
+	         $points = "nt_$type,name=$name,rom=$rom value=$value";
 	               
 	      }
 		  
@@ -65,7 +65,7 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
 		  
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $url);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 			//curl_setopt($ch, CURLOPT_HTTPHEADER,$headers);
 			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT,5);
 			curl_setopt($ch, CURLOPT_TIMEOUT,10);
