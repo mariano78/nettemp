@@ -43,10 +43,7 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
     	if(!empty($influxdb_ip) && !empty($influxdb_port) && !empty($influxdb_base) && $influxdb_on == 'on'){
 			
 			$url = "http://$influxdb_ip:$influxdb_port/write?db=$influxdb_base";
-		
-		//require $root."/other/composer/vendor/autoload.php";
-   		//$client = new InfluxDB\Client($influxdb_ip, $influxdb_port);
-   		//$database = $client->selectDB($influxdb_base);
+	
 
          $value=floatval($s_value);
 		 
@@ -57,12 +54,10 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
 				
 				$points = "nt_$type,name=$name,rom=$rom current=$current,value=$value";	
 			}               
-         else {
-	         $points = "nt_$type,name=$name,rom=$rom value=$value";
+			else {
+				$points = "nt_$type,name=$name,rom=$rom value=$value";
 	               
-	      }
-		  
-		$url = $url;
+			}
 		  
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $url);
