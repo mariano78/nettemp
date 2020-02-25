@@ -124,7 +124,7 @@ foreach ($result as $a) {
 if ($influxon == 'on') {
 	
 	include("common/influx_sender.php");
-	$influxdbon = 'on';
+	global $influxdbon = 'on';
 }
 
 
