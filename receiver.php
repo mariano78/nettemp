@@ -299,6 +299,12 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 									$dbfr->exec("INSERT OR IGNORE INTO def (value,current) VALUES ('$val','$current')") or die ("cannot insert to rom sql current\n" );	
 								}
 								
+								if ($to_influx == 'on'){				
+									require __DIR__."/common/influx_sender.php";
+									sendInflux($val, $current, $rom, $iname, $type);
+									logs(date("Y-m-d H:i:s"),'Info',$rom." - Value sent to influxdb - ".$val);
+								}
+								
 								$dbr->exec("UPDATE sensors SET current='$current' WHERE rom='$rom'") or die ("cannot insert to current\n" );
 								
 								echo $rom." - Current value for counter updated ".$current." \n";
@@ -310,6 +316,12 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 									
 									$dbfr->exec("INSERT OR IGNORE INTO def (value) VALUES ('$val')") or die ("cannot insert to rom sql\n" );
 									logs(date("Y-m-d H:i:s"),'Info',$rom." - Value in base updated - ".$val);
+								}
+								
+								if ($to_influx == 'on'){				
+									require __DIR__."/common/influx_sender.php";
+									sendInflux($val, $current, $rom, $iname, $type);
+									logs(date("Y-m-d H:i:s"),'Info',$rom." - Value sent to influxdb - ".$val);
 								}
 							}
 							
@@ -335,10 +347,10 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 						}
 						
 						if ($to_influx == 'on'){				
-									require "/var/www/nettemp/common/influx_sender.php";
-									sendInflux($val, $current, $rom, $iname, $type);
-									logs(date("Y-m-d H:i:s"),'Info',$rom." - Value sent to influxdb - ".$val);
-								}
+							require __DIR__."/common/influx_sender.php";
+							sendInflux($val, $current, $rom, $iname, $type);
+							logs(date("Y-m-d H:i:s"),'Info',$rom." - Value sent to influxdb - ".$val);
+						}
 					}
 					else {
 						echo "Not writed to base, interval is ".$chmin." min\n";
