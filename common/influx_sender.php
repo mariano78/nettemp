@@ -79,7 +79,7 @@ function sendInflux($s_value, $s_current, $rom, $name, $type){
 				logs(date("Y-m-d H:i:s"),'Info',$rom." - Value sent to influxdb - ".$value);
 			} else {
 				
-				logs(date("Y-m-d H:i:s"),'Error',$rom." - Error sending data to InfluxDB - ".$status);
+				logs(date("Y-m-d H:i:s"),'Error',$rom." - Error sending data to InfluxDB - ".$points);
 			}
 
 		  //echo $status;
