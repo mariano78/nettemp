@@ -43,6 +43,7 @@ Changelog:
 
 4.9.2
 
+InfluxDB export - thanks for @mitrus
 Mail fix - double from header
  
 
