@@ -13,10 +13,10 @@ if len(sys.argv) > 2:
 if len(sys.argv) > 3:
     brate = sys.argv[3]
 
-client = ModbusClient(method='rtu', port='/dev/ttyUSB2', baudrate=9600, stopbits=1, parity='N', bytesize=8, timeout=1)
+client = ModbusClient(method='rtu', port=getusb, baudrate=brate, stopbits=1, parity='N', bytesize=8, timeout=1)
 client.connect()
 
-rr = client.read_holding_registers(0,15)
+rr = client.read_holding_registers(0,15, unit=addr)
 value=rr.registers
 orno_volts=float(value[0])/10
 orno_amps =float(value[1])/10
