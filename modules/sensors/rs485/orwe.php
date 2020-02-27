@@ -136,7 +136,7 @@ try {
 		foreach ($result as $r) {
 			$last=trim($r['sum']);
 		}
-		$VAL=trim($ALL-$last)/1000;
+		$VAL=trim($ALL-$last);
 		//$VAL=number_format($VAL, 3, '.', '');
 		
 		echo "1. last ".$last."\n";
