@@ -29,7 +29,7 @@ orwe_wh=float(value[8])
 orwe_varh=float(value[10])
 client.close()
 
-print 'orwe_v %s' %orwe_v
+print %orwe_v
 print 'orwe_a %s' %orwe_a
 print 'orwe_hz %s' %orwe_hz
 print 'orwe_w %s' %orwe_w
