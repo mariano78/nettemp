@@ -41,12 +41,14 @@ try {
 			
 		
 		
-		echo $local_val=$line[0];
-		//$local_type='var';
-		//$local_device='usb';
-		//$local_usb=$dev0;
-		//$local_rom="usb_".$dev."a".$addr."impb_".$local_type;
-		//echo $date." SDM630 import energii biernej ".$local_val." ".$local_type.".\n";
+		//L1
+		$local_type='volt';
+		$local_rom="usb_".$dev.$addr."_".$local_type;
+		$local_val=$line[0];
+		$local_device='usb';
+		$local_usb=$dev0;
+		echo $date." ORWE ".$local_val." ".$local_type.".\n";
+		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 		
 		
 		
