@@ -34,7 +34,7 @@ try {
     	$cmd="$ROOT/modules/sensors/rs485/orwe_get $dev0 $addr $baud";
 		$res=shell_exec($cmd);
 		$res = preg_split ('/$\R?^/m', $res);
-		echo $res;
+		var_dump($res);
 		foreach ($res as $l) {
 			$line[]=trim($l);
 		}
