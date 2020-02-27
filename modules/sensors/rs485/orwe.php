@@ -97,7 +97,7 @@ try {
 		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 		
 		//Cosfi
-		$local_type='watt';
+		$local_type='cosfi';
 		$local_rom="usb_".$dev."_".$addr."_".$local_type."_cosfi";
 		$local_val=$line[6];
 		$local_device='usb';
