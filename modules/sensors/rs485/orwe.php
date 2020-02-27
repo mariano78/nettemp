@@ -41,17 +41,87 @@ try {
 			
 		
 		
-		//L1
+		//Volt
 		$local_type='volt';
-		$local_rom="usb_".$dev.$addr."_".$local_type;
+		$local_rom="usb_".$dev."_".$addr."_".$local_type;
 		$local_val=$line[0];
 		$local_device='usb';
 		$local_usb=$dev0;
-		echo $date." ORWE ".$local_val." ".$local_type.".\n";
+		echo $date." ORWE - volt ".$local_val." ".$local_type.".\n";
 		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 		
+		//Amper
+		$local_type='amps';
+		$local_rom="usb_".$dev."_".$addr."_".$local_type;
+		$local_val=$line[1];
+		$local_device='usb';
+		$local_usb=$dev0;
+		echo $date." ORWE - amps".$local_val." ".$local_type.".\n";
+		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 		
+		//Frequency
+		$local_type='frequency';
+		$local_rom="usb_".$dev."_".$addr."_".$local_type;
+		$local_val=$line[2];
+		$local_device='usb';
+		$local_usb=$dev0;
+		echo $date." ORWE - frequency ".$local_val." ".$local_type.".\n";
+		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 		
+	
+		//Watt 
+		$local_type='watt';
+		$local_rom="usb_".$dev."_".$addr."_".$local_type;
+		$local_val=$line[3];
+		$local_device='usb';
+		$local_usb=$dev0;
+		echo $date." ORWE - watt ".$local_val." ".$local_type.".\n";
+		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+		
+		//Var
+		$local_type='watt';
+		$local_rom="usb_".$dev."_".$addr."_".$local_type;
+		$local_val=$line[4];
+		$local_device='usb';
+		$local_usb=$dev0;
+		echo $date." ORWE - Var ".$local_val." ".$local_type.".\n";
+		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+		
+		//Va
+		$local_type='watt';
+		$local_rom="usb_".$dev."_".$addr."_".$local_type;
+		$local_val=$line[5];
+		$local_device='usb';
+		$local_usb=$dev0;
+		echo $date." ORWE - Va ".$local_val." ".$local_type.".\n";
+		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+		
+		//Cosfi
+		$local_type='watt';
+		$local_rom="usb_".$dev."_".$addr."_".$local_type;
+		$local_val=$line[6];
+		$local_device='usb';
+		$local_usb=$dev0;
+		echo $date." ORWE - cosfi ".$local_val." ".$local_type.".\n";
+		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+		
+		//Wh
+		$local_type='watt';
+		$local_rom="usb_".$dev."_".$addr."_".$local_type;
+		$local_val=$line[7];
+		$local_device='usb';
+		$local_usb=$dev0;
+		echo $date." ORWE - Wh ".$local_val." ".$local_type.".\n";
+		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+		
+		//varh
+		$local_type='watt';
+		$local_rom="usb_".$dev."_".$addr."_".$local_type;
+		$local_val=$line[8];
+		$local_device='usb';
+		$local_usb=$dev0;
+		echo $date." ORWE - varh ".$local_val." ".$local_type.".\n";
+		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 		
 		
 	}
