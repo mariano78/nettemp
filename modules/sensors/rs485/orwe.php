@@ -25,13 +25,13 @@ try {
 		exit;
 	}
     $dev=str_replace("/dev/","",$dev0);
-	$query = $db->query("SELECT addr, baudrate FROM rs485 WHERE dev='ORWE'");
+	$query = $db->query("SELECT addr, baudrate FROM rs485 WHERE dev='OR-WE'");
 	$result= $query->fetchAll();
     foreach($result as $r) {
 		$addr=$r['addr'];
 		$baud=$r['baudrate'];
 		echo $date." RS485 ".$dev0." ".$addr."\n";
-    	$cmd="$ROOT/modules/sensors/rs485/orwe_get.sh $dev0 $addr $baud";
+    	$cmd="$ROOT/modules/sensors/rs485/orwe_get $dev0 $addr $baud";
 		$res=shell_exec($cmd);
 		$res = preg_split ('/$\R?^/m', $res);
 		echo $res;
