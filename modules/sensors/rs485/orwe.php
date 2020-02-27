@@ -80,7 +80,7 @@ try {
 		
 		//Var
 		$local_type='var';
-		$local_rom="usb_".$dev."_".$addr."_".$local_type."_var";
+		$local_rom="usb_".$dev."_".$addr."_".$local_type;
 		$local_val=$line[4];
 		$local_device='usb';
 		$local_usb=$dev0;
@@ -89,7 +89,7 @@ try {
 		
 		//VA
 		$local_type='va';
-		$local_rom="usb_".$dev."_".$addr."_".$local_type."_va";
+		$local_rom="usb_".$dev."_".$addr."_".$local_type;
 		$local_val=$line[5];
 		$local_device='usb';
 		$local_usb=$dev0;
@@ -98,7 +98,7 @@ try {
 		
 		//Cosfi
 		$local_type='cosfi';
-		$local_rom="usb_".$dev."_".$addr."_".$local_type."_cosfi";
+		$local_rom="usb_".$dev."_".$addr."_".$local_type;
 		$local_val=$line[6];
 		$local_device='usb';
 		$local_usb=$dev0;
@@ -107,7 +107,7 @@ try {
 		
 		//Wh
 		$local_type='watt';
-		$local_rom="usb_".$dev."_".$addr."_".$local_type."_wh";
+		$local_rom="usb_".$dev."_".$addr."_".$local_type;
 		$local_val=$line[7]/1000;
 		$local_device='usb';
 		$local_usb=$dev0;
@@ -116,7 +116,7 @@ try {
 		
 		//varh
 		$local_type='varh';
-		$local_rom="usb_".$dev."_".$addr."_".$local_type."_varh";
+		$local_rom="usb_".$dev."_".$addr."_".$local_type;
 		$local_val=$line[8];
 		$local_device='usb';
 		$local_usb=$dev0;
