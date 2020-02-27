@@ -278,4 +278,8 @@ $updates['2020-02-16 10:00:05'][]="INSERT INTO nt_settings ('option', 'value') V
 $updates['2020-02-16 10:00:06'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('inflbase','')";
 $updates['2020-02-25 10:00:07'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('inflbaseuser','')";
 $updates['2020-02-25 10:00:08'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('inflbasepassword','')";
+
+$updates['2020-02-27 09:40:32'][]="INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('varh', 'varh', 'kvarh', 'media/ico/varh-icon.png' ,'VARH','0', '1000000')";
+$updates['2020-02-27 09:41:38'][]="INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('va', 'VA', 'VA', 'media/ico/va-ico.png' ,'VA','-100000', '1000000')";
+$updates['2020-02-27 09:42:34'][]="INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('var', 'var', 'kvar', 'media/ico/var-icon.png' ,'VAR','0', '1000000')";
 ?>
