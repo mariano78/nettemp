@@ -123,7 +123,7 @@ try {
 		echo $date." ORWE - varh ".$local_val." ".$local_type.".\n";
 		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 		
-		//IMPORT
+		//elec
 		$local_type='elec';
 		$local_rom="usb_".$dev."_".$addr."_".$local_type;
 		$local_device='usb';
@@ -136,7 +136,7 @@ try {
 		foreach ($result as $r) {
 			$last=trim($r['sum']);
 		}
-		$VAL=trim($ALL-$last);
+		$VAL=trim($ALL-$last)/1000;
 		//$VAL=number_format($VAL, 3, '.', '');
 		
 		echo "1. last ".$last."\n";
@@ -146,15 +146,10 @@ try {
 
 		if($last!=0){
 			$local_val= number_format($VAL,4);
-			//$local_current=$WATsum;
-			//db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
-			//$db->exec("UPDATE sensors SET sum='$ALL' WHERE rom='$local_rom'");
+			
 		} 
 		else {
 			$local_val='0';
-			//$local_current='';
-			//db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
-			//$db->exec("UPDATE sensors SET sum='$ALL' WHERE rom='$local_rom'");
 		}
 		$local_current=$WATsum;
 		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
@@ -162,9 +157,6 @@ try {
 		
 		
 	}
-
-
-
 
 } catch (Exception $e) {
     echo $date." Error.\n";
