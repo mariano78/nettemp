@@ -25,8 +25,8 @@ orwe_w=float(value[3])
 orwe_var=float(value[4])
 orwe_va=float(value[5])
 orwe_cosfi=float(value[6])/1000
-orwe_wh=float(value[8])
-orwe_varh=float(value[10])
+orwe_wh=float((value[7]<<16)+value[8])/1000
+orwe_varh=float((value[9]<<16)+value[10])/1000
 client.close()
 
 print orwe_v
