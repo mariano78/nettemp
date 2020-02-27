@@ -97,7 +97,7 @@ $local_name='';
 $local_ip='';
 $local_gpio='';
 $local_usb='';
-
+$local_tskname='';
 
 $dbr = new PDO("sqlite:".__DIR__."/dbf/nettemp.db") or die ("cannot open database");
 
