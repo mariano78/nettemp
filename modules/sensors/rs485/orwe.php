@@ -79,7 +79,7 @@ try {
 		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 		
 		//Var
-		$local_type='watt';
+		$local_type='var';
 		$local_rom="usb_".$dev."_".$addr."_".$local_type."_var";
 		$local_val=$line[4];
 		$local_device='usb';
@@ -87,8 +87,8 @@ try {
 		echo $date." ORWE - Var ".$local_val." ".$local_type.".\n";
 		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 		
-		//Va
-		$local_type='watt';
+		//VA
+		$local_type='va';
 		$local_rom="usb_".$dev."_".$addr."_".$local_type."_va";
 		$local_val=$line[5];
 		$local_device='usb';
@@ -108,14 +108,14 @@ try {
 		//Wh
 		$local_type='watt';
 		$local_rom="usb_".$dev."_".$addr."_".$local_type."_wh";
-		$local_val=$line[7];
+		$local_val=$line[7]/1000;
 		$local_device='usb';
 		$local_usb=$dev0;
 		echo $date." ORWE - Wh ".$local_val." ".$local_type.".\n";
 		db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 		
 		//varh
-		$local_type='watt';
+		$local_type='varh';
 		$local_rom="usb_".$dev."_".$addr."_".$local_type."_varh";
 		$local_val=$line[8];
 		$local_device='usb';
