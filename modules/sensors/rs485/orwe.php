@@ -41,7 +41,7 @@ try {
 			
 		
 		
-		//$local_val=$line[13];
+		echo $local_val=$line[];
 		//$local_type='var';
 		//$local_device='usb';
 		//$local_usb=$dev0;
