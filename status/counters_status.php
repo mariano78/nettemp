@@ -173,7 +173,7 @@ if ($nts_hide_counters == 'off') { ?>
 						} ?> title="<?php echo $units;?>">
 		<?php
 			$totalsum = floatval($a['sum']);
-		    echo number_format($totalsum, 2, '.', ',')." ";
+		    echo number_format($totalsum, 2, '.', '')." ";
 		?>
 	    </a>
 	    </small>
