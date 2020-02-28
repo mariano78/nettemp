@@ -18,18 +18,24 @@ client.connect()
 
 rr = client.read_holding_registers(0,15, unit=addr)
 value=rr.registers
-orno_volts=float(value[0])/10
-orno_amps =float(value[1])/10
-orno_hertz=float(value[2])/10
-orno_watts=float(value[3])
-orno_var  =float(value[4])
-orno_va   =float(value[5])
-orno_cosfi=float(value[6])/1000
-orno_kwh  =float((value[7]<<16)+value[8])/1000
-orno_varh =float((value[9]<<16)+value[10])/1000
+orwe_v=float(value[0])/10
+orwe_a=float(value[1])/10
+orwe_hz=float(value[2])/10
+orwe_w=float(value[3])
+orwe_var=float(value[4])
+orwe_va=float(value[5])
+orwe_cosfi=float(value[6])/1000
+orwe_kwh=float((value[7]<<16)+value[8])/1000
+orwe_varh=float((value[9]<<16)+value[10])/1000
 client.close()
 
-print orno_volts
-print orno_amps
-print orno_watts
-print orno_kwh
+print orwe_v
+print orwe_a
+print orwe_hz
+print orwe_w
+print orwe_var
+print orwe_va
+print orwe_cosfi
+print orwe_kwh
+print orwe_varh
+

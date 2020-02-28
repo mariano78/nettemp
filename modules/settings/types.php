@@ -37,6 +37,7 @@
     if ($add == "default") { 
     $db = new PDO("sqlite:dbf/nettemp.db");	
     $db->exec("DELETE from types") or header("Location: html/errors/db_error.php");
+	
 $db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max, value1, value2, value3) VALUES ('temp', '°C', '°F', 'media/ico/temp2-icon.png' ,'Temperature','-150', '3000', '85', '185' ,'127.9')");
 $db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('lux', 'lux', 'lux', 'media/ico/sun-icon.png' ,'Lux','0','100000')");
 $db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('humid', '%', '%', 'media/ico/rain-icon.png' ,'Humidity','0', '110')");
@@ -73,6 +74,23 @@ $db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max)
 $db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('airquality', 'CAQI', 'CAQI', 'media/ico/airly.png' ,'Air Quality','0', '100')");
 $db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('air_pm_25', 'μg/m3', 'μg/m3', 'media/ico/airly.png' ,'PM 2.5','0', '1000')");
 $db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('air_pm_10', 'μg/m3', 'μg/m3', 'media/ico/airly.png' ,'PM 10','0', '1000')");
+$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('min24', '', '', 'media/ico/min-icon.png' ,'Min 24','-10000', '10000')");
+$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('minweek', '', '', 'media/ico/min-icon.png' ,'Min Week','-10000', '10000')");
+$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('minmonth', '', '', 'media/ico/min-icon.png' ,'Min Month','-10000', '10000')");
+$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('elecesp', 'kWh', 'W', 'media/ico/Lamp-icon.png' ,'Electricity','0', '99999999')");
+$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('dewpoint', '°C', '°F', 'media/ico/Dewpoint-icon.png' ,'Temperature','-1000', '1000')");
+$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('cpuusage', '%', '%', 'media/ico/processor-icon.png' ,'CPU Usage','0', '100')");
+$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('memoryusage', '%', '%', 'media/ico/ram-icon.png' ,'Memory Usage','0', '100')");
+$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('freespace', 'GB', 'GB', 'media/ico/disc-icon.png' ,'Free disk space','0', '1000000')");
+$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('frequency', 'Hz', 'kHz', 'media/ico/freq-icon.png' ,'Frequency','0', '1000000')");
+$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('kwatt', 'kWh', 'kWh', 'media/ico/watt.png' ,'kWh','-10000', '1000000')");
+$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('varh', 'kvarh', 'kvarh', 'media/ico/varh-icon.png' ,'Reactive Energy','-000000', '1000000')");
+$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('va', 'VA', 'VA', 'media/ico/va-icon.png' ,'Apparent Power','-100000', '1000000')");
+$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('var', 'var', 'var', 'media/ico/var-icon.png' ,'Reactive Power','-1000000', '1000000')");
+$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('cosfi', '', '', 'media/ico/cosfi-icon.png' ,'Cosfi','0', '100')");
+$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('ph', '', '', 'media/ico/ph-icon.png' ,'pH','0', '100')");
+
+
 
 
     header("location: " . $_SERVER['REQUEST_URI']);
