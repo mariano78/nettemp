@@ -108,7 +108,7 @@ try {
 		//Wh
 		$local_type='kwatt';
 		$local_rom="usb_".$dev."_".$addr."_".$local_type;
-		$local_val=$line[7]/1000;
+		$local_val=$line[7];
 		$local_device='usb';
 		$local_usb=$dev0;
 		echo $date." ORWE - Wh ".$local_val." ".$local_type.".\n";
