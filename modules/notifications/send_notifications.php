@@ -12,6 +12,7 @@ $hostname=gethostname();
 $minute=date('i');
 $hour=date('H');
 $nomail = 0;
+$headers = '';
 
 	$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 	$query = $db->query("SELECT * FROM nt_settings");
