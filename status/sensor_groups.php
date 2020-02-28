@@ -12,16 +12,7 @@ if (isset($_GET['ch_g'])) {
 $root=$_SERVER["DOCUMENT_ROOT"];
 $db = new PDO("sqlite:$root/dbf/nettemp.db");
 
-function numberFormatPrecision($number, $separator, $precision)
-{
-    $numberParts = explode($separator, $number);
-    $response = $numberParts[0];
-    if(count($numberParts)>1){
-        $response .= $separator;
-        $response .= substr($numberParts[1], 0, $precision);
-    }
-    return $response;
-}
+
 
 //hide
 	$hidegroup = isset($_POST['hidegroup']) ? $_POST['hidegroup'] : '';
