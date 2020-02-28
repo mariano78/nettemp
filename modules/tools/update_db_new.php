@@ -287,5 +287,7 @@ $updates['2020-02-28 09:43:37'][]="INSERT OR IGNORE INTO types (type, unit, unit
 $updates['2020-02-28 09:43:39'][]="INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('kwatt', 'kWh', 'kWh', 'media/ico/watt.png' ,'kWh','-10000', '1000000')";
 $updates['2020-02-28 09:43:41'][]="INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('frequency', 'Hz', 'kHz', 'media/ico/freq-icon.png' ,'Frequency','0', '1000000')";
 
+//precision
+$updates['2020-02-28 10:00:01'][]="ALTER TABLE sensors ADD prec TEXT";
 
 ?>
