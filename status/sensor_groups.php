@@ -12,6 +12,17 @@ if (isset($_GET['ch_g'])) {
 $root=$_SERVER["DOCUMENT_ROOT"];
 $db = new PDO("sqlite:$root/dbf/nettemp.db");
 
+function numberFormatPrecision($number, $separator, $precision)
+{
+    $numberParts = explode($separator, $number);
+    $response = $numberParts[0];
+    if(count($numberParts)>1){
+        $response .= $separator;
+        $response .= substr($numberParts[1], 0, $precision);
+    }
+    return $response;
+}
+
 //hide
 	$hidegroup = isset($_POST['hidegroup']) ? $_POST['hidegroup'] : '';
 	$hideg = isset($_POST['hideg']) ? $_POST['hideg'] : '';
@@ -122,6 +133,7 @@ if ($hide == 'off') {
 	$stat_min='';
 	$stat_max='';
 	$bindsensor=$a['bindsensor'];
+	$prec=$a['prec'];
 
 	
 		foreach($result_t as $ty){
@@ -232,9 +244,12 @@ if ($hide == 'off') {
 				<?php
 				    if (is_numeric($a['tmp']) && $a['type']=='elec' || $a['type']=='gas' || $a['type']=='water' || $a['type']=='kwatt' || $a['type']=='varh')  {
 						echo 	number_format($a['tmp'], 3, '.', '')." ".$unit." ".$max." ".$min;
+						
 				    } 
 				    elseif (is_numeric($a['tmp']) && $a['type']=='volt' || $a['type']=='amps' || $a['type']=='watt' || $a['type']=='ph' || substr($a['type'],0,3) == 'max' || substr($a['type'],0,3) == 'min' )  {
 						echo 	number_format($a['tmp'], 2, '.', ',')." ".$unit." ".$max." ".$min;
+						$test = numberFormatPrecision($a['tmp'], '.', 2)
+						echo $test;
 				    } 
 					 elseif (is_numeric($a['tmp']) && $a['type']=='lux' || $a['type']=='airquality' )  {
 						echo 	number_format($a['tmp'], 0, '.', ',')." ".$unit." ".$max." ".$min;
@@ -344,6 +359,7 @@ if ($hide == 'off') {
     unset($unit);
     unset($stat_min);
     unset($stat_max);
+	unset($prec);
      } 
 }
 ?>

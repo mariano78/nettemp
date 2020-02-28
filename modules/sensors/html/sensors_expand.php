@@ -63,7 +63,7 @@
 		<td class="col-md-0">
 		<form action="" method="post" style="display:inline!important;"> 
 			<input type="hidden" name="prec_id" value="<?php echo $a['id']; ?>" />
-			<input type="text" name="prec" size="10" value="<?php echo $a['prec']; ?>" />
+			<input type="text" name="prec" size="2" value="<?php echo $a['prec']; ?>" />
 			<input type="hidden" name="setprec" value="setprecok" />
 			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 		</form>
