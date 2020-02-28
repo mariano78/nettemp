@@ -49,6 +49,7 @@ Go to device scan!
 </div>
 </div>
 <?php
+}
 function numberFormatPrecision($number, $separator, $precision)
 {
     $numberParts = explode($separator, $number);
@@ -59,9 +60,6 @@ function numberFormatPrecision($number, $separator, $precision)
     }
     return $response;
 }
-
-}
-
 //Modules ORDER
 
  $morder = $db->query("SELECT * FROM statusorder ORDER BY position ASC") or header("Location: html/errors/db_error.php");
