@@ -49,6 +49,17 @@ Go to device scan!
 </div>
 </div>
 <?php
+function numberFormatPrecision($number, $separator, $precision)
+{
+    $numberParts = explode($separator, $number);
+    $response = $numberParts[0];
+    if(count($numberParts)>1){
+        $response .= $separator;
+        $response .= substr($numberParts[1], 0, $precision);
+    }
+    return $response;
+}
+
 }
 
 //Modules ORDER
