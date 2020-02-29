@@ -289,5 +289,6 @@ $updates['2020-02-28 09:43:41'][]="INSERT OR IGNORE INTO types (type, unit, unit
 
 //precision
 $updates['2020-02-28 10:00:01'][]="ALTER TABLE sensors ADD prec TEXT";
+$updates['2020-02-29 10:01:05'][]="UPDATE sensors SET prec = 1 where type == 'temp'";
 
 ?>
