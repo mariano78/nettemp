@@ -60,7 +60,7 @@ function numberFormatPrecision($number, $separator, $precision)
         $response .= $separator;
         $response .= substr($numberParts[1], 0, $precision);
     } else {
-		$response = substr($numberParts[0],0,-1);
+		$response = $numberParts[0];
 	}
     return $response;
 }
