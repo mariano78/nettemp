@@ -233,20 +233,10 @@ if ($hide == 'off') {
 				    } ?>
 				>
 				<?php
-				    if (is_numeric($a['tmp']) && $a['type']=='elec' || $a['type']=='gas' || $a['type']=='water' || $a['type']=='kwatt' || $a['type']=='varh')  {
-						echo numberFormatPrecision($a['tmp'], '.', $prec)." ".$unit." ".$max." ".$min;
-						
-				    } 
-				    elseif (is_numeric($a['tmp']) && $a['type']=='volt' || $a['type']=='amps' || $a['type']=='watt' || $a['type']=='ph' || substr($a['type'],0,3) == 'max' || substr($a['type'],0,3) == 'min' )  {
-						echo 	number_format($a['tmp'], 2, '.', ',')." ".$unit." ".$max." ".$min;
-						$test = numberFormatPrecision($a['tmp'], '.', $prec);
-						echo $test;
-				    } 
-					 elseif (is_numeric($a['tmp']) && $a['type']=='lux' || $a['type']=='airquality' )  {
-						echo 	number_format($a['tmp'], 0, '.', ',')." ".$unit." ".$max." ".$min;
-				    }
-					elseif (is_numeric($a['tmp']) && $a['type']=='sunrise' || $a['type']=='sunset')  {
-						echo    date('H:i', $a['tmp'])." ".$unit." ".$max." ".$min;
+				   
+					
+					if (is_numeric($a['tmp']) && $a['type']=='sunrise' || $a['type']=='sunset')  {
+						echo    date('H:i', $a['tmp']);
 				    }
 				    elseif ($a['type']=='relay' || $a['type']=='switch')  {
 						if ( $a['tmp'] == '1.0') { 
@@ -270,8 +260,8 @@ if ($hide == 'off') {
 							echo $a['tmp'];
 						}
 				    } 
-				    elseif (is_numeric($a['tmp'])&&$a['status']!='error') { 
-						echo 	number_format($a['tmp'], 1, '.', ',')." ".$unit." ".$max." ".$min;
+				    elseif (is_numeric($a['tmp']) && $a['status']!='error') { 
+						echo numberFormatPrecision($a['tmp'], '.', $prec)." ".$unit." ".$max." ".$min;
 				    }
 				    elseif ($a['status']=='error') { 
 						echo "offline";
