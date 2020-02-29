@@ -1,9 +1,4 @@
 BEGIN TRANSACTION;
-CREATE TABLE "vpn" (
-	`id`	INTEGER,
-	`users`	TEXT UNIQUE,
-	PRIMARY KEY(id)
-);
 CREATE TABLE "users" (
 	`id`	INTEGER,
 	`login`	TEXT UNIQUE,
