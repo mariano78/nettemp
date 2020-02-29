@@ -289,8 +289,9 @@ $updates['2020-02-28 09:43:41'][]="INSERT OR IGNORE INTO types (type, unit, unit
 
 //precision
 $updates['2020-02-28 10:00:01'][]="ALTER TABLE sensors ADD prec TEXT";
-$updates['2020-02-29 10:01:10'][]="UPDATE sensors SET prec = 1 WHERE type = 'temp' OR type = 'humid' OR type = 'watt' OR type = 'kwatt'";
-$updates['2020-02-29 10:01:11'][]="UPDATE sensors SET prec = 2 WHERE type = 'volt' OR type = 'amps'";
-$updates['2020-02-29 10:01:12'][]="UPDATE sensors SET prec = 1  WHERE prec = ''";
+$updates['2020-02-29 10:01:21'][]="UPDATE sensors SET prec = 1 ";
+$updates['2020-02-29 10:01:22'][]="UPDATE sensors SET prec = 1 WHERE type = 'temp' OR type = 'humid' OR type = 'watt' OR type = 'kwatt'";
+$updates['2020-02-29 10:01:23'][]="UPDATE sensors SET prec = 2 WHERE type = 'volt' OR type = 'amps'";
+
 
 ?>
