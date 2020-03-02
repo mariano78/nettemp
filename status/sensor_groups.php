@@ -5,12 +5,15 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+
+
 if (isset($_GET['ch_g'])) { 
     $ch_g = $_GET['ch_g'];
 } 
 
 $root=$_SERVER["DOCUMENT_ROOT"];
 $db = new PDO("sqlite:$root/dbf/nettemp.db");
+include_once('$root/common/global_functions.php');
 
 
 
@@ -184,7 +187,7 @@ if ($hide == 'off') {
 		    if($a['type'] == 'temp'){ $type='<img src="media/ico/temp_low.png" alt=""/>';}
 		    $label='danger';
 		}
-		if(!empty($a['mail'])) {$mail='<img src="media/ico/message-icon.png" alt="" title="Message was send!"/>';}
+		if(!empty($a['mail'])) {$mail='<img src="media/ico/message-icon.png" alt="" title="Message sent!"/>';}
 		
 		
 		if (strtotime($a['time'])<(time() - ($a['readerrtime']*60)) && $a['readerrtime'] != '0' ){
