@@ -13,7 +13,7 @@ if (isset($_GET['ch_g'])) {
 
 $root=$_SERVER["DOCUMENT_ROOT"];
 $db = new PDO("sqlite:$root/dbf/nettemp.db");
-include_once('$root/common/global_functions.php');
+include_once("$root/common/global_functions.php");
 
 
 
