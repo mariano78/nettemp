@@ -15,7 +15,7 @@ $log_del = isset($_POST['log_del']) ? $_POST['log_del'] : '';
 	$db2->exec("vacuum");
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();
-	 } 
+} 
 	 
 	 
 //auto refresh
