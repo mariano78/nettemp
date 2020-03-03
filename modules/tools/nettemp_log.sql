@@ -5,6 +5,5 @@ CREATE TABLE "logs" (
 	`type`	TEXT,
 	`message`	TEXT,
 	PRIMARY KEY(id)
-);
- END;
+);END;
 COMMIT;

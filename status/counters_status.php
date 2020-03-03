@@ -184,7 +184,7 @@ if ($nts_hide_counters == 'off') { ?>
 		<?php
 		//$rows = $dbs->query("SELECT current AS sums from def where time = (select max(time) from def)") or die('lol');
 		//$i = $rows->fetch(); 
-		echo number_format($a['current'], 2, '.', ',')." ";
+		echo number_format($a['current'], 2, '.', '')." ";
 		?>
 	    </a>
 	    </small>

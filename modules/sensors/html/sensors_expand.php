@@ -10,6 +10,7 @@
 		<th>LCD</th>
 		<th>Save to base</th>
 		<th>Send to InfluxDB</th>
+		<th>Precision</th>
 		<th></th>
 	
 	</tr>
@@ -55,6 +56,16 @@
 			<button type="submit" name="sendinflux_on" value="<?php echo $a["influxdb"] == 'on' ? 'off' : 'on'; ?>" <?php echo $a["influxdb"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
 			<?php echo $a["influxdb"] == 'on' ? 'ON' : 'OFF'; ?></button>
 			<input type="hidden" name="toinfluxdb_on" value="toinfluxdb_on" />
+		</form>
+		</td>
+		
+		<!--Precision-->
+		<td class="col-md-0">
+		<form action="" method="post" style="display:inline!important;"> 
+			<input type="hidden" name="prec_id" value="<?php echo $a['id']; ?>" />
+			<input type="text" name="prec" size="2" value="<?php echo $a['prec']; ?>" />
+			<input type="hidden" name="setprec" value="setprecok" />
+			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 		</form>
 		</td>
 		
@@ -134,6 +145,7 @@
 		<?php
 		}
 		?>
+		
 		
 		</td>
 		

@@ -5,12 +5,17 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+
+
 if (isset($_GET['ch_g'])) { 
     $ch_g = $_GET['ch_g'];
 } 
 
 $root=$_SERVER["DOCUMENT_ROOT"];
 $db = new PDO("sqlite:$root/dbf/nettemp.db");
+include_once("$root/common/global_functions.php");
+
+
 
 //hide
 	$hidegroup = isset($_POST['hidegroup']) ? $_POST['hidegroup'] : '';
@@ -122,6 +127,7 @@ if ($hide == 'off') {
 	$stat_min='';
 	$stat_max='';
 	$bindsensor=$a['bindsensor'];
+	$prec=$a['prec'];
 
 	
 		foreach($result_t as $ty){
@@ -181,7 +187,7 @@ if ($hide == 'off') {
 		    if($a['type'] == 'temp'){ $type='<img src="media/ico/temp_low.png" alt=""/>';}
 		    $label='danger';
 		}
-		if(!empty($a['mail'])) {$mail='<img src="media/ico/message-icon.png" alt="" title="Message was send!"/>';}
+		if(!empty($a['mail'])) {$mail='<img src="media/ico/message-icon.png" alt="" title="Message sent!"/>';}
 		
 		
 		if (strtotime($a['time'])<(time() - ($a['readerrtime']*60)) && $a['readerrtime'] != '0' ){
@@ -230,17 +236,10 @@ if ($hide == 'off') {
 				    } ?>
 				>
 				<?php
-				    if (is_numeric($a['tmp']) && $a['type']=='elec' || $a['type']=='gas' || $a['type']=='water' || $a['type']=='kwatt' || $a['type']=='varh')  {
-						echo 	number_format($a['tmp'], 3, '.', '')." ".$unit." ".$max." ".$min;
-				    } 
-				    elseif (is_numeric($a['tmp']) && $a['type']=='volt' || $a['type']=='amps' || $a['type']=='watt' || $a['type']=='ph' || substr($a['type'],0,3) == 'max' || substr($a['type'],0,3) == 'min' )  {
-						echo 	number_format($a['tmp'], 2, '.', ',')." ".$unit." ".$max." ".$min;
-				    } 
-					 elseif (is_numeric($a['tmp']) && $a['type']=='lux' || $a['type']=='airquality' )  {
-						echo 	number_format($a['tmp'], 0, '.', ',')." ".$unit." ".$max." ".$min;
-				    }
-					elseif (is_numeric($a['tmp']) && $a['type']=='sunrise' || $a['type']=='sunset')  {
-						echo    date('H:i', $a['tmp'])." ".$unit." ".$max." ".$min;
+				   
+					
+					if (is_numeric($a['tmp']) && $a['type']=='sunrise' || $a['type']=='sunset')  {
+						echo    date('H:i', $a['tmp']);
 				    }
 				    elseif ($a['type']=='relay' || $a['type']=='switch')  {
 						if ( $a['tmp'] == '1.0') { 
@@ -264,14 +263,14 @@ if ($hide == 'off') {
 							echo $a['tmp'];
 						}
 				    } 
-				    elseif (is_numeric($a['tmp'])&&$a['status']!='error') { 
-						echo 	number_format($a['tmp'], 1, '.', ',')." ".$unit." ".$max." ".$min;
+				    elseif (is_numeric($a['tmp']) && $a['status']!='error') { 
+						echo numberFormatPrecision($a['tmp'], '.', $prec)." ".$unit." ".$max." ".$min;
 				    }
 				    elseif ($a['status']=='error') { 
 						echo "offline";
 				    }
 				    else {
-						echo $a['tmp']." ".$unit." ".$max." ".$min;
+						echo numberFormatPrecision($a['tmp'], '.', $prec)." ".$unit." ".$max." ".$min;
 				    }
 				?>	
 			    </a>
@@ -344,6 +343,7 @@ if ($hide == 'off') {
     unset($unit);
     unset($stat_min);
     unset($stat_max);
+	unset($prec);
      } 
 }
 ?>

@@ -216,6 +216,17 @@ if ( $lcd == "lcd"){
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+	
+	$prec = isset($_POST['prec']) ? $_POST['prec'] : '';
+    $prec_id = isset($_POST['prec_id']) ? $_POST['prec_id'] : '';
+	$setprec = isset($_POST['setprec']) ? $_POST['setprec'] : '';
+	
+	if (!empty($prec_id) && $setprec == "setprecok"){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE sensors SET prec='$prec' WHERE id='$prec_id'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    } 
     
 	$logon_id = isset($_POST['logon_id']) ? $_POST['logon_id'] : '';
     $logon_on = isset($_POST['logon_on']) ? $_POST['logon_on'] : '';
