@@ -272,7 +272,8 @@ try {
 					
 					if ($status == 401) {
 					logs(date("Y-m-d H:i:s"),'Error',$rom." - Afore Inverter - Unauthorized ");
-					}
+					} elseif ($status == 200) {
+						
 					//var webdata_now_p = "0";
 					//var webdata_today_e = "0.10";
 					//var webdata_total_e = "1326.4";
@@ -321,11 +322,8 @@ try {
 									$local_type = 'kwatt';
 									db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 								}
-	
 					}
-	
-				//
-			
+				}
 		}
 	
 	}
