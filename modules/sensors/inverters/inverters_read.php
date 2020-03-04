@@ -248,7 +248,7 @@ try {
 				}//
 				
 // Afore Inverters					
-				if ($inv_type == 'Afore'){
+				if ($inv_type == 'zeversolar'){
 					
 					$ch = curl_init();
 					curl_setopt($ch, CURLOPT_URL, "http://31.42.28.37:8096/status.html");
