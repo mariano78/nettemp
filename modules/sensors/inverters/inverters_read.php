@@ -278,6 +278,24 @@ try {
 						  
 					trim($now);
 					echo $now;
+					
+					preg_match('#var webdata_today_e = ".*";#', $server_output,$match);
+					$now = $match[0];
+
+					$now = preg_replace('/var webdata_today_e = "/', ' ', $now);
+					$now = preg_replace('/";/', ' ', $now);
+						  
+					trim($now);
+					echo $now;
+					
+					preg_match('#var webdata_total_e = ".*";#', $server_output,$match);
+					$now = $match[0];
+
+					$now = preg_replace('/var webdata_total_e = "/', ' ', $now);
+					$now = preg_replace('/";/', ' ', $now);
+						  
+					trim($now);
+					echo $now;
 	
 					}
 	
