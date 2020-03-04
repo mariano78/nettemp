@@ -271,7 +271,7 @@ try {
 					curl_close ($ch);
 					
 					if ($status == 401) {
-					logs(date("Y-m-d H:i:s"),'Error',$rom." - Afore Inverter - Unauthorized ");
+					logs(date("Y-m-d H:i:s"),'Error',$inv_name." - Afore Inverter - Unauthorized ");
 					} elseif ($status == 200) {
 						
 					//var webdata_now_p = "0";
