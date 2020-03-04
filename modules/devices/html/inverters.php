@@ -48,9 +48,9 @@ $row = $rows->fetchAll();
 <th>Name</th>
 <th>IP Address</th>
 <th>Port</th>
-<th>Type</th>
 <th>User</th>
 <th>Password</th>
+<th>Type</th>
 <th></th>
 </tr>
 </thead>
@@ -72,6 +72,14 @@ $row = $rows->fetchAll();
 	
 	<td class="col-md-1">
 		<input type="text" name="invport" placeholder="80" value="" class="form-control input-sm" required=""/>
+    </td>
+	
+	<td class="col-md-1">
+		<input type="text" name="invuser" placeholder="user" value="" class="form-control input-sm" required=""/>
+    </td>
+	
+	<td class="col-md-1">
+		<input type="text" name="invpass" placeholder="password" value="" class="form-control input-sm" required=""/>
     </td>
 	
 	<td class="col-md-1">
