@@ -82,7 +82,7 @@ $row = $rows->fetchAll();
 		<select name="invtype" class="form-control input-sm">
 			<option value="zeversolar">Zeversolar</option>
 			<option value="fronius">Fronius</option>
-			<option value="fronius">Afore</option>
+			<option value="afore">Afore</option>
 		</select>
     </td>
 	
