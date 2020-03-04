@@ -245,7 +245,43 @@ try {
 						
 					}
 	
-				}
+				}//
+				
+// Afore Inverters					
+				if ($inv_type == 'Afore'){
+					
+					$ch = curl_init();
+					curl_setopt($ch, CURLOPT_URL, "http://31.42.28.37:8096/status.html");
+					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+					curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+					curl_setopt($ch, CURLOPT_CONNECTTIMEOUT,5);
+					curl_setopt($ch, CURLOPT_TIMEOUT,10);
+					
+					curl_setopt($ch, CURLOPT_USERPWD,"admin:admin");
+					
+					//curl_setopt($ch, CURLOPT_POSTFIELDS, $points);
+					$server_output = curl_exec ($ch);
+					$status   = (string)curl_getinfo($ch, CURLINFO_HTTP_CODE);
+					curl_close ($ch);
+					//echo $server_output;
+					//echo $status;
+				
+					//var webdata_now_p = "0";
+					//var webdata_today_e = "0.10";
+					//var webdata_total_e = "1326.4";
+
+					preg_match('#var webdata_now_p = ".*";#', $server_output,$match)
+					$now = $match[0];
+
+					$now = preg_replace('/var webdata_now_p = "/', ' ', $now);
+					$now = preg_replace('/";/', ' ', $now);
+						  
+					trim($now);
+					echo $now;
+	
+					}
+	
+				}//
 			
 		}
 	
