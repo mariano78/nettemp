@@ -270,7 +270,7 @@ try {
 					//var webdata_today_e = "0.10";
 					//var webdata_total_e = "1326.4";
 
-					preg_match('#var webdata_now_p = ".*";#', $server_output,$match)
+					preg_match('#var webdata_now_p = ".*";#', $server_output,$match);
 					$now = $match[0];
 
 					$now = preg_replace('/var webdata_now_p = "/', ' ', $now);
