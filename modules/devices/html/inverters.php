@@ -49,6 +49,8 @@ $row = $rows->fetchAll();
 <th>IP Address</th>
 <th>Port</th>
 <th>Type</th>
+<th>User</th>
+<th>Password</th>
 <th></th>
 </tr>
 </thead>
@@ -76,6 +78,7 @@ $row = $rows->fetchAll();
 		<select name="invtype" class="form-control input-sm">
 			<option value="zeversolar">Zeversolar</option>
 			<option value="fronius">Fronius</option>
+			<option value="fronius">Afore</option>
 		</select>
     </td>
 	
@@ -110,6 +113,14 @@ $row = $rows->fetchAll();
 	
 	<td class="col-md-1">
 	<?php echo  $a["type"] ;?>
+    </td>
+	
+	<td class="col-md-1">
+	<?php echo  $a["user"] ;?>
+    </td>
+	
+	<td class="col-md-1">
+	<?php echo  $a["pass"] ;?>
     </td>
 
 
