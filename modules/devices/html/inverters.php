@@ -7,6 +7,8 @@ $invport = isset($_POST['invport']) ? $_POST['invport'] : '';
 $invname = isset($_POST['invname']) ? $_POST['invname'] : '';
 $invtype = isset($_POST['invtype']) ? $_POST['invtype'] : '';
 $invadd = isset($_POST['invadd']) ? $_POST['invadd'] : '';
+$invusr = isset($_POST['invusr']) ? $_POST['invusr'] : '';
+$invpass = isset($_POST['invpass']) ? $_POST['invpass'] : '';
 
 $invadd = isset($_POST['invadd']) ? $_POST['invadd'] : '';
 
@@ -19,15 +21,11 @@ $invadd = isset($_POST['invadd']) ? $_POST['invadd'] : '';
 
     if ($invadd == "invadd"){
     $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("INSERT OR IGNORE INTO inverters (name, ip, port, type) VALUES ('$invname','$ipaddr','$invport', '$invtype')") or die ("cannot insert to DB" );
+    $db->exec("INSERT OR IGNORE INTO inverters (name, ip, port, type, user, pass ) VALUES ('$invname','$ipaddr','$invport', '$invtype', '$invusr', '$invpass')") or die ("cannot insert to DB" );
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
-
 ?>
-
-
-
 
 <div class="panel panel-default">
 <div class="panel-heading">Inverters</div>
@@ -39,8 +37,6 @@ $invadd = isset($_POST['invadd']) ? $_POST['invadd'] : '';
 $db = new PDO('sqlite:dbf/nettemp.db');
 $rows = $db->query("SELECT * FROM inverters") or header("Location: html/errors/db_error.php");
 $row = $rows->fetchAll();
-
-
 
 ?>
 <thead>
