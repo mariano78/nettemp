@@ -124,7 +124,7 @@ $row = $rows->fetchAll();
     </td>
 
 
-    <td class="col-md-9">
+    <td class="col-md-7">
     <form action="" method="post" style="display:inline!important;">
 	<input type="hidden" name="invid" value="<?php echo $a["id"]; ?>" />
 	<input type="hidden" name="rminv" value="rminv" />
