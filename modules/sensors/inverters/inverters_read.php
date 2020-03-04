@@ -277,6 +277,14 @@ try {
 					//var webdata_now_p = "0";
 					//var webdata_today_e = "0.10";
 					//var webdata_total_e = "1326.4";
+			
+			// Status
+					$local_rom = $rom."_status";
+					$local_val = 1;
+					$local_type = 'trigger';
+					db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+								
+							
 
 			//Current produced energy
 					preg_match('#var webdata_now_p = ".*";#', $server_output,$match);
@@ -323,6 +331,15 @@ try {
 							$local_type = 'watt';
 							db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
 					
+						// Status
+							$local_rom = $rom."_status";
+							$local_val = 0;
+							$local_type = 'trigger';
+							db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+								
+							
+							
+							
 							if ($hour == 23 && $minute > 55) {
 									
 									// Day Energy
