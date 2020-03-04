@@ -116,15 +116,16 @@ $row = $rows->fetchAll();
     </td>
 	
 	<td class="col-md-1">
-	<?php echo  $a["type"] ;?>
-    </td>
-	
-	<td class="col-md-1">
 	<?php echo  $a["user"] ;?>
     </td>
 	
 	<td class="col-md-1">
 	<?php echo  $a["pass"] ;?>
+    </td>
+	
+	
+	<td class="col-md-1">
+	<?php echo  $a["type"] ;?>
     </td>
 
 
