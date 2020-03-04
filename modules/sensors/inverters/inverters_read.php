@@ -272,7 +272,7 @@ try {
 					
 					if ($status == 401) {
 					logs(date("Y-m-d H:i:s"),'Error',$rom." - Afore Inverter - Unauthorized ");
-
+					}
 					//var webdata_now_p = "0";
 					//var webdata_today_e = "0.10";
 					//var webdata_total_e = "1326.4";
