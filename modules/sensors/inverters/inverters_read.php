@@ -281,9 +281,9 @@ try {
 					preg_match('#var webdata_now_p = ".*";#', $server_output,$match);
 					$now = $match[0];
 					$now = preg_replace('/var webdata_now_p = "/', ' ', $now);
-					$now = preg_replace('/";/', ' ', $now);
-						  
+					$now = preg_replace('/";/', ' ', $now);	  
 					trim($now);
+					$now = floatval($now);
 						$local_rom = $rom."_now";
 						$local_val = $now;
 						$local_type = 'watt';
@@ -295,7 +295,7 @@ try {
 					$now = preg_replace('/var webdata_today_e = "/', ' ', $now);
 					$now = preg_replace('/";/', ' ', $now);	  
 					trim($now);
-					
+					$now = floatval($now);
 						$local_rom = $rom."_day";
 						$local_val = $now;
 						$local_type = 'kwatt';
@@ -307,7 +307,7 @@ try {
 					$now = preg_replace('/var webdata_total_e = "/', ' ', $now);
 					$now = preg_replace('/";/', ' ', $now);	  
 					trim($now);
-					
+					$now = floatval($now);
 						$local_rom = $rom."_total";
 						$local_val = $now;
 						$local_type = 'kwatt';
