@@ -71,7 +71,7 @@ $row = $rows->fetchAll();
     </td>
 	
 	<td class="col-md-1">
-		<input type="text" name="invuser" placeholder="user" value="" class="form-control input-sm" required=""/>
+		<input type="text" name="invusr" placeholder="user" value="" class="form-control input-sm" required=""/>
     </td>
 	
 	<td class="col-md-1">
