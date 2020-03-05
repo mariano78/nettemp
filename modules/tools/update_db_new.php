@@ -294,7 +294,7 @@ $updates['2020-02-29 10:01:22'][]="UPDATE sensors SET prec = 1 WHERE type = 'tem
 $updates['2020-02-29 10:01:23'][]="UPDATE sensors SET prec = 2 WHERE type = 'volt' OR type = 'amps'";
 
 //Solar Inverters - update
-$updates['2020-03-04 10:00:51'][]="ALTER TABLE inverters ADD user TEXT";
+$updates['2020-03-04 10:00:50'][]="ALTER TABLE inverters ADD user TEXT";
 $updates['2020-03-04 10:00:51'][]="ALTER TABLE inverters ADD pass TEXT";
 
 
