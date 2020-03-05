@@ -41,6 +41,10 @@ Debian, RaspberryPi:
 
 Changelog:
 
+4.9.4
+
+Afore inverters - simple integration
+
 4.9.3
 
 Precision - You can set the number of decimal places - sensor value in status - go to devices->More->Precision

@@ -7,6 +7,8 @@ $invport = isset($_POST['invport']) ? $_POST['invport'] : '';
 $invname = isset($_POST['invname']) ? $_POST['invname'] : '';
 $invtype = isset($_POST['invtype']) ? $_POST['invtype'] : '';
 $invadd = isset($_POST['invadd']) ? $_POST['invadd'] : '';
+$invusr = isset($_POST['invusr']) ? $_POST['invusr'] : '';
+$invpass = isset($_POST['invpass']) ? $_POST['invpass'] : '';
 
 $invadd = isset($_POST['invadd']) ? $_POST['invadd'] : '';
 
@@ -19,15 +21,11 @@ $invadd = isset($_POST['invadd']) ? $_POST['invadd'] : '';
 
     if ($invadd == "invadd"){
     $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("INSERT OR IGNORE INTO inverters (name, ip, port, type) VALUES ('$invname','$ipaddr','$invport', '$invtype')") or die ("cannot insert to DB" );
+    $db->exec("INSERT OR IGNORE INTO inverters (name, ip, port, type, user, pass ) VALUES ('$invname','$ipaddr','$invport', '$invtype', '$invusr', '$invpass')") or die ("cannot insert to DB" );
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
-
 ?>
-
-
-
 
 <div class="panel panel-default">
 <div class="panel-heading">Inverters</div>
@@ -40,14 +38,14 @@ $db = new PDO('sqlite:dbf/nettemp.db');
 $rows = $db->query("SELECT * FROM inverters") or header("Location: html/errors/db_error.php");
 $row = $rows->fetchAll();
 
-
-
 ?>
 <thead>
 <tr>
 <th>Name</th>
 <th>IP Address</th>
 <th>Port</th>
+<th>User</th>
+<th>Password</th>
 <th>Type</th>
 <th></th>
 </tr>
@@ -73,9 +71,18 @@ $row = $rows->fetchAll();
     </td>
 	
 	<td class="col-md-1">
+		<input type="text" name="invusr" placeholder="user" value="" class="form-control input-sm"/>
+    </td>
+	
+	<td class="col-md-1">
+		<input type="text" name="invpass" placeholder="password" value="" class="form-control input-sm"/>
+    </td>
+	
+	<td class="col-md-1">
 		<select name="invtype" class="form-control input-sm">
 			<option value="zeversolar">Zeversolar</option>
 			<option value="fronius">Fronius</option>
+			<option value="afore">Afore</option>
 		</select>
     </td>
 	
@@ -109,11 +116,20 @@ $row = $rows->fetchAll();
     </td>
 	
 	<td class="col-md-1">
+	<?php echo  $a["user"] ;?>
+    </td>
+	
+	<td class="col-md-1">
+	<?php echo  $a["pass"] ;?>
+    </td>
+	
+	
+	<td class="col-md-1">
 	<?php echo  $a["type"] ;?>
     </td>
 
 
-    <td class="col-md-9">
+    <td class="col-md-7">
     <form action="" method="post" style="display:inline!important;">
 	<input type="hidden" name="invid" value="<?php echo $a["id"]; ?>" />
 	<input type="hidden" name="rminv" value="rminv" />

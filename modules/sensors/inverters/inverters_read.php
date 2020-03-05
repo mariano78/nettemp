@@ -28,6 +28,8 @@ try {
 			$inv_ip = $invr['ip'];
 			$inv_port = $invr['port'];
 			$inv_type = $invr['type'];
+			$inv_user = $invr['user'];
+			$inv_pass = $invr['pass'];
 			$local_device = 'ip';
 			$rom = "inv_".$inv_name; 
 			$local_ip = $inv_ip;
@@ -245,8 +247,109 @@ try {
 						
 					}
 	
-				}
+				}//
+				
+// Afore Inverters					
+				if ($inv_type == 'afore'){
+					
+					$url = "http://".$inv_ip.":".$inv_port."/status.html";
+					
+					$ch = curl_init();
+					curl_setopt($ch, CURLOPT_URL, $url);
+					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+					curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+					curl_setopt($ch, CURLOPT_CONNECTTIMEOUT,5);
+					curl_setopt($ch, CURLOPT_TIMEOUT,10);
+					
+					if(!empty($inv_user) && !empty($inv_pass )){
+					$auths = $inv_user . ':' . $inv_pass ;
+					curl_setopt($ch, CURLOPT_USERPWD,$auths);
+					}
+
+					$server_output = curl_exec ($ch);
+					$status   = (string)curl_getinfo($ch, CURLINFO_HTTP_CODE);
+					curl_close ($ch);
+					
+					if ($status == 401) {
+					logs(date("Y-m-d H:i:s"),'Error',$inv_name." - Afore Inverter - Unauthorized ");
+					} elseif ($status == 200) {
+						
+					//var webdata_now_p = "0";
+					//var webdata_today_e = "0.10";
+					//var webdata_total_e = "1326.4";
 			
+			// Status
+					$local_rom = $rom."_status";
+					$local_val = 1;
+					$local_type = 'trigger';
+					db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+								
+							
+
+			//Current produced energy
+					preg_match('#var webdata_now_p = ".*";#', $server_output,$match);
+					$now = $match[0];
+					$now = preg_replace('/var webdata_now_p = "/', ' ', $now);
+					$now = preg_replace('/";/', ' ', $now);	  
+					trim($now);
+					$now = floatval($now);
+						$local_rom = $rom."_now";
+						$local_val = $now;
+						$local_type = 'watt';
+						db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+						
+			//Day Energy
+					preg_match('#var webdata_today_e = ".*";#', $server_output,$match);
+					$now = $match[0];
+					$now = preg_replace('/var webdata_today_e = "/', ' ', $now);
+					$now = preg_replace('/";/', ' ', $now);	  
+					trim($now);
+					$now = floatval($now);
+						$local_rom = $rom."_day";
+						$local_val = $now;
+						$local_type = 'kwatt';
+						db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+					
+			//Total Energy
+					preg_match('#var webdata_total_e = ".*";#', $server_output,$match);
+					$now = $match[0];
+					$now = preg_replace('/var webdata_total_e = "/', ' ', $now);
+					$now = preg_replace('/";/', ' ', $now);	  
+					trim($now);
+					$now = floatval($now);
+						$local_rom = $rom."_total";
+						$local_val = $now;
+						$local_type = 'kwatt';
+						db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+					
+					
+					} else {
+						
+						//Current produced energy
+							$local_rom = $rom."_now";
+							$local_val = 0;
+							$local_type = 'watt';
+							db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+					
+						// Status
+							$local_rom = $rom."_status";
+							$local_val = 0;
+							$local_type = 'trigger';
+							db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+								
+							
+							
+							
+							if ($hour == 23 && $minute > 55) {
+									
+									// Day Energy
+									$local_rom = $rom."_day";
+									$local_val = 0;
+									$local_type = 'kwatt';
+									db($local_rom,$local_val,$local_type,$local_device,$local_current,$local_ip,$local_gpio,$local_i2c,$local_usb,$local_name);
+						}
+					}
+				}
 		}
 	
 	}
