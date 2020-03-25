@@ -146,7 +146,7 @@ if($_SESSION["perms"] == 'adm' && $numsimple3 > 0) {
 foreach ($row3 as $links) {
 ?>	
 
-<li> <a href="<?php echo $links['link']; ?>" <?php if ($links['target'] == "_blank") {echo "target="_blank"";} ?>><span class="glyphicon glyphicon-share-alt" aria-hidden="true"> <?php echo $links['name']; ?></span></a></li>	
+<li> <a href="<?php echo $links['link']; ?>" <?php if ($links['target'] == "_blank") {echo "target="$links['target']"";} ?>><span class="glyphicon glyphicon-share-alt" aria-hidden="true"> <?php echo $links['name']; ?></span></a></li>	
 <?php
 }
 }
