@@ -42,6 +42,7 @@
 	} 
 	
 	$ownlinkdelid = isset($_POST['ownlinkdelid']) ? $_POST['ownlinkdelid'] : '';
+	$ownlinkdel = isset($_POST['ownlinkdel']) ? $_POST['ownlinkdel'] : '';
 	if(!empty($ownlinkdel) && ($ownlinkdel == "ownlinkdel")) { 
 	
 	$db = new PDO('sqlite:dbf/nettemp.db');
