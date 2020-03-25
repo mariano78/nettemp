@@ -85,10 +85,10 @@ $rows2 = $db->query("SELECT * FROM sensors WHERE type='relay'") or header("Locat
 
 if(($_SESSION["perms"] == 'adm') || (isset($_SESSION["user"]))) {
 	
-	$rows3 = $db->query("SELECT * FROM ownlinks WHERE onoff = 'on' AND logon = 'on' ORDER BY pos ASC") or header("Location: html/errors/db_error.php");
+	$rows3 = $db->query("SELECT * FROM ownlinks WHERE onoff = 'on'  ORDER BY pos ASC") or header("Location: html/errors/db_error.php");
 } else {
 	
-	$rows3 = $db->query("SELECT * FROM ownlinks WHERE onoff = 'on' AND logon = 'off' ORDER BY pos ASC") or header("Location: html/errors/db_error.php");
+	$rows3 = $db->query("SELECT * FROM ownlinks WHERE onoff = 'on' AND logon = 'on' ORDER BY pos ASC") or header("Location: html/errors/db_error.php");
 }
 
 $row1 = $rows1->fetchAll();
