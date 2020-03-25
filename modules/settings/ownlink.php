@@ -37,11 +37,11 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db");
 <table class="table table-hover table-condensed small">
 
 <thead>
-	<tr>
+	
 		<th>Name</th>
 		<th>Link</th>
 		<th>on/off</th>
-	</tr>
+	
 </thead>
 
 <tbody>
