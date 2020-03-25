@@ -149,7 +149,7 @@ if($nts_info=='on') {
 <?php
 	}
 	
-if($_SESSION["perms"] == 'adm' && $numsimple3 > 0) {
+if($numsimple3 > 0) {
 	
 foreach ($row3 as $links) {
 ?>	
