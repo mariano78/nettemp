@@ -83,7 +83,7 @@ foreach ($result as $a) {
 		<td>
 			<form action="" method="post" style="display:inline!important;"> 
 				<input type="hidden" name="owlnameid" value="<?php echo $a['id']; ?>" />
-				<input type="text" name="owlname" size="2" value="<?php echo $a['name']; ?>" />
+				<input type="text" name="owlname" size="15" value="<?php echo $a['name']; ?>" />
 				<input type="hidden" name="owlnameok" value="owlnameok" />
 				<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 			</form>
@@ -93,7 +93,7 @@ foreach ($result as $a) {
 		<td>
 			<form action="" method="post" style="display:inline!important;"> 
 				<input type="hidden" name="owllinkid" value="<?php echo $a['id']; ?>" />
-				<input type="text" name="owllink" size="2" value="<?php echo $a['link']; ?>" />
+				<input type="text" name="owllink" size="50" value="<?php echo $a['link']; ?>" />
 				<input type="hidden" name="owllinkok" value="owllinkok" />
 				<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 			</form>
