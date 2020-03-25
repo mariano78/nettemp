@@ -21,6 +21,15 @@
 	exit();	
 	} 
 	
+	$position = isset($_POST['position']) ? $_POST['position'] : '';
+    $position_id = isset($_POST['position_id']) ? $_POST['position_id'] : '';
+    if (!empty($position_id) && ($_POST['positionok'] == "ok")){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE ownlinks SET pos='$position' WHERE id='$position_id'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+	
 	$linkid = isset($_POST['linkid']) ? $_POST['linkid'] : '';
 	$linkon = isset($_POST['linkon']) ? $_POST['linkon'] : '';
 	$linkison = isset($_POST['linkison']) ? $_POST['linkison'] : '';
@@ -65,10 +74,10 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db");
 <table class="table table-hover table-condensed small">
 
 <thead>
-	
+		<th>Position</th>
 		<th>Name</th>
 		<th>Link</th>
-		<th>on/off</th>
+		<th>Active</th>
 		<th></th>
 	
 </thead>
@@ -80,6 +89,16 @@ foreach ($result as $a) {
 ?>
 	
 	<tr>
+	
+		<td class="col-md-0">
+			<form action="" method="post" style="display:inline!important;">
+				<input type="hidden" name="position_id" value="<?php echo $a["id"]; ?>" />
+				<input type="text" name="position" size="1" maxlength="3" value="<?php echo $a['pos']; ?>" />
+				<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+				<input type="hidden" name="positionok" value="ok" />
+			</form>
+		</td>
+	
 		<td>
 			<form action="" method="post" style="display:inline!important;"> 
 				<input type="hidden" name="owlnameid" value="<?php echo $a['id']; ?>" />
