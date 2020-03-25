@@ -16,7 +16,7 @@
 	if(!empty($addlink) && ($addlink == "addlink")) { 
 	
 	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("INSERT INTO ownlinks ('name', 'link', 'onoff') VALUES ('My_link','http://', 'on')");
+	$db->exec("INSERT INTO ownlinks ('pos', 'name', 'link', 'onoff') VALUES ('0','My_link','http://', 'on')");
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();	
 	} 
