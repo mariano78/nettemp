@@ -1,22 +1,11 @@
 <?php
-    $csave = isset($_POST['csave']) ? $_POST['csave'] : '';
-    $cip = isset($_POST['cip']) ? $_POST['cip'] : '';
-	$cport = isset($_POST['cport']) ? $_POST['cport'] : '';
-    $ckey = isset($_POST['ckey']) ? $_POST['ckey'] : '';
-    if ($csave == "csave"){
-    $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("UPDATE nt_settings SET value='$cip' WHERE option='client_ip'") or die ($db->lastErrorMsg());
-    $db->exec("UPDATE nt_settings SET value='$ckey' WHERE option='client_key'") or die ($db->lastErrorMsg());
-	$db->exec("UPDATE nt_settings SET value='$cport' WHERE option='client_port'") or die ($db->lastErrorMsg());
-    header("location: " . $_SERVER['REQUEST_URI']);
-    exit();
-    }
-	
+    
+
 	$addlink = isset($_POST['addlink']) ? $_POST['addlink'] : '';
 	if(!empty($addlink) && ($addlink == "addlink")) { 
 	
 	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("INSERT INTO ownlinks ('pos', 'name', 'link', 'onoff') VALUES ('0','My_link','http://', 'on')");
+	$db->exec("INSERT INTO ownlinks ('pos', 'name', 'link', 'onoff', 'target', 'logon') VALUES ('0','My_link','http://', 'on' , '_blank', 'on')");
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();	
 	} 
@@ -50,6 +39,29 @@
     if (!empty($owllinkok) && ($_POST['owllinkok'] == "owllinkok")){
     $db = new PDO('sqlite:dbf/nettemp.db');
     $db->exec("UPDATE ownlinks SET link='$owllink' WHERE id='$owllinkid'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+	
+	//target
+	$targetid = isset($_POST['targetid']) ? $_POST['targetid'] : '';
+    $targeton = isset($_POST['targeton']) ? $_POST['targeton'] : '';
+	$targetison = isset($_POST['targetison']) ? $_POST['targetison'] : '';
+	
+    if (!empty($targetison) && ($_POST['targetison'] == "targetison")){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE ownlinks SET target='$targeton' WHERE id='$targetid'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+	//logoff
+	$logonid = isset($_POST['logonid']) ? $_POST['logonid'] : '';
+    $logonon = isset($_POST['logonon']) ? $_POST['logonon'] : '';
+	$logonison = isset($_POST['logonison']) ? $_POST['logonison'] : '';
+	
+    if (!empty($logonison) && ($_POST['logonison'] == "logonison")){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE ownlinks SET logon='$logonon' WHERE id='$logonid'") or die ($db->lastErrorMsg());
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
@@ -107,6 +119,8 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db");
 		<th>Position</th>
 		<th>Name</th>
 		<th>Link</th>
+		<th>New tab</th>
+		<th>Logoff</th>
 		<th>Active</th>
 		<th></th>
 	
@@ -149,6 +163,24 @@ foreach ($result as $a) {
 		
 		<td class="col-md-0">
 			<form action="" method="post" style="display:inline!important;"> 	
+				<input type="hidden" name="targetid" value="<?php echo $a["id"]; ?>" />
+				<button type="submit" name="targeton" value="<?php echo $a["target"] == '_blank' ? 'off' : '_blank'; ?>" <?php echo $a["target"] == '_blank' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
+				<?php echo $a["target"] == '_blank' ? 'ON' : 'OFF'; ?></button>
+				<input type="hidden" name="targetison" value="targetison" />
+			</form>
+		</td>
+		
+		<td class="col-md-0">
+			<form action="" method="post" style="display:inline!important;"> 	
+				<input type="hidden" name="logonid" value="<?php echo $a["id"]; ?>" />
+				<button type="submit" name="logonon" value="<?php echo $a["logon"] == 'on' ? 'off' : 'on'; ?>" <?php echo $a["logon"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
+				<?php echo $a["logon"] == 'on' ? 'ON' : 'OFF'; ?></button>
+				<input type="hidden" name="logonison" value="logonison" />
+			</form>
+		</td>
+		
+		<td class="col-md-0">
+			<form action="" method="post" style="display:inline!important;"> 	
 				<input type="hidden" name="linkid" value="<?php echo $a["id"]; ?>" />
 				<button type="submit" name="linkon" value="<?php echo $a["onoff"] == 'on' ? 'off' : 'on'; ?>" <?php echo $a["onoff"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
 				<?php echo $a["onoff"] == 'on' ? 'ON' : 'OFF'; ?></button>
@@ -182,7 +214,7 @@ foreach ($result as $a) {
 		</form>
 		
 		</td>
-		<td></td><td></td><td></td><td></td>
+		<td></td><td></td><td></td><td></td><td></td><td></td>
 	</tr>
 
 
