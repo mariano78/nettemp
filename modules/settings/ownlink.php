@@ -19,7 +19,20 @@
 	$db->exec("INSERT INTO ownlinks ('name', 'link', 'onoff') VALUES ('My_link','http://', 'on')");
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();	
-} 
+	} 
+	
+	$linkid = isset($_POST['linkid']) ? $_POST['linkid'] : '';
+	$linkon = isset($_POST['linkon']) ? $_POST['linkon'] : '';
+	$linkison = isset($_POST['linkison']) ? $_POST['linkison'] : '';
+	if(!empty($linkison) && ($linkison == "linkison")) { 
+	
+	$db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("UPDATE ownlinks SET onoff='$linkon' WHERE id='$linkid'");
+	header("location: " . $_SERVER['REQUEST_URI']);
+	exit();	
+	} 
+	
+	
 
  
 
