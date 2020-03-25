@@ -54,6 +54,17 @@
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+	//logon
+	$logonid = isset($_POST['logonid']) ? $_POST['logonid'] : '';
+    $logonon = isset($_POST['logonon']) ? $_POST['logonon'] : '';
+	$logonison = isset($_POST['logonison']) ? $_POST['logonison'] : '';
+	
+    if (!empty($logonison) && ($_POST['logonison'] == "logonison")){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE ownlinks SET logon='$logonon' WHERE id='$logonid'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
 	
 
 	//on/off
@@ -161,10 +172,10 @@ foreach ($result as $a) {
 		
 		<td class="col-md-0">
 			<form action="" method="post" style="display:inline!important;"> 	
-				<input type="hidden" name="linkid" value="<?php echo $a["id"]; ?>" />
-				<button type="submit" name="linkon" value="<?php echo $a["logon"] == 'on' ? 'off' : 'on'; ?>" <?php echo $a["logon"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
+				<input type="hidden" name="logonid" value="<?php echo $a["id"]; ?>" />
+				<button type="submit" name="logonon" value="<?php echo $a["logon"] == 'on' ? 'off' : 'on'; ?>" <?php echo $a["logon"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
 				<?php echo $a["logon"] == 'on' ? 'ON' : 'OFF'; ?></button>
-				<input type="hidden" name="linkison" value="linkison" />
+				<input type="hidden" name="logonison" value="logonison" />
 			</form>
 		</td>
 		
