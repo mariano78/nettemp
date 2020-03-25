@@ -98,14 +98,7 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db");
 
 <div class="panel panel-default">
 <div class="panel-heading">
-<h3 class="panel-title">Own links in menu</h3>
-
-<form action="" method="post" style="display:inline!important;">
-			<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-plus"></span> </button>
-			<input type="hidden" name="addlink" value="addlink"/>
-		</form>
-
-</div>
+<h3 class="panel-title">Own links in menu</h3></div>
 
 <div class="table-responsive">
 <table class="table table-hover table-condensed small">
@@ -169,6 +162,15 @@ foreach ($result as $a) {
 				<input type="hidden" name="ownlinkdel" value="ownlinkdel" />
 				<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
 			</form>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<form action="" method="post" style="display:inline!important;">
+			<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-plus"></span> </button>
+			<input type="hidden" name="addlink" value="addlink"/>
+		</form>
+		
 		</td>
 	</tr>
 	
