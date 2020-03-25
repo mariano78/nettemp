@@ -298,7 +298,7 @@ $updates['2020-03-04 10:00:50'][]="ALTER TABLE inverters ADD user TEXT";
 $updates['2020-03-04 10:00:51'][]="ALTER TABLE inverters ADD pass TEXT";
 
 //Own links in menu
-$updates['2020-03-25 09:39:40'][]="CREATE TABLE ownlinks (id INTEGER PRIMARY KEY, name TEXT, link TEXT)";
+$updates['2020-03-25 09:39:40'][]="CREATE TABLE ownlinks (id INTEGER PRIMARY KEY, name TEXT, link TEXT, onoff TEXT)";
 $updates['2020-03-25 09:40:08'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('chartsforall','off')";
 
 
