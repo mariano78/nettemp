@@ -11,6 +11,15 @@
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+	
+	$addlink = isset($_POST['addlink']) ? $_POST['addlink'] : '';
+	if(!empty($addlink) && ($addlink == "addlink")) { 
+	
+	$db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("INSERT INTO ownlinks ('name', 'link', 'onoff') VALUES ('My_link','http://', 'on')");
+	header("location: " . $_SERVER['REQUEST_URI']);
+	exit();	
+} 
 
  
 
@@ -31,6 +40,12 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db");
 <div class="panel panel-default">
 <div class="panel-heading">
 <h3 class="panel-title">Own links in menu</h3>
+
+<form action="" method="post" style="display:inline!important;">
+			<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-plus"></span> </button>
+			<input type="hidden" name="addlink" value="addlink"/>
+		</form>
+
 </div>
 <div class="panel-body">
 <div class="table-responsive">
