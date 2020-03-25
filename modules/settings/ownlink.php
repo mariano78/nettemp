@@ -54,7 +54,14 @@ foreach ($result as $a) {
 	<tr>
 		<td></td>
 		<td></td>
-		<td></td>
+		<td>
+			<form action="" method="post" style="display:inline!important;"> 	
+				<input type="hidden" name="linkid" value="<?php echo $a["id"]; ?>" />
+				<button type="submit" name="linkon" value="<?php echo $a["onoff"] == 'on' ? 'off' : 'on'; ?>" <?php echo $a["onoff"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
+				<?php echo $a["onoff"] == 'on' ? 'ON' : 'OFF'; ?></button>
+				<input type="hidden" name="linkison" value="linkison" />
+			</form>
+		</td>
 		<td></td>
 	</tr>
 	
