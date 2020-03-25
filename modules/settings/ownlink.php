@@ -80,8 +80,25 @@ foreach ($result as $a) {
 ?>
 	
 	<tr>
-		<td></td>
-		<td></td>
+		<td>
+			<form action="" method="post" style="display:inline!important;"> 
+				<input type="hidden" name="owlnameid" value="<?php echo $a['id']; ?>" />
+				<input type="text" name="owlname" size="2" value="<?php echo $a['name']; ?>" />
+				<input type="hidden" name="owlnameok" value="owlnameok" />
+				<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+			</form>
+		
+		
+		</td>
+		<td>
+			<form action="" method="post" style="display:inline!important;"> 
+				<input type="hidden" name="owllinkid" value="<?php echo $a['id']; ?>" />
+				<input type="text" name="owllink" size="2" value="<?php echo $a['link']; ?>" />
+				<input type="hidden" name="owllinkok" value="owllinkok" />
+				<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+			</form>
+		
+		</td>
 		<td>
 			<form action="" method="post" style="display:inline!important;"> 	
 				<input type="hidden" name="linkid" value="<?php echo $a["id"]; ?>" />
