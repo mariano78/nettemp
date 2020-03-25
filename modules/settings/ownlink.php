@@ -99,7 +99,7 @@ foreach ($result as $a) {
 			</form>
 		</td>
 	
-		<td>
+		<td class="col-md-0">
 			<form action="" method="post" style="display:inline!important;"> 
 				<input type="hidden" name="owlnameid" value="<?php echo $a['id']; ?>" />
 				<input type="text" name="owlname" size="15" value="<?php echo $a['name']; ?>" />
@@ -109,7 +109,7 @@ foreach ($result as $a) {
 		
 		
 		</td>
-		<td>
+		<td class="col-md-0">
 			<form action="" method="post" style="display:inline!important;"> 
 				<input type="hidden" name="owllinkid" value="<?php echo $a['id']; ?>" />
 				<input type="text" name="owllink" size="50" value="<?php echo $a['link']; ?>" />
@@ -118,7 +118,7 @@ foreach ($result as $a) {
 			</form>
 		
 		</td>
-		<td>
+		<td class="col-md-0">
 			<form action="" method="post" style="display:inline!important;"> 	
 				<input type="hidden" name="linkid" value="<?php echo $a["id"]; ?>" />
 				<button type="submit" name="linkon" value="<?php echo $a["onoff"] == 'on' ? 'off' : 'on'; ?>" <?php echo $a["onoff"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
@@ -126,7 +126,13 @@ foreach ($result as $a) {
 				<input type="hidden" name="linkison" value="linkison" />
 			</form>
 		</td>
-		<td></td>
+		<td class="col-md-0">
+			<form action="" method="post" style="display:inline!important;">
+				<input type="hidden" name="ownlinkdelid" value="<?php echo $a["id"]; ?>" />
+				<input type="hidden" name="ownlinkdel" value="ownlinkdel" />
+				<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+			</form>
+		</td>
 	</tr>
 	
 	
