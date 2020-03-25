@@ -54,7 +54,7 @@
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
-	//logon
+	//logoff
 	$logonid = isset($_POST['logonid']) ? $_POST['logonid'] : '';
     $logonon = isset($_POST['logonon']) ? $_POST['logonon'] : '';
 	$logonison = isset($_POST['logonison']) ? $_POST['logonison'] : '';
@@ -120,7 +120,7 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db");
 		<th>Name</th>
 		<th>Link</th>
 		<th>New tab</th>
-		<th>Logon</th>
+		<th>Logoff</th>
 		<th>Active</th>
 		<th></th>
 	
