@@ -42,13 +42,19 @@
     exit();
     }
 	
-	
-	
-	
-	
-	
 	//link
+	$owllinkid = isset($_POST['owllinkid']) ? $_POST['owllinkid'] : '';
+    $owllink = isset($_POST['owllink']) ? $_POST['owllink'] : '';
+	$owllinkok = isset($_POST['owllinkok']) ? $_POST['owllinkok'] : '';
 	
+    if (!empty($owllinkok) && ($_POST['owllinkok'] == "owllinkok")){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE ownlinks SET link='$owllink' WHERE id='$owllinkid'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+	
+
 	//on/off
 	$linkid = isset($_POST['linkid']) ? $_POST['linkid'] : '';
 	$linkon = isset($_POST['linkon']) ? $_POST['linkon'] : '';
