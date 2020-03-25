@@ -106,7 +106,7 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db");
 		</form>
 
 </div>
-<div class="panel-body">
+
 <div class="table-responsive">
 <table class="table table-hover table-condensed small">
 
@@ -189,7 +189,7 @@ foreach ($result as $a) {
 </tbody>
 </table>
 </div>
-</div>
+
 
 
 
