@@ -41,10 +41,33 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db");
 		<th>Name</th>
 		<th>Link</th>
 		<th>on/off</th>
+		<th></th>
 	
 </thead>
 
 <tbody>
+<?php
+
+foreach ($result as $a) {
+?>
+	
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	
+	
+	
+	
+	
+<?php	
+}
+
+
+
+?>
 
 
 
@@ -54,20 +77,9 @@ $db = new PDO("sqlite:$root/dbf/nettemp.db");
 </div>
 
 
-<?php
-
-foreach ($result as $a) {
-	
-	
-	
-	
-	
-	
-}
 
 
 
-?>
 
 
 
