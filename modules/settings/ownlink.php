@@ -41,6 +41,15 @@
 	exit();	
 	} 
 	
+	$ownlinkdelid = isset($_POST['ownlinkdelid']) ? $_POST['ownlinkdelid'] : '';
+	if(!empty($ownlinkdel) && ($ownlinkdel == "ownlinkdel")) { 
+	
+	$db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("DELETE FROM ownlinks WHERE id = '$ownlinkdelid'");
+	header("location: " . $_SERVER['REQUEST_URI']);
+	exit();	
+	} 
+	
 	
 
  
