@@ -242,6 +242,10 @@ foreach ($result as $a) {
 	if($a['option']=='inflbasepassword') {
        	$nts_infl_pass=$a['value'];
     }
+	if($a['option']=='chartsforall') {
+       	$nts_chartsforall=$a['value'];
+    }
+	
 	
 }
 

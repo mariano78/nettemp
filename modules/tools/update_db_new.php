@@ -297,5 +297,11 @@ $updates['2020-02-29 10:01:23'][]="UPDATE sensors SET prec = 2 WHERE type = 'vol
 $updates['2020-03-04 10:00:50'][]="ALTER TABLE inverters ADD user TEXT";
 $updates['2020-03-04 10:00:51'][]="ALTER TABLE inverters ADD pass TEXT";
 
+//Own links in menu
+
+$updates['2020-03-25 09:40:08'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('chartsforall','off')";
+$updates['2020-03-25 09:41:40'][]="CREATE TABLE ownlinks (id INTEGER PRIMARY KEY, pos INT, name TEXT, link TEXT, onoff TEXT)";
+
+
 
 ?>
