@@ -41,6 +41,11 @@ Debian, RaspberryPi:
 
 Changelog:
 
+4.9.5
+
+Some options in charts for logout users
+Own links in menu
+
 4.9.4
 
 Afore inverters - simple integration
