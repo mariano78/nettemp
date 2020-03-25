@@ -175,13 +175,14 @@ foreach ($result as $a) {
 
 ?>
 	<tr>
-		<td>
+		<td>Add new link:
 		<form action="" method="post" style="display:inline!important;">
 			<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-plus"></span> </button>
 			<input type="hidden" name="addlink" value="addlink"/>
 		</form>
 		
 		</td>
+		<td></td><td></td><td></td><td></td>
 	</tr>
 
 
