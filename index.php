@@ -150,9 +150,7 @@ foreach ($row3 as $links) {
 <?php
 }
 }
-	
-	
-	
+
 	?>
 <li> <?php include('modules/settings/access_time_check.php'); ?></li>
 <?php if (file_exists("tmp/update")) {  ?>

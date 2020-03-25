@@ -49,6 +49,15 @@
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+	
+	$chforall = isset($_POST['chforall']) ? $_POST['chforall'] : '';
+    $set_chforall = isset($_POST['set_chforall']) ? $_POST['set_chforall'] : '';
+    if  ($set_chforall == "set_chforall") {
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE nt_settings SET value='$chforall' WHERE option='chartsforall'");
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
 
 ?>
 
@@ -136,6 +145,23 @@
 </div>
 </fieldset>
 <input type="hidden" name="set_chmax" value="set_chmax" />
+</form>
+
+<form class="form-horizontal" action="" method="post">
+<fieldset>
+<div class="form-group">
+  <label class="col-md-2 control-label" for="selectbasic">Charts for all</label>
+  <div class="col-md-2">
+    <select id="selectbasic" name="chforall" onchange="this.form.submit()" class="form-control input-sm">
+    <?php $ar=array("on","off");
+     foreach ($ar as $num) { ?>
+        <option <?php echo $nts_chartsforall == "$num" ? 'selected="selected"' : ''; ?> value="<?php echo $num; ?>"><?php echo $num ." "; ?></option>   
+    <?php } ?>
+    </select>
+  </div>
+</div>
+</fieldset>
+<input type="hidden" name="set_chforall" value="set_chforall" />
 </form>
 
 
