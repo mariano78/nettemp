@@ -214,7 +214,7 @@ foreach ($result as $a) {
 		</form>
 		
 		</td>
-		<td></td><td></td><td></td><td></td>
+		<td></td><td></td><td></td><td></td><td></td><td></td>
 	</tr>
 
 
