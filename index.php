@@ -82,6 +82,15 @@ if($id != 'screen') {
 <?php
 $rows1 = $db->query("SELECT * FROM gpio WHERE mode='trigger' OR mode='call'") or header("Location: html/errors/db_error.php");
 $rows2 = $db->query("SELECT * FROM sensors WHERE type='relay'") or header("Location: html/errors/db_error.php");
+
+if(($_SESSION["perms"] == 'adm') || (isset($_SESSION["user"]))) {
+	
+	$rows3 = $db->query("SELECT * FROM ownlinks WHERE onoff = 'on' AND logon = 'on' ORDER BY pos ASC") or header("Location: html/errors/db_error.php");
+} else {
+	
+	$rows3 = $db->query("SELECT * FROM ownlinks WHERE onoff = 'on' ORDER BY pos ASC") or header("Location: html/errors/db_error.php");
+}
+
 $rows3 = $db->query("SELECT * FROM ownlinks WHERE onoff = 'on' ORDER BY pos ASC") or header("Location: html/errors/db_error.php");
 $row1 = $rows1->fetchAll();
 $row2 = $rows2->fetchAll();
