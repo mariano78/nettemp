@@ -189,6 +189,7 @@ foreach ($result as $a) {
 </tbody>
 </table>
 </div>
+</div>
 
 
 
