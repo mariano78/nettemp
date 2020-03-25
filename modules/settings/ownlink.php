@@ -153,7 +153,7 @@ foreach ($result as $a) {
 		<td class="col-md-0">
 			<form action="" method="post" style="display:inline!important;"> 	
 				<input type="hidden" name="targetid" value="<?php echo $a["id"]; ?>" />
-				<button type="submit" name="targeton" value="<?php echo $a["target"] == '_blank' ? 'off' : 'on'; ?>" <?php echo $a["target"] == '_blank' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
+				<button type="submit" name="targeton" value="<?php echo $a["target"] == '_blank' ? 'off' : '_blank'; ?>" <?php echo $a["target"] == '_blank' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
 				<?php echo $a["target"] == '_blank' ? 'ON' : 'OFF'; ?></button>
 				<input type="hidden" name="targetison" value="targetison" />
 			</form>
