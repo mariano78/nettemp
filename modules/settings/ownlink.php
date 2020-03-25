@@ -164,6 +164,16 @@ foreach ($result as $a) {
 			</form>
 		</td>
 	</tr>
+	
+	
+	
+	
+	
+	
+<?php	
+}
+
+?>
 	<tr>
 		<td>
 		<form action="" method="post" style="display:inline!important;">
@@ -173,18 +183,6 @@ foreach ($result as $a) {
 		
 		</td>
 	</tr>
-	
-	
-	
-	
-	
-<?php	
-}
-
-
-
-?>
-
 
 
 
