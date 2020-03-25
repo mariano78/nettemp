@@ -43,6 +43,18 @@
     exit();
     }
 	
+	//target
+	$targetid = isset($_POST['targetid']) ? $_POST['targetid'] : '';
+    $targeton = isset($_POST['targeton']) ? $_POST['targeton'] : '';
+	$targetison = isset($_POST['targetison']) ? $_POST['targetison'] : '';
+	
+    if (!empty($targetison) && ($_POST['targetison'] == "targetison")){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE ownlinks SET target='$targeton' WHERE id='$targetid'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+	
 
 	//on/off
 	$linkid = isset($_POST['linkid']) ? $_POST['linkid'] : '';
@@ -140,10 +152,10 @@ foreach ($result as $a) {
 		
 		<td class="col-md-0">
 			<form action="" method="post" style="display:inline!important;"> 	
-				<input type="hidden" name="linkid" value="<?php echo $a["id"]; ?>" />
-				<button type="submit" name="linkon" value="<?php echo $a["target"] == '_blank' ? 'off' : 'on'; ?>" <?php echo $a["target"] == '_blank' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
+				<input type="hidden" name="targetid" value="<?php echo $a["id"]; ?>" />
+				<button type="submit" name="targeton" value="<?php echo $a["target"] == '_blank' ? 'off' : 'on'; ?>" <?php echo $a["target"] == '_blank' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
 				<?php echo $a["target"] == '_blank' ? 'ON' : 'OFF'; ?></button>
-				<input type="hidden" name="linkison" value="linkison" />
+				<input type="hidden" name="targetison" value="targetison" />
 			</form>
 		</td>
 		
