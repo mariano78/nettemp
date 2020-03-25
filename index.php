@@ -82,10 +82,13 @@ if($id != 'screen') {
 <?php
 $rows1 = $db->query("SELECT * FROM gpio WHERE mode='trigger' OR mode='call'") or header("Location: html/errors/db_error.php");
 $rows2 = $db->query("SELECT * FROM sensors WHERE type='relay'") or header("Location: html/errors/db_error.php");
+$rows3 = $db->query("SELECT * FROM ownlinks WHERE onoff = on ORDERBY pos ASC") or header("Location: html/errors/db_error.php");
 $row1 = $rows1->fetchAll();
 $row2 = $rows2->fetchAll();
+$row3 = $rows3->fetchAll();
 $numsimple = count($row1);
 $numsimple2 = count($row2);
+$numsimple3 = count($row3);
 
 if($getseen = $db->query("SELECT COUNT(id) as newseen FROM newdev WHERE seen IS NULL")){
 //    $gs = $getseen->fetch(PDO::FETCH_ASSOC);
@@ -123,7 +126,8 @@ function new_seen($seen){
 	if ($nts_mapon == 'on'){
 	?>
 
-	<li <?php echo $id == 'map' ? ' class="active"' : ''; ?>><a href="index.php?id=map"><span class="glyphicon glyphicon-picture" aria-hidden="true"> Map</span> </a></li><?php }?>
+<li <?php echo $id == 'map' ? ' class="active"' : ''; ?>><a href="index.php?id=map"><span class="glyphicon glyphicon-picture" aria-hidden="true"> Map</span> </a></li><?php }?>
+
 <li <?php echo $id == 'device' ? ' class="active"' : ''; ?>><a href="index.php?id=device"><span class="glyphicon glyphicon-cog" aria-hidden="true"> Device <?php echo new_seen($seen);?></span></a></li>
 <li <?php echo $id == 'security' ? ' class="active"' : ''; ?>><a href="index.php?id=security"><span class="glyphicon glyphicon-lock" aria-hidden="true"> Security</span></a></li>
 <li <?php echo $id == 'settings' ? ' class="active"' : ''; ?>><a href="index.php?id=settings"><span class="glyphicon glyphicon-tasks" aria-hidden="true"> Settings</span></a></li>
@@ -136,6 +140,19 @@ if($nts_info=='on') {
 <li <?php echo $id == 'info' ? ' class="active"' : ''; ?>><a href="index.php?id=info"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"> Info</span></a></li>
 <?php
 	}
+	
+if($_SESSION["perms"] == 'adm' && $numsimple3 > 0) {
+	
+foreach ($row3 as $links) {
+?>	
+
+<li> <a href="<?php echo $links['link']; ?>"><span class="glyphicon glyphicon-wrench" aria-hidden="true"><?php echo $links['name']; ?></span></a></li>	
+<?php
+}
+}
+	
+	
+	
 	?>
 <li> <?php include('modules/settings/access_time_check.php'); ?></li>
 <?php if (file_exists("tmp/update")) {  ?>
