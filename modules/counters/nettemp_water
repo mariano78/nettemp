@@ -111,6 +111,7 @@ def dbwrite():
         subprocess.call(['/usr/bin/php-cgi','-f','/var/www/nettemp/receiver.php',keystring,' type=water',value,' device=gpio', gpiopinstr, currentstring]) 
     
         lastPulseValue = pulseValue # jesli zapis pomyslny ustawiamy lastpulsevalue na pulsevalue
+	currentWatt = 0
 
 # Startujemy z watkiem zapisywania do bazy
 
