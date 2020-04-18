@@ -774,16 +774,12 @@ $row = $rows->fetchAll();
 	
 	<!--Remote NT-->
 		<td class="col-md-0">
-		<?php if ($a["device"] != 'remote' && $a["device"] != 'gpio') { ?>
 		<form action="" method="post" style="display:inline!important;"> 	
 			<input type="hidden" name="remote" value="<?php echo $a["id"]; ?>" />
 			<button type="submit" name="remoteon" value="<?php echo $a["remote"] == 'on' ? 'off' : 'on'; ?>" <?php echo $a["remote"] == 'on' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
 			<?php echo $a["remote"] == 'on' ? 'ON' : 'OFF'; ?></button>
 			<input type="hidden" name="remoteonoff" value="onoff" />
-		</form>
-		<?php 
-		}
-		?>
+			</form>
 		</td>
 		
 	<!--Remote Domoticz-->
