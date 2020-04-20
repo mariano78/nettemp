@@ -103,15 +103,21 @@ def dbwrite():
         now = datetime.now().replace(microsecond=0)  # use sqlite auto timestamp
         		
 	# zapis  po php-cgi	
-	value = 'value='+str((float(pulseValue - lastPulseValue)/divider)) # floatujemy wynik  
+        value = 'value='+str((float(pulseValue - lastPulseValue)/divider)) # floatujemy wynik  
         gpiopinstr = 'gpio='+str(gpiopin)
         keystring = 'key='+str(key)
-	currentstring = 'current='+str(currentWatt)
+        currentstring = 'current='+str(currentWatt)
  
         subprocess.call(['/usr/bin/php-cgi','-f','/var/www/nettemp/receiver.php',keystring,' type=water',value,' device=gpio', gpiopinstr, currentstring]) 
     
         lastPulseValue = pulseValue # jesli zapis pomyslny ustawiamy lastpulsevalue na pulsevalue
-	currentWatt = 0
+    else: # jesli brak impulsu - posyłamy zero
+        value = 'value=0'  
+        gpiopinstr = 'gpio='+str(gpiopin)
+        keystring = 'key='+str(key)
+        currentstring = 'current=0'
+        subprocess.call(['/usr/bin/php-cgi','-f','/var/www/nettemp/receiver.php',keystring,' type=water',value,' device=gpio', gpiopinstr, currentstring])
+        
 
 # Startujemy z watkiem zapisywania do bazy
 
