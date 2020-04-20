@@ -112,7 +112,7 @@ def dbwrite():
     
         lastPulseValue = pulseValue # jesli zapis pomyslny ustawiamy lastpulsevalue na pulsevalue
     else: 
-    # jesli brak impulsu posyłamy zero
+    # jesli brak impulsu posylamy zero
         value = 'value=0'  
         gpiopinstr = 'gpio='+str(gpiopin)
         keystring = 'key='+str(key)
