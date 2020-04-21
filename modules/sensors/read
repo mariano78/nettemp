@@ -46,16 +46,16 @@ php-cgi -f $dir/modules/sensors/rs485/orwe.php
 php-cgi -f $dir/modules/sensors/USB/SDS011/SDS011.php
 php-cgi -f $dir/modules/sensors/rs485/sdm630.php
 
-#notifications
-php -f $dir/modules/notifications/send_notifications.php ninterval=0m
-php -f $dir/modules/notifications/send_notifications.php ninterval=1m
-
 #node
 php-cgi -f $dir/modules/sensors/node.php
 #node domoticz
 php-cgi -f $dir/modules/sensors/send_domoticz.php
 #PV Inverters
 php-cgi -f $dir/modules/sensors/inverters/inverters_read.php
+
+#notifications
+php -f $dir/modules/notifications/send_notifications.php ninterval=0m
+php -f $dir/modules/notifications/send_notifications.php ninterval=1m
 
 
 
