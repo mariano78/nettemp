@@ -281,7 +281,7 @@ var hc = function () {
                 }
 	    };
 	
-	} else if (type=='gpio' || type=='host' || type=='relay' || type=="elec" ){
+	} else if (type=='gpio' || type=='host' || type=='relay' || type=="elec" || type=="water" || type=="gas" ){
 		seriesOptions[i] = {
                 name: name,
                 data: data,
