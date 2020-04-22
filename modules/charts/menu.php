@@ -74,7 +74,13 @@ $result_ch_g = $query->fetchAll();
 
 if (in_array('elec', $typearr))  {?>
 <a href="index.php?id=<?php echo $id ?>&type=elec&max=day&mode=2" ><button class="btn btn-xs btn-default <?php echo $art == 'elec' && $mode == '2' ? ' active' : ''; ?>">Electricity Wh</button></a>
-<?php } 
+<?php }
+
+if (in_array('water', $typearr))  {?>
+<a href="index.php?id=<?php echo $id ?>&type=water&max=day&mode=2" ><button class="btn btn-xs btn-default <?php echo $art == 'water' && $mode == '2' ? ' active' : ''; ?>">Water Litres</button></a>
+<?php }
+
+ 
 if(($id!='screen' && isset($_SESSION['user'])) || ($id!='screen' && $nts_chartsforall == 'on')) {
 	//$nts_chartsforall
 ?>
