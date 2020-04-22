@@ -245,7 +245,7 @@ var hc = function () {
 	if (max=="year") { var xhour = "month" }
 	if (max=="all") { var xhour = "year" }
 
-	if (type=="gas" || type=="water" || type=="elec" && mode != "2" ) {
+	if (type=="gas"|| type=="water"|| type=="elec" && mode != "2" ) {
 	    
             seriesOptions[i] = {
                 name: name,
@@ -281,7 +281,7 @@ var hc = function () {
                 }
 	    };
 	
-	} else if (type=='gpio' || type=='host' || type=='relay' || type=='water' ){
+	} else if (type=='gpio' || type=='host' || type=='relay' || type=="elec" || type=="water" || type=="gas" ){
 		seriesOptions[i] = {
                 name: name,
                 data: data,
