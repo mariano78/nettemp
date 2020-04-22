@@ -386,14 +386,31 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 						
 						if($type == 'gpio') {
 							
+							$query = $dbr->query("SELECT rev FROM gpio WHERE rom='$rom'");
+															$result = $query->fetchAll();
+															foreach ($result as $gpio_rev) {
+															$revision=$gpio_rev['rev'];
+															}
+							
 							if(!is_null($ip)) {
 								$dbr->exec("UPDATE gpio SET ip='$ip' WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert IP to gpio\n" );
 							}
 							
 							if($val == '1.0' || $val == '1' ) {
-								$dbr->exec("UPDATE gpio SET status='ON' WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert status to gpio\n" );
+								if ($revision == 'on') {
+									$gpio_status = 'OFF'
+									} else {
+											$gpio_status = 'ON'
+										}
+									
+								$dbr->exec("UPDATE gpio SET status='$gpio_status' WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert status to gpio\n" );
 							} elseif($val == '0.0' || $val == '0') {
-								$dbr->exec("UPDATE gpio SET status='OFF' WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert status to gpio\n" );
+								if ($revision == 'on') {
+									$gpio_status = 'ON'
+									} else {
+											$gpio_status = 'OFF'
+										}
+								$dbr->exec("UPDATE gpio SET status='$gpio_status' WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert status to gpio\n" );
 							}
 						}
 						
