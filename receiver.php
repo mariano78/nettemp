@@ -398,17 +398,17 @@ function db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name){
 							
 							if($val == '1.0' || $val == '1' ) {
 								if ($revision == 'on') {
-									$gpio_status = 'OFF'
+									$gpio_status = 'OFF';
 									} else {
-											$gpio_status = 'ON'
+											$gpio_status = 'ON';
 										}
 									
 								$dbr->exec("UPDATE gpio SET status='$gpio_status' WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert status to gpio\n" );
 							} elseif($val == '0.0' || $val == '0') {
 								if ($revision == 'on') {
-									$gpio_status = 'ON'
+									$gpio_status = 'ON';
 									} else {
-											$gpio_status = 'OFF'
+											$gpio_status = 'OFF';
 										}
 								$dbr->exec("UPDATE gpio SET status='$gpio_status' WHERE rom='$rom'") or die (date("Y-m-d H:i:s")." ERROR: Cannot insert status to gpio\n" );
 							}
