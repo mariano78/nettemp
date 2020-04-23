@@ -203,7 +203,7 @@ var hc = function () {
 		y: 0,
         	labelFormatter: function() {
           var lastVal = this.yData[this.yData.length - 1];
-		    			 return '<span style="color:' + this.color + '">' + this.name + ': </span> <b>' + lastVal + n_units +'</b> </n>';
+		    			 return '<span style="color:' + this.color + '">' + this.name + ': </span> <b>' + lastVal + ' ' + n_units +'</b> </n>';
         	    }
 		},
 
