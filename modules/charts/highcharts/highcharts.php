@@ -151,13 +151,13 @@ $result_t = $query->fetchAll();
 foreach($result_t as $ty){
 			if($ty['type']==$type) {
 				if(($nts_temp_scale != 'C')&&($ty['type']=='temp')){
-					echo "n_units = '". $ty['unit2'] ."';\n"; 
+					echo "n_units = '" . $ty['unit2'] ."';\n"; 
 					} else {
-						echo "n_units = '". $ty['unit'] ."';\n"; 
+						echo "n_units = '" . $ty['unit'] ."';\n"; 
 						}
 						
 				if ($mode == '2') {
-					echo "n_units = '". $ty['unit2'] ."';\n"; 	
+					echo "n_units = '" . $ty['unit2'] ."';\n"; 	
 				}
 						
 				}  
@@ -266,7 +266,7 @@ var hc = function () {
 		units: [[xhour,[1]]]
 		},
 		tooltip: {
-		    valueSuffix: ' ' + n_units, , 
+		    valueSuffix: n_units, 
                     valueDecimals: 3
                 }
 	    };
@@ -284,7 +284,7 @@ var hc = function () {
 		units: [[xhour,[1]]]
 		},
 		tooltip: {
-		    valueSuffix: ' ' + n_units, , 
+		    valueSuffix: n_units, 
                     valueDecimals: 2
                 }
 	    };
@@ -295,7 +295,7 @@ var hc = function () {
                 data: data,
 		step: true,
 		tooltip: {
-		    valueSuffix: ' ' + n_units, , 
+		    valueSuffix: n_units, 
                     valueDecimals: 2
                 }
 	    };
@@ -306,7 +306,7 @@ var hc = function () {
                 data: data,
 		type: 'spline',
 		tooltip: { 
-		    valueSuffix: ' ' + n_units, 
+		    valueSuffix: n_units, 
 		    valueDecimals: 2
 		},
     	    };
