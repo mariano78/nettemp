@@ -56,6 +56,9 @@ if(!empty($url['single'])) {
 if(!empty($url['group'])) {
 	$group=$url['group'];
 }
+if(!empty($url['mode'])) {
+	$mode=$url['mode'];
+}
 
 // logon
 if(($_SESSION["perms"] == 'adm') || (isset($_SESSION["user"]))) {
@@ -151,7 +154,7 @@ foreach($result_t as $ty){
        			echo "n_units = '". $ty['unit2'] ."';\n"; 
         		} else {
 					echo "n_units = '". $ty['unit'] ."';\n"; 
-       		}
+					}
         	}  
 		}
 
