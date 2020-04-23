@@ -263,7 +263,7 @@ var hc = function () {
                 }
 	    };
 		
-	} else if (type=="speed" || type=="gust" || type=="rainfall" && mode != "2" ){
+	} else if ((type=="speed" || type=="gust" || type=="rainfall") && mode != "2" ){
 		
 		seriesOptions[i] = {
                 name: name,
