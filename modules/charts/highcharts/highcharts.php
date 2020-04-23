@@ -266,7 +266,7 @@ var hc = function () {
 		units: [[xhour,[1]]]
 		},
 		tooltip: {
-		    valueSuffix: n_units, 
+		    valueSuffix: ' ' + n_units, , 
                     valueDecimals: 3
                 }
 	    };
@@ -284,7 +284,7 @@ var hc = function () {
 		units: [[xhour,[1]]]
 		},
 		tooltip: {
-		    valueSuffix: n_units, 
+		    valueSuffix: ' ' + n_units, , 
                     valueDecimals: 2
                 }
 	    };
@@ -295,7 +295,7 @@ var hc = function () {
                 data: data,
 		step: true,
 		tooltip: {
-		    valueSuffix: n_units, 
+		    valueSuffix: ' ' + n_units, , 
                     valueDecimals: 2
                 }
 	    };
@@ -306,7 +306,7 @@ var hc = function () {
                 data: data,
 		type: 'spline',
 		tooltip: { 
-		    valueSuffix: n_units, 
+		    valueSuffix: ' ' + n_units, 
 		    valueDecimals: 2
 		},
     	    };
