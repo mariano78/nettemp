@@ -149,13 +149,18 @@ echo "types = ". $types .";\n";
 $query = $db->query("SELECT * FROM types");
 $result_t = $query->fetchAll();
 foreach($result_t as $ty){
-       	if($ty['type']==$type) {
-       		if(($nts_temp_scale != 'C')&&($ty['type']=='temp')){
-       			echo "n_units = '". $ty['unit2'] ."';\n"; 
-        		} else {
-					echo "n_units = '". $ty['unit'] ."';\n"; 
-					}
-        	}  
+			if($ty['type']==$type) {
+				if(($nts_temp_scale != 'C')&&($ty['type']=='temp')){
+					echo "n_units = '". $ty['unit2'] ."';\n"; 
+					} else {
+						echo "n_units = '". $ty['unit'] ."';\n"; 
+						}
+						
+				if ($mode == '2') {
+					echo "n_units = '". $ty['unit2'] ."';\n"; 	
+				}
+						
+				}  
 		}
 
 ?>
