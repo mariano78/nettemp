@@ -138,7 +138,7 @@ else {
     $dirb = "sqlite:$root/db/$file.sql";
     $dbh = new PDO($dirb) or die("cannot open database");
 
-    if ($type == 'elec' && $mode == 2) {
+    if (($type == 'elec' || $type == 'water') && $mode == 2) {
 	queryc($max,$query);
     }
     else {
