@@ -1,63 +1,67 @@
 <?php
-
-$simpleon = isset($_POST['simpleon']) ? $_POST['simpleon'] : '';
-if ($simpleon == "on")  {    
-	$db->exec("UPDATE gpio SET simple='on', status='ON' WHERE gpio='$gpio_post' AND rom='$rom'") or die("PDO exec error");
-    include('gpio_on.php');
-    header("location: " . $_SERVER['REQUEST_URI']);
-    exit();
-    }
-	
-	
-$simpleoff = isset($_POST['simpleoff']) ? $_POST['simpleoff'] : '';
-if ($simpleoff == "off")  {
-	$db->exec("UPDATE gpio SET simple='off', status='OFF' WHERE gpio='$gpio_post' AND rom='$rom'") or die("PDO exec error");
-    include('gpio_off.php');
-    header("location: " . $_SERVER['REQUEST_URI']);
-    exit();
-    }
-
-
-$simpleexit = isset($_POST['simpleexit']) ? $_POST['simpleexit'] : '';
-if (($simpleexit == "simpleexit") ){
-    $db = new PDO('sqlite:dbf/nettemp.db') or die("cannot open the database");
-	$db->exec("UPDATE gpio SET mode='' where gpio='$gpio_post' AND rom='$rom'") or die("simple off db error");
+$sprinklerexit = isset($_POST['sprinklerexit']) ? $_POST['sprinklerexit'] : '';
+if (($sprinklerexit == "sprinklerexit") ){
+	include('gpio_off.php');
+	$db->exec("UPDATE gpio SET mode='', status='off' where gpio='$gpio_post' AND rom='$rom'") or die("Sprinkler off db - error");
     $db = null;
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
 
-        if ( $a['simple'] == "on" ) { 
 
+$sprinklerrun = isset($_POST['sprinklerrun']) ? $_POST['sprinklerrun'] : '';
+if ($sprinkler == "on")  {
+	
+	$db->exec("UPDATE gpio SET status='Wait',sprinkler_run='on' WHERE gpio='$gpio_post' AND rom='$rom'") or die("Sprinkler on error");
+    $db = null;
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();	
+    }
+
+if ($sprinklerrun == "off")  {
+    include('gpio_off.php');
+      
+	$db->exec("UPDATE gpio SET sprinkler_run='', status='OFF' WHERE gpio='$gpio_post' AND rom='$rom'") or die("sprinkler off error");
+	$db->exec("UPDATE day_plan SET active='off' where gpio='$gpio_post' AND rom='$rom'") or die("Day plan active set off - db error");
+    $db = null;
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();	
+    }
+
+
+    $sprinkler_run=$a['sprinkler_run'];
+    if ($sprinkler_run == 'on') { 
+?>
+
+  
+	Status:<?php echo $a['status']; ?> 
+	
+	<form action="" method="post" style=" display:inline!important;">
+	<input type="hidden" name="gpio" value="<?php echo $a['gpio']; ?>"/>
+	<button type="submit" class="btn btn-xs btn-danger">Exit</button>
+	<input type="hidden" name="sprinklerrun" value="off" />
+	<input type="hidden" name="off" value="off" />
+	</form>
+
+<?php 
+    }
+	else 
+    {
+    include('gpio_day_plan.php'); 
 ?>
     <form action="" method="post" style=" display:inline!important;">
-    <button type="submit" class="btn btn-xs btn-danger">OFF </button>
-    <input type="hidden" name="gpio" value="<?php echo $a['gpio']; ?>"/>
-	<input type="hidden" name="rom" value="<?php echo $a['rom']; ?>"/>
-    <input type="hidden" name="simpleoff" value="off" />
+	<input type="hidden" name="gpio" value="<?php echo $a['gpio']; ?>"/>
+	<button type="submit" class="btn btn-xs btn-success">ON</button>
+	<input type="hidden" name="sprinklerrun" value="on" />
     </form>
-<?php 
-} 
-    else 
-    {
-    ?>
-
-<form action="" method="post" style=" display:inline!important;">
-    <button type="submit" class="btn btn-xs btn-success">ON</button>
-    <input type="hidden" name="gpio" value="<?php echo $a['gpio']; ?>"/>
-	<input type="hidden" name="rom" value="<?php echo $a['rom']; ?>"/>
-    <input type="hidden" name="simpleon" value="on" />
-</form>
-<!-- //dodany warunek ¿eby na mapie nie wyœwietlaæ EXIT -->
-<?php if ($_GET['id'] != 'map' ): ?>
-<form action="" method="post" style=" display:inline!important;">
-    <button type="submit" class="btn btn-xs btn-danger">Exit</button>
-    <input type="hidden" name="simpleexit" value="exit" />
-    <input type="hidden" name="gpio" value="<?php echo $a['gpio']; ?>"/>
-    <input type="hidden" name="simpleexit" value="simpleexit" />
-</form>
-<?php endif; ?>
-    <?php 
-    } 
-//}
+    <form action="" method="post" style=" display:inline!important;">
+	<input type="hidden" name="sprinkleroff" value="off" />
+	<button type="submit" class="btn btn-xs btn-danger">Exit</button>
+	<input type="hidden" name="gpio" value="<?php echo $a['gpio']; ?>"/>
+	<input type="hidden" name="sprinklerexit" value="sprinklerexit" />
+   </form>
+   
+<?php
+    }
 ?>
+
