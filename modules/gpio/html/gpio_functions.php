@@ -146,6 +146,7 @@ $map_num2=substr(rand(), 0, 6);
 		header("location: " . $_SERVER['REQUEST_URI']);
 		exit();
     }
+//moment
     $momenton = isset($_POST['momenton']) ? $_POST['momenton'] : '';
     if ($momenton == "momenton")  {
 		$db->exec("UPDATE gpio SET mode='moment' WHERE gpio='$gpio_post' AND rom='$rom'") or die("exec error");
@@ -213,6 +214,14 @@ $map_num2=substr(rand(), 0, 6);
 		header("location: " . $_SERVER['REQUEST_URI']);
 		exit();
 	}
+	//sprinkler
+    $sprinkleron = isset($_POST['sprinkleron']) ? $_POST['sprinkleron'] : '';
+    if ($sprinkleron == "sprinkleron")  {
+		$db->exec("UPDATE gpio SET mode='sprinkler' WHERE gpio='$gpio_post' AND rom='$rom'") or die("exec error");
+		$db = null;
+		header("location: " . $_SERVER['REQUEST_URI']);
+		exit();
+    }
 
 
 ?>
@@ -321,6 +330,11 @@ if (empty($mode2)) { ?>
 	<button type="submit" class="btn btn-xs btn-success"<?php echo $a['gpio']>='100' ? 'disabled': '' ?>>Read status</button>
 	<input type="hidden" name="gpio" value="<?php echo $a['gpio']; ?>"/>
 	<input type="hidden" name="readon" value="readon" />
+    </form>
+	<form action="" method="post" style=" display:inline!important;">
+	<button type="submit" class="btn btn-xs btn-success">Sprinkler System</button>
+	<input type="hidden" name="gpio" value="<?php echo $a['gpio']; ?>"/>
+	<input type="hidden" name="sprinkleron" value="sprinkleron" />
     </form>
 <?php 
     if ($a['gpio']=='23' || $a['gpio']=='24') { 
