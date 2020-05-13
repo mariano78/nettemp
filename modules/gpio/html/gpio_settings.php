@@ -139,7 +139,10 @@ elseif ($mode == 'dist')
 {
     include('gpio_distance.php');
 } 
-
+elseif ($mode == 'sprinkler') 
+{
+    include('sprinkler.php');
+} 
 else 
 { 
 include('gpio_functions.php');
