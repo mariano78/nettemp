@@ -141,7 +141,7 @@ elseif ($mode == 'dist')
 } 
 elseif ($mode == 'sprinkler') 
 {
-    include('sprinkler.php');
+    include('gpio_sprinkler.php');
 } 
 else 
 { 
