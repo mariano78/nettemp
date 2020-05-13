@@ -304,6 +304,11 @@ $updates['2020-03-25 09:41:40'][]="CREATE TABLE ownlinks (id INTEGER PRIMARY KEY
 $updates['2020-03-25 10:00:01'][]="ALTER TABLE ownlinks ADD target TEXT";
 $updates['2020-03-25 10:00:05'][]="ALTER TABLE ownlinks ADD logon TEXT";
 
+//Switch - new gpio
+//$updates['2020-04-21 11:39:40'][]="CREATE TABLE switch (id INTEGER PRIMARY KEY, rom TEXT, position INTEGER, name TEXT, gpionr TEXT, rev TEXT, type TEXT, mode TEXT, status TEXT , ico TEXT, ip TEXT, locked TEXT, onact TEXT, offact TEXT )";
+
+//sprinkler system
+$updates['2020-05-13 10:00:51'][]="ALTER TABLE gpio ADD sprinkler_run TEXT";
 
 
 
