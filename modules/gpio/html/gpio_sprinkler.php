@@ -22,7 +22,6 @@ if ($sprinklerrun == "off")  {
     include('gpio_off.php');
       
 	$db->exec("UPDATE gpio SET sprinkler_run='', status='OFF' WHERE gpio='$gpio_post' AND rom='$rom'") or die("sprinkler off error");
-	$db->exec("UPDATE day_plan SET active='off' where gpio='$gpio_post' AND rom='$rom'") or die("Day plan active set off - db error");
     $db = null;
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();	
@@ -47,7 +46,7 @@ if ($sprinklerrun == "off")  {
     }
 	else 
     {
-    include('gpio_day_plan.php'); 
+   // include('gpio_day_plan.php'); 
 ?>
     <form action="" method="post" style=" display:inline!important;">
 	<input type="hidden" name="gpio" value="<?php echo $a['gpio']; ?>"/>
