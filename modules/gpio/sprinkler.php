@@ -209,19 +209,6 @@ $row = $rows->fetchAll();
 									}
 							}
 							
-							$rows2 = $db->query("SELECT * FROM day_plan WHERE gpio=$gpio AND rom='$rom' AND active='on'");
-							$func2 = $rows2->fetchAll();
-							$numRows2 = count($func2);
-							if ( $numRows2 > '0' ) {
-								
-								action_on($gpio,$rev,$ip,$rom);	
-								
-							} else {
-								
-								action_off($gpio,$rev,$ip,$rom);
-								
-							}
-							
 							
 						}
 						   else {
