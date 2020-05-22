@@ -1,7 +1,7 @@
 <?php
 $ROOT=dirname(dirname(dirname(__FILE__)));
 //$root=$_SERVER["DOCUMENT_ROOT"];
-include("$ROOT/common/functions.php");
+include("$ROOT/common/gpio_functions.php");
 $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 
 
