@@ -413,7 +413,7 @@ if ($nts_hide_gpio == 'off') {
 				   
 				}
 				/* SIMPLE AND DAY*/
-				elseif(($g['mode']=='simple')||($g['mode']=='temp')||($g['mode']=='day')) {
+				elseif(($g['mode']=='simple')||($g['mode']=='temp')||($g['mode']=='day')||($g['mode']=='sprinkler')) {
 				
 					?>
 					<td class="col-md-1">
