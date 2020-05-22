@@ -4,8 +4,6 @@ $ROOT=dirname(dirname(dirname(__FILE__)));
 include("$ROOT/common/gpio_functions.php");
 $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 
-
-
 // main loop
 $rows = $db->query("SELECT * FROM gpio WHERE mode='sprinkler' AND sprinkler_run='on'");
 $row = $rows->fetchAll();
