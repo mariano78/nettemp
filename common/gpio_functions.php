@@ -1,6 +1,6 @@
 <?php
-$root=$_SERVER["DOCUMENT_ROOT"];
-include("$root/common/functions.php");
+//$root=$_SERVER["DOCUMENT_ROOT"];
+include("$ROOT/common/functions.php");
 
 //***************************************************************************************************************** 
 function gp_onoff($gpio,$rom,$ip,$rev,$act) {
