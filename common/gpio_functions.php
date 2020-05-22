@@ -1,5 +1,5 @@
 <?php
-//$root=$_SERVER["DOCUMENT_ROOT"];
+
 include("$ROOT/common/functions.php");
 
 //***************************************************************************************************************** 
@@ -38,23 +38,19 @@ function gp_onoff($gpio,$rom,$ip,$rev,$act) {
 		$res = curl_exec($ch);
 		if(curl_errno($ch))
 		{
-			//$content = date('Y M d H:i:s')." GPIO ".$gpio." IP ".$ip.", Curl error: ".curl_error($ch)."\n";
-			//logs($gpio,$ip,$content);//poprawić logsy
+			logs(date("Y-m-d H:i:s"),'Error',$rom." - Curl error: ".curl_error($ch));
 		}
 		
 	}
-	//global $rom;
 		
 	$arg1 = array('0', '1');
 	$arg2 = array('0.0', '1.0');
 	$sens_tmp = str_replace ( $arg1, $arg2, $do_act );
 		
-	
 	$db->exec("UPDATE sensors SET tmp='$sens_tmp' WHERE rom='$rom'");
 	
 	$act = strtoupper($act);
 	$db->exec("UPDATE gpio SET status='$act' WHERE gpio='$gpio' AND rom='$rom'");
-	
 	
 	if (file_exists("$froot/db/$gpio.sql")) {
 		$dbb = new PDO("sqlite:$froot/db/$gpio.sql") or die ("WARNING timestamp 1\n" );
@@ -65,6 +61,8 @@ function gp_onoff($gpio,$rom,$ip,$rev,$act) {
 		$dbb->exec("CREATE TABLE def (time DATE DEFAULT (datetime('now','localtime')), value INTEGER)") or die ("WARNING timestamp 3\n" );
     	$db->exec("INSERT OR IGNORE INTO def (value) VALUES ('$do_act')") or die ("WARNING timestamp 4\n" );
 	}
+	
+	logs(date("Y-m-d H:i:s"),'Info',$rom." - Value in base updated - ".$do_act);
 
 }
 ?>
