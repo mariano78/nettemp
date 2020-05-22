@@ -5,23 +5,6 @@ include("$ROOT/common/functions.php");
 $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 
 
-//***************************************************************************************************************** 
-
-
-//***************************************************************************************************************** 
-function logs($gpio,$ip,$content){
-global $ROOT;
-
-
-if(!empty($ip)){
-	$f = fopen("$ROOT/tmp/gpio_".$gpio."_".$ip."_log.txt", "a");
-}else {
-	$f = fopen("$ROOT/tmp/gpio_".$gpio."_log.txt", "a");
-}
-fwrite($f, $content);
-fclose($f); 
-}
-
 
 // main loop
 $rows = $db->query("SELECT * FROM gpio WHERE mode='sprinkler' AND sprinkler_run='on'");
@@ -40,7 +23,8 @@ $row = $rows->fetchAll();
 				if ($lock=='user') {
 					$db->exec("UPDATE day_plan SET active='off' WHERE gpio='$gpio' AND rom='$rom' ");
 					$content = date('Y M d H:i:s')." GPIO ".$gpio.", name: ".$name." - LOCKED by USER.\n";
-					logs($gpio,$ip,$content);
+					//logs($gpio,$ip,$content);
+					
 				}   else {
 						$day=date("D");
 						$time=date("Hi");
@@ -63,14 +47,14 @@ $row = $rows->fetchAll();
 								$status='on';	
 								$db->exec("UPDATE day_plan SET active='on' WHERE gpio='$gpio' AND rom='$rom' AND id='$w_profile_id' ");	
 								$content = date('Y M d H:i:s')." GPIO ".$gpio.", name: ".$name.", Day Plan: ".$w_profile.", SET: ".$status."\n";
-								logs($gpio,$ip,$content);
+								//logs($gpio,$ip,$content);
 								//action_on($gpio,$rev,$ip,$rom);	
 								} else {
 									
 									$status='off';
 									$db->exec("UPDATE day_plan SET active='off' WHERE gpio='$gpio' AND rom='$rom' AND id='$w_profile_id' ");									
 									$content = date('Y M d H:i:s')." GPIO ".$gpio.", name: ".$name.", Day Plan: ".$w_profile.", SET: ".$status."\n";
-									logs($gpio,$ip,$content);
+									//logs($gpio,$ip,$content);
 									//action_off($gpio,$rev,$ip,$rom);	
 									}
 							}
@@ -95,7 +79,7 @@ $row = $rows->fetchAll();
 						   else {
 								$db->exec("UPDATE day_plan SET active='off' WHERE gpio='$gpio' AND rom='$rom' ");
 								$content = date('Y M d H:i:s')." GPIO ".$gpio.", name: ".$name." - Nothing to do - no dayplan.\n";
-								logs($gpio,$ip,$content);
+								//logs($gpio,$ip,$content);
 								action_off($gpio,$rev,$ip,$rom);
 								}
 							
