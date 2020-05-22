@@ -12,7 +12,7 @@ if (($sprinklerexit == "sprinklerexit") ){
 $sprinklerrun = isset($_POST['sprinklerrun']) ? $_POST['sprinklerrun'] : '';
 if ($sprinklerrun == "on")  {
 	
-	$db->exec("UPDATE gpio SET status='Wait',sprinkler_run='on' locked = '' WHERE gpio='$gpio_post' AND rom='$rom'") or die("Sprinkler on error");
+	$db->exec("UPDATE gpio SET status='Wait',sprinkler_run='on', locked = '' WHERE gpio='$gpio_post' AND rom='$rom'") or die("Sprinkler on error");
     $db = null;
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();	
