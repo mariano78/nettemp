@@ -10,7 +10,7 @@ function gp_onoff($gpio,$rom,$ip,$rev,$act) {
 	
 	if($act == 'on' && $rev == 'on'){
 			$do_act = '0';
-		} elseif ($ac == 'on' && $rev == ''){
+		} elseif ($act == 'on' && $rev == ''){
 			$do_act = '1';
 		} elseif ($act == 'off' && $rev == 'on'){
 			$do_act = '1';
