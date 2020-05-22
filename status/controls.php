@@ -342,7 +342,7 @@ if ($nts_hide_gpio == 'off') {
 			<tr>
 				<?php		
 				/* GPIO */
-				$sth = $db->prepare("SELECT * FROM gpio WHERE gpio='$s[gpio]' AND rom='$s[rom]' AND (mode='simple' OR mode='temp' OR mode='moment' OR mode='read' OR mode='day' OR mode='time') ");
+				$sth = $db->prepare("SELECT * FROM gpio WHERE gpio='$s[gpio]' AND rom='$s[rom]' AND (mode='simple' OR mode='temp' OR mode='moment' OR mode='read' OR mode='day' OR mode='time' OR mode='sprinkler') ");
 				$sth->execute();
 				$gpio = $sth->fetchAll();
 				foreach ($gpio as $g) {
