@@ -81,6 +81,7 @@ done
 
 php-cgi -f $dir/modules/gpio/temp.php
 php-cgi -f $dir/modules/gpio/day.php
+php-cgi -f $dir/modules/gpio/sprinkler.php
 
 
 
