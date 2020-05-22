@@ -65,12 +65,12 @@ $row = $rows->fetchAll();
 							if ( $numRows2 > '0' ) {
 								
 								//action_on($gpio,$rev,$ip,$rom);	
-								gp_onoff($gpio,$rom,$ip,$rev,'on')
+								gp_onoff($gpio,$rom,$ip,$rev,'on');
 								
 							} else {
 								
 								//action_off($gpio,$rev,$ip,$rom);
-								gp_onoff($gpio,$rom,$ip,$rev,'off')
+								gp_onoff($gpio,$rom,$ip,$rev,'off');
 								
 							}
 							
