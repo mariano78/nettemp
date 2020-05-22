@@ -22,7 +22,7 @@ $row = $rows->fetchAll();
 // Check if Lock by User
 				if ($lock=='user') {
 					$db->exec("UPDATE day_plan SET active='off' WHERE gpio='$gpio' AND rom='$rom' ");
-					$content = date('Y M d H:i:s')." GPIO ".$gpio.", name: ".$name." - LOCKED by USER.\n";
+					
 					//logs($gpio,$ip,$content);
 					
 				}   else {
@@ -42,36 +42,28 @@ $row = $rows->fetchAll();
 								$etime=$b['etime'];
 								$etime=str_replace(':', '', $etime);
 								
-						
 							if($time >= $stime && $time < $etime) {
 								$status='on';	
 								$db->exec("UPDATE day_plan SET active='on' WHERE gpio='$gpio' AND rom='$rom' AND id='$w_profile_id' ");	
-								$content = date('Y M d H:i:s')." GPIO ".$gpio.", name: ".$name.", Day Plan: ".$w_profile.", SET: ".$status."\n";
-								//logs($gpio,$ip,$content);
-								//action_on($gpio,$rev,$ip,$rom);	
+								
 								} else {
 									
 									$status='off';
 									$db->exec("UPDATE day_plan SET active='off' WHERE gpio='$gpio' AND rom='$rom' AND id='$w_profile_id' ");									
-									$content = date('Y M d H:i:s')." GPIO ".$gpio.", name: ".$name.", Day Plan: ".$w_profile.", SET: ".$status."\n";
-									//logs($gpio,$ip,$content);
-									//action_off($gpio,$rev,$ip,$rom);	
+									
 									}
 							}
 							
 							$rows2 = $db->query("SELECT * FROM day_plan WHERE gpio=$gpio AND rom='$rom' AND active='on'");
 							$func2 = $rows2->fetchAll();
 							$numRows2 = count($func2);
-							if ( $numRows2 > '0' ) {
-								
-								//action_on($gpio,$rev,$ip,$rom);	
+							if ( $numRows2 > '0' ) {	
+							
 								gp_onoff($gpio,$rom,$ip,$rev,'on');
-								
+			
 							} else {
 								
-								//action_off($gpio,$rev,$ip,$rom);
 								gp_onoff($gpio,$rom,$ip,$rev,'off');
-								
 							}
 							
 							
@@ -79,8 +71,7 @@ $row = $rows->fetchAll();
 						   else {
 								$db->exec("UPDATE day_plan SET active='off' WHERE gpio='$gpio' AND rom='$rom' ");
 								$content = date('Y M d H:i:s')." GPIO ".$gpio.", name: ".$name." - Nothing to do - no dayplan.\n";
-								//logs($gpio,$ip,$content);
-								action_off($gpio,$rev,$ip,$rom);
+								gp_onoff($gpio,$rom,$ip,$rev,'off');
 								}
 							
 			
