@@ -46,7 +46,7 @@ if ($sprinklerrun == "off")  {
     }
 	else 
     {
-   // include('gpio_day_plan.php'); 
+    include('gpio_day_plan.php'); 
 ?>
     <form action="" method="post" style=" display:inline!important;">
 	<input type="hidden" name="gpio" value="<?php echo $a['gpio']; ?>"/>
