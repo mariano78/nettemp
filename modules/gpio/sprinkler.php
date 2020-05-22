@@ -6,19 +6,7 @@ $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 
 //***************************************************************************************************************** 
 
-function timestamp($gpio,$onoff) {
-	global $ROOT;
-	
-	if (file_exists("$ROOT/db/gpio_stats_$gpio.sql")) {
-		$db = new PDO("sqlite:$ROOT/db/gpio_stats_$gpio.sql") or die ("WARNING timestamp 1\n" );
-	    $db->exec("INSERT OR IGNORE INTO def (value) VALUES ('$onoff')") or die ("WARNING timestamp 2\n" );
-  	}
-	else {
-		$db = new PDO("sqlite:$ROOT/db/gpio_stats_$gpio.sql");
-		$db->exec("CREATE TABLE def (time DATE DEFAULT (datetime('now','localtime')), value INTEGER)") or die ("WARNING timestamp 3\n" );
-    	$db->exec("INSERT OR IGNORE INTO def (value) VALUES ('$onoff')") or die ("WARNING timestamp 4\n" );
-	}
-}
+
 //***************************************************************************************************************** 
 function logs($gpio,$ip,$content){
 global $ROOT;
@@ -32,130 +20,7 @@ if(!empty($ip)){
 fwrite($f, $content);
 fclose($f); 
 }
-//***************************************************************************************************************** 
-function action_on($gpio,$rev,$ip,$rom) {
-	global $ROOT;
-	global $db;
-	
-	if(empty($ip)){
-		$out="/usr/local/bin/gpio -g mode $gpio output";
-		$read="/usr/local/bin/gpio -g read $gpio";
-		$on="/usr/local/bin/gpio -g write $gpio 1";
-		$off="/usr/local/bin/gpio -g write $gpio 0";
-		exec($out);
-		exec($read, $check);
-		if ($rev == 'on') {
-			if ($check['0'] == '1'){ 
-				exec($off);
-				$content = date('Y M d H:i:s')." GPIO ".$gpio." CHECK" .$check['0'].", SET ON\n";
-				logs($gpio,$ip,$content);
-			}
-			else {
-				$content = date('Y M d H:i:s')." GPIO ".$gpio." CHECK" .$check['0'].", ALREADY ON\n";
-				logs($gpio,$ip,$content);
-			}
-		}
-		else {
-			if ($check['0'] == '0'){ 
-				exec($on);
-				$content = date('Y M d H:i:s')." GPIO ".$gpio." CHECK " .$check['0'].", SET ON\n";
-				logs($gpio,$ip,$content);
-			}
-			else {
-				$content = date('Y M d H:i:s')." GPIO ".$gpio." CHECK " .$check['0'].", ALREADY ON\n";
-				logs($gpio,$ip,$content);
-			}
-		}
-	} else {
-		$ch = curl_init();
-		$optArray = array(
-			CURLOPT_URL => "$ip/control?cmd=GPIO,$gpio,1",
-			CURLOPT_RETURNTRANSFER => true,
-			CURLOPT_CONNECTTIMEOUT => 1,
-			CURLOPT_TIMEOUT => 3
-		);
-		curl_setopt_array($ch, $optArray);
-		$res = curl_exec($ch);
-		if(curl_errno($ch))
-		{
-			$content = date('Y M d H:i:s')." GPIO ".$gpio." IP ".$ip.", Curl error: ".curl_error($ch)."\n";
-			logs($gpio,$ip,$content);
-		}
-		global $rom;
-		$dbf = new PDO("sqlite:$ROOT/db/$rom.sql");
-		$db->exec("UPDATE sensors SET tmp='1.0' WHERE rom='$rom'");
-		$content = date('Y M d H:i:s')." GPIO ".$gpio." IP ".$ip.", SET ON\n";
-		logs($gpio,$ip,$content);
-	}
-	
-	$db->exec("UPDATE gpio SET status='ON' WHERE gpio='$gpio' AND rom='$rom'");
-	
-  	$onoff='1';
-  	timestamp($gpio,$onoff);
-}
-//***************************************************************************************************************** 
-function action_off($gpio,$rev,$ip,$rom) {
-	global $db;
-	global $ROOT;
-	
-	if(empty($ip)){
-		$out="/usr/local/bin/gpio -g mode $gpio output";
-		$read="/usr/local/bin/gpio -g read $gpio";
-		$on="/usr/local/bin/gpio -g write $gpio 1";
-		$off="/usr/local/bin/gpio -g write $gpio 0";
-		exec($out);
-		exec($read, $check);
-		if ($rev == 'on') {
-			if ($check['0'] == '0'){ 
-				exec($on);
-				$content = date('Y M d H:i:s')." GPIO ".$gpio." CHECK" .$check['0'].", SET OFF\n";
-				logs($gpio,$ip,$content);
-			}
-			else {
-				$content = date('Y M d H:i:s')." GPIO ".$gpio." CHECK" .$check['0'].", ALREADY OFF\n";
-				logs($gpio,$ip,$content);
-			}
-		}
-		else {
-			if ($check['0'] == '1'){ 
-				exec($off);
-				$content = date('Y M d H:i:s')." GPIO ".$gpio." CHECK  " .$check['0'].", SET OFF\n";
-				logs($gpio,$ip,$content);
-			}
-			else {
-				$content = date('Y M d H:i:s')." GPIO ".$gpio." CHECK " .$check['0'].", ALREADY OFF\n";
-				logs($gpio,$ip,$content);
-			}
-		}
-	} 
-	else {
-		$ch = curl_init();
-		$optArray = array(
-			CURLOPT_URL => "$ip/control?cmd=GPIO,$gpio,0",
-			CURLOPT_RETURNTRANSFER => true,
-			CURLOPT_CONNECTTIMEOUT => 1,
-			CURLOPT_TIMEOUT => 3
-		);
-		curl_setopt_array($ch, $optArray);
-		$res = curl_exec($ch);
-		if(curl_errno($ch))
-		{
-			$content = date('Y M d H:i:s')." GPIO ".$gpio." IP ".$ip.", Curl error: ".curl_error($ch)."\n";
-			logs($gpio,$ip,$content);
-		}
-		global $rom;
-		$dbf = new PDO("sqlite:$ROOT/db/$rom.sql");
-		$db->exec("UPDATE sensors SET tmp='0.0' WHERE rom='$rom'");
-		$content = date('Y M d H:i:s')." GPIO ".$gpio." IP ".$ip.", SET OFF\n";
-		logs($gpio,$ip,$content);
 
-	}
-	
-	$db->exec("UPDATE gpio SET status='OFF' WHERE gpio='$gpio' AND rom='$rom'");
-
-	$onoff='0';
-	timestamp($gpio,$onoff);
-}
 
 // main loop
 $rows = $db->query("SELECT * FROM gpio WHERE mode='sprinkler' AND sprinkler_run='on'");
@@ -214,11 +79,13 @@ $row = $rows->fetchAll();
 							$numRows2 = count($func2);
 							if ( $numRows2 > '0' ) {
 								
-								action_on($gpio,$rev,$ip,$rom);	
+								//action_on($gpio,$rev,$ip,$rom);	
+								gp_onoff($gpio,$rom,$ip,$rev,'on')
 								
 							} else {
 								
-								action_off($gpio,$rev,$ip,$rom);
+								//action_off($gpio,$rev,$ip,$rom);
+								gp_onoff($gpio,$rom,$ip,$rev,'off')
 								
 							}
 							

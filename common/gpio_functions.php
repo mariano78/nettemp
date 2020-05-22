@@ -1,80 +1,70 @@
 <?php
-$froot = "/var/www/nettemp";
 
-$db = new PDO("sqlite:$froot/dbf/nettemp.db");
-	$query = $db->query("SELECT * FROM nt_settings");
-    $result= $query->fetchAll();
-    
-    foreach($result as $s) {
-		
-		if($s['option']=='logs') {
-			$logsonoff=$s['value'];
+include("common/functions.php");
+
+//***************************************************************************************************************** 
+function gp_onoff($gpio,$rom,$ip,$rev,$act) {
+	
+	global $froot;
+	global $db;
+	
+	if($act == 'on' && $rev == 'on'){
+			$do_act = '0';
+		} elseif ($action == 'on' && $rev == ''){
+			$do_act = '1';
+		} elseif ($action == 'off' && $rev == 'on'){
+			$do_act = '1';
+		} elseif ($action == 'off' && $rev == ''){
+			$do_act = '0';
 		}
-	}
-// Logs Function
-
-function logs($date,$type,$message)
-	{
-		global $logsonoff;
+	
+	if(empty($ip)){
 		
-	if ($logsonoff == 'on') {
+		$out="/usr/local/bin/gpio -g mode $gpio output";
+		exec($out);
 		
-		$froot = "/var/www/nettemp";	
-		$db = new PDO("sqlite:$froot/dbf/nettemp.db") or die ("cannot open database");
-		$db->exec("INSERT INTO logs ('date', 'type', 'message') VALUES ('$date', '$type', '$message')");
+		$run="/usr/local/bin/gpio -g write $gpio $do_act";
+		exec($run);
+		
+	} else {
+		$ch = curl_init();
+		$optArray = array(
+			CURLOPT_URL => "$ip/control?cmd=GPIO,$gpio,$do_act",
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_CONNECTTIMEOUT => 1,
+			CURLOPT_TIMEOUT => 3
+		);
+		curl_setopt_array($ch, $optArray);
+		$res = curl_exec($ch);
+		if(curl_errno($ch))
+		{
+			//$content = date('Y M d H:i:s')." GPIO ".$gpio." IP ".$ip.", Curl error: ".curl_error($ch)."\n";
+			//logs($gpio,$ip,$content);//poprawić logsy
 		}
+		
+	}
+	//global $rom;
+		
+	$arg1 = array('0', '1');
+	$arg2 = array('0.0', '1.0');
+	$sens_tmp = str_replace ( $arg1, $arg2, $do_act );
+		
+	
+	$db->exec("UPDATE sensors SET tmp='$sens_tmp' WHERE rom='$rom'");
+	
+	$act = strtoupper($act);
+	$db->exec("UPDATE gpio SET status='$act' WHERE gpio='$gpio' AND rom='$rom'");
+	
+	
+	if (file_exists("$froot/db/$gpio.sql")) {
+		$dbb = new PDO("sqlite:$froot/db/$gpio.sql") or die ("WARNING timestamp 1\n" );
+	    $dbb->exec("INSERT OR IGNORE INTO def (value) VALUES ('$do_act')") or die ("WARNING timestamp 2\n" );
+  	}
+	else {
+		$dbb = new PDO("sqlite:$froot/db/$gpio.sql");
+		$dbb->exec("CREATE TABLE def (time DATE DEFAULT (datetime('now','localtime')), value INTEGER)") or die ("WARNING timestamp 3\n" );
+    	$db->exec("INSERT OR IGNORE INTO def (value) VALUES ('$do_act')") or die ("WARNING timestamp 4\n" );
 	}
 
-// SEND SMS Function
-
-function send_sms($date,$type,$message)
-{
-	$arg1 = array('ą', 'Ą', 'ć', 'Ć', 'ę', 'Ę', 'ł', 'Ł', 'ń', 'Ń', 'ó', 'Ó', 'ś', 'Ś', 'ź', 'Ź', 'ż', 'Ż' );
-	$arg2 = array('a', 'a', 'c', 'c', 'e', 'e', 'l', 'l', 'n', 'n', 'o', 'o', 's', 's', 'z', 'z', 'z', 'z' );
-	$message = str_replace ( $arg1, $arg2, $message );
-
-	$froot = "/var/www/nettemp";	
-	
-	 if(!is_dir("$froot/tmp/sms")) {
-		 
-		 mkdir("$froot/tmp/sms");
-	 }
-	$dbr = new PDO("sqlite:$froot/dbf/nettemp.db") or die ("cannot open database");
-    $sthr = $dbr->query("SELECT tel FROM users WHERE smsa='yes' AND tel != '' ");
-    $row = $sthr->fetchAll();
-	
-	$numRows = count($row);
-	if ($numRows == 0 ) {
-		
-		logs($date,'Error','User doesnt have phone number - go to settings - users');
-			
-	}else {
-	
-    foreach($row as $row) {
-		$smsto[]=$row['tel'];
-    }
-	
-			for ($x = 0, $cnt = count($smsto); $x < $cnt; $x++){
-			$random=substr(rand(), 0, 4);
-			
-			$sms = "To: ".$smsto[$x]."\n\n".$message;
-			$filepath = $froot."/tmp/sms/message_".$date."_".$random.".sms";
-			$fsms = fopen($filepath, 'a+');
-			fwrite($fsms, $sms);
-			fclose($fsms);
-			$ftosend = "/var/spool/sms/outgoing/message_".$date."_".$random.".sms";
-	
-			if (!copy($filepath, $ftosend)) {
-			echo "Send failed.\n";
-			logs($date,'Error',$message." - Unable to send SMS message - check configurations ");
-			} else {
-				echo "Send OK.\n";
-				logs($date,'Info',$message." - SMS was sent.");
-			}
-			unlink($filepath);
-			}
-			
 }
-}
-
 ?>
