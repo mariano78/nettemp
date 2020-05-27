@@ -33,12 +33,12 @@ if ($sprinklerrun == "off")  {
     exit();	
     }
 	
-$select_sprinkler_triger=isset($_POST['select_sprinkler_triger']) ? $_POST['select_sprinkler_triger'] : '';
+$select_sprinkler_trigger=isset($_POST['select_sprinkler_trigger']) ? $_POST['select_sprinkler_trigger'] : '';
 $set_sprinkler_trigger=isset($_POST['set_sprinkler_trigger']) ? $_POST['set_sprinkler_trigger'] : '';
 
 if(!empty($set_sprinkler_trigger) && ($set_sprinkler_trigger == "set_trigger")) { 
 	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("UPDATE gpio SET sprinkler_trig='$select_sprinkler_trig' WHERE gpio='$gpio_post' AND rom='$rom'");
+	$db->exec("UPDATE gpio SET sprinkler_trig='$select_sprinkler_trigger' WHERE gpio='$gpio_post' AND rom='$rom'");
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();	
 }
@@ -67,7 +67,7 @@ if(!empty($set_sprinkler_trigger) && ($set_sprinkler_trigger == "set_trigger")) 
 	<label class="col-md-1 control-label" for="selectbasic">Watering trigger</label>
 	<form class="form-horizontal" action="" method="post" style="display:inline!important;">
 	<div class="col-md-1">	
-		<select name="select_sprinkler_triger" class="form-control input-sm" onchange="this.form.submit()" >
+		<select name="select_sprinkler_trigger" class="form-control input-sm" onchange="this.form.submit()" >
 		<option value="off">None</option>
 		<?php 
 		
