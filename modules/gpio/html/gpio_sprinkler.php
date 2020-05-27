@@ -57,10 +57,10 @@ if ($sprinklerrun == "off")  {
 
 	<form class="form-horizontal" action="" method="post" style="display:inline!important;">	
 		<select name="f1" class="form-control input-sm">
-		<option value="off">off</option>
+		<option value="off">None</option>
 		<?php 
 		
-			foreach ($sprinkler_trig_ as $select) { ?>
+			foreach ($sprinkler_trig_result as $select) { ?>
 			<option value="<?php echo $select['rom']; ?>" <?php echo $select['rom']==$sprinkler_trig ? 'selected="selected"' : ''; ?> ><?php echo $select['name']." ".$select['tmp'] ?></option>
 			
 		<?php } ?>
