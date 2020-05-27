@@ -77,6 +77,7 @@ if(!empty($set_sprinkler_trigger) && ($set_sprinkler_trigger == "set_trigger")) 
 			
 		<?php } ?>
 		</select>
+		<input type="hidden" name="gpio" value="<?php echo $a['gpio']; ?>"/>
 		<input type="hidden" name="set_sprinkler_trigger" value="set_trigger" />
 	</div>
     </form>
