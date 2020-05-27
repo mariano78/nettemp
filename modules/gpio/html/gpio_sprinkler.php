@@ -54,7 +54,7 @@ if ($sprinklerrun == "off")  {
     {
     include('gpio_day_plan.php'); 
 ?>
-
+	<label class="col-md-2 control-label" for="selectbasic">Watering trigger</label>
 	<form class="form-horizontal" action="" method="post" style="display:inline!important;">
 	<div class="col-md-2">	
 		<select name="select_sprinkler_trig" class="form-control input-sm">
@@ -62,7 +62,7 @@ if ($sprinklerrun == "off")  {
 		<?php 
 		
 			foreach ($sprinkler_trig_result as $select) { ?>
-			<option value="<?php echo $select['rom']; ?>" <?php echo $select['rom']==$sprinkler_trig ? 'selected="selected"' : ''; ?> ><?php echo $select['name']." ".$select['tmp'] ?></option>
+			<option value="<?php echo $select['rom']; ?>" <?php echo $select['rom']==$sprinkler_trig ? 'selected="selected"' : ''; ?> ><?php echo $select['name']." - ".$select['tmp'] ?></option>
 			
 		<?php } ?>
 		</select>
