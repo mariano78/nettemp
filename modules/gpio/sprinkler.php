@@ -14,59 +14,74 @@ $row = $rows->fetchAll();
 			$lock=$a['locked'];
 			$rev=$a['rev']; 
 			$rom=$a['rom'];
-			if($rev=='on') {$mode='LOW';} else {$mode='HIGH'; $rev=null;}
+			$sprinkler_trig=$a['sprinkler_trig'];
+			//if($rev=='on') {$mode='LOW';} else {$mode='HIGH'; $rev=null;}
 			
 // Check if Lock by User
 				if ($lock=='user') {
 					
 					$db->exec("UPDATE day_plan SET active='off' WHERE gpio='$gpio' AND rom='$rom' ");
-					
+					//tutal jest lock
 				}   else {
+					
+					
+					
+					
+					
 						$day=date("D");
 						$time=date("Hi");
 						$rows = $db->query("SELECT * FROM day_plan WHERE gpio=$gpio AND rom='$rom' AND (Mon='$day' OR Tue='$day' OR Wed='$day' OR Thu='$day' OR Fri='$day' OR Sat='$day' OR Sun='$day')");
 						$func = $rows->fetchAll();
 						$numRows = count($func);
 						
-						if ( $numRows > '0' ) { 
-							foreach ($func as $b) {
-			
-								$w_profile_id=$b['id'];
-								$w_profile=$b['name'];
-								$stime=$b['stime'];
-								$stime=str_replace(':', '', $stime);
-								$etime=$b['etime'];
-								$etime=str_replace(':', '', $etime);
+							if ( $numRows > '0' ) { 
+								foreach ($func as $b) {
+				
+									$w_profile_id=$b['id'];
+									$w_profile=$b['name'];
+									$stime=$b['stime'];
+									$stime=str_replace(':', '', $stime);
+									$etime=$b['etime'];
+									$etime=str_replace(':', '', $etime);
+									
+								if($time >= $stime && $time < $etime) {
+									//$status='on';	
+									$db->exec("UPDATE day_plan SET active='on' WHERE gpio='$gpio' AND rom='$rom' AND id='$w_profile_id' ");	
+									
+									} else {
+										
+										//$status='off';
+										$db->exec("UPDATE day_plan SET active='off' WHERE gpio='$gpio' AND rom='$rom' AND id='$w_profile_id' ");									
+										
+										}
+								}
 								
-							if($time >= $stime && $time < $etime) {
-								//$status='on';	
-								$db->exec("UPDATE day_plan SET active='on' WHERE gpio='$gpio' AND rom='$rom' AND id='$w_profile_id' ");	
+								$rows2 = $db->query("SELECT * FROM day_plan WHERE gpio=$gpio AND rom='$rom' AND active='on'");
+								$func2 = $rows2->fetchAll();
+								$numRows2 = count($func2);
+								if ( $numRows2 > '0' ) {	
 								
+								$rows3 = $db->query("SELECT tmp FROM sensors WHERE rom = '$sprinkler_trig'");
+								$row3 = $rows3->fetchAll();
+								foreach ($row3 as $as) {
+						
+								$sprinkler_trig_tmp=$as['tmp'];
+						
+								}
+								if ($sprinkler_trig = 'off' || $sprinkler_trig_tmp = '1.0') {
+								
+									gp_onoff($gpio,$rom,$ip,$rev,'on');
+								}
+				
 								} else {
 									
-									//$status='off';
-									$db->exec("UPDATE day_plan SET active='off' WHERE gpio='$gpio' AND rom='$rom' AND id='$w_profile_id' ");									
-									
-									}
-							}
+									gp_onoff($gpio,$rom,$ip,$rev,'off');
+								}
 							
-							$rows2 = $db->query("SELECT * FROM day_plan WHERE gpio=$gpio AND rom='$rom' AND active='on'");
-							$func2 = $rows2->fetchAll();
-							$numRows2 = count($func2);
-							if ( $numRows2 > '0' ) {	
 							
-								gp_onoff($gpio,$rom,$ip,$rev,'on');
-			
 							} else {
-								
-								gp_onoff($gpio,$rom,$ip,$rev,'off');
-							}
-							
-							
-						}
-						   else {
 								$db->exec("UPDATE day_plan SET active='off' WHERE gpio='$gpio' AND rom='$rom' ");
-								$content = date('Y M d H:i:s')." GPIO ".$gpio.", name: ".$name." - Nothing to do - no dayplan.\n";
+								//$content = date('Y M d H:i:s')." GPIO ".$gpio.", name: ".$name." - Nothing to do - no dayplan.\n";
 								gp_onoff($gpio,$rom,$ip,$rev,'off');
 								}
 							
