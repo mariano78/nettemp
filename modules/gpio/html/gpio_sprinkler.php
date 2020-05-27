@@ -73,7 +73,7 @@ if(!empty($set_sprinkler_trigger) && ($set_sprinkler_trigger == "set_trigger")) 
 		<?php 
 		
 			foreach ($sprinkler_trig_result as $select) { ?>
-			<option value="<?php echo $select['rom']; ?>" <?php echo $select['rom']==$sprinkler_trig ? 'selected="selected"' : ''; ?> ><?php echo $select['name']." - ".$select['tmp'] ?></option>
+			<option value="<?php echo $select['rom']; ?>" <?php echo $select['rom']==$sprinkler_trig ? 'selected="selected"' : ''; ?> ><?php echo str_replace('_', ' ', $select['name'])." - ".$select['tmp'] ?></option>
 			
 		<?php } ?>
 		</select>
