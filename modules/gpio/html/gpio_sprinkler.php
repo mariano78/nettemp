@@ -3,7 +3,7 @@
 //select triggers for field
 $sth = $db->prepare("SELECT * FROM sensors WHERE type='trigger'");
 $sth->execute();
-$result = $sth->fetchAll();
+$sprinkler_trig_result = $sth->fetchAll();
 
 $sprinklerexit = isset($_POST['sprinklerexit']) ? $_POST['sprinklerexit'] : '';
 if (($sprinklerexit == "sprinklerexit") ){
@@ -60,7 +60,7 @@ if ($sprinklerrun == "off")  {
 		<option value="off">off</option>
 		<?php 
 		
-			foreach ($result as $select) { ?>
+			foreach ($sprinkler_trig_ as $select) { ?>
 			<option value="<?php echo $select['rom']; ?>" <?php echo $select['rom']==$sprinkler_trig ? 'selected="selected"' : ''; ?> ><?php echo $select['name']." ".$select['tmp'] ?></option>
 			
 		<?php } ?>
