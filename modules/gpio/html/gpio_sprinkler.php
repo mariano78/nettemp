@@ -38,7 +38,8 @@ $set_sprinkler_trigger=isset($_POST['set_sprinkler_trigger']) ? $_POST['set_spri
 
 if(!empty($set_sprinkler_trigger) && ($set_sprinkler_trigger == "set_trigger")) { 
 	$db = new PDO('sqlite:dbf/nettemp.db');
-	$db->exec("UPDATE gpio SET sprinkler_trig='$select_sprinkler_trigger' WHERE gpio='$gpio_post' AND rom='$rom'");
+	$db->exec("UPDATE gpio SET sprinkler_trig='$select_sprinkler_trigger' WHERE gpio='$gpio_post' AND rom='$rom'") or die("sprinkler trig error");
+	$db = null;
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();	
 }
