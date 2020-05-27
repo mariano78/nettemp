@@ -1,6 +1,5 @@
 <?php
 $ROOT=dirname(dirname(dirname(__FILE__)));
-//$root=$_SERVER["DOCUMENT_ROOT"];
 include("$ROOT/common/gpio_functions.php");
 $db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
 
@@ -19,9 +18,8 @@ $row = $rows->fetchAll();
 			
 // Check if Lock by User
 				if ($lock=='user') {
-					$db->exec("UPDATE day_plan SET active='off' WHERE gpio='$gpio' AND rom='$rom' ");
 					
-					//logs($gpio,$ip,$content);
+					$db->exec("UPDATE day_plan SET active='off' WHERE gpio='$gpio' AND rom='$rom' ");
 					
 				}   else {
 						$day=date("D");
@@ -41,12 +39,12 @@ $row = $rows->fetchAll();
 								$etime=str_replace(':', '', $etime);
 								
 							if($time >= $stime && $time < $etime) {
-								$status='on';	
+								//$status='on';	
 								$db->exec("UPDATE day_plan SET active='on' WHERE gpio='$gpio' AND rom='$rom' AND id='$w_profile_id' ");	
 								
 								} else {
 									
-									$status='off';
+									//$status='off';
 									$db->exec("UPDATE day_plan SET active='off' WHERE gpio='$gpio' AND rom='$rom' AND id='$w_profile_id' ");									
 									
 									}

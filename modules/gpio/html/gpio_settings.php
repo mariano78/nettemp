@@ -56,6 +56,7 @@ $mode=$a['mode'];
 $name=$a['name'];
 $ip=$a['ip'];
 $rom=$a['rom'];
+$sprinkler_trig=$a['sprinkler_trig'];
 ?>
 <div class="panel panel-default">
 <div class="panel-heading">

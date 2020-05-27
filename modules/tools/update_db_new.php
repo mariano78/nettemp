@@ -309,6 +309,7 @@ $updates['2020-03-25 10:00:05'][]="ALTER TABLE ownlinks ADD logon TEXT";
 
 //sprinkler system
 $updates['2020-05-13 10:00:51'][]="ALTER TABLE gpio ADD sprinkler_run TEXT";
+$updates['2020-05-27 09:00:51'][]="ALTER TABLE gpio ADD sprinkler_trig TEXT";
 
 
 

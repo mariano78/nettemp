@@ -1,4 +1,10 @@
 <?php
+
+//select triggers for field
+$sth = $db->prepare("SELECT * FROM sensors WHERE type='trigger'");
+$sth->execute();
+$result = $sth->fetchAll();
+
 $sprinklerexit = isset($_POST['sprinklerexit']) ? $_POST['sprinklerexit'] : '';
 if (($sprinklerexit == "sprinklerexit") ){
 	include('gpio_off.php');
@@ -48,11 +54,26 @@ if ($sprinklerrun == "off")  {
     {
     include('gpio_day_plan.php'); 
 ?>
+
+	<form class="form-horizontal" action="" method="post" style="display:inline!important;">	
+		<select name="f1" class="form-control input-sm">
+		<option value="off">off</option>
+		<?php 
+		
+			foreach ($result as $select) { ?>
+			<option value="<?php echo $select['rom']; ?>" <?php echo $select['rom']==$sprinkler_trig ? 'selected="selected"' : ''; ?> ><?php echo $select['name']." ".$select['tmp'] ?></option>
+			
+		<?php } ?>
+		</select>
+		<input type="hidden" name="set_trigger" value="set_trigger" />
+    </form>
+	
     <form action="" method="post" style=" display:inline!important;">
 	<input type="hidden" name="gpio" value="<?php echo $a['gpio']; ?>"/>
 	<button type="submit" class="btn btn-xs btn-success">ON</button>
 	<input type="hidden" name="sprinklerrun" value="on" />
     </form>
+	
     <form action="" method="post" style=" display:inline!important;">
 	<input type="hidden" name="sprinkleroff" value="off" />
 	<button type="submit" class="btn btn-xs btn-danger">Exit</button>
