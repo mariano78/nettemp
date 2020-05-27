@@ -32,6 +32,16 @@ if ($sprinklerrun == "off")  {
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();	
     }
+	
+$select_sprinkler_trig=isset($_POST['select_sprinkler_trig']) ? $_POST['select_sprinkler_trig'] : '';
+$set_sprinkler_trigger=isset($_POST['set_sprinkler_trigger']) ? $_POST['set_sprinkler_trigger'] : '';
+
+if(!empty($set_sprinkler_trigger) && ($set_sprinkler_trigger == "set_trigger")) { 
+	$db = new PDO('sqlite:dbf/nettemp.db');
+	$db->exec("UPDATE gpio SET sprinkler_trig='$select_sprinkler_trig' WHERE gpio='$gpio_post' AND rom='$rom'");
+	header("location: " . $_SERVER['REQUEST_URI']);
+	exit();	
+}
 
 
     $sprinkler_run=$a['sprinkler_run'];
@@ -54,9 +64,9 @@ if ($sprinklerrun == "off")  {
     {
     include('gpio_day_plan.php'); 
 ?>
-	<label class="col-md-2 control-label" for="selectbasic">Watering trigger</label>
+	<label class="col-md-1 control-label" for="selectbasic">Watering trigger</label>
 	<form class="form-horizontal" action="" method="post" style="display:inline!important;">
-	<div class="col-md-2">	
+	<div class="col-md-1">	
 		<select name="select_sprinkler_trig" class="form-control input-sm">
 		<option value="off">None</option>
 		<?php 
