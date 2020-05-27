@@ -61,6 +61,8 @@ $row = $rows->fetchAll();
 								foreach ($row3 as $as) {
 						
 								$sprinkler_trig_tmp=$as['tmp'];
+								echo $sprinkler_trig_tmp ;
+								echo sprinkler_trig;
 						
 								}
 								if ($sprinkler_trig = 'off' || $sprinkler_trig_tmp = '1.0') {
