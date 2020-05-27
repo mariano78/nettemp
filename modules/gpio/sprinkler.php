@@ -21,13 +21,8 @@ $row = $rows->fetchAll();
 				if ($lock=='user') {
 					
 					$db->exec("UPDATE day_plan SET active='off' WHERE gpio='$gpio' AND rom='$rom' ");
-					//tutal jest lock
+					logs(date("Y-m-d H:i:s"),'Info',$rom." - Sprinkler is in manual mode");
 				}   else {
-					
-					
-					
-					
-					
 						$day=date("D");
 						$time=date("Hi");
 						$rows = $db->query("SELECT * FROM day_plan WHERE gpio=$gpio AND rom='$rom' AND (Mon='$day' OR Tue='$day' OR Wed='$day' OR Thu='$day' OR Fri='$day' OR Sat='$day' OR Sun='$day')");
@@ -71,18 +66,20 @@ $row = $rows->fetchAll();
 								if ($sprinkler_trig = 'off' || $sprinkler_trig_tmp = '1.0') {
 								
 									gp_onoff($gpio,$rom,$ip,$rev,'on');
+									logs(date("Y-m-d H:i:s"),'Info',$rom." - Sprinkler is ON");
 								}
 				
 								} else {
 									
 									gp_onoff($gpio,$rom,$ip,$rev,'off');
+									logs(date("Y-m-d H:i:s"),'Info',$rom." - Sprinkler is OFF");
 								}
 							
 							
 							} else {
 								$db->exec("UPDATE day_plan SET active='off' WHERE gpio='$gpio' AND rom='$rom' ");
-								//$content = date('Y M d H:i:s')." GPIO ".$gpio.", name: ".$name." - Nothing to do - no dayplan.\n";
 								gp_onoff($gpio,$rom,$ip,$rev,'off');
+								logs(date("Y-m-d H:i:s"),'Info',$rom." - Sprinkler - Nothing to do - no dayplan");
 								}
 							
 			
