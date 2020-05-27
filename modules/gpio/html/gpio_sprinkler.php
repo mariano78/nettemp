@@ -67,7 +67,7 @@ if(!empty($set_sprinkler_trigger) && ($set_sprinkler_trigger == "set_trigger")) 
 ?>
 	<label class="col-md-1 control-label" for="selectbasic">Watering trigger</label>
 	<form class="form-horizontal" action="" method="post" style="display:inline!important;">
-	<div class="col-md-1">	
+	<div class="col-md-2">	
 		<select name="select_sprinkler_trigger" class="form-control input-sm" onchange="this.form.submit()" >
 		<option value="off">None</option>
 		<?php 
