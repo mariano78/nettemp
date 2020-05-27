@@ -55,8 +55,9 @@ if ($sprinklerrun == "off")  {
     include('gpio_day_plan.php'); 
 ?>
 
-	<form class="form-horizontal" action="" method="post" style="display:inline!important;">	
-		<select name="f1" class="form-control input-sm">
+	<form class="form-horizontal" action="" method="post" style="display:inline!important;">
+	<div class="col-md-2">	
+		<select name="select_sprinkler_trig" class="form-control input-sm">
 		<option value="off">None</option>
 		<?php 
 		
@@ -65,7 +66,8 @@ if ($sprinklerrun == "off")  {
 			
 		<?php } ?>
 		</select>
-		<input type="hidden" name="set_trigger" value="set_trigger" />
+		<input type="hidden" name="set_sprinkler_trigger" value="set_trigger" />
+	</div>
     </form>
 	
     <form action="" method="post" style=" display:inline!important;">
