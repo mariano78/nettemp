@@ -125,12 +125,16 @@ function gpio_onoff($gpio,$rom,$action,$rev){
 	
 	if($action=='on'&&$rev=='on'){
 		$set='0';
+		$tmp='0.0';
 	} elseif ($action=='on'&&$rev==''){
 		$set='1';
+		$tmp='1.0';
 	} elseif ($action=='off'&&$rev=='on'){
 		$set='1';
+		$tmp='1.0';
 	} elseif ($action=='off'&&$rev==''){
 		$set='0';
+		$tmp='0.0';
 	}
 	
 	if ($gpio >= '100') {
