@@ -85,7 +85,7 @@ $active2 = isset($_POST['active2']) ? $_POST['active2'] : '';
 	<input type="hidden" name="dprom" value="<?php echo $a['rom']; ?>"/>
 	<td><button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span> </button></td>
 	<th></th>
-	<th></th>
+
 	</form>
     </tr> 
 <?php
