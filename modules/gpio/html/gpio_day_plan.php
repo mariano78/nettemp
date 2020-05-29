@@ -12,12 +12,13 @@ $sun = isset($_POST['sun']) ? $_POST['sun'] : '';
 $del = isset($_POST['del']) ? $_POST['del'] : '';
 $dpgpio = isset($_POST['dpgpio']) ? $_POST['dpgpio'] : '';
 $dprom = isset($_POST['dprom']) ? $_POST['dprom'] : '';
+$active2 = isset($_POST['active2']) ? $_POST['active2'] : '';
 
 	$dpdd1 = isset($_POST['add1']) ? $_POST['add1'] : '';
 	if ($dpdd1 == 'add2'){
 	$db = new PDO('sqlite:dbf/nettemp.db');
 	$name=str_replace(' ', '_', $name);
-	$db->exec("INSERT OR IGNORE INTO day_plan (name, Mon, Tue, Wed, Thu, Fri, Sat, Sun, stime, etime, gpio,rom) VALUES ('$name','$mon', '$tue', '$wed', '$thu', '$fri', '$sat', '$sun', '$stime', '$etime', '$dpgpio','$dprom') ") or die ($db->lastErrorMsg());
+	$db->exec("INSERT OR IGNORE INTO day_plan (name, Mon, Tue, Wed, Thu, Fri, Sat, Sun, stime, etime, gpio,rom,active2) VALUES ('$name','$mon', '$tue', '$wed', '$thu', '$fri', '$sat', '$sun', '$stime', '$etime', '$dpgpio','$dprom', 'on') ") or die ($db->lastErrorMsg());
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();
 	}
@@ -26,7 +27,7 @@ $dprom = isset($_POST['dprom']) ? $_POST['dprom'] : '';
 	$week_plan_id = isset($_POST['week_plan_id']) ? $_POST['week_plan_id'] : '';
 	if ($week_plan == 'edit'){
 		$db = new PDO('sqlite:dbf/nettemp.db');
-		$db->exec("UPDATE day_plan SET Mon='$mon', Tue='$tue', Wed='$wed', Thu='$thu', Fri='$fri', Sat='$sat', Sun='$sun', stime='$stime', etime='$etime' WHERE id='$week_plan_id'") or die($week_plan_id."\n".$etime."\n".$stime."\n".$wed);
+		$db->exec("UPDATE day_plan SET Mon='$mon', Tue='$tue', Wed='$wed', Thu='$thu', Fri='$fri', Sat='$sat', Sun='$sun', stime='$stime', etime='$etime', active2 = '$active2' WHERE id='$week_plan_id'") or die($week_plan_id."\n".$etime."\n".$stime."\n".$wed);
 		header("location: " . $_SERVER['REQUEST_URI']);
 		exit();
 	}
@@ -60,6 +61,7 @@ $dprom = isset($_POST['dprom']) ? $_POST['dprom'] : '';
 <th>Sun</th>
 <th>Start hour</th>
 <th>End hour</th>
+<th>Active</th>
 <th></th>
 <th></th>
 </tr>
@@ -105,6 +107,7 @@ foreach ($result as $dp) {
 	<td><input type="checkbox" name="sun" value="Sun" <?php echo $dp['Sun'] == 'Sun' ? 'checked="checked"' : ''; ?>/></td>
 	<td><input type="text" name="stime" value="<?php echo $dp["stime"];?>" class="form-control" required="" placeholder="07:00"/></td>
 	<td><input type="text" name="etime" value="<?php echo $dp["etime"];?>" class="form-control" required="" placeholder="19:00"/></td>
+	<td><input type="checkbox" name="active2" value="on" <?php echo $dp['active2'] == 'on' ? 'checked="checked"' : ''; ?>/></td>
 	
 	
 	
