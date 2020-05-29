@@ -56,16 +56,17 @@ $row = $rows->fetchAll();
 								$numRows2 = count($func2);
 								if ( $numRows2 > '0' ) {	
 								
-								$rows3 = $db->query("SELECT tmp FROM sensors WHERE rom = '$sprinkler_trig'");
-								$row3 = $rows3->fetchAll();
-								foreach ($row3 as $as) {
+									$rows3 = $db->query("SELECT tmp FROM sensors WHERE rom = '$sprinkler_trig'");
+									$row3 = $rows3->fetchAll();
+									foreach ($row3 as $as) {
 						
-								$sprinkler_trig_tmp=$as['tmp'];
-								echo $sprinkler_trig_tmp ;
-								echo $sprinkler_trig;
+									$sprinkler_trig_tmp=$as['tmp'];
+									echo $sprinkler_trig_tmp ;
+									echo $sprinkler_trig;
 						
-								}
-								if ($sprinkler_trig = 'off' || $sprinkler_trig_tmp = '1.0') {
+									}
+									
+								if ($sprinkler_trig == 'off' || $sprinkler_trig_tmp == '1.0') {
 								
 									gp_onoff($gpio,$rom,$ip,$rev,'on');
 									logs(date("Y-m-d H:i:s"),'Info',$rom." - Sprinkler is ON");
