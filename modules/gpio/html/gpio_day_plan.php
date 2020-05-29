@@ -77,9 +77,10 @@ $active2 = isset($_POST['active2']) ? $_POST['active2'] : '';
 	<td><input type="checkbox" name="fri" value="Fri" /></td>        
 	<td><input type="checkbox" name="sat" value="Sat" /></td>        
 	<td><input type="checkbox" name="sun" value="Sun" /></td>
-	<td><input type="checkbox" name="active2" value="on" /></td>
+	
 	<td><input type="text" name="stime" value="" class="form-control" required="" placeholder="07:00"/></td>
 	<td><input type="text" name="etime" value="" class="form-control" required="" placeholder="19:00"/></td>
+	<td><input type="checkbox" name="active2" value="on" /></td>
 	<input type="hidden" name="add1" value="add2" />
 	<input type="hidden" name="dpgpio" value="<?php echo $gpio; ?>" />
 	<input type="hidden" name="dprom" value="<?php echo $a['rom']; ?>"/>
