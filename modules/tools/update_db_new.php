@@ -311,6 +311,11 @@ $updates['2020-03-25 10:00:05'][]="ALTER TABLE ownlinks ADD logon TEXT";
 $updates['2020-05-13 10:00:51'][]="ALTER TABLE gpio ADD sprinkler_run TEXT";
 $updates['2020-05-27 09:00:51'][]="ALTER TABLE gpio ADD sprinkler_trig TEXT";
 
+//Own variables
+$updates['2020-05-29 11:39:40'][]="CREATE TABLE ovariables (id INTEGER PRIMARY KEY, name TEXT, value TEXT )";
+$updates['2020-05-29 11:40:08'][]="INSERT INTO ovariables ('name', 'value') VALUES ('deszcz24','0.3')";
+$updates['2020-05-29 11:40:10'][]="INSERT INTO ovariables ('name', 'value') VALUES ('deszcz48','1.3')";
+
 
 
 ?>
