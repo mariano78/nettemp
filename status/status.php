@@ -92,6 +92,7 @@ Go to device scan!
 			include('status/minmax_status.php');
 		}else  if ($module == "Counters") {
 			include('status/counters_status.php');
+			include('status/controls2.php');
 		}else  if ($module == "Controls/GPIO") {
 			include('status/controls.php');
 			include('status/controls2.php');
