@@ -18,7 +18,7 @@ $active2 = isset($_POST['active2']) ? $_POST['active2'] : '';
 	if ($dpdd1 == 'add2'){
 	$db = new PDO('sqlite:dbf/nettemp.db');
 	$name=str_replace(' ', '_', $name);
-	$db->exec("INSERT OR IGNORE INTO day_plan (name, Mon, Tue, Wed, Thu, Fri, Sat, Sun, stime, etime, gpio,rom,active2) VALUES ('$name','$mon', '$tue', '$wed', '$thu', '$fri', '$sat', '$sun', '$stime', '$etime', '$dpgpio','$dprom', 'on') ") or die ($db->lastErrorMsg());
+	$db->exec("INSERT OR IGNORE INTO day_plan (name, Mon, Tue, Wed, Thu, Fri, Sat, Sun, stime, etime, gpio,rom,active2) VALUES ('$name','$mon', '$tue', '$wed', '$thu', '$fri', '$sat', '$sun', '$stime', '$etime', '$dpgpio','$dprom', '$active2') ") or die ($db->lastErrorMsg());
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();
 	}
@@ -77,7 +77,6 @@ $active2 = isset($_POST['active2']) ? $_POST['active2'] : '';
 	<td><input type="checkbox" name="fri" value="Fri" /></td>        
 	<td><input type="checkbox" name="sat" value="Sat" /></td>        
 	<td><input type="checkbox" name="sun" value="Sun" /></td>
-	
 	<td><input type="text" name="stime" value="" class="form-control" required="" placeholder="07:00"/></td>
 	<td><input type="text" name="etime" value="" class="form-control" required="" placeholder="19:00"/></td>
 	<td><input type="checkbox" name="active2" value="on" /></td>
