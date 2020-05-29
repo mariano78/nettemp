@@ -40,12 +40,11 @@ $row = $rows->fetchAll();
 									$etime=str_replace(':', '', $etime);
 									
 								if($time >= $stime && $time < $etime) {
-									//$status='on';	
+
 									$db->exec("UPDATE day_plan SET active='on' WHERE gpio='$gpio' AND rom='$rom' AND id='$w_profile_id' ");	
 									
 									} else {
-										
-										//$status='off';
+	
 										$db->exec("UPDATE day_plan SET active='off' WHERE gpio='$gpio' AND rom='$rom' AND id='$w_profile_id' ");									
 										
 										}
@@ -54,7 +53,7 @@ $row = $rows->fetchAll();
 								$rows2 = $db->query("SELECT * FROM day_plan WHERE gpio=$gpio AND rom='$rom' AND active='on'");
 								$func2 = $rows2->fetchAll();
 								$numRows2 = count($func2);
-								if ( $numRows2 > '0' ) {	
+								if ( $numRows2 > '0' && ($sprinkler_trig == 'off' || $sprinkler_trig_tmp == '1.0') ) {	
 								
 									$rows3 = $db->query("SELECT tmp FROM sensors WHERE rom = '$sprinkler_trig'");
 									$row3 = $rows3->fetchAll();
@@ -66,11 +65,11 @@ $row = $rows->fetchAll();
 						
 									}
 									
-								if ($sprinkler_trig == 'off' || $sprinkler_trig_tmp == '1.0') {
+								
 								
 									gp_onoff($gpio,$rom,$ip,$rev,'on');
 									logs(date("Y-m-d H:i:s"),'Info',$rom." - Sprinkler is ON");
-								}
+								
 				
 								} else {
 									
