@@ -94,6 +94,7 @@ Go to device scan!
 			include('status/counters_status.php');
 		}else  if ($module == "Controls/GPIO") {
 			include('status/controls.php');
+			include('status/controls2.php');
 		}else  if ($module == "Meteo") {
 			include('status/meteo_status.php');
 		}else  if ($module == "IP Cam") {
