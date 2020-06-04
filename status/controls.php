@@ -444,7 +444,7 @@ if ($nts_hide_gpio == 'off') {
                     unset($state);
                     
 					if($g['mode']!='temp' & $g['mode']=='simple') { echo '<td class="col-md-1"></td><td></td><td></td>';}
-                    elseif($g['mode']!='temp' & $g['mode']=='day') {?>
+                    elseif($g['mode']!='temp' & ($g['mode']=='day' || $g['mode']=='sprinkler')) {?>
 					
 					
 					
