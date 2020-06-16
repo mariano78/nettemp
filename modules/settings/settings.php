@@ -18,7 +18,7 @@
 <a href="index.php?id=settings&type=types" ><button class="btn btn-xs btn-default <?php echo $art == 'types' ? 'active' : ''; ?>">Types</button></a>
 <a href="index.php?id=settings&type=stats" ><button class="btn btn-xs btn-default <?php echo $art == 'stats' ? 'active' : ''; ?>">Stats</button></a>
 <a href="index.php?id=settings&type=global" ><button class="btn btn-xs btn-default <?php echo $art == 'global' ? 'active' : ''; ?>">Global</button></a>
-<a href="index.php?id=settings&type=scripts" ><button class="btn btn-xs btn-default <?php echo $art == 'script' ? 'active' : ''; ?>">Scripts</button></a>
+<a href="index.php?id=settings&type=scripts" ><button class="btn btn-xs btn-default <?php echo $art == 'scripts' ? 'active' : ''; ?>">Scripts</button></a>
 </p>
 <?php  
 switch ($art)
