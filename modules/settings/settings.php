@@ -18,6 +18,7 @@
 <a href="index.php?id=settings&type=types" ><button class="btn btn-xs btn-default <?php echo $art == 'types' ? 'active' : ''; ?>">Types</button></a>
 <a href="index.php?id=settings&type=stats" ><button class="btn btn-xs btn-default <?php echo $art == 'stats' ? 'active' : ''; ?>">Stats</button></a>
 <a href="index.php?id=settings&type=global" ><button class="btn btn-xs btn-default <?php echo $art == 'global' ? 'active' : ''; ?>">Global</button></a>
+<a href="index.php?id=settings&type=scripts" ><button class="btn btn-xs btn-default <?php echo $art == 'script' ? 'active' : ''; ?>">Scripts</button></a>
 </p>
 <?php  
 switch ($art)
@@ -41,5 +42,6 @@ case 'mysql': include('modules/mysql/mysql.php'); break;
 case 'types': include('modules/settings/types.php'); break;
 case 'stats': include('modules/settings/stats.php'); break;
 case 'global': include('modules/settings/global.php'); break;
+case 'scripts': include('modules/settings/scripts.php'); break;
 }
 ?>
