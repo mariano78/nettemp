@@ -5,7 +5,7 @@
     $unit2 = isset($_POST['unit2']) ? $_POST['unit2'] : '';
     $title = isset($_POST['title']) ? $_POST['title'] : '';
 	$ico = isset($_POST['ico']) ? $_POST['ico'] : '';
-    $save_id = isset($_POST['save_id']) ? $_POST['save_id'] : '';
+    
 	$add = isset($_POST['add']) ? $_POST['add'] : '';
 	$min = isset($_POST['min']) ? $_POST['min'] : '';
 	$max = isset($_POST['max']) ? $_POST['max'] : '';
@@ -28,9 +28,12 @@
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
-    if ($add == 'del1'){
+	
+	$del = isset($_POST['del']) ? $_POST['del'] : '';
+	$del_id = isset($_POST['del_id']) ? $_POST['del_id'] : '';
+    if ($del == 'del1'){
     $db = new PDO('sqlite:dbf/nettemp.db');
-	 $db->exec("DELETE FROM types WHERE id='$save_id'") or die ("cannot insert to DB");
+	 $db->exec("DELETE FROM ovariables WHERE id='$del_id'") or die ("cannot insert to DB");
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
@@ -38,7 +41,7 @@
 ?>
 
 <div class="panel panel-default">
-<div class="panel-heading">Varibles</div>
+<div class="panel-heading">Variables</div>
 
 <div class="table-responsive">
 <table class="table table-hover table-condensed small" border="0">
@@ -63,12 +66,18 @@ $row = $rows->fetchAll();
 	<td class="col-md-0">
 		<form action="" method="post" style="display:inline!important;">
 			<input type="text" name="type" size="10" maxlength="30" value="<?php echo $a['name']; ?>" class="form-control input-sm"/>
+			<input type="hidden" name="id" value="<?php echo $a['id']; ?>" />
+			<input type="hidden" name="mod_name" value="mod_name" />
+			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 		</form>
     </td>
     
 	<td class="col-md-0">
 		<form action="" method="post" style="display:inline!important;">
 			<input type="text" name="unit" size="10" maxlength="30" value="<?php echo $a['value']; ?>" class="form-control input-sm"/>
+			<input type="hidden" name="id" value="<?php echo $a['id']; ?>" />
+			<input type="hidden" name="mod_val" value="mod_val" />
+			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 		</form>
     </td>
     
@@ -76,9 +85,9 @@ $row = $rows->fetchAll();
     <td class="col-md-0">
 		<form action="" method="post" style="display:inline!important;">
 			<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> </button>
-			<input type="hidden" name="save_id" value="<?php echo $a['id']; ?>" />
-			<input type="hidden" name="add" value="del1"/>
-		/form>
+			<input type="hidden" name="del_id" value="<?php echo $a['id']; ?>" />
+			<input type="hidden" name="del" value="del1"/>
+		</form>
     </td>
 </tr>
    
