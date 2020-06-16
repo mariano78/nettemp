@@ -1,5 +1,6 @@
 <!-- Create a simple CodeMirror instance -->
 <script src="../common/codemirror/php/php.js"></script>
+<script src="../common/codemirror/clike/clike.js"></script>
 <div class="panel panel-default">
 <div class="panel-heading"><h3 class="panel-title">Scripts</h3></div>
 <div class="panel-body">
