@@ -34,261 +34,58 @@
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
-    if ($add == "default") { 
-    $db = new PDO("sqlite:dbf/nettemp.db");	
-    $db->exec("DELETE from types") or header("Location: html/errors/db_error.php");
-	
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max, value1, value2, value3) VALUES ('temp', '°C', '°F', 'media/ico/temp2-icon.png' ,'Temperature','-150', '3000', '85', '185' ,'127.9')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('lux', 'lux', 'lux', 'media/ico/sun-icon.png' ,'Lux','0','100000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('humid', '%', '%', 'media/ico/rain-icon.png' ,'Humidity','0', '110')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('press', 'hPa', 'hPa', 'media/ico/Science-Pressure-icon.png' ,'Pressure','0','10000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('water', 'm3', 'm3', 'media/ico/water-icon.png' ,'Water','0', '100')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('gas', 'm3', 'm3', 'media/ico/gas-icon.png' ,'Gas','0', '100')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('elec', 'kWh', 'W', 'media/ico/Lamp-icon.png' ,'Electricity','0', '99999999')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('watt', 'W', 'W', 'media/ico/watt.png' ,'Watt','-10000', '10000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('volt', 'V', 'V', 'media/ico/volt.png' ,'Volt','-10000', '10000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('amps', 'A', 'A', 'media/ico/amper.png' ,'Amps','0', '10000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('dist', 'cm', 'cm', 'media/ico/Distance-icon.png' ,'Distance','0', '100000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('trigger', '', '', 'media/ico/alarm-icon.png' ,'Trigger','0', '100000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('rainfall', 'mm/m2', 'mm/m2', 'media/ico/showers.png' ,'Rainfall','0', '10000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('speed', 'km/h', 'km/h', 'media/ico/Wind-Flag-Storm-icon.png' ,'Speed','0', '10000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('wind', '°', '°', 'media/ico/compass.png' ,'Wind','0', '10000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('uv', 'index', 'index', '' ,'UV','0', '10000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('storm', 'km', 'km', 'media/ico/storm-icon.png' ,'Storm','0', '10000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('lightining', '', '', 'media/ico/thunder-icon.png' ,'Lightining','0', '10000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('host', 'ms', 'ms', 'media/ico/Computer-icon.png' ,'Host','0', '10000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('system', '%', '%', '' ,'System','0', '100',)");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('gpio', 'H/L', '', 'media/ico/gpio2.png' ,'GPIO','-1000', '1000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('group', '', '', '' ,'', '', '')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('relay', 'H/L', '', 'media/ico/Switch-icon.png' ,'Relay','-1000', '1000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('battery', '%', '', 'media/ico/Battery-icon.png' ,'Battery','0', '100')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('rssi', 'rssi', '', 'media/ico/wifi-icon.png' ,'RSSI','-1000', '1000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('switch', 'H/L', '', 'media/ico/Switch-icon.png' ,'Switch','-1000', '1000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('gust', 'km/h', '', 'media/ico/gust.png' ,'Gust','0', '255')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('dust', 'μg/m^3', '', 'media/ico/Weather-Dust-icon.png' ,'Dust','-4000', '4000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('max24', '', '', 'media/ico/max-icon.png' ,'Max 24','0', '10000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('maxweek', '', '', 'media/ico/max-icon.png' ,'Max Week','0', '10000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('maxmonth', '', '', 'media/ico/max-icon.png' ,'Max Month','0', '10000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('sunrise', '', '', 'media/ico/sunrise-icon.png' ,'Sunrise','0', '1000000000000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('sunset', '', '', 'media/ico/sunset-icon.png' ,'Sunset','0', '1000000000000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('airquality', 'CAQI', 'CAQI', 'media/ico/airly.png' ,'Air Quality','0', '100')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('air_pm_25', 'μg/m3', 'μg/m3', 'media/ico/airly.png' ,'PM 2.5','0', '1000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('air_pm_10', 'μg/m3', 'μg/m3', 'media/ico/airly.png' ,'PM 10','0', '1000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('min24', '', '', 'media/ico/min-icon.png' ,'Min 24','-10000', '10000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('minweek', '', '', 'media/ico/min-icon.png' ,'Min Week','-10000', '10000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('minmonth', '', '', 'media/ico/min-icon.png' ,'Min Month','-10000', '10000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('elecesp', 'kWh', 'W', 'media/ico/Lamp-icon.png' ,'Electricity','0', '99999999')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('dewpoint', '°C', '°F', 'media/ico/Dewpoint-icon.png' ,'Temperature','-1000', '1000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('cpuusage', '%', '%', 'media/ico/processor-icon.png' ,'CPU Usage','0', '100')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('memoryusage', '%', '%', 'media/ico/ram-icon.png' ,'Memory Usage','0', '100')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('freespace', 'GB', 'GB', 'media/ico/disc-icon.png' ,'Free disk space','0', '1000000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('frequency', 'Hz', 'kHz', 'media/ico/freq-icon.png' ,'Frequency','0', '1000000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('kwatt', 'kWh', 'kWh', 'media/ico/watt.png' ,'kWh','-10000', '1000000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('varh', 'kvarh', 'kvarh', 'media/ico/varh-icon.png' ,'Reactive Energy','-000000', '1000000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('va', 'VA', 'VA', 'media/ico/va-icon.png' ,'Apparent Power','-100000', '1000000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('var', 'var', 'var', 'media/ico/var-icon.png' ,'Reactive Power','-1000000', '1000000')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('cosfi', '', '', 'media/ico/cosfi-icon.png' ,'Cosfi','0', '100')");
-$db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('ph', '', '', 'media/ico/ph-icon.png' ,'pH','0', '100')");
 
-
-
-
-    header("location: " . $_SERVER['REQUEST_URI']);
-    exit();	
-    }
 ?>
 
 <div class="panel panel-default">
-<div class="panel-heading">Types</div>
+<div class="panel-heading">Varibles</div>
 
 <div class="table-responsive">
 <table class="table table-hover table-condensed small" border="0">
 
 <?php
-$rows = $db->query("SELECT * FROM types");
+$rows = $db->query("SELECT * FROM ovariables");
 $row = $rows->fetchAll();
 ?>
 <thead>
 <tr>
-<th></th>
-<th>Type</th>
-<th>Unit</th>
-<th>Unit2</th>
-<th>ICO</th>
-<th>Title</th>
-<th>Min</th>
-<th>Max</th>
-<th>Exclude Value1</th>
-<th>Exclude Value2</th>
-<th>Exclude Value3</th>
-<th></th>
-<th></th>
+<th>Name</th>
+<th>Value</th>
+<th>Delete</th>
 </tr>
 </thead>
 
-
-<tr>
-	 <td>
-	 </td>
-	 <td class="col-md-0">
-    <form action="" method="post" style="display:inline!important;">
-		<input type="text" name="type" size="10" maxlength="30" value="" class="form-control input-sm"/>
-    </td>
-     <td class="col-md-0">
-		<input type="text" name="unit" size="10" maxlength="30" value="" class="form-control input-sm"/>
-    </td>
-     <td class="col-md-0">
-		<input type="text" name="unit2" size="10" maxlength="30" value="" class="form-control input-sm"/>
-    </td>
-    <td class="col-md-0">
-		<select name="ico" class="form-control input-sm">
-		<?php
-		$dir = "media/ico";
-		$files = scandir($dir);
-		sort($files);
-		foreach ($files as $filename) {
-			if(($filename!='.') && ($filename!='..')) 
-			{
-			?>
-			<option <?php $dir."/".$filename ? 'selected="selected"' : ''; ?> value="<?php echo $dir."/".$filename; ?>"> <?php echo $filename; ?></option>
-			<?php
-			}
-		}
-		?>
-		</select>
-    </td>
-	<td class="col-md-0">
-		<input type="text" name="title" size="10" maxlength="30" value="" class="form-control input-sm"/>
-    </td>
-    <td class="col-md-0">
-		<input type="text" name="min" size="10" maxlength="30" value="" class="form-control input-sm"/>
-    </td>
-    <td class="col-md-0">
-		<input type="text" name="max" size="10" maxlength="30" value="" class="form-control input-sm"/>
-    </td>
-    <td class="col-md-0">
-		<input type="text" name="value1" size="10" maxlength="30" value="" class="form-control input-sm"/>
-    </td>
-    <td class="col-md-0">
-		<input type="text" name="value2" size="10" maxlength="30" value="" class="form-control input-sm"/>
-    </td>
-    <td class="col-md-0">
-		<input type="text" name="value3" size="10" maxlength="30" value="" class="form-control input-sm"/>
-    </td>
-    
-    
-    
-    <td class="col-md-0">
-	
-    </td>
-    <td class="col-md-0">
-		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span> </button>
-		<input type="hidden" name="add" value="add1"/>
-    </form>
-    </td>
-</tr>
 <?php 
    foreach ($row as $a) { 	
 	?>
 <tr>
-	 <td>
-	 <?php echo $type="<img src=\"".$a['ico']."\" alt=\"\" title=\"".$a['title']."\"/>"; ?>
-	 </td>
-	 <td class="col-md-0">
-    <form action="" method="post" style="display:inline!important;">
-		<input type="text" name="type" size="10" maxlength="30" value="<?php echo $a['type']; ?>" class="form-control input-sm"/>
-    </td>
-     <td class="col-md-0">
-		<input type="text" name="unit" size="10" maxlength="30" value="<?php echo $a['unit']; ?>" class="form-control input-sm"/>
-    </td>
-     <td class="col-md-0">
-		<input type="text" name="unit2" size="10" maxlength="30" value="<?php echo $a['unit2']; ?>" class="form-control input-sm"/>
-    </td>
-    <td class="col-md-0">
-   
-    <select name="ico" class="form-control input-sm">
-    <?php
-		foreach ($files as $filename) {
-			if(($filename!='.') && ($filename!='..')) 
-			{
-			?>
-			<option <?php echo $a['ico'] == $dir."/".$filename ? 'selected="selected"' : ''; ?> value="<?php echo $dir."/".$filename; ?>"> <?php echo $filename; ?></option>
-			<?php
-			}
-		}
-	?>
-	</select>
-        
-    </td>
-    <td class="col-md-0">
-		<input type="text" name="title" size="10" maxlength="30" value="<?php echo $a['title']; ?>" class="form-control input-sm"/>
-    </td>
-    <td class="col-md-0">
-		<input type="text" name="min" size="10" maxlength="30" value="<?php echo $a['min']; ?>" class="form-control input-sm"/>
-    </td>
+	 
 	<td class="col-md-0">
-		<input type="text" name="max" size="10" maxlength="30" value="<?php echo $a['max']; ?>" class="form-control input-sm"/>
+		<form action="" method="post" style="display:inline!important;">
+			<input type="text" name="type" size="10" maxlength="30" value="<?php echo $a['name']; ?>" class="form-control input-sm"/>
+		</form>
     </td>
-    <td class="col-md-0">
-		<input type="text" name="value1" size="10" maxlength="30" value="<?php echo $a['value1']; ?>" class="form-control input-sm"/>
-    </td>
-    <td class="col-md-0">
-		<input type="text" name="value2" size="10" maxlength="30" value="<?php echo $a['value2']; ?>" class="form-control input-sm"/>
-    </td>
+    
 	<td class="col-md-0">
-		<input type="text" name="value3" size="10" maxlength="30" value="<?php echo $a['value3']; ?>" class="form-control input-sm"/>
+		<form action="" method="post" style="display:inline!important;">
+			<input type="text" name="unit" size="10" maxlength="30" value="<?php echo $a['value']; ?>" class="form-control input-sm"/>
+		</form>
     </td>
     
     
-    
     <td class="col-md-0">
-		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-save"></span> </button>
-		<input type="hidden" name="save_id" value="<?php echo $a['id']; ?>" />
-		<input type="hidden" name="save" value="save1"/>
-    </td>
-    </form>
-    <td class="col-md-0">
-    <form action="" method="post" style="display:inline!important;">
-		<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> </button>
-		<input type="hidden" name="save_id" value="<?php echo $a['id']; ?>" />
-		<input type="hidden" name="add" value="del1"/>
-    </form>
+		<form action="" method="post" style="display:inline!important;">
+			<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> </button>
+			<input type="hidden" name="save_id" value="<?php echo $a['id']; ?>" />
+			<input type="hidden" name="add" value="del1"/>
+		/form>
     </td>
 </tr>
    
 <?php
 	}
 	?>
-<tr>
-    <td class="col-md-0">
-    </td>
-    <td class="col-md-0">
-    </td>
-	<td class="col-md-0">
-    </td>
-    <td class="col-md-0">
-    </td>
-    <td class="col-md-0">
-    </td>
-    <td class="col-md-0">
-    </td>
-    <td class="col-md-0">
-    </td>
-    <td class="col-md-0">
-    </td>
-    <td class="col-md-0">
-    </td>
-    <td class="col-md-0">
-    </td>
-    <td class="col-md-0">
-    </td>
-    <td colspan="2" class="col-md-0">
-	 <form action="" method="post" style="display:inline!important;">
-		<button class="btn btn-xs btn-info">Defaults <span class="glyphicon glyphicon-refresh"></span> </button>
-		<input type="hidden" name="add" value="default"/>
-    </form>
-	 </td>
-</tr>
+
 
 
 </table>
