@@ -23,10 +23,10 @@
     exit();
     }
 	
-	
-    if ($add == 'add1'){
+	$addvar = isset($_POST['addvar']) ? $_POST['addvar'] : '';
+    if ($addvar == 'addvar'){
     $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max, value1, value2 ,value3) VALUES ('$type','$unit','$unit2','$ico','$title','$min','$max','$value1','$value2','$value3')") or header("Location: html/errors/db_error.php");
+    $db->exec("INSERT OR IGNORE INTO ovariables (name, value) VALUES ('New variable','0.0')") or header("Location: html/errors/db_error.php");
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
@@ -68,7 +68,7 @@ $row = $rows->fetchAll();
 	 
 	<td class="col-md-2">
 		<form action="" method="post" style="display:inline!important;">
-			<input type="text" name="name" size="5" maxlength="20" value="<?php echo $a['name']; ?>" />
+			<input type="text" name="name" size="10" maxlength="30" value="<?php echo $a['name']; ?>" />
 			<input type="hidden" name="id" value="<?php echo $a['id']; ?>" />
 			<input type="hidden" name="mod_name" value="mod_name" />
 			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
@@ -77,7 +77,7 @@ $row = $rows->fetchAll();
     
 	<td class="col-md-2">
 		<form action="" method="post" style="display:inline!important;">
-			<input type="text" name="value" size="5" maxlength="20" value="<?php echo $a['value']; ?>"/>
+			<input type="text" name="value" size="10" maxlength="30" value="<?php echo $a['value']; ?>"/>
 			<input type="hidden" name="id" value="<?php echo $a['id']; ?>" />
 			<input type="hidden" name="mod_val" value="mod_val" />
 			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
@@ -101,6 +101,14 @@ $row = $rows->fetchAll();
 <?php
 	}
 	?>
+	<tr>
+		<td>Add new variable:
+		<form action="" method="post" style="display:inline!important;">
+			<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-plus"></span> </button>
+			<input type="hidden" name="addvar" value="addvar"/>
+		</form>
+		
+		</td>
 
 
 
