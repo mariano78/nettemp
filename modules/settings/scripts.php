@@ -19,7 +19,7 @@ alert("HI");
 	<script>
             window.onload = function() {
                 window.editor = CodeMirror.fromTextArea(code, {
-                    mode: "javascript",
+                    mode: "php",
                     lineNumbers: true,
                     lineWrapping: true,
                     foldGutter: {
