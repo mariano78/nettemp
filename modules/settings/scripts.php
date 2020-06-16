@@ -1,12 +1,8 @@
-<textarea id="java-code"></textarea>
+<!-- Create a simple CodeMirror instance -->
+<link rel="stylesheet" href="codemirror/codemirror.css">
+<script src="codemirror/codemirror.js"></script>
 <script>
-
- var javaEditor = CodeMirror.fromTextArea(document.getElementById("java-code"), {
-    lineNumbers: true,
-    matchBrackets: true,
-    mode: "text/x-java"
+  var editor = CodeMirror.fromTextArea(myTextarea, {
+    lineNumbers: true
   });
-  var mac = CodeMirror.keyMap.default == CodeMirror.keyMap.macDefault;
-  CodeMirror.keyMap.default[(mac ? "Cmd" : "Ctrl") + "-Space"] = "autocomplete";
-  
- </script>
+</script>
