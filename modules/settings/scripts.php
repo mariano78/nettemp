@@ -7,27 +7,22 @@
 
 
 <form style="width:500px;">
-            <textarea id="code" name="code">
+    <textarea id="code" name="code">
 
-            </textarea>
-        </form>
-		
-		
-		
+    </textarea>
+</form>
 	
-	<script>
+</div>
+</div>
+</div>
+
+<script>
             window.onload = function() {
                 window.editor = CodeMirror.fromTextArea(code, {
-                    mode: "php",
+                    mode: "application/x-httpd-php",
                     lineNumbers: true,
                     lineWrapping: true
                     
                 });
             };
         </script>
-
-
-</div>
-</div>
-</div>
-
