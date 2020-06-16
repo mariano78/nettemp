@@ -8,8 +8,7 @@
 
 <form style="width:500px;">
             <textarea id="code" name="code">
-alert("HI");
-//says HII
+
             </textarea>
         </form>
 		
