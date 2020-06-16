@@ -47,6 +47,8 @@ $_SESSION['nts_theme'] = $nts_theme;
 	
 	<!-- CodeMirror -->
 	<link rel="stylesheet" href="common/codemirror/codemirror.css">
+	<script src="common/codemirror/php/php.js"></script>
+	<script src="common/codemirror/clike/clike.js"></script>
 
 
     <!-- jQuery -->
