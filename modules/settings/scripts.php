@@ -21,11 +21,8 @@ alert("HI");
                 window.editor = CodeMirror.fromTextArea(code, {
                     mode: "php",
                     lineNumbers: true,
-                    lineWrapping: true,
-                    foldGutter: {
-                        rangeFinder: new CodeMirror.fold.combine(CodeMirror.fold.brace, CodeMirror.fold.comment)
-                    },
-                    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
+                    lineWrapping: true
+                    
                 });
             };
         </script>
