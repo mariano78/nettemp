@@ -5,9 +5,9 @@
 <div class="panel-body">
 <div class="grid">
 	
-<script>
-  var myCodeMirror = CodeMirror(document.body);
-</script>
+	<script>
+		var myCodeMirror = CodeMirror(document.body);
+	</script>
 
 
 </div>
