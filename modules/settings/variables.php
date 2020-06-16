@@ -63,7 +63,7 @@ $row = $rows->fetchAll();
 	?>
 <tr>
 	 
-	<td class="col-md-0">
+	<td class="col-md-2">
 		<form action="" method="post" style="display:inline!important;">
 			<input type="text" name="type" size="10" maxlength="30" value="<?php echo $a['name']; ?>" class="form-control input-sm"/>
 			<input type="hidden" name="id" value="<?php echo $a['id']; ?>" />
@@ -72,7 +72,7 @@ $row = $rows->fetchAll();
 		</form>
     </td>
     
-	<td class="col-md-0">
+	<td class="col-md-2">
 		<form action="" method="post" style="display:inline!important;">
 			<input type="text" name="unit" size="10" maxlength="30" value="<?php echo $a['value']; ?>" class="form-control input-sm"/>
 			<input type="hidden" name="id" value="<?php echo $a['id']; ?>" />
@@ -82,7 +82,7 @@ $row = $rows->fetchAll();
     </td>
     
     
-    <td class="col-md-0">
+    <td class="col-md-1">
 		<form action="" method="post" style="display:inline!important;">
 			<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> </button>
 			<input type="hidden" name="del_id" value="<?php echo $a['id']; ?>" />
