@@ -1,7 +1,5 @@
 <!-- Create a simple CodeMirror instance -->
 
 <script>
-  var editor = CodeMirror.fromTextArea(myTextarea, {
-    lineNumbers: true
-  });
+  var myCodeMirror = CodeMirror(document.body);
 </script>
