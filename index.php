@@ -44,10 +44,15 @@ $_SESSION['nts_theme'] = $nts_theme;
 		<?php }
 	
 	?>
+	
+	<!-- CodeMirror -->
+	<link rel="stylesheet" href="common/codemirror/codemirror.css">
+
 
     <!-- jQuery -->
     <script src="html/jquery/jquery-1.11.3.min.js"></script>
     <script src="html/jquery/jquery-migrate-1.2.1.min.js"></script>
+	<script src="common/codemirror/codemirror.js"></script>
 
     <!-- bootstrap-toogle -->
     <link href="html/bootstrap-toggle/bootstrap-toggle.min.css" rel="stylesheet">
