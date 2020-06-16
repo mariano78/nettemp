@@ -101,15 +101,18 @@ $row = $rows->fetchAll();
 <?php
 	}
 	?>
-	<tr>
-		<td>Add new variable:
+<tr>
+	<td>Add variable:
 		<form action="" method="post" style="display:inline!important;">
 			<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-plus"></span> </button>
 			<input type="hidden" name="addvar" value="addvar"/>
-		</form>
+		</form>	
+	</td>
 		
-		</td>
-
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
 
 
 </table>
