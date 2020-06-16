@@ -18,12 +18,13 @@
 </div>
 
 <script>
-            window.onload = function() {
-                window.editor = CodeMirror.fromTextArea(code, {
-                    mode: "application/x-httpd-php",
-                    lineNumbers: true,
-                    lineWrapping: true
-                    
-                });
-            };
-        </script>
+      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        lineNumbers: true,
+        matchBrackets: true,
+        mode: "application/x-httpd-php",
+        indentUnit: 8,
+        indentWithTabs: true,
+        enterMode: "keep",
+        tabMode: "shift"
+      });
+    </script>
