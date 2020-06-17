@@ -6,7 +6,10 @@
 <script src='http://codemirror.net/mode/htmlmixed/htmlmixed.js'></script>
 <link rel='stylesheet' href='http://codemirror.net/lib/codemirror.css'>
 <link rel='stylesheet' href='http://codemirror.net/doc/docs.css'>
-
+<div class="panel panel-default">
+<div class="panel-heading"><h3 class="panel-title">Scripts</h3></div>
+<div class="panel-body">
+<div class="grid">
 
     <textarea id="code" name="code"></textarea>
 
@@ -94,5 +97,6 @@ function loadfile(input){
       editor.setOption("theme", choice);
     }
 </script>
-</body>
-</html>
+</div>
+</div>
+</div>
