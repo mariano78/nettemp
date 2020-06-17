@@ -31,9 +31,11 @@ foreach ($a as $rfile){
 
 
 $(document).ready(function() {
-        $("#show").click(function() {
-                $(".text").load("/var/www/nettemp/tmp/zawor.php");
-    }); 
+    $("#schow").click(function() {
+        $(".code").load("/var/www/nettemp/tmp/zawor.php", function(){
+            alert("Done Loading");
+        });
+   }); 
 }); 
 </script>
 
