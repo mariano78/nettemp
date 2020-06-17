@@ -1,8 +1,4 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>CodeMirror: HTML5 preview</title>
+
 <script src='http://codemirror.net/lib/codemirror.js'></script>
 <script src='http://codemirror.net/mode/xml/xml.js'></script>
 <script src='http://codemirror.net/mode/javascript/javascript.js'></script>
@@ -10,44 +6,11 @@
 <script src='http://codemirror.net/mode/htmlmixed/htmlmixed.js'></script>
 <link rel='stylesheet' href='http://codemirror.net/lib/codemirror.css'>
 <link rel='stylesheet' href='http://codemirror.net/doc/docs.css'>
-<style type='text/css'>
-.CodeMirror {
-    float: left;
-    width: 50%;
-    border: 1px solid black;}
 
-iframe {
-    width: 49%;
-    float: left;
-    height: 300px;
-    border: 1px solid black;
-    border-left: 0px;}
-</style>
-</head>
-<body>
-    <textarea id="code" name="code"><!doctype html>
-<html>
-<head>
-<meta charset=utf-8>
-<title>HTML5 canvas demo</title>
-<style>p {font-family: monospace;}</style>
-</head>
-<body>
-    <p>Canvas pane goes here:</p>
-    <canvas id=pane width=300 height=200></canvas>
 
-    <script>
-      var canvas = document.getElementById('pane');
-      var context = canvas.getContext('2d');
+    <textarea id="code" name="code"></textarea>
 
-      context.fillStyle = 'rgb(250,0,0)';
-      context.fillRect(10, 10, 55, 50);
-
-      context.fillStyle = 'rgba(0, 0, 250, 0.5)';
-      context.fillRect(30, 30, 55, 50);
-    </script>
-</body>
-</html></textarea>
+  
 
     <iframe id="preview"></iframe>
 
