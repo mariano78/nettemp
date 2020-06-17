@@ -20,7 +20,7 @@ print_r($a);
 foreach ($a as $rfile){
 	
 	echo $rfile;
-	?> <input type="button"  id = "show_content" value = " <?php echo "$root/tmp/"."$rfile"; ?> " onchange="loadfile(<?php echo "$root/tmp/"."$rfile"; ?>)">aaa</input>
+	?> <input type="submit"  id = "show_content" value = " <?php echo "$root/tmp/"."$rfile"; ?> " onchange="loadfile(<?php echo "$root/tmp/"."$rfile"; ?>)">aaa</input>
 <?php
 }
 
