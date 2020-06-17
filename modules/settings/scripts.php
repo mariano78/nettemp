@@ -8,7 +8,7 @@
 <div class="controls">
     <select id='select'>
          <option selected>shell</option>
-         <option>php</option>
+         <option>application/x-httpd-php</option>
     </select>
 </div>
 
