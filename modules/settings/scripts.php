@@ -20,18 +20,11 @@ print_r($a);
 foreach ($a as $rfile){
 	
 	echo $rfile;
-	?> <input type="button"  id = "show_content" value = " <?php echo $rfile; ?> " onchange="loadfile(this)">aaa</input>
+	?> <input type="button"  id = "show_content" value = " <?php echo "$root/tmp/"."$rfile"; ?> " onchange="loadfile(this)">aaa</input>
 <?php
 }
 
 ?>
-
-<script type="text/javascript">
-  $("#show_content").click(function(){
-    $("#code").load("$root/tmp/zawor.php");
-  });
-</script>
-
 
 
 <script>
