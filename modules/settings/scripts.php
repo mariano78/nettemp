@@ -1,15 +1,9 @@
-
-
 <div class="panel panel-default">
 <div class="panel-heading"><h3 class="panel-title">Scripts</h3></div>
 <div class="panel-body">
 <div class="grid">
 
     <textarea id="code" name="code"></textarea>
-
-  
-
-    <iframe id="preview"></iframe>
 
     <input type="file" onchange="loadfile(this)">
     <a href="#my-header" onclick='saveTextAsFile()'>Save/Download</a>
@@ -26,20 +20,6 @@ var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
     autoCloseTags: true
 });
 
-// Live preview
-editor.on("change", function() {
-    clearTimeout(delay);
-    delay = setTimeout(updatePreview, 300);
-});
-
-function updatePreview() {
-    var previewFrame = document.getElementById('preview');
-    var preview =  previewFrame.contentDocument ||  previewFrame.contentWindow.document;
-    preview.open();
-    preview.write(editor.getValue());
-    preview.close();
-}
-setTimeout(updatePreview, 300);
 
 function saveTextAsFile() {
     var textToWrite = document.getElementById("code").value;
