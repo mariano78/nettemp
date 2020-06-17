@@ -19,28 +19,12 @@
     </textarea>
 </form>
 
-<div>
-    <input type="file" onchange="localLoad(this.files);" />
-</div>
 	
 </div>
 </div>
 </div>
 
-	<script>
 
-   function localLoad(files) {
-       if (files.length == 1) {
-            document.title = escape(files[0].name);
-            var reader = new FileReader();
-            reader.onload = function(e) {
-              myCodeMirror.setValue(e.target.result);
-            };
-            reader.readAsText(files[0]);
-         }
-    }
-</script>
-</script>
 
 <script>
 
