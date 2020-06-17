@@ -12,6 +12,10 @@
     </select>
 </div>
 
+<textarea id="script_once_code">
+    #!/bin/sh
+</textarea>
+
 
 <form style="width:500px;">
     <textarea id="code" name="code">
@@ -62,6 +66,7 @@
 $('#select').change(function(){
      var emode = $('#select').val();
          editor.setOption("mode", emode); //editor.setOption() is a method for setting styles provided by codeMirror
+		 editor.setValue('dasdadsadsad');
  }); 
 
 	  
