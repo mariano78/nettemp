@@ -17,6 +17,12 @@ $dir = "$root/tmp/";
 $a = scandir($dir);
 print_r($a);
 
+foreach ($a as $rfile){
+	
+	echo $rfile;
+	
+}
+
 ?>
 
 
