@@ -12,13 +12,9 @@
     </select>
 </div>
 
-<textarea id="script_once_code">
-    #!/bin/sh
-</textarea>
-
 
 <form style="width:500px;">
-    <textarea id="code" name="code">
+    <textarea id="code">
 
     </textarea>
 </form>
@@ -69,9 +65,5 @@ $('#select').change(function(){
 		 editor.setValue('dasdadsadsad');
  }); 
 
-	  
-	  
-	  
-	  
-    </script>
+</script>
 	
