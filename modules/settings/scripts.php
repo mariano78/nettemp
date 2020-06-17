@@ -27,7 +27,7 @@ foreach ($a as $rfile){
 ?>
 <script type="text/javascript">
 $(document).ready(function() {
-    $("#schow").click(function() {
+    $("#show").click(function() {
         $.ajax({
             url : "zawor.php",
             dataType: "text",
