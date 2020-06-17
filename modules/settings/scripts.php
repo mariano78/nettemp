@@ -10,7 +10,8 @@
 
 
 <?php
-$dir = "/tmp/";
+$root=$_SERVER["DOCUMENT_ROOT"];
+$dir = "$root/tmp/";
 
 // Sort in ascending order - this is default
 $a = scandir($dir);
