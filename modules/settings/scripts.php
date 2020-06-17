@@ -20,23 +20,7 @@
 </div>
 </div>
 
-<script>
-      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-        lineNumbers: true,
-        matchBrackets: true,
-        mode: "application/x-httpd-php",
-        indentUnit: 8,
-        indentWithTabs: true,
-        enterMode: "keep",
-        tabMode: "shift"
-      });
-    </script>
-	
 	<script>
-   var myCodeMirror = CodeMirror(
-   document.getElementById('editor'), {
-      lineNumbers: true
-   });
 
    function localLoad(files) {
        if (files.length == 1) {
@@ -49,3 +33,16 @@
          }
     }
 </script>
+
+<script>
+      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        lineNumbers: true,
+        matchBrackets: true,
+        mode: "application/x-httpd-php",
+        indentUnit: 8,
+        indentWithTabs: true,
+        enterMode: "keep",
+        tabMode: "shift"
+      });
+    </script>
+	
