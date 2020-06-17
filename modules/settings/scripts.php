@@ -20,7 +20,8 @@ print_r($a);
 foreach ($a as $rfile){
 	
 	echo $rfile;
-	
+	?> <input type="text" value = " <?php echo $rfile; ?> " onchange="loadfile(this)">
+<?php
 }
 
 ?>
