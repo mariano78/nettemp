@@ -29,7 +29,7 @@ foreach ($a as $rfile){
 $(document).ready(function() {
     $("#show").click(function() {
         $.ajax({
-            url : "zawor.php",
+            url : "/var/www/nettemp/tmp/zawor.php",
             dataType: "text",
             success : function (data) {
                 $(".code").html(data);
