@@ -20,11 +20,26 @@ print_r($a);
 foreach ($a as $rfile){
 	
 	echo $rfile;
-	?> <input type="submit"  id = "show_content" value = " <?php echo "$root/tmp/"."$rfile"; ?> " onsubmit="loadfile(<?php echo "$root/tmp/"."$rfile"; ?>)">aaa</input>
+	?> <input type="button"  id = "show" value = " <?php echo "$root/tmp/"."$rfile"; ?> ">
 <?php
 }
 
 ?>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#schow").click(function() {
+        $.ajax({
+            url : "zawor.php",
+            dataType: "text",
+            success : function (data) {
+                $(".code").html(data);
+            }
+        });
+    });
+}); 
+</script>
+
+
 
 
 <script>
