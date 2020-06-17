@@ -3,7 +3,7 @@
 <div class="panel-body">
 <div class="grid">
 
-    <textarea id="code" name="code"></textarea>
+    <textarea id="code" class = "code" name="code"></textarea>
 
     <input type="file" onchange="loadfile(this)">
     <a href="#my-header" onclick='saveTextAsFile()'>Save/Download</a>
@@ -20,7 +20,7 @@ print_r($a);
 foreach ($a as $rfile){
 	
 	echo $rfile;
-	?> <input type="button"  id = "show">
+	?> <input type="button"  id = "show"/>
 <?php
 }
 
