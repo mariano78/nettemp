@@ -7,7 +7,7 @@
 
     <input type="file" onchange="loadfile(this)">
     <a href="#my-header" onclick='saveTextAsFile()'>Save/Download</a>
-
+<div id="div1" ></div>
 
 <?php
 $root=$_SERVER["DOCUMENT_ROOT"];
@@ -32,7 +32,7 @@ foreach ($a as $rfile){
 
 $(document).ready(function() {
     $("#show").click(function() {
-        $("#code").load("/var/www/nettemp/tmp/zawor.php", function(){
+        $("#div1").load("/var/www/nettemp/tmp/zawor.php", function(){
             alert("Done Loading");
         });
    }); 
