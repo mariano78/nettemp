@@ -8,6 +8,24 @@
     <input type="file" onchange="loadfile(this)">
     <a href="#my-header" onclick='saveTextAsFile()'>Save/Download</a>
 
+
+<?php
+$dir = "/tmp/";
+
+// Sort in ascending order - this is default
+$a = scandir($dir);
+
+// Sort in descending order
+$b = scandir($dir,1);
+
+print_r($a);
+print_r($b);
+?>
+
+
+
+
+
 <script>
 var delay;
 
@@ -57,6 +75,10 @@ function loadfile(input){
 }
     reader.readAsText(input.files[0]);}
 
+
+
+
+
     var input = document.getElementById("select");
 
     function selectTheme() {
@@ -71,6 +93,8 @@ function loadfile(input){
       editor.setOption("theme", choice);
     }
 </script>
+
+
 </div>
 </div>
 </div>
