@@ -45,7 +45,7 @@
 <script>
 
 	var editor = CodeMirror.fromTextArea($("#code")[0], { //script_once_code is the ID number of your textarea
-           lineNumbers: true,/ / Whether to display the line number
+			lineNumbers: true,/ / Whether to display the line number
 			matchBrackets: true,
 			mode:"shell",　//Default script encoding
 			lineWrapping:true, / / Is it mandatory to wrap?
@@ -60,7 +60,7 @@
 	  
 	  / / Select interface style JS
 $('#select').change(function(){
-     var etheme = $('#select').val();
+     var emode = $('#select').val();
          editor.setOption("mode", emode); //editor.setOption() is a method for setting styles provided by codeMirror
  }); 
 
