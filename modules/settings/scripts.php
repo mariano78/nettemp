@@ -26,17 +26,14 @@ foreach ($a as $rfile){
 
 ?>
 <script type="text/javascript">
+
+
+
+
 $(document).ready(function() {
-    $("#show").click(function() {
-        $.ajax({
-            url : "/var/www/nettemp/tmp/zawor.php",
-            dataType: "text",
-            success : function (data) {
-                $(".code").html(data);
-				editor.setValue(data);
-            }
-        });
-    });
+        $("#show").click(function() {
+                $(".text").load("/var/www/nettemp/tmp/zawor.php");
+    }); 
 }); 
 </script>
 
