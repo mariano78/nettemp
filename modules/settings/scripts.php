@@ -7,7 +7,7 @@
 
     <input type="file" onchange="loadfile(this)">
     <a href="#my-header" onclick='saveTextAsFile()'>Save/Download</a>
-<div id="div1" ></div>
+<div id="div1" >ssssss</div>
 
 <?php
 $root=$_SERVER["DOCUMENT_ROOT"];
