@@ -33,6 +33,7 @@ $(document).ready(function() {
             dataType: "text",
             success : function (data) {
                 $(".code").html(data);
+				editor.setValue(data);
             }
         });
     });
