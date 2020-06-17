@@ -31,7 +31,7 @@ foreach ($a as $rfile){
 
 
 $(document).ready(function() {
-    $("#show").click(function() {
+    $("show").click(function() {
         $("#div1").load("/var/www/nettemp/tmp/zawor.php", function(){
             alert("Done Loading");
         });
