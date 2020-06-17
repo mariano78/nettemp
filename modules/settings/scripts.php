@@ -113,7 +113,8 @@ function destroyClickedElement(event) {
 function loadfile(input){
     var reader = new FileReader();
     reader.onload = function(e) {
-        document.getElementById('code').value = e.target.result;}
+    editor.setValue(e.target.result);
+}
     reader.readAsText(input.files[0]);}
 
     var input = document.getElementById("select");
