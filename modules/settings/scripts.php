@@ -46,21 +46,15 @@
 
 	var editor = CodeMirror.fromTextArea($("#code")[0], { //script_once_code is the ID number of your textarea
            lineNumbers: true,/ / Whether to display the line number
-           mode:"shell",　//Default script encoding
-          lineWrapping:true, / / Is it mandatory to wrap?
+			matchBrackets: true,
+			mode:"shell",　//Default script encoding
+			lineWrapping:true, / / Is it mandatory to wrap?
+			indentUnit: 8,
+			indentWithTabs: true,
+			enterMode: "keep",
+			tabMode: "shift"
  });
 	
-
-
-      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-        lineNumbers: true,
-        matchBrackets: true,
-        mode: "application/x-httpd-php",
-        indentUnit: 8,
-        indentWithTabs: true,
-        enterMode: "keep",
-        tabMode: "shift"
-      });
 </script>
 <script>	  
 	  
