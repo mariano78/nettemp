@@ -34,10 +34,10 @@ $(document).ready(function() {
     $("#show").click(function() {
         $("#code").load("tmp/zawor.php", function(){
             //alert("Done Loading");
-			
+			editor.refresh();
 });
 			editor.setValue(load("tmp/zawor.php"));
-			editor.refresh();
+			
         });
    }); 
 }); 
