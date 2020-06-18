@@ -41,7 +41,7 @@ fs.readFile('/var/www/nettemp/tmp/zawor.php', function (err, data) {
 
     console.log(data);
 });
-			editor.setValue(load("/var/www/nettemp/tmp/zawor.php"));
+			editor.setValue(load("/tmp/zawor.php"));
 			editor.refresh();
         });
    }); 
