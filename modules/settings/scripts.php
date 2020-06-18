@@ -34,12 +34,7 @@ $(document).ready(function() {
     $("#show").click(function() {
         $("#code").load("/tmp/zawor.php", function(){
             //alert("Done Loading");
-			var fs = require('fs');
-
-fs.readFile('/var/www/nettemp/tmp/zawor.php', function (err, data) {
-                    if (err) throw err;
-
-    console.log(data);
+			
 });
 			editor.setValue(load("/tmp/zawor.php"));
 			editor.refresh();
