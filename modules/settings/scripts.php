@@ -33,8 +33,8 @@ foreach ($a as $rfile){
 $(document).ready(function() {
     $("#show").click(function() {
         $("#code").load("/var/www/nettemp/tmp/zawor.php", function(){
-            alert("Done Loading");
-			fetch('/var/www/nettemp/tmp/zawor.php')
+            //alert("Done Loading");
+			fetch('http://localhost/tmp/zawor.php')
   .then(response => response.text())
   .then((data) => {
     console.log(data)
