@@ -34,6 +34,11 @@ $(document).ready(function() {
     $("#show").click(function() {
         $("#code").load("/var/www/nettemp/tmp/zawor.php", function(){
             alert("Done Loading");
+			fetch('/var/www/nettemp/tmp/zawor.php')
+  .then(response => response.text())
+  .then((data) => {
+    console.log(data)
+  })
 			editor.setValue(load("/var/www/nettemp/tmp/zawor.php"));
 			editor.refresh();
         });
