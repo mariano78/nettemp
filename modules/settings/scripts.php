@@ -34,7 +34,7 @@ $(document).ready(function() {
     $("#show").click(function() {
         $("#code").load("/var/www/nettemp/tmp/zawor.php", function(){
             alert("Done Loading");
-			//editor.setValue("theme");
+			editor.setValue(load("/var/www/nettemp/tmp/zawor.php"));
 			editor.refresh();
         });
    }); 
