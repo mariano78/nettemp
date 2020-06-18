@@ -34,10 +34,13 @@ $(document).ready(function() {
     $("#show").click(function() {
         $("#code").load("/var/www/nettemp/tmp/zawor.php", function(){
             //alert("Done Loading");
-			fetch('http://localhost/tmp/zawor.php')
-  .then( response => response.text() )
-.then( text => console.log(text) )
-  })
+			var fs = require('fs');
+
+fs.readFile('/var/www/nettemp/tmp/zawor.php', function (err, data) {
+                    if (err) throw err;
+
+    console.log(data);
+});
 			editor.setValue(load("/var/www/nettemp/tmp/zawor.php"));
 			editor.refresh();
         });
