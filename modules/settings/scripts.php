@@ -32,11 +32,11 @@ foreach ($a as $rfile){
 
 $(document).ready(function() {
     $("#show").click(function() {
-        $("#code").load("/tmp/zawor.php", function(){
+        $("#code").load("tmp/zawor.php", function(){
             //alert("Done Loading");
 			
 });
-			editor.setValue(load("/tmp/zawor.php"));
+			editor.setValue(load("tmp/zawor.php"));
 			editor.refresh();
         });
    }); 
