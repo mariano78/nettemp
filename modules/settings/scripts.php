@@ -27,7 +27,7 @@ foreach ($a as $rfile){
 ?>
 <script type="text/javascript">
 
-
+var reader = new FileReader();
 
 
 $(document).ready(function() {
