@@ -27,7 +27,7 @@ foreach ($a as $rfile){
 ?>
 <script type="text/javascript">
 
-const fs = require('fs');
+
 
 
 $(document).ready(function() {
