@@ -28,17 +28,11 @@ foreach ($a as $rfile){
 <script type="text/javascript">
 
 
-const fs = require('fs')
+
 
 $(document).ready(function() {
     $("#show").click(function() {
         $("#div1").load("/tmp/zawor.php", function(response, status, xhr){
-			
-			fs.readFile('/tmp/zawor.php', function (err, data) {
-  if (err) throw err;
-  console.log(data);
-});
-			
 			if ( status == "error" ) {
     var msg = "Sorry but there was an error: ";
     console.log(msg);
