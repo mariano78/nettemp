@@ -31,16 +31,15 @@ foreach ($a as $rfile){
 
 
 $(document).ready(function() {
-    $("#show").click(function() {
-        $("#code").load("/tmp/zawor.php", function(){
-            //alert("Done Loading");
-			editor.refresh();
+    $( "#show" ).load( "/tmp/zawor.php", function( response, status, xhr ) {
+  if ( status == "error" ) {
+    var msg = "Sorry but there was an error: ";
+    console.log(msg);
+  }
 });
 			//editor.setValue(load("/tmp/zawor.php"));
 			
         });
-   }); 
-}); 
 </script>
 
 
