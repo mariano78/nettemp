@@ -32,7 +32,7 @@ foreach ($a as $rfile){
 
 $(document).ready(function() {
     $("#show").click(function() {
-        $("#div1").load("/tmp/zawor.txt", function(response, status, xhr){
+        $("#div1").load("/tmp/zawor.php", function(response, status, xhr){
 			if ( status == "error" ) {
     var msg = "Sorry but there was an error: ";
     console.log(msg);
