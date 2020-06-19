@@ -38,7 +38,7 @@ $(document).ready(function() {
     console.log(msg);
   }
             //alert("Done Loading");
-			//editor.refresh();
+			editor.refresh();
 });
 			//editor.setValue(load("/tmp/zawor.php"));
 			
