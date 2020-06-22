@@ -285,7 +285,7 @@ var chart = new Highcharts.Chart({
 		
 	  yAxis: {
             title: {
-                text: 'kWh'
+                text: '<?php echo $sufix; ?>'
             }
         },
 		
