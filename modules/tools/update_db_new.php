@@ -316,6 +316,7 @@ $updates['2020-05-29 11:39:40'][]="CREATE TABLE ovariables (id INTEGER PRIMARY K
 
 //day-plan active
 $updates['2020-05-29 11:41:10'][]="ALTER TABLE day_plan ADD active2 TEXT";
+$updates['2020-06-21 11:42:10'][]="UPDATE day_plan SET active2 = 'on' ";
 
 
 
