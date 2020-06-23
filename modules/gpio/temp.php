@@ -41,7 +41,7 @@ function w_profile_check($gpio,$w_profile) {
 	global $db;
 	$day=date("D");
 	$time=date("Hi");
-	$rows = $db->query("SELECT * FROM day_plan WHERE name='$w_profile' AND (Mon='$day' OR Tue='$day' OR Wed='$day' OR Thu='$day' OR Fri='$day' OR Sat='$day' OR Sun='$day')");
+	$rows = $db->query("SELECT * FROM day_plan WHERE name='$w_profile' AND active2 = 'on' AND (Mon='$day' OR Tue='$day' OR Wed='$day' OR Thu='$day' OR Fri='$day' OR Sat='$day' OR Sun='$day')");
 	$row = $rows->fetchAll();
 	$numRows = count($row);
  	if ( $numRows > '0' ) { 
