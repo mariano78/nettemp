@@ -373,7 +373,7 @@ if ($nts_hide_gpio == 'off') {
                     </td>  
 					
                    <?php 
-				   if($g['mode']!='temp' & $g['mode']=='simple') { echo '<td></td><td></td><td></td>';}
+				if($g['mode']!='temp' &  ($g['mode']=='simple') || $g['mode']=='sprinkler')) { echo '<td></td><td></td><td></td>';}
 				   elseif($g['mode']!='temp' & $g['mode']=='day')                 {?>
 					
 					<?php
