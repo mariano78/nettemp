@@ -359,7 +359,7 @@ if ($nts_hide_gpio == 'off') {
 					</td>
 				<?php
 				/* SIMPLE AND DAY IP */
-				if(($g['mode']=='simple'&&!empty($s['ip']))||($g['mode']=='temp'&&!empty($s['ip'])) ||($g['mode']=='day'&&!empty($s['ip']))) {
+				if(($g['mode']=='simple'&&!empty($s['ip']))||($g['mode']=='temp'&&!empty($s['ip'])) ||($g['mode']=='sprinkler'&&!empty($s['ip'])) ||($g['mode']=='day'&&!empty($s['ip']))) {
 					?>
 					<td class="col-md-1">
                    	<form class="form-horizontal" action="" method="post" style=" display:inline!important;">
