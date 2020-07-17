@@ -373,8 +373,8 @@ if ($nts_hide_gpio == 'off') {
                     </td>  
 					
                    <?php 
-				if($g['mode']!='temp' &&  ($g['mode']=='simple') || $g['mode']=='sprinkler')) { echo '<td></td><td></td><td></td>';}
-				   elseif($g['mode']!='temp' && $g['mode']=='day')                 {?>
+				   if($g['mode']!='temp' &  ($g['mode']=='simple' || $g['mode']=='sprinkler') { echo '<td></td><td></td><td></td>';}
+				   elseif($g['mode']!='temp' & $g['mode']=='day')                 {?>
 					
 					<?php
 					$sth = $db->prepare("SELECT name,stime,etime FROM day_plan WHERE  active='on' AND rom='$s[rom]' ");
