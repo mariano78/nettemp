@@ -374,7 +374,7 @@ if ($nts_hide_gpio == 'off') {
 					
                    <?php 
 				   if($g['mode']!='temp' &&  $g['mode']=='simple') { echo '<td></td><td></td><td></td>';}
-				   elseif($g['mode']!='temp' && $g['mode']=='day')                 {?>
+				   elseif($g['mode']!='temp' && $g['mode']=='day' || $g['mode']=='sprinkler' )                 {?>
 					
 					<?php
 					$sth = $db->prepare("SELECT name,stime,etime FROM day_plan WHERE  active='on' AND rom='$s[rom]' ");
