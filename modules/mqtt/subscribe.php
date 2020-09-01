@@ -172,7 +172,7 @@ function procmsg($topic, $msg){
 						
 						$ip='';
 						$name=$arr['1']; //shelly1pm-XXXXXX
-						$type = 'watt'; //gpio
+						$type = 'watt'; // watt
 						$id = $arr2['1']; // id = XXXXXX
 						
 						$local_device	=	'mqtt';
@@ -187,7 +187,7 @@ function procmsg($topic, $msg){
 						
 						$ip='';
 						$name=$arr['1']; //shelly1pm-XXXXXX
-						$type = 'temp'; //gpio
+						$type = 'temp'; //temp
 						$id = $arr2['1']; // id = XXXXXX
 						
 						$local_device	=	'mqtt';
@@ -202,7 +202,7 @@ function procmsg($topic, $msg){
 						
 						$ip='';
 						$name=$arr['1']; //shelly1pm-XXXXXX
-						$type = 'trigger'; //gpio
+						$type = 'trigger'; //trigger
 						$id = $arr2['1']; // id = XXXXXX
 						
 						$local_device	=	'mqtt';
