@@ -152,6 +152,7 @@ function procmsg($topic, $msg){
 					foreach($shellytopic as $shellyt) {
 					$shtpc[]=$shellyt;
 					}
+					echo "_____________________shellies relay topic = ".$shtpc['2']."\n";
 					
 					if ($shtpc['2'] == 'relay/0'){
 						
