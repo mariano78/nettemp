@@ -153,7 +153,7 @@ function procmsg($topic, $msg){
 					$shtpc[]=$shellyt;
 					}
 					
-					if (shtpc[2] == 'relay/0'){
+					if ($shtpc[2] == 'relay/0'){
 						
 						echo "mam relay";
 					}
