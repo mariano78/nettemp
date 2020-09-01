@@ -44,9 +44,9 @@ $mqtt_password=$nts_mqtt_pwd;
 </div>
 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">User::</label>  
+  <label class="col-md-4 control-label" for="textinput">User:</label>  
   <div class="col-md-4">
-  <input id="textinput" name="musr" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $mqtt_user; ?>">
+  <input id="textinput" name="muser" placeholder="" class="form-control input-md"  type="text" value="<?php echo $mqtt_user; ?>">
   </div>
 </div>
 
@@ -54,7 +54,7 @@ $mqtt_password=$nts_mqtt_pwd;
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Password:</label>  
   <div class="col-md-4">
-  <input id="textinput" name="mpwd" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $mqtt_password; ?>">
+  <input id="textinput" name="mpwd" placeholder="" class="form-control input-md"  type="text" value="<?php echo $mqtt_password; ?>">
      <input type="hidden" name="msave" value="msave" />
   </div>
 </div>
