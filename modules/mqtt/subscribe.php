@@ -146,18 +146,28 @@ function procmsg($topic, $msg){
 					
 					
 					echo "_____________________shellies   1 PM   ____________________"."\n";
-					(explode("/",$topic,3));
-					print_r(explode("/",$topic,3));
 					
 					$shellytopic=(explode("/",$topic,3));
 					foreach($shellytopic as $shellyt) {
 					$shtpc[]=$shellyt;
 					}
-					echo "_____________________shellies relay topic = ".$shtpc['2']."\n";
+					
 					
 					if ($shtpc['2'] == 'relay/0'){
 						
 						echo "mam relay";
+						$ip='';
+						$name=$arr['1']; //shelly1pm-XXXXXX
+						$type = 'gpio'; //gpio
+						$id = $arr2['1']; // id = XXXXXX
+						
+						$local_device	=	'mqtt';
+						$local_type		=	$type;
+						$local_val		=	$output;
+						$local_name		=	$name;
+						$local_ip		=	$ip;
+						$local_gpio	=	'0';
+						$local_rom=$local_name."_".$type."_".$gpio;
 					}
 					
 					
