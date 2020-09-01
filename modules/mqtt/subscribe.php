@@ -167,7 +167,7 @@ function procmsg($topic, $msg){
 						$local_name		=	$name;
 						$local_ip		=	$ip;
 						$local_gpio	=	'0';
-						$local_rom=$local_name."_".$type."_".$gpio;
+						$local_rom=$local_name."_".$type."_".$local_gpio;
 					}
 					
 					
