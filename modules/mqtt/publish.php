@@ -12,7 +12,7 @@ $client_id = "phpMQTT-publisher"; // make sure this is unique for connecting to 
 $mqtt = new phpMQTT($server, $port, $client_id);
 
 if ($mqtt->connect(true, NULL, $username, $password)) {
-	$mqtt->publish("shellies/shelly1pm-A4CF12F3CEFB/relay/0/command", "on" , 1);
+	$mqtt->publish("/192.168.50.55/Kominek/gpio/12/cmd", "GPIO,12,1" , 1);
 	$mqtt->close();
 } else {
     echo "Time out!\n";

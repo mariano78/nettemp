@@ -320,6 +320,11 @@ $updates['2020-06-21 11:42:10'][]="UPDATE day_plan SET active2 = 'on' ";
 
 $updates['2020-09-01 07:10:37'][]="INSERT OR IGNORE INTO types (type, unit, unit2, ico, title, min, max) VALUES ('input', 'H/L', 'H/L', 'media/ico/switch-icon.png' ,'Input','0', '1')";
 
+$updates['2020-09-01 07:11:37'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('mqtt_ip','localhost')";
+$updates['2020-09-01 07:12:37'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('mqtt_port','1883')";
+$updates['2020-09-01 07:13:37'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('mqtt_usr','')";
+$updates['2020-09-01 07:14:37'][]="INSERT INTO nt_settings ('option', 'value') VALUES ('mqtt_pwd','')";
+
 
 
 ?>
