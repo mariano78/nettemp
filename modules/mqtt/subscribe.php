@@ -149,7 +149,7 @@ function procmsg($topic, $msg){
 					(explode("/",$topic,3));
 					print_r(explode("/",$topic,3));
 					
-					$shellytopic=(explode("/",$topic));
+					$shellytopic=(explode("/",$topic,3));
 					foreach($shellytopic as $shellyt) {
 					$shtpc[]=$shellyt;
 					}
