@@ -156,6 +156,8 @@ function procmsg($topic, $msg){
 					if ($shtpc['2'] == 'relay/0'){
 						
 						echo "mam relay";
+						
+						($output == 'on') ? $local_val = 1.0 : $local_val = 0.0;
 						$ip='';
 						$name=$arr['1']; //shelly1pm-XXXXXX
 						$type = 'gpio'; //gpio
@@ -163,7 +165,7 @@ function procmsg($topic, $msg){
 						
 						$local_device	=	'mqtt';
 						$local_type		=	$type;
-						$local_val		=	$output;
+						//$local_val		=	$output;
 						$local_name		=	$name;
 						$local_ip		=	$ip;
 						$local_gpio	=	'0';
