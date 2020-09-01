@@ -138,37 +138,37 @@ $mqtt_password=$nts_mqtt_pwd;
 </div>
 <div class="panel-body">
 
-<form action="" method="post">
-    <input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="con" value="on" <?php echo $con == 'on' ? 'checked="checked"' : ''; ?>  />
-    <input type="hidden" name="conoff" value="conoff" />
-</form>
-
-<?php
-if ($con == 'on'){
-?>
 
 
 <form action="" method="post" class="form-horizontal">
 <fieldset>
 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">IP/Hostname</label>  
+  <label class="col-md-4 control-label" for="textinput">IP:</label>  
   <div class="col-md-4">
-  <input id="textinput" name="cip" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $cip; ?>">
+  <input id="textinput" name="cip" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $mqtt_ip; ?>">
   </div>
 </div>
 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Port</label>  
+  <label class="col-md-4 control-label" for="textinput">Port:</label>  
   <div class="col-md-4">
-  <input id="textinput" name="cport" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $cport; ?>">
+  <input id="textinput" name="cport" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $mqtt_port; ?>">
   </div>
 </div>
 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Key</label>  
+  <label class="col-md-4 control-label" for="textinput">User:</label>  
   <div class="col-md-4">
-  <input id="textinput" name="ckey" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $ckey; ?>">
+  <input id="textinput" name="ckey" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $mqtt_user; ?>">
+     <input type="hidden" name="csave" value="csave" />
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Password:</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="ckey" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $mqtt_password; ?>">
      <input type="hidden" name="csave" value="csave" />
   </div>
 </div>
@@ -188,9 +188,7 @@ if ($con == 'on'){
     <input type="hidden" name="cauth_onoff" value="cauth_onoff" />
 </form>
 
-<?php
-if ($cauth_on == 'on'){
-?>
+
 
 <form action="" method="post" class="form-horizontal">
 <fieldset>
@@ -220,189 +218,7 @@ if ($cauth_on == 'on'){
 </fieldset>
 </form>
 
-<?php
-	}
-}
-?>
 
-</div>
-</div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 class="panel-title">Server</h3>
-</div>
-<div class="panel-body">
-
-<form action="" method="post" class="form-horizontal">
-<fieldset>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Key</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="skey" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $skey; ?>">
-     <input type="hidden" name="ssave" value="ssave" />
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="singlebutton"></label>
-  <div class="col-md-4">
-    <button id="singlebutton" name="singlebutton" class="btn btn-xs btn-success">Save</button>
-  </div>
-</div>
-
-</fieldset>
-</form>
-
-
-</div>
-</div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 class="panel-title">Domoticz Server</h3>
-</div>
-<div class="panel-body">
-
-<form action="" method="post">
-    <input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="domoon" value="on" <?php echo $nts_domo_on == 'on' ? 'checked="checked"' : ''; ?>  />
-    <input type="hidden" name="domoticzon" value="domoticzon" />
-</form>
-
-<form action="" method="post" class="form-horizontal">
-<fieldset>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">IP/Hostname</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="domoticzip" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_domo_ip; ?>">
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Port</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="domoticzport" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_domo_port; ?>">
-  <input type="hidden" name="domoticzsave" value="domoticzsave" />
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="singlebutton"></label>
-  <div class="col-md-4">
-    <button id="singlebutton" name="singlebutton" class="btn btn-xs btn-success">Save</button>
-  </div>
-</div>
-
-</fieldset>
-</form>
-
-<form action="" method="post">
-    <input data-on="AUTH" data-off="AUTH" data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="domoauth_on" value="on" <?php echo $nts_domo_auth == 'on' ? 'checked="checked"' : ''; ?>  />
-    <input type="hidden" name="domoauth_onoff" value="domoauth_onoff" />
-</form>
-
-<?php
-if ($nts_domo_auth == 'on'){
-?>
-
-<form action="" method="post" class="form-horizontal">
-<fieldset>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">User:</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="domo_login" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_domo_log; ?>">
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Password:</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="domo_pass" placeholder="" class="form-control input-md" required="" type="password" value="<?php echo $nts_domo_pass; ?>">
-     <input type="hidden" name="domoauth_save" value="domoauth_save" />
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="singlebutton"></label>
-  <div class="col-md-4">
-    <button id="singlebutton" name="singlebutton" class="btn btn-xs btn-success">Save</button>
-  </div>
-</div>
-
-</fieldset>
-</form>
-
-<?php
-	}
-?>
-
-
-</div>
-</div>
-
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 class="panel-title">InfluxDB Server</h3>
-</div>
-<div class="panel-body">
-
-<form action="" method="post">
-    <input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="inflon" value="on" <?php echo $nts_infl_on == 'on' ? 'checked="checked"' : ''; ?>  />
-    <input type="hidden" name="influxdbon" value="influxdbon" />
-</form>
-
-<form action="" method="post" class="form-horizontal">
-<fieldset>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Database name</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="influxdbbase" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_infl_base; ?>">
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">IP/Hostname</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="influxdbip" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_infl_ip; ?>">
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Port</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="influxdbport" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_infl_port; ?>">
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Username:</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="influx_login" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_infl_log; ?>">
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Password:</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="influx_pass" placeholder="" class="form-control input-md" required="" type="password" value="<?php echo $nts_infl_pass; ?>">
-  <input type="hidden" name="influxdbsave" value="influxdbsave" />
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="singlebutton"></label>
-  <div class="col-md-4">
-    <button id="singlebutton" name="singlebutton" class="btn btn-xs btn-success">Save</button>
-  </div>
-</div>
-
-</fieldset>
-</form>
 
 </div>
 </div>
