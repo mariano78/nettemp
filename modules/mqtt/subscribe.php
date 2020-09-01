@@ -165,7 +165,7 @@ function procmsg($topic, $msg){
 						$local_type		=	$type;
 						$local_name		=	$name;
 						$local_ip		=	$ip;
-						$local_gpio	=	'0';
+						$local_gpio	=	'1';
 						$local_rom=$local_name."_".$type."_".$local_gpio;
 						
 					} else if ($shtpc['2'] == 'relay/0/power'){
