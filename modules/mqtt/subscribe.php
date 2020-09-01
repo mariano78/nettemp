@@ -179,12 +179,24 @@ function procmsg($topic, $msg){
 						$local_type		=	$type;
 						$local_name		=	$name;
 						$local_ip		=	$ip;
+						$local_val		=	$output;
 						//$local_gpio	=	'0';
 						$local_rom=$local_name."_".$type;
+		
+					} else if ($shtpc['2'] == 'temperature'){
 						
+						$ip='';
+						$name=$arr['1']; //shelly1pm-XXXXXX
+						$type = 'temp'; //gpio
+						$id = $arr2['1']; // id = XXXXXX
 						
-						
-					}
+						$local_device	=	'mqtt';
+						$local_type		=	$type;
+						$local_name		=	$name;
+						$local_ip		=	$ip;
+						$local_val		=	$output;
+						//$local_gpio	=	'0';
+						$local_rom=$local_name."_".$type;
 					
 					
 				}
