@@ -210,7 +210,22 @@ function procmsg($topic, $msg){
 						$local_val		=	$output;
 						$local_rom=$local_name."_".$type;
 					
+					} else if ($shtpc['2'] == 'input/0'){
+						
+						$ip='';
+						$name=$arr['1']; //shelly1pm-XXXXXX
+						$type = 'input'; //input - like switch
+						$id = $arr2['1']; // id = XXXXXX
+						
+						$local_device	=	'mqtt';
+						$local_type		=	$type;
+						$local_name		=	$name;
+						$local_ip		=	$ip;
+						$local_val		=	$output;
+						$local_rom=$local_name."_".$type;
+					
 					}
+					
 					
 					
 				}
