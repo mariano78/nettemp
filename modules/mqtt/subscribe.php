@@ -198,6 +198,8 @@ function procmsg($topic, $msg){
 						//$local_gpio	=	'0';
 						$local_rom=$local_name."_".$type;
 					
+					}
+					
 					
 				}
 			
