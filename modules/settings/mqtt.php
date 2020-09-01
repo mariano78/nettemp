@@ -10,6 +10,9 @@
     $db->exec("UPDATE nt_settings SET value='$mport' WHERE option='mqtt_port'") or die ($db->lastErrorMsg());
 	$db->exec("UPDATE nt_settings SET value='$muser' WHERE option='mqtt_usr'") or die ($db->lastErrorMsg());
 	$db->exec("UPDATE nt_settings SET value='$mpwd' WHERE option='mqtt_pwd'") or die ($db->lastErrorMsg());
+	
+	shell_exec("sudo service nettempmqtt restart");
+	
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
