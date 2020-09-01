@@ -245,6 +245,18 @@ foreach ($result as $a) {
 	if($a['option']=='chartsforall') {
        	$nts_chartsforall=$a['value'];
     }
+	if($a['option']=='mqtt_ip') {
+       	$nts_mqtt_ip=$a['value'];
+    }
+	if($a['option']=='mqtt_port') {
+       	$nts_mqtt_port=$a['value'];
+    }
+	if($a['option']=='mqtt_usr') {
+       	$nts_mqtt_usr=$a['value'];
+    }
+	if($a['option']=='mqtt_pwd') {
+       	$nts_mqtt_pwd=$a['value'];
+    }
 	
 	
 }

@@ -1,120 +1,411 @@
 <?php
-
-		
-	
-	
-	$id = isset($_POST['id']) ? $_POST['id'] : '';
-	$mod_name = isset($_POST['mod_name']) ? $_POST['mod_name'] : '';
-	$mod_val = isset($_POST['mod_val']) ? $_POST['mod_val'] : '';
-	$value = isset($_POST['value']) ? $_POST['value'] : '';
-	$name = isset($_POST['name']) ? $_POST['name'] : '';
-	
-    if ($mod_val == 'mod_val'){
+    $csave = isset($_POST['csave']) ? $_POST['csave'] : '';
+    $cip = isset($_POST['cip']) ? $_POST['cip'] : '';
+	$cport = isset($_POST['cport']) ? $_POST['cport'] : '';
+    $ckey = isset($_POST['ckey']) ? $_POST['ckey'] : '';
+    if ($csave == "csave"){
     $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("UPDATE ovariables SET value='$value' WHERE id='$id'") or header("Location: html/errors/db_error.php");
-    header("location: " . $_SERVER['REQUEST_URI']);
-    exit();
-    }
-	
-	if ($mod_name == 'mod_name'){
-    $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("UPDATE ovariables SET name='$name' WHERE id='$id'") or header("Location: html/errors/db_error.php");
-    header("location: " . $_SERVER['REQUEST_URI']);
-    exit();
-    }
-	
-	$addvar = isset($_POST['addvar']) ? $_POST['addvar'] : '';
-    if ($addvar == 'addvar'){
-    $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("INSERT OR IGNORE INTO ovariables (name, value) VALUES ('New variable','0.0')") or header("Location: html/errors/db_error.php");
-    header("location: " . $_SERVER['REQUEST_URI']);
-    exit();
-    }
-	
-	$del = isset($_POST['del']) ? $_POST['del'] : '';
-	$del_id = isset($_POST['del_id']) ? $_POST['del_id'] : '';
-    if ($del == 'del1'){
-    $db = new PDO('sqlite:dbf/nettemp.db');
-	 $db->exec("DELETE FROM ovariables WHERE id='$del_id'") or die ("Location: html/errors/db_error.php");
+    $db->exec("UPDATE nt_settings SET value='$cip' WHERE option='client_ip'") or die ($db->lastErrorMsg());
+    $db->exec("UPDATE nt_settings SET value='$ckey' WHERE option='client_key'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$cport' WHERE option='client_port'") or die ($db->lastErrorMsg());
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
 
+    $ssave = isset($_POST['ssave']) ? $_POST['ssave'] : '';
+    $skey = isset($_POST['skey']) ? $_POST['skey'] : '';
+    if ($ssave == "ssave"){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE nt_settings SET value='$skey' WHERE option='server_key'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+
+
+    $conoff = isset($_POST['conoff']) ? $_POST['conoff'] : '';
+    $con = isset($_POST['con']) ? $_POST['con'] : '';
+    if (($conoff == "conoff") ){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE nt_settings SET value='$con' WHERE option='client_on'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+    
+    $cauth_onoff = isset($_POST['cauth_onoff']) ? $_POST['cauth_onoff'] : '';
+    $cauth_on = isset($_POST['cauth_on']) ? $_POST['cauth_on'] : '';
+    if (($cauth_onoff == "cauth_onoff") ){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE nt_settings SET value='$cauth_on' WHERE option='cauth_on'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+    
+    $cauth_save = isset($_POST['cauth_save']) ? $_POST['cauth_save'] : '';
+    $cauth_pass = isset($_POST['cauth_pass']) ? $_POST['cauth_pass'] : '';
+    if ($cauth_save == "cauth_save"){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE nt_settings SET value='$cauth_pass' WHERE option='cauth_pass'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+	
+	
+	$domoticzsave = isset($_POST['domoticzsave']) ? $_POST['domoticzsave'] : '';
+    $domoticzip = isset($_POST['domoticzip']) ? $_POST['domoticzip'] : '';
+	$domoticzport = isset($_POST['domoticzport']) ? $_POST['domoticzport'] : '';
+   
+    if ($domoticzsave == "domoticzsave"){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE nt_settings SET value='$domoticzip' WHERE option='domoip'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$domoticzport' WHERE option='domoport'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+	
+	$domoticzon = isset($_POST['domoticzon']) ? $_POST['domoticzon'] : '';
+	$domoon = isset($_POST['domoon']) ? $_POST['domoon'] : '';
+	
+	if ($domoticzon == "domoticzon"){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE nt_settings SET value='$domoon' WHERE option='domoon'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+	
+	$domoauth_onoff = isset($_POST['domoauth_onoff']) ? $_POST['domoauth_onoff'] : '';
+    $domoauth_on = isset($_POST['domoauth_on']) ? $_POST['domoauth_on'] : '';
+    if (($domoauth_onoff == "domoauth_onoff") ){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE nt_settings SET value='$domoauth_on' WHERE option='domoauth'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+	
+	
+	$domoauth_save = isset($_POST['domoauth_save']) ? $_POST['domoauth_save'] : '';
+    $domo_pass = isset($_POST['domo_pass']) ? $_POST['domo_pass'] : '';
+	$domo_login = isset($_POST['domo_login']) ? $_POST['domo_login'] : '';
+    if ($domoauth_save == "domoauth_save"){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE nt_settings SET value='$domo_pass' WHERE option='domopass'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$domo_login' WHERE option='domolog'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+    
+    
+    //InfluxDB
+    $influxdbsave = isset($_POST['influxdbsave']) ? $_POST['influxdbsave'] : '';
+    $influxdbip = isset($_POST['influxdbip']) ? $_POST['influxdbip'] : '';
+	$influxdbport = isset($_POST['influxdbport']) ? $_POST['influxdbport'] : '';
+	$influxdbbase = isset($_POST['influxdbbase']) ? $_POST['influxdbbase'] : '';
+	$influxdblogin = isset($_POST['influx_login']) ? $_POST['influx_login'] : '';
+	$influxdbpass = isset($_POST['influx_pass']) ? $_POST['influx_pass'] : '';
+	
+   
+    if ($influxdbsave == "influxdbsave"){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE nt_settings SET value='$influxdbip' WHERE option='inflip'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$influxdbport' WHERE option='inflport'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$influxdbbase' WHERE option='inflbase'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$influxdblogin' WHERE option='inflbaseuser'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$influxdbpass' WHERE option='inflbasepassword'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+	
+	$influxdbon = isset($_POST['influxdbon']) ? $_POST['influxdbon'] : '';
+	$inflon = isset($_POST['inflon']) ? $_POST['inflon'] : '';
+	
+	if ($influxdbon == "influxdbon"){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE nt_settings SET value='$inflon' WHERE option='inflon'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+	
+
+$mqtt_ip=$nts_mqtt_ip;
+$mqtt_port=$nts_mqtt_port;
+$mqtt_user=$nts_mqtt_usr;
+$mqtt_password=$nts_mqtt_pwd;
 ?>
+
 
 <div class="panel panel-default">
-<div class="panel-heading">MQTT Settings</div>
+<div class="panel-heading">
+<h3 class="panel-title">MQTT Server</h3>
+</div>
+<div class="panel-body">
 
-<div class="table-responsive">
-<table class="table table-hover table-condensed small" border="0">
+<form action="" method="post">
+    <input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="con" value="on" <?php echo $con == 'on' ? 'checked="checked"' : ''; ?>  />
+    <input type="hidden" name="conoff" value="conoff" />
+</form>
 
 <?php
-$rows = $db->query("SELECT * FROM ovariables");
-$row = $rows->fetchAll();
+if ($con == 'on'){
 ?>
-<thead>
-<tr>
-<th>Name</th>
-<th>Value</th>
-<th>Delete</th>
-<th></th>
-</tr>
-</thead>
 
-<?php 
-   foreach ($row as $a) { 	
-	?>
-<tr>
-	 
-	<td class="col-md-2">
-		<form action="" method="post" style="display:inline!important;">
-			<input type="text" name="name" size="10" maxlength="30" value="<?php echo $a['name']; ?>" />
-			<input type="hidden" name="id" value="<?php echo $a['id']; ?>" />
-			<input type="hidden" name="mod_name" value="mod_name" />
-			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
-		</form>
-    </td>
-    
-	<td class="col-md-2">
-		<form action="" method="post" style="display:inline!important;">
-			<input type="text" name="value" size="10" maxlength="30" value="<?php echo $a['value']; ?>"/>
-			<input type="hidden" name="id" value="<?php echo $a['id']; ?>" />
-			<input type="hidden" name="mod_val" value="mod_val" />
-			<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
-		</form>
-    </td>
-    
-    
-    <td class="col-md-1">
-		<form action="" method="post" style="display:inline!important;">
-			<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> </button>
-			<input type="hidden" name="del_id" value="<?php echo $a['id']; ?>" />
-			<input type="hidden" name="del" value="del1"/>
-		</form>
-    </td>
-	
-	<td class="col-md-7">
-		
-    </td>
-</tr>
-   
+
+<form action="" method="post" class="form-horizontal">
+<fieldset>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">IP/Hostname</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="cip" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $cip; ?>">
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Port</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="cport" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $cport; ?>">
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Key</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="ckey" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $ckey; ?>">
+     <input type="hidden" name="csave" value="csave" />
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-xs btn-success">Save</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+<form action="" method="post">
+    <input data-on="AUTH" data-off="AUTH" data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="cauth_on" value="on" <?php echo $cauth_on == 'on' ? 'checked="checked"' : ''; ?>  />
+    <input type="hidden" name="cauth_onoff" value="cauth_onoff" />
+</form>
+
+<?php
+if ($cauth_on == 'on'){
+?>
+
+<form action="" method="post" class="form-horizontal">
+<fieldset>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">User:</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="cauth_login" placeholder="" class="form-control input-md" required="" type="text" value="admin" disabled>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Password:</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="cauth_pass" placeholder="" class="form-control input-md" required="" type="password" value="<?php echo $cauth_pass; ?>">
+     <input type="hidden" name="cauth_save" value="cauth_save" />
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-xs btn-success">Save</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
 <?php
 	}
-	?>
-<tr>
-	<td>Add variable:
-		<form action="" method="post" style="display:inline!important;">
-			<button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-plus"></span> </button>
-			<input type="hidden" name="addvar" value="addvar"/>
-		</form>	
-	</td>
-		
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+}
+?>
 
-
-</table>
 </div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Server</h3>
+</div>
+<div class="panel-body">
+
+<form action="" method="post" class="form-horizontal">
+<fieldset>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Key</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="skey" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $skey; ?>">
+     <input type="hidden" name="ssave" value="ssave" />
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-xs btn-success">Save</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Domoticz Server</h3>
+</div>
+<div class="panel-body">
+
+<form action="" method="post">
+    <input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="domoon" value="on" <?php echo $nts_domo_on == 'on' ? 'checked="checked"' : ''; ?>  />
+    <input type="hidden" name="domoticzon" value="domoticzon" />
+</form>
+
+<form action="" method="post" class="form-horizontal">
+<fieldset>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">IP/Hostname</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="domoticzip" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_domo_ip; ?>">
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Port</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="domoticzport" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_domo_port; ?>">
+  <input type="hidden" name="domoticzsave" value="domoticzsave" />
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-xs btn-success">Save</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+<form action="" method="post">
+    <input data-on="AUTH" data-off="AUTH" data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="domoauth_on" value="on" <?php echo $nts_domo_auth == 'on' ? 'checked="checked"' : ''; ?>  />
+    <input type="hidden" name="domoauth_onoff" value="domoauth_onoff" />
+</form>
+
+<?php
+if ($nts_domo_auth == 'on'){
+?>
+
+<form action="" method="post" class="form-horizontal">
+<fieldset>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">User:</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="domo_login" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_domo_log; ?>">
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Password:</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="domo_pass" placeholder="" class="form-control input-md" required="" type="password" value="<?php echo $nts_domo_pass; ?>">
+     <input type="hidden" name="domoauth_save" value="domoauth_save" />
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-xs btn-success">Save</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+<?php
+	}
+?>
+
+
+</div>
+</div>
+
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">InfluxDB Server</h3>
+</div>
+<div class="panel-body">
+
+<form action="" method="post">
+    <input data-toggle="toggle" data-size="mini" onchange="this.form.submit()"  type="checkbox" name="inflon" value="on" <?php echo $nts_infl_on == 'on' ? 'checked="checked"' : ''; ?>  />
+    <input type="hidden" name="influxdbon" value="influxdbon" />
+</form>
+
+<form action="" method="post" class="form-horizontal">
+<fieldset>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Database name</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="influxdbbase" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_infl_base; ?>">
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">IP/Hostname</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="influxdbip" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_infl_ip; ?>">
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Port</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="influxdbport" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_infl_port; ?>">
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Username:</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="influx_login" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $nts_infl_log; ?>">
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Password:</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="influx_pass" placeholder="" class="form-control input-md" required="" type="password" value="<?php echo $nts_infl_pass; ?>">
+  <input type="hidden" name="influxdbsave" value="influxdbsave" />
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-xs btn-success">Save</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+</div>
+</div>
+
+
 
