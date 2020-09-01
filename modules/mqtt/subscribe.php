@@ -142,7 +142,7 @@ function procmsg($topic, $msg){
 					//$local_tskname = $tskname;
 					$local_rom=$local_name;
 					
-				}  if ($type = 'shelly1pm') {
+				}  if ($type == 'shelly1pm') {
 					
 					
 					echo "_____________________shellies   1 PM   ____________________"."\n";
