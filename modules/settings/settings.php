@@ -13,7 +13,7 @@
 <a href="index.php?id=settings&type=ownwidget" ><button class="btn btn-xs btn-default <?php echo $art == 'ownwidget' ? 'active' : ''; ?>">OwnWidget</button></a>
 <a href="index.php?id=settings&type=ownlinks" ><button class="btn btn-xs btn-default <?php echo $art == 'ownlinks' ? 'active' : ''; ?>">Own links</button></a>
 <a href="index.php?id=settings&type=ovariables" ><button class="btn btn-xs btn-default <?php echo $art == 'ovariables' ? 'active' : ''; ?>">Own variables</button></a>
-<a href="index.php?id=settings&type=server_node" ><button class="btn btn-xs btn-default <?php echo $art == 'server_node' ? 'active' : ''; ?>">Server - Node</button></a>
+<a href="index.php?id=settings&type=server_node" ><button class="btn btn-xs btn-default <?php echo $art == 'server_node' ? 'active' : ''; ?>">Server - Node - Influx DB</button></a>
 <a href="index.php?id=settings&type=mqtt" ><button class="btn btn-xs btn-default <?php echo $art == 'mqtt' ? 'active' : ''; ?>">MQTT</button></a>
 <a href="index.php?id=settings&type=mysql" ><button class="btn btn-xs btn-default <?php echo $art == 'mysql' ? 'active' : ''; ?>">MySQL</button></a>
 <a href="index.php?id=settings&type=types" ><button class="btn btn-xs btn-default <?php echo $art == 'types' ? 'active' : ''; ?>">Types</button></a>
