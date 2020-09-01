@@ -146,7 +146,17 @@ function procmsg($topic, $msg){
 					
 					
 					echo "_____________________shellies   1 PM   ____________________"."\n";
-					print_r(explode("/",$topic,3));
+					(explode("/",$topic,3));
+					
+					$shellytopic=(explode("/",$topic));
+					foreach($shellytopic as $shellyt) {
+					$shtpc[]=$shellyt;
+					}
+					
+					if (shtpc[2] == 'relay/0'){
+						
+						echo "mam relay";
+					}
 					
 					
 				}
