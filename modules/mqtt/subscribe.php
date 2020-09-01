@@ -146,6 +146,8 @@ function procmsg($topic, $msg){
 					
 					
 					echo "_____________________shellies   1 PM   ____________________"."\n";
+					$jakitopic=(explode("/",$topic,3));
+					echo "Topic to:".$jakitopic."\n";
 					
 				}
 			
