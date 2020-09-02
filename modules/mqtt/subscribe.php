@@ -237,7 +237,7 @@ function procmsg($topic, $msg){
 						$local_ip		=	$ip;
 						$local_val		=	($output/60)/1000;
 						$local_rom=$local_name."_".$type;
-					
+					}
 					
 					
 				}
