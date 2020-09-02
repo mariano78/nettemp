@@ -20,9 +20,9 @@ $username = '';                   // set your username
 $password = '';                   // set your password
 $client_id = "NTMQTT-subscriber_".uniqid(); // make sure this is unique for connecting to sever - you could use uniqid()
 
-$db = new PDO("sqlite:$froot/dbf/nettemp.db");
-	$query = $db->query("SELECT * FROM nt_settings");
-    $result= $query->fetchAll();
+$db = new PDO("sqlite:$ROOT/dbf/nettemp.db");
+$query = $db->query("SELECT * FROM nt_settings");
+$result= $query->fetchAll();
     
     foreach($result as $s) {
 		
