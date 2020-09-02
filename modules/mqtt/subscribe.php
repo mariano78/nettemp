@@ -224,7 +224,19 @@ function procmsg($topic, $msg){
 						$local_val		=	$output;
 						$local_rom=$local_name."_".$type;
 					
-					}
+					} else if ($shtpc['2'] == 'relay/0/energy'){
+						
+						$ip='';
+						$name=$arr['1']; //shelly1pm-XXXXXX
+						$type = 'kwatt'; //total energu
+						$id = $arr2['1']; // id = XXXXXX
+						
+						$local_device	=	'mqtt';
+						$local_type		=	$type;
+						$local_name		=	$name;
+						$local_ip		=	$ip;
+						$local_val		=	($output/60)/1000;
+						$local_rom=$local_name."_".$type;
 					
 					
 					
