@@ -1,31 +1,46 @@
 <?php
-
 /*
-
 # IP IP/device/name/type
 192.168.0.1/gpio/18
-
 # localhost IP/device/addr/name/type
 localhost/gpio/18/dht22/humid 
 localhost/gpio/18/dht22/temp
 localhost/i2c/55/BMP/temp
 localhost/1wire/rom/temp
-
 */
-
-
 $ROOT=(dirname(dirname(dirname(__FILE__))));
 require("phpMQTT.php");
 include("$ROOT/receiver.php");
 define("LOCAL","local");
-$date = date("Y-m-d H:i:s"); 
+$date = date("Y-m-d H:i:s");
+
+$server = '';     // change if necessary
+$port = '';                     // change if necessary
+$username = '';                   // set your username
+$password = '';                   // set your password
+$client_id = "NTMQTT-subscriber_".uniqid(); // make sure this is unique for connecting to sever - you could use uniqid()
+
+$db = new PDO("sqlite:$froot/dbf/nettemp.db");
+	$query = $db->query("SELECT * FROM nt_settings");
+    $result= $query->fetchAll();
+    
+    foreach($result as $s) {
+		
+		if($s['option']=='mqtt_ip') {
+			$server=$s['value'];
+		}
+		if($s['option']=='mqtt_port') {
+			$port=$s['value'];
+		}
+		if($s['option']=='mqtt_usr') {
+			$username=$s['value'];
+		}
+		if($s['option']=='mqtt_pwd') {
+			$password=$s['value'];
+		}
+	}
 
 
-$server = "localhost";     // change if necessary
-$port = 1883;                     // change if necessary
-$username = "";                   // set your username
-$password = "";                   // set your password
-$client_id = "phpMQTT-subscriber"; // make sure this is unique for connecting to sever - you could use uniqid()
 
 $mqtt = new phpMQTT($server, $port, $client_id);
 
@@ -48,14 +63,12 @@ function procmsg($topic, $msg){
 		echo "Topic: {$topic}\n\n";
 	//	echo "\t$msg\n\n";
 
-
     $ttp=(explode("/",$topic));
     foreach($ttp as $p) {
 	$arr[]=$p;
     }
-
+	
     global $date;
-
     global $local_rom;
     global $local_type;
     global $local_val;
@@ -69,11 +82,9 @@ function procmsg($topic, $msg){
 	global $local_tskname;
 
     $output = trim($msg);
-
     $gpio='';
     $local_gpio='';
     
-	
 	// Shelly devices
 	if ($arr['0']=='shellies') {
 		
@@ -123,8 +134,7 @@ function procmsg($topic, $msg){
 						echo "effect = ".$reads["effect"]."\n";
 						echo "power = ".$reads["power"]."\n";
 						echo "overpower = ".$reads["overpower"]."\n";
-						
-						
+								
 					}
 					
 					$ip='';
@@ -142,8 +152,7 @@ function procmsg($topic, $msg){
 					//$local_tskname = $tskname;
 					$local_rom=$local_name;
 					
-				}  if ($type == 'shelly1pm') {
-					
+				}  if ($type == 'shelly1pm') {	
 					
 					echo "_____________________shellies   1 PM   ____________________"."\n";
 					
@@ -151,7 +160,6 @@ function procmsg($topic, $msg){
 					foreach($shellytopic as $shellyt) {
 					$shtpc[]=$shellyt;
 					}
-					
 					
 					if ($shtpc['2'] == 'relay/0'){
 						
