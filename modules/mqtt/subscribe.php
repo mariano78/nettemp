@@ -152,9 +152,7 @@ function procmsg($topic, $msg){
 					//$local_tskname = $tskname;
 					$local_rom=$local_name;
 					
-				}  if ($type == 'shelly1pm') {	
-					
-					echo "_____________________shellies   1 PM   ____________________"."\n";
+				} else if ($type == 'shelly1pm') {	
 					
 					$shellytopic=(explode("/",$topic,3));
 					foreach($shellytopic as $shellyt) {
@@ -168,7 +166,6 @@ function procmsg($topic, $msg){
 						$name=$arr['1']; //shelly1pm-XXXXXX
 						$type = 'gpio'; //gpio
 						$id = $arr2['1']; // id = XXXXXX
-						
 						$local_device	=	'mqtt';
 						$local_type		=	$type;
 						$local_name		=	$name;
@@ -181,8 +178,6 @@ function procmsg($topic, $msg){
 						$ip='';
 						$name=$arr['1']; //shelly1pm-XXXXXX
 						$type = 'watt'; // watt
-						$id = $arr2['1']; // id = XXXXXX
-						
 						$local_device	=	'mqtt';
 						$local_type		=	$type;
 						$local_name		=	$name;
@@ -195,8 +190,6 @@ function procmsg($topic, $msg){
 						$ip='';
 						$name=$arr['1']; //shelly1pm-XXXXXX
 						$type = 'temp'; //temp
-						$id = $arr2['1']; // id = XXXXXX
-						
 						$local_device	=	'mqtt';
 						$local_type		=	$type;
 						$local_name		=	$name;
@@ -209,8 +202,6 @@ function procmsg($topic, $msg){
 						$ip='';
 						$name=$arr['1']; //shelly1pm-XXXXXX
 						$type = 'trigger'; //trigger
-						$id = $arr2['1']; // id = XXXXXX
-						
 						$local_device	=	'mqtt';
 						$local_type		=	$type;
 						$local_name		=	$name;
@@ -223,7 +214,6 @@ function procmsg($topic, $msg){
 						$ip='';
 						$name=$arr['1']; //shelly1pm-XXXXXX
 						$type = 'input'; //input - like switch
-						$id = $arr2['1']; // id = XXXXXX
 						
 						$local_device	=	'mqtt';
 						$local_type		=	$type;
@@ -236,9 +226,7 @@ function procmsg($topic, $msg){
 						
 						$ip='';
 						$name=$arr['1']; //shelly1pm-XXXXXX
-						$type = 'kwatt'; //total energu
-						$id = $arr2['1']; // id = XXXXXX
-						
+						$type = 'kwatt'; //total energy
 						$local_device	=	'mqtt';
 						$local_type		=	$type;
 						$local_name		=	$name;
