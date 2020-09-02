@@ -152,7 +152,9 @@ function procmsg($topic, $msg){
 					//$local_tskname = $tskname;
 					$local_rom=$local_name;
 					
-				} else if ($type == 'shelly1pm') {	
+				}  
+				
+			if ($type == 'shelly1pm') {	
 					
 					$shellytopic=(explode("/",$topic,3));
 					foreach($shellytopic as $shellyt) {
