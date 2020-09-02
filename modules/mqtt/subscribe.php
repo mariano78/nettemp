@@ -236,7 +236,7 @@ function procmsg($topic, $msg){
 						$local_name		=	$name;
 						$local_ip		=	$ip;
 						$local_val		=	($output/60)/1000;
-						$local_val		=	number_format($local_val,2,'.');
+						$local_val		=	number_format($local_val,2,'.','');
 						$local_rom=$local_name."_".$type;
 					}
 					
