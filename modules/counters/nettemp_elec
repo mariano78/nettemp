@@ -112,11 +112,11 @@ def dbwrite():
     
         lastPulseValue = pulseValue # jesli zapis pomyslny ustawiamy lastpulsevalue na pulsevalue
      else:
+     # jesli brak impulsu posylamy zero
         value = 'value=0' 
         gpiopinstr = 'gpio='+str(gpiopin)
         keystring = 'key='+str(key)
         currentstring = 'current=0'
- 
         subprocess.call(['/usr/bin/php-cgi','-f','/var/www/nettemp/receiver.php',keystring,' type=elec',value,' device=gpio', gpiopinstr, currentstring])
         
 
