@@ -516,6 +516,7 @@ elseif (isset($val) && isset($type))
 	{
 		$atype = array_filter(explode(';', $type),'strlen');
 		$aval = array_filter(explode(';', $val),'strlen');
+		$acurrent = array_filter(explode(';', $current),'strlen');
 		
 		if(empty($atype)) {
 			echo "No type definied in one id mode, name ".$name.", id ".$id."\n";
@@ -524,8 +525,13 @@ elseif (isset($val) && isset($type))
 		foreach($atype as $index => $typel) {
 			$type=$typel;
 			$val=$aval[$index];
+			$current=$acurrent[$index];
 			if(empty($type)){
 				echo "One type is not definied in multi id mode, name ".$name.", id ".$id.", val ".$val."\n";
+				continue;
+			}
+			if(empty($current)){
+				echo "One current is not definied in multi id mode, name ".$name.", id ".$id.", val ".$val."\n";
 				continue;
 			}
 			if(!is_numeric($val)){
