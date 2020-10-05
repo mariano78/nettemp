@@ -494,6 +494,8 @@ elseif (isset($val) && isset($type))
 		$aval = array_filter(explode(';', $val),'strlen');
 		$acurrent = array_filter(explode(';', $current),'strlen');
 		
+		echo "acurrent".$acurrent;
+		
 		foreach($aid as $index => $id) {
 			$type=$atype[$index];
 			$val=$aval[$index];
