@@ -485,6 +485,9 @@ elseif (isset($val) && isset($type))
 {
 	//MULTI ID
 	// receiver.php?device=ip&ip=172.18.10.102&key=q1w2e3r4&id=5;6;7&type=temp;humid;press&value=0.00;0.00;0.00
+	$countersarr = array("gas", "water", "elec");
+	
+	
 	if (strpos($type, ';') !== false && strpos($id, ';') !== false) 
 	{
 		
@@ -498,7 +501,11 @@ elseif (isset($val) && isset($type))
 		foreach($aid as $index => $id) {
 			$type=$atype[$index];
 			$val=$aval[$index];
-			$current=$acurrent[$index];
+			
+			 if (in_array($type, $countersarr){
+				
+				$current=$acurrent[$index];
+			 }
 			echo "current".$current;
 			
 			if(empty($id)){
