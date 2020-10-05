@@ -491,7 +491,7 @@ elseif (isset($val) && isset($type))
 	{
 		
 		
-		echo "multi id with current"
+		echo "multi id with current";
 		$aid = array_filter(explode(';', $id),'strlen');
 		$atype = array_filter(explode(';', $type),'strlen');
 		$aval = array_filter(explode(';', $val),'strlen');
