@@ -506,7 +506,7 @@ elseif (isset($val) && isset($type))
 				
 				$current=$acurrent[$index];
 			 }
-			echo "current".$current;
+			echo "id-".$id."type-".$type."value -".$val."current-".$current;
 			
 			if(empty($id)){
 				echo "One id is not definied in multi id mode, name ".$name.", type ".$type.", val ".$val."\n";
