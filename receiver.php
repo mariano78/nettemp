@@ -531,7 +531,7 @@ elseif (isset($val) && isset($type))
 				continue;
 			}
 			if(empty($current)){
-				echo "One current is not definied in multi id mode, name ".$name.", id ".$id.", val ".$val."\n";
+				echo "One current is not definied in multi id mode, name ".$name.", id ".$id.", current ".$current."\n";
 				continue;
 			}
 			if(!is_numeric($val)){
