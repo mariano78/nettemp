@@ -501,6 +501,7 @@ elseif (isset($val) && isset($type))
 		foreach($aid as $index => $id) {
 			$type=$atype[$index];
 			$val=$aval[$index];
+			$current = '';
 			
 			 if (in_array($type, $countersarr)){
 				
