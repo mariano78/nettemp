@@ -495,16 +495,15 @@ elseif (isset($val) && isset($type))
 		$aid = array_filter(explode(';', $id),'strlen');
 		$atype = array_filter(explode(';', $type),'strlen');
 		$aval = array_filter(explode(';', $val),'strlen');
-		$acurrent = array_filter(explode(';', $current2),'strlen');
+		$acurrent = array_filter(explode(';', $current),'strlen');
 		
 		foreach($aid as $index => $id) {
 			$type=$atype[$index];
 			$val=$aval[$index];
-			$current2=$acurrent[$index];
-			$current = '';
-			if(is_numeric($current2)){
+			$current=$acurrent[$index];
+			
+			if(is_numeric($current)){
 				echo "Current is  numeric in multi id mode, name ".$name.", type ".$type." id ".$id.", current ".$current."\n";
-				$current = $current2;
 				continue;
 			}
 			
