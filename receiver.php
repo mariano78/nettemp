@@ -501,7 +501,7 @@ elseif (isset($val) && isset($type))
 			$type=$atype[$index];
 			$val=$aval[$index];
 			$current2=$acurrent[$index];
-			
+			$current = '';
 			if(is_numeric($current2)){
 				echo "Current is  numeric in multi id mode, name ".$name.", type ".$type." id ".$id.", current ".$current."\n";
 				$current = $current2;
