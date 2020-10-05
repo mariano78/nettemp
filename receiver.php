@@ -483,6 +483,49 @@ if(isset($val) && isset($rom) && isset($type))
 }
 elseif (isset($val) && isset($type)) 
 {
+	
+	
+	//MULTI ID with CURRENT
+	// receiver.php?device=ip&ip=172.18.10.102&key=q1w2e3r4&id=5;6;7&type=temp;humid;press&value=0.00;0.00;0.00&current=100;200;300
+	if (strpos($type, ';') !== false && strpos($id, ';') !== false && strpos($current, ';') !== false) 
+	{
+		$aid = array_filter(explode(';', $id),'strlen');
+		$atype = array_filter(explode(';', $type),'strlen');
+		$aval = array_filter(explode(';', $val),'strlen');
+		$acurrent = array_filter(explode(';', $current),'strlen');
+		
+		foreach($aid as $index => $id) {
+			$type=$atype[$index];
+			$val=$aval[$index];
+			$current=$acurrent[$index];
+			
+			if(!is_numeric($current)){
+				echo "Current is not numeric in multi id mode, name ".$name.", type ".$type." id ".$id.", current ".$current."\n";
+				$current = '';
+				continue;
+			}
+			
+			if(empty($id)){
+				echo "One id is not definied in multi id mode, name ".$name.", type ".$type.", val ".$val."\n";
+				continue;
+			}
+			if(empty($type)){
+				echo "One type is not definied in multi id mode, name ".$name.", id ".$id.", val ".$val."\n";
+				continue;
+			}
+			if(!is_numeric($val)){
+				echo "No val definied in multi id mode, name ".$name.", type ".$type." id ".$id.", type ".$type."\n";
+				continue;
+			}	
+			
+			$rom=$device."_".$name."id".$id."_".$type; 
+			db($rom,$val,$type,$device,$current,$ip,$gpio,$i2c,$usb,$name);
+		}
+		
+	}
+	
+	
+	
 	//MULTI ID
 	// receiver.php?device=ip&ip=172.18.10.102&key=q1w2e3r4&id=5;6;7&type=temp;humid;press&value=0.00;0.00;0.00
 	if (strpos($type, ';') !== false && strpos($id, ';') !== false) 
