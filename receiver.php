@@ -500,11 +500,11 @@ elseif (isset($val) && isset($type))
 		foreach($aid as $index => $id) {
 			$type=$atype[$index];
 			$val=$aval[$index];
-			$current=$acurrent[$index];
+			$current2=$acurrent[$index];
 			
-			if(!is_numeric($current)){
-				echo "Current is not numeric in multi id mode, name ".$name.", type ".$type." id ".$id.", current ".$current."\n";
-				$current = '';
+			if(is_numeric($current2)){
+				echo "Current is  numeric in multi id mode, name ".$name.", type ".$type." id ".$id.", current ".$current."\n";
+				$current = $current2;
 				continue;
 			}
 			
