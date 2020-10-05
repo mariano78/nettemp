@@ -502,11 +502,6 @@ elseif (isset($val) && isset($type))
 			$val=$aval[$index];
 			$current=$acurrent[$index];
 			
-			if(is_numeric($current)){
-				echo "Current is  numeric in multi id mode, name ".$name.", type ".$type." id ".$id.", current ".$current."\n";
-				continue;
-			}
-			
 			if(empty($id)){
 				echo "One id is not definied in multi id mode, name ".$name.", type ".$type.", val ".$val."\n";
 				continue;
