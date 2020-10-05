@@ -505,6 +505,7 @@ elseif (isset($val) && isset($type))
 			 if (in_array($type, $countersarr)){
 				
 				$current=$acurrent[$index];
+				echo "current petala--".$current;
 			 }
 			echo "id-".$id."type-".$type."value -".$val."current-".$current;
 			
