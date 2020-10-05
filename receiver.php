@@ -495,7 +495,7 @@ elseif (isset($val) && isset($type))
 		$aid = array_filter(explode(';', $id),'strlen');
 		$atype = array_filter(explode(';', $type),'strlen');
 		$aval = array_filter(explode(';', $val),'strlen');
-		$acurrent = array_filter(explode(';', $current),'strlen');
+		$acurrent = array_filter(explode(';', $current2),'strlen');
 		
 		foreach($aid as $index => $id) {
 			$type=$atype[$index];
