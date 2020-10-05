@@ -490,15 +490,23 @@ elseif (isset($val) && isset($type))
 		$aid = array_filter(explode(';', $id),'strlen');
 		$atype = array_filter(explode(';', $type),'strlen');
 		$aval = array_filter(explode(';', $val),'strlen');
+		$acurrent = array_filter(explode(';', $current),'strlen');
+		
 		foreach($aid as $index => $id) {
 			$type=$atype[$index];
 			$val=$aval[$index];
+			$current=$acurrent[$index];
+			
 			if(empty($id)){
 				echo "One id is not definied in multi id mode, name ".$name.", type ".$type.", val ".$val."\n";
 				continue;
 			}
 			if(empty($type)){
 				echo "One type is not definied in multi id mode, name ".$name.", id ".$id.", val ".$val."\n";
+				continue;
+			}
+			if(empty($current)){
+				echo "One current is not definied in multi id mode, name ".$name.", id ".$id.", current ".$current."\n";
 				continue;
 			}
 			if(!is_numeric($val)){
@@ -526,6 +534,7 @@ elseif (isset($val) && isset($type))
 			$type=$typel;
 			$val=$aval[$index];
 			$current=$acurrent[$index];
+			
 			if(empty($type)){
 				echo "One type is not definied in multi id mode, name ".$name.", id ".$id.", val ".$val."\n";
 				continue;
@@ -550,6 +559,8 @@ elseif (isset($val) && isset($type))
 	{
 		$atype = array_filter(explode(';', $type),'strlen');
 		$aval = array_filter(explode(';', $val),'strlen');
+		$acurrent = array_filter(explode(';', $current),'strlen');
+		
 		if(empty($atype)) {
 			echo "No type definied in one id mode, name ".$name.", id ".$id."\n";
 			exit;
@@ -557,12 +568,17 @@ elseif (isset($val) && isset($type))
 		foreach($atype as $index => $typel) {
 			$type=$typel;
 			$val=$aval[$index];
+			$current=$acurrent[$index];
 			if(empty($type)){
 				echo "One type is not definied in one id mode, name ".$name.", id ".$id.", val $val\n";
 				continue;
 			}
 			if(!is_numeric($val)){
 				echo "No val definied in one id mode, name ".$name.", id ".$id.", type ".$type."\n";
+				continue;
+			}
+			if(empty($current)){
+				echo "One current is not definied in multi id mode, name ".$name.", id ".$id.", current ".$current."\n";
 				continue;
 			}
 			$rom=$device.'_'.$name.'id'.$id.'_'.$type; 
