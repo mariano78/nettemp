@@ -487,19 +487,19 @@ elseif (isset($val) && isset($type))
 	// receiver.php?device=ip&ip=172.18.10.102&key=q1w2e3r4&id=5;6;7&type=temp;humid;press&value=0.00;0.00;0.00
 	if (strpos($type, ';') !== false && strpos($id, ';') !== false) 
 	{
-		echo "MULTi ID \n";
 		
 		$aid = array_filter(explode(';', $id),'strlen');
 		$atype = array_filter(explode(';', $type),'strlen');
 		$aval = array_filter(explode(';', $val),'strlen');
 		$acurrent = array_filter(explode(';', $current),'strlen');
 		
-		echo "acurrent".$acurrent;
+		
 		
 		foreach($aid as $index => $id) {
 			$type=$atype[$index];
 			$val=$aval[$index];
 			$current=$acurrent[$index];
+			echo "current".$current;
 			
 			if(empty($id)){
 				echo "One id is not definied in multi id mode, name ".$name.", type ".$type.", val ".$val."\n";
