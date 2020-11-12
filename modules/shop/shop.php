@@ -27,7 +27,7 @@ foreach ($result as $a) {
 	}
 }	
 
-$conn = oci_connect('$user', '$pass', '$database');
+$conn = oci_connect($user, $pass, $database);
 if (!$conn) {
     $e = oci_error();
     trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
