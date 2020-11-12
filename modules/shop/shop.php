@@ -1,7 +1,6 @@
 <?php
 // phpinfo();
 
-<?php
 if(!empty($_SERVER["DOCUMENT_ROOT"])){
     $root=$_SERVER["DOCUMENT_ROOT"];
 }else{
