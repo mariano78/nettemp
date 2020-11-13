@@ -57,10 +57,10 @@ $config = array(
   ini_set('default_charset', 'utf-8');
  
   // tutaj UWAGA - scieżka src to przykładowa ścieżka gdzie znajdują się pliki z sdk czyli ten plik znajduje się w katalogu głównym a w podkatalogu src znajdują się odpowidnie elementy sdk (katalogi DreamCommerce i Psr)
-  spl_autoload_register(function($class){
-      $class = str_replace('\\', '/', $class);
-      require 'src/'.$class.'.php';
-  });
+  //spl_autoload_register(function($class){
+   //   $class = str_replace('\\', '/', $class);
+     // require 'src/'.$class.'.php';
+  //});
  
   date_default_timezone_set($config['timezone']);
   ini_set('display_errors', $config['php']['display_errors']);
