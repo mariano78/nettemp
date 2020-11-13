@@ -107,7 +107,7 @@ $resource = newDreamCommerce\ShopAppstoreLib\Resource\Product($client);
     foreach($result as $r){
         printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name);
     }
-}
+
   }catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
       die($ex->getMessage());
   }
