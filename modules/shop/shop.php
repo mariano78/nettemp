@@ -101,7 +101,7 @@ $config = array(
          )
       );
  
-$resource = newDreamCommerce\ShopAppstoreLib\Resource\Product($client);
+$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
     $result = $resource->get();
 
     foreach($result as $r){
