@@ -101,30 +101,12 @@ $config = array(
          )
       );
  
-$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
- 
-// Poberanie 1 strony
-$currentPage = 1;
-$result = $resource->page($currentPage)->limit(50)->get();
- 
-foreach($result as $product){
-    // Pętla po wszystich pierwszych 50 produktach - usuwamy każdy z nich po kolei
-    $deleteResult = $resource->delete($product["product_id"]);
-}
- 
-$currentPage++;
- 
-// Pobranie kolejnych stron jeśli istnieją
-while($currentPage <= $result->getPageCount()){
-  // Pobieramy produkty z kolejnej strony
-  $result = $resource->page($currentPage)->limit(50)->get();
- 
-  foreach($result as $product){
-      // Pętla po 50 produktach z kolejnych stron - usuwamy każdy z nich po kolei
-      $deleteResult = $resource->delete($product["product_id"]);
-  }
- 
-  $currentPage++;
+$resource = newDreamCommerce\ShopAppstoreLib\Resource\Product($client);
+    $result = $resource->get();
+
+    foreach($result as $r){
+        printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name);
+    }
 }
   }catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
       die($ex->getMessage());
