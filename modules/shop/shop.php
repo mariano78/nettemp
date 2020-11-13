@@ -97,7 +97,7 @@ $config = array(
          array(
              'entrypoint'=>'https://sklep475200.shoparena.pl/',
              'username'=>'mmapi',
-             'password'=>'Ala1Ala2!!'
+             'password'=>''
          )
       );
  
