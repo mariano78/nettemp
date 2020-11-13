@@ -46,4 +46,26 @@ while ($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
 }
 echo "</table>\n";
 
+use DreamCommerce\ShopAppstoreLib\Client;
+use DreamCommerce\ShopAppstoreLib\Exception\ClientException;
+use DreamCommerce\ShopAppstoreLib\Exception\ResourceException;
+
+
+ 
+ try {
+    $client = \DreamCommerce\ShopAppstoreLib\Client::factory(
+       \DreamCommerce\ShopAppstoreLib\Client::ADAPTER_BASIC_AUTH,
+       array(
+           'entrypoint'=>'https://sklep475200.shoparena.pl/',
+           'username' => 'usr',
+           'password' => 'pass'
+       )
+    );
+
+    $resource = new \DreamCommerce\ShopAppstoreLib\Resource\Producer($client);
+    var_dump($resource->get());
+} catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
+    die($ex->getMessage());
+}
+
 ?>
