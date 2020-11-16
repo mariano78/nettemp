@@ -15,7 +15,7 @@ include("$root/modules/shop/shop_settings.php");
 // 2. Sprawdzamy czy w shoperze istnieje pordukt - dodajemy lub aktualizujemy 
 
 $stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP');
-oci_define_by_name($stmt, 'NUMBER_OF_ROWS', $number_of_rows);
+oci_define_by_name($stid, 'NUMBER_OF_ROWS', $number_of_rows);
 oci_execute($stid);
 echo $number_of_rows. " rows selected.<br />\n";
 //echo oci_num_rows($stid) 
