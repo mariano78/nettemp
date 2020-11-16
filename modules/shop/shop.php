@@ -8,10 +8,13 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
         $root = file_exists($root.'/dbf/nettemp.db') ? $root : dirname($root) ;
     }
 }
-
+// Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
 
-$stid = oci_parse($conn, 'SELECT * FROM JFOX_MAGAZ');
+// 1. Pobieramy z bazy oracle dane o produkcie 
+// 2. Sprawdzamy czy w shoperze istnieje pordukt - dodajemy lub aktualizujemy 
+
+$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP');
 oci_execute($stid);
 
 echo "<table border='1'>\n";
