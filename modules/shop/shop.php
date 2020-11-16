@@ -29,7 +29,11 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	//var_dump($result);
 
     foreach($result as $r){
-        printf($r->product_id, $r->category_id, $r->translations->pl_PL->name, $r->stock->code, $r->stock->ean);
+        echo $r->product_id;
+		echo $r->category_id;
+		echo $r->translations->pl_PL->name;
+		echo $r->stock->code;
+		echo $r->stock->ean;
     }
 	
     
