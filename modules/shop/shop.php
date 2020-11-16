@@ -14,7 +14,7 @@ include("$root/modules/shop/shop_settings.php");
 // 1. Pobieramy z bazy oracle dane o produkcie 
 // 2. Sprawdzamy czy w shoperze istnieje pordukt - dodajemy lub aktualizujemy 
 
-$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP LIMIT 5');
+$stid = oci_parse($conn, 'SELECT * FROM JFOX_MAGAZ');
 oci_execute($stid);
 
 echo "<table border='1'>\n";
@@ -37,6 +37,10 @@ echo "</table>\n";
              'password'=> $shoppass
          )
       );
+	  
+	}catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
+      die($ex->getMessage());
+  }
  
 $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
     $result = $resource->get();
@@ -45,8 +49,6 @@ $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
         printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name);
     }
 
-  }catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
-      die($ex->getMessage());
-  }
+ 
 
 ?>
