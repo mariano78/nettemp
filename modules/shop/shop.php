@@ -22,13 +22,13 @@ oci_execute($stid);
 while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	
-		$kod = $row['TO_KOD'];
+	$kod = $row['TO_KOD'];
 		
 	$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
     $result = $resource->get();
 
     foreach($result as $r){
-        printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name);
+        printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name, $r->stack.code);
     }
 	
     
