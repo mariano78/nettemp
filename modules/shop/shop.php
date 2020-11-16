@@ -21,7 +21,8 @@ oci_execute($stid);
 
 
 while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
-    echo $row['TO_KOD'] ."<br>\n";
+    $kod = $row['TO_KOD'];
+	echo $kod;
 }
 	
 
