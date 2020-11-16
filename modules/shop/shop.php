@@ -147,10 +147,16 @@ oci_close($conn);
 	
 $time_post = microtime(true);
 $exec_time = $time_post - $time_pre;
+
+$duration = $time_post-$time_pre;
+$hours = (int)($duration/60/60);
+$minutes = (int)($duration/60)-$hours*60;
+$seconds = (int)$duration-$hours*60*60-$minutes*60;
   
 $db->exec("UPDATE shop SET value='$exec_time' WHERE option='etime'");
-echo ' --- '.$time_pre.' --- ';
-echo ' --- '.$time_post.' --- ';
+echo ' --- '.$hours.' --- ';
+echo ' --- '.$minutes.' --- ';
+echo ' --- '.$seconds.' --- ';
 echo ' --- '.date("H:i:s",$exec_time).' --- ';
  
 
