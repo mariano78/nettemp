@@ -31,6 +31,9 @@ foreach ($result as $a) {
 	if($a['option']=='shoppas') {
 		$shoppass=$a['value'];
 	}
+	if($a['option']=='shoptest') {
+		$shoptest=$a['value'];
+	}
 }	
 
 $conn = oci_connect($user, $pass, $database);
@@ -101,7 +104,7 @@ $config = array(
       $client = \DreamCommerce\ShopAppstoreLib\Client::factory(
          \DreamCommerce\ShopAppstoreLib\Client::ADAPTER_BASIC_AUTH,
          array(
-             'entrypoint'=>'https://sklep475200.shoparena.pl/',
+             'entrypoint'=>'$shoptest',
              'username'=>'$shopusr',
              'password'=>'$shoppass'
          )
