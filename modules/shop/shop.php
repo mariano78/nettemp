@@ -34,8 +34,12 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
     $result = $resource->get();
 	var_dump($result);
 	$count = $result->count;
+	
+	if ($count == '0') {
+			
+			echo 'Dodaje produkt<br>';
+		} else {
 		
-		echo '<br>--'.$count.'--<br>';
 	
 
     foreach($result as $r){
@@ -51,9 +55,6 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 		if ($kod == $kod_shop) {
 			
 			echo 'Aktualizacja';
-		}else {
-			
-			echo 'Dodawanie';
 		}
 		echo 'kodshopera to '.$kod_shop;
         echo $r->product_id;
@@ -62,6 +63,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 		echo $r->stock->code;
 		echo $r->stock->ean;
     }
+		}
 	
     
 }
