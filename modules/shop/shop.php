@@ -35,7 +35,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 
     foreach($result as $r){
 		
-		$kod_shop = $r->product_id;
+		$kod_shop = $r->stock->code;
 		echo 'kodshopera to '.$kod_shop;
         echo $r->product_id;
 		echo $r->category_id;
