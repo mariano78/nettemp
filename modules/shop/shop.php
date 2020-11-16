@@ -29,7 +29,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 	//filtry
 	
-	$resource->filters(['stock.code'=> ['LIKE'=> '0001180']]);
+	$resource->filters(['stock.code'=> ['LIKE'=> '01']]);
 	
     $result = $resource->get();
 	var_dump($result);
