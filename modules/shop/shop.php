@@ -17,8 +17,9 @@ include("$root/modules/shop/shop_settings.php");
 $stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP');
 oci_define_by_name($stid, 'NUMBER_OF_ROWS', $number_of_rows);
 oci_execute($stid);
+$nrows = oci_fetch_all($stid, $results);
 //oci_fetch($stid);
-echo $number_of_rows. " rows selected.<br />\n";
+echo $nrows. " rows selected.<br />\n";
 //echo oci_num_rows($stid) 
 
 echo "<table border='1'>\n";
