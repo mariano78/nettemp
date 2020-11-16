@@ -19,8 +19,8 @@ oci_define_by_name($stid, 'NUMBER_OF_ROWS', $number_of_rows);
 oci_execute($stid);
 $nrows = oci_fetch_all($stid, $results);
 
-foreach ($results as $key => $val) {
-echo '<th>' . $key . '</th>';
+foreach ($results as $jfox) {
+echo '<th>' . $jfox['TO_KOD'] . '</th>';
 }
 
 //oci_fetch($stid);
