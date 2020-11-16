@@ -24,7 +24,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	foreach ($row as $item) {
         //echo "    <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
 		$kod = $row['TO_KOD'];
-	echo $kod;
+	echo $kod."<br>";
     }
     
 }
