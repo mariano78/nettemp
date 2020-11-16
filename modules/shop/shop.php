@@ -19,16 +19,23 @@ oci_execute($stid);
 
 echo "<table border='1'>\n";
 //while ($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
-while (false !== ($item = oci_fetch_assoc($stid)) {
-    echo "<tr>\n";
-    foreach ($row as $item) {
-        echo "    <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
-		echo $item['TO_KOD'];
-		echo $item['MAGAZYN'];
-    }
-    echo "</tr>\n";
+//while (false !== ($item = oci_fetch_assoc($stid)) {
+	
+	while (oci_fetch($stid)) {
+    echo oci_result($stid, 'TO_KOD') . " is ";
+    echo oci_result($stid, 'MAGAZYN') . "<br>\n";
 }
-echo "</table>\n";
+	
+	
+   // echo "<tr>\n";
+   // foreach ($row as $item) {
+   //     echo "    <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
+	//	echo $item['TO_KOD'];
+	//	echo $item['MAGAZYN'];
+   // }
+  //  echo "</tr>\n";
+//}
+//echo "</table>\n";
 
  
   
