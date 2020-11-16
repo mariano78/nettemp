@@ -25,6 +25,19 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	
 	$kod = $row['TO_KOD'];
+	$ean = $row['TO_KK_1'];
+	$nazwa = $row['TO_NAZWA'];
+	$kategoria = 1;
+	$cena = $row['CEN_F01'];
+	$stan = $row['STAN'];
+	$podatek = 1; //zrobić ifa
+	$jedmiar = 1; //zrobić ifa
+	
+	$opis = 'To jest opis produktu';
+	$aktywnosc = true;
+	
+	
+	
 	echo 'Kod oracle - '.$kod.'<br>';
 		
 	$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
@@ -39,6 +52,36 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	if ($count == '0') {
 			
 			echo 'Dodaje produkt - '.$kod.'<br>';
+			
+			$resource = newDreamCommerce\ShopAppstoreLib\Resource\Product($client);
+    $data = array(
+        'category_id' => $kategoria,
+        'translations' => array(
+            'pl_PL' => array(
+                'name' => $nazwa,
+                'description' => $opis,
+                'active' => $aktywnosc
+            )
+        ),
+        'stock' => array(
+            'price' => $cena,
+            'active' => 1,
+            'stock' => $stan
+        ),
+        'tax_id' => 1,
+        'code' => $kod,
+        'unit_id' => $jedmiar
+    );
+    $result = $resource->post($data);
+
+    printf("An object has been added #%d", $result);
+			
+			
+			
+			
+			
+			
+			
 		} else {
 		
 	
