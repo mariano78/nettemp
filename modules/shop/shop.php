@@ -36,7 +36,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
     foreach($result as $r){
 		
 		$kod_shop = $r->stock->code;
-		echo '--'.$kod_shop.'--';
+		echo '\n--'.$kod_shop.'--';
 		
 		if ($kod == $kod_shop) {
 			
