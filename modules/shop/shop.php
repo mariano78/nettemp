@@ -11,6 +11,8 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
 
+$count = '';
+
 // 1. Pobieramy z bazy oracle dane o produkcie 
 // 2. Sprawdzamy czy w shoperze istnieje produkt z kodem z oracle - dodajemy lub aktualizujemy 
 
@@ -36,7 +38,11 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
     foreach($result as $r){
 		
 		$kod_shop = $r->stock->code;
-		echo '<br>--'.$r->count.'--<br>';
+		
+		$count = $r->count;
+		
+		echo '<br>--'.$count.'--<br>';
+		
 		echo '<br>--'.$kod_shop.'--';
 		
 		if ($kod == $kod_shop) {
