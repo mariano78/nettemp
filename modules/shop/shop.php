@@ -1,5 +1,5 @@
 <?php
-include("var/www/nettemp/modules/shop/shop_settings.php");
+include("/var/www/nettemp/modules/shop/shop_settings.php");
 
 $stid = oci_parse($conn, 'SELECT * FROM JFOX_MAGAZ');
 oci_execute($stid);
