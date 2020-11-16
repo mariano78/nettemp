@@ -30,7 +30,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$resource->filters(['stock.code'=> ['LIKE'=> $kod]]);
 	
     $result = $resource->get();
-	//var_dump($result);
+	var_dump($result);
 	
 
     foreach($result as $r){
