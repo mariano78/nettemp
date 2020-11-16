@@ -33,6 +33,9 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
     $result = $resource->get();
 	var_dump($result);
+	$count = $result->count;
+		
+		echo '<br>--'.$count.'--<br>';
 	
 
     foreach($result as $r){
