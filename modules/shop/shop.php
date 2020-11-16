@@ -34,8 +34,8 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 
     foreach($result as $r){
-		$ile = $r->count;
-		echo $ile.'wierszy';
+		
+		
         echo $r->product_id;
 		echo $r->category_id;
 		echo $r->translations->pl_PL->name;
