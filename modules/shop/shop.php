@@ -149,6 +149,8 @@ $time_post = microtime(true);
 $exec_time = $time_post - $time_pre;
   
 $db->exec("UPDATE shop SET value='$exec_time' WHERE option='etime'");
+echo ' --- '.$exec_pre.' --- ';
+echo ' --- '.$exec_post.' --- ';
 echo ' --- '.date("H:i:s",$exec_time).' --- ';
  
 
