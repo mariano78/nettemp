@@ -12,6 +12,8 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 include("$root/modules/shop/shop_settings.php");
 
 $count = '';
+$dodanych = 0;
+$aktualizowanych = 0;
 
 // 1. Pobieramy z bazy oracle dane o produkcie 
 // 2. Sprawdzamy czy w shoperze istnieje produkt z kodem z oracle - dodajemy lub aktualizujemy 
@@ -76,13 +78,10 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
     $result = $resource->post($data);
 
     printf("An object has been added #%d", $result);
+	$dodanych++;
+
 			
-			
-			
-			
-			
-			
-			
+	
 		} else {
 		
 	
@@ -129,6 +128,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 
     if($result){
         echo 'A product has been successfully updated';
+		$aktualizowanych++;
     }
 		
 		
@@ -137,8 +137,10 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
     }
 		}
 	
-    
+   echo 'Akt - '.$aktualizowanych; 
+   echo 'Dod - '.$dodanych; 
 }
+
 
 oci_free_statement($stid);
 oci_close($conn);
