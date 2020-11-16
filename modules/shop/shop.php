@@ -39,7 +39,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
         echo $r->product_id;
 		echo $r->category_id;
 		echo $r->translations->pl_PL->name;
-		echo $r->code;
+		echo $r->stock.code;
 		echo $r->stock->ean;
     }
 	
