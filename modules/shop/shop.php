@@ -24,11 +24,14 @@ echo $number_of_rows. " rows selected.<br />\n";
 echo "<table border='1'>\n";
 //while ($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
 //while (false !== ($item = oci_fetch_assoc($stid)) {
-	
-	while (oci_fetch($stid)) {
-    echo oci_result($stid, 'TO_KOD') . " is ";
-    echo oci_result($stid, 'MAGAZYN') . "<br>\n";
+while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
+    echo $row['TO_KOD'] ."<br>\n";
 }
+	
+	//while (oci_fetch($stid)) {
+    //echo oci_result($stid, 'TO_KOD') . " is ";
+    //echo oci_result($stid, 'MAGAZYN') . "<br>\n";
+//}
 	
 	
    // echo "<tr>\n";
