@@ -96,12 +96,41 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 		if ($kod == $kod_shop) {
 			
 			echo 'Aktualizuję produkt - '.$kod.'<br>';
-			echo 'kodshopera to '.$kod_shop;
-        echo $r->product_id;
+		echo 'kodshopera to '.$kod_shop;
+        $id = $r->product_id;
 		echo $r->category_id;
 		echo $r->translations->pl_PL->name;
 		echo $r->stock->code;
 		echo $r->stock->ean.'<br>';
+		
+			$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
+			$id = 1;
+			$data = array(
+        'category_id' => $kategoria,
+        'translations' => array(
+            'pl_PL' => array(
+                'name' => $nazwa,
+                'description' => $opis,
+                'active' => $aktywnosc
+            )
+        ),
+        'stock' => array(
+            'price' => $cena,
+            'active' => 1,
+            'stock' => $stan
+        ),
+        'tax_id' => 1,
+        'code' => $kod,
+        'unit_id' => $jedmiar
+    );
+
+    $result = $resource->put($id, $data);
+
+    if($result){
+        echo 'A product has been successfully updated';
+    }
+		
+		
 		}
 		
     }
