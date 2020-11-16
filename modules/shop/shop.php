@@ -28,7 +28,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$ean = $row['TO_KK_1'];
 	$nazwa = $row['TO_NAZWA'];
 	$kategoria = 1;
-	$cena = $row['CEN_F01'];
+	$cena = $row['CEN_F01']* 1.23; //zrobić ifa na stawki vat
 	$stan = floor($row['STAN']);
 	$podatek = 1; //zrobić ifa
 	$jedmiar = 1; //zrobić ifa
@@ -104,7 +104,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 		echo $r->stock->ean.'<br>';
 		
 			$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
-			$id = 1;
+			//$id = 1;
 			$data = array(
         'category_id' => $kategoria,
         'translations' => array(
