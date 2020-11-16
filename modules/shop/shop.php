@@ -28,19 +28,7 @@ while ($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
 echo "</table>\n";
 
  
-  try{
-      $client = \DreamCommerce\ShopAppstoreLib\Client::factory(
-         \DreamCommerce\ShopAppstoreLib\Client::ADAPTER_BASIC_AUTH,
-         array(
-             'entrypoint'=> $shoptest,
-             'username'=> $shopusr,
-             'password'=> $shoppass
-         )
-      );
-	  
-	}catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
-      die($ex->getMessage());
-  }
+  
  
 $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
     $result = $resource->get();

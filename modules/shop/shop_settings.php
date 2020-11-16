@@ -28,6 +28,7 @@ foreach ($result as $a) {
 		$shoptest=$a['value'];
 	}
 }	
+// ORACLE - podłączenie do bazy
 
 $conn = oci_connect($user, $pass, $database);
 if (!$conn) {
@@ -82,6 +83,21 @@ $config = array(
   }
  
   define("DREAMCOMMERCE_LOG_FILE", $logFile);
+ 
+ //Połączenie do shoper
+ try{
+      $client = \DreamCommerce\ShopAppstoreLib\Client::factory(
+         \DreamCommerce\ShopAppstoreLib\Client::ADAPTER_BASIC_AUTH,
+         array(
+             'entrypoint'=> $shoptest,
+             'username'=> $shopusr,
+             'password'=> $shoppass
+         )
+      );
+	  
+	}catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
+      die($ex->getMessage());
+  }
  
 
 ?>
