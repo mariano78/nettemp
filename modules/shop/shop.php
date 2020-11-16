@@ -29,7 +29,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$nazwa = $row['TO_NAZWA'];
 	$kategoria = 1;
 	$cena = $row['CEN_F01'];
-	$stan = $row['STAN'];
+	$stan = floor($row['STAN']);
 	$podatek = 1; //zrobić ifa
 	$jedmiar = 1; //zrobić ifa
 	
