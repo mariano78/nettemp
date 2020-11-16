@@ -25,6 +25,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	
 	$kod = $row['TO_KOD'];
+	echo 'Kod oracle - '.$kod.'<br>';
 		
 	$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 	//filtry
@@ -37,7 +38,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	if ($count == '0') {
 			
-			echo 'Dodaje produkt<br>';
+			echo 'Dodaje produkt - '.$kod.'<br>';
 		} else {
 		
 	
@@ -46,22 +47,20 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 		
 		$kod_shop = $r->stock->code;
 		
-		$count = $r->count;
-		
-		echo '<br>--'.$count.'--<br>';
 		
 		echo '<br>--'.$kod_shop.'--';
 		
 		if ($kod == $kod_shop) {
 			
-			echo 'Aktualizacja';
-		}
-		echo 'kodshopera to '.$kod_shop;
+			echo 'Aktualizuję produkt - '.$kod.'<br>';
+			echo 'kodshopera to '.$kod_shop;
         echo $r->product_id;
 		echo $r->category_id;
 		echo $r->translations->pl_PL->name;
 		echo $r->stock->code;
 		echo $r->stock->ean;
+		}
+		
     }
 		}
 	
