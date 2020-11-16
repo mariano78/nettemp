@@ -25,6 +25,12 @@ foreach ($result as $a) {
 	if($a['option']=='database') {
 		$database=$a['value'];
 	}
+	if($a['option']=='shopusr') {
+		$shopusr=$a['value'];
+	}
+	if($a['option']=='shoppas') {
+		$shoppass=$a['value'];
+	}
 }	
 
 $conn = oci_connect($user, $pass, $database);
@@ -96,8 +102,8 @@ $config = array(
          \DreamCommerce\ShopAppstoreLib\Client::ADAPTER_BASIC_AUTH,
          array(
              'entrypoint'=>'https://sklep475200.shoparena.pl/',
-             'username'=>'mmapi',
-             'password'=>''
+             'username'=>'$shopusr',
+             'password'=>'$shoppass'
          )
       );
  
