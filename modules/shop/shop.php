@@ -25,7 +25,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$kod = $row['TO_KOD'];
 		
 	$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
-	$resource->filters(['code'=> ['LIKE'=>'$kod']]);
+	//$resource->filters(['code'=> ['LIKE'=>'$kod']]);
 	//$res->     filters(['value'=>['>'=>20]]);
     $result = $resource->get();
 	//var_dump($result);
@@ -34,7 +34,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
         echo $r->product_id;
 		echo $r->category_id;
 		echo $r->translations->pl_PL->name;
-		echo $r->stock->code;
+		echo $r->code;
 		echo $r->stock->ean;
     }
 	
