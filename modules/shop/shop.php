@@ -30,7 +30,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$kategoria = 1;
 	$cena = $row['CEN_F01']* 1.23; //zrobić ifa na stawki vat
 	$stan = floor($row['STAN']);
-	if ($stan < 0) {$stan = 0};
+	if ($stan < 0) $stan = 0;
 	$podatek = 1; //zrobić ifa
 	$jedmiar = 1; //zrobić ifa
 	
