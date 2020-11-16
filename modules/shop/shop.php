@@ -12,17 +12,21 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 include("$root/modules/shop/shop_settings.php");
 
 // 1. Pobieramy z bazy oracle dane o produkcie 
-// 2. Sprawdzamy czy w shoperze istnieje pordukt - dodajemy lub aktualizujemy 
+// 2. Sprawdzamy czy w shoperze istnieje produkt - dodajemy lub aktualizujemy 
 
 $stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP');
-oci_define_by_name($stid, 'NUMBER_OF_ROWS', $number_of_rows);
 oci_execute($stid);
 
 
 
 while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
-    $kod = $row['TO_KOD'];
+	
+	foreach ($row as $item) {
+        echo "    <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
+		$kod = $row['TO_KOD'];
 	echo $kod;
+    }
+    
 }
 	
 
