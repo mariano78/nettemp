@@ -53,7 +53,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 			
 			echo 'Dodaje produkt - '.$kod.'<br>';
 			
-			$resource = newDreamCommerce\ShopAppstoreLib\Resource\Product($client);
+			$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
     $data = array(
         'category_id' => $kategoria,
         'translations' => array(
