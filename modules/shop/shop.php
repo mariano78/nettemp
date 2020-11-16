@@ -32,7 +32,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$resource->filters(['stock.code'=> ['LIKE'=> '01']]);
 	
     $result = $resource->get();
-	var_dump($result);
+	//var_dump($result);
 	$count = $result->count;
 	
 	if ($count == '0') {
