@@ -1,5 +1,15 @@
 <?php
-include("/var/www/nettemp/modules/shop/shop_settings.php");
+
+if(!empty($_SERVER["DOCUMENT_ROOT"])){
+    $root=$_SERVER["DOCUMENT_ROOT"];
+}else{
+    $root=__DIR__;
+    for($i=0;$i<5;$i++){
+        $root = file_exists($root.'/dbf/nettemp.db') ? $root : dirname($root) ;
+    }
+}
+
+include("$root/modules/shop/shop_settings.php");
 
 $stid = oci_parse($conn, 'SELECT * FROM JFOX_MAGAZ');
 oci_execute($stid);
