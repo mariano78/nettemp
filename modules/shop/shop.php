@@ -31,6 +31,10 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
     $result = $resource->get();
 	//var_dump($result);
+	
+	if (empty($result)) {
+  echo "Variable 'a' is empty.<br>";
+}
 
     foreach($result as $r){
         echo $r->product_id;
