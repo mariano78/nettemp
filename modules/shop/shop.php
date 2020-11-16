@@ -28,7 +28,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
     $result = $resource->get();
 
     foreach($result as $r){
-        printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name, $r->ean);
+        printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name, $r->stock->ean);
     }
 	
     
