@@ -17,38 +17,13 @@ include("$root/modules/shop/shop_settings.php");
 $stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP');
 oci_define_by_name($stid, 'NUMBER_OF_ROWS', $number_of_rows);
 oci_execute($stid);
-$nrows = oci_fetch_all($stid, $results);
 
-foreach ($results as $jfox) {
-echo '<th>' . $jfox['TO_KOD'] . '</th>';
-}
 
-//oci_fetch($stid);
-echo $nrows. " rows selected.<br />\n";
-//echo oci_num_rows($stid) 
 
-echo "<table border='1'>\n";
-//while ($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
-//while (false !== ($item = oci_fetch_assoc($stid)) {
 while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
     echo $row['TO_KOD'] ."<br>\n";
 }
 	
-	//while (oci_fetch($stid)) {
-    //echo oci_result($stid, 'TO_KOD') . " is ";
-    //echo oci_result($stid, 'MAGAZYN') . "<br>\n";
-//}
-	
-	
-   // echo "<tr>\n";
-   // foreach ($row as $item) {
-   //     echo "    <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
-	//	echo $item['TO_KOD'];
-	//	echo $item['MAGAZYN'];
-   // }
-  //  echo "</tr>\n";
-//}
-//echo "</table>\n";
 
  
   
