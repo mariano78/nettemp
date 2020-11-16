@@ -28,7 +28,7 @@ foreach ($result as $a) {
 	if($a['option']=='shopusr') {
 		$shopusr=$a['value'];
 	}
-	if($a['option']=='shoppas') {
+	if($a['option']=='shoppass') {
 		$shoppass=$a['value'];
 	}
 	if($a['option']=='shoptest') {
