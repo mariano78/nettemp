@@ -17,7 +17,7 @@ $aktualizowanych = 0;
 
 // 1. Pobieramy z bazy oracle dane o produkcie 
 // 2. Sprawdzamy czy w shoperze istnieje produkt z kodem z oracle - dodajemy lub aktualizujemy 
-
+$time_pre = microtime(true);
 $stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP');
 oci_execute($stid);
 
@@ -145,10 +145,10 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 oci_free_statement($stid);
 oci_close($conn);
 	
-
- 
+$time_post = microtime(true);
+$exec_time = $time_post - $time_pre;
   
-
+$db->exec("UPDATE shop SET value='$exec_time' WHERE option='etime'");
  
 
 ?>
