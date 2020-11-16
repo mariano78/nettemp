@@ -26,7 +26,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 		
 	$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
     $result = $resource->get();
-	var_dump($result);
+	//var_dump($result);
 
     foreach($result as $r){
         printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name, $r->stock->code, $r->stock->ean);
