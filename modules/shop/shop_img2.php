@@ -26,7 +26,7 @@ $context = stream_context_create(
         )
     );
 
-echo file_get_contents("http://www.robelit.pl/5905725026302", false, $context);
+echo file_get_contents("http://www.robelit.pl/5905725026302/", false, $context);
 
 
 
