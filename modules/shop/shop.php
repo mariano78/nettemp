@@ -33,13 +33,14 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$stan = floor($row['STAN']); // dostępna ilosć towaru
 	
 	if ($stan < 0) $stan = 0; // dla stanu poniżej 0
+	
 	$podatek_jfox = $row['TO_VAT_CODE'];
-	
 	if($podatek_jfox == '51') $podatek = 1; $mnoznik = 1.23; //przypisanie podatku jfox->shoper
-	$jed_miar_jfox = $row['TO_JM'];
 	
+	$jed_miar_jfox = $row['TO_JM'];
 	if($jed_miar_jfox == 'SZT') $jedmiar = 1; //przypisanie jednostki miary jfox->shoper
-	$cena = $row['CEN_F01']* $mnoznik; //zrobić ifa na stawki vat
+	
+	$cena = $row['CEN_F01'] * $mnoznik; //cena * podatek VAT
 	
 	$opis = 'To jest opis produktu';
 	$aktywnosc = true;
@@ -142,10 +143,10 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
     }
 		}
 	
-   echo 'Akt - '.$aktualizowanych; 
-   echo 'Dod - '.$dodanych; 
+   
 }
-
+ echo 'Akt - '.$aktualizowanych; 
+ echo 'Dod - '.$dodanych;
 
 oci_free_statement($stid);
 oci_close($conn);
