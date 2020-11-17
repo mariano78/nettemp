@@ -50,7 +50,7 @@ if (!$conn) {
 // SDK shoper - ustawienia
 $config = array(
       'debug' => false,
-      'logFile' => "logs/application.log",
+      'logFile' => "$root/modules/shop/logs/application.log",
       'timezone' => 'Europe/Warsaw',
       'php' => array(
           'display_errors' => 'off'
