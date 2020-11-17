@@ -60,7 +60,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	if ($count == '0' && $akcja != 0) {
 			
-			logs_shop($date, 'Info', "Dodaję produkt". $kod); echo "Cena zero \n";
+			logs_shop($date, 'Info', "Dodaję produkt". $kod);
 			echo "Dodaje produkt - ".$kod."\n";
 			
 			$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
@@ -102,6 +102,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 					if ($kod == $kod_shop) {
 			
 					echo 'Aktualizuję produkt - '.$kod.'<br>';
+					logs_shop($date, 'Info', "Aktualizuję produkt". $kod);
 					echo 'kodshopera to '.$kod_shop;
 					$id = $r->product_id;
 					echo $r->category_id;
@@ -134,6 +135,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 
 				if($result){
 					echo 'A product has been successfully updated';
+					logs_shop($date, 'Info', "Zaktualizowano produkt". $kod);
 					$aktualizowanych++;
 				}
 		
