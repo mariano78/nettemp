@@ -155,7 +155,7 @@ $minutes = (int)($duration/60)-$hours*60;
 $seconds = (int)$duration-$hours*60*60-$minutes*60;
   
 $db->exec("UPDATE shop SET value='$exec_time' WHERE option='etime'");
-echo "W czasie: "
+echo "W czasie: ";
 echo $hours.' h ';
 echo $minutes.' m ';
 echo $seconds.' s ';
