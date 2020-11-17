@@ -41,6 +41,8 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	if($jed_miar_jfox == 'SZT') $jedmiar = 1; //przypisanie jednostki miary jfox->shoper
 	
 	$cena = $row['CEN_F01'] * $mnoznik; //cena * podatek VAT
+	if ($cena == 0) $akcja = 0; // jeśli = 1 to wykonujemy akcję aktulizacja lub dodanie
+	
 	
 	$opis = 'To jest opis produktu';
 	$aktywnosc = true;
@@ -53,7 +55,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	//var_dump($result);
 	$count = $result->count;
 	
-	if ($count == '0') {
+	if ($count == '0' && $akcja != 0) {
 			
 			echo "Dodaje produkt - ".$kod."\n";
 			
@@ -84,7 +86,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 
 			
 	
-		} else {
+		} elseif ($akcja != 0){
 
 				foreach($result as $r){
 		
