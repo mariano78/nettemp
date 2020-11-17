@@ -14,7 +14,7 @@ include("$root/modules/shop/shop_settings.php");
 
 $ftp_host = "robelit.home.pl";
 $ftp_user = "shoper@robelit.pl";
-$ftp_password = "Ala1ALa2";
+$ftp_password = "Ala1Ala2";
 
 //Connect
 echo "<br />Connecting to $ftp_host via FTP...";
