@@ -45,19 +45,17 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$opis = 'To jest opis produktu';
 	$aktywnosc = true;
 	
-		
 	$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 	//filtry
 	
 	$resource->filters(['stock.code'=> ['LIKE'=> $kod]]);
-	
     $result = $resource->get();
 	//var_dump($result);
 	$count = $result->count;
 	
 	if ($count == '0') {
 			
-			echo 'Dodaje produkt - '.$kod.'<br>';
+			echo 'Dodaje produkt - '.$kod.'\n';
 			
 			$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 			$data = array(
@@ -87,8 +85,6 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 			
 	
 		} else {
-		
-	
 
 				foreach($result as $r){
 		
