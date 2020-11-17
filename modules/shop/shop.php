@@ -26,15 +26,20 @@ oci_execute($stid);
 while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	
-	$kod = $row['TO_KOD'];
-	$ean = $row['TO_KK_1'];
-	$nazwa = $row['TO_NAZWA'];
-	$kategoria = 1;
+	$kod = $row['TO_KOD']; //kod towaru w RB
+	$ean = $row['TO_KK_1']; // kod ean
+	$nazwa = $row['TO_NAZWA']; //nazwa z jfox
+	$kategoria = 1; // kategoria w shoper
+	$stan = floor($row['STAN']); // dostępna ilosć towaru
+	
+	if ($stan < 0) $stan = 0; // dla stanu poniżej 0
+	$podatek_jfox = $row['TO_VAT_CODE'];
+	
+	if($podatek_jfox == '51') $podatek = 1; $mnoznik = 1.23; //przypisanie podatku jfox->shoper
+	$jed_miar_jfox = $row['TO_JM'];
+	
+	if($jed_miar_jfox == 'SZT') $jedmiar = 1; //przypisanie jednostki miary jfox->shoper
 	$cena = $row['CEN_F01']* 1.23; //zrobić ifa na stawki vat
-	$stan = floor($row['STAN']);
-	if ($stan < 0) $stan = 0;
-	$podatek = 1; //zrobić ifa
-	$jedmiar = 1; //zrobić ifa
 	
 	$opis = 'To jest opis produktu';
 	$aktywnosc = true;
@@ -157,7 +162,6 @@ $db->exec("UPDATE shop SET value='$exec_time' WHERE option='etime'");
 echo ' --- '.$hours.' --- ';
 echo ' --- '.$minutes.' --- ';
 echo ' --- '.$seconds.' --- ';
-echo ' --- '.date("H:i:s",$exec_time).' --- ';
  
 
 ?>
