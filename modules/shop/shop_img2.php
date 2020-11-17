@@ -11,14 +11,15 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
 
-$context  = stream_context_create(
-  array(
-    "http" => array(
-      "header" => "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36"
-    )
-));
+$url="http://www.robelit.pl/5905725026302/";
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
+$html = curl_exec($ch);
+curl_close($ch);
 
-echo file_get_contents("http://www.robelit.pl/5905725026302/", false, $context);
+//echo file_get_contents("http://www.robelit.pl/5905725026302/", false, $context);
 
 
 
