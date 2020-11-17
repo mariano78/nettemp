@@ -108,13 +108,10 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 					$kod_shop = $r->stock->code;
 		
 					if ($kod == $kod_shop) {
-			
-					echo 'Aktualizuję produkt - '.$kod." \n";
-					logs_shop($date, 'Info', "Aktualizuję produkt ". $kod);
+						echo 'Aktualizuję produkt - '.$kod." \n";
+						logs_shop($date, 'Info', "Aktualizuję produkt ". $kod);
+						$id = $r->product_id;
 					
-					$id = $r->product_id;
-					
-		
 					$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 					$data = array(
 						'category_id' => $kategoria,
@@ -146,29 +143,26 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 					logs_shop($date, 'Info', "Zaktualizowano produkt ". $kod);
 					$aktualizowanych++;
 				}
-		
-		
 			}
-		
 		}	
 	} 
 }//while
 
- echo "\n Zaktualizowano - ".$aktualizowanych."\n"; 
- echo "Dodano - ".$dodanych."\n";
+echo "\nZaktualizowano - ".$aktualizowanych."\n"; 
+echo "Dodano - ".$dodanych."\n";
 
 oci_free_statement($stid);
 oci_close($conn);
 	
 $time_post = microtime(true);
 $exec_time = $time_post - $time_pre;
-
 $duration = $time_post-$time_pre;
 $hours = (int)($duration/60/60);
 $minutes = (int)($duration/60)-$hours*60;
 $seconds = (int)$duration-$hours*60*60-$minutes*60;
   
 $db->exec("UPDATE shop SET value='$exec_time' WHERE option='etime'");
+
 echo "W czasie: ";
 echo $hours." h ";
 echo $minutes." m ";
