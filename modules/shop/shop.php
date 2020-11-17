@@ -61,7 +61,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	if ($count == '0' && $akcja != 0) {
 			
 			logs_shop($date, 'Info', "Dodaję produkt ".$kod);
-			echo "Dodaje produkt - ".$kod."\n";
+			echo "Dodaję produkt - ".$kod."\n";
 			
 			$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 			$data = array(
@@ -100,22 +100,16 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 				foreach($result as $r){
 		
 					$kod_shop = $r->stock->code;
-
-					echo '<br>--'.$kod_shop.'--';
 		
 					if ($kod == $kod_shop) {
 			
 					echo 'Aktualizuję produkt - '.$kod.'<br>';
 					logs_shop($date, 'Info', "Aktualizuję produkt ". $kod);
-					echo 'kodshopera to '.$kod_shop;
+					
 					$id = $r->product_id;
-					echo $r->category_id;
-					echo $r->translations->pl_PL->name;
-					echo $r->stock->code;
-					echo $r->stock->ean.'<br>';
+					
 		
 					$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
-					//$id = 1;
 					$data = array(
 						'category_id' => $kategoria,
 						'translations' => array(
