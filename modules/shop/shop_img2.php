@@ -19,7 +19,7 @@ curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-U
 $html = curl_exec($ch);
 curl_close($ch);
 
-//echo file_get_contents("http://www.robelit.pl/5905725026302/", false, $context);
+echo $html;
 
 
 
