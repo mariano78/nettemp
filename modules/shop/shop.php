@@ -42,7 +42,9 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	if($jed_miar_jfox == 'SZT') $jedmiar = 1; //przypisanie jednostki miary jfox->shoper
 	
 	$cena = $row['CEN_F01'] * $mnoznik; //cena * podatek VAT	
-	($cena == 0) ? $akcja = 0 : $akcja = 1; // jeśli = 1 to wykonujemy akcję aktulizacja lub dodanie
+	($cena == 0) ? $akcja = 0; $message = 'Cena zero' : $akcja = 1;  // jeśli = 1 to wykonujemy akcję aktulizacja lub dodanie
+	$date = date('H:i:s');
+	if ($akcja == 0) logs_shop($date,'error', $message);
 	
 	
 	$opis = 'To jest opis produktu';
@@ -140,8 +142,8 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	} 
 }//while
 
- echo "\nZaktualizowano - ".$aktualizowanych."\n"; 
- echo 'Dodano - '.$dodanych."\n";
+ echo "\n Zaktualizowano - ".$aktualizowanych."\n"; 
+ echo "Dodano - ".$dodanych."\n";
 
 oci_free_statement($stid);
 oci_close($conn);
@@ -156,9 +158,9 @@ $seconds = (int)$duration-$hours*60*60-$minutes*60;
   
 $db->exec("UPDATE shop SET value='$exec_time' WHERE option='etime'");
 echo "W czasie: ";
-echo $hours.' h ';
-echo $minutes.' m ';
-echo $seconds.' s \n';
+echo $hours." h ";
+echo $minutes." m ";
+echo $seconds." s \n";
  
 
 ?>
