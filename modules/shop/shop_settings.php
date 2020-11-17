@@ -82,7 +82,7 @@ $config = array(
  
   define("DREAMCOMMERCE_DEBUG", $debug);
  
-  $logFile = "$root/modules/shop/shop_log.txt";
+  $logFile = "$root/modules/shop/logs/application.log";
  
   if(isset($config['logFile'])){
       if($config['logFile']){
