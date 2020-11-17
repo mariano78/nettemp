@@ -12,22 +12,37 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 include("$root/modules/shop/shop_settings.php");
 
 
-function curl_get_contents($url)
-{
-  $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
-$html = curl_exec($ch);
-  $data = curl_exec($ch);
-  curl_close($ch);
-  return $data;
+<?php
+$ftp_host = "robelit.pl";
+$ftp_user = "shoper@robelit.pl";
+$ftp_password = "Ala1ALa2";
+
+//Connect
+echo "<br />Connecting to $ftp_host via FTP...";
+$conn = ftp_connect($ftp_host);
+$login = ftp_login($conn, $ftp_user, $ftp_password);
+
+//
+//Enable PASV ( Note: must be done after ftp_login() )
+//
+$mode = ftp_pasv($conn, TRUE);
+
+//Login OK ?
+if ((!$conn) || (!$login) || (!$mode)) {
+   die("FTP connection has failed !");
 }
-$url="https://robelit.pl/wp-content/uploads/2020/11/5905725026302/";
-echo curl_get_contents($url);
+echo "<br />Login Ok.<br />";
 
+//
+//Now run ftp_nlist()
+//
+$file_list = ftp_nlist($conn, "");
+foreach ($file_list as $file)
+{
+  echo "<br>$file";
+}
 
-
-
+//close
+ftp_close($conn);
 
 ?>
