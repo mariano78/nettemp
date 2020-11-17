@@ -140,8 +140,8 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	} 
 }//while
 
- echo 'Akt - '.$aktualizowanych; 
- echo 'Dod - '.$dodanych;
+ echo 'Zaktualizowano - '.$aktualizowanych."\n"; 
+ echo 'Dodano - '.$dodanych."\n";
 
 oci_free_statement($stid);
 oci_close($conn);
@@ -155,9 +155,10 @@ $minutes = (int)($duration/60)-$hours*60;
 $seconds = (int)$duration-$hours*60*60-$minutes*60;
   
 $db->exec("UPDATE shop SET value='$exec_time' WHERE option='etime'");
-echo ' --- '.$hours.' --- ';
-echo ' --- '.$minutes.' --- ';
-echo ' --- '.$seconds.' --- ';
+echo "W czasie: "
+echo $hours.' h ';
+echo $minutes.' m ';
+echo $seconds.' s ';
  
 
 ?>
