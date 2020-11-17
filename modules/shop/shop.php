@@ -41,9 +41,8 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$jed_miar_jfox = $row['TO_JM'];
 	if($jed_miar_jfox == 'SZT') $jedmiar = 1; //przypisanie jednostki miary jfox->shoper
 	
-	$cena = $row['CEN_F01'] * $mnoznik; //cena * podatek VAT
-	//if ($cena == 0) 
-		$akcja = 0; // jeśli = 1 to wykonujemy akcję aktulizacja lub dodanie
+	$cena = $row['CEN_F01'] * $mnoznik; //cena * podatek VAT	
+	($cena == 0) ? $akcja = 0 : $akcja = 1; // jeśli = 1 to wykonujemy akcję aktulizacja lub dodanie
 	
 	
 	$opis = 'To jest opis produktu';
