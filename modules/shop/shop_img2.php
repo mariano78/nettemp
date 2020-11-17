@@ -12,7 +12,6 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 include("$root/modules/shop/shop_settings.php");
 
 
-<?php
 $ftp_host = "robelit.pl";
 $ftp_user = "shoper@robelit.pl";
 $ftp_password = "Ala1ALa2";
