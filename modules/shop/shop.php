@@ -14,6 +14,7 @@ include("$root/modules/shop/shop_settings.php");
 $count = '';
 $dodanych = 0;
 $aktualizowanych = 0;
+$akcja = 5;
 
 // 1. Pobieramy z bazy oracle dane o produkcie 
 // 2. Sprawdzamy czy w shoperze istnieje produkt z kodem z oracle - dodajemy lub aktualizujemy 
