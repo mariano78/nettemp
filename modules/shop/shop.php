@@ -46,6 +46,10 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$date = date('H:i:s');
 	if ($akcja == 0) logs_shop($date, 'error', "Produkt nie spełnia wymagań ".$kod);
 	
+	$waga = $row['TO_MASA']; // waga produktu
+	$szerokosc = $row['TO_SZEROKOSC']; // szerokosc produktu - width
+	$dlugosc = $row['TO_DLUGOSC']; // długosc produktu
+	
 	
 	$opis = 'To jest opis produktu';
 	$aktywnosc = true;
@@ -58,6 +62,8 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	//var_dump($result);
 	$count = $result->count;
 	
+//***************************************************Dodawanie***************************************************
+
 	if ($count == '0' && $akcja != 0) {
 			
 			logs_shop($date, 'Info', "Dodaję produkt ".$kod);
@@ -65,23 +71,27 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 			
 			$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 			$data = array(
-				'category_id' => $kategoria,
-				'translations' => array(
-				'pl_PL' => array(
-					'name' => $nazwa,
-					'description' => $opis,
-					'active' => $aktywnosc
-					)
-			),
-			'stock' => array(
-				'price' => $cena,
-				'active' => 1,
-				'stock' => $stan
-			),
-			'tax_id' => $podatek,
-			'code' => $kod,
-        '	unit_id' => $jedmiar
-			);
+						'category_id' => $kategoria,
+						'ean' => $ean,
+						'dimension_w' => $szerokosc,
+						'dimension_h' => $dlugosc,
+						'translations' => array(
+							'pl_PL' => array(
+							'name' => $nazwa,
+							'description' => $opis,
+							'active' => $aktywnosc
+							)
+						),
+						'stock' => array(
+							'price' => $cena,
+							'active' => 1,
+							'stock' => $stan,
+							'weight' => $waga
+							),
+						'tax_id' => $podatek,
+						'code' => $kod,
+						'unit_id' => $jedmiar
+					);
 			
     $result = $resource->post($data);
 	
@@ -90,11 +100,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 					logs_shop($date, 'Info', "Dodano produkt ". $kod);
 					$dodanych++;
 				}
-
-    
-
-			
-	
+//***************************************************Aktualizacja***************************************************
 		} elseif ($akcja != 0){
 
 				foreach($result as $r){
@@ -112,6 +118,9 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 					$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 					$data = array(
 						'category_id' => $kategoria,
+						'ean' => $ean,
+						'dimension_w' => $szerokosc,
+						'dimension_h' => $dlugosc,
 						'translations' => array(
 							'pl_PL' => array(
 							'name' => $nazwa,
@@ -122,7 +131,8 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 						'stock' => array(
 							'price' => $cena,
 							'active' => 1,
-							'stock' => $stan
+							'stock' => $stan,
+							'weight' => $waga
 							),
 						'tax_id' => $podatek,
 						'code' => $kod,
