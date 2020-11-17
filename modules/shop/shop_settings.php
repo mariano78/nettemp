@@ -8,7 +8,7 @@ if(!isset($db)){
 function logs_shop($date,$type,$message)
 	{
 		
-		$froot = "$root/modules/shop/";	
+		$froot = "/var/www/nettemp/modules/shop/";	
 		$db = new PDO("sqlite:$froot/shop_log.db") or die ("cannot open database");
 		//$db->exec("INSERT INTO logs ('date', 'type', 'code', 'operation', 'message') VALUES ('$date', '$type', '$code', '$operation', '$message')");
 		$db->exec("INSERT INTO logs ('date', 'type', 'message') VALUES ('$date', '$type', '$message')");
