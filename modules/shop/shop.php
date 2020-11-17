@@ -117,7 +117,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 							)
 						),
 						'stock' => array(
-							'price' => 0,
+							'price' => $cena,
 							'active' => 1,
 							'stock' => $stan
 							),
