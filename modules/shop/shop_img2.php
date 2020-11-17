@@ -11,7 +11,7 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
 
-$url = '\\serwer\Handlowka\_Nowy_Sklep\Produkty\5905725026302\';
+$url = '//serwer/Handlowka/_Nowy_Sklep/Produkty/5905725026302/';
 $no_html = strip_tags(file_get_contents($url));
 $arr = explode('Parent Directory', $no_html);
 $files = trim($arr[1]);
