@@ -44,7 +44,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$cena = $row['CEN_F01'] * $mnoznik; //cena * podatek VAT	
 	($cena == 0) ? $akcja = 0 : $akcja = 1;  // jeśli = 1 to wykonujemy akcję aktulizacja lub dodanie
 	$date = date('H:i:s');
-	if ($akcja == 0) logs_shop($date, 'error', 'Cena zero'); echo "Cena zero \n";
+	if ($akcja == 0) logs_shop($date, 'error', "Produkt nie spełnia wymagań ".$kod);
 	
 	
 	$opis = 'To jest opis produktu';
@@ -60,7 +60,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	if ($count == '0' && $akcja != 0) {
 			
-			logs_shop($date, 'Info', "Dodaję produkt ". $kod);
+			logs_shop($date, 'Info', "Dodaję produkt ".$kod);
 			echo "Dodaje produkt - ".$kod."\n";
 			
 			$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
