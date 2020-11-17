@@ -11,7 +11,7 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
 
-$url="http://www.robelit.pl/5905725026302/";
+$url="http://www.robelit.pl/public_html/5905725026302/";
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
