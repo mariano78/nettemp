@@ -35,7 +35,7 @@ echo "<br />Login Ok.<br />";
 //
 //Now run ftp_nlist()
 //
-$file_list = ftp_nlist($conn, "");
+$file_list = ftp_nlist($conn, "5905725026302");
 foreach ($file_list as $file)
 {
   echo "<br>$file";
