@@ -55,7 +55,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	if ($count == '0') {
 			
-			echo 'Dodaje produkt - '.$kod.'\n';
+			echo "Dodaje produkt - ".$kod."\n";
 			
 			$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 			$data = array(
@@ -79,7 +79,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 			
     $result = $resource->post($data);
 
-    printf("An object has been added #%d", $result);
+    printf("An object has been added #%d \n", $result);
 	$dodanych++;
 
 			
