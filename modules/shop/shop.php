@@ -96,7 +96,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
     $result = $resource->post($data);
 	
 				if($result){
-					printf("An object has been added #%d \n", $result);
+					echo "Dodano produkt ". $result." \n";
 					logs_shop($date, 'Info', "Dodano produkt ". $kod);
 					$dodanych++;
 				}
@@ -142,7 +142,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 				$result = $resource->put($id, $data);
 
 				if($result){
-					echo 'A product has been successfully updated';
+					echo "Zaktualizowano produkt ". $kod." \n";
 					logs_shop($date, 'Info', "Zaktualizowano produkt ". $kod);
 					$aktualizowanych++;
 				}
