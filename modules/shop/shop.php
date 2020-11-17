@@ -103,7 +103,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 		
 					if ($kod == $kod_shop) {
 			
-					echo 'Aktualizuję produkt - '.$kod.'<br>';
+					echo 'Aktualizuję produkt - '.$kod." \n";
 					logs_shop($date, 'Info', "Aktualizuję produkt ". $kod);
 					
 					$id = $r->product_id;
