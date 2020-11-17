@@ -24,7 +24,7 @@ $html = curl_exec($ch);
   return $data;
 }
 $url="https://robelit.pl/wp-content/uploads/2020/11/5905725026302/";
-curl_get_contents($url);
+echo curl_get_contents($url);
 
 
 
