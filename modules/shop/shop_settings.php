@@ -53,7 +53,7 @@ $config = array(
       'logFile' => "logs/application.log",
       'timezone' => 'Europe/Warsaw',
       'php' => array(
-          'display_errors' => 'on'
+          'display_errors' => 'off'
       )
   );
  
