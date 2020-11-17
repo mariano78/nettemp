@@ -15,6 +15,9 @@ $count = '';
 $dodanych = 0;
 $aktualizowanych = 0;
 $akcja = 5;
+$syncstatus = 0;
+
+$db->exec("UPDATE shop SET value='$syncstatus' WHERE option='syncstatus'");
 
 // 1. Pobieramy z bazy oracle dane o produkcie 
 // 2. Sprawdzamy czy w shoperze istnieje produkt z kodem z oracle - dodajemy lub aktualizujemy 
@@ -160,8 +163,11 @@ $duration = $time_post-$time_pre;
 $hours = (int)($duration/60/60);
 $minutes = (int)($duration/60)-$hours*60;
 $seconds = (int)$duration-$hours*60*60-$minutes*60;
+
+$syncstatus = 1; // aktualizacja stanu synchronizacji
   
 $db->exec("UPDATE shop SET value='$exec_time' WHERE option='etime'");
+$db->exec("UPDATE shop SET value='$syncstatus' WHERE option='syncstatus'");
 
 echo "W czasie: ";
 echo $hours." h ";
