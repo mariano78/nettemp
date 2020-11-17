@@ -75,7 +75,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 				'active' => 1,
 				'stock' => $stan
 			),
-			'tax_id' => 1,
+			'tax_id' => $podatek,
 			'code' => $kod,
         '	unit_id' => $jedmiar
 			);
@@ -121,7 +121,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 							'active' => 1,
 							'stock' => $stan
 							),
-						'tax_id' => 1,
+						'tax_id' => $podatek,
 						'code' => $kod,
 						'unit_id' => $jedmiar
 					);
