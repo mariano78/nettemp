@@ -48,13 +48,20 @@ if ($count != '0') {
 		if($file_list) {
 			
 			//sekcja usuwania zdjec
-			
-			$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
-			$result = $resource->delete($id);
+			//1. sprawdzam czy sa zdjecia, jesli sa usuwam
+			$resource = newDreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+			$result = $resource->get();
 
-			if($result){
-				echo 'An image has been successfully deleted';
+			foreach($result as $r){
+				printf("#%d - %s\n", $r->gfx_id, $r->name);
 			}
+			
+			//$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+			//$result = $resource->delete($id);
+
+			//if($result){
+			//	echo 'An image has been successfully deleted';
+			//}
 			//sekcja usuwania zdjec
 			
 			var_dump($file_list);
