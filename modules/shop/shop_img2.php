@@ -79,7 +79,7 @@ if ($count != '0') {
 					$ext = substr($file, -4);//sprawdzam rozszerzenie
 					$img_name = substr($file, 0, 13);//sprawdzam rozszerzenie
 					$img_name2 = substr($file, strpos($file, "_") + 1);    
-				 try{ 
+				 try{
 					$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
 					$data = array(
 						'product_id' => $id,
@@ -97,13 +97,13 @@ if ($count != '0') {
 					printf("An object has been added #%d", $id);
 					sleep(3);
 					$i++;
-				  
-				}
-				}catch(DreamCommerce\Exceptions\ClientException $ex){
+				 }catch(DreamCommerce\Exceptions\ClientException $ex){
     die('Something went wrong with the Client: '.$ex->getMessage());
 }catch(DreamCommerce\Exceptions\ResourceException $ex){
     die('Check your request: '.$ex->getMessage());
-}
+} 
+				}
+				
 			
 			}
 			// dodaje zdjęcia
