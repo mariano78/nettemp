@@ -10,7 +10,7 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 }
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
-$www_serwer = "https://robelit.pl/shopimg/";
+$www_serwer = "http://robelit.pl/shopimg/";
 
 
 
@@ -62,7 +62,14 @@ if ($count != '0') {
 			//usuwam zdjecia
 			if ($count_img != 0){
 
-				
+				foreach($result_img as $r_img){
+					$gfx_id = $r_img->gfx_id;
+					$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+					$result_del_img = $resource->delete($gfx_id);
+					if($result_del_img){
+						echo 'An image has been successfully deleted';
+					}
+				}
 			} else { 
 			//usuwam zdjecia
 			
@@ -74,20 +81,19 @@ if ($count != '0') {
 				{
 				  
 					echo $file;
-					$i = 1;
 					
 					$ext = substr($file, -4);//sprawdzam rozszerzenie
 					$img_name = substr($file, 0, 13);//sprawdzam rozszerzenie
 					$img_name2 = substr($file, strpos($file, "_") + 1);    
-				 try{
+				  
 					$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
 					$data = array(
 						'product_id' => $id,
-						'file' => $file.$i,
+						//'file' => $file,
 						'url' => $www_serwer.$file,
 						'translations' => array(
 							'pl_PL' => array(
-								'name' => $prod_name.$i
+								'name' => $prod_name
 							)
 						)
 					);
@@ -95,15 +101,8 @@ if ($count != '0') {
 					$id = $resource->post($data);
 
 					printf("An object has been added #%d", $id);
-					sleep(3);
-					$i++;
-				 }catch(DreamCommerce\Exceptions\ClientException $ex){
-    die('Something went wrong with the Client: '.$ex->getMessage());
-}catch(DreamCommerce\Exceptions\ResourceException $ex){
-    die('Check your request: '.$ex->getMessage());
-} 
+				  
 				}
-				
 			
 			}
 			// dodaje zdjęcia
