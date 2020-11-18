@@ -178,7 +178,7 @@ while($currentPage <= $result->getPageCount() ){
 				$currentPage++;
 				
 			}
-	 
+	 $currentPage++;
 
 	  
 }
