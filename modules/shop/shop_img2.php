@@ -92,12 +92,6 @@ if ($count != '0') {
 					$img_name2 = substr($file, strpos($file, "_") + 1);    
 					echo $img_name2;
 				  
-				  
-				  if ($ext == '.jpg'){
-					  
-					  echo "$ext \n";
-					  
-				  }
 				  echo "Sciezka".$www_serwer.$img_name.'/'.$img_name.'_1'.$ext." \n";
 					$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
 					$data = array(
