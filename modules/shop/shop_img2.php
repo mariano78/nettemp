@@ -68,7 +68,7 @@ if ($count != '0') {
 					$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
 					$result_del_img = $resource->delete($gfx_id);
 					if($result_del_img){
-						echo 'An image has been successfully deleted';
+						echo "Usunięto zdjęcie dla produktu ", $kod." \n";
 					}
 				}
 			//usuwam zdjecia
@@ -95,7 +95,7 @@ if ($count != '0') {
 					
 					if($idz){
 						$date = date('H:i:s');
-						printf("Dodano zdjęcie do produktu #%d", $kod);
+						echo "Dodano zdjęcie do produktu ", $kod." \n";
 						logs_shop($date, 'Info', "Dodano zdjęcie do produktu ". $kod);
 					}
 				}
@@ -125,7 +125,7 @@ if ($count != '0') {
 					
 					if($idz){
 					$date = date('H:i:s');
-					printf("Dodano zdjęcie do produktu #%d", $kod);
+					echo"Dodano zdjęcie do produktu ", $kod." \n";
 					logs_shop($date, 'Info', "Dodano zdjęcie do produktu ". $kod);
 					}
 				  
