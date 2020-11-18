@@ -49,7 +49,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$date = date('H:i:s');
 	if ($akcja == 0) logs_shop($date, 'error', "Produkt nie spełnia wymagań ".$kod);
 	
-	$waga = $row['TO_MASA']; // waga produktu
+	$waga = floatval($row['TO_MASA']); // waga produktu
 	$szerokosc = $row['TO_SZEROKOSC']; // szerokosc produktu - width
 	$dlugosc = $row['TO_DLUGOSC']; // długosc produktu
 	
