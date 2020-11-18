@@ -60,7 +60,7 @@ if ($count != '0') {
 			echo "count_img_".$count_img."\n";
 			
 			//usuwam zdjecia
-			if ($count_img != 1){
+			if ($count_img != 2){
 
 				
 			} else { 
