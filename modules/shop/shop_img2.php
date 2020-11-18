@@ -69,10 +69,10 @@ while($currentPage <= $result->getPageCount() ){
 					if($file_list) { // czy jest folder na FTP
 						
 						//1. sprawdzam czy sa zdjecia, jesli sa usuwam
-						$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+						$resource_img = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
 						//filtry
-						$resource->filters(['product_id'=> ['LIKE'=> $id]]);
-						$result_img = $resource->get();
+						$resource_img->filters(['product_id'=> ['LIKE'=> $id]]);
+						$result_img = $resource_img->get();
 						
 						$count_img = $result_img->count;
 						//echo "count_img_".$count_img."\n";
@@ -178,7 +178,7 @@ while($currentPage <= $result->getPageCount() ){
 				$currentPage++;
 				
 			}
-	 $currentPage++;
+	 //$currentPage++;
 
 	  
 }
