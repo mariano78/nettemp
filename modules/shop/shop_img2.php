@@ -49,7 +49,12 @@ if ($count != '0') {
 		  
 		  $ext = substr($file, -4);//sprawdzam rozszerzenie
 		  
-		  echo "$ext \n";
+		  if ($ext == '.jpg'){
+			  
+			  echo "$ext \n";
+			  
+		  }
+		  
 		}
 		
 		
