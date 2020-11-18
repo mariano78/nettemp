@@ -46,7 +46,7 @@ if ($count != '0') {
 		$id = $r->product_id;
 		$file_list = ftp_nlist($conn, $ean);
 		$filteredFiles = preg_grep( '/\.jpg$/i', $file_list );
-		
+		sort($filteredFiles);
 		if($file_list) {
 			
 			//1. sprawdzam czy sa zdjecia, jesli sa usuwam
