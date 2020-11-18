@@ -76,7 +76,9 @@ if ($count != '0') {
 			// dodaje zdjęcia
 				echo "Brak zdjęc - dodaje nowe\n";
 				var_dump($filteredFiles);
-			
+				
+				$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+				
 				foreach ($filteredFiles as $file)
 				{
 				  
@@ -86,7 +88,7 @@ if ($count != '0') {
 					$img_name = substr($file, 0, 13);//sprawdzam rozszerzenie
 					$img_name2 = substr($file, strpos($file, "_") + 1);    
 				  
-					$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+					
 					$data = array(
 						'product_id' => $id,
 						'file' => $file,
