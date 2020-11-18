@@ -49,6 +49,7 @@ if ($count != '0') {
 		$file_list = ftp_nlist($conn, $ean);
 		$filteredFiles = preg_grep( '/\.jpg$/i', $file_list );
 		sort($filteredFiles);
+		
 		if($file_list) {
 			
 			//1. sprawdzam czy sa zdjecia, jesli sa usuwam
@@ -140,7 +141,13 @@ if ($count != '0') {
 			
 			
 			
-		} // jesli nie ma folderu/plikow zrob else i logi
+		} else {
+			
+			echo "Nie ma folderu FTP dla produktu ", $kod." \n";
+			
+			
+			
+		}// jesli nie ma folderu/plikow zrob else i logi
 		
 		
 		
