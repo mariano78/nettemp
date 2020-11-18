@@ -81,7 +81,7 @@ if ($count != '0') {
 				echo "Brak zdjęc - dodaje nowe\n";
 				var_dump($filteredFiles);
 			
-				foreach ($filteredFilest as $file)
+				foreach ($filteredFiles as $file)
 				{
 				  
 				  $ext = substr($file, -4);//sprawdzam rozszerzenie
