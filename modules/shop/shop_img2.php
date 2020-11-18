@@ -44,6 +44,7 @@ if ($count != '0') {
         printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name);
 		$ean = $r->stock->ean;
 		$id = $r->product_id;
+		$kod = = $r->code;
 		$prod_name = $r->translations->pl_PL->name;
 		$file_list = ftp_nlist($conn, $ean);
 		$filteredFiles = preg_grep( '/\.jpg$/i', $file_list );
@@ -70,18 +71,10 @@ if ($count != '0') {
 						echo 'An image has been successfully deleted';
 					}
 				}
-			} else { 
 			//usuwam zdjecia
-			
-			// dodaje zdjęcia
-				echo "Brak zdjęc - dodaje nowe\n";
-				var_dump($filteredFiles);
-			
+				// dodaje zdjęcia
 				foreach ($filteredFiles as $file)
 				{
-				  
-					echo $file;
-					
 					$ext = substr($file, -4);//sprawdzam rozszerzenie
 					$img_name = substr($file, 0, 13);//sprawdzam rozszerzenie
 					$img_name2 = substr($file, strpos($file, "_") + 1);    
@@ -97,10 +90,47 @@ if ($count != '0') {
 							)
 						)
 					);
-
+					
 					$idz = $resource->post($data);
+					
+					if($idz){
+					printf("Dodano zdjęcie do produktu #%d", $kod);
+					logs_shop($date, 'Info', "Dodano zdjęcie do produktu ". $kod);
+				  
+				}
+			} else { 
+			
+			
+			// dodaje zdjęcia
+				foreach ($filteredFiles as $file)
+				{
+					$ext = substr($file, -4);//sprawdzam rozszerzenie
+					$img_name = substr($file, 0, 13);//sprawdzam rozszerzenie
+					$img_name2 = substr($file, strpos($file, "_") + 1);    
+				  
+					$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+					$data = array(
+						'product_id' => $id,
+						//'file' => $file,
+						'url' => $www_serwer.$file,
+						'translations' => array(
+							'pl_PL' => array(
+								'name' => $prod_name
+							)
+						)
+					);
+					
+					$idz = $resource->post($data);
+					
+					if($idz){
+					printf("Dodano zdjęcie do produktu #%d", $kod);
+					logs_shop($date, 'Info', "Dodano zdjęcie do produktu ". $kod);
+					}
 
-					printf("An object has been added #%d", $idz);
+
+
+					
+					
 				  
 				}
 			
