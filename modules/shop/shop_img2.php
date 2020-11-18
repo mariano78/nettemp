@@ -94,6 +94,7 @@ if ($count != '0') {
 					$idz = $resource->post($data);
 					
 					if($idz){
+						$date = date('H:i:s');
 						printf("Dodano zdjęcie do produktu #%d", $kod);
 						logs_shop($date, 'Info', "Dodano zdjęcie do produktu ". $kod);
 					}
@@ -123,6 +124,7 @@ if ($count != '0') {
 					$idz = $resource->post($data);
 					
 					if($idz){
+					$date = date('H:i:s');
 					printf("Dodano zdjęcie do produktu #%d", $kod);
 					logs_shop($date, 'Info', "Dodano zdjęcie do produktu ". $kod);
 					}
