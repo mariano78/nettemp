@@ -17,11 +17,13 @@ $www_serwer = "http://robelit.pl/shopimg/";
 $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 	//filtry
 	//$resource->filters(['stock.code'=> ['LIKE'=> $kod]]);
-    $result = $resource->page($currentPage)->limit(50)->get();
-	
 	$currentPage = 1;
 	$currentProd = 1;
+    $result = $resource->page($currentPage)->limit(50)->get();
+	
+	
 	$pages = $result->pages;
+	echo "__________________STRON ".$pages."\n";
 	
 while($currentPage <= $pages ){
 	  
