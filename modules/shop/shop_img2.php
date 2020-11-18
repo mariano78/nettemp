@@ -98,9 +98,9 @@ if ($count != '0') {
 						)
 					);
 
-					$id = $resource->post($data);
+					$idz = $resource->post($data);
 
-					printf("An object has been added #%d", $id);
+					printf("An object has been added #%d", $idz);
 				  
 				}
 			
