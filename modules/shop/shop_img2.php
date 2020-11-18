@@ -20,7 +20,7 @@ $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 	$currentPage = 1;
 	$currentProd = 1;
     $result = $resource->page($currentPage)->limit(5)->get();
-	var_dump($result);
+	//var_dump($result);
 	
 	$pages = $result->pages;
 	echo "__________________STRON ".$pages."\n";
