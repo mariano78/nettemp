@@ -26,7 +26,7 @@ $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 	$pages = $result->pages;
 	echo "__________________STRON ".$pages."\n";
 	
-while($currentPage <= $pages ){
+while($currentPage <= $result->getPageCount() ){
 	
 	  echo "__________________Aktualna strona ".$currentPage."\n";
 	  
