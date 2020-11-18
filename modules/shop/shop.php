@@ -106,7 +106,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 					$result = $resource->post($data);
 	
 				if($result){
-					echo "Dodano produkt ". $result." \n";
+					echo "Dodano produkt ". $kod." \n";
 					logs_shop($date, 'Info', "Dodano produkt ". $kod);
 					$dodanych++;
 				}
