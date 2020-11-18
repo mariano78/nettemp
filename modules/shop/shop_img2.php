@@ -33,9 +33,9 @@ while($currentPage <= $pages ){
 	
 			//$result = $resource->get();
 	
-				var_dump($result);
+				//var_dump($result);
 				$count = $result->count;
-				//echo "count_".$count."\n";
+				echo "count_".$count."\n";
 
 			if ($count != '0') {
 				
