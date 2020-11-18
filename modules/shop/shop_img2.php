@@ -45,6 +45,7 @@ if ($count != '0') {
 		$ean = $r->stock->ean;
 		$id = $r->product_id;
 		$file_list = ftp_nlist($conn, $ean);
+		$filteredFiles = preg_grep( '/\.jpg$/i', $file_list );
 		
 		if($file_list) {
 			
@@ -78,9 +79,9 @@ if ($count != '0') {
 			
 			// dodaje zdjęcia
 				echo "Brak zdjęc - dodaje nowe\n";
-				var_dump($file_list);
+				var_dump($filteredFiles);
 			
-				foreach ($file_list as $file)
+				foreach ($filteredFilest as $file)
 				{
 				  
 				  $ext = substr($file, -4);//sprawdzam rozszerzenie
