@@ -96,9 +96,9 @@ if ($count != '0') {
 					if($idz){
 						printf("Dodano zdjęcie do produktu #%d", $kod);
 						logs_shop($date, 'Info', "Dodano zdjęcie do produktu ". $kod);
-						{
+					}
 				}
-			} else { 
+				} else { 
 			
 			
 			// dodaje zdjęcia
