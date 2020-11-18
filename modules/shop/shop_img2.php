@@ -76,26 +76,25 @@ if ($count != '0') {
 			// dodaje zdjęcia
 				echo "Brak zdjęc - dodaje nowe\n";
 				var_dump($filteredFiles);
-				
-				$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
-				
+			
 				foreach ($filteredFiles as $file)
 				{
 				  
 					echo $file;
+					$i = 1;
 					
 					$ext = substr($file, -4);//sprawdzam rozszerzenie
 					$img_name = substr($file, 0, 13);//sprawdzam rozszerzenie
 					$img_name2 = substr($file, strpos($file, "_") + 1);    
 				  
-					
+					$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
 					$data = array(
 						'product_id' => $id,
-						'file' => $file,
+						'file' => $file.$i,
 						'url' => $www_serwer.$file,
 						'translations' => array(
 							'pl_PL' => array(
-								'name' => $prod_name
+								'name' => $prod_name.$i
 							)
 						)
 					);
@@ -104,6 +103,7 @@ if ($count != '0') {
 
 					printf("An object has been added #%d", $id);
 					sleep(1);
+					$i++;
 				  
 				}
 			
