@@ -10,7 +10,7 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 }
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
-$www_serwer = "http://robelit.pl/shopimg/";
+$www_serwer = "https://robelit.pl/shopimg/";
 
 
 
@@ -89,7 +89,7 @@ if ($count != '0') {
 					$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
 					$data = array(
 						'product_id' => $id,
-						//'file' => $file,
+						'file' => $file,
 						'url' => $www_serwer.$file,
 						'translations' => array(
 							'pl_PL' => array(
