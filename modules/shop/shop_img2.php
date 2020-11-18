@@ -12,27 +12,19 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 include("$root/modules/shop/shop_settings.php");
 $www_serwer = "http://robelit.pl/shopimg/";
 
-
-
 $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 	//filtry
 	//$resource->filters(['stock.code'=> ['LIKE'=> $kod]]);
 	$currentPage = 1;
-	$currentProd = 1;
-    //$result = $resource->page($currentPage)->limit(10)->get();
+	$currentProd = 1;;
 	$result = $resource->get();
 	//var_dump($result);
 	
 	$pages = $result->pages;
-	echo "__________________STRON ".$pages."\n";
 	
 while($currentPage <= $result->getPageCount() ){
-	
-	  echo "__________________Aktualna strona ".$currentPage."\n";
 	  
-	  $result = $resource->page($currentPage)->limit(10)->get();
-	
-			//$result = $resource->get();
+	  $result = $resource->page($currentPage)->limit(50)->get();
 	
 				//var_dump($result);
 				$count = $result->count;
@@ -153,13 +145,7 @@ while($currentPage <= $result->getPageCount() ){
 						
 						}
 						// dodaje zdjęcia
-						
-						
-						
-						
-						
-						
-						
+							
 					} else {
 						
 						echo "Nie ma folderu FTP dla produktu ", $kod." \n";
@@ -167,30 +153,15 @@ while($currentPage <= $result->getPageCount() ){
 						
 						
 					}// jesli nie ma folderu/plikow zrob else i logi
-					
-					
-					
-					
-					
-					
-					
+	
 				}
 				// dla każdego produktu w shoperze
 				
 				ftp_close($conn); //close ftp
 				$currentPage++;
 				
-			}
-	 //$currentPage++;
-
-	  
+			}  
 }
 //koniec
-	
-	
-	
-	
-
-
 
 ?>
