@@ -63,10 +63,13 @@ while($currentPage <= $result->getPageCount() ){
 					$kod = $r->code;
 					$prod_name = $r->translations->pl_PL->name;
 					$file_list = ftp_nlist($conn, $ean);
-					$filteredFiles = preg_grep( '/\.jpg$/i', $file_list );
-					sort($filteredFiles);
+					//$filteredFiles = preg_grep( '/\.jpg$/i', $file_list );
+					//sort($filteredFiles);
 					
 					if($file_list) { // czy jest folder na FTP
+					
+						$filteredFiles = preg_grep( '/\.jpg$/i', $file_list );
+						sort($filteredFiles);
 						
 						//1. sprawdzam czy sa zdjecia, jesli sa usuwam
 						$resource_img = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
