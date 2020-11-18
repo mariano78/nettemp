@@ -10,6 +10,7 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 }
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
+$www_serwer = "http://robelit.pl/";
 
 
 
@@ -38,7 +39,7 @@ if ($count != '0') {
 	}
 	echo "Login Ok. \n";
 	
-	
+	// dla każdego produktu w shoperze 
 	 foreach($result as $r){
         printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name);
 		$ean = $r->stock->ean;
@@ -47,7 +48,6 @@ if ($count != '0') {
 		
 		if($file_list) {
 			
-			//sekcja usuwania zdjec
 			//1. sprawdzam czy sa zdjecia, jesli sa usuwam
 			$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
 			//filtry
@@ -57,53 +57,65 @@ if ($count != '0') {
 			$count_img = $result_img->count;
 			echo "count_img_".$count_img."\n";
 			
+			//usuwam zdjecia
 			if ($count_img != 0){
-				
-				//usuwam zdjecia
+
 				foreach($result_img as $r_img){
 					
 					$gfx_id = $r_img->gfx_id;
-				printf("#%d - %s\n", $r_img->gfx_id, $r_img->name);
-				
-				$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
-				//$id = 1;
-				$result = $resource->delete($gfx_id);
+					printf("#%d - %s\n", $r_img->gfx_id, $r_img->name);
+					
+					$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+					//$id = 1;
+					$result_del_img = $resource->delete($gfx_id);
 
-				if($result){
-					echo 'An image has been successfully deleted';
+					if($result_del_img){
+						echo 'An image has been successfully deleted';
+					}
 				}
-				
-				
-				
-				
+			} else { 
+			//usuwam zdjecia
+			
+			// dodaje zdjęcia
+				echo "Brak zdjęc - dodaje nowe\n";
+				var_dump($file_list);
+			
+				foreach ($file_list as $file)
+				{
+				  
+				  $ext = substr($file, -4);//sprawdzam rozszerzenie
+				  $img_name = substr($file, 0, 13);//sprawdzam rozszerzenie
+				  
+				  if ($ext == '.jpg'){
+					  
+					  echo "$ext \n";
+					  
+				  }
+				  
+					$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+					$data = array(
+						'product_id' => $id,
+						'file' => $img_name.$ext,
+						'url' => $www_serwer.$img_name
+						'translations' => array(
+							'pl_PL' => array(
+								'name' => 'opis'
+							)
+						)
+					);
+
+					$id = $resource->post($data);
+
+					printf("An object has been added #%d", $id);
+				  
 				}
-				
-			} else { echo "Brak zdjęc \n";}
-
 			
-			
-			//$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
-			//$result = $resource->delete($id);
-
-			//if($result){
-			//	echo 'An image has been successfully deleted';
-			//}
-			//sekcja usuwania zdjec
-			
-			var_dump($file_list);
-		
-			foreach ($file_list as $file)
-			{
-			  
-			  $ext = substr($file, -4);//sprawdzam rozszerzenie
-			  
-			  if ($ext == '.jpg'){
-				  
-				  echo "$ext \n";
-				  
-			  }
-			  
 			}
+			// dodaje zdjęcia
+			
+			
+			
+			
 			
 			
 			
@@ -116,8 +128,9 @@ if ($count != '0') {
 		
 		
     }
-	//close
-	ftp_close($conn);
+	// dla każdego produktu w shoperze
+	
+	ftp_close($conn); //close ftp
 	
 }
 
