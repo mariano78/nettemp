@@ -19,8 +19,8 @@ $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 	//$resource->filters(['stock.code'=> ['LIKE'=> $kod]]);
 	$currentPage = 1;
 	$currentProd = 1;
-    $result = $resource->page($currentPage)->limit(50)->get();
-	
+    $result = $resource->page($currentPage)->limit(5)->get();
+	var_dump($result);
 	
 	$pages = $result->pages;
 	echo "__________________STRON ".$pages."\n";
@@ -29,11 +29,11 @@ while($currentPage <= $pages ){
 	
 	  echo "__________________Aktualna strona ".$currentPage."\n";
 	  
-	  $result = $resource->page($currentPage)->limit(50)->get();
+	  $result = $resource->page($currentPage)->limit(5)->get();
 	
 			//$result = $resource->get();
 	
-				//var_dump($result);
+				var_dump($result);
 				$count = $result->count;
 				//echo "count_".$count."\n";
 
