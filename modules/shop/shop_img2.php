@@ -82,8 +82,8 @@ while($currentPage <= $result->getPageCount() ){
 
 							foreach($result_img as $r_img){
 								$gfx_id = $r_img->gfx_id;
-								$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
-								$result_del_img = $resource->delete($gfx_id);
+								$resource_del_gfx = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+								$result_del_img = $resource_del_gfx->delete($gfx_id);
 								if($result_del_img){
 									echo "Usunięto zdjęcie dla produktu ", $kod." \n";
 								}
@@ -96,7 +96,7 @@ while($currentPage <= $result->getPageCount() ){
 								$img_name = substr($file, 0, 13);//sprawdzam rozszerzenie
 								$img_name2 = substr($file, strpos($file, "_") + 1);    
 							  
-								$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+								$resource_add_gfx = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
 								$data = array(
 									'product_id' => $id,
 									//'file' => $file,
@@ -108,7 +108,7 @@ while($currentPage <= $result->getPageCount() ){
 									)
 								);
 								
-								$idz = $resource->post($data);
+								$idz = $resource_add_gfx->post($data);
 								
 								if($idz){
 									$date = date('H:i:s');
@@ -126,7 +126,7 @@ while($currentPage <= $result->getPageCount() ){
 								$img_name = substr($file, 0, 13);//sprawdzam rozszerzenie
 								$img_name2 = substr($file, strpos($file, "_") + 1);    
 							  
-								$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+								$resource_add_gfx = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
 								$data = array(
 									'product_id' => $id,
 									//'file' => $file,
@@ -138,7 +138,7 @@ while($currentPage <= $result->getPageCount() ){
 									)
 								);
 								
-								$idz = $resource->post($data);
+								$idz = $resource_add_gfx->post($data);
 								
 								if($idz){
 								$date = date('H:i:s');
