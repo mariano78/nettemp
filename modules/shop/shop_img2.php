@@ -41,7 +41,7 @@ if ($count != '0') {
 	 foreach($result as $r){
         printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name);
 		$ean = $r->ean;
-		$file_list = ftp_nlist($conn, $ean);
+		$file_list = ftp_nlist($conn, '$ean');
 		foreach ($file_list as $file)
 		{
 		  echo "$file \n";
