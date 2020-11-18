@@ -55,7 +55,7 @@ if ($count != '0') {
 			$result = $resource->get();
 			
 			$count_img = $result->count;
-			echo "count_img_".$count."\n";
+			echo "count_img_".$count_img."\n";
 			
 			if ($count_img != 0){
 				
