@@ -102,7 +102,7 @@ if ($count != '0') {
 					$id = $resource->post($data);
 
 					printf("An object has been added #%d", $id);
-					sleep(1);
+					sleep(3);
 					$i++;
 				  
 				}
