@@ -33,7 +33,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	$kod = $row['TO_KOD']; //kod towaru w RB
 	$ean = $row['TO_KK_1']; // kod ean
-	echo $ean;
+	echo "EANEAN".$ean;
 	$nazwa = $row['TO_NAZWA']; //nazwa z jfox
 	$kategoria = 1; // kategoria w shoper
 	$stan = floor($row['STAN']); // dostępna ilosć towaru
