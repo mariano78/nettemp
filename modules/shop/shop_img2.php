@@ -91,7 +91,7 @@ if ($count != '0') {
 					  echo "$ext \n";
 					  
 				  }
-				  
+				  echo "Sciezka".$www_serwer.$img_name.'/'.$img_name.'_1'.$ext." \n";
 					$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
 					$data = array(
 						'product_id' => $id,
