@@ -28,20 +28,21 @@ if ($count != '0') {
 	$ftp_password = "Ala1Ala2";
 
 	//Connect
-	echo "<br />Connecting to $ftp_host via FTP...";
+	echo "\n";
+	echo "Connecting to $ftp_host via FTP... \n";
 	$conn = ftp_connect($ftp_host);
 	$login = ftp_login($conn, $ftp_user, $ftp_password);
 	$mode = ftp_pasv($conn, TRUE); //Enable PASV ( Note: must be done after ftp_login() )
 	if ((!$conn) || (!$login) || (!$mode)) { //Login OK ?
-	   die("FTP connection has failed !");
+	   die("FTP connection has failed ! \n");
 	}
-	echo "<br />Login Ok.<br />";
+	echo "Login Ok. \n";
 	
 	
 	 foreach($result as $r){
         printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name);
-		$ean = $r->ean;
-		$file_list = ftp_nlist($conn, '$ean');
+		$ean = $r->stock->ean;
+		$file_list = ftp_nlist($conn, $ean);
 		foreach ($file_list as $file)
 		{
 		  echo "$file \n";
