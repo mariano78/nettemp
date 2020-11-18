@@ -86,18 +86,18 @@ if ($count != '0') {
 				  
 					$ext = substr($file, -4);//sprawdzam rozszerzenie
 					$img_name = substr($file, 0, 13);//sprawdzam rozszerzenie
-				  
+				  echo "IMG NAME".$img_name."\n";
 				  
 					   
 					$img_name2 = substr($file, strpos($file, "_") + 1);    
-					echo $img_name2;
+					echo "IMG2 NAME".$img_name2."\n";
 				  
 				  echo "Sciezka".$www_serwer.$img_name.'/'.$img_name.'_1'.$ext." \n";
 					$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
 					$data = array(
 						'product_id' => $id,
 						'file' => $img_name.$ext,
-						'url' => $www_serwer.$img_name.'/'.$img_name.'_1'.$ext,
+						'url' => $www_serwer.$img_name.'/'.$img_name.'_'.$ext,
 						'translations' => array(
 							'pl_PL' => array(
 								'name' => 'opis'
