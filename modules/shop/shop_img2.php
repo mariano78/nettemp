@@ -26,6 +26,8 @@ $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 	echo "__________________STRON ".$pages."\n";
 	
 while($currentPage <= $pages ){
+	
+	  echo "__________________Aktualna strona ".$currentPage."\n";
 	  
 	  $result = $resource->page($currentPage)->limit(50)->get();
 	
@@ -172,11 +174,12 @@ while($currentPage <= $pages ){
 				// dla każdego produktu w shoperze
 				
 				ftp_close($conn); //close ftp
+				$currentPage++;
 				
 			}
 	 
 
-	  $currentPage++;
+	  
 }
 //koniec
 	
