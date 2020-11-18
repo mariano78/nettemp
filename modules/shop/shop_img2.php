@@ -93,7 +93,7 @@ if ($count != '0') {
 					$img_name2 = substr($file, strpos($file, "_") + 1);    
 					echo "IMG2 NAME".$img_name2."\n";
 				  
-				  echo "Sciezka".$www_serwer.$file" \n";
+				  echo "Sciezka".$www_serwer.$file." \n";
 				  
 					$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
 					$data = array(
