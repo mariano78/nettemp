@@ -49,12 +49,23 @@ if ($count != '0') {
 			
 			//sekcja usuwania zdjec
 			//1. sprawdzam czy sa zdjecia, jesli sa usuwam
-			$resource = newDreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+			$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+			//filtry
+			$resource->filters(['product_id'=> ['LIKE'=> $id]]);
 			$result = $resource->get();
-
-			foreach($result as $r){
+			
+			$count_img = $result->count;
+			echo "count_img_".$count."\n";
+			
+			if ($count_img != 0){
+				
+				foreach($result as $r){
 				printf("#%d - %s\n", $r->gfx_id, $r->name);
-			}
+				}
+				
+			} else { echo "Brak zdjęc \n";}
+
+			
 			
 			//$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
 			//$result = $resource->delete($id);
