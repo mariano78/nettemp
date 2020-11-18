@@ -62,7 +62,7 @@ if ($count != '0') {
 				//usuwam zdjecia
 				foreach($result_img as $r_img){
 					
-					$gfx_id = $r_img->gfx_id
+					$gfx_id = $r_img->gfx_id;
 				printf("#%d - %s\n", $r_img->gfx_id, $r_img->name);
 				
 				$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
