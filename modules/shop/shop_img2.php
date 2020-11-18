@@ -31,27 +31,26 @@ if ($count != '0') {
 	echo "<br />Connecting to $ftp_host via FTP...";
 	$conn = ftp_connect($ftp_host);
 	$login = ftp_login($conn, $ftp_user, $ftp_password);
-
-	//
-	//Enable PASV ( Note: must be done after ftp_login() )
-	//
-	$mode = ftp_pasv($conn, TRUE);
-
-	//Login OK ?
-	if ((!$conn) || (!$login) || (!$mode)) {
+	$mode = ftp_pasv($conn, TRUE); //Enable PASV ( Note: must be done after ftp_login() )
+	if ((!$conn) || (!$login) || (!$mode)) { //Login OK ?
 	   die("FTP connection has failed !");
 	}
 	echo "<br />Login Ok.<br />";
-
-	//
-	//Now run ftp_nlist()
-	//
-	$file_list = ftp_nlist($conn, "5905725026302");
-	foreach ($file_list as $file)
-	{
-	  echo "$file \n";
-	}
-
+	
+	
+	 foreach($result as $r){
+        printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name);
+		$ean = $r->ean;
+		$file_list = ftp_nlist($conn, $ean);
+		foreach ($file_list as $file)
+		{
+		  echo "$file \n";
+		}
+		
+		
+		
+		
+    }
 	//close
 	ftp_close($conn);
 	
