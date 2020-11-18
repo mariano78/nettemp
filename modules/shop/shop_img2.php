@@ -19,7 +19,8 @@ $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 	//$resource->filters(['stock.code'=> ['LIKE'=> $kod]]);
 	$currentPage = 1;
 	$currentProd = 1;
-    $result = $resource->page($currentPage)->limit(10)->get();
+    //$result = $resource->page($currentPage)->limit(10)->get();
+	$result = $resource->get();
 	//var_dump($result);
 	
 	$pages = $result->pages;
@@ -65,7 +66,7 @@ while($currentPage <= $pages ){
 					$filteredFiles = preg_grep( '/\.jpg$/i', $file_list );
 					sort($filteredFiles);
 					
-					if($file_list) {
+					if($file_list) { // czy jest folder na FTP
 						
 						//1. sprawdzam czy sa zdjecia, jesli sa usuwam
 						$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
