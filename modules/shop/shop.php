@@ -14,6 +14,7 @@ include("$root/modules/shop/shop_settings.php");
 $count = '';
 $dodanych = 0;
 $aktualizowanych = 0;
+$pominietych = 0;
 $akcja = 5;
 $syncstatus = 0;
 
@@ -47,7 +48,10 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$cena = $row['CEN_F01'] * $mnoznik; //cena * podatek VAT	
 	($cena == 0) ? $akcja = 0 : $akcja = 1;  // jeśli = 1 to wykonujemy akcję aktulizacja lub dodanie
 	$date = date('H:i:s');
-	if ($akcja == 0) logs_shop($date, 'error', "Produkt nie spełnia wymagań ".$kod);
+	if ($akcja == 0) {
+		logs_shop($date, 'error', "Produkt nie spełnia wymagań ".$kod);
+		$pominietych++;
+		}
 	
 	$waga = floatval($row['TO_MASA']); // waga produktu
 	$szerokosc = $row['TO_SZEROKOSC']; // szerokosc produktu - width
@@ -153,6 +157,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 
 echo "\nZaktualizowano - ".$aktualizowanych."\n"; 
 echo "Dodano - ".$dodanych."\n";
+echo "Pominięto - ".$pominietych."\n";
 
 oci_free_statement($stid);
 oci_close($conn);
