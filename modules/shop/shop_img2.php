@@ -87,6 +87,7 @@ if ($count != '0') {
 					$ext = substr($file, -4);//sprawdzam rozszerzenie
 					$img_name = substr($file, 0, 13);//sprawdzam rozszerzenie
 				  echo "IMG NAME".$img_name."\n";
+				  echo "FILE".$file."\n";
 				  
 					   
 					$img_name2 = substr($file, strpos($file, "_") + 1);    
