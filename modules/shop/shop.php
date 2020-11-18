@@ -33,7 +33,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	$kod = $row['TO_KOD']; //kod towaru w RB
 	$ean = $row['TO_KK_1']; // kod ean
-	echo "EANEAN".$ean."EANEAN";
+	echo "EANEAN".$ean;
 	$nazwa = $row['TO_NAZWA']; //nazwa z jfox
 	$kategoria = 1; // kategoria w shoper
 	$stan = floor($row['STAN']); // dostępna ilosć towaru
@@ -46,13 +46,10 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$jed_miar_jfox = $row['TO_JM'];
 	if($jed_miar_jfox == 'SZT') $jedmiar = 1; //przypisanie jednostki miary jfox->shoper
 	
-	$cena = $row['CEN_F01'] * $mnoznik; //cena * podatek VAT	
-	if ($cena == 0 OR empty($ean)) {
-		
-		$akcja = 0; 
-	} else{
-		$akcja = 1;
-	} // jeśli = 1 to wykonujemy akcję aktulizacja lub dodanie
+	$cena = $row['CEN_F01'] * $mnoznik; //cena * podatek VAT
+	$ean_lenght = strlen($ean); // sprawdza dlugosc eanu
+	
+	($cena == 0 OR $ean_lenght != 13) ? $akcja = 0 : $akcja = 1;  // jeśli = 1 to wykonujemy akcję aktulizacja lub dodanie
 	
 	$date = date('H:i:s');
 	if ($akcja == 0) {
