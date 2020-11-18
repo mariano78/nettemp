@@ -42,9 +42,20 @@ if ($count != '0') {
 	 foreach($result as $r){
         printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name);
 		$ean = $r->stock->ean;
+		$id = $r->product_id;
 		$file_list = ftp_nlist($conn, $ean);
 		
 		if($file_list) {
+			
+			//sekcja usuwania zdjec
+			
+			$resource = newDreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+			$result = $resource->delete($id);
+
+			if($result){
+				echo 'An image has been successfully deleted';
+			}
+			//sekcja usuwania zdjec
 			
 			var_dump($file_list);
 		
@@ -63,7 +74,7 @@ if ($count != '0') {
 			
 			
 			
-		}
+		} // jesli nie ma folderu/plikow zrob else i logi
 		
 		
 		
