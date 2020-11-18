@@ -63,7 +63,7 @@ if ($count != '0') {
 				foreach($result as $r){
 				printf("#%d - %s\n", $r->gfx_id, $r->name);
 				
-				$resource = newDreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+				$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
 				//$id = 1;
 				$result = $resource->delete($id);
 
