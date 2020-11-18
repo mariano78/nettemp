@@ -46,7 +46,10 @@ if ($count != '0') {
 		var_dump($file_list);
 		foreach ($file_list as $file)
 		{
-		  echo "$file \n";
+		  
+		  $ext = substr($file, -4);//sprawdzam rozszerzenie
+		  
+		  echo "$ext \n";
 		}
 		
 		
