@@ -44,6 +44,7 @@ if ($count != '0') {
         printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name);
 		$ean = $r->stock->ean;
 		$id = $r->product_id;
+		$prod_name = $r->translations->pl_PL->name;
 		$file_list = ftp_nlist($conn, $ean);
 		$filteredFiles = preg_grep( '/\.jpg$/i', $file_list );
 		sort($filteredFiles);
@@ -86,14 +87,7 @@ if ($count != '0') {
 				  
 					$ext = substr($file, -4);//sprawdzam rozszerzenie
 					$img_name = substr($file, 0, 13);//sprawdzam rozszerzenie
-				  echo "IMG NAME".$img_name."\n";
-				  echo "FILE".$file."\n";
-				  
-					   
 					$img_name2 = substr($file, strpos($file, "_") + 1);    
-					echo "IMG2 NAME".$img_name2."\n";
-				  
-				  echo "Sciezka".$www_serwer.$file." \n";
 				  
 					$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
 					$data = array(
@@ -102,7 +96,7 @@ if ($count != '0') {
 						'url' => $www_serwer.$file,
 						'translations' => array(
 							'pl_PL' => array(
-								'name' => 'opis'
+								'name' => $prod_name
 							)
 						)
 					);
