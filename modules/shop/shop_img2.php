@@ -49,7 +49,7 @@ if ($count != '0') {
 			
 			//sekcja usuwania zdjec
 			
-			$resource = newDreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+			$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
 			$result = $resource->delete($id);
 
 			if($result){
