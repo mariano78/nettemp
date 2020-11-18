@@ -42,7 +42,7 @@ if ($count != '0') {
 	 foreach($result as $r){
         printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name);
 		$ean = $r->stock->ean;
-		$file_list = ftp_nlist($conn, 'aaa');
+		$file_list = ftp_nlist($conn, $ean);
 		
 		if($file_list) {
 			
