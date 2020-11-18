@@ -17,7 +17,13 @@ $www_serwer = "http://robelit.pl/shopimg/";
 $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 	//filtry
 	//$resource->filters(['stock.code'=> ['LIKE'=> $kod]]);
-    $result = $resource->get();
+    
+	
+	$currentPage = 1;
+	$result = $resource->page($currentPage)->limit(50)->get();
+	
+	//$result = $resource->get();
+	
 	//var_dump($result);
 	$count = $result->count;
 	echo "count_".$count."\n";

@@ -25,10 +25,7 @@ $time_pre = microtime(true);
 $stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP');
 oci_execute($stid);
 
-
-
 while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
-	
 	
 	$kod = $row['TO_KOD']; //kod towaru w RB
 	$ean = $row['TO_KK_1']; // kod ean
