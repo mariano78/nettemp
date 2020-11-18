@@ -52,20 +52,22 @@ if ($count != '0') {
 			$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
 			//filtry
 			$resource->filters(['product_id'=> ['LIKE'=> $id]]);
-			$result = $resource->get();
+			$result_img = $resource->get();
 			
-			$count_img = $result->count;
+			$count_img = $result_img->count;
 			echo "count_img_".$count_img."\n";
 			
 			if ($count_img != 0){
 				
 				//usuwam zdjecia
-				foreach($result as $r){
-				printf("#%d - %s\n", $r->gfx_id, $r->name);
+				foreach($result_img as $r_img){
+					
+					$gfx_id = $r_img->gfx_id
+				printf("#%d - %s\n", $r_img->gfx_id, $r_img->name);
 				
 				$resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
 				//$id = 1;
-				$result = $resource->delete($id);
+				$result = $resource->delete($gfx_id);
 
 				if($result){
 					echo 'An image has been successfully deleted';
