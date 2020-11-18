@@ -59,8 +59,21 @@ if ($count != '0') {
 			
 			if ($count_img != 0){
 				
+				//usuwam zdjecia
 				foreach($result as $r){
 				printf("#%d - %s\n", $r->gfx_id, $r->name);
+				
+				$resource = newDreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+				//$id = 1;
+				$result = $resource->delete($id);
+
+				if($result){
+					echo 'An image has been successfully deleted';
+				}
+				
+				
+				
+				
 				}
 				
 			} else { echo "Brak zdjęc \n";}
