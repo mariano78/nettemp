@@ -44,7 +44,7 @@ if ($count != '0') {
         printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name);
 		$ean = $r->stock->ean;
 		$id = $r->product_id;
-		$kod = = $r->code;
+		$kod = $r->code;
 		$prod_name = $r->translations->pl_PL->name;
 		$file_list = ftp_nlist($conn, $ean);
 		$filteredFiles = preg_grep( '/\.jpg$/i', $file_list );
