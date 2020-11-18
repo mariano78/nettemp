@@ -47,7 +47,13 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	if($jed_miar_jfox == 'SZT') $jedmiar = 1; //przypisanie jednostki miary jfox->shoper
 	
 	$cena = $row['CEN_F01'] * $mnoznik; //cena * podatek VAT	
-	($cena == 0 OR empty($ean)) ? $akcja = 0 : $akcja = 1;  // jeśli = 1 to wykonujemy akcję aktulizacja lub dodanie
+	if ($cena == 0 OR empty($ean)) {
+		
+		$akcja = 0; 
+	} else{
+		$akcja = 1;
+	} // jeśli = 1 to wykonujemy akcję aktulizacja lub dodanie
+	
 	$date = date('H:i:s');
 	if ($akcja == 0) {
 		logs_shop($date, 'error', "Produkt nie spełnia wymagań ".$kod);
