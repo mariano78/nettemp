@@ -87,7 +87,7 @@ while($currentPage <= $result->getPageCount() ){
 							// dodaje zdjęcia
 							foreach ($filteredFiles as $file)
 							{
-								echo "-----file-----".$file;
+								//echo "-----file-----".$file;
 								$ext = substr($file, -4);//sprawdzam rozszerzenie
 								$img_name = substr($file, 0, 13);//sprawdzam rozszerzenie
 								$img_name2 = substr($file, strpos($file, "_") + 1);    
@@ -118,7 +118,7 @@ while($currentPage <= $result->getPageCount() ){
 						// dodaje zdjęcia
 							foreach ($filteredFiles as $file)
 							{
-								echo "-----file-----".$file;
+								//echo "-----file-----".$file;
 								$ext = substr($file, -4);//sprawdzam rozszerzenie
 								$img_name = substr($file, 0, 13);//sprawdzam rozszerzenie
 								$img_name2 = substr($file, strpos($file, "_") + 1);    
