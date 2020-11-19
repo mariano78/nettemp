@@ -10,166 +10,161 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 }
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
+$www_serwer = "http://robelit.pl/shopimg/";
 
-$count = '';
-$dodanych = 0;
-$aktualizowanych = 0;
-$akcja = 5;
-$syncstatus = 0;
-
-$db->exec("UPDATE shop SET value='$syncstatus' WHERE option='syncstatus'");
-
-// 1. Pobieramy z bazy oracle dane o produkcie 
-// 2. Sprawdzamy czy w shoperze istnieje produkt z kodem z oracle - dodajemy lub aktualizujemy 
-$time_pre = microtime(true);
-$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP');
-oci_execute($stid);
-
-while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
-	
-	$kod = $row['TO_KOD']; //kod towaru w RB
-	$ean = $row['TO_KK_1']; // kod ean
-	$nazwa = $row['TO_NAZWA']; //nazwa z jfox
-	$kategoria = 1; // kategoria w shoper
-	$stan = floor($row['STAN']); // dostępna ilosć towaru
-	
-	if ($stan < 0) $stan = 0; // dla stanu poniżej 0
-	
-	$podatek_jfox = $row['TO_VAT_CODE'];
-	if($podatek_jfox == '51') $podatek = 1; $mnoznik = 1.23; //przypisanie podatku jfox->shoper
-	
-	$jed_miar_jfox = $row['TO_JM'];
-	if($jed_miar_jfox == 'SZT') $jedmiar = 1; //przypisanie jednostki miary jfox->shoper
-	
-	$cena = $row['CEN_F01'] * $mnoznik; //cena * podatek VAT	
-	($cena == 0) ? $akcja = 0 : $akcja = 1;  // jeśli = 1 to wykonujemy akcję aktulizacja lub dodanie
-	$date = date('H:i:s');
-	if ($akcja == 0) logs_shop($date, 'error', "Produkt nie spełnia wymagań ".$kod);
-	
-	$waga = $row['TO_MASA']; // waga produktu
-	$szerokosc = $row['TO_SZEROKOSC']; // szerokosc produktu - width
-	$dlugosc = $row['TO_DLUGOSC']; // długosc produktu
-	
-	
-	$opis = 'To jest opis produktu';
-	$aktywnosc = true;
-	
-	$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
+$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 	//filtry
-	
-	$resource->filters(['stock.code'=> ['LIKE'=> $kod]]);
-    $result = $resource->get();
+	//$resource->filters(['stock.code'=> ['LIKE'=> $kod]]);
+	$currentPage = 1;
+	$currentProd = 1;;
+	$result = $resource->get();
 	//var_dump($result);
-	$count = $result->count;
 	
-//***************************************************Dodawanie***************************************************
+	$pages = $result->pages;
+	
+while($currentPage <= $result->getPageCount() ){
+	  
+	  $result = $resource->page($currentPage)->limit(50)->get();
+	
+				//var_dump($result);
+				$count = $result->count;
+				echo "count_".$count."\n";
 
-	if ($count == '0' && $akcja != 0) {
-			
-			logs_shop($date, 'Info', "Dodaję produkt ".$kod);
-			echo "Dodaję produkt - ".$kod."\n";
-			
-			$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
-			$data = array(
-						'category_id' => $kategoria,
-						'ean' => $ean,
-						'dimension_w' => $szerokosc,
-						'dimension_h' => $dlugosc,
-						'translations' => array(
-							'pl_PL' => array(
-							'name' => $nazwa,
-							'description' => $opis,
-							'active' => $aktywnosc
-							)
-						),
-						'stock' => array(
-							'price' => $cena,
-							'active' => 1,
-							'stock' => $stan,
-							'weight' => $waga
-							),
-						'tax_id' => $podatek,
-						'code' => $kod,
-						'unit_id' => $jedmiar
-					);
-			
-					$result = $resource->post($data);
-	
-				if($result){
-					echo "Dodano produkt ". $result." \n";
-					logs_shop($date, 'Info', "Dodano produkt ". $kod);
-					$dodanych++;
+			if ($count != '0') {
+				
+				$ftp_host = "robelit.home.pl";
+				$ftp_user = "shoper@robelit.pl";
+				$ftp_password = "Ala1Ala2";
+
+				//Connect
+				echo "\n";
+				echo "Connecting to $ftp_host via FTP... \n";
+				$conn = ftp_connect($ftp_host);
+				$login = ftp_login($conn, $ftp_user, $ftp_password);
+				$mode = ftp_pasv($conn, TRUE); //Enable PASV ( Note: must be done after ftp_login() )
+				if ((!$conn) || (!$login) || (!$mode)) { //Login OK ?
+				   die("FTP connection has failed ! \n");
 				}
-//***************************************************Aktualizacja***************************************************
-		} elseif ($akcja != 0){
-
-				foreach($result as $r){
-		
-					$kod_shop = $r->stock->code;
-		
-					if ($kod == $kod_shop) {
-						echo 'Aktualizuję produkt - '.$kod." \n";
-						logs_shop($date, 'Info', "Aktualizuję produkt ". $kod);
-						$id = $r->product_id;
+				echo "Login Ok. \n";
+				
+				// dla każdego produktu w shoperze 
+				 foreach($result as $r){
+					printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name);
+					$ean = $r->stock->ean;
+					$id = $r->product_id;
+					$kod = $r->code;
+					$prod_name = $r->translations->pl_PL->name;
+					$file_list = ftp_nlist($conn, $ean);
+					//$filteredFiles = preg_grep( '/\.jpg$/i', $file_list );
+					//sort($filteredFiles);
 					
-					$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
-					$data = array(
-						'category_id' => $kategoria,
-						'ean' => $ean,
-						'dimension_w' => $szerokosc,
-						'dimension_h' => $dlugosc,
-						'translations' => array(
-							'pl_PL' => array(
-							'name' => $nazwa,
-							'description' => $opis,
-							'active' => $aktywnosc
-							)
-						),
-						'stock' => array(
-							'price' => $cena,
-							'active' => 1,
-							'stock' => $stan,
-							'weight' => $waga
-							),
-						'tax_id' => $podatek,
-						'code' => $kod,
-						'unit_id' => $jedmiar
-					);
+					if($file_list) { // czy jest folder na FTP
+					
+						$filteredFiles = preg_grep( '/\.jpg$/i', $file_list );
+						sort($filteredFiles);
+						
+						//1. sprawdzam czy sa zdjecia, jesli sa usuwam
+						$resource_img = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+						//filtry
+						$resource_img->filters(['product_id'=> ['LIKE'=> $id]]);
+						$result_img = $resource_img->get();
+						
+						$count_img = $result_img->count;
+						//echo "count_img_".$count_img."\n";
+						
+						//usuwam zdjecia
+						if ($count_img != 0){
 
-					$result = $resource->put($id, $data);
-
-				if($result){
-					echo "Zaktualizowano produkt ". $kod." \n";
-					logs_shop($date, 'Info', "Zaktualizowano produkt ". $kod);
-					$aktualizowanych++;
-				}
-			}
-		}	
-	} 
-}//while
-
-echo "\nZaktualizowano - ".$aktualizowanych."\n"; 
-echo "Dodano - ".$dodanych."\n";
-
-oci_free_statement($stid);
-oci_close($conn);
+							foreach($result_img as $r_img){
+								$gfx_id = $r_img->gfx_id;
+								$resource_del_gfx = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+								$result_del_img = $resource_del_gfx->delete($gfx_id);
+								if($result_del_img){
+									echo "Usunięto zdjęcie dla produktu ", $kod." \n";
+								}
+							}
+						//usuwam zdjecia
+							// dodaje zdjęcia
+							foreach ($filteredFiles as $file)
+							{
+								//echo "-----file-----".$file;
+								$ext = substr($file, -4);//sprawdzam rozszerzenie
+								$img_name = substr($file, 0, 13);//sprawdzam rozszerzenie
+								$img_name2 = substr($file, strpos($file, "_") + 1);    
+							  
+								$resource_add_gfx = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+								$data = array(
+									'product_id' => $id,
+									//'file' => $file,
+									'url' => $www_serwer.$file,
+									'translations' => array(
+										'pl_PL' => array(
+											'name' => $prod_name
+										)
+									)
+								);
+								
+								$idz = $resource_add_gfx->post($data);
+								
+								if($idz){
+									$date = date('H:i:s');
+									echo "Dodano zdjęcie do produktu ", $kod." \n";
+									logs_shop($date, 'Info', "Dodano zdjęcie do produktu ". $kod);
+								}
+							}
+							} else { 
+						
+						
+						// dodaje zdjęcia
+							foreach ($filteredFiles as $file)
+							{
+								//echo "-----file-----".$file;
+								$ext = substr($file, -4);//sprawdzam rozszerzenie
+								$img_name = substr($file, 0, 13);//sprawdzam rozszerzenie
+								$img_name2 = substr($file, strpos($file, "_") + 1);    
+							  
+								$resource_add_gfx = new DreamCommerce\ShopAppstoreLib\Resource\ProductImage($client);
+								$data = array(
+									'product_id' => $id,
+									//'file' => $file,
+									'url' => $www_serwer.$file,
+									'translations' => array(
+										'pl_PL' => array(
+											'name' => $prod_name
+										)
+									)
+								);
+								
+								$idz = $resource_add_gfx->post($data);
+								
+								if($idz){
+								$date = date('H:i:s');
+								echo"Dodano zdjęcie do produktu ", $kod." \n";
+								logs_shop($date, 'Info', "Dodano zdjęcie do produktu ". $kod);
+								}
+							  
+							}
+						
+						}
+						// dodaje zdjęcia
+							
+					} else {
+						
+						echo "Nie ma folderu FTP dla produktu ", $kod." \n";
+						logs_shop($date, 'Error', "Dla produktu ". $kod." brak plików na serwerze FTP. ");
+						
+						
+						
+					}// jesli nie ma folderu/plikow zrob else i logi
 	
-$time_post = microtime(true);
-$exec_time = $time_post - $time_pre;
-$duration = $time_post-$time_pre;
-$hours = (int)($duration/60/60);
-$minutes = (int)($duration/60)-$hours*60;
-$seconds = (int)$duration-$hours*60*60-$minutes*60;
-
-$syncstatus = 1; // aktualizacja stanu synchronizacji
-  
-$db->exec("UPDATE shop SET value='$exec_time' WHERE option='etime'");
-$db->exec("UPDATE shop SET value='$syncstatus' WHERE option='syncstatus'");
-
-echo "W czasie: ";
-echo $hours." h ";
-echo $minutes." m ";
-echo $seconds." s \n";
- 
+				}
+				// dla każdego produktu w shoperze
+				
+				ftp_close($conn); //close ftp
+				$currentPage++;
+				
+			}  
+}
+//koniec
 
 ?>
