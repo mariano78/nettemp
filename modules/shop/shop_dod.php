@@ -39,7 +39,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	//$connection=oci_connect($username,$password,$database);
 
-     $sql="INSERT  INTO shopper_products (ID_TOW, IN_SHOP, SHOP_TO_CATEGORY, SHOP_TO_DELIVERY, SHOP_TO_NAME, SHOP_TO_DESCRIPTION)
+     $sql="UPSERT  INTO shopper_products (ID_TOW, IN_SHOP, SHOP_TO_CATEGORY, SHOP_TO_DELIVERY, SHOP_TO_NAME, SHOP_TO_DESCRIPTION)
 			VALUES ('$towar_id','',1,1,'NAZWA','OPIS')";
 			   
 
