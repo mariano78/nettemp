@@ -44,8 +44,7 @@ $time_pre = microtime(true);
 			
 			$id_tow = $row['TO_ID']; //kod towaru w RB
 			echo "Towar ID - ".$id_tow;
-			oci_free_statement($stid);
-			oci_close($conn);
+			
 		}
 		
 	   
@@ -56,6 +55,8 @@ $time_pre = microtime(true);
            }
       
            fclose($file);  
+		   oci_free_statement($stid);
+			oci_close($conn);
      
 		}
 
