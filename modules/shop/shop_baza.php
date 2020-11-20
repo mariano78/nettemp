@@ -12,19 +12,17 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 include("$root/modules/shop/shop_settings.php");
 $currentPage =1;
 
-	$categoriesResource = new DreamCommerce\ShopAppstoreLib\Resource\Category($client);
+	$categoriesResource = newDreamCommerce\ShopAppstoreLib\Resource\Category($client);
     $categoriesResult = $categoriesResource->page($currentPage)->limit(50)->get();
 
     $categories = array();
     foreach($categoriesResult as $c){
         $categories[$c->category_id] = $c->translations->pl_PL->name;
-		
-	$id  = $c->category_id;
-	
-		
-		$resource = new DreamCommerce\ShopAppstoreLib\Resource\CategoriesTree($client);
+    }
 
-    
+    $resource = newDreamCommerce\ShopAppstoreLib\Resource\CategoriesTree($client);
+
+    $id  = $c->category_id;
     $result = $resource->page($currentPage)->limit(50)->get($id);
 	
 
@@ -40,14 +38,5 @@ $currentPage =1;
     };
 
     $renderNode($result);
-		
-		
-		
-		
-		
-		
-    }
-
-    
 
 ?>
