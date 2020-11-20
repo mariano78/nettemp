@@ -24,7 +24,7 @@ $syncstatus = 0;
 // 2. Sprawdzamy czy w shoperze istnieje produkt z kodem z oracle - dodajemy lub aktualizujemy 
 $time_pre = microtime(true);
 //$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP');
-oci_execute($stid);
+//oci_execute($stid);
 
  if(isset($_POST["Import"])){
     
