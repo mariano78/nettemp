@@ -17,6 +17,7 @@ $aktualizowanych = 0;
 $pominietych = 0;
 $akcja = 5;
 $syncstatus = 0;
+$licz_produkt = 1;
 
 $db->exec("UPDATE shop SET value='$syncstatus' WHERE option='syncstatus'");
 
@@ -77,7 +78,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	if ($count == '0' && $akcja != 0) {
 			
 			logs_shop($date, 'Info', "Dodaję produkt ".$kod);
-			echo "Dodaję produkt - ".$kod."\n";
+			echo $licz_produkt.". Dodaję produkt - ".$kod."\n";
 			
 			$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 			$data = array(
@@ -109,6 +110,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 					echo "Dodano produkt ". $kod." \n";
 					logs_shop($date, 'Info', "Dodano produkt ". $kod);
 					$dodanych++;
+					$licz_produkt++;
 				}
 //***************************************************Aktualizacja***************************************************
 		} elseif ($akcja != 0){
@@ -118,7 +120,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 					$kod_shop = $r->stock->code;
 		
 					if ($kod == $kod_shop) {
-						echo 'Aktualizuję produkt - '.$kod." \n";
+						echo $licz_produkt.". Aktualizuję produkt - ".$kod." \n";
 						logs_shop($date, 'Info', "Aktualizuję produkt ". $kod);
 						$id = $r->product_id;
 					
@@ -152,6 +154,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 					echo "Zaktualizowano produkt ". $kod." \n";
 					logs_shop($date, 'Info', "Zaktualizowano produkt ". $kod);
 					$aktualizowanych++;
+					$licz_produkt = ++;
 				}
 			}
 		}	
