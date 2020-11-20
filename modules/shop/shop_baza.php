@@ -21,7 +21,9 @@ $categoriesResource = new DreamCommerce\ShopAppstoreLib\Resource\Category($clien
     }
 
     $resource = new DreamCommerce\ShopAppstoreLib\Resource\CategoriesTree($client);
-    $result = $resource->get();
+
+    $id = 1;
+    $result = $resource->get($id);
 
     $renderNode = function($start, $level = 1) use (&$renderNode, $categories){
 
