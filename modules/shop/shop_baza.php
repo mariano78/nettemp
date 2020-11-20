@@ -23,7 +23,7 @@ $currentPage =1;
     $resource = new DreamCommerce\ShopAppstoreLib\Resource\CategoriesTree($client);
     $result = $resource->page($currentPage)->limit(50)->get();
 
-    $renderNode = function($start, $level = 1) use (&$renderNode, $categories){
+    $renderNode = function($start, $level = 2) use (&$renderNode, $categories){
 
         foreach($start as $i) {
             printf("%s #%d - %s\n <br>", str_repeat('-', $level), $i->id, $categories[$i->id]);
