@@ -54,9 +54,10 @@ $time_pre = microtime(true);
 				VALUES ( :idtow2, :devtime , :cat)'
 				
 				);
+			$cat = 1;	
 			oci_bind_by_name($stid, ":idtow2", $id_tow);
 			oci_bind_by_name($stid, ":devtime", $czas_prze);
-			oci_bind_by_name($stid, ":cat", 1);
+			oci_bind_by_name($stid, ":cat", $cat);
 			oci_execute($stid);
 			
 			
