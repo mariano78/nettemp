@@ -18,15 +18,20 @@ $currentPage =1;
     $categories = array();
     foreach($categoriesResult as $c){
         $categories[$c->category_id] = $c->translations->pl_PL->name;
-    }
+		
+	$id = = $c->category_id;
+	
+		
+		$resource = new DreamCommerce\ShopAppstoreLib\Resource\CategoriesTree($client);
 
-    $resource = new DreamCommerce\ShopAppstoreLib\Resource\CategoriesTree($client);
-    $result = $resource->page($currentPage)->limit(50)->get();
+    
+    $result = $resource->page($currentPage)->limit(50)->get($id);
+	
 
-    $renderNode = function($start, $level = -1) use (&$renderNode, $categories){
+    $renderNode = function($start, $level = 1) use (&$renderNode, $categories){
 
         foreach($start as $i) {
-            printf("%s #%d - %s\n <br>", str_repeat('-', $level), $i->id, $categories[$i->id]);
+            printf("%s #%d - %s\n", str_repeat('-', $level), $i->id, $categories[$i->id]);
             if (!empty($i->__children)) {
                 $renderNode($i->__children, $level + 1);
             }
@@ -35,5 +40,14 @@ $currentPage =1;
     };
 
     $renderNode($result);
+		
+		
+		
+		
+		
+		
+    }
+
+    
 
 ?>
