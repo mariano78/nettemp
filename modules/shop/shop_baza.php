@@ -19,7 +19,7 @@ $currentPage =1;
     foreach($categoriesResult as $c){
         $categories[$c->category_id] = $c->translations->pl_PL->name;
 		
-	$id = = $c->category_id;
+	$id  = $c->category_id;
 	
 		
 		$resource = new DreamCommerce\ShopAppstoreLib\Resource\CategoriesTree($client);
