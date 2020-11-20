@@ -43,7 +43,7 @@ oci_execute($stid);
       
            fclose($file);  
      }
-  }   
+     
 
 
 ?>
