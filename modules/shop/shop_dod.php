@@ -34,7 +34,7 @@ oci_execute($stid);
            {  
 	   
 	   $ean_csv = $getData[0];
-	   $czas_prze = $getData[1;]
+	   $czas_prze = $getData[1];
 	   
 	   echo $ean_csv."--".$czas_prze;
 	   
