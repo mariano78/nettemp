@@ -47,7 +47,7 @@ $time_pre = microtime(true);
 			$id_tow = $row['ID']; //kod towaru w RB
 			echo "Towar ID - ".$id_tow."\n";
 			
-			$stid = oci_parse($conn, '
+			$stid2 = oci_parse($conn, '
 			MERGE INTO SHOPPER_PRODUCTS USING dual ON ( "ID_TOW" = :idtow2 )
 			WHEN MATCHED THEN UPDATE SET "SHOP_TO_DELIVERY"= :devtime
 			WHEN NOT MATCHED THEN INSERT ("ID_TOW","SHOP_TO_DELIVERY", "SHOP_TO_CATEGORY") 
@@ -55,10 +55,10 @@ $time_pre = microtime(true);
 				
 				);
 			$cat = 1;	
-			oci_bind_by_name($stid, ":idtow2", $id_tow);
-			oci_bind_by_name($stid, ":devtime", $czas_prze);
-			oci_bind_by_name($stid, ":cat", $cat);
-			oci_execute($stid);
+			oci_bind_by_name($stid2, ":idtow2", $id_tow);
+			oci_bind_by_name($stid2, ":devtime", $czas_prze);
+			oci_bind_by_name($stid2, ":cat", $cat);
+			oci_execute($stid2);
 			
 			
 			
