@@ -10,10 +10,11 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 }
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
-
+$currentPage =1;
 
 	$categoriesResource = new DreamCommerce\ShopAppstoreLib\Resource\Category($client);
-    $categoriesResult = $categoriesResource->get();
+    $categoriesResult = $categoriesResource->page($currentPage)->limit(50)->get();
+	//$result = $resource->page($currentPage)->limit(50)->get();
 
     $categories = array();
     foreach($categoriesResult as $c){
@@ -21,7 +22,7 @@ include("$root/modules/shop/shop_settings.php");
     }
 
     $resource = new DreamCommerce\ShopAppstoreLib\Resource\CategoriesTree($client);
-    $result = $resource->get();
+    $result = $resource->page($currentPage)->limit(50)->get();
 
     $renderNode = function($start, $level = 1) use (&$renderNode, $categories){
 
