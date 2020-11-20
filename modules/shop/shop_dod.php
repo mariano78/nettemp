@@ -36,6 +36,11 @@ $time_pre = microtime(true);
 	   
 	   $ean_csv = $getData[0];
 	   $czas_prze = $getData[1];
+	   
+	   
+	   
+	   
+	   
 	   echo $ean_csv."--".$czas_prze;
 	   
 		$stid = oci_parse($conn, 'SELECT ID  FROM JFOX_TOWAR_KARTOTEKI WHERE TO_KK_1 LIKE :eean');
@@ -55,20 +60,24 @@ $time_pre = microtime(true);
 				
 				);
 			$cat = 1;	
+			if ($czas_prze == 2){ $czas_prze_id = 2;      
+		   }
+		   
+		   if ($czas_prze == 10){ $czas_prze_id = 6;
+				  
+		   }
+		   
+		   if ($czas_prze == 45){ $czas_prze_id = 8;
+				  
+		   }
 			oci_bind_by_name($stid2, ":idtow2", $id_tow);
-			oci_bind_by_name($stid2, ":devtime", $czas_prze);
+			oci_bind_by_name($stid2, ":devtime", $czas_prze_id);
 			oci_bind_by_name($stid2, ":cat", $cat);
 			oci_execute($stid2);
-			
-			
+				
 			
 		}
 		
-	   
-	   
-	   
-	   
-			  
            }
       
            fclose($file);  
