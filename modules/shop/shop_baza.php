@@ -20,7 +20,7 @@ $categoriesResource = new DreamCommerce\ShopAppstoreLib\Resource\Category($clien
         $categories[$c->category_id] = $c->translations->pl_PL->name;
     }
 
-    $resource = newDreamCommerce\ShopAppstoreLib\Resource\CategoriesTree($client);
+    $resource = new DreamCommerce\ShopAppstoreLib\Resource\CategoriesTree($client);
     $result = $resource->get();
 
     $renderNode = function($start, $level = 1) use (&$renderNode, $categories){
