@@ -50,12 +50,13 @@ $time_pre = microtime(true);
 			$stid = oci_parse($conn, '
 			MERGE INTO SHOPPER_PRODUCTS USING dual ON ( "ID_TOW" = :idtow2 )
 			WHEN MATCHED THEN UPDATE SET "SHOP_TO_DELIVERY"= :devtime
-			WHEN NOT MATCHED THEN INSERT ("ID_TOW","SHOP_TO_DELIVERY") 
-				VALUES ( :idtow2, :devtime )'
+			WHEN NOT MATCHED THEN INSERT ("ID_TOW","SHOP_TO_DELIVERY", "SHOP_TO_CATEGORY") 
+				VALUES ( :idtow2, :devtime , :cat)'
 				
 				);
 			oci_bind_by_name($stid, ":idtow2", $id_tow);
 			oci_bind_by_name($stid, ":devtime", $czas_prze);
+			oci_bind_by_name($stid, ":cat", 1);
 			oci_execute($stid);
 			
 			
