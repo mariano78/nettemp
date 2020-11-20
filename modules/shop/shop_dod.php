@@ -44,7 +44,7 @@ $time_pre = microtime(true);
 		while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 			
 			$id_tow = $row['ID']; //kod towaru w RB
-			echo "Towar ID - ".$id_tow;
+			echo "Towar ID - ".$id_tow."\n";
 			
 		}
 		
