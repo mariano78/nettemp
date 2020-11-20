@@ -26,7 +26,7 @@ include("$root/modules/shop/shop_settings.php");
     $renderNode = function($start, $level = 1) use (&$renderNode, $categories){
 
         foreach($start as $i) {
-            printf("%s #%d - %s\n", str_repeat('-', $level), $i->id, $categories[$i->id]);
+            printf("%s #%d - %s\n <br>", str_repeat('-', $level), $i->id, $categories[$i->id]);
             if (!empty($i->__children)) {
                 $renderNode($i->__children, $level + 1);
             }
