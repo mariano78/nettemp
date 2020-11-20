@@ -154,7 +154,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 					echo "Zaktualizowano produkt ". $kod." \n";
 					logs_shop($date, 'Info', "Zaktualizowano produkt ". $kod);
 					$aktualizowanych++;
-					$licz_produkt = ++;
+					$licz_produkt++;
 				}
 			}
 		}	
