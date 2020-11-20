@@ -34,7 +34,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$kod = $row['TO_KOD']; //kod towaru w RB
 	$ean = $row['TO_KK_1']; // kod ean
 	$nazwa = $row['TO_NAZWA']; //nazwa z jfox
-	$kategoria = 1; // kategoria w shoper
+	$kategoria = 26; // kategoria w shoper
 	$stan = floor($row['STAN']); // dostępna ilosć towaru
 	
 	if ($stan < 0) $stan = 0; // dla stanu poniżej 0
