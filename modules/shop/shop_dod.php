@@ -28,7 +28,7 @@ $time_pre = microtime(true);
 
 
     
-		$filename = 'dane.csv';
+		$filename = "dane.csv";
         $file = fopen($filename, "r");
 		if ($file) {
           while (($getData = fgetcsv($file, 10000, ";")) !== FALSE)
