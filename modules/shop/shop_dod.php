@@ -37,6 +37,19 @@ $time_pre = microtime(true);
 	   $ean_csv = $getData[0];
 	   $czas_prze = $getData[1];
 	   
+		$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP WHERE TO_KK_1 LIKE '$ean_csv'');
+		oci_execute($stid);
+		
+		while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
+			
+			$id_tow = $row['TO_ID']; //kod towaru w RB
+			echo "Towar ID - ".$id_tow;
+			oci_free_statement($stid);
+			oci_close($conn);
+		}
+		
+	   
+	   
 	   echo $ean_csv."--".$czas_prze;
 	   
 			  
