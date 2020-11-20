@@ -12,11 +12,28 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 include("$root/modules/shop/shop_settings.php");
 
 
-$resource = new DreamCommerce\ShopAppstoreLib\Resource\Category($client);
+$categoriesResource = new DreamCommerce\ShopAppstoreLib\Resource\Category($client);
+    $categoriesResult = $categoriesResource->get();
+
+    $categories = array();
+    foreach($categoriesResult as $c){
+        $categories[$c->category_id] = $c->translations->pl_PL->name;
+    }
+
+    $resource = newDreamCommerce\ShopAppstoreLib\Resource\CategoriesTree($client);
     $result = $resource->get();
 
-    foreach($result as $r){
-        printf("#%d - %s\n", $r->category_id, $r->translations->pl_PL->name);
-    }
+    $renderNode = function($start, $level = 1) use (&$renderNode, $categories){
+
+        foreach($start as $i) {
+            printf("%s #%d - %s\n", str_repeat('-', $level), $i->id, $categories[$i->id]);
+            if (!empty($i->__children)) {
+                $renderNode($i->__children, $level + 1);
+            }
+        }
+
+    };
+
+    $renderNode($result);
 
 ?>
