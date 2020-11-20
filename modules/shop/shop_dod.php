@@ -23,33 +23,32 @@ $syncstatus = 0;
 // 1. Pobieramy z bazy oracle dane o produkcie 
 // 2. Sprawdzamy czy w shoperze istnieje produkt z kodem z oracle - dodajemy lub aktualizujemy 
 $time_pre = microtime(true);
-$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP');
+//$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP');
 oci_execute($stid);
 
 
+<?php
+ if(isset($_POST["Import"])){
+    
+		$filename = 'dane.csv';
+        $file = fopen($filename, "r");
+          while (($getData = fgetcsv($file, 10000, ",")) !== FALSE)
+           {  
+	   
+	   $ean_csv = $getData[0];
+	   $czas_prze = $getData[1;]
+	   
+	   echo $ean_csv."--".$czas_prze;
+	   
+			  
+           }
+      
+           fclose($file);  
+     }
+  }   
 
-while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
-	
-	
-	$towar_id = $row['TO_ID']; //kod towaru w RB
-	$ean = $row['TO_KK_1']; // kod ean
-	$nazwa = $row['TO_NAZWA']; //nazwa z jfox
-	$kategoria = 1; // kategoria w shoper
-	$stan = floor($row['STAN']); // dostępna ilosć towaru
-	
-	//$connection=oci_connect($username,$password,$database);
-
-     $sql="INSERT OR UPDATE shopper_products (ID_TOW, IN_SHOP, SHOP_TO_CATEGORY, SHOP_TO_DELIVERY, SHOP_TO_NAME, SHOP_TO_DESCRIPTION)
-			VALUES ('$towar_id','',1,1,'NAZWA','OPIS')";
-			   
-
-     $st= oci_parse($conn, $sql);
-     oci_execute($st);
-	
-	
-	
-}//while
-
- 
 
 ?>
+
+
+
