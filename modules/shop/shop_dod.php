@@ -30,7 +30,7 @@ $time_pre = microtime(true);
     
 		$filename = '$root/modules/shop/dane.csv';
         $file = fopen($filename, "r");
-          while (($getData = fgetcsv($file, 10000, ",")) !== FALSE)
+          while (($getData = fgetcsv($file, 10000, ";")) !== FALSE)
            {  
 	   
 	   $ean_csv = $getData[0];
