@@ -26,8 +26,6 @@ $time_pre = microtime(true);
 //$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP');
 oci_execute($stid);
 
-
-<?php
  if(isset($_POST["Import"])){
     
 		$filename = 'dane.csv';
