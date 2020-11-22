@@ -44,7 +44,7 @@ $syncstatus = 0;
 				VALUES ( :idtow2, :devtime , :cat)'
 				
 				);
-			$cat = 999
+			$cat = 999;
 
 			oci_bind_by_name($stid2, ":idtow2", $id_tow);
 			oci_bind_by_name($stid2, ":devtime", $czas_prze);
