@@ -12,7 +12,10 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 include("$root/modules/shop/shop_settings.php");
 
 $licznik = 1;
-$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP_2');
+$sql = "SELECT * FROM INFOR_SHOPER_EXP OFFSET ".$pstart." ROWS FETCH NEXT ".$pstop." ROWS ONLY;";
+
+
+$stid = oci_parse($conn, "$sql");
 		//oci_bind_by_name($stid, ":eean", $ean_csv);
 		oci_execute($stid);
 		
