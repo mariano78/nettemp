@@ -26,6 +26,7 @@ $stid = oci_parse($conn, "$sql");
 $stid2 = oci_parse($conn, "$sql");
 		//oci_bind_by_name($stid, ":eean", $ean_csv);
 		oci_execute($stid);
+		oci_execute($stid2);
 		
 		$results=array(); 
 		$total_records = oci_fetch_all($stid, $results, null, null, OCI_FETCHSTATEMENT_BY_ROW);
