@@ -25,8 +25,11 @@ $sql = "SELECT * FROM INFOR_SHOPER_EXP OFFSET ".$pstart." ROWS FETCH NEXT ".$pst
 $stid = oci_parse($conn, "$sql");
 		//oci_bind_by_name($stid, ":eean", $ean_csv);
 		oci_execute($stid);
-		$total_records = count($row = oci_fetch_array($stid, OCI_ASSOC));
+		
+		$results=array(); 
+		$total_records = oci_fetch_all($stid, $results, null, null, OCI_FETCHSTATEMENT_BY_ROW);
 		echo "Rekordów - ".$total_records." <br> \n";
+		
 		while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 			
 			$id_tow = $row['TO_ID']; //kod towaru w RB
