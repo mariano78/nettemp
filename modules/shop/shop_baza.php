@@ -69,21 +69,25 @@ $stid2 = oci_parse($conn, "$sql");
 				
 				<td> <?php echo $rb_tow_nazwa ?></td>
 				
-				<td> <?php echo $in_shop ?>
-				
-				<form action="" method="post" style="display:inline!important;">
-					<input type="hidden" name="inshop_id_tow" value="<?php echo $id_tow; ?>" />
-					<input type="checkbox" name="inshopcheck" value="Y" <?php echo $in_shop == 'Y' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
-					<input type="hidden" name="inshop1" value="inshop1" />
-				</form>
-				
-				
-				
+				<td>
+					<form action="" method="post" style="display:inline!important;">
+						<input type="hidden" name="inshop_id_tow" value="<?php echo $id_tow; ?>" />
+						<input type="checkbox" name="inshopcheck" value="Y" <?php echo $in_shop == 'Y' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+						<input type="hidden" name="inshop1" value="inshop1" />
+					</form>
 				</td>
 				
 				<td> <?php echo $shop_cat ?></td>
 				
 				<td> <?php echo $shop_delivery ?></td>
+					
+					<form action="" method="post"  class="form-inline">
+						<select name="dostawa" class="form-control input-sm small" onchange="this.form.submit()" style="width: 90px;" >
+							<option value="2"  <?php echo $shop_delivery == 2 ? 'selected="selected"' : ''; ?>  ><?php echo "2 dni" ?></option>
+						
+						</select>
+					</form>
+				
 				
 				<td> <?php echo $shop_name ?></td>
 			</tr>
