@@ -51,7 +51,7 @@ $stid2 = oci_parse($conn, "$sql");
 		
 		
 		
-		echo "Rekordów - ".$total_records." <br> \n";
+		
 		
 		
 		oci_free_statement($stid2);
@@ -62,8 +62,10 @@ $stid2 = oci_parse($conn, "$sql");
 		$total_records = oci_fetch_all($stid, $results, null, null, OCI_FETCHSTATEMENT_BY_ROW);
 		oci_free_statement($stid);
 		oci_close($conn);
+		
+		echo "Rekordów - ".$total_records." <br> \n";
 
-if($total_records >=101) {
+if($total_records >=50) {
 	
 	$total_pages = ceil($total_records / $pstop); 
 	
