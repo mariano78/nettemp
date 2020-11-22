@@ -14,7 +14,7 @@ include("$root/modules/shop/shop_settings.php");
 $total_records = 0;
 
 if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
-$pstop=1000;
+$pstop=100;
 $pstart = ($page-1) * $pstop; 
 
 
@@ -48,12 +48,7 @@ $stid2 = oci_parse($conn, "$sql");
 				
 		$licznik++;
 		}
-		
-		
-		
-		
-		
-		
+
 		oci_free_statement($stid2);
 		//oci_close($conn);
 		
@@ -65,7 +60,7 @@ $stid2 = oci_parse($conn, "$sql");
 		
 		echo "Rekordów - ".$total_records." <br> \n";
 
-if($total_records >=50) {
+if($total_records >=101) {
 	
 	$total_pages = ceil($total_records / $pstop); 
 	
