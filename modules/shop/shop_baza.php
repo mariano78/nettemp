@@ -32,7 +32,7 @@ $stid2 = oci_parse($conn, "$sql");
 		$total_records = oci_fetch_all($stid, $results, null, null, OCI_FETCHSTATEMENT_BY_ROW);
 		echo "Rekordów - ".$total_records." <br> \n";
 		
-		while (($row = oci_fetch_array($sti2, OCI_ASSOC)) != false) {
+		while (($row = oci_fetch_array($stid2, OCI_ASSOC)) != false) {
 			
 			$id_tow = $row['TO_ID']; //kod towaru w RB
 			$rb_tow_kod = $row['TO_KOD'];
