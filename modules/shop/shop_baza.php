@@ -26,7 +26,7 @@ include("$root/modules/shop/shop_settings.php");
 <th></th>
 </tr>
 </thead>
-</table>
+
 
 
 <?php
@@ -53,6 +53,8 @@ $stid2 = oci_parse($conn, "$sql");
 		
 		while (($row = oci_fetch_array($stid2, OCI_ASSOC)) != false) {
 			
+			
+			
 			$id_tow = $row['TO_ID']; //kod towaru w RB
 			$rb_tow_kod = $row['TO_KOD'];
 			$rb_tow_nazwa = $row['TO_NAZWA'];
@@ -78,6 +80,15 @@ $stid2 = oci_parse($conn, "$sql");
 		oci_free_statement($stid);
 		oci_close($conn);
 		
+		
+		
+?>
+
+</table>
+</div>
+</div>
+
+<?php
 		echo "Rekordów - ".$total_records." <br> \n";
 
 if($total_records >=101) {
