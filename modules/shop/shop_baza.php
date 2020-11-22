@@ -50,9 +50,22 @@ $stid2 = oci_parse($conn, "$sql");
 		$licznik++;
 		}
 
-		   oci_free_statement($stid);
-			oci_close($conn);
+		oci_free_statement($stid);
+		oci_close($conn);
 
+if($total_records >=101) {
+	
+	$total_pages = ceil($total_records / $pstop); 
+	
+	echo "<a href='index.php?id=tools&type=shop_baza&page=1'>".'|<'."</a> ";
+	
+	for ($i=1; $i<=$total_pages; $i++) { 
+            echo "<a href='index.php?id=tools&type=shop_baza&page=".$i."'>".$i."</a> "; 
+	}; 	
+	
+	echo "<a href='index.php?id=tools&type=shop_baza&page=$total_pages'>".'>|'."</a> "; 
+	
+}
 
 
 
