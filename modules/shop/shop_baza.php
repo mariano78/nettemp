@@ -19,6 +19,7 @@ $stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP_2');
 		while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 			
 			$id_tow = $row['TO_ID']; //kod towaru w RB
+			$rb_tow_kod = $row['TO_KOD'];
 			$rb_tow_nazwa = $row['TO_NAZWA'];
 			$grupa_tow = $row['TO_GRUPA'];
 			$in_shop = $row['IN_SHOP'];
@@ -27,7 +28,7 @@ $stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP_2');
 			$shop_name = $row['SHOP_NAME'];
 			
 			
-			echo $licznik.". Towar ID - ".$id_tow." ".$rb_tow_nazwa." <br> \n";
+			echo $licznik.". Towar ID - ".$rb_tow_kod." ".$rb_tow_nazwa." <br> \n";
 			
 				
 		$licznik++;
