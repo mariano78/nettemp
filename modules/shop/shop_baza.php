@@ -14,7 +14,7 @@ include("$root/modules/shop/shop_settings.php");
 $total_records = 0;
 
 if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
-$pstop=1000;
+$pstop=20;
 $pstart = ($page-1) * $pstop; 
 
 
@@ -22,9 +22,10 @@ $licznik = 1;
 
 
 $sql = "SELECT * FROM INFOR_SHOPER_EXP_2 OFFSET ".$pstart." ROWS FETCH NEXT ".$pstop." ROWS ONLY";
+$sql2 = "SELECT * FROM INFOR_SHOPER_EXP_2";
 
 
-$stid = oci_parse($conn, "$sql");
+$stid = oci_parse($conn, "$sql2");
 $stid2 = oci_parse($conn, "$sql");
 		//oci_bind_by_name($stid, ":eean", $ean_csv);
 		
@@ -62,7 +63,7 @@ $stid2 = oci_parse($conn, "$sql");
 
 if($total_records >=101) {
 	
-	$total_pages = ceil($total_records / 20); 
+	$total_pages = ceil($total_records / $pstop); 
 	echo "Stron - ".$total_pages." <br> \n";
 	
 	echo "<a href='index.php?id=tools&type=shop_baza&page=1'>".'|<'."</a> ";
