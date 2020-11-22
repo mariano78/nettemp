@@ -27,8 +27,6 @@ include("$root/modules/shop/shop_settings.php");
 </tr>
 </thead>
 
-
-
 <?php
 $total_records = 0;
 
@@ -53,6 +51,8 @@ $stid2 = oci_parse($conn, "$sql");
 		
 		while (($row = oci_fetch_array($stid2, OCI_ASSOC)) != false) {
 			
+
+			
 			
 			
 			$id_tow = $row['TO_ID']; //kod towaru w RB
@@ -66,6 +66,18 @@ $stid2 = oci_parse($conn, "$sql");
 			
 			
 			echo $licznik." - ".$rb_tow_kod." - ".$rb_tow_nazwa." <br> \n";
+			
+?>
+			<tr>	
+				<td> <?php echo $licznik ?></td>
+				
+				<td> <?php echo $rb_tow_kod ?></td>
+				
+				<td> <?php echo $rb_tow_nazwa ?></td>
+				
+			</tr>
+
+<?php
 			
 				
 		$licznik++;
