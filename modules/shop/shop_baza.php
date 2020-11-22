@@ -11,25 +11,7 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
 
-?>
 
-<div class="panel panel-default">
-<div class="panel-heading">Produkty do uzupełnienia</div>
-
-<div class="table-responsive">
-<table class="table table-hover table-condensed small">
-<thead>
-<tr>
-<th>Name</th>
-<th>Address</th>
-<th>Baudrate</th>
-<th></th>
-</tr>
-</thead>
-</table>
-
-
-<?php
 $total_records = 0;
 
 if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
