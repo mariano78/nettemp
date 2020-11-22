@@ -62,7 +62,8 @@ $stid2 = oci_parse($conn, "$sql");
 
 if($total_records >=101) {
 	
-	$total_pages = ceil($total_records / $pstop); 
+	$total_pages = ceil($total_records / 20); 
+	echo "Stron - ".$total_pages." <br> \n"
 	
 	echo "<a href='index.php?id=tools&type=shop_baza&page=1'>".'|<'."</a> ";
 	
