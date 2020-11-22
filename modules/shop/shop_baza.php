@@ -11,6 +11,8 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
 
+$total_records = 0;
+
 if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
 $pstop=100;
 $pstart = ($page-1) * $pstop; 
