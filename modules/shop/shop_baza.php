@@ -20,10 +20,14 @@ include("$root/modules/shop/shop_settings.php");
 <table class="table table-hover table-condensed small">
 <thead>
 <tr>
-<th>Name</th>
-<th>Address</th>
-<th>Baudrate</th>
-<th></th>
+<th>Lp.</th>
+<th>Kod RB</th>
+<th>Grupa</th>
+<th>Nazwa RB</th>
+<th>W sklepie ?</th>
+<th>Kategoria</th>
+<th>Dostawa</th>
+<th>Shoper nazwa</th>
 </tr>
 </thead>
 
@@ -34,26 +38,17 @@ if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };
 $pstop = $paginating;
 $pstart = ($page-1) * $pstop; 
 
-
 $licznik = 1;
-
 
 $sql = "SELECT * FROM INFOR_SHOPER_EXP_2 OFFSET ".$pstart." ROWS FETCH NEXT ".$pstop." ROWS ONLY";
 $sql2 = "SELECT * FROM INFOR_SHOPER_EXP_2";
 
-
 $stid = oci_parse($conn, "$sql2");
 $stid2 = oci_parse($conn, "$sql");
-		//oci_bind_by_name($stid, ":eean", $ean_csv);
-		
+		//oci_bind_by_name($stid, ":eean", $ean_csv);		
 		oci_execute($stid2);
-		
-		
+			
 		while (($row = oci_fetch_array($stid2, OCI_ASSOC)) != false) {
-			
-
-			
-			
 			
 			$id_tow = $row['TO_ID']; //kod towaru w RB
 			$rb_tow_kod = $row['TO_KOD'];
@@ -64,17 +59,23 @@ $stid2 = oci_parse($conn, "$sql");
 			$shop_delivery = $row['DELIVERY'];
 			$shop_name = $row['SHOP_NAME'];
 			
-			
-			//echo $licznik." - ".$rb_tow_kod." - ".$rb_tow_nazwa." <br> \n";
-			
 ?>
 			<tr>	
 				<td> <?php echo $licznik ?></td>
 				
 				<td> <?php echo $rb_tow_kod ?></td>
 				
+				<td> <?php echo $grupa_tow ?></td>
+				
 				<td> <?php echo $rb_tow_nazwa ?></td>
 				
+				<td> <?php echo $in_shop ?></td>
+				
+				<td> <?php echo $shop_cat ?></td>
+				
+				<td> <?php echo $shop_delivery ?></td>
+				
+				<td> <?php echo $shop_name ?></td>
 			</tr>
 
 <?php
