@@ -21,7 +21,7 @@ $pstart = ($page-1) * $pstop;
 $licznik = 1;
 
 
-$sql = "SELECT * FROM INFOR_SHOPER_EXP OFFSET ".$pstart." ROWS FETCH NEXT ".$pstop." ROWS ONLY";
+$sql = "SELECT * FROM INFOR_SHOPER_EXP_2 OFFSET ".$pstart." ROWS FETCH NEXT ".$pstop." ROWS ONLY";
 
 
 $stid = oci_parse($conn, "$sql");
