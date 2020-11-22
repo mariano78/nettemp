@@ -14,7 +14,7 @@ include("$root/modules/shop/shop_settings.php");
 $total_records = 0;
 
 if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
-$pstop=100;
+$pstop=1000;
 $pstart = ($page-1) * $pstop; 
 
 
