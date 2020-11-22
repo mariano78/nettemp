@@ -11,7 +11,7 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
 
-
+$licznik = 1;
 $stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP_2');
 		//oci_bind_by_name($stid, ":eean", $ean_csv);
 		oci_execute($stid);
@@ -19,10 +19,10 @@ $stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP_2');
 		while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 			
 			$id_tow = $row['TO_ID']; //kod towaru w RB
-			echo "Towar ID - ".$id_tow." <br> \n";
+			echo $licznik.". Towar ID - ".$id_tow." <br> \n";
 			
 				
-			
+		licznik++;
 		}
 
 		   oci_free_statement($stid);
