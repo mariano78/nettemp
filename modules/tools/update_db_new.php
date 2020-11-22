@@ -327,6 +327,7 @@ $updates['2020-09-01 07:14:37'][]="INSERT INTO nt_settings ('option', 'value') V
 
 //shoper
 $updates['2020-11-20 11:39:40'][]="CREATE TABLE shop_cat (id INTEGER PRIMARY KEY, id_cat TEXT, name_cat TEXT )";
+$updates['2020-11-20 11:49:40'][]="INSERT INTO shop ('option', 'value') VALUES ('paginating','20')";
 
 
 

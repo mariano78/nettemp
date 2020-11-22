@@ -38,6 +38,9 @@ foreach ($result as $a) {
 	if($a['option']=='shoptest') {
 		$shoptest=$a['value'];
 	}
+	if($a['option']=='paginating') {
+		$paginating=$a['value'];
+	}
 }	
 // ORACLE - podłączenie do bazy
 
