@@ -10,33 +10,25 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 }
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
-$currentPage =1;
 
-	$categoriesResource = new DreamCommerce\ShopAppstoreLib\Resource\Category($client);
-    $categoriesResult = $categoriesResource->page($currentPage)->limit(50)->get();
 
-    $categories = array();
-    foreach($categoriesResult as $c){
-        $categories[$c->category_id] = $c->translations->pl_PL->name;
-    }
+$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP_2');
+		//oci_bind_by_name($stid, ":eean", $ean_csv);
+		oci_execute($stid);
+		
+		while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
+			
+			$id_tow = $row['TO_ID']; //kod towaru w RB
+			echo "Towar ID - ".$id_tow." <br> \n";
+			
+				
+			
+		}
 
-    $resource = new DreamCommerce\ShopAppstoreLib\Resource\CategoriesTree($client);
+		   oci_free_statement($stid);
+			oci_close($conn);
 
-    $id  = $c->category_id;
-    $result = $resource->page($currentPage)->limit(50)->get($id);
-	
 
-    $renderNode = function($start, $level = 1) use (&$renderNode, $categories){
 
-        foreach($start as $i) {
-            printf("%s #%d - %s\n", str_repeat('-', $level), $i->id, $categories[$i->id]);
-            if (!empty($i->__children)) {
-                $renderNode($i->__children, $level + 1);
-            }
-        }
-
-    };
-
-    $renderNode($result);
 
 ?>
