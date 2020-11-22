@@ -30,9 +30,6 @@ $stid2 = oci_parse($conn, "$sql");
 		oci_execute($stid);
 		oci_execute($stid2);
 		
-		$results=array(); 
-		$total_records = oci_fetch_all($stid, $results, null, null, OCI_FETCHSTATEMENT_BY_ROW);
-		echo "Rekordów - ".$total_records." <br> \n";
 		
 		while (($row = oci_fetch_array($stid2, OCI_ASSOC)) != false) {
 			
@@ -51,7 +48,13 @@ $stid2 = oci_parse($conn, "$sql");
 				
 		$licznik++;
 		}
-
+		
+		
+		$results=array(); 
+		$total_records = oci_fetch_all($stid, $results, null, null, OCI_FETCHSTATEMENT_BY_ROW);
+		echo "Rekordów - ".$total_records." <br> \n";
+		
+		
 		oci_free_statement($stid);
 		oci_close($conn);
 
