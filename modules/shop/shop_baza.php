@@ -27,7 +27,7 @@ $sql = "SELECT * FROM INFOR_SHOPER_EXP_2 OFFSET ".$pstart." ROWS FETCH NEXT ".$p
 $stid = oci_parse($conn, "$sql");
 $stid2 = oci_parse($conn, "$sql");
 		//oci_bind_by_name($stid, ":eean", $ean_csv);
-		oci_execute($stid);
+		
 		oci_execute($stid2);
 		
 		
@@ -50,11 +50,16 @@ $stid2 = oci_parse($conn, "$sql");
 		}
 		
 		
-		$results=array(); 
-		$total_records = oci_fetch_all($stid, $results, null, null, OCI_FETCHSTATEMENT_BY_ROW);
+		
 		echo "Rekordów - ".$total_records." <br> \n";
 		
 		
+		oci_free_statement($stid2);
+		//oci_close($conn);
+		
+		oci_execute($stid);
+		$results=array(); 
+		$total_records = oci_fetch_all($stid, $results, null, null, OCI_FETCHSTATEMENT_BY_ROW);
 		oci_free_statement($stid);
 		oci_close($conn);
 
