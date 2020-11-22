@@ -65,7 +65,7 @@ $stid2 = oci_parse($conn, "$sql");
 			$shop_name = $row['SHOP_NAME'];
 			
 			
-			echo $licznik." - ".$rb_tow_kod." - ".$rb_tow_nazwa." <br> \n";
+			//echo $licznik." - ".$rb_tow_kod." - ".$rb_tow_nazwa." <br> \n";
 			
 ?>
 			<tr>	
