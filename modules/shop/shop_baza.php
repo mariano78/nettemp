@@ -28,7 +28,7 @@ $stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP_2');
 			$shop_name = $row['SHOP_NAME'];
 			
 			
-			echo $licznik.". Towar ID - ".$rb_tow_kod." ".$rb_tow_nazwa." <br> \n";
+			echo $licznik." - ".$rb_tow_kod." - ".$rb_tow_nazwa." <br> \n";
 			
 				
 		$licznik++;
