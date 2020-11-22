@@ -22,7 +22,7 @@ $stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP_2');
 			echo $licznik.". Towar ID - ".$id_tow." <br> \n";
 			
 				
-		licznik++;
+		$licznik++;
 		}
 
 		   oci_free_statement($stid);
