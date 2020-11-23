@@ -104,7 +104,7 @@ if (!empty($deliv_id_tow_typ) && !empty($dostawa_typ)){
 
 
 <div class="panel panel-default">
-<div class="panel-heading">Produkty do uzupełnienia</div>
+<div class="panel-heading"><center>Produkty do uzupełnienia - strona  <?php echo $page ?></center> </div>
 
 <div class="table-responsive">
 <table class="table table-hover table-condensed small">
