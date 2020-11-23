@@ -107,7 +107,7 @@ $pstart = ($page-1) * $pstop;
 
 
 <div class="panel panel-default">
-<div class="panel-heading"><center>Produkty do uzupełnienia - strona  <?php echo $page; echo mb_internal_encoding();?></center> </div>
+<div class="panel-heading"><center>Produkty do uzupełnienia - strona  <?php echo $page;?></center> </div>
 
 <div class="table-responsive">
 <table class="table table-hover table-condensed small">
