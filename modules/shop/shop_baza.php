@@ -37,8 +37,7 @@ if (!empty($inshop_id_tow) && ($inshop1 == "inshop1")){
 //nazwa
 $name_new = isset($_POST['name_new']) ? $_POST['name_new'] : '';
 $name_id = isset($_POST['name_id']) ? $_POST['name_id'] : '';
-//echo mb_detect_encoding ($name_new); 
-//iconv('utf8', 'utf16', $name_new);
+
 if (!empty($name_id)){
     
 	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET SHOP_TO_NAME = :ins WHERE ID_TOW = :isidt');
