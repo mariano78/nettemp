@@ -11,6 +11,32 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
 
+$inshop_id_tow = isset($_POST['inshop_id_tow']) ? $_POST['inshop_id_tow'] : '';
+$inshopcheck = isset($_POST['inshopcheck']) ? $_POST['inshopcheck'] : '';
+$inshop1 = isset($_POST['inshop1']) ? $_POST['inshop1'] : '';
+echo $inshop_id_tow;
+echo $inshop1;
+echo $inshopcheck;
+if (!empty($inshop_id_tow) && $inshop1 == "inshop1"){
+    
+	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET IN_SHOP = :ins WHERE ID_TOW = :isidt');
+	
+	oci_bind_by_name($stid, ":isidt", $in_shop_id_tow);
+	oci_bind_by_name($stid, ":ins", $inshopcheck);
+	oci_execute($stid);
+	oci_free_statement($stid);
+	oci_close($conn);
+	
+	echo "robota";
+	
+	
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+
+
+
+
 ?>
 
 
@@ -36,32 +62,6 @@ include("$root/modules/shop/shop_settings.php");
 
 <?php
 $total_records = 0;
-
-$inshop_id_tow=isset($_POST['inshop_id_tow']) ? $_POST['inshop_id_tow'] : '';
-$inshopcheck=isset($_POST['inshopcheck']) ? $_POST['inshopcheck'] : '';
-$inshop1 = isset($_POST['inshop1']) ? $_POST['inshop1'] : '';
-echo $inshop_id_tow;
-echo $inshop1;
-echo $inshopcheck;
-if (!empty($inshop_id_tow) && $inshop1 == "inshop1"){
-    
-	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET IN_SHOP = :ins WHERE ID_TOW = :isidt');
-	
-	oci_bind_by_name($stid, ":isidt", $in_shop_id_tow);
-	oci_bind_by_name($stid, ":ins", $inshopcheck);
-	oci_execute($stid);
-	oci_free_statement($stid);
-	oci_close($conn);
-	
-	echo "robota";
-	
-	
-    header("location: " . $_SERVER['REQUEST_URI']);
-    exit();
-    }
-
-
-
 
 if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
 $pstop = $paginating;
@@ -99,7 +99,7 @@ $stid2 = oci_parse($conn, "$sql");
 				<td> <?php echo $rb_tow_nazwa ?></td>
 				
 				<td>
-					<form action="" method="post" style="display:inline!important;">
+					<form action="index.php?id=tools&type=shop_baza" method="post" style="display:inline!important;">
 						<input type="hidden" name="inshop_id_tow" value="<?php echo $id_tow; ?>" />
 						<input type="hidden" name="inshop1" value="inshop1" />
 						<input type="checkbox" name="inshopcheck" value="Y" <?php echo $in_shop == 'Y' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
