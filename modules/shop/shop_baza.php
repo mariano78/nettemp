@@ -33,25 +33,33 @@ if (!empty($inshop_id_tow) && $inshop1 == "inshop1"){
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
-	
-$dostawa = isset($_POST['dostawa']) ? $_POST['dostawa'] : '';
-$deliv_id_tow = isset($_POST['deliv_id_tow']) ? $_POST['deliv_id_tow'] : '';
-$inshop1 = isset($_POST['inshop1']) ? $_POST['inshop1'] : '';
-echo $dostawa;
-echo $deliv_id_tow;
-echo $inshopcheck;
+//kategoria	
+$kategoria = isset($_POST['kategoria']) ? $_POST['kategoria'] : '';
+$kat_id_tow = isset($_POST['kat_id_tow']) ? $_POST['kat_id_tow'] : '';
+
 if (!empty($deliv_id_tow)){
     
 	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DELIVERY = :ins WHERE ID_TOW = :isidt');
-	
+	oci_bind_by_name($stid, ":isidt", $kat_id_tow);
+	oci_bind_by_name($stid, ":ins", $kategoria);
+	oci_execute($stid);
+	oci_free_statement($stid);
+	oci_close($conn);
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+//dostawa	
+$dostawa = isset($_POST['dostawa']) ? $_POST['dostawa'] : '';
+$deliv_id_tow = isset($_POST['deliv_id_tow']) ? $_POST['deliv_id_tow'] : '';
+
+if (!empty($deliv_id_tow) && !empty($dostawa)){
+    
+	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DELIVERY = :ins WHERE ID_TOW = :isidt');
 	oci_bind_by_name($stid, ":isidt", $deliv_id_tow);
 	oci_bind_by_name($stid, ":ins", $dostawa);
 	oci_execute($stid);
 	oci_free_statement($stid);
 	oci_close($conn);
-	
-	echo "robota";
-	
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
@@ -131,7 +139,21 @@ $stid2 = oci_parse($conn, "$sql");
 					</form>
 				</td>
 				
-				<td> <?php echo $shop_cat ?></td>
+				<td> <?php echo $shop_cat ?>
+				
+					<form action="" method="post"  class="form-inline">
+						<select name="kategoria" class="form-control input-sm small" onchange="this.form.submit()" style="width: 90px;" >
+							<option value="2"  <?php echo $shop_delivery == 2 ? 'selected="selected"' : ''; ?>  ><?php echo "kat1" ?></option>
+							<option value="6"  <?php echo $shop_delivery == 6 ? 'selected="selected"' : ''; ?>  ><?php echo "kat2" ?></option>
+							<option value="8"  <?php echo $shop_delivery == 8 ? 'selected="selected"' : ''; ?>  ><?php echo "45 dni" ?></option>
+							<option value="999"  <?php echo $shop_delivery == 999 ? 'selected="selected"' : ''; ?>  ><?php echo "Brak" ?></option>
+						</select>
+						<input type="hidden" name="kat_id_tow" value="<?php echo $id_tow; ?>" />
+					</form>
+				
+				
+				
+				</td>
 				
 				<td> <?php echo $shop_delivery ?>
 					
@@ -139,6 +161,7 @@ $stid2 = oci_parse($conn, "$sql");
 						<select name="dostawa" class="form-control input-sm small" onchange="this.form.submit()" style="width: 90px;" >
 							<option value="2"  <?php echo $shop_delivery == 2 ? 'selected="selected"' : ''; ?>  ><?php echo "2 dni" ?></option>
 							<option value="6"  <?php echo $shop_delivery == 6 ? 'selected="selected"' : ''; ?>  ><?php echo "10 dni" ?></option>
+							<option value="8"  <?php echo $shop_delivery == 8 ? 'selected="selected"' : ''; ?>  ><?php echo "45 dni" ?></option>
 							<option value="999"  <?php echo $shop_delivery == 999 ? 'selected="selected"' : ''; ?>  ><?php echo "Brak" ?></option>
 						</select>
 						<input type="hidden" name="deliv_id_tow" value="<?php echo $id_tow; ?>" />
