@@ -144,6 +144,7 @@ $stid2 = oci_parse($conn, "$sql");
 		while (($row = oci_fetch_array($stid2, OCI_ASSOC)) != false) {
 			
 			$id_tow = $row['TO_ID']; //kod towaru w RB
+			$rb_stat = $row['STATUS']; //kod towaru w RB
 			$rb_tow_kod = $row['TO_KOD'];
 			$rb_tow_nazwa = $row['TO_NAZWA'];
 			$grupa_tow = $row['TO_GRUPA'];
@@ -160,6 +161,8 @@ $stid2 = oci_parse($conn, "$sql");
 				<td class="col-md-0"> <?php echo $rb_tow_kod ?></td>
 				
 				<td class="col-md-0"> <?php echo $grupa_tow ?></td>
+				
+				<td class="col-md-0"> <?php echo $rb_stat ?></td>
 				
 				<td class="col-md-0"> <?php echo $rb_tow_nazwa ?></td>
 				
