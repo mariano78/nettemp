@@ -25,6 +25,8 @@ if (!empty($inshop_id_tow) && $inshop1 == "inshop1"){
 	oci_free_statement($stid);
 	oci_close($conn);
 	
+	echo "robota";
+	
 	
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
