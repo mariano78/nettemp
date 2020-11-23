@@ -273,6 +273,16 @@ $stid2 = oci_parse($conn, "$sql");
 							<option value="59"  <?php echo $shop_cat == 59 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty do ogrodu - Podesty kompozytowe" ?></option>
 							<option value="60"  <?php echo $shop_cat == 60 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty do ogrodu - Sztachety kompozytowe" ?></option>
 							
+							<option value="54"  <?php echo $shop_cat == 54 ? 'selected="selected"' : ''; ?>  ><?php echo "Folia - Folie PE" ?></option>
+							<option value="66"  <?php echo $shop_cat == 66 ? 'selected="selected"' : ''; ?>  ><?php echo "Folia - Folia A-Pet" ?></option>
+							<option value="56"  <?php echo $shop_cat == 56 ? 'selected="selected"' : ''; ?>  ><?php echo "Folia - Folie PET i PVC" ?></option>
+							<option value="64"  <?php echo $shop_cat == 64 ? 'selected="selected"' : ''; ?>  ><?php echo "Folia - Ochronne - samoprzylepne" ?></option>
+							
+							<option value="67"  <?php echo $shop_cat == 67 ? 'selected="selected"' : ''; ?>  ><?php echo "Maty ochronne" ?></option>
+							<option value="63"  <?php echo $shop_cat == 63 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty kanalikowe z polipropylenu" ?></option>
+							<option value="62"  <?php echo $shop_cat == 62 ? 'selected="selected"' : ''; ?>  ><?php echo "PVC spienione" ?></option>
+							<option value="65"  <?php echo $shop_cat == 65 ? 'selected="selected"' : ''; ?>  ><?php echo "Asfalt workowany" ?></option>
+							<option value="13"  <?php echo $shop_cat == 13 ? 'selected="selected"' : ''; ?>  ><?php echo "Wyprzedaż" ?></option>
 							
 							
 							
