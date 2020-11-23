@@ -24,13 +24,26 @@ if (!empty($inshop_id_tow) && ($inshop1 == "inshop1")){
 	oci_bind_by_name($stid, ":ins", $inshopcheck);
 	oci_execute($stid);
 	oci_free_statement($stid);
-	oci_close($conn);
-	
-	echo "robota";
-	
+	oci_close($conn);	
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+//nazwa
+$name_new = isset($_POST['name_new']) ? $_POST['name_new'] : '';
+$name_id = isset($_POST['name_id']) ? $_POST['name_id'] : '';
+
+if (!empty($name_id) && !empty($name_new)){
+    
+	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET SHOP_TO_NAME = :ins WHERE ID_TOW = :isidt');
+	oci_bind_by_name($stid, ":isidt", $name_id);
+	oci_bind_by_name($stid, ":ins", $name_new);
+	oci_execute($stid);
+	oci_free_statement($stid);
+	oci_close($conn);
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+	
 //kategoria	
 $kategoria = isset($_POST['kategoria']) ? $_POST['kategoria'] : '';
 $kat_id_tow = isset($_POST['kat_id_tow']) ? $_POST['kat_id_tow'] : '';
@@ -164,7 +177,15 @@ $stid2 = oci_parse($conn, "$sql");
 					</form>
 				</td>
 				
-				<td> <?php echo $shop_name ?></td>
+				<td> <?php echo $shop_name ?>
+				
+					<form action="" method="post" style="display:inline!important;">
+						<input type="text" name="name_new" size="40" maxlength="250" value="<?php echo $shop_name; ?>" />
+						<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+						<input type="hidden" name="name_id" value="<?php echo $id_tow; ?>" />
+					</form>
+				
+				</td>
 			</tr>
 
 <?php
