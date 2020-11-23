@@ -86,7 +86,7 @@ $stid2 = oci_parse($conn, "$sql");
 			$in_shop = $row['IN_SHOP'];
 			$shop_cat = $row['CATEGORY'];
 			$shop_delivery = $row['DELIVERY'];
-			//$shop_name = $row['SHOP_NAME'];
+			$shop_name = $row['SHOP_NAME'];
 			
 ?>
 			<tr>	
@@ -103,7 +103,7 @@ $stid2 = oci_parse($conn, "$sql");
 						<input type="hidden" name="inshop_id_tow" value="<?php echo $id_tow; ?>" />
 						<?php echo $id_tow; ?>
 						<input type="hidden" name="inshop1" value="inshop1" />
-						<input type="checkbox" name="inshopcheck" value="Y" <?php echo $in_shop == 'Y' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+						<input type="checkbox" name="inshopcheck" value="on" <?php echo $in_shop == 'Y' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
 						<?php echo $in_shop; ?>
 						
 					</form>
