@@ -151,14 +151,11 @@ $stid2 = oci_parse($conn, "$sql");
 					<input type="hidden" name="inshop1" value="inshop1" />
 					<button type="submit" name="inshopcheck" value="<?php echo $in_shop == 'T' ? 'N' : 'T'; ?>" <?php echo $in_shop == 'T' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
 					<?php echo $in_shop == 'T' ? 'ON' : 'OFF'; ?></button>
-		<input type="hidden" name="log_on" value="log_on" />
-					
-					
-					
+					<input type="hidden" name="log_on" value="log_on" />	
 				</form>
 				</td>
 				
-				<td>
+				<td class="col-md-0">
 				
 					<form action="" method="post"  class="form-inline">
 						<select name="kategoria" class="form-control input-sm small" onchange="this.form.submit()" style="width: 90px;" >
@@ -168,11 +165,9 @@ $stid2 = oci_parse($conn, "$sql");
 						<input type="hidden" name="kat_id_tow" value="<?php echo $id_tow; ?>" />
 					</form>
 				
-				
-				
 				</td>
 				
-				<td>
+				<td class="col-md-0">
 					
 					<form action="" method="post"  class="form-inline">
 						<select name="dostawa" class="form-control input-sm small" onchange="this.form.submit()" style="width: 90px;" >
@@ -185,7 +180,7 @@ $stid2 = oci_parse($conn, "$sql");
 					</form>
 				</td>
 				
-				<td>
+				<td class="col-md-0">
 				
 					<form action="" method="post" style="display:inline!important;">
 						<input type="text" name="name_new" size="40" maxlength="250" value="<?php echo $shop_name; ?>" />
