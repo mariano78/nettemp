@@ -26,7 +26,7 @@ if (!empty($inshop_id_tow) && ($inshop1 == "inshop1")){
 	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET IN_SHOP = :ins WHERE ID_TOW = :isidt');
 	
 	oci_bind_by_name($stid, ":isidt", $inshop_id_tow);
-	oci_bind_by_name($stid, ":ins", $inshopcheck);
+	oci_bind_by_name($stid, ':ins', $inshopcheck);
 	oci_execute($stid);
 	oci_free_statement($stid);
 	oci_close($conn);	
