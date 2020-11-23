@@ -198,7 +198,7 @@ $stid2 = oci_parse($conn, "$sql");
 					</form>
 				</td>
 				
-				<td class="col-md-0">
+				<td class="col-md-2">
 					
 					<form action="" method="post"  class="form-inline">
 						<select name="dostawa_typ" class="form-control input-sm small" onchange="this.form.submit()" style="width: 90px;" >
