@@ -137,20 +137,18 @@ $stid2 = oci_parse($conn, "$sql");
 			
 ?>
 			<tr>	
-				<td> <?php echo $licznik ?></td>
+				<td class="col-md-0"> <?php echo $licznik ?></td>
 				
-				<td> <?php echo $rb_tow_kod ?></td>
+				<td class="col-md-0"> <?php echo $rb_tow_kod ?></td>
 				
-				<td> <?php echo $grupa_tow ?></td>
+				<td class="col-md-0"> <?php echo $grupa_tow ?></td>
 				
-				<td> <?php echo $rb_tow_nazwa ?></td>
+				<td class="col-md-0"> <?php echo $rb_tow_nazwa ?></td>
 				
-				<td>
+				<td class="col-md-0">
 					<form action="" method="post" style="display:inline!important;">
 					<input type="hidden" name="inshop_id_tow" value="<?php echo $id_tow; ?>" />
-					
 					<input type="hidden" name="inshop1" value="inshop1" />
-					
 					<button type="submit" name="inshopcheck" value="<?php echo $in_shop == 'T' ? 'N' : 'T'; ?>" <?php echo $in_shop == 'T' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
 					<?php echo $in_shop == 'T' ? 'ON' : 'OFF'; ?></button>
 		<input type="hidden" name="log_on" value="log_on" />
