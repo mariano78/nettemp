@@ -360,7 +360,7 @@ $stid2 = oci_parse($conn, "$sql");
 <?php
 		echo "Rekordów - ".$total_records." <br> \n";
 
-if($total_records >=101) {
+if($total_records >=30) {
 	
 	$total_pages = ceil($total_records / $pstop); 
 	echo "Stron - ".$total_pages." <br> \n";
