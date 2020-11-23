@@ -56,11 +56,11 @@ $time_pre = microtime(true);
 		
            
       
-           fclose($file);  
+         
 		   oci_free_statement($stid);
 			oci_close($conn);
      
-		}
+		
 
 
 ?>
