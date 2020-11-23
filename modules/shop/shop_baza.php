@@ -10,7 +10,9 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 }
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
+?>
 
+<?php
 $inshop_id_tow = isset($_POST['inshop_id_tow']) ? $_POST['inshop_id_tow'] : '';
 $inshopcheck = isset($_POST['inshopcheck']) ? $_POST['inshopcheck'] : '';
 $inshop1 = isset($_POST['inshop1']) ? $_POST['inshop1'] : '';
