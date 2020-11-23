@@ -250,6 +250,17 @@ $stid2 = oci_parse($conn, "$sql");
 							<option value="50"  <?php echo $shop_cat == 50 ? 'selected="selected"' : ''; ?>  ><?php echo "Izolacje pionowe i poziome - Izolacja pozioma" ?></option>
 							<option value="51"  <?php echo $shop_cat == 51 ? 'selected="selected"' : ''; ?>  ><?php echo "Izolacje pionowe i poziome - Membrany dachowe" ?></option>
 							<option value="52"  <?php echo $shop_cat == 52 ? 'selected="selected"' : ''; ?>  ><?php echo "Izolacje pionowe i poziome - Folia paroprzepuszczalna" ?></option>
+							
+							<option value="15"  <?php echo $shop_cat == 15 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Rulony płaskie NRO " ?></option>
+							<option value="21"  <?php echo $shop_cat == 21 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Poliester - płyty faliste" ?></option>
+							<option value="22"  <?php echo $shop_cat == 22 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Poliester - rulony faliste " ?></option>
+							
+							<option value="109"  <?php echo $shop_cat == 109 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Rulony poliestrowe - 100 cm " ?></option>
+							<option value="110"  <?php echo $shop_cat == 110 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Rulony poliestrowe - 150 cm " ?></option>
+							<option value="111"  <?php echo $shop_cat == 111 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Rulony poliestrowe - 200 cm " ?></option>
+							<option value="112"  <?php echo $shop_cat == 112 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Rulony poliestrowe - 250 cm " ?></option>
+							<option value="113"  <?php echo $shop_cat == 113 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Rulony poliestrowe - 300 cm " ?></option>
+							
 						
 						
 						</select>
