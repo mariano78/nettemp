@@ -188,8 +188,30 @@ $stid2 = oci_parse($conn, "$sql");
 							<option value="29"  <?php echo $shop_cat == 29 ? 'selected="selected"' : ''; ?>  ><?php echo "Panele poliwęglanowe" ?></option>
 							<option value="75"  <?php echo $shop_cat == 75 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Bezbarwny -> 4mm" ?></option>
 							<option value="76"  <?php echo $shop_cat == 76 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Bezbarwny -> 4,5mm" ?></option>
+							<option value="77"  <?php echo $shop_cat == 77 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Bezbarwny -> 6mm" ?></option>
+							<option value="78"  <?php echo $shop_cat == 78 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Bezbarwny -> 8mm" ?></option>
+							<option value="74"  <?php echo $shop_cat == 74 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Bezbarwny -> 10mm" ?></option>
+							<option value="73"  <?php echo $shop_cat == 73 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Bezbarwny -> 16mm" ?></option>
+							<option value="79"  <?php echo $shop_cat == 79 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Bezbarwny -> 20mm" ?></option>
+							<option value="80"  <?php echo $shop_cat == 80 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Bezbarwny -> 25mm" ?></option>
+						
+							<option value="81"  <?php echo $shop_cat == 81 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Mleczny -> 6mm" ?></option>
+							<option value="82"  <?php echo $shop_cat == 82 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Mleczny -> 8mm" ?></option>
+							<option value="83"  <?php echo $shop_cat == 83 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Mleczny -> 10mm" ?></option>
+							<option value="84"  <?php echo $shop_cat == 84 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Mleczny -> 16mm" ?></option>
+							<option value="85"  <?php echo $shop_cat == 85 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Mleczny -> 20mm" ?></option>
+							<option value="86"  <?php echo $shop_cat == 86 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Mleczny -> 25mm" ?></option>
 							
-							
+							<option value="87"  <?php echo $shop_cat == 87 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Dymny -> 4mm" ?></option>
+							<option value="88"  <?php echo $shop_cat == 88 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Dymny -> 4,5mm" ?></option>
+							<option value="89"  <?php echo $shop_cat == 89 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Dymny -> 6mm" ?></option>
+							<option value="90"  <?php echo $shop_cat == 90 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Dymny -> 8mm" ?></option>
+							<option value="91"  <?php echo $shop_cat == 91 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Dymny -> 10mm" ?></option>
+							<option value="92"  <?php echo $shop_cat == 92 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Dymny -> 16mm" ?></option>
+						
+						
+						
+						
 						</select>
 						<input type="hidden" name="kat_id_tow" value="<?php echo $id_tow; ?>" />
 					</form>
