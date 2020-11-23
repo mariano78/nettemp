@@ -36,6 +36,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$ean = $row['TO_KK_1']; // kod ean
 	$nazwa = $row['TO_NAZWA']; //nazwa z jfox
 	$nazwa_shop = $row['SHOP_NAME']; //nazwa z jfox
+	$in_shop = $row['IN_SHOP'];
 	
 	if ($nazwa_shop != ''){
 		
@@ -70,8 +71,13 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	
 	$opis = 'To jest opis produktu';
-	$aktywnosc = true;
+	if ($in_shop == 'T'){
+		$aktywnosc = true;
+	}else {
+		$aktywnosc = false;
+	}
 	
+		
 	$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 	//filtry
 	
