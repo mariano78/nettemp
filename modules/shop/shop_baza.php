@@ -16,7 +16,6 @@ $inshop_id_tow = isset($_POST['inshop_id_tow']) ? $_POST['inshop_id_tow'] : '';
 $inshopcheck = isset($_POST['inshopcheck']) ? $_POST['inshopcheck'] : '';
 $inshop1 = isset($_POST['inshop1']) ? $_POST['inshop1'] : '';
 
-$inshopcheck = chr($inshopcheck);
 
 if (!empty($inshop_id_tow) && ($inshop1 == "inshop1")){
     
@@ -32,8 +31,6 @@ if (!empty($inshop_id_tow) && ($inshop1 == "inshop1")){
 	oci_free_statement($stid);
 	oci_close($conn);	
 	
-	echo $in_shop_id_tow;
-	echo $inshopcheck;
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
