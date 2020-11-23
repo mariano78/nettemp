@@ -20,6 +20,10 @@ $inshopcheck = chr($inshopcheck);
 
 if (!empty($inshop_id_tow) && ($inshop1 == "inshop1")){
     
+	echo $in_shop_id_tow;
+	echo $inshopcheck;
+	echo "opopopopp";
+	
 	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET IN_SHOP = :ins WHERE ID_TOW = :isidt');
 	
 	oci_bind_by_name($stid, ":isidt", $in_shop_id_tow);
