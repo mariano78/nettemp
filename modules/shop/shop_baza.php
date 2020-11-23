@@ -209,6 +209,12 @@ $stid2 = oci_parse($conn, "$sql");
 							<option value="91"  <?php echo $shop_cat == 91 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Dymny -> 10mm" ?></option>
 							<option value="92"  <?php echo $shop_cat == 92 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Dymny -> 16mm" ?></option>
 						
+							<option value="93"  <?php echo $shop_cat == 93 ? 'selected="selected"' : ''; ?>  ><?php echo "Akces. do płyt poliw - Profile" ?></option>
+							<option value="94"  <?php echo $shop_cat == 94 ? 'selected="selected"' : ''; ?>  ><?php echo "Akces. do płyt poliw - Uszczelki" ?></option>
+							<option value="95"  <?php echo $shop_cat == 95 ? 'selected="selected"' : ''; ?>  ><?php echo "Akces. do płyt poliw - Taśmy" ?></option>
+							<option value="96"  <?php echo $shop_cat == 96 ? 'selected="selected"' : ''; ?>  ><?php echo "Akces. do płyt poliw - Wkręty" ?></option>
+							<option value="97"  <?php echo $shop_cat == 97 ? 'selected="selected"' : ''; ?>  ><?php echo "Akces. do płyt poliw - Pozostałe" ?></option>
+						
 						
 						
 						
