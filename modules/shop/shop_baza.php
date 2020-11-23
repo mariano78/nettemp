@@ -97,7 +97,9 @@ if (!empty($deliv_id_tow_typ) && !empty($dostawa_typ)){
     exit();
     }
 
-
+if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
+$pstop = $paginating;
+$pstart = ($page-1) * $pstop; 
 ?>
 
 
@@ -127,9 +129,7 @@ if (!empty($deliv_id_tow_typ) && !empty($dostawa_typ)){
 
 $total_records = 0;
 
-if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
-$pstop = $paginating;
-$pstart = ($page-1) * $pstop; 
+
 
 $licznik = 1;
 
