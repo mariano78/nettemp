@@ -11,7 +11,29 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
 
+$inshop_id_tow=isset($_GET['inshop_id_tow']) ? $_GET['inshop_id_tow'] : '';
+$inshopcheck=isset($_GET['inshopcheck']) ? $_GET['inshopcheck'] : '';
+$inshop1 = isset($_POST['inshop1']) ? $_POST['inshop1'] : '';
+
+if (!empty($inshop_id_tow) && $inshop1 == "inshop1"){
+    
+	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET IN_SHOP = $inshopcheck WHERE ID_TOW = $in_shop_id_tow');
+	oci_execute($stid);
+	oci_free_statement($stid);
+	oci_close($conn);
+	
+	
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+
+
+
+
 ?>
+
+
+
 
 <div class="panel panel-default">
 <div class="panel-heading">Produkty do uzupełnienia</div>
