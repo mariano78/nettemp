@@ -37,7 +37,7 @@ if (!empty($inshop_id_tow) && $inshop1 == "inshop1"){
 $kategoria = isset($_POST['kategoria']) ? $_POST['kategoria'] : '';
 $kat_id_tow = isset($_POST['kat_id_tow']) ? $_POST['kat_id_tow'] : '';
 
-if (!empty($deliv_id_tow)){
+if (!empty($kat_id_tow) && !empty($kategoria)){
     
 	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET SHOP_TO_CATEGORY = :ins WHERE ID_TOW = :isidt');
 	oci_bind_by_name($stid, ":isidt", $kat_id_tow);
