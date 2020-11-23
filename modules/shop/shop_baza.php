@@ -183,6 +183,7 @@ $stid2 = oci_parse($conn, "$sql");
 						<select name="kategoria" class="form-control input-sm small" onchange="this.form.submit()" style="width: 90px;" >
 							<option value="4"  <?php echo $shop_cat == 4 ? 'selected="selected"' : ''; ?>  ><?php echo "kat1" ?></option>
 							<option value="5"  <?php echo $shop_cat == 5 ? 'selected="selected"' : ''; ?>  ><?php echo "kat2kat2kat2kat2kat2kat2kat2kat2kat2kat2kat2kat2" ?></option>
+							<option value="13"  <?php echo $shop_cat == 13 ? 'selected="selected"' : ''; ?>  ><?php echo "Wyprzedaż" ?></option>
 						</select>
 						<input type="hidden" name="kat_id_tow" value="<?php echo $id_tow; ?>" />
 					</form>
