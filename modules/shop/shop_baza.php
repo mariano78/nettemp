@@ -148,7 +148,7 @@ $stid2 = oci_parse($conn, "$sql");
 				<td>
 					<form action="" method="post" style="display:inline!important;">
 					<input type="hidden" name="inshop_id_tow" value="<?php echo $id_tow; ?>" />
-					<input type="checkbox" data-toggle="toggle" data-size="mini"  name="inshopcheck" value="" <?php echo $in_shop == '' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+					<input type="checkbox" data-toggle="toggle" data-size="mini"  name="inshopcheck" value="N" <?php echo $in_shop == '' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
 					<input type="hidden" name="inshop1" value="inshop1" />
 				</form>
 				</td>
