@@ -86,7 +86,7 @@ $stid2 = oci_parse($conn, "$sql");
 			$in_shop = $row['IN_SHOP'];
 			$shop_cat = $row['CATEGORY'];
 			$shop_delivery = $row['DELIVERY'];
-			$shop_name = $row['SHOP_NAME'];
+			//$shop_name = $row['SHOP_NAME'];
 			
 ?>
 			<tr>	
