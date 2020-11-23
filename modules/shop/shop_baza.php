@@ -37,12 +37,12 @@ if (!empty($inshop_id_tow) && $inshop1 == "inshop1"){
 $dostawa = isset($_POST['dostawa']) ? $_POST['dostawa'] : '';
 $deliv_id_tow = isset($_POST['deliv_id_tow']) ? $_POST['deliv_id_tow'] : '';
 $inshop1 = isset($_POST['inshop1']) ? $_POST['inshop1'] : '';
-echo $inshop_id_tow;
-echo $inshop1;
+echo $dostawa;
+echo $deliv_id_tow;
 echo $inshopcheck;
 if (!empty($deliv_id_tow)){
     
-	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET SHO_TO_DELIVERY = :ins WHERE ID_TOW = :isidt');
+	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DELIVERY = :ins WHERE ID_TOW = :isidt');
 	
 	oci_bind_by_name($stid, ":isidt", $deliv_id_tow);
 	oci_bind_by_name($stid, ":ins", $dostawa);
