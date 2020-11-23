@@ -44,7 +44,7 @@ foreach ($result as $a) {
 }	
 // ORACLE - podłączenie do bazy
 
-$conn = oci_connect($user, $pass, $database, 'AL16UTF16');
+$conn = oci_connect($user, $pass, $database, 'WINDOWS-1250');
 if (!$conn) {
     $e = oci_error();
     trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
