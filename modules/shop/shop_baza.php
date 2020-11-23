@@ -63,9 +63,7 @@ if (!empty($inshop_id_tow) && $inshop1 == "inshop1"){
 
 
 
-if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
-$pstop = $paginating;
-$pstart = ($page-1) * $pstop; 
+
 
 $licznik = 1;
 
