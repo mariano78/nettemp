@@ -33,10 +33,11 @@ $time_pre = microtime(true);
 		while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 			
 			$id_tow = $row['TO_ID']; //kod towaru w RB
+			$stat = $row['STATUS']; //kod towaru w RB
 			$grupa_tow = $row['TO_GRUPA'];
 			echo "Towar ID - ".$id_tow."\n";
 			
-			if ($grupa_tow == 'BITUMP'){
+			if ($grupa_tow == 'BITUMP' && $stat != 'wyp'){
 				
 				$katt = 46;
 			
