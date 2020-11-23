@@ -33,6 +33,28 @@ if (!empty($inshop_id_tow) && $inshop1 == "inshop1"){
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+	
+$dostawa = isset($_POST['dostawa']) ? $_POST['dostawa'] : '';
+$deliv_id_tow = isset($_POST['deliv_id_tow']) ? $_POST['deliv_id_tow'] : '';
+$inshop1 = isset($_POST['inshop1']) ? $_POST['inshop1'] : '';
+echo $inshop_id_tow;
+echo $inshop1;
+echo $inshopcheck;
+if (!empty($deliv_id_tow)){
+    
+	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET SHO_TO_DELIVERY = :ins WHERE ID_TOW = :isidt');
+	
+	oci_bind_by_name($stid, ":isidt", $deliv_id_tow);
+	oci_bind_by_name($stid, ":ins", $dostawa);
+	oci_execute($stid);
+	oci_free_statement($stid);
+	oci_close($conn);
+	
+	echo "robota";
+	
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
 
 
 ?>
@@ -103,7 +125,7 @@ $stid2 = oci_parse($conn, "$sql");
 						<input type="hidden" name="inshop_id_tow" value="<?php echo $id_tow; ?>" />
 						<?php echo $id_tow; ?>
 						<input type="hidden" name="inshop1" value="inshop1" />
-						<input type="checkbox" name="inshopcheck" value="on" <?php echo $in_shop == 'Y' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+						<input type="checkbox" name="inshopcheck" value="Y" <?php echo $in_shop == 'Y' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
 						<?php echo $in_shop; ?>
 						
 					</form>
