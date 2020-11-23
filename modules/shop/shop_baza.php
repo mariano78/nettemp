@@ -267,6 +267,7 @@ $stid2 = oci_parse($conn, "$sql");
 							<option value="115"  <?php echo $shop_cat == 115 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty do ogrodu - Agrotkaniny - AgroSTOP" ?></option>
 							<option value="116"  <?php echo $shop_cat == 116 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty do ogrodu - Agrotkaniny - AgroSPEED" ?></option>
 							<option value="117"  <?php echo $shop_cat == 117 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty do ogrodu - Agrotkaniny - AgroTHERM" ?></option>
+							<option value="118"  <?php echo $shop_cat == 118 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty do ogrodu - Agrotkaniny - Akcesoria" ?></option>
 							
 							<option value="61"  <?php echo $shop_cat == 61 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty do ogrodu - Kratka trawnikowa" ?></option>
 							<option value="114"  <?php echo $shop_cat == 114 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty do ogrodu - Kaptury ochronne" ?></option>
