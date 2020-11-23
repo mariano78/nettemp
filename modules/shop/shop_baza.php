@@ -215,6 +215,34 @@ $stid2 = oci_parse($conn, "$sql");
 							<option value="96"  <?php echo $shop_cat == 96 ? 'selected="selected"' : ''; ?>  ><?php echo "Akces. do płyt poliw - Wkręty" ?></option>
 							<option value="97"  <?php echo $shop_cat == 97 ? 'selected="selected"' : ''; ?>  ><?php echo "Akces. do płyt poliw - Pozostałe" ?></option>
 						
+							<option value="17"  <?php echo $shop_cat == 17 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty profilowane - Akryl profilowany" ?></option>
+							<option value="18"  <?php echo $shop_cat == 18 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty profilowane - PVC profilowany" ?></option>
+							<option value="19"  <?php echo $shop_cat == 19 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty profilowane - Poliwęglan Profilowany PC05" ?></option>
+							<option value="20"  <?php echo $shop_cat == 20 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty profilowane - Poliwęglan Profilowany PC08" ?></option>
+							<option value="25"  <?php echo $shop_cat == 25 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty profilowane - Akce. do mont. płyt profil." ?></option>
+						
+							<option value="37"  <?php echo $shop_cat == 37 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polistyrenu - Antyrefleks" ?></option>
+							<option value="36"  <?php echo $shop_cat == 36 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polistyrenu - Akryl - formatki do drzwi" ?></option>
+							<option value="98"  <?php echo $shop_cat == 98 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polistyrenu - Szkło syntet. - gładkie - 2 mm" ?></option>
+							<option value="99"  <?php echo $shop_cat == 99 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polistyrenu - Szkło syntet. - gładkie - 2,5 mm" ?></option>
+							<option value="100"  <?php echo $shop_cat == 100 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polistyrenu - Szkło syntet. - gładkie - 4 mm" ?></option>
+							<option value="101"  <?php echo $shop_cat == 101 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polistyrenu - Szkło syntet. - gładkie - 5 mm" ?></option>
+							<option value="102"  <?php echo $shop_cat == 102 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polistyrenu - Szkło syntet. - gładkie - 8 mm" ?></option>
+						
+							<option value="103"  <?php echo $shop_cat == 103 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polist. - Szkło syntetyczne - ornamentowe. 1000x2000 mm" ?></option>
+							<option value="104"  <?php echo $shop_cat == 104 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polist. - Szkło syntetyczne - ornamentowe. 1200x640 mm" ?></option>
+							<option value="105"  <?php echo $shop_cat == 105 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polist. - Szkło syntetyczne - ornamentowe. 1420x540 mm" ?></option>
+							<option value="106"  <?php echo $shop_cat == 106 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polist. - Szkło syntetyczne - ornamentowe. 440x540 mm" ?></option>
+							<option value="107"  <?php echo $shop_cat == 107 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polist. - Szkło syntetyczne - ornamentowe. Pozostałe mm" ?></option>
+							
+							<option value="39"  <?php echo $shop_cat == 39 ? 'selected="selected"' : ''; ?>  ><?php echo "Zadaszenia drzwi i balkonów - Daszki aluminiowe STANDARD" ?></option>
+							<option value="40"  <?php echo $shop_cat == 40 ? 'selected="selected"' : ''; ?>  ><?php echo "Zadaszenia drzwi i balkonów - Daszki aluminiowe RETRO" ?></option>
+							<option value="41"  <?php echo $shop_cat == 41 ? 'selected="selected"' : ''; ?>  ><?php echo "Zadaszenia drzwi i balkonów - Daszki aluminiowe PLUS" ?></option>
+							<option value="42"  <?php echo $shop_cat == 42 ? 'selected="selected"' : ''; ?>  ><?php echo "Zadaszenia drzwi i balkonów - Daszki ze stali nierdzewnej" ?></option>
+							<option value="43"  <?php echo $shop_cat == 43 ? 'selected="selected"' : ''; ?>  ><?php echo "Zadaszenia drzwi i balkonów - Daszki balkonowe" ?></option>
+							<option value="44"  <?php echo $shop_cat == 44 ? 'selected="selected"' : ''; ?>  ><?php echo "Zadaszenia drzwi i balkonów - Markiza Coppo Line" ?></option>
+							
+							
 						
 						
 						
