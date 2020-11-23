@@ -38,12 +38,13 @@ if (!empty($inshop_id_tow) && ($inshop1 == "inshop1")){
 $name_new = isset($_POST['name_new']) ? $_POST['name_new'] : '';
 $name_id = isset($_POST['name_id']) ? $_POST['name_id'] : '';
 //$name_new = iconv();
-echo 'Kodowanie : ', iconv("UTF-8", "CP1250", $name_new), PHP_EOL;
+echo 'Kodowanie : ' iconv("UTF-8", "MSWIN1250", $name_new);
+$name_new2 = iconv("UTF-8", "MSWIN1250", $name_new);
 if (!empty($name_id)){
     
 	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET SHOP_TO_NAME = :ins WHERE ID_TOW = :isidt');
 	oci_bind_by_name($stid, ":isidt", $name_id);
-	oci_bind_by_name($stid, ":ins", $name_new);
+	oci_bind_by_name($stid, ":ins", $name_new2);
 	oci_execute($stid);
 	oci_free_statement($stid);
 	oci_close($conn);
