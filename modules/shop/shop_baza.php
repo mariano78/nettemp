@@ -115,6 +115,7 @@ $pstart = ($page-1) * $pstop;
 <th>Lp.</th>
 <th>Kod RB</th>
 <th>Grupa</th>
+<th>Status</th>
 <th>Nazwa RB</th>
 <th>W sklepie ?</th>
 <th>Kategoria</th>
