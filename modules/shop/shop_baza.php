@@ -100,6 +100,7 @@ $stid2 = oci_parse($conn, "$sql");
 						<?php echo $id_tow; ?>
 						<input type="hidden" name="inshop1" value="inshop1" />
 						<input type="checkbox" name="inshopcheck" value="Y" <?php echo $in_shop == 'Y' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+						<?php echo $in_shop; ?>
 						
 					</form>
 				</td>
