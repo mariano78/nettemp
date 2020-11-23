@@ -1,16 +1,4 @@
 <?php
-
-if(!empty($_SERVER["DOCUMENT_ROOT"])){
-    $root=$_SERVER["DOCUMENT_ROOT"];
-}else{
-    $root=__DIR__;
-    for($i=0;$i<5;$i++){
-        $root = file_exists($root.'/dbf/nettemp.db') ? $root : dirname($root) ;
-    }
-}
-// Dołączam ustawienia Oracle i sdk shoper
-include("$root/modules/shop/shop_settings.php");
-
 $inshop_id_tow = isset($_POST['inshop_id_tow']) ? $_POST['inshop_id_tow'] : '';
 $inshopcheck = isset($_POST['inshopcheck']) ? $_POST['inshopcheck'] : '';
 $inshop1 = isset($_POST['inshop1']) ? $_POST['inshop1'] : '';
@@ -33,6 +21,21 @@ if (!empty($inshop_id_tow) && $inshop1 == "inshop1"){
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+	
+	
+
+if(!empty($_SERVER["DOCUMENT_ROOT"])){
+    $root=$_SERVER["DOCUMENT_ROOT"];
+}else{
+    $root=__DIR__;
+    for($i=0;$i<5;$i++){
+        $root = file_exists($root.'/dbf/nettemp.db') ? $root : dirname($root) ;
+    }
+}
+// Dołączam ustawienia Oracle i sdk shoper
+include("$root/modules/shop/shop_settings.php");
+
+
 
 
 
@@ -102,7 +105,7 @@ $stid2 = oci_parse($conn, "$sql");
 					<form action="index.php?id=tools&type=shop_baza" method="post" style="display:inline!important;">
 						<input type="hidden" name="inshop_id_tow" value="<?php echo $id_tow; ?>" />
 						<input type="hidden" name="inshop1" value="inshop1" />
-						<input type="checkbox" data-toggle="toggle" data-size="mini" name="inshopcheck" value="Y" <?php echo $in_shop == 'Y' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
+						<input type="checkbox" name="inshopcheck" value="Y" <?php echo $in_shop == 'Y' ? 'checked="checked"' : ''; ?> onchange="this.form.submit()" />
 						
 					</form>
 				</td>
