@@ -70,8 +70,10 @@ $time_pre = microtime(true);
 		  // if ($czas_prze == 45){ $czas_prze_id = 8;
 				  
 		  // }
+		  
 			oci_bind_by_name($stid2, ":idtow2", $id_tow);
-			oci_bind_by_name($stid2, ":devtime", $czas_prze_id);
+			oci_bind_by_name($stid2, ":devtime", $czas_prze);
+			//oci_bind_by_name($stid2, ":devtime", $czas_prze_id);
 			oci_bind_by_name($stid2, ":cat", $cat);
 			oci_execute($stid2);
 				
