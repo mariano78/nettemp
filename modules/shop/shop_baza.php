@@ -38,7 +38,7 @@ if (!empty($inshop_id_tow) && ($inshop1 == "inshop1")){
 $name_new = isset($_POST['name_new']) ? $_POST['name_new'] : '';
 $name_id = isset($_POST['name_id']) ? $_POST['name_id'] : '';
 //$name_new = iconv();
-iconv("UTF-8", "MSWIN1250", $name_new);
+iconv("UTF-8", "ORACP1250", $name_new);
 //$name_new2 = iconv("UTF-8", "MSWIN1250", $name_new);
 if (!empty($name_id)){
     
@@ -48,8 +48,8 @@ if (!empty($name_id)){
 	oci_execute($stid);
 	oci_free_statement($stid);
 	oci_close($conn);
-    //header("location: " . $_SERVER['REQUEST_URI']);
-    //exit();
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
     }
 	
 //kategoria	
