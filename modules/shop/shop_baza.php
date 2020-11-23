@@ -86,8 +86,8 @@ $stid2 = oci_parse($conn, "$sql");
 							<option value="2"  <?php echo $shop_delivery == 2 ? 'selected="selected"' : ''; ?>  ><?php echo "2 dni" ?></option>
 							<option value="6"  <?php echo $shop_delivery == 6 ? 'selected="selected"' : ''; ?>  ><?php echo "10 dni" ?></option>
 							<option value="999"  <?php echo $shop_delivery == 999 ? 'selected="selected"' : ''; ?>  ><?php echo "Brak" ?></option>
-						
 						</select>
+						<input type="hidden" name="deliv_id_tow" value="<?php echo $id_tow; ?>" />
 					</form>
 				</td>
 				
