@@ -18,7 +18,10 @@ $inshop1 = isset($_POST['inshop1']) ? $_POST['inshop1'] : '';
 
 
 if (!empty($inshop_id_tow) && ($inshop1 == "inshop1")){
-    
+    if ($inshopcheck == ''){
+		
+		$inshopcheck = 'null';
+	}
 	echo $inshop_id_tow;
 	echo $inshopcheck;
 	echo "opopopopp";
