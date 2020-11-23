@@ -151,7 +151,7 @@ $stid2 = oci_parse($conn, "$sql");
 					
 					<input type="hidden" name="inshop1" value="inshop1" />
 					
-					<button type="submit" name="logon_on" value="<?php echo $in_shop == 'T' ? 'N' : 'T'; ?>" <?php echo $in_shop == 'T' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
+					<button type="submit" name="inshopcheck" value="<?php echo $in_shop == 'T' ? 'N' : 'T'; ?>" <?php echo $in_shop == 'T' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
 					<?php echo $in_shop == 'T' ? 'ON' : 'OFF'; ?></button>
 		<input type="hidden" name="log_on" value="log_on" />
 					
