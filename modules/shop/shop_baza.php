@@ -150,7 +150,7 @@ $stid2 = oci_parse($conn, "$sql");
 					</form>
 				</td>
 				
-				<td> <?php echo $shop_cat ?>
+				<td>
 				
 					<form action="" method="post"  class="form-inline">
 						<select name="kategoria" class="form-control input-sm small" onchange="this.form.submit()" style="width: 90px;" >
@@ -164,7 +164,7 @@ $stid2 = oci_parse($conn, "$sql");
 				
 				</td>
 				
-				<td> <?php echo $shop_delivery ?>
+				<td>
 					
 					<form action="" method="post"  class="form-inline">
 						<select name="dostawa" class="form-control input-sm small" onchange="this.form.submit()" style="width: 90px;" >
@@ -177,7 +177,7 @@ $stid2 = oci_parse($conn, "$sql");
 					</form>
 				</td>
 				
-				<td> <?php echo $shop_name ?>
+				<td>
 				
 					<form action="" method="post" style="display:inline!important;">
 						<input type="text" name="name_new" size="40" maxlength="250" value="<?php echo $shop_name; ?>" />
