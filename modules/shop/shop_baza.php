@@ -183,9 +183,13 @@ $stid2 = oci_parse($conn, "$sql");
 				
 					<form action="" method="post"  class="form-inline">
 						<select name="kategoria" class="form-control input-sm small" onchange="this.form.submit()" style="width: 90px;" >
-							<option value="4"  <?php echo $shop_cat == 4 ? 'selected="selected"' : ''; ?>  ><?php echo "kat1" ?></option>
-							<option value="5"  <?php echo $shop_cat == 5 ? 'selected="selected"' : ''; ?>  ><?php echo "kat2kat2kat2kat2kat2kat2kat2kat2kat2kat2kat2kat2" ?></option>
-							<option value="13"  <?php echo $shop_cat == 13 ? 'selected="selected"' : ''; ?>  ><?php echo "Wyprzedaż" ?></option>
+							<option value="30"  <?php echo $shop_cat == 30 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty lite -> Akryl PMMA" ?></option>
+							<option value="28"  <?php echo $shop_cat == 28 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty lite -> Poliwęglan lity" ?></option>
+							<option value="29"  <?php echo $shop_cat == 29 ? 'selected="selected"' : ''; ?>  ><?php echo "Panele poliwęglanowe" ?></option>
+							<option value="75"  <?php echo $shop_cat == 75 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Bezbarwny -> 4mm" ?></option>
+							<option value="76"  <?php echo $shop_cat == 76 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty komorowe -> Bezbarwny -> 4,5mm" ?></option>
+							
+							
 						</select>
 						<input type="hidden" name="kat_id_tow" value="<?php echo $id_tow; ?>" />
 					</form>
