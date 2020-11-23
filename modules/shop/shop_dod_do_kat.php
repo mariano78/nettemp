@@ -36,9 +36,9 @@ $time_pre = microtime(true);
 			$grupa_tow = $row['TO_GRUPA'];
 			echo "Towar ID - ".$id_tow."\n";
 			
-			if ($grupa_tow == 'DASZCL'){
+			if ($grupa_tow == 'DASZPL'){
 				
-				$katt = 44;
+				$katt = 41;
 			
 			
 			
