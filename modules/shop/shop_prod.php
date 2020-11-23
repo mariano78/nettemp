@@ -35,6 +35,13 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$kod = $row['TO_KOD']; //kod towaru w RB
 	$ean = $row['TO_KK_1']; // kod ean
 	$nazwa = $row['TO_NAZWA']; //nazwa z jfox
+	$nazwa_shop = $row['SHOP_TO_NAME']; //nazwa z jfox
+	
+	if ($nazwa_shop != ''){
+		
+		$nazwa = $nazwa_shop;
+	}
+	
 	$kategoria = $row['CATEGORY']; // kategoria w shoper
 	$stan = floor($row['STAN']); // dostępna ilosć towaru
 	
