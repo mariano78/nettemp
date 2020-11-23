@@ -182,7 +182,7 @@ $stid2 = oci_parse($conn, "$sql");
 				<td class="col-md-0">
 				
 					<form action="" method="post"  class="form-inline">
-						<select name="kategoria" class="form-control input-sm small" onchange="this.form.submit()" style="width: 290px;" >
+						<select name="kategoria" class="form-control input-sm small" onchange="this.form.submit()" style="width: 390px;" >
 							<option value="30"  <?php echo $shop_cat == 30 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty lite -> Akryl PMMA" ?></option>
 							<option value="28"  <?php echo $shop_cat == 28 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty lite -> Poliwęglan lity" ?></option>
 							<option value="29"  <?php echo $shop_cat == 29 ? 'selected="selected"' : ''; ?>  ><?php echo "Panele poliwęglanowe" ?></option>
