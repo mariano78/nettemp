@@ -242,8 +242,14 @@ $stid2 = oci_parse($conn, "$sql");
 							<option value="43"  <?php echo $shop_cat == 43 ? 'selected="selected"' : ''; ?>  ><?php echo "Zadaszenia drzwi i balkonów - Daszki balkonowe" ?></option>
 							<option value="44"  <?php echo $shop_cat == 44 ? 'selected="selected"' : ''; ?>  ><?php echo "Zadaszenia drzwi i balkonów - Markiza Coppo Line" ?></option>
 							
+							<option value="46"  <?php echo $shop_cat == 46 ? 'selected="selected"' : ''; ?>  ><?php echo "Bitumiczne pokrycia dachowe - Płyty bitumiczne" ?></option>
+							<option value="47"  <?php echo $shop_cat == 47 ? 'selected="selected"' : ''; ?>  ><?php echo "Bitumiczne pokrycia dachowe - Gonty bitumiczne" ?></option>
+							<option value="108"  <?php echo $shop_cat == 108 ? 'selected="selected"' : ''; ?>  ><?php echo "Bitumiczne pokrycia dachowe - Płyty bitumiczne - akcesoria" ?></option>
 							
-						
+							<option value="49"  <?php echo $shop_cat == 49 ? 'selected="selected"' : ''; ?>  ><?php echo "Izolacje pionowe i poziome - Folia kubełkowa" ?></option>
+							<option value="50"  <?php echo $shop_cat == 50 ? 'selected="selected"' : ''; ?>  ><?php echo "Izolacje pionowe i poziome - Izolacja pozioma" ?></option>
+							<option value="51"  <?php echo $shop_cat == 51 ? 'selected="selected"' : ''; ?>  ><?php echo "Izolacje pionowe i poziome - Membrany dachowe" ?></option>
+							<option value="52"  <?php echo $shop_cat == 52 ? 'selected="selected"' : ''; ?>  ><?php echo "Izolacje pionowe i poziome - Folia paroprzepuszczalna" ?></option>
 						
 						
 						</select>
