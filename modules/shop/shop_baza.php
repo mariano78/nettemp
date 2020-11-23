@@ -313,6 +313,7 @@ $stid2 = oci_parse($conn, "$sql");
 					
 					<form action="" method="post"  class="form-inline">
 						<select name="dostawa_typ" class="form-control input-sm small" onchange="this.form.submit()" style="width: 130px;" >
+							<option value="00"  <?php echo $shop_delivery_typ == 00 ? 'selected="selected"' : ''; ?>  ><?php echo "Brak" ?></option>
 							<option value="15"  <?php echo $shop_delivery_typ == 15 ? 'selected="selected"' : ''; ?>  ><?php echo "DPD - 20" ?></option>
 							<option value="16"  <?php echo $shop_delivery_typ == 16 ? 'selected="selected"' : ''; ?>  ><?php echo "DPD - 40" ?></option>
 							<option value="17"  <?php echo $shop_delivery_typ == 17 ? 'selected="selected"' : ''; ?>  ><?php echo "Paleta" ?></option>
