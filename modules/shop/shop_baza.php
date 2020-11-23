@@ -80,6 +80,22 @@ if (!empty($deliv_id_tow) && !empty($dostawa)){
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+	
+//dostawa	 typ
+$dostawa_typ = isset($_POST['dostawa_typ']) ? $_POST['dostawa_typ'] : '';
+$deliv_id_tow_typ = isset($_POST['deliv_id_tow_typ']) ? $_POST['deliv_id_tow_typ'] : '';
+
+if (!empty($deliv_id_tow_typ) && !empty($dostawa_typ)){
+    
+	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DELIVERY = :ins WHERE ID_TOW = :isidt');
+	oci_bind_by_name($stid, ":isidt", $deliv_id_tow);
+	oci_bind_by_name($stid, ":ins", $dostawa);
+	oci_execute($stid);
+	oci_free_statement($stid);
+	oci_close($conn);
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
 
 
 ?>
@@ -100,7 +116,8 @@ if (!empty($deliv_id_tow) && !empty($dostawa)){
 <th>Nazwa RB</th>
 <th>W sklepie ?</th>
 <th>Kategoria</th>
-<th>Dostawa</th>
+<th>Czas Dostawy</th>
+<th>Forma Dostawy</th>
 <th>Shoper nazwa</th>
 </tr>
 </thead>
@@ -133,6 +150,7 @@ $stid2 = oci_parse($conn, "$sql");
 			$in_shop = $row['IN_SHOP'];
 			$shop_cat = $row['CATEGORY'];
 			$shop_delivery = $row['DELIVERY'];
+			$shop_delivery_typ = $row['DELIVERY_TYP'];
 			$shop_name = $row['SHOP_NAME'];
 			
 ?>
@@ -177,6 +195,20 @@ $stid2 = oci_parse($conn, "$sql");
 							<option value="999"  <?php echo $shop_delivery == 999 ? 'selected="selected"' : ''; ?>  ><?php echo "Brak" ?></option>
 						</select>
 						<input type="hidden" name="deliv_id_tow" value="<?php echo $id_tow; ?>" />
+					</form>
+				</td>
+				
+				<td class="col-md-0">
+					
+					<form action="" method="post"  class="form-inline">
+						<select name="dostawa_typ" class="form-control input-sm small" onchange="this.form.submit()" style="width: 90px;" >
+							<option value="15"  <?php echo $shop_delivery_typ == 15 ? 'selected="selected"' : ''; ?>  ><?php echo "DPD - 20" ?></option>
+							<option value="16"  <?php echo $shop_delivery_typ == 16 ? 'selected="selected"' : ''; ?>  ><?php echo "DPD - 40" ?></option>
+							<option value="17"  <?php echo $shop_delivery_typ == 17 ? 'selected="selected"' : ''; ?>  ><?php echo "Paleta" ?></option>
+							<option value="18"  <?php echo $shop_delivery_typ == 18 ? 'selected="selected"' : ''; ?>  ><?php echo "Własny RB" ?></option>
+							<option value="11"  <?php echo $shop_delivery_typ == 1 ? 'selected="selected"' : ''; ?>  ><?php echo "Osobisty" ?></option>
+						</select>
+						<input type="hidden" name="deliv_id_tow_typ" value="<?php echo $id_tow; ?>" />
 					</form>
 				</td>
 				
