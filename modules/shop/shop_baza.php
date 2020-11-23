@@ -14,7 +14,8 @@ include("$root/modules/shop/shop_settings.php");
 $inshop_id_tow=isset($_POST['inshop_id_tow']) ? $_POST['inshop_id_tow'] : '';
 $inshopcheck=isset($_POST['inshopcheck']) ? $_POST['inshopcheck'] : '';
 $inshop1 = isset($_POST['inshop1']) ? $_POST['inshop1'] : '';
-
+echo $inshop_id_tow;
+echo $inshop1;
 if (!empty($inshop_id_tow) && $inshop1 == "inshop1"){
     
 	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET IN_SHOP = :ins WHERE ID_TOW = :isidt');
