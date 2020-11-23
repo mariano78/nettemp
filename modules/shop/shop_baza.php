@@ -261,6 +261,9 @@ $stid2 = oci_parse($conn, "$sql");
 							<option value="112"  <?php echo $shop_cat == 112 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Rulony poliestrowe - 250 cm " ?></option>
 							<option value="113"  <?php echo $shop_cat == 113 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Rulony poliestrowe - 300 cm " ?></option>
 							
+							<option value="23"  <?php echo $shop_cat == 23 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Poliester - profile blach trapezowych " ?></option>
+							<option value="24"  <?php echo $shop_cat == 24 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Poliester - samonośne płyty łukowe" ?></option>
+							
 						
 						
 						</select>
