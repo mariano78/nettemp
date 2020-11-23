@@ -24,7 +24,15 @@ if (!empty($inshop_id_tow) && ($inshop1 == "inshop1")){
 	
 	oci_bind_by_name($stid, ":isidt", $in_shop_id_tow);
 	oci_bind_by_name($stid, ":ins", $inshopcheck);
-	oci_execute($stid);
+	//oci_execute($stid);
+	
+	$resultx = oci_execute($stid, OCI_COMMIT_ON_SUCCESS);
+	if (!$resultx) {
+	echo oci_error();   
+	}
+	
+	
+	
 	oci_free_statement($stid);
 	oci_close($conn);	
     header("location: " . $_SERVER['REQUEST_URI']);
