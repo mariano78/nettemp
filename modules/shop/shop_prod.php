@@ -24,7 +24,7 @@ $db->exec("UPDATE shop SET value='$syncstatus' WHERE option='syncstatus'");
 // 1. Pobieramy z bazy oracle dane o produkcie 
 // 2. Sprawdzamy czy w shoperze istnieje produkt z kodem z oracle - dodajemy lub aktualizujemy 
 $time_pre = microtime(true);
-$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP');
+$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP_2');
 oci_execute($stid);
 
 
