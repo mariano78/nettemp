@@ -43,9 +43,9 @@ $name_id = isset($_POST['name_id']) ? $_POST['name_id'] : '';
 $str2 = mb_convert_encoding( $name_new, "ASCII", "UTF-8" );
 echo $str2;
 
-<?php $current_encoding = mb_detect_encoding($str2, 'auto');
-				echo $current_encoding ;
-				?>
+$current_encoding = mb_detect_encoding($str2, 'auto');
+echo $current_encoding ;
+
 
 
 
