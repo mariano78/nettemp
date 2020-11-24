@@ -37,36 +37,17 @@ if (!empty($inshop_id_tow) && ($inshop1 == "inshop1")){
 //nazwa
 $name_new = isset($_POST['name_new']) ? $_POST['name_new'] : '';
 $name_id = isset($_POST['name_id']) ? $_POST['name_id'] : '';
-//$name_new = iconv();
-//iconv("UTF-8", "cp1250", $name_new);
-//iconv( "cp1250", "UTF-8", ($name_new));
-//$str2 = mb_convert_encoding( $name_new, "Windows-1252", "UTF-8" );
-echo $str2;
 
-//$current_encoding = mb_detect_encoding($str2, 'auto');
-//echo $current_encoding ;
-//$str2 = mb_convert_encoding( $name_new, "Windows-1252", $current_encoding );
-
-//if ($current_encoding == 'ASCII' )  {
-	//$str2 = mb_convert_encoding( $name_new, "Windows-1252", "ASCII" );
-	//$current_encoding = mb_detect_encoding($str2, 'auto');
-	//echo "Po IFie --". $current_encoding ;
-//}
-
-
-
-
-//$name_new2 = iconv("UTF-8", "MSWIN1250", $name_new);
 if (!empty($name_id)){
     
 	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET SHOP_TO_NAME = :ins WHERE ID_TOW = :isidt');
 	oci_bind_by_name($stid, ":isidt", $name_id);
-	oci_bind_by_name($stid, ":ins", $str2);
+	oci_bind_by_name($stid, ":ins", $name_new);
 	oci_execute($stid);
 	oci_free_statement($stid);
 	oci_close($conn);
-    //header("location: " . $_SERVER['REQUEST_URI']);
-   // exit();
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
     }
 	
 //kategoria	
