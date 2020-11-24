@@ -100,7 +100,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU'){
 	if ($stan < 0) $stan = 0; // dla stanu poniżej 0
 	$cena = $cena * $mnoznik; //cena * podatek VAT
 	
-	if ($cena >=50){  //zaokraglanie w górę dla cen większych niż 50 pln
+	if ($cena >=10){  //zaokraglanie w górę dla cen większych niż 50 pln
 		
 		$cena = ceil($cena);
 	}
