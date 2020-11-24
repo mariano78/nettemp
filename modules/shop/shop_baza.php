@@ -318,7 +318,7 @@ $stid2 = oci_parse($conn, "$sql");
 							<option value="16"  <?php echo $shop_delivery_typ == 16 ? 'selected="selected"' : ''; ?>  ><?php echo "DPD - 40" ?></option>
 							<option value="17"  <?php echo $shop_delivery_typ == 17 ? 'selected="selected"' : ''; ?>  ><?php echo "Paleta" ?></option>
 							<option value="18"  <?php echo $shop_delivery_typ == 18 ? 'selected="selected"' : ''; ?>  ><?php echo "Własny RB" ?></option>
-							<option value="11"  <?php echo $shop_delivery_typ == 1 ? 'selected="selected"' : ''; ?>  ><?php echo "Osobisty" ?></option>
+							<option value="11"  <?php echo $shop_delivery_typ == 11 ? 'selected="selected"' : ''; ?>  ><?php echo "Osobisty" ?></option>
 						</select>
 						<input type="hidden" name="deliv_id_tow_typ" value="<?php echo $id_tow; ?>" />
 					</form>
