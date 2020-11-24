@@ -70,7 +70,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$jedmiar = 1; //przypisanie jednostki miary jfox->shoper  1 - sztuka
 	
 //****************************************************Przeliczanie cen i stanów**********************************
-if ($to_grupa == 'PCB' OR $to_grupa == 'AKRYL'){
+if ($to_grupa == 'PCB' OR $to_grupa == 'AKRYL' OR $to_grupa == 'PVCSP'){
 	
 		if ($jed_miar_jfox == 'M2'){
 			
@@ -79,7 +79,7 @@ if ($to_grupa == 'PCB' OR $to_grupa == 'AKRYL'){
 		}
 }
 
-if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU'){
+if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_grupa == 'FOLOCH' OR $to_grupa == 'FOLBU' OR $to_grupa == 'PLSOG' OR $to_grupa == 'FOLRU' OR $to_grupa == 'OGRAG'){
 	
 		if ($jed_miar_jfox == 'MB'){
 			
