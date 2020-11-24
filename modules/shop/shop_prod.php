@@ -46,6 +46,11 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$delivery = $row['DELIVERY']; // czas dostawy
 	$delivery2 = $row['DELIVERY2']; // rodzaj przewoźnika
 	
+	if ($delivery2 == 17){
+		
+		$delivery2 =2;
+	}
+	
 	
 	if ($nazwa_shop != ''){
 		
@@ -155,7 +160,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 						'ean' => $ean,
 						'dimension_w' => $szerokosc,
 						'dimension_h' => $dlugosc,
-						//'gauge_id' => $delivery2,
+						'gauge_id' => $delivery2,
 						'translations' => array(
 							'pl_PL' => array(
 							'name' => $nazwa,
@@ -201,7 +206,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 						'ean' => $ean,
 						'dimension_w' => $szerokosc,
 						'dimension_h' => $dlugosc,
-						//'gauge_id' => $delivery2,
+						'gauge_id' => $delivery2,
 						'translations' => array(
 							'pl_PL' => array(
 							'name' => $nazwa,
