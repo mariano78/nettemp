@@ -167,7 +167,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 							'active' => 1,
 							'stock' => $stan,
 							'weight' => $waga,
-							'delivery_id' => $delivery2
+							'availability_id' => $delivery2
 							),
 						'tax_id' => $podatek,
 						'code' => $kod,
@@ -212,7 +212,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 							'active' => 1,
 							'stock' => $stan,
 							'weight' => $waga,
-							'delivery_id' => $delivery2
+							'availability_id' => $delivery2
 							),
 						'tax_id' => $podatek,
 						'code' => $kod,
