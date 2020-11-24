@@ -39,7 +39,7 @@ $name_new = isset($_POST['name_new']) ? $_POST['name_new'] : '';
 $name_id = isset($_POST['name_id']) ? $_POST['name_id'] : '';
 //$name_new = iconv();
 //iconv("UTF-8", "cp1250", $name_new);
-iconv( "Windows-1250", "UTF-8", ($name_new));
+iconv( "cp1250", "UTF-8", ($name_new));
 //$name_new2 = iconv("UTF-8", "MSWIN1250", $name_new);
 if (!empty($name_id)){
     
