@@ -155,6 +155,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 						'ean' => $ean,
 						'dimension_w' => $szerokosc,
 						'dimension_h' => $dlugosc,
+						'gauge_id' => $delivery2,
 						'translations' => array(
 							'pl_PL' => array(
 							'name' => $nazwa,
@@ -167,7 +168,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 							'active' => 1,
 							'stock' => $stan,
 							'weight' => $waga,
-							'availability_id' => $delivery2
+							'delivery_id' => $delivery 
 							),
 						'tax_id' => $podatek,
 						'code' => $kod,
@@ -200,6 +201,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 						'ean' => $ean,
 						'dimension_w' => $szerokosc,
 						'dimension_h' => $dlugosc,
+						'gauge_id' => $delivery2,
 						'translations' => array(
 							'pl_PL' => array(
 							'name' => $nazwa,
@@ -212,7 +214,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 							'active' => 1,
 							'stock' => $stan,
 							'weight' => $waga,
-							'availability_id' => $delivery2
+							'delivery_id' => $delivery
 							),
 						'tax_id' => $podatek,
 						'code' => $kod,
