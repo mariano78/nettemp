@@ -346,7 +346,9 @@ $stid2 = oci_parse($conn, "$sql");
 						<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 						<input type="hidden" name="name_id" value="<?php echo $id_tow; ?>" />
 					</form>
-				
+				<?php $current_encoding = mb_detect_encoding($shop_name, 'auto');
+				echo $current_encoding ;
+				?>
 				</td>
 			</tr>
 
