@@ -176,7 +176,12 @@ $stid2 = oci_parse($conn, "$sql");
 				
 				</td>
 				
-				<td class="col-md-0"> <?php echo $rb_tow_nazwa ?></td>
+				<td class="col-md-0"> <?php echo $rb_tow_nazwa ?>
+				<?php $current_encoding = mb_detect_encoding($rb_tow_nazwa, 'auto');
+				echo $current_encoding ;
+				?>
+				
+				</td>
 				
 				<td class="col-md-0">
 					<form action="" method="post" style="display:inline!important;">
