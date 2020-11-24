@@ -14,7 +14,7 @@ function logs_shop($date,$type,$message)
 		$db->exec("INSERT INTO logs ('date', 'type', 'message') VALUES ('$date', '$type', '$message')");
 		
 	}
-	
+// 
 
 $sth = $db->query("SELECT * FROM shop");
 $sth->execute();
