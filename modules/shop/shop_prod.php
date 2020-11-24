@@ -99,6 +99,13 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU'){
 	$stan = floor($stan); // dostępna ilosć towaru
 	if ($stan < 0) $stan = 0; // dla stanu poniżej 0
 	$cena = $cena * $mnoznik; //cena * podatek VAT
+	
+	if ($cena >=50){  //zaokraglanie w górę dla cen większych niż 50 pln
+		
+		$cena = ceil($cena);
+	}
+	
+	//zaokraglanie w górę
 	$ean_lenght = strlen($ean); // sprawdza dlugosc eanu
 	
 	($cena == 0 OR $ean_lenght != 13) ? $akcja = 0 : $akcja = 1;  // jeśli = 1 to wykonujemy akcję aktulizacja lub dodanie
