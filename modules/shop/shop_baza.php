@@ -91,7 +91,7 @@ if (!empty($deliv_id_tow_typ) && !empty($dostawa_typ)){
     
 	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DELIVERY_2 = :ins WHERE ID_TOW = :isidt');
 	oci_bind_by_name($stid, ":isidt", $deliv_id_tow_typ);
-	oci_bind_by_name($stid, ":ins", $dostawa);
+	oci_bind_by_name($stid, ":ins", $dostawa_typ);
 	oci_execute($stid);
 	oci_free_statement($stid);
 	oci_close($conn);
