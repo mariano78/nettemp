@@ -40,7 +40,7 @@ $name_id = isset($_POST['name_id']) ? $_POST['name_id'] : '';
 //$name_new = iconv();
 //iconv("UTF-8", "cp1250", $name_new);
 //iconv( "cp1250", "UTF-8", ($name_new));
-$str2 = mb_convert_encoding( $name_new, "CP1252", "UTF-8" );
+$str2 = mb_convert_encoding( $name_new, "ASCII", "UTF-8" );
 echo $str2;
 //$name_new2 = iconv("UTF-8", "MSWIN1250", $name_new);
 if (!empty($name_id)){
