@@ -50,7 +50,12 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 		$nazwa = $nazwa_shop;
 	}
 	
-	$kategoria = 26; //$row['CATEGORY']; // kategoria w shoper
+	$kategoria = $row['CATEGORY']; // kategoria w shoper
+	
+	if($kategoria == 999) {
+		
+		$kategoria = 26;
+	}
 	
 	
 	
