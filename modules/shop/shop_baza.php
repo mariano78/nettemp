@@ -169,7 +169,7 @@ $stid2 = oci_parse($conn, "$sql");
 				
 					<?php if ($rb_stat == 'spr') {
 						echo  '<span class="label label-success"';
-						echo $rb_stat
+						echo $rb_stat;
 						echo '</span>';
 						} ?>
 				
