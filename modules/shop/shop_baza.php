@@ -51,8 +51,8 @@ if (!empty($name_id)){
 	oci_execute($stid);
 	oci_free_statement($stid);
 	oci_close($conn);
-    //header("location: " . $_SERVER['REQUEST_URI']);
-    //exit();
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
     }
 	
 //kategoria	
