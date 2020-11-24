@@ -42,6 +42,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$to_opa3a = $row['TO_OPA3'];
 	$to_opa3 = $to_opa3a/1000;
 	$cena = $row['CEN_F01'];
+	$stan = $row['STAN']; // dostępna ilosć towaru
 	
 	
 	if ($nazwa_shop != ''){
