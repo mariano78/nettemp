@@ -39,13 +39,14 @@ $name_new = isset($_POST['name_new']) ? $_POST['name_new'] : '';
 $name_id = isset($_POST['name_id']) ? $_POST['name_id'] : '';
 //$name_new = iconv();
 //iconv("UTF-8", "cp1250", $name_new);
-iconv( "cp1250", "UTF-8", ($name_new));
+//iconv( "cp1250", "UTF-8", ($name_new));
+$str2 = mb_convert_encoding( $name_new, "Windows-1250", "UTF-8" );
 //$name_new2 = iconv("UTF-8", "MSWIN1250", $name_new);
 if (!empty($name_id)){
     
 	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET SHOP_TO_NAME = :ins WHERE ID_TOW = :isidt');
 	oci_bind_by_name($stid, ":isidt", $name_id);
-	oci_bind_by_name($stid, ":ins", $name_new);
+	oci_bind_by_name($stid, ":ins", $str2);
 	oci_execute($stid);
 	oci_free_statement($stid);
 	oci_close($conn);
