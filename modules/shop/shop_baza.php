@@ -40,11 +40,12 @@ $name_id = isset($_POST['name_id']) ? $_POST['name_id'] : '';
 //$name_new = iconv();
 //iconv("UTF-8", "cp1250", $name_new);
 //iconv( "cp1250", "UTF-8", ($name_new));
-$str2 = mb_convert_encoding( $name_new, "Windows-1252", "UTF-8" );
+//$str2 = mb_convert_encoding( $name_new, "Windows-1252", "UTF-8" );
 echo $str2;
 
 $current_encoding = mb_detect_encoding($str2, 'auto');
 echo $current_encoding ;
+$str2 = mb_convert_encoding( $name_new, "Windows-1252", $current_encoding );
 
 if ($current_encoding == 'ASCII' )  {
 	$str2 = mb_convert_encoding( $name_new, "Windows-1252", "ASCII" );
