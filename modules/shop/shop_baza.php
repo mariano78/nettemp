@@ -43,15 +43,15 @@ $name_id = isset($_POST['name_id']) ? $_POST['name_id'] : '';
 //$str2 = mb_convert_encoding( $name_new, "Windows-1252", "UTF-8" );
 echo $str2;
 
-$current_encoding = mb_detect_encoding($str2, 'auto');
-echo $current_encoding ;
-$str2 = mb_convert_encoding( $name_new, "Windows-1252", $current_encoding );
+//$current_encoding = mb_detect_encoding($str2, 'auto');
+//echo $current_encoding ;
+//$str2 = mb_convert_encoding( $name_new, "Windows-1252", $current_encoding );
 
-if ($current_encoding == 'ASCII' )  {
-	$str2 = mb_convert_encoding( $name_new, "Windows-1252", "ASCII" );
-	$current_encoding = mb_detect_encoding($str2, 'auto');
-	echo "Po IFie --". $current_encoding ;
-}
+//if ($current_encoding == 'ASCII' )  {
+	//$str2 = mb_convert_encoding( $name_new, "Windows-1252", "ASCII" );
+	//$current_encoding = mb_detect_encoding($str2, 'auto');
+	//echo "Po IFie --". $current_encoding ;
+//}
 
 
 
