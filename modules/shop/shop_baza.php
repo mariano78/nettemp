@@ -89,7 +89,7 @@ $deliv_id_tow_typ = isset($_POST['deliv_id_tow_typ']) ? $_POST['deliv_id_tow_typ
 
 if (!empty($deliv_id_tow_typ) && !empty($dostawa_typ)){
     
-	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DELIVERY = :ins WHERE ID_TOW = :isidt');
+	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DELIVERY_2 = :ins WHERE ID_TOW = :isidt');
 	oci_bind_by_name($stid, ":isidt", $deliv_id_tow_typ);
 	oci_bind_by_name($stid, ":ins", $dostawa);
 	oci_execute($stid);
