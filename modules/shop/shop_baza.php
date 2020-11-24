@@ -42,6 +42,13 @@ $name_id = isset($_POST['name_id']) ? $_POST['name_id'] : '';
 //iconv( "cp1250", "UTF-8", ($name_new));
 $str2 = mb_convert_encoding( $name_new, "ASCII", "UTF-8" );
 echo $str2;
+
+<?php $current_encoding = mb_detect_encoding($str2, 'auto');
+				echo $current_encoding ;
+				?>
+
+
+
 //$name_new2 = iconv("UTF-8", "MSWIN1250", $name_new);
 if (!empty($name_id)){
     
@@ -51,8 +58,8 @@ if (!empty($name_id)){
 	oci_execute($stid);
 	oci_free_statement($stid);
 	oci_close($conn);
-    header("location: " . $_SERVER['REQUEST_URI']);
-    exit();
+    //header("location: " . $_SERVER['REQUEST_URI']);
+   // exit();
     }
 	
 //kategoria	
