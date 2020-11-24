@@ -41,7 +41,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$jed_miar_jfox = $row['TO_JM'];
 	$to_opa3a = $row['TO_OPA3'];
 	$to_opa3 = $to_opa3a/1000;
-	$cena = $row['CEN_F01']
+	$cena = $row['CEN_F01'];
 	
 	
 	if ($nazwa_shop != ''){
