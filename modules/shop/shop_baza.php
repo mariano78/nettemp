@@ -172,9 +172,6 @@ $stid2 = oci_parse($conn, "$sql");
 				</td>
 				
 				<td class="col-md-0"> <?php echo $rb_tow_nazwa ?>
-				<?php $current_encoding = mb_detect_encoding($rb_tow_nazwa, 'auto');
-				echo $current_encoding ;
-				?>
 				
 				</td>
 				
@@ -341,9 +338,6 @@ $stid2 = oci_parse($conn, "$sql");
 						<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 						<input type="hidden" name="name_id" value="<?php echo $id_tow; ?>" />
 					</form>
-				<?php $current_encoding = mb_detect_encoding($shop_name, 'auto');
-				echo $current_encoding ;
-				?>
 				</td>
 			</tr>
 
