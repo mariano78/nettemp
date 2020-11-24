@@ -43,6 +43,8 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$to_opa3 = $to_opa3a/1000;
 	$cena = $row['CEN_F01'];
 	$stan = $row['STAN']; // dostępna ilosć towaru
+	$delivery = $row['DELIVERY']; // czas dostawy
+	$delivery2 = $row['DELIVERY2']; // rodzaj przewoźnika
 	
 	
 	if ($nazwa_shop != ''){
@@ -164,7 +166,8 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 							'price' => $cena,
 							'active' => 1,
 							'stock' => $stan,
-							'weight' => $waga
+							'weight' => $waga,
+							'delivery_id' => $delivery2
 							),
 						'tax_id' => $podatek,
 						'code' => $kod,
@@ -208,7 +211,8 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 							'price' => $cena,
 							'active' => 1,
 							'stock' => $stan,
-							'weight' => $waga
+							'weight' => $waga,
+							'delivery_id' => $delivery2
 							),
 						'tax_id' => $podatek,
 						'code' => $kod,
