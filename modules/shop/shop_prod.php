@@ -81,7 +81,7 @@ if ($to_grupa == 'PCB'){
 	
 	
 	
-	$stan = floor($row['STAN']); // dostępna ilosć towaru
+	$stan = floor($stan]); // dostępna ilosć towaru
 	if ($stan < 0) $stan = 0; // dla stanu poniżej 0
 	$cena = $cena * $mnoznik; //cena * podatek VAT
 	$ean_lenght = strlen($ean); // sprawdza dlugosc eanu
