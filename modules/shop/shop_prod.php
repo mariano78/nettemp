@@ -37,6 +37,12 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$nazwa = $row['TO_NAZWA']; //nazwa z jfox
 	$nazwa_shop = $row['SHOP_NAME']; //nazwa z jfox
 	$in_shop = $row['IN_SHOP'];
+	$to_grupa = $row['TO_GRUPA'];
+	$jed_miar_jfox = $row['TO_JM'];
+	$to_opa3a = $row['TO_OPA3'];
+	$to_opa3 = $to_opa3a/1000;
+	$cena = $row['CEN_F01']
+	
 	
 	if ($nazwa_shop != ''){
 		
@@ -44,17 +50,39 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	}
 	
 	$kategoria = $row['CATEGORY']; // kategoria w shoper
-	$stan = floor($row['STAN']); // dostępna ilosć towaru
 	
-	if ($stan < 0) $stan = 0; // dla stanu poniżej 0
+	
+	
 	
 	$podatek_jfox = $row['TO_VAT_CODE'];
 	if($podatek_jfox == '51') $podatek = 1; $mnoznik = 1.23; //przypisanie podatku jfox->shoper
 	
-	$jed_miar_jfox = $row['TO_JM'];
-	if($jed_miar_jfox == 'SZT') $jedmiar = 1; //przypisanie jednostki miary jfox->shoper
 	
-	$cena = $row['CEN_F01'] * $mnoznik; //cena * podatek VAT
+	
+	//if($jed_miar_jfox == 'SZT') 
+	
+	$jedmiar = 1; //przypisanie jednostki miary jfox->shoper  1 - sztuka
+	
+//****************************************************Przeliczanie cen i stanów**********************************
+if ($to_grupa == 'PCB'){
+	
+		if ($jed_miar_jfox == 'M2'){
+			
+			$cena = $cena * $to_opa3 ;
+			$stan = $stan / $to_opa3;
+		}
+}
+
+
+
+
+
+//****************************************************Przeliczanie cen i stanów**********************************
+	
+	
+	if ($stan < 0) $stan = 0; // dla stanu poniżej 0
+	$stan = floor($row['STAN']); // dostępna ilosć towaru
+	$cena = $cena * $mnoznik; //cena * podatek VAT
 	$ean_lenght = strlen($ean); // sprawdza dlugosc eanu
 	
 	($cena == 0 OR $ean_lenght != 13) ? $akcja = 0 : $akcja = 1;  // jeśli = 1 to wykonujemy akcję aktulizacja lub dodanie
@@ -71,12 +99,14 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	
 	$opis = 'To jest opis produktu';
+	
 	if ($in_shop == 'T'){
 		$aktywnosc = true;
 	}else {
 		$aktywnosc = false;
 	}
-	
+
+
 		
 	$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 	//filtry
