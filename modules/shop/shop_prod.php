@@ -64,9 +64,9 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 		$kategoria = 26;
 	}
 	
-	if($delivery2 == 999) {
+	if($delivery == 999) {
 		
-		$delivery2 = 5;
+		$delivery = 8;
 	}
 	
 	
