@@ -53,7 +53,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 		$nazwa = $nazwa_shop;
 	}
 	
-	$seo_name = pl_charset($nazwa).'.html';
+	$seo_name = pl_charset($nazwa).'-'.$kod.'.html';
 	
 	
 	$kategoria = $row['CATEGORY']; // kategoria w shoper
