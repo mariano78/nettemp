@@ -45,6 +45,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$stan = $row['STAN']; // dostępna ilosć towaru
 	$delivery = $row['DELIVERY']; // czas dostawy
 	$delivery2 = $row['DELIVERY2']; // rodzaj przewoźnika
+	$to_status = $row['STATUS']; // rodzaj przewoźnika
 	
 	if ($delivery2 == 17){
 		
@@ -100,8 +101,11 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 		}
 }
 
-
-
+if ($to_status =='SPZ'){
+	
+	$stan = 0;
+	
+}
 
 
 //****************************************************Przeliczanie cen i stanów**********************************

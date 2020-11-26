@@ -26,7 +26,7 @@ $time_pre = microtime(true);
 //$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP');
 //oci_execute($stid);
 	   
-		$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP_2');
+		$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP_3');
 		//oci_bind_by_name($stid, ":eean", $ean_csv);
 		oci_execute($stid);
 		

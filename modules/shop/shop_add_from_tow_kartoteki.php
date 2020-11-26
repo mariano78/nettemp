@@ -28,7 +28,7 @@ $syncstatus = 0;
 	   $czas_prze = 999;
 	    
 
-		$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP');
+		$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP_3');
 		//oci_bind_by_name($stid, ":eean", $ean_csv);
 		oci_execute($stid);
 		

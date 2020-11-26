@@ -134,8 +134,8 @@ $total_records = 0;
 
 $licznik = 1;
 
-$sql = "SELECT * FROM INFOR_SHOPER_EXP_2 OFFSET ".$pstart." ROWS FETCH NEXT ".$pstop." ROWS ONLY";
-$sql2 = "SELECT * FROM INFOR_SHOPER_EXP_2";
+$sql = "SELECT * FROM INFOR_SHOPER_EXP_3 OFFSET ".$pstart." ROWS FETCH NEXT ".$pstop." ROWS ONLY";
+$sql2 = "SELECT * FROM INFOR_SHOPER_EXP_3";
 
 $stid = oci_parse($conn, "$sql2");
 $stid2 = oci_parse($conn, "$sql");
