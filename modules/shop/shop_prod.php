@@ -96,11 +96,9 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 		}
 }
 
-if ($to_status == 'spz'){
-	
-	$stan = 0;
-	
-}
+//if ($to_status == 'spz'){
+//	$stan = 0;
+//}
 
 
 //****************************************************Przeliczanie cen i stanów**********************************
