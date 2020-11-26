@@ -10,7 +10,7 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 }
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
-$www_serwer = "http://robelit.pl/shopimg/";
+$www_serwer = "http://robelit.home.pl/shop_img/";
 
 $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 	//filtry
