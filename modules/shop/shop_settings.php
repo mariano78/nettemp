@@ -14,6 +14,30 @@ function logs_shop($date,$type,$message)
 		$db->exec("INSERT INTO logs ('date', 'type', 'message') VALUES ('$date', '$type', '$message')");
 		
 	}
+	
+function pl_charset($string) {
+
+$string = strtolower($string);
+$polskie = array(',', ' - ',' ','ę', 'Ę', 'ó', 'Ó', 'Ą', 'ą', 'Ś', 's', 'ł', 'Ł', 'ż', 'Ż', 'Ź', 'ź', 'ć', 'Ć', 'ń', 'Ń','-',"'","/","?", '"', ":", 'ś', '!','.', '&', '&', '#', ';', '[',']','domena.pl', '(', ')', '`', '%', '”', '„', '…');
+$miedzyn = array('-','-','-','e', 'e', 'o', 'o', 'a', 'a', 's', 's', 'l', 'l', 'z', 'z', 'z', 'z', 'c', 'c', 'n', 'n','-',"","","","","",'s','','', '', '', '', '', '', '', '', '', '', '', '', '');
+$string = str_replace($polskie, $miedzyn, $string);
+
+// usuń wszytko co jest niedozwolonym znakiem
+$string = preg_replace('/[^0-9a-z\-]+/', '', $string);
+
+// zredukuj liczbę myślników do jednego obok siebie
+$string = preg_replace('/[\-]+/', '-', $string);
+
+// usuwamy możliwe myślniki na początku i końcu
+$string = trim($string, '-');
+
+$string = stripslashes($string);
+
+// na wszelki wypadek
+$string = urlencode($string);
+
+return $string;
+}
 // 
 
 $sth = $db->query("SELECT * FROM shop");

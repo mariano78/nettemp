@@ -53,6 +53,9 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 		$nazwa = $nazwa_shop;
 	}
 	
+	$seo_name = pl_charset($nazwa).'html'
+	
+	
 	$kategoria = $row['CATEGORY']; // kategoria w shoper
 	
 	if($kategoria == 999) {
@@ -166,6 +169,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 							'pl_PL' => array(
 							'name' => $nazwa,
 							'description' => $opis,
+							'seo_url' => $seo_name,
 							'active' => $aktywnosc
 							)
 						),
@@ -212,6 +216,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 							'pl_PL' => array(
 							'name' => $nazwa,
 							'description' => $opis,
+							'seo_url' => $seo_name,
 							'active' => $aktywnosc
 							)
 						),
