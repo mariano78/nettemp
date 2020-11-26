@@ -47,11 +47,6 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$delivery2 = $row['DELIVERY2']; // rodzaj przewoźnika
 	$to_status = $row['STATUS']; // rodzaj przewoźnika
 	
-	if ($delivery2 == 17){
-		
-		$delivery2 =2;
-	}
-	
 	
 	if ($nazwa_shop != ''){
 		
