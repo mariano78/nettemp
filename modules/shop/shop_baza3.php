@@ -31,7 +31,33 @@ try {
 				if ($count != '0') {
 				
 					foreach($result as $r){
+						
 						echo $r->category_id."-".$r->translations->pl_PL->name." <br>";
+						$idc = $r->category_id;
+						$nazwa = $r->translations->pl_PL->name;
+						$seo_name = pl_charset($nazwa).'-'.$kod.'.html';
+						
+						
+						$resource2 = new DreamCommerce\ShopAppstoreLib\Resource\Category($client);
+
+							$result2 = $resource2->put($idc, array(
+								'translations' => array(
+									'pl_PL' => array(
+										'seo_url' => $seo_name
+									)
+								)
+							));
+
+							if($result2){
+								echo 'Category updated';
+							}
+						
+						
+						
+						
+						
+						
+						
 					}
 
 
