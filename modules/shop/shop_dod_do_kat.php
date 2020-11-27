@@ -37,13 +37,11 @@ $time_pre = microtime(true);
 			$grupa_tow = $row['TO_GRUPA'];
 			echo "Towar ID - ".$id_tow."\n";
 			
-			if ($grupa_tow == 'PLSRU' && $stat != 'wyp'){
+			//if ($grupa_tow == 'CZYST' && $stat != 'wyp'){
+			if ($grupa_tow == 'CZYST'){
 				
-				$katt = 109;
-			
-			
-			
-			
+				$katt = 121;
+
 			
 			$stid2 = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET "SHOP_TO_CATEGORY"= :catt WHERE ID_TOW = :idtow2');
 			

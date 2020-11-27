@@ -293,8 +293,6 @@ $stid2 = oci_parse($conn, "$sql");
 							<option value="121"  <?php echo $shop_cat == 121 ? 'selected="selected"' : ''; ?>  ><?php echo "Wyprzedaż - środki czystości" ?></option>
 							
 							
-							
-							
 						
 						
 						</select>
