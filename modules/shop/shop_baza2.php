@@ -15,11 +15,20 @@ try{
 
     $categoriesResource = new DreamCommerce\ShopAppstoreLib\Resource\Category($client);
     $categoriesResult = $categoriesResource->get();
+	$pages = $categoriesResult->pages;
 
     $categories = array();
+	
+	while($currentPage <= $result->getPageCount() ){
+		
+		$categoriesResult = $categoriesResource->page($currentPage)->limit(50)->get();
+	
     foreach($categoriesResult as $c){
         $categories[$c->category_id] = $c->translations->pl_PL->name;
     }
+	$currentPage++;
+	
+	}
 
     $resource = new DreamCommerce\ShopAppstoreLib\Resource\CategoriesTree($client);
     $result = $resource->get();
