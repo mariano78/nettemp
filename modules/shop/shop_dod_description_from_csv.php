@@ -60,7 +60,7 @@ $time_pre = microtime(true);
 						$clob = OCINewDescriptor($conn, OCI_D_LOB);
 						OCIBindByName($stmt, ':lob', $clob, -1, OCI_B_CLOB);
 						OCIExecute($stmt,OCI_DEFAULT);
-						if($clob->save('UPDATE:'.$description_csv)){
+						if($clob->save('coś')){
 							OCICommit($conn);
 							echo " Updated"."\n";
 						}else{
