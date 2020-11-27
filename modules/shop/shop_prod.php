@@ -20,6 +20,7 @@ $syncstatus = 0;
 $licz_produkt = 1;
 
 $db->exec("UPDATE shop SET value='$syncstatus' WHERE option='syncstatus'");
+$db2->exec("DELETE FROM logs'");
 
 // 1. Pobieramy z bazy oracle dane o produkcie 
 // 2. Sprawdzamy czy w shoperze istnieje produkt z kodem z oracle - dodajemy lub aktualizujemy 
@@ -263,6 +264,16 @@ $syncstatus = 1; // aktualizacja stanu synchronizacji
   
 $db->exec("UPDATE shop SET value='$exec_time' WHERE option='etime'");
 $db->exec("UPDATE shop SET value='$syncstatus' WHERE option='syncstatus'");
+
+
+
+$sth_log = $db2->query("SELECT * FROM logs WHERE type = 'error'");
+$sth_log->execute();
+$result_log = $sth->fetchAll();
+foreach ($result_log as $log) {
+	
+	echo $log(['message']);
+}
 
 echo "W czasie: ";
 echo $hours." h ";

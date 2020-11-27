@@ -5,6 +5,11 @@ if(!isset($db)){
     $db = new PDO("sqlite:$root/dbf/nettemp.db");
 }
 
+if(!isset($db2)){
+	$froot2 = "/var/www/nettemp/modules/shop/";
+    $db2 = new PDO("sqlite:$froot2/shop_log.db") or die ("cannot open database");
+}
+
 function logs_shop($date,$type,$message)
 	{
 		
