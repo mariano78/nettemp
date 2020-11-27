@@ -69,7 +69,7 @@ $time_pre = microtime(true);
 					$myLOB = oci_new_descriptor($conn, OCI_D_LOB);
 
 					// Bind the returned Oracle LOB locator to the PHP LOB object
-					oci_bind_by_name($stmt, ":mylob_loc", $myLOB, -1, OCI_B_CLOB);
+					oci_bind_by_name($stid2, ":mylob_loc", $myLOB, -1, OCI_B_CLOB);
 
 					// Execute the statement using , OCI_DEFAULT - as a transaction
 					oci_execute($stid2, OCI_DEFAULT)
@@ -89,7 +89,7 @@ $time_pre = microtime(true);
 					}
 
 					// Free resources
-					oci_free_statement($stid);
+					oci_free_statement($stid2);
 					$myLOB->free();
 
 					
