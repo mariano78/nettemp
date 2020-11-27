@@ -43,11 +43,14 @@ $time_pre = microtime(true);
 		$stid = oci_parse($conn, 'SELECT ID FROM JFOX_TOWAR_KARTOTEKI WHERE TO_KK_1 LIKE :eean');
 		oci_bind_by_name($stid, ":eean", $ean_csv);
 		oci_execute($stid);
+		oci_free_statement($stid);
+		oci_close($conn);
 		
 		
 				while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 					
 					$id_tow = $row['ID']; //kod towaru w RB
+					echo $id_tow;
 					// etc.
 
 						
@@ -59,9 +62,9 @@ $time_pre = microtime(true);
 						OCIExecute($stmt,OCI_DEFAULT);
 						if($clob->save($description_csv)){
 							OCICommit($conn);
-							echo $groupId." Updated"."\n";
+							echo " Updated"."\n";
 						}else{
-							echo $groupId." Problems: Couldn't upload Clob.  This usually means the where condition had no match \n";
+							echo " Problems: Couldn't upload Clob.  This usually means the where condition had no match \n";
 						}
 						$clob->free();
 						OCIFreeStatement($stmt);
