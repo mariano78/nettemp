@@ -45,16 +45,11 @@ try {
 					$renderNode($i->__children, $level + 1);
 				}
 			}
-			
-		
-				$currentPage++;
-				}
-				
-				
-		
-	}
 
-    
+			}
+$currentPage++;			
+	}
+   
 } catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
     die($ex->getMessage());
 }
