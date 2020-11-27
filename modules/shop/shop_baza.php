@@ -189,7 +189,7 @@ $stid2 = oci_parse($conn, "$sql");
 				
 					<form action="" method="post"  class="form-inline">
 						<select name="kategoria" class="form-control input-sm small" onchange="this.form.submit()" style="width: 390px;" >
-							<option value="999"  <?php echo $shop_cat == 999 ? 'selected="selected"' : ''; ?>  ><?php echo "Brak" ?></option>
+							<option class="label-danger" value="999"  <?php echo $shop_cat == 999 ? 'selected="selected"' : ''; ?>  ><?php echo "Brak" ?></option>
 							<option value="30"  <?php echo $shop_cat == 30 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty lite -> Akryl PMMA" ?></option>
 							<option value="28"  <?php echo $shop_cat == 28 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty lite -> Poliwęglan lity" ?></option>
 							<option value="29"  <?php echo $shop_cat == 29 ? 'selected="selected"' : ''; ?>  ><?php echo "Panele poliwęglanowe" ?></option>
@@ -306,7 +306,7 @@ $stid2 = oci_parse($conn, "$sql");
 					
 					<form action="" method="post"  class="form-inline">
 						<select name="dostawa" class="form-control input-sm small" onchange="this.form.submit()" style="width: 130px;" >
-							<option value="999"  <?php echo $shop_delivery == 999 ? 'selected="selected"' : ''; ?>  ><?php echo "Brak" ?></option>
+							<option class="label-danger" value="999"  <?php echo $shop_delivery == 999 ? 'selected="selected"' : ''; ?>  ><?php echo "Brak" ?></option>
 							<option value="2"  <?php echo $shop_delivery == 2 ? 'selected="selected"' : ''; ?>  ><?php echo "2 dni" ?></option>
 							<option value="6"  <?php echo $shop_delivery == 6 ? 'selected="selected"' : ''; ?>  ><?php echo "10 dni" ?></option>
 							<option value="8"  <?php echo $shop_delivery == 8 ? 'selected="selected"' : ''; ?>  ><?php echo "45 dni" ?></option>
@@ -320,7 +320,7 @@ $stid2 = oci_parse($conn, "$sql");
 					
 					<form action="" method="post"  class="form-inline">
 						<select name="dostawa_typ" class="form-control input-sm small" onchange="this.form.submit()" style="width: 130px;" >
-							<option value="999"  <?php echo $shop_delivery_typ == 999 ? 'selected="selected"' : ''; ?>  ><?php echo "Brak" ?></option>
+							<option class="label-danger" value="999"  <?php echo $shop_delivery_typ == 999 ? 'selected="selected"' : ''; ?>  ><?php echo "Brak" ?></option>
 							<option value="2"  <?php echo $shop_delivery_typ == 2 ? 'selected="selected"' : ''; ?>  ><?php echo "DPD - 20" ?></option>
 							<option value="3"  <?php echo $shop_delivery_typ == 3 ? 'selected="selected"' : ''; ?>  ><?php echo "DPD - 40" ?></option>
 							<option value="4"  <?php echo $shop_delivery_typ == 4 ? 'selected="selected"' : ''; ?>  ><?php echo "Paleta" ?></option>
