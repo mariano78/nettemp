@@ -17,7 +17,7 @@ try {
     $categoriesResource = new DreamCommerce\ShopAppstoreLib\Resource\Category($client);
 	$currentPage = 1;
     $categoriesResult = $categoriesResource->get();
-	var_dump($categoriesResult);
+	//var_dump($categoriesResult);
 	$pages = $categoriesResult->pages;
 	
 	while($currentPage <= $categoriesResult->getPageCount() ){
@@ -28,6 +28,7 @@ try {
 			
 			foreach($categoriesResult as $c){
 			$cat_id = $c->category_id;
+			echo $cat_id."<br>";
 				
 			$categories[$c->category_id] = $c->translations->pl_PL->name;
 			
