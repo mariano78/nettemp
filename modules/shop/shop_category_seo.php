@@ -23,13 +23,13 @@ try {
 		$result = $resource->page($currentPage)->limit(50)->get();
 		
 				$count = $result->count;
-				echo "count_".$count."\n";
+				//echo "count_".$count."\n";
 				
 				if ($count != '0') {
 				
 					foreach($result as $r){
 						
-						echo $r->category_id."-".$r->translations->pl_PL->name." <br>";
+						echo $r->category_id."-".$r->translations->pl_PL->name." \n";
 						$idc = $r->category_id;
 						$nazwa = $r->translations->pl_PL->name;
 						$seo_name = pl_charset($nazwa)."-".$idc.'.html';		
@@ -45,7 +45,8 @@ try {
 							));
 
 							if($result2){
-								echo 'Category updated';
+								
+								echo $nazwa." - ".$seo_name." - Zaktualizowano <br>";
 							}
 					}
 
