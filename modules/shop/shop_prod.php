@@ -310,7 +310,7 @@ if ( mail ('musik@robelit.pl', 'Shoper - raport produktów', $body, $headers ) )
 
 
 
-$db2->exec("DELETE FROM logs'");
+$db2->exec("DELETE FROM logs");
 
 echo "W czasie: ";
 echo $hours." h ";
