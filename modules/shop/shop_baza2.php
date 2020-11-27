@@ -16,10 +16,28 @@ try {
    
     $resource = new DreamCommerce\ShopAppstoreLib\Resource\Category($client);
     $result = $resource->get();
+	$pages = $result->pages;
+	
+	
+	
+	while($currentPage <= $result->getPageCount() ){
+		
+		$result = $resource->page($currentPage)->limit(50)->get();
+		
+				$count = $result->count;
+				echo "count_".$count."\n";
+				
+				if ($count != '0') {
+					
+					printf("#%d - %s\n", $r->category_id, $r->translations->pl_PL->name);
+					
+					
+				}
+				
+				
+		
+	}
 
-    foreach($result as $r){
-        printf("#%d - %s\n", $r->category_id, $r->translations->pl_PL->name);
-    }
 } catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
     die($ex->getMessage());
 }
