@@ -12,6 +12,18 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 include("$root/modules/shop/shop_settings.php");
 
 $cat_id = '';
+
+$renderNode = function($start, $level = 1) use (&$renderNode, $categories){
+
+					foreach($start as $i) {
+						printf("%s #%d - %s\n", str_repeat('-', $level), $i->id, $categories[$i->id]);
+						if (!empty($i->__children)) {
+							$renderNode($i->__children, $level + 1);
+						}
+					}
+			
+
+					};//zamyka funkcje
 try {
    
     $categoriesResource = new DreamCommerce\ShopAppstoreLib\Resource\Category($client);
@@ -40,17 +52,7 @@ try {
 					$id = $cat_id;
 					$result = $resource->get($id);
 					
-					$renderNode = function($start, $level = 1) use (&$renderNode, $categories){
-
-					foreach($start as $i) {
-						printf("%s #%d - %s\n", str_repeat('-', $level), $i->id, $categories[$i->id]);
-						if (!empty($i->__children)) {
-							$renderNode($i->__children, $level + 1);
-						}
-					}
-			
-
-			};
+					
 			}
 $currentPage++;	
 $renderNode($result);		
