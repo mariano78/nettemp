@@ -19,8 +19,6 @@ try {
     $categoriesResult = $categoriesResource->get();
 	$pages = $categoriesResult->pages;
 	
-	
-	
 	while($currentPage <= $categoriesResult->getPageCount() ){
 		
 		$categoriesResult = $categoriesResource->page($currentPage)->limit(50)->get();
@@ -46,8 +44,9 @@ try {
 				}
 			}
 
-			}
-$currentPage++;			
+			};
+$currentPage++;	
+$renderNode($result);		
 	}
    
 } catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
