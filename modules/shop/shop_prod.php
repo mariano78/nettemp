@@ -269,14 +269,16 @@ $result_log = $sth_log->fetchAll();
 	         <style>* { margin: 0; padding: 0; } a {text-decoration: none;} th, td {  padding: 5px;} table, th, td { border: 1px solid black;  border-collapse: collapse;} * {font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;}</style>
 			 </head>
 			 <table border="1" style="">
-			 <tr><th>Kod Produktu</th><th>Nazwa</th><th>EAN</th><th>Kategoria</th><th>Czas wysyłki</th><th>Przewoźnik</th><th>Cena</th></tr>';
+			 <tr><th>Lp.</th><th>Kod Produktu</th><th>Nazwa</th><th>EAN</th><th>Kategoria</th><th>Czas wysyłki</th><th>Przewoźnik</th><th>Cena</th></tr>';
 			 
 	
 	
 
-
+$lp = 1;
 foreach ($result_log as $log) {
 	//logs_shop($date, 'error', "Brak parametru-".$kod."-".$nazwa."-".$ean."-".$kategoria."-".$delivery."-".$delivery2."-".$cena );
+	$lp ++;
+	
 	$mess_log =  $log['message'];
 	$sklad = explode("-", $mess_log);
 	
@@ -295,9 +297,9 @@ foreach ($result_log as $log) {
 	($sklad[7] == '') ? $log_cena = 'Brak' : $log_cena = $sklad[7];
 	
 	
-	$body .= '<tr><td>'.$log_kod.'</td><td>'.$log_nazwa.'</td><td>'.$log_ean.'</td><td>'.$log_kategoria.'</td><td>'.$log_delivery.'</td><td>'.$log_delivery2.'</td><td>'.$log_cena.'</td></tr>';
+	$body .= '<tr><td>'.$lp.'</td><td>'.$log_kod.'</td><td>'.$log_nazwa.'</td><td>'.$log_ean.'</td><td>'.$log_kategoria.'</td><td>'.$log_delivery.'</td><td>'.$log_delivery2.'</td><td>'.$log_cena.'</td></tr>';
 }
-
+$lp = 0;
 $body .= '</table></div></body></html>';
 
 if ( mail ('musik@robelit.pl', 'Shoper - raport produktów', $body, $headers ) ) {
