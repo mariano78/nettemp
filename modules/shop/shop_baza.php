@@ -290,6 +290,7 @@ $stid2 = oci_parse($conn, "$sql");
 							<option value="62"  <?php echo $shop_cat == 62 ? 'selected="selected"' : ''; ?>  ><?php echo "PVC spienione" ?></option>
 							<option value="65"  <?php echo $shop_cat == 65 ? 'selected="selected"' : ''; ?>  ><?php echo "Asfalt workowany" ?></option>
 							<option value="13"  <?php echo $shop_cat == 13 ? 'selected="selected"' : ''; ?>  ><?php echo "Wyprzedaż" ?></option>
+							<option value="121"  <?php echo $shop_cat == 121 ? 'selected="selected"' : ''; ?>  ><?php echo "Wyprzedaż - środki czystości" ?></option>
 							
 							
 							
