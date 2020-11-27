@@ -54,7 +54,7 @@ $time_pre = microtime(true);
 								FROM
 								   SHOPPER_PRODUCTS
 								WHERE
-								   ID_TOW = $tokod_csv
+								   ID_TOW = 7839
 								FOR UPDATE /* locks the row */
 						";
 
