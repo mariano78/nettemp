@@ -277,7 +277,7 @@ $result_log = $sth_log->fetchAll();
 $lp = 1;
 foreach ($result_log as $log) {
 	//logs_shop($date, 'error', "Brak parametru-".$kod."-".$nazwa."-".$ean."-".$kategoria."-".$delivery."-".$delivery2."-".$cena );
-	$lp ++;
+	
 	
 	$mess_log =  $log['message'];
 	$sklad = explode("-", $mess_log);
@@ -298,6 +298,7 @@ foreach ($result_log as $log) {
 	
 	
 	$body .= '<tr><td>'.$lp.'</td><td>'.$log_kod.'</td><td>'.$log_nazwa.'</td><td>'.$log_ean.'</td><td>'.$log_kategoria.'</td><td>'.$log_delivery.'</td><td>'.$log_delivery2.'</td><td>'.$log_cena.'</td></tr>';
+	$lp ++;
 }
 $lp = 0;
 $body .= '</table></div></body></html>';
