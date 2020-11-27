@@ -259,13 +259,13 @@ $stid2 = oci_parse($conn, "$sql");
 							
 							<option value="15"  <?php echo $shop_cat == 15 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Rulony płaskie NRO " ?></option>
 							<option value="21"  <?php echo $shop_cat == 21 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Poliester - płyty faliste" ?></option>
-							<option value="22"  <?php echo $shop_cat == 22 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Poliester - rulony faliste " ?></option>
+							<option value="22"  <?php echo $shop_cat == 22 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Rulony poliestrowe płaskie " ?></option>
 							
-							<option value="109"  <?php echo $shop_cat == 109 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Rulony poliestrowe - 100 cm " ?></option>
-							<option value="110"  <?php echo $shop_cat == 110 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Rulony poliestrowe - 150 cm " ?></option>
-							<option value="111"  <?php echo $shop_cat == 111 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Rulony poliestrowe - 200 cm " ?></option>
-							<option value="112"  <?php echo $shop_cat == 112 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Rulony poliestrowe - 250 cm " ?></option>
-							<option value="113"  <?php echo $shop_cat == 113 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Rulony poliestrowe - 300 cm " ?></option>
+							<option value="109"  <?php echo $shop_cat == 109 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Rulony poliestrowe faliste - 100 cm " ?></option>
+							<option value="110"  <?php echo $shop_cat == 110 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Rulony poliestrowe faliste - 150 cm " ?></option>
+							<option value="111"  <?php echo $shop_cat == 111 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Rulony poliestrowe faliste - 200 cm " ?></option>
+							<option value="112"  <?php echo $shop_cat == 112 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Rulony poliestrowe faliste - 250 cm " ?></option>
+							<option value="113"  <?php echo $shop_cat == 113 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Rulony poliestrowe faliste - 300 cm " ?></option>
 							
 							<option value="23"  <?php echo $shop_cat == 23 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Poliester - profile blach trapezowych " ?></option>
 							<option value="24"  <?php echo $shop_cat == 24 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty z poliestru - Poliester - samonośne płyty łukowe" ?></option>
