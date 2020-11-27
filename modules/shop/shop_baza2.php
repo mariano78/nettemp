@@ -34,7 +34,7 @@ try {
 			
 			$resource = new DreamCommerce\ShopAppstoreLib\Resource\CategoriesTree($client);
 			
-			$id = $cat_id;
+			$id = 121;
 			$result = $resource->get($id);
 			
 			$renderNode = function($start, $level = 1) use (&$renderNode, $categories){
