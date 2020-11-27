@@ -20,7 +20,7 @@ $syncstatus = 0;
 $licz_produkt = 1;
 
 $db->exec("UPDATE shop SET value='$syncstatus' WHERE option='syncstatus'");
-$db2->exec("DELETE FROM logs'");
+$db2->exec("DELETE FROM logs");
 
 // 1. Pobieramy z bazy oracle dane o produkcie 
 // 2. Sprawdzamy czy w shoperze istnieje produkt z kodem z oracle - dodajemy lub aktualizujemy 
