@@ -35,7 +35,7 @@ try {
 						echo $r->category_id."-".$r->translations->pl_PL->name." <br>";
 						$idc = $r->category_id;
 						$nazwa = $r->translations->pl_PL->name;
-						$seo_name = pl_charset($nazwa).'-'.$kod.'.html';
+						$seo_name = pl_charset($nazwa).'.html';
 						
 						
 						$resource2 = new DreamCommerce\ShopAppstoreLib\Resource\Category($client);
