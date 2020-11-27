@@ -11,22 +11,40 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
 
-try{
-    
 
+try {
+   
     $resource = new DreamCommerce\ShopAppstoreLib\Resource\Category($client);
+	$currentPage = 1;
+    $result = $resource->get();
+	$pages = $result->pages;
+	
+	
+	
+	while($currentPage <= $result->getPageCount() ){
+		
+		$result = $resource->page($currentPage)->limit(50)->get();
+		
+				$count = $result->count;
+				echo "count_".$count."\n";
+				
+				if ($count != '0') {
+				
+					foreach($result as $r){
+						echo $r->category_id."-".$r->translations->pl_PL->name." <br>";
+					}
 
-    $result = $resource->put(121, array(
-        'translations' => array(
-            'pl_PL' => array(
-                'name' => 'category name'
-            )
-        )
-    ));
 
-    if($result){
-        echo 'Category updated';
-    }
+
+
+				$currentPage++;
+				}
+				
+				
+		
+	}
+
+    
 } catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
     die($ex->getMessage());
 }
