@@ -24,10 +24,12 @@ try {
 		$categoriesResult = $categoriesResource->page($currentPage)->limit(50)->get();
 		
 			$categories = array();
+			
 			foreach($categoriesResult as $c){
+			$cat_id = $c->category_id;
 				
 			$categories[$c->category_id] = $c->translations->pl_PL->name;
-			$cat_id = $c->category_id;
+			
 			}
 			
 			$resource = new DreamCommerce\ShopAppstoreLib\Resource\CategoriesTree($client);
