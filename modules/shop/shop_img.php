@@ -151,7 +151,7 @@ while($currentPage <= $result->getPageCount() ){
 					} else {
 						
 						echo "Nie ma folderu FTP dla produktu ", $kod." \n";
-						logs_shop($date, 'Error', "Dla produktu ". $kod." brak plików na serwerze FTP. ");
+						logs_shop($date, 'errorimg', "Dla produktu ". $kod." brak plików ze zdjęciami. ");
 						
 						
 						
