@@ -28,16 +28,22 @@ try {
 				echo "count_".$count."\n";
 				
 				if ($count != '0') {
-					
-					printf("#%d - %s\n", $r->category_id, $r->translations->pl_PL->name);
-					
-					
+				
+					foreach($result as $r){
+						printf("#%d - %s\n", $r->category_id, $r->translations->pl_PL->name);
+					}
+
+
+
+
+				$currentPage++;
 				}
 				
 				
 		
 	}
 
+    
 } catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
     die($ex->getMessage());
 }
