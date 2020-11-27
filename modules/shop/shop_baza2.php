@@ -14,6 +14,7 @@ try{
 
 
     $categoriesResource = new DreamCommerce\ShopAppstoreLib\Resource\Category($client);
+	$currentPage = 1;
     $categoriesResult = $categoriesResource->get();
 	$pages = $categoriesResult->pages;
 
