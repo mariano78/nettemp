@@ -113,7 +113,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 	
 	$date = date('H:i:s');
 	if ($akcja == 0) {
-		logs_shop($date, 'error', "Brak parametru - ".$kod." - ".$nazwa." - ".$ean." - ".$kategoria." - ".$delivery." - ".$delivery2 );
+		logs_shop($date, 'error', "Brak parametru-".$kod."-".$nazwa."-".$ean."-".$kategoria."-".$delivery."-".$delivery2."-".$cena );
 		$pominietych++;
 		}
 	
@@ -258,10 +258,46 @@ $db->exec("UPDATE shop SET value='$syncstatus' WHERE option='syncstatus'");
 $sth_log = $db2->query("SELECT * FROM logs WHERE type = 'error'");
 $sth_log->execute();
 $result_log = $sth_log->fetchAll();
-foreach ($result_log as $log) {
+
+	$headers .= "MIME-Version: 1.0" . "\r\n";
+	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+	$body = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+			 <html>
+			 <head>
+			 <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+	         <style>* { margin: 0; padding: 0; } a {text-decoration: none;} th, td {  padding: 5px;} table, th, td { border: 1px solid black;  border-collapse: collapse;} * {font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;}</style>
+			 </head>';
+			 
 	
-	echo $log(['message']);
+	
+
+
+foreach ($result_log as $log) {
+	//logs_shop($date, 'error', "Brak parametru-".$kod."-".$nazwa."-".$ean."-".$kategoria."-".$delivery."-".$delivery2."-".$cena );
+	$mess_log =  $log['message'];
+	$sklad = explode("-", $mess_log);
+	$log_kod = $sklad[1];
+	$log_nazwa = $sklad[2];
+	$log_ean = $sklad[3];
+	$log_kategoria = $sklad[4];
+	$log_delivery = $sklad[5];
+	$log_delivery2 = $sklad[6];
+	$log_cena = $sklad[7];
+	$body .= '<tr><td>'.$log_kod.'</td><td>'.$log_nazwa.'</td><td>'.$log_ean.'</td><td>'.$log_kategoria.'</td><td>'.$log_delivery.'</td><td>'.$log_delivery2.'</td><td>'.$log_cena.'</td></tr>';
 }
+
+$body .= '</table></div></body></html>';
+
+if ( mail ('musik@robelit.pl', 'Shoper - raport produktów', $body, $headers ) ) {
+							echo "Mail send OK\n";
+						} else {
+						echo "Mail send problem\n";
+						}
+
+
+
+$db2->exec("DELETE FROM logs'");
 
 echo "W czasie: ";
 echo $hours." h ";
