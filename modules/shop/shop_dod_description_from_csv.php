@@ -46,52 +46,24 @@ $time_pre = microtime(true);
 		
 				while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 					
-
+					$id_tow = $row['ID']; //kod towaru w RB
 					// etc.
 
-						$sql = "SELECT
-								   SHOP_TO_DESCRIPTION
-								FROM
-								   SHOPPER_PRODUCTS
-								WHERE
-								   ID_TOW = 7839
-								FOR UPDATE /* locks the row */
-						";
-
-						$stmt = oci_parse($conn, $sql);
-
-						// Execute the statement using OCI_DEFAULT (begin a transaction)
-						oci_execute($stmt, OCI_DEFAULT) 
-							or die ("Unable to execute query\n");
-
-						// Fetch the SELECTed row
-						if ( FALSE === ($row2 = oci_fetch_assoc($stmt) ) ) {
-							oci_rollback($conn);
-							die ("Unable to fetch row\n");
+						function updateClob($groupId,$memberList,$conn) {
+						$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob";
+						//echo $sql."\n";
+						$clob = OCINewDescriptor($conn, OCI_D_LOB);
+						$stmt = OCIParse($conn, $sql);
+						OCIBindByName($stmt, ':lob', &$clob, -1, OCI_B_CLOB);
+						OCIExecute($stmt,OCI_DEFAULT);
+						if($clob->save($description_csv)){
+							OCICommit($conn);
+							echo $groupId." Updated"."\n";
+						}else{
+							echo $groupId." Problems: Couldn't upload Clob.  This usually means the where condition had no match \n";
 						}
-
-						// Discard the existing LOB contents
-						if ( !$row2['MYLOB']->truncate() ) {
-							oci_rollback($conn);
-							die ("Failed to truncate LOB\n");
-						}
-
-						// Now save a value to the LOB
-						if ( !$row2['MYLOB']->save('UPDATE: '.date('H:i:s',time()) ) ) {
-							
-							// On error, rollback the transaction
-							oci_rollback($conn);
-							
-						} else {
-
-							// On success, commit the transaction
-							oci_commit($conn);
-							
-						}
-
-						// Free resources
-						oci_free_statement($stmt);
-						$row2['MYLOB']->free();
+						$clob->free();
+						OCIFreeStatement($stmt);
 
 
 // etc.
