@@ -27,30 +27,31 @@ try {
 			
 			foreach($categoriesResult as $c){
 				
-			$cat_id = $c->category_id;
-				
-			$categories[$c->category_id] = $c->translations->pl_PL->name;
-			
-			
-			
-			//var_dump($categories);
-			
-			$resource = new DreamCommerce\ShopAppstoreLib\Resource\CategoriesTree($client);
-			
-			$id = $cat_id;
-			$result = $resource->get($id);
-			
-			$renderNode = function($start, $level = 1) use (&$renderNode, $categories){
+					$cat_id = $c->category_id;
+						
+					$categories[$c->category_id] = $c->translations->pl_PL->name;
+					
+					
+					
+					//var_dump($categories);
+					
+					$resource = new DreamCommerce\ShopAppstoreLib\Resource\CategoriesTree($client);
+					
+					$id = $cat_id;
+					$result = $resource->get($id);
+					
+					$renderNode = function($start, $level = 1) use (&$renderNode, $categories){
 
-			foreach($start as $i) {
-				printf("%s #%d - %s\n", str_repeat('-', $level), $i->id, $categories[$i->id]);
-				if (!empty($i->__children)) {
-					$renderNode($i->__children, $level + 1);
-				}
-			}
-			}
+					foreach($start as $i) {
+						printf("%s #%d - %s\n", str_repeat('-', $level), $i->id, $categories[$i->id]);
+						if (!empty($i->__children)) {
+							$renderNode($i->__children, $level + 1);
+						}
+					}
+			
 
 			};
+			}
 $currentPage++;	
 $renderNode($result);		
 	}
