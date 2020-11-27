@@ -43,8 +43,7 @@ $time_pre = microtime(true);
 		$stid = oci_parse($conn, 'SELECT ID FROM JFOX_TOWAR_KARTOTEKI WHERE TO_KK_1 LIKE :eean');
 		oci_bind_by_name($stid, ":eean", $ean_csv);
 		oci_execute($stid);
-		oci_free_statement($stid);
-		oci_close($conn);
+		
 		
 		
 				while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
