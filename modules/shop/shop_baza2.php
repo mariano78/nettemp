@@ -11,7 +11,7 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
 
-
+$cat_id = '';
 try {
    
     $categoriesResource = new DreamCommerce\ShopAppstoreLib\Resource\Category($client);
