@@ -47,7 +47,7 @@ try {
 			}
 
 			};
-$currentPage++;	
+//$currentPage++;	
 $renderNode($result);		
 	}
    
