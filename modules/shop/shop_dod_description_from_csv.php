@@ -65,19 +65,19 @@ $time_pre = microtime(true);
 							or die ("Unable to execute query\n");
 
 						// Fetch the SELECTed row
-						if ( FALSE === ($row = oci_fetch_assoc($stmt) ) ) {
+						if ( FALSE === ($row2 = oci_fetch_assoc($stmt) ) ) {
 							oci_rollback($conn);
 							die ("Unable to fetch row\n");
 						}
 
 						// Discard the existing LOB contents
-						if ( !$row['MYLOB']->truncate() ) {
+						if ( !$row2['MYLOB']->truncate() ) {
 							oci_rollback($conn);
 							die ("Failed to truncate LOB\n");
 						}
 
 						// Now save a value to the LOB
-						if ( !$row['MYLOB']->save('UPDATE: '.date('H:i:s',time()) ) ) {
+						if ( !$row2['MYLOB']->save('UPDATE: '.date('H:i:s',time()) ) ) {
 							
 							// On error, rollback the transaction
 							oci_rollback($conn);
@@ -91,7 +91,7 @@ $time_pre = microtime(true);
 
 						// Free resources
 						oci_free_statement($stmt);
-						$row['MYLOB']->free();
+						$row2['MYLOB']->free();
 
 
 // etc.
