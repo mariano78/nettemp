@@ -49,7 +49,7 @@ $time_pre = microtime(true);
 					$id_tow = $row['ID']; //kod towaru w RB
 					// etc.
 
-						function updateClob($groupId,$memberList,$conn) {
+						
 						$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob";
 						//echo $sql."\n";
 						$clob = OCINewDescriptor($conn, OCI_D_LOB);
@@ -64,6 +64,7 @@ $time_pre = microtime(true);
 						}
 						$clob->free();
 						OCIFreeStatement($stmt);
+						
 
 
 // etc.
