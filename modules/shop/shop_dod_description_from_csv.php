@@ -58,13 +58,12 @@ $time_pre = microtime(true);
 						
 						$stmt = OCIParse($conn, $sql);
 						$clob = OCI_New_Descriptor($conn, OCI_D_LOB);
-						$stmt->bindParam(':lob', $slob, PDO::PARAM_STR);
-						//OCI_Bind_By_Name($stmt, ':lob', $clob, -1, OCI_B_CLOB);
+						OCI_Bind_By_Name($stmt, ':lob', $clob, -1, OCI_B_CLOB);
 						OCIExecute($stmt,OCI_DEFAULT);
-						$clob->writetemporary("coś");
-						oci_execute($stmt);							
-						//$clob->close();
-						//OCIFreeStatement($stmt);
+						$clob->save("coś");
+						OCI_Commit($conn);
+						$clob->free();
+						OCIFreeStatement($stmt);
 						
 
 
