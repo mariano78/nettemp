@@ -16,7 +16,7 @@ try{
 
     $resource = new DreamCommerce\ShopAppstoreLib\Resource\Category($client);
 
-    $result = $resource->put(121, array(
+    $result = $resource->put(119, array(
         'translations' => array(
             'pl_PL' => array(
                 'name' => 'category name'
