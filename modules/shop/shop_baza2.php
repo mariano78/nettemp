@@ -32,6 +32,8 @@ try {
 			
 			}
 			
+			var_dump($categories);
+			
 			$resource = new DreamCommerce\ShopAppstoreLib\Resource\CategoriesTree($client);
 			
 			$id = 68;
