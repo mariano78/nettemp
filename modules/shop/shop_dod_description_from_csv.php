@@ -57,10 +57,10 @@ $time_pre = microtime(true);
 						//echo $sql."\n";
 						
 						$stmt = OCIParse($conn, $sql);
-						$clob = OCI_New_Descriptor($conn, OCI_D_LOB);
-						OCI_Bind_By_Name($stmt, ':lob', $clob, -1, OCI_B_CLOB);
+						$clob = OCI_New_Descriptor($conn, OCI_DTYPE_LOB);
+						OCI_Bind_By_Name($stmt, ':lob', $clob, -1, SQLT_CLOB);
 						OCIExecute($stmt,OCI_DEFAULT);
-						if($clob->write("coś")){
+						if($clob->save("coś")){
 							OCICommit($conn);
 							echo " Updated"."\n";
 						}else{
