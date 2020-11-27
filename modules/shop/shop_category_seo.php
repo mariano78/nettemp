@@ -29,7 +29,7 @@ try {
 				
 					foreach($result as $r){
 						
-						echo $r->category_id."-".$r->translations->pl_PL->name." \n";
+						//echo $r->category_id."-".$r->translations->pl_PL->name." \n";
 						$idc = $r->category_id;
 						$nazwa = $r->translations->pl_PL->name;
 						$seo_name = pl_charset($nazwa)."-".$idc.'.html';		
