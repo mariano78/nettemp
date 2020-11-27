@@ -61,7 +61,7 @@ $time_pre = microtime(true);
 							  )
 						   RETURNING
 							  --Return the LOB locator
-							  mylob INTO :mylob_loc";
+							  SHOP_TO_DESCRIPTION INTO :mylob_loc";
 
 					$stid2 = oci_parse($conn, $sql);
 
