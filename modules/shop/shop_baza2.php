@@ -19,7 +19,7 @@ try{
     $result = $resource->put(119, array(
         'translations' => array(
             'pl_PL' => array(
-                'name' => 'category name'
+                'name' => 'Promocje'
             )
         )
     ));
