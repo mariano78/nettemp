@@ -57,7 +57,7 @@ $time_pre = microtime(true);
 						//echo $sql."\n";
 						
 						$stmt = OCIParse($conn, $sql);
-						$clob = OCINewDescriptor($conn, OCI_DTYPE_LOB);
+						$clob = OCI_New_Descriptor($conn, OCI_DTYPE_LOB);
 						OCIBindByName($stmt, ':lob', $clob, -1, OCI_B_CLOB);
 						OCIExecute($stmt,OCI_DEFAULT);
 						if($clob->save('coś')){
