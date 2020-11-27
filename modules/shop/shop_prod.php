@@ -59,18 +59,6 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	$kategoria = $row['CATEGORY']; // kategoria w shoper
 	
-	if($kategoria == 999) {
-		
-		$kategoria = 26;
-	}
-	
-	if($delivery == 999) {
-		
-		$delivery = 8;
-	}
-	
-	
-	
 	$podatek_jfox = $row['TO_VAT_CODE'];
 	if($podatek_jfox == '51') $podatek = 1; $mnoznik = 1.23; //przypisanie podatku jfox->shoper
 	
@@ -121,7 +109,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 	//zaokraglanie w górę
 	$ean_lenght = strlen($ean); // sprawdza dlugosc eanu
 	
-	($cena == 0 OR $ean_lenght != 13) ? $akcja = 0 : $akcja = 1;  // jeśli = 1 to wykonujemy akcję aktulizacja lub dodanie
+	($cena == 0 OR $ean_lenght != 13 OR $kategoria == 999 OR $delivery == 999 OR $delivery2 == 999) ? $akcja = 0 : $akcja = 1;  // jeśli = 1 to wykonujemy akcję aktulizacja lub dodanie
 	
 	$date = date('H:i:s');
 	if ($akcja == 0) {
