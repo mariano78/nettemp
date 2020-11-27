@@ -10,6 +10,7 @@ if(!isset($db2)){
     $db2 = new PDO("sqlite:$froot2/shop_log.db") or die ("cannot open database");
 }
 
+
 function logs_shop($date,$type,$message)
 	{
 		
