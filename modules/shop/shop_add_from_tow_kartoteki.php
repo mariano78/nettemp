@@ -25,10 +25,12 @@ $syncstatus = 0;
 //$time_pre = microtime(true);
 //$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP');
 //oci_execute($stid);
-	   $czas_prze = 999;
-	    
 
-		$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP_3');
+		$cat = 999;
+	    $deliv1 = 999;
+		$deliv2 = 999;
+		
+		$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP');
 		//oci_bind_by_name($stid, ":eean", $ean_csv);
 		oci_execute($stid);
 		
@@ -39,23 +41,23 @@ $syncstatus = 0;
 			
 			$stid2 = oci_parse($conn, '
 			MERGE INTO SHOPPER_PRODUCTS USING dual ON ( "ID_TOW" = :idtow2 )
-			WHEN MATCHED THEN UPDATE SET "SHOP_TO_DELIVERY"= :devtime
-			WHEN NOT MATCHED THEN INSERT ("ID_TOW","SHOP_TO_DELIVERY", "SHOP_TO_CATEGORY") 
-				VALUES ( :idtow2, :devtime , :cat)'
+			WHEN NOT MATCHED THEN INSERT ("ID_TOW","SHOP_TO_DELIVERY", "SHOP_TO_DELIVERY_2", "SHOP_TO_CATEGORY") 
+				VALUES ( :idtow2, :deliv1, :deliv2 , :cat)'
 				
 				);
 			$cat = 999;
 
 			oci_bind_by_name($stid2, ":idtow2", $id_tow);
-			oci_bind_by_name($stid2, ":devtime", $czas_prze);
+			oci_bind_by_name($stid2, ":deliv1", $deliv1);
+			oci_bind_by_name($stid2, ":deliv2", $deliv2);
 			oci_bind_by_name($stid2, ":cat", $cat);
 			oci_execute($stid2);
 				
 			
 		}
 
-		   oci_free_statement($stid);
-			oci_close($conn);
+		oci_free_statement($stid);
+		oci_close($conn);
      
 		
 
