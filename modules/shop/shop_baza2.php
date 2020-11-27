@@ -14,7 +14,6 @@ include("$root/modules/shop/shop_settings.php");
 
 try{
     
-    $client =DreamCommerce\ShopAppstoreLib\Client::factory('OAuth', $options);
 
     $categoriesResource = new DreamCommerce\ShopAppstoreLib\Resource\Category($client);
     $categoriesResult = $categoriesResource->get();
