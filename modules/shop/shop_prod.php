@@ -113,7 +113,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 	
 	$date = date('H:i:s');
 	if ($akcja == 0) {
-		logs_shop($date, 'error', "Produkt nie spełnia wymagań ".$kod);
+		logs_shop($date, 'error', "Brak parametru - ".$kod." - ".$nazwa." - ".$ean." - ".$kategoria." - ".$delivery." - ".$delivery2 );
 		$pominietych++;
 		}
 	
@@ -257,7 +257,7 @@ $db->exec("UPDATE shop SET value='$syncstatus' WHERE option='syncstatus'");
 
 $sth_log = $db2->query("SELECT * FROM logs WHERE type = 'error'");
 $sth_log->execute();
-$result_log = $sth->fetchAll();
+$result_log = $sth_log->fetchAll();
 foreach ($result_log as $log) {
 	
 	echo $log(['message']);
