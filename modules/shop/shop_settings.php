@@ -68,7 +68,7 @@ foreach ($result as $a) {
 }	
 // ORACLE - podłączenie do bazy
 
-$conn = oci_connect($user, $pass, $database);
+$conn = oci_connect($user, $pass, $database, 'AL32UTF8');
 if (!$conn) {
     $e = oci_error();
     trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
