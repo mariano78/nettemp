@@ -17,6 +17,7 @@ try {
     $categoriesResource = new DreamCommerce\ShopAppstoreLib\Resource\Category($client);
 	$currentPage = 1;
     $categoriesResult = $categoriesResource->get();
+	var_dump($categoriesResult);
 	$pages = $categoriesResult->pages;
 	
 	while($currentPage <= $categoriesResult->getPageCount() ){
