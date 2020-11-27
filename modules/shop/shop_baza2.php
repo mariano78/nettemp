@@ -15,6 +15,7 @@ include("$root/modules/shop/shop_settings.php");
 try {
    
     $resource = new DreamCommerce\ShopAppstoreLib\Resource\Category($client);
+	$currentPage = 1;
     $result = $resource->get();
 	$pages = $result->pages;
 	
