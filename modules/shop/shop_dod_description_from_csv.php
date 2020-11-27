@@ -35,7 +35,7 @@ $time_pre = microtime(true);
            {  
 	   $tokod_csv = $getData[0];
 	   $ean_csv = $getData[1];
-	   $description_csv = "$getData[2]";
+	   $description_csv = $getData[2];
 	   echo $description_csv;
 	   
 	 
@@ -57,7 +57,7 @@ $time_pre = microtime(true);
 						//echo $sql."\n";
 						
 						$stmt = OCIParse($conn, $sql);
-						$clob = OCINewDescriptor($conn, OCI_D_LOB);
+						$clob = OCINewDescriptor($conn, OCI_DTYPE_LOB);
 						OCIBindByName($stmt, ':lob', $clob, -1, OCI_B_CLOB);
 						OCIExecute($stmt,OCI_DEFAULT);
 						if($clob->save('coś')){
