@@ -19,7 +19,7 @@ try{
 
     $categories = array();
 	
-	while($currentPage <= $result->getPageCount() ){
+	while($currentPage <= $categoriesResult->getPageCount() ){
 		
 		$categoriesResult = $categoriesResource->page($currentPage)->limit(50)->get();
 	
