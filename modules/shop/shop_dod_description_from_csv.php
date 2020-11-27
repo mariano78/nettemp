@@ -64,7 +64,7 @@ $time_pre = microtime(true);
 						OCI_Commit($conn);
 						$clob->free();
 						OCIFreeStatement($stmt);
-						
+						echo $description_csv;
 
 
 // etc.
