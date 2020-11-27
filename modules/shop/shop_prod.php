@@ -268,7 +268,8 @@ $result_log = $sth_log->fetchAll();
 			 <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
 	         <style>* { margin: 0; padding: 0; } a {text-decoration: none;} th, td {  padding: 5px;} table, th, td { border: 1px solid black;  border-collapse: collapse;} * {font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;}</style>
 			 </head>
-			 <table border="1" style="">';
+			 <table border="1" style="">
+			 <tr><th>Kod Produktu</th><th>Nazwa</th><th>EAN</th><th>Kategoria</th><th>Czas wysyłki</th><th>Przewoźnik</th><th>Cena</th></tr>';
 			 
 	
 	
