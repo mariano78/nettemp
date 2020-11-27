@@ -13,7 +13,7 @@ include("$root/modules/shop/shop_settings.php");
 try{
 
 
-    $categoriesResource = neDreamCommerce\ShopAppstoreLib\Resource\Category($client);
+    $categoriesResource = new DreamCommerce\ShopAppstoreLib\Resource\Category($client);
     $categoriesResult = $categoriesResource->get();
 
     $categories = array();
