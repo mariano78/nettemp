@@ -28,7 +28,7 @@ try {
 			
 			foreach($categoriesResult as $c){
 			$cat_id = $c->category_id;
-			echo $cat_id."<br>";
+			//echo $cat_id."<br>";
 				
 			$categories[$c->category_id] = $c->translations->pl_PL->name;
 			
@@ -40,8 +40,8 @@ try {
 			
 			$resource = new DreamCommerce\ShopAppstoreLib\Resource\CategoriesTree($client);
 			
-			$id = $cat_id;
-			$result = $resource->get($id);
+			//$id = $cat_id;
+			$result = $resource->get(13);
 			
 			$renderNode = function($start, $level = 1) use (&$renderNode, $categories){
 
