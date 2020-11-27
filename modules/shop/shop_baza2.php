@@ -26,17 +26,18 @@ try {
 			$categories = array();
 			
 			foreach($categoriesResult as $c){
+				
 			$cat_id = $c->category_id;
 				
 			$categories[$c->category_id] = $c->translations->pl_PL->name;
 			
-			}
 			
-			var_dump($categories);
+			
+			//var_dump($categories);
 			
 			$resource = new DreamCommerce\ShopAppstoreLib\Resource\CategoriesTree($client);
 			
-			$id = 68;
+			$id = $cat_id;
 			$result = $resource->get($id);
 			
 			$renderNode = function($start, $level = 1) use (&$renderNode, $categories){
@@ -46,6 +47,7 @@ try {
 				if (!empty($i->__children)) {
 					$renderNode($i->__children, $level + 1);
 				}
+			}
 			}
 
 			};
