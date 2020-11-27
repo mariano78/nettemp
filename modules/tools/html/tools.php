@@ -16,7 +16,7 @@
 <a href="index.php?id=tools&type=dbcheck" ><button class="btn btn-xs btn-default <?php echo $art == 'dbcheck' ? 'active' : ''; ?>">DB check</button></a>
 <a href="index.php?id=tools&type=shop" ><button class="btn btn-xs btn-default <?php echo $art == 'shop' ? 'active' : ''; ?>">Shop</button></a>
 <a href="index.php?id=tools&type=shop_baza" ><button class="btn btn-xs btn-default <?php echo $art == 'shop_baza' ? 'active' : ''; ?>">Shop - Baza</button></a>
-<a href="index.php?id=tools&type=shop_kategorie" ><button class="btn btn-xs btn-default <?php echo $art == 'shop_baza2' ? 'active' : ''; ?>">Shop - Kategorie</button></a>
+<a href="index.php?id=tools&type=shop_kategorie" ><button class="btn btn-xs btn-default <?php echo $art == 'shop_kategorie' ? 'active' : ''; ?>">Shop - Kategorie</button></a>
 <?php if ( isset($NT_SETTINGS['dbUpdateEditPreparePage']) ){ ?>
 <a href="index.php?id=tools&type=dbupdateedit" ><button class="btn btn-xs btn-default <?php echo $art == 'dbupdateedit' ? 'active' : ''; ?>">DB Update Edit</button></a>
 
