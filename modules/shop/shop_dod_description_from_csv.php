@@ -47,50 +47,54 @@ $time_pre = microtime(true);
 				while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 					
 
-					// connect to DB etc...
+					// etc.
 
-					$sql = "INSERT INTO
-							SHOPPER_PRODUCTS
-							  (
-								SHOP_TO_DESCRIPTION
-							  )
-						   VALUES
-							  (
-								--Initialize as an empty CLOB
-								EMPTY_CLOB()
-							  )
-						   RETURNING
-							  --Return the LOB locator
-							  SHOP_TO_DESCRIPTION INTO :mylob_loc";
+						$sql = "SELECT
+								   SHOP_TO_DESCRIPTION
+								FROM
+								   SHOPPER_PRODUCTS
+								WHERE
+								   ID_TOW = $tokod_csv
+								FOR UPDATE /* locks the row */
+						";
 
-					$stid2 = oci_parse($conn, $sql);
+						$stmt = oci_parse($conn, $sql);
 
-					// Creates an "empty" OCI-Lob object to bind to the locator
-					$myLOB = oci_new_descriptor($conn, OCI_D_LOB);
+						// Execute the statement using OCI_DEFAULT (begin a transaction)
+						oci_execute($stmt, OCI_DEFAULT) 
+							or die ("Unable to execute query\n");
 
-					// Bind the returned Oracle LOB locator to the PHP LOB object
-					oci_bind_by_name($stid2, ":mylob_loc", $myLOB, -1, OCI_B_CLOB);
+						// Fetch the SELECTed row
+						if ( FALSE === ($row = oci_fetch_assoc($stmt) ) ) {
+							oci_rollback($conn);
+							die ("Unable to fetch row\n");
+						}
 
-					// Execute the statement using , OCI_DEFAULT - as a transaction
-					oci_execute($stid2, OCI_DEFAULT)
-						or die ("Unable to execute query\n");
-						
-					// Now save a value to the LOB
-					if ( !$myLOB->save('INSERT: '.date('H:i:s',time())) ) {
-						
-						// On error, rollback the transaction
-						oci_rollback($conn);
-						
-					} else {
+						// Discard the existing LOB contents
+						if ( !$row['MYLOB']->truncate() ) {
+							oci_rollback($conn);
+							die ("Failed to truncate LOB\n");
+						}
 
-						// On success, commit the transaction
-						oci_commit($conn);
-						
-					}
+						// Now save a value to the LOB
+						if ( !$row['MYLOB']->save('UPDATE: '.date('H:i:s',time()) ) ) {
+							
+							// On error, rollback the transaction
+							oci_rollback($conn);
+							
+						} else {
 
-					// Free resources
-					oci_free_statement($stid2);
-					$myLOB->free();
+							// On success, commit the transaction
+							oci_commit($conn);
+							
+						}
+
+						// Free resources
+						oci_free_statement($stmt);
+						$row['MYLOB']->free();
+
+
+// etc.
 
 					
 					
