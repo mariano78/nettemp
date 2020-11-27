@@ -57,17 +57,13 @@ $time_pre = microtime(true);
 						//echo $sql."\n";
 						
 						$stmt = OCIParse($conn, $sql);
-						$clob = OCI_New_Descriptor($conn, OCI_DTYPE_LOB);
-						OCI_Bind_By_Name($stmt, ':lob', $clob, -1, SQLT_CLOB);
+						$clob = OCI_New_Descriptor($conn, OCI_D_LOB);
+						OCI_Bind_By_Name($stmt, ':lob', $clob, -1, OCI_B_CLOB);
 						OCIExecute($stmt,OCI_DEFAULT);
-						if($clob->save("coś")){
-							OCICommit($conn);
-							echo " Updated"."\n";
-						}else{
-							echo " Problems: Couldn't upload Clob.  This usually means the where condition had no match \n";
-						}
-						$clob->free();
-						OCIFreeStatement($stmt);
+						$clob->writetemporary("coś")){
+						oci_execute($stmt);							}
+						$clob->close();
+						//OCIFreeStatement($stmt);
 						
 
 
