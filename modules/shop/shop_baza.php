@@ -98,7 +98,8 @@ if (!empty($deliv_id_tow_typ) && !empty($dostawa_typ)){
     }
 
 if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
-$pstop = $paginating;
+//$pstop = $paginating;
+$pstop = 1000;
 $pstart = ($page-1) * $pstop; 
 ?>
 
