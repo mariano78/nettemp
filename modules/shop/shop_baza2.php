@@ -31,7 +31,7 @@ try {
 				if ($count != '0') {
 				
 					foreach($result as $r){
-						echo $r->category_id."-".$r->translations->pl_PL->name." \n";
+						echo $r->category_id."-".$r->translations->pl_PL->name." <br>";
 					}
 
 
