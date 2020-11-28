@@ -37,8 +37,8 @@ $syncstatus = 0;
 		}
       
         fclose($file);  
-		oci_free_statement($stid);
-		oci_close($conn);
+		//oci_free_statement($stid);
+		//oci_close($conn);
      
 
 ?>
