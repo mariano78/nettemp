@@ -60,13 +60,7 @@ $time_pre = microtime(true);
 						OCI_Execute($stmt,OCI_DEFAULT);
 						
 						
-						if($clob->save($description_csv)){
-							OCICommit($conn);
-							echo " Updated"."\n";
-						}else{
-							echo " Problems: Couldn't upload Clob.  This usually means the where condition had no match \n";
-						}
-						$clob->free();
+						
 						OCIFreeStatement($stmt);
 						
 
