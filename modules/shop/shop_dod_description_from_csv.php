@@ -53,26 +53,20 @@ $time_pre = microtime(true);
 					// etc.
 
 						
-						$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob";
+						//$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob";
 						//echo $sql."\n";
 						
-						$stmt = OCIParse($conn, $sql);
-						$clob = OCI_New_Descriptor($conn, OCI_D_LOB);
-						OCI_Bind_By_Name($stmt, ':lob', $clob, -1, OCI_B_CLOB);
-						OCIExecute($stmt,OCI_DEFAULT);
-						$clob->WriteTemporary($description_csv,OCI_TEMP_CLOB);
-						OCI_Commit($conn);
-						$clob->free();
-						OCIFreeStatement($stmt);
-						echo $description_csv;
-
-
-// etc.
-
-					
-					
-					
-					
+						//pdo = new PDO("oci:dbname=TESTDB", "TESTUSER", "TESTPW");
+						$stmt = $conn->prepare("UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob");
+						$stmt->bindParam(":lob", $description_csv, PDO::PARAM_STR, strlen($description_csv));
+						$conn->beginTransaction();
+						if (!$stmt->execute()) {
+							echo "ERROR: ".print_r($stmt->errorInfo())."\n";
+							$pdo->rollBack();
+							exit;
+						}
+						$pdo->commit();
+						
 					
 					
 				}
