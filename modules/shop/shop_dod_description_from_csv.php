@@ -55,11 +55,11 @@ $time_pre = microtime(true);
 						
 						//$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob";
 						//echo $sql."\n";
-						
-						//pdo = new PDO("oci:dbname=TESTDB", "TESTUSER", "TESTPW");
-						$stmt = $conn->prepare("UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob");
+						//$conn = oci_connect($user, $pass, $database, 'AL32UTF8');
+						$pdo = new PDO("oci:dbname=$database", $user, $pass);
+						$stmt = $pdo->prepare("UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob");
 						$stmt->bindParam(":lob", $description_csv, PDO::PARAM_STR, strlen($description_csv));
-						$conn->beginTransaction();
+						$pdo->beginTransaction();
 						if (!$stmt->execute()) {
 							echo "ERROR: ".print_r($stmt->errorInfo())."\n";
 							$pdo->rollBack();
