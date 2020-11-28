@@ -58,9 +58,9 @@ $time_pre = microtime(true);
 						
 						$stmt = OCIParse($conn, $sql);
 						$clob = OCI_New_Descriptor($conn, OCI_D_LOB);
-						$stmt->bindParam(":lob", $description_csv, PDO::PARAM_STR, strlen($description_csv));
-						//OCI_Bind_By_Name($stmt, ':lob', $clob, -1, OCI_B_CLOB);
-						OCIExecute($stmt,OCI_DEFAULT);
+						//$stmt->bindParam(":lob", $description_csv, PDO::PARAM_STR, strlen($description_csv));
+						OCI_Bind_By_Name($stmt, ':lob', $clob, -1, OCI_B_CLOB);
+						OCIExecute($stmt);
 						$clob->WriteTemporary($description_csv,OCI_TEMP_CLOB);
 						OCI_Commit($conn);
 						$clob->free();
