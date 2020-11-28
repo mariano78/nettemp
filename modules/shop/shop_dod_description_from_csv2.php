@@ -69,7 +69,7 @@ $mydb="
 						}
 						$clob->free();
 						OCIFreeStatement($stmt);
-						};
+						}
 						
 						updateClob($id_tow,$description_csv,$conn)
 	   
