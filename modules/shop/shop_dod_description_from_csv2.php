@@ -18,15 +18,26 @@ $pominietych = 0;
 $akcja = 5;
 $syncstatus = 0;
 
-$mydb="
-  (DESCRIPTION =
-    (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.18.240)(PORT = 1521))
-    (CONNECT_DATA =
-      (SERVER = DEDICATED)
-      (SERVICE_NAME = XE)
-    )
-  )";
-    
+$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob";
+						echo $sql."\n";
+						
+						function updateClob($id_tow,$description_csv,$conn) {
+						
+						//echo $sql."\n";
+						$clob = OCINewDescriptor($conn, OCI_D_LOB);
+						$stmt = OCIParse($conn, $sql);
+						OCIBindByName($stmt, ':lob', $clob, -1, OCI_B_CLOB);
+						OCIExecute($stmt,OCI_DEFAULT);
+						if($clob->save($description_csv)){
+							OCICommit($conn);
+							echo $groupId." Updated"."\n";
+						}else{
+							echo $groupId." Problems: Couldn't upload Clob.  This usually means the where condition had no match \n";
+						}
+						$clob->free();
+						OCIFreeStatement($stmt);
+						}
+
 		$filename = "opisy2.csv";
         $file = fopen($filename, "r");
 		if ($file) {
@@ -51,25 +62,7 @@ $mydb="
 					// etc.
 
 						
-						$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob";
-						echo $sql."\n";
 						
-						function updateClob($id_tow,$description_csv,$conn) {
-						
-						//echo $sql."\n";
-						$clob = OCINewDescriptor($conn, OCI_D_LOB);
-						$stmt = OCIParse($conn, $sql);
-						OCIBindByName($stmt, ':lob', $clob, -1, OCI_B_CLOB);
-						OCIExecute($stmt,OCI_DEFAULT);
-						if($clob->save($description_csv)){
-							OCICommit($conn);
-							echo $groupId." Updated"."\n";
-						}else{
-							echo $groupId." Problems: Couldn't upload Clob.  This usually means the where condition had no match \n";
-						}
-						$clob->free();
-						OCIFreeStatement($stmt);
-						}
 						
 						updateClob($id_tow,$description_csv,$conn)
 	   
