@@ -64,7 +64,7 @@ $sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_
 						
 						
 						
-						updateClob($id_tow,$description_csv,$conn)
+						updateClob($id_tow,$description_csv,$conn);
 	   
 				}
 			}
