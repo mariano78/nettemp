@@ -20,7 +20,7 @@ $syncstatus = 0;
 
 
     
-		$filename = "opisy1.csv";
+		$filename = "opisy2.csv";
         $file = fopen($filename, "r");
 		if ($file) {
           while (($getData = fgetcsv($file, 10000, ";")) !== FALSE)
