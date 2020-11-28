@@ -45,7 +45,6 @@ $time_pre = microtime(true);
 		oci_execute($stid);
 		
 		
-		
 				while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 					
 					$id_tow = $row['ID']; //kod towaru w RB
@@ -55,17 +54,19 @@ $time_pre = microtime(true);
 						
 						$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob";
 						//echo $sql."\n";
-						
+						$clob = OCINewDescriptor($conn, OCI_D_LOB);
 						$stmt = OCIParse($conn, $sql);
-						$clob = OCI_New_Descriptor($conn, OCI_D_LOB);
-						//$stmt->bindParam(":lob", $description_csv, PDO::PARAM_STR, strlen($description_csv));
-						OCI_Bind_By_Name($stmt, ':lob', $clob, -1, OCI_B_CLOB);
-						OCIExecute($stmt);
-						$clob->WriteTemporary($description_csv,OCI_TEMP_CLOB);
-						OCI_Commit($conn);
+						OCIBindByName($stmt, ':lob', $clob, 200, OCI_B_CLOB);
+						OCIExecute($stmt,OCI_DEFAULT);
+						if($clob->save($description_csv)){
+							OCICommit($conn);
+							echo " Updated"."\n";
+						}else{
+							echo " Problems: Couldn't upload Clob.  This usually means the where condition had no match \n";
+						}
 						$clob->free();
 						OCIFreeStatement($stmt);
-						//echo $description_csv;
+						
 
 
 // etc.
