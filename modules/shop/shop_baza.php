@@ -34,6 +34,18 @@ if (!empty($inshop_id_tow) && ($inshop1 == "inshop1")){
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+	
+//filtr kod
+$ffkod = isset($_POST['ffkod']) ? $_POST['ffkod'] : '';
+$ffkodok = isset($_POST['ffkodok']) ? $_POST['ffkodok'] : '';
+
+if (!empty($ffkodok)){
+    
+	$db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE  shop SET value = '$ffkod' WHERE option = fkod") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
 //nazwa
 $name_new = isset($_POST['name_new']) ? $_POST['name_new'] : '';
 $name_id = isset($_POST['name_id']) ? $_POST['name_id'] : '';
@@ -107,7 +119,15 @@ $pstart = ($page-1) * $pstop;
 
 
 <div class="panel panel-default">
-<div class="panel-heading"><center>Produkty do uzupełnienia - strona  <?php echo $page;?></center> </div>
+<div class="panel-heading">
+<form action="" method="post" style="display:inline!important;">
+	
+	<input type="text" name="ffkod" size="9" maxlength="9" value="<?php echo $filtr_kod; ?>" />
+	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+	<input type="hidden" name="ffkodok" value="ok" />
+    </form>
+
+<center>Produkty do uzupełnienia - strona  <?php echo $page;?></center> </div>
 
 <div class="table-responsive">
 <table class="table table-hover table-condensed small">

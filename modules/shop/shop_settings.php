@@ -71,6 +71,9 @@ foreach ($result as $a) {
 	if($a['option']=='paginating') {
 		$paginating=$a['value'];
 	}
+	if($a['option']=='fkod') {
+		$filtr_kod=$a['value'];
+	}
 }	
 // ORACLE - podłączenie do bazy
 
