@@ -54,18 +54,11 @@ $syncstatus = 0;
 						$clob->save($description_csv);
 						oci_commit($conn);
 						
-						
 						OCIFreeStatement($stmt);
 	   
-	   
-	   
-	   
-	   
-	   
-	   
+				}
 			}
 		}
-      
         fclose($file);  
 		//oci_free_statement($stid);
 		//oci_close($conn);
