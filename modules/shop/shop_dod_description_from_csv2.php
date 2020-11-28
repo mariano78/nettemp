@@ -18,11 +18,11 @@ $pominietych = 0;
 $akcja = 5;
 $syncstatus = 0;
 
-$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob";
-						echo $sql."\n";
+
 						
 						function updateClob($id_tow,$description_csv,$conn) {
-						
+						$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob";
+						echo $sql."\n";
 						//echo $sql."\n";
 						$clob = OCINewDescriptor($conn, OCI_D_LOB);
 						$stmt = OCIParse($conn, $sql);
@@ -30,9 +30,9 @@ $sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_
 						OCIExecute($stmt,OCI_DEFAULT);
 						if($clob->save($description_csv)){
 							OCICommit($conn);
-							echo $groupId." Updated"."\n";
+							echo " Updated"."\n";
 						}else{
-							echo $groupId." Problems: Couldn't upload Clob.  This usually means the where condition had no match \n";
+							echo " Problems: Couldn't upload Clob.  This usually means the where condition had no match \n";
 						}
 						$clob->free();
 						OCIFreeStatement($stmt);
