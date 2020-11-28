@@ -54,20 +54,24 @@ $mydb="
 						$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob";
 						echo $sql."\n";
 						
-						$big_string = $description_csv;
-					
-
+						function updateClob($id_tow,$description_csv,$conn) {
 						
-							$pdo = new PDO("oci:dbname=".$mydb, "erp", "erp");
-							$stmt = $pdo->prepare("UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob");
-							$stmt->bindParam(":lob", $big_string, PDO::PARAM_STR, strlen($big_string));
-							$pdo->beginTransaction();
-							if (!$stmt->execute()) {
-								echo "ERROR: ".print_r($stmt->errorInfo())."\n";
-								$pdo->rollBack();
-								exit;
-							}
-							$pdo->commit();
+						//echo $sql."\n";
+						$clob = OCINewDescriptor($conn, OCI_D_LOB);
+						$stmt = OCIParse($conn, $sql);
+						OCIBindByName($stmt, ':lob', &$clob, -1, OCI_B_CLOB);
+						OCIExecute($stmt,OCI_DEFAULT);
+						if($clob->save($description_csv)){
+							OCICommit($conn);
+							echo $groupId." Updated"."\n";
+						}else{
+							echo $groupId." Problems: Couldn't upload Clob.  This usually means the where condition had no match \n";
+						}
+						$clob->free();
+						OCIFreeStatement($stmt);
+						};
+						
+						updateClob($id_tow,$description_csv,$conn)
 	   
 				}
 			}
