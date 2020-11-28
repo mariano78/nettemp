@@ -59,7 +59,7 @@ $mydb="
 						//echo $sql."\n";
 						$clob = OCINewDescriptor($conn, OCI_D_LOB);
 						$stmt = OCIParse($conn, $sql);
-						OCIBindByName($stmt, ':lob', &$clob, -1, OCI_B_CLOB);
+						OCIBindByName($stmt, ':lob', $clob, -1, OCI_B_CLOB);
 						OCIExecute($stmt,OCI_DEFAULT);
 						if($clob->save($description_csv)){
 							OCICommit($conn);
