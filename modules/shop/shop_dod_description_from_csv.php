@@ -36,7 +36,7 @@ $time_pre = microtime(true);
 	   $tokod_csv = $getData[0];
 	   $ean_csv = $getData[1];
 	   $description_csv = "dlugi string";
-	   trim($description_csv);
+	   $description_csv = trim($description_csv);
 	   echo $description_csv;
 	   
 	 
