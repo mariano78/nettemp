@@ -27,7 +27,7 @@ $syncstatus = 0;
            {  
 	   $tokod_csv = $getData[0];
 	   $ean_csv = $getData[1];
-	   $description_csv = "dlugi string";
+	   $description_csv = $getData[2];
 	   $description_csv = trim($description_csv);
 	   echo $description_csv;
 	   
