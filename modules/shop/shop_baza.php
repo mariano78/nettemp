@@ -19,9 +19,6 @@ $inshop1 = isset($_POST['inshop1']) ? $_POST['inshop1'] : '';
 
 if (!empty($inshop_id_tow) && ($inshop1 == "inshop1")){
   
-	echo $inshop_id_tow;
-	echo $inshopcheck;
-	echo "opopopopp";
 	
 	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET IN_SHOP = :ins WHERE ID_TOW = :isidt');
 	
@@ -41,7 +38,7 @@ $ffkodok = isset($_POST['ffkodok']) ? $_POST['ffkodok'] : '';
 
 if (!empty($ffkodok)){
     
-	$db = new PDO("sqlite:$root/dbf/nettemp.db");
+	//$db = new PDO("sqlite:$root/dbf/nettemp.db");
     $db->exec("UPDATE shop SET value = '$ffkod' WHERE option = 'fkod'") or die ($db->lastErrorMsg());
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
