@@ -42,10 +42,11 @@ $ffkodok = isset($_POST['ffkodok']) ? $_POST['ffkodok'] : '';
 if (!empty($ffkodok)){
     
 	$db = new PDO("sqlite:$root/dbf/nettemp.db");
-    $db->exec("UPDATE  shop SET value = '$ffkod' WHERE option = ffkod") or die ($db->lastErrorMsg());
+    $db->exec("UPDATE shop SET value = '$ffkod' WHERE option = 'fkod'") or die ($db->lastErrorMsg());
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+	
 //nazwa
 $name_new = isset($_POST['name_new']) ? $_POST['name_new'] : '';
 $name_id = isset($_POST['name_id']) ? $_POST['name_id'] : '';
