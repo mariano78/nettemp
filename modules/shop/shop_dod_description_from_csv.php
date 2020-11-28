@@ -42,9 +42,9 @@ $syncstatus = 0;
 						$stmt = OCI_Parse($conn, $sql);
 						$clob = OCI_New_Descriptor($conn, OCI_D_LOB);
 						OCI_Bind_By_Name($stmt, ':lob', $clob, -1, OCI_B_CLOB);
-						OCI_Execute($stmt,OCI_DEFAULT);
+						OCI_Execute($stmt,OCI_NO_AUTO_COMMIT);
 						$clob->save($description_csv);
-						
+						oci_commit($conn);
 						
 						
 						OCIFreeStatement($stmt);
