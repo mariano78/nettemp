@@ -36,54 +36,18 @@ $time_pre = microtime(true);
 	   $tokod_csv = $getData[0];
 	   $ean_csv = $getData[1];
 	   $description_csv = "dlugi string";
+	   trim($description_csv);
 	   echo $description_csv;
 	   
 	 
 	   
-		$stid = oci_parse($conn, 'SELECT ID FROM JFOX_TOWAR_KARTOTEKI WHERE TO_KK_1 LIKE :eean');
-		oci_bind_by_name($stid, ":eean", $ean_csv);
-		oci_execute($stid);
-		
-		
-				while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
-					
-					$id_tow = $row['ID']; //kod towaru w RB
-					echo $id_tow;
-					// etc.
-
-						
-						$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob";
-						echo $sql."\n";
-						
-						$stmt = OCI_Parse($conn, $sql);
-						$clob = OCI_New_Descriptor($conn, OCI_D_LOB);
-						OCI_Bind_By_Name($stmt, ':lob', $clob, -1, OCI_B_CLOB);
-						OCI_Execute($stmt,OCI_DEFAULT);
-						$clob->save($description_csv);
-						
-						
-						
-						OCIFreeStatement($stmt);
-						
-
-
-// etc.
-
-					
-					
-					
-					
-					
-					
-				}
-		
         }
       
         fclose($file);  
 		oci_free_statement($stid);
 		oci_close($conn);
      
-		}
+		
 
 
 ?>
