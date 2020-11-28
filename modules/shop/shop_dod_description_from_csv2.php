@@ -18,7 +18,14 @@ $pominietych = 0;
 $akcja = 5;
 $syncstatus = 0;
 
-
+$mydb="
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.18.240)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = XE)
+    )
+  )";
     
 		$filename = "opisy2.csv";
         $file = fopen($filename, "r");
@@ -51,7 +58,7 @@ $syncstatus = 0;
 					
 
 						
-							$pdo = new PDO("oci:dbname=192.168.18.240/oracp1250", "erp", "erp");
+							$pdo = new PDO("oci:dbname=".$mydb, "erp", "erp");
 							$stmt = $pdo->prepare("UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob");
 							$stmt->bindParam(":lob", $big_string, PDO::PARAM_STR, strlen($big_string));
 							$pdo->beginTransaction();
