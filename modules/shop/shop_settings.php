@@ -1,5 +1,5 @@
 <?php
-//phpinfo();
+phpinfo();
 
 if(!isset($db)){
     $db = new PDO("sqlite:$root/dbf/nettemp.db");
