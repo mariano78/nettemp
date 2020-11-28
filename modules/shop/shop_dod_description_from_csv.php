@@ -30,8 +30,16 @@ $syncstatus = 0;
 
 	   $description_csv = $getData[2];
 	   $description_csv = trim($description_csv);
+	   
+	   
+		$stid = oci_parse($conn, 'SELECT ID FROM JFOX_TOWAR_KARTOTEKI WHERE TO_KK_1 LIKE :eean');
+		oci_bind_by_name($stid, ":eean", $ean_csv);
+		oci_execute($stid);
+		
+		
+				while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	 
-	   $id_tow = $row['ID']; //kod towaru w RB
+					$id_tow = $row['ID']; //kod towaru w RB
 					echo $id_tow;
 					// etc.
 
