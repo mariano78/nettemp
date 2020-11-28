@@ -54,10 +54,12 @@ $time_pre = microtime(true);
 						
 						$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob";
 						echo $sql."\n";
-						$clob = OCINewDescriptor($conn, OCI_D_LOB);
-						$stmt = OCIParse($conn, $sql);
-						OCIBindByName($stmt, ':lob', $clob, -1, OCI_B_CLOB);
-						OCIExecute($stmt,OCI_DEFAULT);
+						$clob = OCI_New_Descriptor($conn, OCI_D_LOB);
+						$stmt = OCI_Parse($conn, $sql);
+						OCI_Bind_By_Name($stmt, ':lob', $clob, -1, OCI_B_CLOB);
+						OCI_Execute($stmt,OCI_DEFAULT);
+						
+						
 						if($clob->save($description_csv)){
 							OCICommit($conn);
 							echo " Updated"."\n";
