@@ -50,7 +50,7 @@ $syncstatus = 0;
 					oci_commit($conn);
 					
 						
-						/oci_free_descriptor($lob_w);
+						//oci_free_descriptor($lob_w);
 						oci_free_statement($stid2);
 						
 				
