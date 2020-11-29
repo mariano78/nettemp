@@ -45,7 +45,7 @@ $syncstatus = 0;
 
 
 					$stid2 = oci_parse($conn, $sql);
-					oci_bind_by_name($stid2, ':lob',  $lob_w, -1, SQLT_CLOB);
+					oci_bind_by_name($stid2, ':lob',  $lob_w, -1, OCI_B_CLOB);
 						
 
 
@@ -56,7 +56,10 @@ $syncstatus = 0;
 							$text_insertion_error = 0;
 						} else if (oci_num_rows($stid2) === 1) {
 							
-							$lob_w->save($description_csv);
+							$lob_w->WriteTemporary($description_csv);
+							
+							oci_execute($stid, OCI_NO_AUTO_COMMIT);
+							$lob_w->close();
 							oci_commit($conn);
 							$text_insertion_error = 'Brak';
 						}
