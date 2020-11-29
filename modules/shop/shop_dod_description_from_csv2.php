@@ -22,20 +22,20 @@ $syncstatus = 0;
 						
 						function updateClob($id_tow,$description_csv,$conn) {
 						$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob";
-						echo $sql."\n";
-						//echo $sql."\n";
-						$clob = oci_new_descriptor($conn, OCI_D_LOB);
-						oci_bind_by_name($stmt, ':lob', $clob, -1, OCI_B_CLOB);
-						oci_execute($stmt,OCI_DEFAULT);
-						if($clob->save($description_csv)){
-							oci_commit($conn);
-							echo " Updated"."\n";
-						}else{
-							echo " Problems: Couldn't upload Clob.  This usually means the where condition had no match \n";
+						
+						$stid2 = oci_parse($conn, $sql);
+						$blob = oci_new_descriptor($conn, OCI_D_LOB);
+						oci_bind_by_name($stid2, ":photo_id", $photo_id);
+						oci_bind_by_name($stid2, ":phot", $blob, -1, OCI_B_BLOB);
+						$r = oci_execute($stid2, OCI_NO_AUTO_COMMIT);
+						$blob->save($description_csv);
+						$blob->free();
+						oci_commit($conn);
+						oci_free_statement($stid2);
 						}
-						$clob->free();
-						OCIFreeStatement($stmt);
-						}
+
+
+
 
 		$filename = "opisy2.csv";
         $file = fopen($filename, "r");
