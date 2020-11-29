@@ -24,12 +24,11 @@ $syncstatus = 0;
 						$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob";
 						echo $sql."\n";
 						//echo $sql."\n";
-						$clob = OCINewDescriptor($conn, OCI_D_LOB);
-						$stmt = OCIParse($conn, $sql);
-						OCIBindByName($stmt, ':lob', &$clob, -1, OCI_B_CLOB);
-						OCIExecute($stmt,OCI_DEFAULT);
+						$clob = oci_new_descriptor($conn, OCI_D_LOB);
+						oci_bind_by_name($stmt, ':lob', $clob, -1, OCI_B_CLOB);
+						oci_execute($stmt,OCI_DEFAULT);
 						if($clob->save($description_csv)){
-							OCICommit($conn);
+							oci_commit($conn);
 							echo " Updated"."\n";
 						}else{
 							echo " Problems: Couldn't upload Clob.  This usually means the where condition had no match \n";
