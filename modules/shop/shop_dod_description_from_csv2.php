@@ -27,6 +27,10 @@ $syncstatus = 0;
 	   $ean_csv = $getData[1];
 
 	   $description_csv = $getData[2];
+	   if ($description_csv) == ''{
+		   
+		   $description_csv = "Opis produktu";
+	   }
 	   //$description_csv = mb_convert_encoding($description_csv, "ASCII");
 	   $description_csv = iconv('Windows-1250', 'UTF-8', $description_csv);
 	   echo $description_csv;
