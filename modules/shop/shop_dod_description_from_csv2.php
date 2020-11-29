@@ -45,7 +45,7 @@ $syncstatus = 0;
 
 
 					$stid2 = oci_parse($conn, $sql);
-					oci_bind_by_name($stid2, ':lob',  $lob_w, -1, OCI_B_CLOB);
+					oci_bind_by_name($stid2, ':lob',  $lob_w, -1, SQLT_CLOB);
 						
 
 
@@ -58,7 +58,7 @@ $syncstatus = 0;
 							
 							$lob_w->save($description_csv);
 							oci_commit($conn);
-							$text_insertion_error = 1;
+							$text_insertion_error = 'Brak';
 						}
 
 						
