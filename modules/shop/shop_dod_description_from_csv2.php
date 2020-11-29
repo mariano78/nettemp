@@ -43,26 +43,17 @@ $syncstatus = 0;
 					$lob_w = oci_new_descriptor($conn, OCI_D_LOB);
 					
 					oci_bind_by_name($stid2, ':lob',  $lob_w, -1, OCI_B_CLOB);
-					$success = oci_execute($stid2, OCI_NO_AUTO_COMMIT);
-
-						if (!$success) {
-							oci_rollback($conn);
-							$text_insertion_error = 0;
-						} else if (oci_num_rows($stid2) === 1) {
-							
-							$lob_w->WriteTemporary($description_csv);
-							
-							oci_execute($stid, OCI_NO_AUTO_COMMIT);
-							$lob_w->close();
-							oci_commit($conn);
-							$text_insertion_error = 'Brak';
-						}
-
+					$lob_w->WriteTemporary($description_csv);
+					oci_execute($stid2, OCI_NO_AUTO_COMMIT);
+		
+					$lob_w->close();
+					oci_commit($conn);
+					
 						
-						oci_free_descriptor($lob_w);
+						/oci_free_descriptor($lob_w);
 						oci_free_statement($stid2);
 						
-						echo " Error: ".$text_insertion_error;
+				
 						echo " SQL: ".$sql;
 	   
 				}
