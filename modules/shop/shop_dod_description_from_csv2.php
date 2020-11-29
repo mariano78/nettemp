@@ -44,7 +44,7 @@ $syncstatus = 0;
 					$lob_w = oci_new_descriptor($conn, OCI_D_LOB);
 
 
-					$stid2 = oci_parse($connection, $sql);
+					$stid2 = oci_parse($conn, $sql);
 					oci_bind_by_name($stid2, ':lob',  $lob_w, -1, OCI_B_CLOB);
 						
 
@@ -52,7 +52,7 @@ $syncstatus = 0;
 						$success = oci_execute($stid2, OCI_DEFAULT);
 
 						if (!$success) {
-							oci_rollback($connection);
+							oci_rollback($conn);
 							$text_insertion_error = 0;
 						} else if (oci_num_rows($stid2) === 1) {
 							
