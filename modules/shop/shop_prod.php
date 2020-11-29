@@ -47,6 +47,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$delivery = $row['DELIVERY']; // czas dostawy
 	$delivery2 = $row['DELIVERY2']; // rodzaj przewoźnika
 	$to_status = $row['STATUS']; // rodzaj przewoźnika
+	$to_opis = $row['SHOP_OPIS']; // rodzaj przewoźnika
 	
 	
 	if ($nazwa_shop != ''){
@@ -122,7 +123,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 	$dlugosc = $row['TO_DLUGOSC']; // długosc produktu
 	
 	
-	$opis = 'To jest opis produktu';
+	//$opis = 'To jest opis produktu';
 	
 	if ($in_shop == 'T'){
 		$aktywnosc = true;
@@ -157,7 +158,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 						'translations' => array(
 							'pl_PL' => array(
 							'name' => $nazwa,
-							'description' => $opis,
+							'description' => $to_opis,
 							'seo_url' => $seo_name,
 							'active' => $aktywnosc
 							)
@@ -204,7 +205,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 						'translations' => array(
 							'pl_PL' => array(
 							'name' => $nazwa,
-							'description' => $opis,
+							'description' => $to_opis,
 							'seo_url' => $seo_name,
 							'active' => $aktywnosc
 							)
