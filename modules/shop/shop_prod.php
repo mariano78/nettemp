@@ -49,6 +49,8 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$to_status = $row['STATUS']; // rodzaj przewoźnika
 	$to_opis = $row['SHOP_OPIS']; // opis towaru
 	
+	echo $to_opis;
+	
 	
 	if ($nazwa_shop != ''){
 		
