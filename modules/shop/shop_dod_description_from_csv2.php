@@ -27,7 +27,7 @@ $syncstatus = 0;
 	   $ean_csv = $getData[1];
 
 	   $description_csv = $getData[2];
-	   if ($description_csv) == ''{
+	   if ($description_csv == ''){
 		   
 		   $description_csv = "Opis produktu";
 	   }
