@@ -38,7 +38,7 @@ $syncstatus = 0;
 					$id_tow = $row['ID']; //kod towaru w RB
 					echo $id_tow;
 					// etc.
-					$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob";
+					$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = :lob WHERE ID_TOW = '$id_tow' ";
 						
 					
 					$lob_w = oci_new_descriptor($conn, OCI_D_LOB);
@@ -69,6 +69,7 @@ $syncstatus = 0;
 						oci_free_statement($stid2);
 						
 						echo " Error: ".$text_insertion_error;
+						echo " SQL: ".$sql;
 	   
 				}
 			}
