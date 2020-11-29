@@ -39,17 +39,11 @@ $syncstatus = 0;
 					echo $id_tow;
 					// etc.
 					$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = :lob WHERE ID_TOW = '$id_tow' ";
-						
-					
+					$stid2 = oci_parse($conn, $sql);	
 					$lob_w = oci_new_descriptor($conn, OCI_D_LOB);
-
-
-					$stid2 = oci_parse($conn, $sql);
+					
 					oci_bind_by_name($stid2, ':lob',  $lob_w, -1, OCI_B_CLOB);
-						
-
-
-						$success = oci_execute($stid2, OCI_DEFAULT);
+					$success = oci_execute($stid2, OCI_NO_AUTO_COMMIT);
 
 						if (!$success) {
 							oci_rollback($conn);
