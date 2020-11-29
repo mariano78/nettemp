@@ -28,7 +28,7 @@ $syncstatus = 0;
 
 	   $description_csv = $getData[2];
 	   //$description_csv = mb_convert_encoding($description_csv, "ASCII");
-	  // $description_csv = iconv('Windows-1250', 'UTF-8', $description_csv);
+	   $description_csv = iconv('Windows-1250', 'UTF-8', $description_csv);
 	   echo $description_csv;
 	   
 		$stid = oci_parse($conn, 'SELECT ID FROM JFOX_TOWAR_KARTOTEKI WHERE TO_KK_1 LIKE :eean');
