@@ -44,7 +44,7 @@ $syncstatus = 0;
 						$blob = oci_new_descriptor($conn, OCI_D_LOB);
 						//oci_bind_by_name($stid2, ":photo_id", $photo_id);
 						oci_bind_by_name($stid2, ":lob", $blob, -1, OCI_B_BLOB);
-						$r = oci_execute($stid2, OCI_NO_AUTO_COMMIT);
+						oci_execute($stid2, OCI_NO_AUTO_COMMIT);
 						$blob->write("saasas");
 						$blob->free();
 						oci_commit($conn);
