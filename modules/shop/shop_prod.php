@@ -47,7 +47,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$delivery = $row['DELIVERY']; // czas dostawy
 	$delivery2 = $row['DELIVERY2']; // rodzaj przewoźnika
 	$to_status = $row['STATUS']; // rodzaj przewoźnika
-	$to_opis = $row['SHOP_OPIS']; // opis towaru
+	$to_opis = $row['SHOP_OPIS']->load(); // opis towaru
 	
 	echo $to_opis;
 	
