@@ -35,8 +35,8 @@ include("$root/modules/shop/shop_settings.php");
 				
 				
 				if($tow_status != 'spr' && $tow_status != 'spz' && $tow_status != 'wyp'){
-					//echo "TOW STAT-".$tow_status;
-					//echo "\nTOW ID-".$id_tow;
+					echo "TOW STAT-".$tow_status;
+					echo "\nTOW ID-".$id_tow;
 					
 					//update shop_prod
 					$stid3 = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET IS_DELETED = :is_del, IN_SHOP = :in_shop WHERE ID_TOW = :idtow4');
@@ -45,7 +45,7 @@ include("$root/modules/shop/shop_settings.php");
 					oci_bind_by_name($stid3, ":idtow4", $id_tow);
 					oci_bind_by_name($stid3, ":is_del", $is_del);
 					oci_bind_by_name($stid3, ":in_shop", $in_shop);
-					oci_execute($stid3);
+					oci_execute($stid3, OCI_DEFAULT);
 					echo "Ustawiam \n";
 					
 				}
