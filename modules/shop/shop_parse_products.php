@@ -23,7 +23,7 @@ include("$root/modules/shop/shop_settings.php");
 			
 			//JFOX_RB_TOWAR_KARTOTEKI.TO_STATUS_HANDL
 			
-			$stid2 = oci_parse($conn, "SELECT * FROM JFOX_RB_TOWAR_KARTOTEKI WHERE ID_TOW LIKE '$id_tow'");
+			$stid2 = oci_parse($conn, 'SELECT * FROM JFOX_RB_TOWAR_KARTOTEKI WHERE ID_TOW LIKE '$id_tow'');
 			//oci_bind_by_name($stid2, ":idtow3", $id_tow);
 			oci_execute($stid2);
 			
