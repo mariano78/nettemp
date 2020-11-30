@@ -1,0 +1,13 @@
+#! /bin/bash
+
+dir=$( cd "$( dirname "$0" )" && cd ../../ && pwd )
+date=`date +%y%m%d-%H%M`
+
+php -f $dir/modules/shop/shop_add_from_tow_kartoteki.php
+php -f $dir/modules/shop/shop_parse_products.php
+php -f $dir/modules/shop/shop_prod.php
+
+
+
+
+
