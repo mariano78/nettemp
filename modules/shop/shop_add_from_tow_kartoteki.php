@@ -41,16 +41,17 @@ $syncstatus = 0;
 			
 			$stid2 = oci_parse($conn, '
 			MERGE INTO SHOPPER_PRODUCTS USING dual ON ( "ID_TOW" = :idtow2 )
-			WHEN NOT MATCHED THEN INSERT ("ID_TOW","SHOP_TO_DELIVERY", "SHOP_TO_DELIVERY_2", "SHOP_TO_CATEGORY") 
-				VALUES ( :idtow2, :deliv1, :deliv2 , :cat)'
+			WHEN NOT MATCHED THEN INSERT ("ID_TOW","SHOP_TO_DELIVERY", "SHOP_TO_DELIVERY_2", "SHOP_TO_CATEGORY", "IS_DELETED") 
+				VALUES ( :idtow2, :deliv1, :deliv2 , :cat, :isd)'
 				
 				);
 			$cat = 999;
-
+			$is_deleted = 'N';
 			oci_bind_by_name($stid2, ":idtow2", $id_tow);
 			oci_bind_by_name($stid2, ":deliv1", $deliv1);
 			oci_bind_by_name($stid2, ":deliv2", $deliv2);
 			oci_bind_by_name($stid2, ":cat", $cat);
+			oci_bind_by_name($stid2, ":isd", $is_deleted);
 			oci_execute($stid2);
 				
 			
