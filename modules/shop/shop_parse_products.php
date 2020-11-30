@@ -39,7 +39,7 @@ include("$root/modules/shop/shop_settings.php");
 					//update shop_prod
 					$is_del = 'Y';
 					$in_shop = 'N';
-					$sql = "UPDATE SHOPPER_PRODUCTS SET IS_DELETED = :is_del WHERE ID_TOW = '$id_tow' ";
+					$sql = "UPDATE SHOPPER_PRODUCTS SET IS_DELETED = '$is_del' WHERE ID_TOW = '$id_tow' ";
 					$stid3 = oci_parse($conn, $sql);
 					//oci_bind_by_name($stid3, ":idtow4", $id_tow);
 					oci_bind_by_name($stid3, ':is_del', $is_del);
