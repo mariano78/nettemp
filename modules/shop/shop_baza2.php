@@ -201,6 +201,8 @@ ORDER BY JFOX_TOWAR_KARTOTEKI.TO_GRUPA ASC, JFOX_TOWAR_KARTOTEKI.TO_KOD ASC OFFS
 
 $sql2 = "SELECT * FROM INFOR_SHOPER_EXP_3";
 
+echo $sql;
+
 $stid = oci_parse($conn, "$sql2");
 $stid2 = oci_parse($conn, "$sql");
 		//oci_bind_by_name($stid, ":eean", $ean_csv);		
