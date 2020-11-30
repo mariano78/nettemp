@@ -23,10 +23,10 @@ $syncstatus = 0;
 		if ($file) {
           while (($getData = fgetcsv($file, 10000, ";")) !== FALSE)
            {  
-	   $tokod_csv = $getData[0];
-	   $ean_csv = $getData[1];
+	   //$tokod_csv = $getData[0];
+	   $ean_csv = $getData[0];
 
-	   $description_csv = $getData[2];
+	   $description_csv = $getData[1];
 	   if ($description_csv == ''){
 		   
 		   $description_csv = "Opis produktu";
