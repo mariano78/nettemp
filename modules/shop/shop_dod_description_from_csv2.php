@@ -18,7 +18,7 @@ $pominietych = 0;
 $akcja = 5;
 $syncstatus = 0;
 
-		$filename = "opisy.csv";
+		$filename = "bill.csv";
         $file = fopen($filename, "r");
 		if ($file) {
           while (($getData = fgetcsv($file, 10000, ";")) !== FALSE)
