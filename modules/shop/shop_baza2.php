@@ -129,11 +129,13 @@ $pstart = ($page-1) * $pstop;
 
 <div class="panel panel-default">
 <div class="panel-heading">
+Kod:
 <form action="" method="post" style="display:inline!important;">
 	<input type="text" name="ffkod" size="9" maxlength="9" value="<?php echo $filtr_kod; ?>" />
 	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 	<input type="hidden" name="ffkodok" value="ok" />
 </form>
+Grupa:
 <form action="" method="post" style="display:inline!important;">
 	<input type="text" name="ffgrupa" size="9" maxlength="9" value="<?php echo $filtr_grupa; ?>" />
 	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
