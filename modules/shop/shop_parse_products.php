@@ -37,25 +37,14 @@ include("$root/modules/shop/shop_settings.php");
 				if($tow_status != 'spr' OR $tow_status != 'spz' OR $tow_status != 'wyp'){
 					
 					//update shop_prod
-					$stid3 = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET IS_DELETED = :is_del, IN_SHOP = :in_shop WHERE ID_TOW = :idtow4');
-					$is_del = "Y";
-					$in_shop = "N";
+					$stid3 = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET IS_DELETED = :isdel2, IN_SHOP = :inshop WHERE ID_TOW = :idtow4');
+					$is_del = 'Y';
+					$in_shop = 'N';
 					oci_bind_by_name($stid3, ":idtow4", $id_tow);
-					oci_bind_by_name($stid3, ":is_del", $is_del);
-					oci_bind_by_name($stid3, ":in_shop", $in_shop);
-					$objExecute = oci_execute($stid3, OCI_DEFAULT);  
-if($objExecute)  
-{  
-oci_commit($conn); //*** Commit Transaction ***//  
-echo "Save completed.";  
-}  
-else  
-{  
-oci_rollback($objConnect); //*** RollBack Transaction ***//  
-$e = oci_error($stid3);  
-echo "Error Save [".$e['message']."]";  
-}  
-oci_close($conn);  
+					oci_bind_by_name($stid3, ":isdel", $is_del);
+					oci_bind_by_name($stid3, ":inshop", $in_shop);
+					oci_execute($stid3);
+					echo "Ustawiam \n";
 					
 				}
 				
