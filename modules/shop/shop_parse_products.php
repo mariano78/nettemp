@@ -35,7 +35,7 @@ include("$root/modules/shop/shop_settings.php");
 				echo $tow_status;
 				
 				if($tow_status != 'spr' && $tow_status != 'spz' && $tow_status != 'wyp'){
-					
+					oci_close($conn);
 					//update shop_prod
 					$is_del = 'Y';
 					$in_shop = 'N';
@@ -46,7 +46,7 @@ include("$root/modules/shop/shop_settings.php");
 					oci_execute($stid3);
 					//oci_commit($conn);
 					oci_free_statement($stid3);
-					
+					oci_close($conn);
 				}
 				
 				
