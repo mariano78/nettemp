@@ -43,8 +43,19 @@ include("$root/modules/shop/shop_settings.php");
 					oci_bind_by_name($stid3, ":idtow4", $id_tow);
 					oci_bind_by_name($stid3, ":is_del", $is_del);
 					oci_bind_by_name($stid3, ":in_shop", $in_shop);
-					oci_execute($stid3);
-					echo "Ustawiam \n";
+					$objExecute = oci_execute($stid3, OCI_DEFAULT);  
+if($objExecute)  
+{  
+oci_commit($conn); //*** Commit Transaction ***//  
+echo "Save completed.";  
+}  
+else  
+{  
+oci_rollback($objConnect); //*** RollBack Transaction ***//  
+$e = oci_error($stid3);  
+echo "Error Save [".$e['message']."]";  
+}  
+oci_close($conn);  
 					
 				}
 				
