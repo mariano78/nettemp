@@ -42,7 +42,7 @@ include("$root/modules/shop/shop_settings.php");
 					echo "Aktualizuje";
 					echo "\n".$is_del;
 					echo "\n".$in_shop;
-					$sql = "UPDATE SHOPPER_PRODUCTS SET IS_DELETED = '$is_del' WHERE ID_TOW = $id_tow ";
+					$sql = "UPDATE SHOPPER_PRODUCTS SET IS_DELETED = '$is_del' ";
 					echo "\n".$sql;
 					$stid3 = oci_parse($conn, $sql);
 					echo "Aktualizuje2";
