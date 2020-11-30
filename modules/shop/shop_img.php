@@ -10,6 +10,8 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 }
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
+$db2->exec("DELETE FROM logs");
+
 $www_serwer = "http://robelit.home.pl/shop_img/";
 
 $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
@@ -151,7 +153,8 @@ while($currentPage <= $result->getPageCount() ){
 					} else {
 						
 						echo "Nie ma folderu FTP dla produktu ", $kod." \n";
-						logs_shop($date, 'errorimg', "Dla produktu ". $kod." brak plików ze zdjęciami. ");
+						
+						logs_shop($date, 'errorimg', "Brak zdjeć-".$kod."-".$ean."-".$prod_name);
 						
 						
 						
@@ -165,6 +168,55 @@ while($currentPage <= $result->getPageCount() ){
 				
 			}  
 }
+$sth_log = $db2->query("SELECT * FROM logs WHERE type = 'errorimg'");
+$sth_log->execute();
+$result_log = $sth_log->fetchAll();
+
+	$headers .= "MIME-Version: 1.0" . "\r\n";
+	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+	$body = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+			 <html>
+			 <head>
+			 <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+	         <style>* { margin: 0; padding: 0; } a {text-decoration: none;} th, td {  padding: 5px;} table, th, td { border: 1px solid black;  border-collapse: collapse;} * {font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;}</style>
+			 </head>
+			 <table border="1" style="">
+			 <tr><th>Lp.</th><th>Kod Produktu</th><th>EAN</th><th>Nazwa</th><th>Zdjecia</th></tr>';
+			 
+	
+	
+
+$lp = 1;
+foreach ($result_log as $log) {
+	//logs_shop($date, 'errorimg', "Brak zdjeć-".$kod."-".$ean."-".$prod_name);
+	
+	
+	$mess_log =  $log['message'];
+	$sklad = explode("-", $mess_log);
+	
+	
+	$log_kod = $sklad[1];
+	$log_ean = $sklad[2];
+	$log_nazwa = $sklad[3];
+	
+	
+	
+	$body .= '<tr><td>'.$lp.'</td><td>'.$log_kod.'</td><td>'.$log_ean.'</td><td>'.$log_nazwa.'</td><td>Brak</td></tr>';
+	$lp ++;
+}
+$lp = 0;
+$body .= '</table></div></body></html>';
+
+if ( mail ('musik@robelit.pl', 'Shoper - raport produktów', $body, $headers ) ) {
+							echo "Mail send OK\n";
+						} else {
+						echo "Mail send problem\n";
+						}
+
+
+
+$db2->exec("DELETE FROM logs");
 //koniec
 
 ?>
