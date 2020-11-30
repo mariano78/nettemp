@@ -121,7 +121,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 	
 	$date = date('H:i:s');
 	if ($akcja == 0) {
-		logs_shop($date, 'error', "Brak parametru-".$kod."-".$nazwa."-".$ean."-".$kategoria."-".$delivery."-".$delivery2."-".$cena );
+		logs_shop($date, 'error', "Brak parametru-".$kod."-".$nazwa."-".$ean."-".$kategoria."-".$delivery."-".$delivery2."-".$cena."-".$in_shop);
 		$pominietych++;
 		}
 	
@@ -277,7 +277,7 @@ $result_log = $sth_log->fetchAll();
 	         <style>* { margin: 0; padding: 0; } a {text-decoration: none;} th, td {  padding: 5px;} table, th, td { border: 1px solid black;  border-collapse: collapse;} * {font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;}</style>
 			 </head>
 			 <table border="1" style="">
-			 <tr><th>Lp.</th><th>Kod Produktu</th><th>Nazwa</th><th>EAN</th><th>Kategoria</th><th>Czas wysyłki</th><th>Przewoźnik</th><th>Cena</th></tr>';
+			 <tr><th>Lp.</th><th>Kod Produktu</th><th>Nazwa</th><th>EAN</th><th>W sklepie ?</th><th>Kategoria</th><th>Czas wysyłki</th><th>Przewoźnik</th><th>Cena</th></tr>';
 			 
 	
 	
@@ -303,9 +303,10 @@ foreach ($result_log as $log) {
 	($sklad[5] == '999') ? $log_delivery  = 'Brak' : $log_delivery = '';
 	($sklad[6] == '999') ? $log_delivery2 = 'Brak' : $log_delivery2 = '';
 	($sklad[7] == '') ? $log_cena = 'Brak' : $log_cena = $sklad[7];
+	$log_aktywny = $sklad[8];
 	
 	
-	$body .= '<tr><td>'.$lp.'</td><td>'.$log_kod.'</td><td>'.$log_nazwa.'</td><td>'.$log_ean.'</td><td>'.$log_kategoria.'</td><td>'.$log_delivery.'</td><td>'.$log_delivery2.'</td><td>'.$log_cena.'</td></tr>';
+	$body .= '<tr><td>'.$lp.'</td><td>'.$log_kod.'</td><td>'.$log_nazwa.'</td><td>'.$log_ean.'</td><td>'.$log_aktywny.'</td><td>'.$log_kategoria.'</td><td>'.$log_delivery.'</td><td>'.$log_delivery2.'</td><td>'.$log_cena.'</td></tr>';
 	$lp ++;
 }
 $lp = 0;
