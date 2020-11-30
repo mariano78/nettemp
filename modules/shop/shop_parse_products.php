@@ -60,7 +60,7 @@ include("$root/modules/shop/shop_settings.php");
 
 		oci_free_statement($stid);
 		oci_free_statement($stid2);
-		oci_free_statement($stid3);
+		//oci_free_statement($stid3);
 		oci_close($conn);
      
 		
