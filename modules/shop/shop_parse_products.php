@@ -34,7 +34,7 @@ include("$root/modules/shop/shop_settings.php");
 				$tow_status = $row2['TO_STATUS_HANDL']; //status towaru w jfox
 				echo $tow_status;
 				
-				if($tow_status != 'spr' OR $tow_status != 'spz' OR $tow_status != 'wyp'){
+				if($tow_status != 'spr' && $tow_status && 'spz' && $tow_status != 'wyp'){
 					
 					//update shop_prod
 					$stid3 = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET IS_DELETED = :is_del, IN_SHOP = :in_shop WHERE ID_TOW = :idtow4');
