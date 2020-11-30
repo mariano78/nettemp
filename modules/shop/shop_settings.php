@@ -74,6 +74,9 @@ foreach ($result as $a) {
 	if($a['option']=='fkod') {
 		$filtr_kod=$a['value'];
 	}
+	if($a['option']=='fgrupa') {
+		$filtr_grupa=$a['value'];
+	}
 }	
 // ORACLE - podłączenie do bazy
 

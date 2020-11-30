@@ -43,6 +43,17 @@ if (!empty($ffkodok)){
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+//filtr grupa
+$ffgrupa = isset($_POST['ffgrupa']) ? $_POST['ffgrupa'] : '';
+$ffgrupaok = isset($_POST['ffgrupaok']) ? $_POST['ffgrupaok'] : '';
+
+if (!empty($ffgrupaok)){
+    
+	$db = new PDO("sqlite:$root/dbf/nettemp.db");
+    $db->exec("UPDATE shop SET value = '$ffgrupa' WHERE option = 'fgrupa'") or die ($db->lastErrorMsg());
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
 	
 //nazwa
 $name_new = isset($_POST['name_new']) ? $_POST['name_new'] : '';
@@ -119,11 +130,15 @@ $pstart = ($page-1) * $pstop;
 <div class="panel panel-default">
 <div class="panel-heading">
 <form action="" method="post" style="display:inline!important;">
-	
 	<input type="text" name="ffkod" size="9" maxlength="9" value="<?php echo $filtr_kod; ?>" />
 	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 	<input type="hidden" name="ffkodok" value="ok" />
-    </form>
+</form>
+<form action="" method="post" style="display:inline!important;">
+	<input type="text" name="ffgrupa" size="9" maxlength="9" value="<?php echo $filtr_grupa; ?>" />
+	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+	<input type="hidden" name="ffgrupaok" value="ok" />
+</form>
 
 <center>Produkty do uzupełnienia - strona  <?php echo $page;?></center> </div>
 
@@ -194,6 +209,7 @@ AND JFOX_CENNIK.IS_DELETED LIKE 'N'
 AND JFOX_STAN_A01.MAGAZYN LIKE 'M-GLOWNY'
 --AND JFOX_TOWAR_KARTOTEKI.ID LIKE '29'
 AND JFOX_TOWAR_KARTOTEKI.TO_KOD LIKE '".$filtr_kod."'
+AND JFOX_TOWAR_KARTOTEKI.TO_GRUPA LIKE '".$filtr_grupa."'
 AND (JFOX_RB_TOWAR_KARTOTEKI.TO_STATUS_HANDL LIKE 'spr' OR JFOX_RB_TOWAR_KARTOTEKI.TO_STATUS_HANDL LIKE 'spz' OR JFOX_RB_TOWAR_KARTOTEKI.TO_STATUS_HANDL LIKE 'wyp')
 ORDER BY JFOX_TOWAR_KARTOTEKI.TO_GRUPA ASC, JFOX_TOWAR_KARTOTEKI.TO_KOD ASC OFFSET ".$pstart." ROWS FETCH NEXT ".$pstop." ROWS ONLY";
 
