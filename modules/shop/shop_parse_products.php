@@ -45,13 +45,14 @@ include("$root/modules/shop/shop_settings.php");
 					$sql = "UPDATE SHOPPER_PRODUCTS SET IS_DELETED = '$is_del' WHERE ID_TOW = $id_tow ";
 					echo "\n".$sql;
 					$stid3 = oci_parse($conn, $sql);
+					echo "Aktualizuje2";
 					//oci_bind_by_name($stid3, ":idtow4", $id_tow);
 					//oci_bind_by_name($stid3, ':is_del', $is_del);
 					//oci_bind_by_name($stid3, ':in_shop', $in_shop);
 					oci_execute($stid3);
 					//oci_commit($conn);
 					//oci_free_statement($stid3);
-					echo "Aktualizuje";
+					
 					
 				}
 				
