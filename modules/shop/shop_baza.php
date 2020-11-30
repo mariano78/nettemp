@@ -152,6 +152,7 @@ Grupa:
 <th>Kod RB</th>
 <th>Grupa</th>
 <th>Status</th>
+<th>Stan</th>
 <th>Nazwa RB</th>
 <th>W sklepie ?</th>
 <th>Kategoria</th>
@@ -277,6 +278,7 @@ $stid2 = oci_parse($conn, "$sql");
 			$shop_delivery = $row['DELIVERY'];
 			$shop_delivery_typ = $row['DELIVERY2'];
 			$shop_name = $row['SHOP_NAME'];
+			$rb_stan = $row['STAN'];
 			
 ?>
 			<tr>	
@@ -294,10 +296,14 @@ $stid2 = oci_parse($conn, "$sql");
 				
 				</td>
 				
-				<td class="col-md-0"> <?php echo $rb_tow_nazwa ?>
+				<td class="col-md-0"> <?php echo $rb_stan ?>
 				
 				</td>
 				
+				<td class="col-md-0"> <?php echo $rb_tow_nazwa ?>
+				
+				</td>
+
 				<td class="col-md-0">
 					<form action="" method="post" style="display:inline!important;">
 					<input type="hidden" name="inshop_id_tow" value="<?php echo $id_tow; ?>" />
