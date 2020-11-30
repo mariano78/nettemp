@@ -37,14 +37,13 @@ include("$root/modules/shop/shop_settings.php");
 				if($tow_status != 'spr' OR $tow_status != 'spz' OR $tow_status != 'wyp'){
 					
 					//update shop_prod
-					$sql = "UPDATE SHOPPER_PRODUCTS SET IS_DELETED = :is_del, IN_SHOP = :in_shop WHERE ID_TOW = :idtow4";
-					echo $sql;
-					$stid3 = oci_parse($conn, $sql);
+					$stid3 = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET IS_DELETED = :is_del, IN_SHOP = :in_shop WHERE ID_TOW = :idtow4');
 					$is_del = 'Y';
 					$in_shop = 'N';
 					oci_bind_by_name($stid3, ":idtow4", $id_tow);
 					oci_bind_by_name($stid3, ":is_del", $id_del);
 					oci_bind_by_name($stid3, ":in_shop", $in_shop);
+					oci_execute($stid3);
 					echo "Ustawiam \n";
 					
 				}
