@@ -23,13 +23,13 @@ include("$root/modules/shop/shop_settings.php");
 			
 			//JFOX_RB_TOWAR_KARTOTEKI.TO_STATUS_HANDL
 			
-			$stid2 = oci_parse($conn, "SELECT TO_STATUS FROM JFOX_RB_TOWAR_KARTOTEKI WHERE ID_TOW = :idtow3");
+			$stid2 = oci_parse($conn, "SELECT TO_STATUS_HANDL FROM JFOX_RB_TOWAR_KARTOTEKI WHERE ID_TOW = :idtow3");
 			oci_bind_by_name($stid2, ":idtow3", $id_tow);
 			oci_execute($stid2);
 			
 			while (($row2 = oci_fetch_array($stid2, OCI_ASSOC)) != false) {
 				
-				$id_tow_status = $row['TO_STATUS']; //status towaru w jfox
+				$id_tow_status = $row['TO_STATUS_HANDL']; //status towaru w jfox
 				echo $id_tow_status;
 				
 				
