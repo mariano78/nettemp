@@ -31,8 +31,21 @@ include("$root/modules/shop/shop_settings.php");
 			
 			while (($row2 = oci_fetch_array($stid2, OCI_ASSOC)) != false) {
 				
-				$id_tow_status = $row2['TO_STATUS_HANDL']; //status towaru w jfox
-				echo $id_tow_status;
+				$tow_status = $row2['TO_STATUS_HANDL']; //status towaru w jfox
+				echo $tow_status;
+				
+				if($tow_status != 'spr' OR $tow_status != 'spz' OR $tow_status != 'wyp'){
+					
+					//update shop_prod
+					$stid3 = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET IS_DELETED = :is_del, IN_SHOP = ;in_shop WHERE ID_TOW = :idtow4');
+					$is_del = 'Y';
+					$in_shop = 'N';
+					oci_bind_by_name($stid3, ":idtow4", $id_tow);
+					oci_bind_by_name($stid3, ":is_del", $id_del);
+					oci_bind_by_name($stid3, ":inshop", $in_shop);
+					echo "Ustawiam \n";
+					
+				}
 				
 				
 			}
@@ -42,6 +55,7 @@ include("$root/modules/shop/shop_settings.php");
 
 		oci_free_statement($stid);
 		oci_free_statement($stid2);
+		oci_free_statement($stid3);
 		oci_close($conn);
      
 		
