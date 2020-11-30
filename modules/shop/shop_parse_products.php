@@ -32,7 +32,7 @@ include("$root/modules/shop/shop_settings.php");
 			while (($row2 = oci_fetch_array($stid2, OCI_ASSOC)) != false) {
 				
 				$tow_status = $row2['TO_STATUS_HANDL']; //status towaru w jfox
-				echo " - ".$tow_status."\n";
+				echo " - ".$tow_status;
 				
 				if($tow_status != 'spr' && $tow_status != 'spz' && $tow_status != 'wyp'){
 					
@@ -46,7 +46,7 @@ include("$root/modules/shop/shop_settings.php");
 					oci_execute($stid3);
 					//oci_commit($conn);
 					oci_free_statement($stid3);
-					echo "Aktualizuję\n";
+					echo " - Aktualizuję \n";
 					
 				}
 				
