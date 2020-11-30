@@ -29,7 +29,7 @@ include("$root/modules/shop/shop_settings.php");
 			
 			while (($row2 = oci_fetch_array($stid2, OCI_ASSOC)) != false) {
 				
-				$id_tow_status = $row['TO_STATUS_HANDL']; //status towaru w jfox
+				$id_tow_status = $row2['TO_STATUS_HANDL']; //status towaru w jfox
 				echo $id_tow_status;
 				
 				
