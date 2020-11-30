@@ -41,7 +41,7 @@ include("$root/modules/shop/shop_settings.php");
 					$is_del = 'Y';
 					$in_shop = 'N';
 					oci_bind_by_name($stid3, ":idtow4", $id_tow);
-					oci_bind_by_name($stid3, ":isdel", $is_del);
+					oci_bind_by_name($stid3, ":isdel2", $is_del);
 					oci_bind_by_name($stid3, ":inshop", $in_shop);
 					oci_execute($stid3);
 					echo "Ustawiam \n";
