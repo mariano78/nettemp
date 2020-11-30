@@ -19,7 +19,7 @@ include("$root/modules/shop/shop_settings.php");
 		while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 			
 			$id_tow = $row['ID_TOW']; //kod towaru w RB
-			echo "Towar ID - ".$id_tow."\n";
+			echo "Towar ID - ".$id_tow;
 			
 			//JFOX_RB_TOWAR_KARTOTEKI.TO_STATUS_HANDL
 			
@@ -32,7 +32,7 @@ include("$root/modules/shop/shop_settings.php");
 			while (($row2 = oci_fetch_array($stid2, OCI_ASSOC)) != false) {
 				
 				$tow_status = $row2['TO_STATUS_HANDL']; //status towaru w jfox
-				echo $tow_status;
+				echo $tow_status."\n";
 				
 				if($tow_status != 'spr' && $tow_status != 'spz' && $tow_status != 'wyp'){
 					
@@ -46,6 +46,7 @@ include("$root/modules/shop/shop_settings.php");
 					oci_execute($stid3);
 					//oci_commit($conn);
 					oci_free_statement($stid3);
+					echo "Aktualizuję\n";
 					
 				}
 				
