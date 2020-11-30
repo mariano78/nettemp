@@ -42,7 +42,7 @@ include("$root/modules/shop/shop_settings.php");
 					$in_shop = 'N';
 					oci_bind_by_name($stid3, ":idtow4", $id_tow);
 					oci_bind_by_name($stid3, ":is_del", $id_del);
-					oci_bind_by_name($stid3, ":inshop", $in_shop);
+					oci_bind_by_name($stid3, ":in_shop", $in_shop);
 					echo "Ustawiam \n";
 					
 				}
