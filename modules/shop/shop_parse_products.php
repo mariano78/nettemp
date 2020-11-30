@@ -34,7 +34,7 @@ include("$root/modules/shop/shop_settings.php");
 				$tow_status = $row2['TO_STATUS_HANDL']; //status towaru w jfox
 				echo $tow_status;
 				
-				if($tow_status != 'spr' && $tow_status != 'spz' && $tow_status != 'wyp'){
+				//if($tow_status != 'spr' && $tow_status != 'spz' && $tow_status != 'wyp'){
 					
 					//update shop_prod
 					$is_del = 'Y';
@@ -52,9 +52,9 @@ include("$root/modules/shop/shop_settings.php");
 					oci_execute($stid3);
 					oci_commit($conn);
 					oci_free_statement($stid3);
-					oci_close($conn);
+					//oci_close($conn);
 					
-				}
+				//}
 				
 				
 			}
