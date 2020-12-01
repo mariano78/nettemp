@@ -209,7 +209,7 @@ foreach ($result_log as $log) {
 $lp = 0;
 $body .= '</table></div></body></html>';
 
-if ( mail ('musik@robelit.pl;joanna.otremba@robelit.pl', 'Shoper raport - brakujące zdjęcia', $body, $headers ) ) {
+if ( mail ('musik@robelit.pl', 'Shoper raport - brakujące zdjęcia', $body, $headers ) ) {
 							echo "Mail send OK\n";
 						} else {
 						echo "Mail send problem\n";
