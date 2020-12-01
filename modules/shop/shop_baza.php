@@ -420,6 +420,7 @@ $stid2 = oci_parse($conn, "$sql");
 							<option value="65"  <?php echo $shop_cat == 65 ? 'selected="selected"' : ''; ?>  ><?php echo "Asfalt workowany" ?></option>
 							<option value="13"  <?php echo $shop_cat == 13 ? 'selected="selected"' : ''; ?>  ><?php echo "Wyprzedaż" ?></option>
 							<option value="121"  <?php echo $shop_cat == 121 ? 'selected="selected"' : ''; ?>  ><?php echo "Wyprzedaż - środki czystości" ?></option>
+							<option value="122"  <?php echo $shop_cat == 122 ? 'selected="selected"' : ''; ?>  ><?php echo "Maseczki i przyłbice" ?></option>
 							
 							
 						
