@@ -16,7 +16,8 @@ $www_serwer = "http://robelit.home.pl/shop_img/";
 
 $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 	//filtry
-	//$resource->filters(['stock.code'=> ['LIKE'=> $kod]]);
+	$resource->filters(['translations.pl_PL.active'=>true]);
+
 	$currentPage = 1;
 	$currentProd = 1;;
 	$result = $resource->get();
