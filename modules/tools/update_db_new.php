@@ -330,6 +330,7 @@ $updates['2020-11-20 11:39:40'][]="CREATE TABLE shop_cat (id INTEGER PRIMARY KEY
 $updates['2020-11-20 11:49:40'][]="INSERT INTO shop ('option', 'value') VALUES ('paginating','20')";
 $updates['2020-11-20 11:59:40'][]="INSERT INTO shop ('option', 'value') VALUES ('fkod','%')";
 $updates['2020-11-20 11:59:45'][]="INSERT INTO shop ('option', 'value') VALUES ('fgrupa','%')";
+$updates['2020-11-20 11:59:47'][]="INSERT INTO shop ('option', 'value') VALUES ('fsklep','%')";
 
 
 

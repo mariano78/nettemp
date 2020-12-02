@@ -77,6 +77,9 @@ foreach ($result as $a) {
 	if($a['option']=='fgrupa') {
 		$filtr_grupa=$a['value'];
 	}
+	if($a['option']=='fsklep') {
+		$filtr_sklep=$a['value'];
+	}
 }	
 // ORACLE - podłączenie do bazy
 
