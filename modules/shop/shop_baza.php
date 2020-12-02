@@ -51,7 +51,7 @@ if (!empty($ffgrupaok)){
     
 	$db = new PDO("sqlite:$root/dbf/nettemp.db");
     $db->exec("UPDATE shop SET value = '$ffgrupa' WHERE option = 'fgrupa'") or die ($db->lastErrorMsg());
-    header("location: " . $_SERVER['REQUEST_URI']);
+    header("location: index.php?id=tools&type=shop_baza");
     exit();
     }
 	
