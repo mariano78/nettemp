@@ -314,15 +314,13 @@ $body .= '</table></div></body></html>';
 $odbiorcy = '';
 $dzien = date("D"); 
 
-if (date('H') == 12 && $dzien == 'Fri' ){
-	
-	$odbiorcy = 'mariano78@interia.pl';
+if (date('H') == 13 && ($dzien == 'Fri' OR $dzien == 'Mon') ){
+	$odbiorcy = 'musik@robelit.pl;mikolajczyk@robelit.pl';
 }else {
-	
-	$odbiorcy = 'mariano78@interia.pl;musik@robelit';
+	$odbiorcy = 'musik@robelit';
 }
 
-if ( mail ($odbiorcy, 'Shoper - raport produktów', $body, $headers ) ) {
+if ( mail ($odbiorcy, 'Shoper - raport produktów do uzupełnienia', $body, $headers ) ) {
 							echo "Mail send OK\n";
 						} else {
 						echo "Mail send problem\n";
