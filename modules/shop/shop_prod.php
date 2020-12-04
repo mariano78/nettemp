@@ -311,8 +311,18 @@ foreach ($result_log as $log) {
 }
 $lp = 0;
 $body .= '</table></div></body></html>';
+$odbiorcy = '';
+$dzien = date("D"); 
 
-if ( mail ('musik@robelit.pl', 'Shoper - raport produktów', $body, $headers ) ) {
+if (date('H') == 12 && $dzien == 'Fri' ){
+	
+	$odbiorcy = 'mariano78@interia.pl';
+}else {
+	
+	$odbiorcy = 'mariano78@interia.pl;musik@robelit';
+}
+
+if ( mail ($odbiorcy, 'Shoper - raport produktów', $body, $headers ) ) {
 							echo "Mail send OK\n";
 						} else {
 						echo "Mail send problem\n";
