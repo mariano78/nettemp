@@ -317,7 +317,7 @@ $dzien = date("D");
 if (date('H') == 13 && ($dzien == 'Fri' OR $dzien == 'Mon') ){
 	$odbiorcy = 'musik@robelit.pl;mikolajczyk@robelit.pl';
 }else {
-	$odbiorcy = 'musik@robelit';
+	$odbiorcy = 'musik@robelit.pl';
 }
 
 if ( mail ($odbiorcy, 'Shoper - raport produktów do uzupełnienia', $body, $headers ) ) {
