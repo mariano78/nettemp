@@ -49,7 +49,7 @@ include("$root/modules/shop/shop_settings.php");
 					echo " - Aktualizuję \n";
 					
 					
-					$sql5 = "SELECT TO_KOD FROM JFOX_TOWAR_KARTOTEKI WHERE ID LIKE '".$id_tow."'' AND IS_DELETED LIKE 'N'";
+					$sql5 = "SELECT TO_KOD FROM JFOX_TOWAR_KARTOTEKI WHERE ID LIKE '".$id_tow."' AND IS_DELETED LIKE 'N'";
 					$stid5 = oci_parse($conn, $sql5);
 					oci_execute($stid5);
 					while (($row5 = oci_fetch_array($stid5, OCI_ASSOC)) != false) {
