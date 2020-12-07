@@ -48,6 +48,38 @@ include("$root/modules/shop/shop_settings.php");
 					oci_free_statement($stid3);
 					echo " - Aktualizuję \n";
 					
+					
+					$sql5 = "SELECT TO_KOD FROM JFOX_TOWAR_KARTOTEKI WHERE ID LIKE '".$id_tow."'' AND IS_DELETED LIKE 'N'";
+					$stid5 = oci_parse($conn, $sql5);
+					oci_execute($stid5);
+					while (($row5 = oci_fetch_array($stid5, OCI_ASSOC)) != false) {
+						
+						$to_kod_na = $row5['TO_KOD']; 
+						$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
+						//filtry
+						
+						$resource->filters(['stock.code'=> ['LIKE'=> $to_kod_na]]);
+						$result = $resource->get();
+						//var_dump($result);
+						$count = $result->count;
+							foreach($result as $rr){
+								$id_na = $rr->product_id;
+								$aktywnosc_na = false;
+								
+								$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
+								$data = array(
+									'translations' => array(
+										'pl_PL' => array(
+										'active' => $aktywnosc_na
+										)
+									)
+								);
+								$result2 = $resource->put($id_na, $data);	
+							}
+					}
+								
+					
+					
 				}
 				
 				
