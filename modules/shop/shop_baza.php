@@ -376,17 +376,21 @@ $stid2 = oci_parse($conn, "$sql");
 							<option value="25"  <?php echo $shop_cat == 25 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty profilowane - Akce. do mont. płyt profil." ?></option>
 						
 							<option value="37"  <?php echo $shop_cat == 37 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polistyrenu - Antyrefleks" ?></option>
-							<option value="36"  <?php echo $shop_cat == 36 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polistyrenu - Akryl - formatki do drzwi" ?></option>
+							
 							<option value="98"  <?php echo $shop_cat == 98 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polistyrenu - Szkło syntet. - gładkie - 2 mm" ?></option>
 							<option value="99"  <?php echo $shop_cat == 99 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polistyrenu - Szkło syntet. - gładkie - 2,5 mm" ?></option>
 							<option value="100"  <?php echo $shop_cat == 100 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polistyrenu - Szkło syntet. - gładkie - 4 mm" ?></option>
 							<option value="101"  <?php echo $shop_cat == 101 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polistyrenu - Szkło syntet. - gładkie - 5 mm" ?></option>
 							<option value="102"  <?php echo $shop_cat == 102 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polistyrenu - Szkło syntet. - gładkie - 8 mm" ?></option>
-						
+							
+							<option value="34"    <?php echo $shop_cat == 34 ? 'selected="selected"' : ''; ?>  ><?php echo "Formatki do drzwi" ?></option>
+							<option value="124"  <?php echo $shop_cat == 124 ? 'selected="selected"' : ''; ?>  ><?php echo "Formatki do drzwi - 440x440 mm" ?></option>
+							<option value="106"  <?php echo $shop_cat == 106 ? 'selected="selected"' : ''; ?>  ><?php echo "Formatki do drzwi - 440x540 mm" ?></option>
+							<option value="104"  <?php echo $shop_cat == 104 ? 'selected="selected"' : ''; ?>  ><?php echo "Formatki do drzwi - 1200x640 mm" ?></option>
+							<option value="126"  <?php echo $shop_cat == 126 ? 'selected="selected"' : ''; ?>  ><?php echo "Formatki do drzwi - 1420x440 mm" ?></option>
+							<option value="105"  <?php echo $shop_cat == 105 ? 'selected="selected"' : ''; ?>  ><?php echo "Formatki do drzwi - 1420x540 mm" ?></option>
+							
 							<option value="103"  <?php echo $shop_cat == 103 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polist. - Szkło syntetyczne - ornamentowe. 1000x2000 mm" ?></option>
-							<option value="104"  <?php echo $shop_cat == 104 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polist. - Szkło syntetyczne - ornamentowe. 1200x640 mm" ?></option>
-							<option value="105"  <?php echo $shop_cat == 105 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polist. - Szkło syntetyczne - ornamentowe. 1420x540 mm" ?></option>
-							<option value="106"  <?php echo $shop_cat == 106 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polist. - Szkło syntetyczne - ornamentowe. 440x540 mm" ?></option>
 							<option value="107"  <?php echo $shop_cat == 107 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polist. - Szkło syntetyczne - ornamentowe. Pozostałe mm" ?></option>
 							
 							<option value="39"  <?php echo $shop_cat == 39 ? 'selected="selected"' : ''; ?>  ><?php echo "Zadaszenia drzwi i balkonów - Daszki aluminiowe STANDARD" ?></option>
