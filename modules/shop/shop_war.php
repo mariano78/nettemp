@@ -56,5 +56,18 @@ try{
     die($ex->getMessage());
 }
 
+try{
+   
+
+    $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
+    $result = $resource->get();
+
+    foreach($result as $r){
+        printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name);
+    }
+} catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
+    die($ex->getMessage());
+}
+
 
 ?>
