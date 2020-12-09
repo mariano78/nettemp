@@ -60,7 +60,7 @@ foreach ($result as $a) {
 		$database=$a['value'];
 	}
 	if($a['option']=='shopusr') {
-		$shopusr=$a['value'];
+		$shopusr='apimm';
 	}
 	if($a['option']=='shoppass') {
 		$shoppass=$a['value'];
