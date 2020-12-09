@@ -21,13 +21,12 @@ $licz_produkt = 1;
 
 
 try{
-   
-
-    $resource = new DreamCommerce\ShopAppstoreLib\Resource\Option($client);
+    
+    $resource = new DreamCommerce\ShopAppstoreLib\Resource\OptionValue($client);
     $result = $resource->get();
 
-    foreach($result as $r){
-        printf("#%d - %s\n", $r->option_id, $r->translations->pl_PL->name);
+    foreach($result as $r) {
+        printf("#%d (option: %d) - products num: %d\n", $r->ovalue_id, $r->option_id, $r->total_products);
     }
 } catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
     die($ex->getMessage());
