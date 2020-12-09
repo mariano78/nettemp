@@ -61,10 +61,11 @@ try{
 
     $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
     $result = $resource->get();
+	var_dump($results);
 
     foreach($result as $r){
         printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name);
-		 printf("#%d", $r->option);
+		
     }
 } catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
     die($ex->getMessage());
