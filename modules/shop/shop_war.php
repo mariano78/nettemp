@@ -22,6 +22,18 @@ $licz_produkt = 1;
 
 try{
     
+    $resource = new DreamCommerce\ShopAppstoreLib\Resource\OptionGroup($client);
+    $result = $resource->get();
+
+    foreach($result as $r) {
+        printf("%d - %s\n", $r->group_id, $r->translations->pl_PL->name);
+    }
+} catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
+    die($ex->getMessage());
+}
+
+try{
+    
     $resource = new DreamCommerce\ShopAppstoreLib\Resource\OptionValue($client);
     $result = $resource->get();
 
@@ -32,6 +44,17 @@ try{
     die($ex->getMessage());
 }
 
+try{
+   
+    $resource = new DreamCommerce\ShopAppstoreLib\Resource\Option($client);
+    $result = $resource->get();
+
+    foreach($result as $r){
+        printf("#%d - %s\n", $r->option_id, $r->translations->pl_PL->name);
+    }
+} catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
+    die($ex->getMessage());
+}
 
 
 ?>
