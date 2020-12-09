@@ -64,6 +64,7 @@ try{
 
     foreach($result as $r){
         printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name);
+		 printf("#%d", $r->option);
     }
 } catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
     die($ex->getMessage());
