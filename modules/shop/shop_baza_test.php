@@ -68,7 +68,7 @@ if (!empty($ffkodok)){
 $ffstat = isset($_POST['ffstat']) ? $_POST['ffstat'] : '';
 $ffstatok = isset($_POST['ffstatok']) ? $_POST['ffstatok'] : '';
 
-if (!empty($ffkodok)){
+if (!empty($ffstatok)){
     
 	$db = new PDO("sqlite:$root/dbf/nettemp.db");
     $db->exec("UPDATE shop SET value = '$ffstat' WHERE option = 'fstat'") or die ($db->lastErrorMsg());
