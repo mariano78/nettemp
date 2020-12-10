@@ -80,6 +80,9 @@ foreach ($result as $a) {
 	if($a['option']=='fsklep') {
 		$filtr_sklep=$a['value'];
 	}
+	if($a['option']=='fstst') {
+		$filtr_stat=$a['value'];
+	}
 }	
 // ORACLE - podłączenie do bazy
 

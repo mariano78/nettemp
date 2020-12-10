@@ -64,6 +64,17 @@ if (!empty($ffkodok)){
     header("location: index.php?id=tools&type=shop_baza");
     exit();
     }
+//filtr status
+$ffstat = isset($_POST['ffstat']) ? $_POST['ffstat'] : '';
+$ffstatok = isset($_POST['ffstatok']) ? $_POST['ffstatok'] : '';
+
+if (!empty($ffkodok)){
+    
+	$db = new PDO("sqlite:$root/dbf/nettemp.db");
+    $db->exec("UPDATE shop SET value = '$ffstat' WHERE option = 'fstat'") or die ($db->lastErrorMsg());
+    header("location: index.php?id=tools&type=shop_baza");
+    exit();
+    }
 //filtr grupa
 $ffgrupa = isset($_POST['ffgrupa']) ? $_POST['ffgrupa'] : '';
 $ffgrupaok = isset($_POST['ffgrupaok']) ? $_POST['ffgrupaok'] : '';
@@ -183,6 +194,12 @@ Kod:
 	<input type="text" name="ffkod" size="9" maxlength="9" value="<?php echo $filtr_kod; ?>" />
 	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 	<input type="hidden" name="ffkodok" value="ok" />
+</form>
+Status:
+<form action="" method="post" style="display:inline!important;">
+	<input type="text" name="ffstat" size="9" maxlength="9" value="<?php echo $filtr_stat; ?>" />
+	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+	<input type="hidden" name="ffstatok" value="ok" />
 </form>
 Grupa:
 <form action="" method="post" style="display:inline!important;">
