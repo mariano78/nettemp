@@ -665,7 +665,7 @@ $stid2 = oci_parse($conn, "$sql");
 				<td class="col-md-0">
 					
 					<form action="" method="post"  class="form-inline">
-						<select name="dostawa" class="form-control input-sm small" onchange="this.form.submit()" style="width: 100px;" >
+						<select name="dostawa" class="form-control input-sm small" onchange="this.form.submit()" style="width: 70px;" >
 							<option class="label-danger" value="999"  <?php echo $shop_delivery == 999 ? 'selected="selected"' : ''; ?>  ><?php echo "Brak" ?></option>
 							<option value="2"  <?php echo $shop_delivery == 2 ? 'selected="selected"' : ''; ?>  ><?php echo "2 dni" ?></option>
 							<option value="6"  <?php echo $shop_delivery == 6 ? 'selected="selected"' : ''; ?>  ><?php echo "10 dni" ?></option>
