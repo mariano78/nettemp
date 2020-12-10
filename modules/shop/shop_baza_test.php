@@ -210,8 +210,8 @@ W sklepie ? (T/N/%):
 <th>Status</th>
 <th>Stan</th>
 <th>Nazwa RB</th>
-<th>W sklepie ?</th>
-<th>SPZ ?</th>
+<th>W sklepie?</th>
+<th>SPZ?</th>
 <th>Kategoria 1</th>
 <th>Kategoria 2</th>
 <th>Czas Dostawy</th>
