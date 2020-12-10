@@ -31,6 +31,27 @@ if (!empty($inshop_id_tow) && ($inshop1 == "inshop1")){
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+
+//czy spz
+$in_shop_spz_id = isset($_POST['in_shop_spz_id']) ? $_POST['in_shop_spz_id'] : '';
+$in_shop_spz = isset($_POST['in_shop_spz']) ? $_POST['in_shop_spz'] : '';
+$in_shop_spz1 = isset($_POST['in_shop_spz1']) ? $_POST['in_shop_spz1'] : '';
+
+
+if (!empty($in_shop_spz_id) && ($in_shop_spz1 == "in_shop_spz1")){
+  
+	
+	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET SHOP_TO_SPZ = :ins WHERE ID_TOW = :isspz');
+	
+	oci_bind_by_name($stid, ":isspz", $in_shop_spz_id);
+	oci_bind_by_name($stid, ':ins', $in_shop_spz);
+	oci_execute($stid);
+	oci_free_statement($stid);
+	oci_close($conn);	
+	
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
 	
 //filtr kod
 $ffkod = isset($_POST['ffkod']) ? $_POST['ffkod'] : '';
@@ -172,6 +193,7 @@ W sklepie ? (T/N/%):
 <th>Stan</th>
 <th>Nazwa RB</th>
 <th>W sklepie ?</th>
+<th>SPZ ?</th>
 <th>Kategoria</th>
 <th>Czas Dostawy</th>
 <th>Forma Dostawy</th>
@@ -300,9 +322,12 @@ $stid2 = oci_parse($conn, "$sql");
 			$grupa_tow = $row['TO_GRUPA'];
 			$in_shop = $row['IN_SHOP'];
 			$shop_cat = $row['CATEGORY'];
+			$shop_cat2 = $row['CATEGORY2'];
 			$shop_delivery = $row['DELIVERY'];
 			$shop_delivery_typ = $row['DELIVERY2'];
 			$shop_name = $row['SHOP_NAME'];
+			$shop_spz = $row['SHOP_SPZ'];
+			$shop_linked = $row['SHOP_LINKED'];
 			$rb_stan = $row['STAN'];
 			
 ?>
@@ -335,6 +360,15 @@ $stid2 = oci_parse($conn, "$sql");
 					<input type="hidden" name="inshop1" value="inshop1" />
 					<button type="submit" name="inshopcheck" value="<?php echo $in_shop == 'T' ? 'N' : 'T'; ?>" <?php echo $in_shop == 'T' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
 					<?php echo $in_shop == 'T' ? 'ON' : 'OFF'; ?></button>
+				</form>
+				</td>
+				
+				<td class="col-md-0">
+					<form action="" method="post" style="display:inline!important;">
+					<input type="hidden" name="in_shop_spz_id" value="<?php echo $id_tow; ?>" />
+					<input type="hidden" name="in_shop_spz1" value="in_shop_spz1" />
+					<button type="submit" name="in_shop_spz" value="<?php echo $shop_spz == 'Y' ? 'N' : 'Y'; ?>" <?php echo $shop_spz == 'Y' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
+					<?php echo $in_shop == 'Y' ? 'ON' : 'OFF'; ?></button>
 				</form>
 				</td>
 				
