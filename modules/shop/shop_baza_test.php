@@ -204,6 +204,7 @@ W sklepie ? (T/N/%):
 <thead>
 <tr>
 <th>Lp.</th>
+<th>ID.</th>
 <th>Kod RB</th>
 <th>Grupa</th>
 <th>Status</th>
@@ -211,8 +212,8 @@ W sklepie ? (T/N/%):
 <th>Nazwa RB</th>
 <th>W sklepie ?</th>
 <th>SPZ ?</th>
-<th>Kategoria</th>
-<th>Kategoria2</th>
+<th>Kategoria 1</th>
+<th>Kategoria 2</th>
 <th>Czas Dostawy</th>
 <th>Forma Dostawy</th>
 <th>Shoper nazwa</th>
@@ -351,6 +352,8 @@ $stid2 = oci_parse($conn, "$sql");
 ?>
 			<tr>	
 				<td class="col-md-0"> <?php echo $licznik ?></td>
+				
+				<td class="col-md-0"> <?php echo $id_tow ?></td>
 				
 				<td class="col-md-0"> <?php echo $rb_tow_kod ?></td>
 				
