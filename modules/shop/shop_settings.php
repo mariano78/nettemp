@@ -80,7 +80,7 @@ foreach ($result as $a) {
 	if($a['option']=='fsklep') {
 		$filtr_sklep=$a['value'];
 	}
-	if($a['option']=='fstst') {
+	if($a['option']=='fstat') {
 		$filtr_stat=$a['value'];
 	}
 }	
