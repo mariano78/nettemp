@@ -689,7 +689,7 @@ $stid2 = oci_parse($conn, "$sql");
 				<td class="col-md-0">
 				
 					<form action="" method="post" style="display:inline!important;">
-						<input type="text" name="name_new" size="70" maxlength="320" value="<?php echo $shop_name; ?>" />
+						<input type="text" name="name_new" size="70" maxlength="280" value="<?php echo $shop_name; ?>" />
 						<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 						<input type="hidden" name="name_id" value="<?php echo $id_tow; ?>" />
 					</form>
