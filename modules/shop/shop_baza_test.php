@@ -391,7 +391,7 @@ $stid2 = oci_parse($conn, "$sql");
 					<input type="hidden" name="in_shop_spz_id" value="<?php echo $id_tow; ?>" />
 					<input type="hidden" name="in_shop_spz1" value="in_shop_spz1" />
 					<button type="submit" name="in_shop_spz" value="<?php echo $shop_spz == 'Y' ? 'N' : 'Y'; ?>" <?php echo $shop_spz == 'Y' ? 'class="btn btn-xs btn-primary"' : 'class="btn btn-xs btn-default"'; ?>>
-					<?php echo $in_shop == 'Y' ? 'ON' : 'OFF'; ?></button>
+					<?php echo $shop_spz == 'Y' ? 'ON' : 'OFF'; ?></button>
 				</form>
 				<?php }?>
 				</td>
