@@ -393,12 +393,22 @@ $stid2 = oci_parse($conn, "$sql");
 							<option value="103"  <?php echo $shop_cat == 103 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polist. - Szkło syntetyczne - ornamentowe. 1000x2000 mm" ?></option>
 							<option value="107"  <?php echo $shop_cat == 107 ? 'selected="selected"' : ''; ?>  ><?php echo "Szkło z polist. - Szkło syntetyczne - ornamentowe. Pozostałe mm" ?></option>
 							
-							<option value="39"  <?php echo $shop_cat == 39 ? 'selected="selected"' : ''; ?>  ><?php echo "Zadaszenia drzwi i balkonów - Daszki aluminiowe STANDARD" ?></option>
-							<option value="40"  <?php echo $shop_cat == 40 ? 'selected="selected"' : ''; ?>  ><?php echo "Zadaszenia drzwi i balkonów - Daszki aluminiowe RETRO" ?></option>
-							<option value="41"  <?php echo $shop_cat == 41 ? 'selected="selected"' : ''; ?>  ><?php echo "Zadaszenia drzwi i balkonów - Daszki aluminiowe PLUS" ?></option>
-							<option value="42"  <?php echo $shop_cat == 42 ? 'selected="selected"' : ''; ?>  ><?php echo "Zadaszenia drzwi i balkonów - Daszki ze stali nierdzewnej" ?></option>
-							<option value="43"  <?php echo $shop_cat == 43 ? 'selected="selected"' : ''; ?>  ><?php echo "Zadaszenia drzwi i balkonów - Daszki balkonowe" ?></option>
-							<option value="44"  <?php echo $shop_cat == 44 ? 'selected="selected"' : ''; ?>  ><?php echo "Zadaszenia drzwi i balkonów - Markiza Coppo Line" ?></option>
+							<option value="39"  <?php echo $shop_cat == 39 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Daszki alu. STANDARD" ?></option>
+							<option value="127"  <?php echo $shop_cat == 127 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Daszki alu. - Daszki łukowe" ?></option>
+							<option value="128"  <?php echo $shop_cat == 128 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Daszki alu. - Daszki markizowe" ?></option>
+							<option value="129"  <?php echo $shop_cat == 129 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Daszki alu. - Daszki płaskie" ?></option>
+							
+							
+							<option value="40"  <?php echo $shop_cat == 40 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Daszki aluminiowe RETRO" ?></option>
+							<option value="41"  <?php echo $shop_cat == 41 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Daszki aluminiowe PLUS" ?></option>
+							<option value="42"  <?php echo $shop_cat == 42 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Daszki ze stali nierdzewnej" ?></option>
+								<option value="130"  <?php echo $shop_cat == 130 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Daszki ze stali nierdzewnej - Daszki lightline" ?></option>
+								<option value="131"  <?php echo $shop_cat == 131 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Daszki ze stali nierdzewnej - Daszki modułowe lightline" ?></option>
+								<option value="132"  <?php echo $shop_cat == 132 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Daszki ze stali nierdzewnej - Ścianki boczne" ?></option>
+							
+							
+							<option value="43"  <?php echo $shop_cat == 43 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Daszki balkonowe" ?></option>
+							<option value="44"  <?php echo $shop_cat == 44 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Markiza Coppo Line" ?></option>
 							
 							<option value="46"  <?php echo $shop_cat == 46 ? 'selected="selected"' : ''; ?>  ><?php echo "Bitumiczne pokrycia dachowe - Płyty bitumiczne" ?></option>
 							<option value="47"  <?php echo $shop_cat == 47 ? 'selected="selected"' : ''; ?>  ><?php echo "Bitumiczne pokrycia dachowe - Gonty bitumiczne" ?></option>
