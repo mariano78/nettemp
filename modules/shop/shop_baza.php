@@ -186,6 +186,21 @@ if (!empty($deliv_id_tow) && !empty($dostawa)){
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
+//dostawa3	
+$dostawa3 = isset($_POST['dostawa3']) ? $_POST['dostawa3'] : '';
+$deliv_id_tow3 = isset($_POST['deliv_id_tow3']) ? $_POST['deliv_id_tow3'] : '';
+
+if (!empty($deliv_id_tow3) && !empty($dostawa3)){
+    
+	$stid = oci_parse($conn, 'UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DELIVERY_3 = :ins WHERE ID_TOW = :isidt');
+	oci_bind_by_name($stid, ":isidt", $deliv_id_tow3);
+	oci_bind_by_name($stid, ":ins", $dostawa3);
+	oci_execute($stid);
+	oci_free_statement($stid);
+	oci_close($conn);
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
 	
 //dostawa	 typ
 $dostawa_typ = isset($_POST['dostawa_typ']) ? $_POST['dostawa_typ'] : '';
@@ -264,7 +279,8 @@ Spz ? (Y/N/%):
 <th>Kategoria 1</th>
 <th>Kategoria 2</th>
 <th>Czas Dostawy</th>
-<th>Forma Dostawy</th>
+<th>Czas Dostawy</th>
+<th>Forma Dostawy 2</th>
 <th>Powiazane ;</th>
 <th>Shoper nazwa</th>
 </tr>
@@ -308,6 +324,7 @@ SHOPPER_PRODUCTS.SHOP_TO_CATEGORY CATEGORY,
 SHOPPER_PRODUCTS.SHOP_TO_CATEGORY_2 CATEGORY2,
 SHOPPER_PRODUCTS.SHOP_TO_DELIVERY DELIVERY,
 SHOPPER_PRODUCTS.SHOP_TO_DELIVERY_2 DELIVERY2,
+SHOPPER_PRODUCTS.SHOP_TO_DELIVERY_3 DELIVERY3,
 SHOPPER_PRODUCTS.SHOP_TO_NAME SHOP_NAME,
 SHOPPER_PRODUCTS.SHOP_TO_SPZ SHOP_SPZ,
 SHOPPER_PRODUCTS.SHOP_TO_LINKED SHOP_LINKED,
@@ -358,6 +375,7 @@ SHOPPER_PRODUCTS.SHOP_TO_CATEGORY CATEGORY,
 SHOPPER_PRODUCTS.SHOP_TO_CATEGORY_2 CATEGORY2,
 SHOPPER_PRODUCTS.SHOP_TO_DELIVERY DELIVERY,
 SHOPPER_PRODUCTS.SHOP_TO_DELIVERY_2 DELIVERY2,
+SHOPPER_PRODUCTS.SHOP_TO_DELIVERY_3 DELIVERY3,
 SHOPPER_PRODUCTS.SHOP_TO_NAME SHOP_NAME,
 SHOPPER_PRODUCTS.SHOP_TO_SPZ SHOP_SPZ,
 SHOPPER_PRODUCTS.SHOP_TO_LINKED SHOP_LINKED,
@@ -395,6 +413,7 @@ $stid2 = oci_parse($conn, "$sql");
 			$shop_cat = $row['CATEGORY'];
 			$shop_cat2 = $row['CATEGORY2'];
 			$shop_delivery = $row['DELIVERY'];
+			$shop_delivery3 = $row['DELIVERY3'];
 			$shop_delivery_typ = $row['DELIVERY2'];
 			$shop_pow = $row['SHOP_LINKED'];
 			$shop_name = $row['SHOP_NAME'];
@@ -723,6 +742,20 @@ $stid2 = oci_parse($conn, "$sql");
 							
 						</select>
 						<input type="hidden" name="deliv_id_tow" value="<?php echo $id_tow; ?>" />
+					</form>
+				</td>
+				
+				<td class="col-md-0">
+					
+					<form action="" method="post"  class="form-inline">
+						<select name="dostawa3" class="form-control input-sm small" onchange="this.form.submit()" style="width: 75px;" >
+							<option class="label-danger" value="999"  <?php echo $shop_delivery3 == 999 ? 'selected="selected"' : ''; ?>  ><?php echo "Brak" ?></option>
+							<option value="2"  <?php echo $shop_delivery3 == 2 ? 'selected="selected"' : ''; ?>  ><?php echo "2 d" ?></option>
+							<option value="6"  <?php echo $shop_delivery3 == 6 ? 'selected="selected"' : ''; ?>  ><?php echo "10 d" ?></option>
+							<option value="8"  <?php echo $shop_delivery3 == 8 ? 'selected="selected"' : ''; ?>  ><?php echo "45 d" ?></option>
+							
+						</select>
+						<input type="hidden" name="deliv_id_tow3" value="<?php echo $id_tow; ?>" />
 					</form>
 				</td>
 				
