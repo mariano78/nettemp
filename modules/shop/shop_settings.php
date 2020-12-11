@@ -83,6 +83,9 @@ foreach ($result as $a) {
 	if($a['option']=='fstat') {
 		$filtr_stat=$a['value'];
 	}
+	if($a['option']=='fspz') {
+		$filtr_spz=$a['value'];
+	}
 }	
 // ORACLE - podłączenie do bazy
 
