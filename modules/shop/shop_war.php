@@ -58,7 +58,7 @@ try{
 
 try{
    
-    $resource = newDreamCommerce\ShopAppstoreLib\Resource\Product($client);
+    $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
     $data = array(
         'category_id' => 1,
         'producer_id' => 1,
