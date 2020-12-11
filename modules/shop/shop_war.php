@@ -61,7 +61,6 @@ try{
     $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
     $data = array(
         'category_id' => 1,
-        'producer_id' => 1,
 		'related' => array(1,2,3,4
 		
 		
