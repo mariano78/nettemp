@@ -705,10 +705,7 @@ $stid2 = oci_parse($conn, "$sql");
 							<option value="13"  <?php echo $shop_cat2 == 13 ? 'selected="selected"' : ''; ?>  ><?php echo "Wyprzedaż" ?></option>
 							<option value="121"  <?php echo $shop_cat2 == 121 ? 'selected="selected"' : ''; ?>  ><?php echo "Wyprzedaż - środki czystości" ?></option>
 							<option value="122"  <?php echo $shop_cat2 == 122 ? 'selected="selected"' : ''; ?>  ><?php echo "Maseczki i przyłbice" ?></option>
-							
-							
-						
-						
+
 						</select>
 						<input type="hidden" name="kat_id_tow2" value="<?php echo $id_tow; ?>" />
 					</form>
@@ -729,7 +726,7 @@ $stid2 = oci_parse($conn, "$sql");
 					</form>
 				</td>
 				
-				<td class="col-md-1">
+				<td class="col-md-0">
 					
 					<form action="" method="post"  class="form-inline">
 						<select name="dostawa_typ" class="form-control input-sm small" onchange="this.form.submit()" style="width: 100px;" >
@@ -748,7 +745,7 @@ $stid2 = oci_parse($conn, "$sql");
 				<td class="col-md-0">
 				
 					<form action="" method="post" style="display:inline!important;">
-						<input type="text" name="pow_new" size="50" maxlength="320" value="<?php echo $shop_pow; ?>" />
+						<input type="text" name="pow_new" size="50" maxlength="250" value="<?php echo $shop_pow; ?>" />
 						<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 						<input type="hidden" name="pow_id" value="<?php echo $id_tow; ?>" />
 					</form>
@@ -757,7 +754,7 @@ $stid2 = oci_parse($conn, "$sql");
 				<td class="col-md-0">
 				
 					<form action="" method="post" style="display:inline!important;">
-						<input type="text" name="name_new" size="50" maxlength="320" value="<?php echo $shop_name; ?>" />
+						<input type="text" name="name_new" size="50" maxlength="300" value="<?php echo $shop_name; ?>" />
 						<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 						<input type="hidden" name="name_id" value="<?php echo $id_tow; ?>" />
 					</form>
