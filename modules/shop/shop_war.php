@@ -56,37 +56,7 @@ try{
     die($ex->getMessage());
 }
 
-try{
-   
-    $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
-	$related = array(1,2,3,4);
-    $data = array(
-        'category_id' => 1,
-		
-		'categories' => [1,2],
-        'translations' => array(
-            'pl_PL' => array(
-                'name' => 'product name',
-                'description' => 'product description',
-                'active' => true
-            )
-        ),
-        'stock' => array(
-            'price' => 10,
-            'active' => 1,
-            'stock' => 10
-        ),
-        'tax_id' => 1,
-        'code' => '1234567',
-        'unit_id' => 1,
-		'related' => [1,13]
-    );
-    $result = $resource->post($data);
 
-    printf("An object has been added #%d", $result);
-} catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
-    die($ex->getMessage());
-}
 
 
 try{
@@ -108,7 +78,7 @@ try{
 try{
     
     $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
-    $id = 15;
+    $id = 1;
     $data = array(
         'related' => [1,13]
         
