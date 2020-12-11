@@ -105,5 +105,23 @@ try{
     die($ex->getMessage());
 }
 
+try{
+    
+    $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
+    $id = 15;
+    $data = array(
+        'related' => [1,13]
+        )
+    );
+
+    $result = $resource->put($id, $data);
+
+    if($result){
+        echo 'A product has been successfully updated';
+    }
+} catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
+    die($ex->getMessage());
+}
+
 
 ?>
