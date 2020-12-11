@@ -278,9 +278,9 @@ Spz ? (Y/N/%):
 <th>SPZ?</th>
 <th>Kategoria 1</th>
 <th>Kategoria 2</th>
-<th>Czas Dostawy</th>
-<th>Czas Dostawy</th>
-<th>Forma Dostawy 2</th>
+<th>Czas Dost.</th>
+<th>Czas Dost. 2</th>
+<th>Forma Dostawy </th>
 <th>Powiazane ;</th>
 <th>Shoper nazwa</th>
 </tr>
