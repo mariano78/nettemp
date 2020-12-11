@@ -111,7 +111,7 @@ try{
     $id = 15;
     $data = array(
         'related' => [1,13]
-        )
+        
     );
 
     $result = $resource->put($id, $data);
