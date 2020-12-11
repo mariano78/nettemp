@@ -61,7 +61,7 @@ $time_pre = microtime(true);
            }
       
            fclose($file);  
-		   oci_free_statement($stid);
+		   oci_free_statement($stid2);
 			oci_close($conn);
      
 		}
