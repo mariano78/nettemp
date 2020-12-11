@@ -59,7 +59,7 @@ try{
 try{
    
     $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
-	$related = array[1,2,3,4];
+	$related = array(1,2,3,4);
     $data = array(
         'category_id' => 1,
 		'related' => $related,
