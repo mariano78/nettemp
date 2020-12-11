@@ -34,51 +34,29 @@ $time_pre = microtime(true);
           while (($getData = fgetcsv($file, 10000, ";")) !== FALSE)
            {  
 	   
-	   $ean_csv = $getData[0];
+	   $id_tow = $getData[0];
 	   $czas_prze = $getData[1];
 	   
 	   
-	   
-	   
-	   
-	   echo $ean_csv."--".$czas_prze;
-	   
-		$stid = oci_parse($conn, 'SELECT ID  FROM JFOX_TOWAR_KARTOTEKI WHERE TO_KK_1 LIKE :eean');
-		oci_bind_by_name($stid, ":eean", $ean_csv);
-		oci_execute($stid);
-		
-		while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
+	  
 			
-			$id_tow = $row['ID']; //kod towaru w RB
-			echo "Towar ID - ".$id_tow."\n";
+			//$id_tow = $row['ID']; //kod towaru w RB
+			//echo "Towar ID - ".$id_tow."\n";
 			
 			$stid2 = oci_parse($conn, '
 			MERGE INTO SHOPPER_PRODUCTS USING dual ON ( "ID_TOW" = :idtow2 )
-			WHEN MATCHED THEN UPDATE SET "SHOP_TO_DELIVERY"= :devtime
-			WHEN NOT MATCHED THEN INSERT ("ID_TOW","SHOP_TO_DELIVERY", "SHOP_TO_CATEGORY") 
-				VALUES ( :idtow2, :devtime , :cat)'
+			WHEN MATCHED THEN UPDATE SET "SHOP_TO_SPZ"= :devtime'
 				
 				);
-			$cat = 1;	
-			//if ($czas_prze == 2){ $czas_prze_id = 2;      
-		   //}
-		   
-		  // if ($czas_prze == 10){ $czas_prze_id = 6;
-				  
-		  // }
-		   
-		  // if ($czas_prze == 45){ $czas_prze_id = 8;
-				  
-		  // }
 		  
 			oci_bind_by_name($stid2, ":idtow2", $id_tow);
 			oci_bind_by_name($stid2, ":devtime", $czas_prze);
 			//oci_bind_by_name($stid2, ":devtime", $czas_prze_id);
-			oci_bind_by_name($stid2, ":cat", $cat);
+			//oci_bind_by_name($stid2, ":cat", $cat);
 			oci_execute($stid2);
 				
 			
-		}
+		
 		
            }
       
