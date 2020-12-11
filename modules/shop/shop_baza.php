@@ -745,7 +745,7 @@ $stid2 = oci_parse($conn, "$sql");
 				<td class="col-md-0">
 				
 					<form action="" method="post" style="display:inline!important;">
-						<input type="text" name="pow_new" size="10" maxlength="250" value="<?php echo $shop_pow; ?>" />
+						<input type="text" name="pow_new" size="40" maxlength="254" value="<?php echo $shop_pow; ?>" />
 						<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 						<input type="hidden" name="pow_id" value="<?php echo $id_tow; ?>" />
 					</form>
