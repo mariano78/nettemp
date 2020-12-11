@@ -59,7 +59,7 @@ try{
 try{
    
     $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
-	$related = [1,2,3,4];
+	$related = array[1,2,3,4];
     $data = array(
         'category_id' => 1,
 		'related' => $related,
@@ -96,7 +96,7 @@ try{
 
     foreach($result as $r){
         printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name);
-		printf("#%d - %s\n", $r->product_id, $r->related);
+		//printf("#%d - %s\n", $r->product_id, $r->related);
 		
     }
 } catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
