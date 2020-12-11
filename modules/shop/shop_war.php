@@ -62,7 +62,7 @@ try{
 	$related = array(1,2,3,4);
     $data = array(
         'category_id' => 1,
-		'related' => [2,3],
+		
 		'categories' => [1,2],
         'translations' => array(
             'pl_PL' => array(
@@ -78,7 +78,8 @@ try{
         ),
         'tax_id' => 1,
         'code' => '1234567',
-        'unit_id' => 1
+        'unit_id' => 1,
+		'related' => [2,3]
     );
     $result = $resource->post($data);
 
