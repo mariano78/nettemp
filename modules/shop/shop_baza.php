@@ -96,6 +96,16 @@ if (!empty($ffsklepok)){
     header("location: index.php?id=tools&type=shop_baza");
     exit();
     }
+//filtr spz
+$ffspz = isset($_POST['ffspz']) ? $_POST['ffspz'] : '';
+$ffspzok = isset($_POST['ffspz']) ? $_POST['ffspz'] : '';
+if (!empty($ffspzok)){
+    
+	$db = new PDO("sqlite:$root/dbf/nettemp.db");
+    $db->exec("UPDATE shop SET value = '$ffspz' WHERE option = 'fspz'") or die ($db->lastErrorMsg());
+    header("location: index.php?id=tools&type=shop_baza");
+    exit();
+    }
 	
 //nazwa
 $name_new = isset($_POST['name_new']) ? $_POST['name_new'] : '';
@@ -212,6 +222,12 @@ W sklepie ? (T/N/%):
 	<input type="text" name="ffsklep" size="9" maxlength="9" value="<?php echo $filtr_sklep; ?>" />
 	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 	<input type="hidden" name="ffsklepok" value="ok" />
+</form>
+Spz ? (Y/N/%):
+<form action="" method="post" style="display:inline!important;">
+	<input type="text" name="ffspz" size="9" maxlength="9" value="<?php echo $filtr_spz; ?>" />
+	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
+	<input type="hidden" name="ffspzok" value="ok" />
 </form>
 
 <center>Produkty do uzupełnienia - strona  <?php echo $page;?></center> </div>
