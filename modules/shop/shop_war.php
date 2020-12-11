@@ -65,7 +65,7 @@ try{
 		'related' => array(1,2,3,4
 		
 		
-		)
+		),
         'translations' => array(
             'pl_PL' => array(
                 'name' => 'product name',
