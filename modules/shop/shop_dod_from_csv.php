@@ -41,7 +41,7 @@ $time_pre = microtime(true);
 	  
 			
 			//$id_tow = $row['ID']; //kod towaru w RB
-			//echo "Towar ID - ".$id_tow."\n";
+			echo "Towar ID - ".$id_tow."\n";
 			
 			$stid2 = oci_parse($conn, '
 			MERGE INTO SHOPPER_PRODUCTS USING dual ON ( "ID_TOW" = :idtow2 )
