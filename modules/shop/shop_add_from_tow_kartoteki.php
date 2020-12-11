@@ -43,7 +43,7 @@ $syncstatus = 0;
 			$stid2 = oci_parse($conn, '
 			MERGE INTO SHOPPER_PRODUCTS USING dual ON ( "ID_TOW" = :idtow2 )
 			WHEN NOT MATCHED THEN INSERT ("ID_TOW","SHOP_TO_DELIVERY", "SHOP_TO_DELIVERY_2", "SHOP_TO_DELIVERY_3", "SHOP_TO_CATEGORY", "SHOP_TO_CATEGORY_2", "SHOP_TO_SPZ", "IS_DELETED") 
-				VALUES ( :idtow2, :deliv1, :deliv2, :deliv3 , :cat, :cat2 :spz :isd)'
+				VALUES ( :idtow2, :deliv1, :deliv2, :deliv3 , :cat, :cat2, :spz, :isd)'
 				
 				);
 			$cat = 999;
