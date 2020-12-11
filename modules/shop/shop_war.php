@@ -63,7 +63,7 @@ try{
     $data = array(
         'category_id' => 1,
 		'related' => [2,3],
-		'categories' => [1,5],
+		'categories' => [1,2],
         'translations' => array(
             'pl_PL' => array(
                 'name' => 'product name',
