@@ -79,7 +79,7 @@ try{
         'tax_id' => 1,
         'code' => '1234567',
         'unit_id' => 1,
-		'related' => [2,3]
+		'related' => [2,13]
     );
     $result = $resource->post($data);
 
