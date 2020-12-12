@@ -49,7 +49,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$to_status = $row['STATUS']; // rodzaj przewoźnika
 	$to_spz2 = $row['SHOP_SPZ'];
 	$to_opis = $row['SHOP_OPIS']->load(); // opis towaru
-	$to_related = $row['SHOP_LICKED']; // indeksy towarów powiązanych rozdzielane ; - srednik
+	$to_related = $row['SHOP_LINKED']; // indeksy towarów powiązanych rozdzielane ; - srednik
 	
 	$to_related_inshop = '' ;
 	
