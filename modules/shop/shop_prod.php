@@ -32,7 +32,6 @@ oci_execute($stid);
 
 while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
-	
 	$kod = $row['TO_KOD']; //kod towaru w RB
 	$ean = $row['TO_KK_1']; // kod ean
 	$nazwa = $row['TO_NAZWA']; //nazwa z jfox
@@ -45,32 +44,30 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$cena = $row['CEN_F01'];
 	$stan = $row['STAN']; // dostępna ilosć towaru
 	$delivery = $row['DELIVERY']; // czas dostawy
+	$delivery3 = $row['DELIVERY3']; // czas dostawy dla spz
 	$delivery2 = $row['DELIVERY2']; // rodzaj przewoźnika
 	$to_status = $row['STATUS']; // rodzaj przewoźnika
+	$to_spz2 = $row['SHOP_SPZ'];
 	$to_opis = $row['SHOP_OPIS']->load(); // opis towaru
+	
+	
+	
 	
 	if (empty($to_opis)){
 		
 		$to_opis = 'To jest opis produktu';
 	}
 	
-	//echo $to_opis;
-	
-	
 	if ($nazwa_shop != ''){
-		
 		$nazwa = $nazwa_shop;
 	}
 	
-	$seo_name = pl_charset($nazwa).'-'.$kod.'.html';
-	
-	
+	$seo_name = pl_charset($nazwa).'-'.$kod.'.html'; // link seo w shoperze
+
 	$kategoria = $row['CATEGORY']; // kategoria w shoper
 	
 	$podatek_jfox = $row['TO_VAT_CODE'];
 	if($podatek_jfox == '51') $podatek = 1; $mnoznik = 1.23; //przypisanie podatku jfox->shoper
-	
-	
 	
 	//if($jed_miar_jfox == 'SZT') 
 	
@@ -96,18 +93,29 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 		}
 }
 
-//if ($to_status == 'spz'){
-//	$stan = 0;
-//}
-
-
+//if ($to_status == 'spz'){}
 //****************************************************Przeliczanie cen i stanów**********************************
-	
-	
 	
 	$stan = floor($stan); // dostępna ilosć towaru
 	if ($stan < 0) $stan = 0; // dla stanu poniżej 0
 	$cena = $cena * $mnoznik; //cena * podatek VAT
+	
+	//jaka dostępność towaru
+	if ($to_status == 'spz' &&  $to_spz2 == 'Y' && $stan == 0){
+		
+		$av_id = 6; // id z shopera - na zamowienie
+		
+		if ($delivery3 != 999){
+				$delivery = $delivery3; // bierzemy czas dostawy z drugiego pola
+		}
+		
+		
+	}else {
+		$av_id = '';
+	}
+	
+	
+	
 	
 	if ($cena >=10){  //zaokraglanie w górę dla cen większych niż 50 pln
 		
@@ -175,6 +183,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 							'active' => 1,
 							'stock' => $stan,
 							'weight' => $waga,
+							'availability_id' => $av_id, 
 							'delivery_id' => $delivery 
 							),
 						'tax_id' => $podatek,
@@ -222,6 +231,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 							'active' => 1,
 							'stock' => $stan,
 							'weight' => $waga,
+							'availability_id' => $av_id,
 							'delivery_id' => $delivery
 							),
 						'tax_id' => $podatek,
