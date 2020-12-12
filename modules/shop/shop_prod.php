@@ -158,7 +158,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 			
 				foreach($result_rel as $rrel){
 					$to_rel2 = $rrel->product_id;
-					$to_related_inshop .= '$to_rel2';
+					$to_related_inshop .= $to_rel2;
 				}
 			
 			
