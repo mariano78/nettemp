@@ -166,9 +166,9 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 		}
 	
 	}
-	
-	echo $to_related_inshop;
-	var_dump($to_related_inshop); 
+	$to_related_inshop2 = implode(",",$to_related_in_shop);
+	echo $to_related_inshop2;
+	//var_dump($to_related_inshop); 
 
 		
 	$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
