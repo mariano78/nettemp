@@ -80,14 +80,7 @@ try{
     $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
     $id = 1;
     $data = array(
-        'related' => [13],
-		'stock' => array(
-							'price' => 20,
-							'active' => 1,
-							'stock' => 5,
-							'weight' => 50,
-							'availability_id' => '' 
-							),
+        'related' => [13]
         
     );
 
