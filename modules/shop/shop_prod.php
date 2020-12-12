@@ -43,6 +43,8 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$to_opa3 = $to_opa3a/1000;
 	$cena = $row['CEN_F01'];
 	$stan = $row['STAN']; // dostępna ilosć towaru
+	$kategoria = $row['CATEGORY']; // kategoria w shoper
+	$kategoria2 = $row['CATEGORY2']; // kategoria w shoper 2
 	$delivery = $row['DELIVERY']; // czas dostawy
 	$delivery3 = $row['DELIVERY3']; // czas dostawy dla spz
 	$delivery2 = $row['DELIVERY2']; // rodzaj przewoźnika
@@ -52,6 +54,19 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$to_related = $row['SHOP_LINKED']; // indeksy towarów powiązanych rozdzielane ; - srednik
 	
 	$to_related_inshop = array() ;
+	$to_kategorie_inshop = array();
+	$czy_aktu_kategorie = 0;
+	
+	if (!empty($kategoria) && !empty($kategoria2)) && $kategoria !=999 && $kategoria2 !=999) {
+		
+		$to_kategorie_inshop = $kategoria;
+		$to_kategorie_inshop = $kategoria2;
+		$czy_aktu_kategorie = 1;
+		array_walk($to_kategorie_inshop, function(int &$int){;});
+		
+	}else {
+		$czy_aktu_kategorie = 0;
+	}
 	
 	
 	
@@ -68,7 +83,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	$seo_name = pl_charset($nazwa).'-'.$kod.'.html'; // link seo w shoperze
 
-	$kategoria = $row['CATEGORY']; // kategoria w shoper
+	
 	
 	$podatek_jfox = $row['TO_VAT_CODE'];
 	if($podatek_jfox == '51') $podatek = 1; $mnoznik = 1.23; //przypisanie podatku jfox->shoper
@@ -210,6 +225,11 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 						'tax_id' => $podatek,
 						'code' => $kod,
 						'unit_id' => $jedmiar
+						
+						if($czy_aktu_kategorie == 1){
+							
+							'categories' => $to_kategorie_inshop
+						}
 					);
 			
 					$result = $resource->post($data);
@@ -261,6 +281,11 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 						'tax_id' => $podatek,
 						'code' => $kod,
 						'unit_id' => $jedmiar
+						
+						if($czy_aktu_kategorie == 1){
+							
+							'categories' => $to_kategorie_inshop
+						}
 					);
 
 					$result = $resource->put($id, $data);
