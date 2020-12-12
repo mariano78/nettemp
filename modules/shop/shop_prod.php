@@ -147,10 +147,11 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 	if ($to_related != ''){
 		
 		$to_related2 = explode(";",$to_related);
+		$resource_rel = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 		
 		foreach($to_related2 as $to_rel){ // znajdź id z shopera i wstaw do stringa
 		
-			$resource_rel = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
+			//$resource_rel = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 			//filtry
 			
 			$resource_rel->filters(['stock.code'=> ['LIKE'=> $to_rel]]);
