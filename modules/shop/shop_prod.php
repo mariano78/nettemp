@@ -233,6 +233,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 						echo $licz_produkt.". Aktualizuję produkt - ".$kod." \n";
 						logs_shop($date, 'Info', "Aktualizuję produkt ". $kod);
 						$id = $r->product_id;
+						echo 'ID:'.$id;
 					
 					$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 					$data = array(
