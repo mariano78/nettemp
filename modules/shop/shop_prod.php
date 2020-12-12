@@ -270,7 +270,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 					
 					$resourcea2 = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 					$data = array(
-						'related' => [(int)$to_related_inshop2]
+						'related' => [(intval$to_related_inshop2)]
 						
 					);
 
