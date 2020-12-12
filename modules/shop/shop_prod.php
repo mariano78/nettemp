@@ -238,7 +238,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 					
 					$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 					$data = array(
-						'related' => [1597,1628],
+						//'related' => [1597,1628],
 						'category_id' => $kategoria,
 						'ean' => $ean,
 						'dimension_w' => $szerokosc,
