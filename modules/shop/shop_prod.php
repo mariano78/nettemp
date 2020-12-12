@@ -166,7 +166,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 		}
 	
 	}
-	$to_related_inshop2 = implode(",",$to_related_in_shop);
+	$to_related_inshop2 = implode(",",$to_related_inshop);
 	echo $to_related_inshop2;
 	//var_dump($to_related_inshop); 
 
