@@ -241,6 +241,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 						'dimension_w' => $szerokosc,
 						'dimension_h' => $dlugosc,
 						'gauge_id' => $delivery2,
+						'related' => [$to_related_inshop2],
 						'translations' => array(
 							'pl_PL' => array(
 							'name' => $nazwa,
