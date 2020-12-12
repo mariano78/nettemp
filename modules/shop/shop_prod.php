@@ -165,6 +165,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 	
 	}
 	 array_walk($to_related_inshop, function(int &$int){;});
+	 $to_related_inshop = array_unique($to_related_inshop);
 	 
 
 		
