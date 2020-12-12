@@ -49,6 +49,10 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$to_status = $row['STATUS']; // rodzaj przewoźnika
 	$to_spz2 = $row['SHOP_SPZ'];
 	$to_opis = $row['SHOP_OPIS']->load(); // opis towaru
+	$to_related = $row['SHOP_LICKED']; // indeksy towarów powiązanych rozdzielane ; - srednik
+	
+	$to_related_inshop = '' ;
+	
 	
 	
 	
@@ -102,22 +106,15 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 	
 	//jaka dostępność towaru
 	if ($to_status == 'spz' &&  $to_spz2 == 'Y' && $stan == 0){
-		
-		$av_id = 6; // id z shopera - na zamowienie
-		
+			$av_id = 6; // id z shopera - na zamowienie
 		if ($delivery3 != 999){
 				$delivery = $delivery3; // bierzemy czas dostawy z drugiego pola
 		}
-		
-		
 	}else {
 		$av_id = '';
 	}
 	
-	
-	
-	
-	if ($cena >=10){  //zaokraglanie w górę dla cen większych niż 50 pln
+	if ($cena >=10){  //zaokraglanie w górę dla cen większych niż 10 pln
 		
 		$cena = ceil($cena);
 	}
@@ -145,6 +142,32 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 	}else {
 		$aktywnosc = false;
 	}
+	
+	// obróbka prduktów powiązanych  - działa tylko dla aktualizacji
+	if ($to_related != ''){
+		
+		$to_related2 = explode(";", $to_related);
+		
+		foreach($to_related2 as $to_rel){ // znajdź id z shopera i wstaw do stringa
+		
+			$resource_rel = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
+			//filtry
+			
+			$resource_rel->filters(['stock.code'=> ['LIKE'=> $to_rel]]);
+			$result_rel = $resource_rel->get();
+			
+				foreach($result_rel as $rrel){
+					$to_rel2 = $rrel->product_id;
+					$to_related_inshop .= '$to_rel,';
+				}
+			
+			
+			
+		}
+	
+	}
+	
+	echo $to_related_inshop;
 
 
 		
