@@ -160,21 +160,11 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 					$to_rel2 = $rrel->product_id;
 					$to_related_inshop[]=$to_rel2;
 				}
-			
-			
-			
 		}
 	
 	}
-	$to_related_inshop2 = implode(",",$to_related_inshop);
-	echo $to_related_inshop2;
-	 $to_related_inshop2 = trim($to_related_inshop2);
-	 
 	 array_walk($to_related_inshop, function(int &$int){;});
-	 //intval($to_related_inshop);
 	 
-	
-	var_dump($to_related_inshop); 
 
 		
 	$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
@@ -272,15 +262,15 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 					);
 
 					$result = $resource->put($id, $data);
-					
-					$resourcea2 = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
-					$data2 = array(
-						'related' => $to_related_inshop
-						
-					);
+					if ($to_related != ''){
+							$resourcea2 = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
+							$data2 = array(
+								'related' => $to_related_inshop
+							);
 
-					$resulta2 = $resourcea2->put($id, $data2);
-					var_dump($data2);
+							$resulta2 = $resourcea2->put($id, $data2);
+							
+					}
 
 				if($result){
 					echo "Zaktualizowano produkt ". $kod." \n";
@@ -288,6 +278,11 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 					$aktualizowanych++;
 					$licz_produkt++;
 				}
+				if($resulta2){
+					echo "Zaktualizowano powiazane dla ". $kod." \n";
+				}
+				
+				
 			}
 		}	
 	} 
