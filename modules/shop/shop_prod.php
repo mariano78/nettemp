@@ -51,7 +51,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$to_opis = $row['SHOP_OPIS']->load(); // opis towaru
 	$to_related = $row['SHOP_LINKED']; // indeksy towarów powiązanych rozdzielane ; - srednik
 	
-	$to_related_inshop = '' ;
+	$to_related_inshop = array() ;
 	
 	
 	
@@ -158,7 +158,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 			
 				foreach($result_rel as $rrel){
 					$to_rel2 = $rrel->product_id;
-					$to_related_inshop .= $to_rel2;
+					$to_related_inshop[] = $to_rel2;
 				}
 			
 			
@@ -168,7 +168,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 	}
 	
 	echo $to_related_inshop;
-
+	var_dump($to_related_inshop); 
 
 		
 	$resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
