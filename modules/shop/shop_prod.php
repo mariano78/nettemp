@@ -275,6 +275,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 					);
 
 					$resulta2 = $resourcea2->put($id, $data);
+					var_dump($data);
 
 				if($result){
 					echo "Zaktualizowano produkt ". $kod." \n";
