@@ -230,6 +230,9 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 							
 							'categories' => $to_kategorie_inshop
 						}
+						else {
+							'categories' => ''
+						}
 					);
 			
 					$result = $resource->post($data);
@@ -285,6 +288,8 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 						if($czy_aktu_kategorie == 1){
 							
 							'categories' => $to_kategorie_inshop
+						}else {
+							'categories' => ''
 						}
 					);
 
