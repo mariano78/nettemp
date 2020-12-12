@@ -266,6 +266,14 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 					);
 
 					$result = $resource->put($id, $data);
+					
+					$resourcea2 = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
+					$data = array(
+						'related' => [$to_related_inshop2]
+						
+					);
+
+					$resulta2 = $resourcea2->put($id, $data);
 
 				if($result){
 					echo "Zaktualizowano produkt ". $kod." \n";
