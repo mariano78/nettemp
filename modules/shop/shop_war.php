@@ -86,7 +86,7 @@ try{
 							'active' => 1,
 							'stock' => 5,
 							'weight' => 50,
-							'availability_id' => 5 
+							'availability_id' => '' 
 							),
         
     );
