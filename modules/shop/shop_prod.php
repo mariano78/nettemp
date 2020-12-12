@@ -55,17 +55,15 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	$to_related_inshop = array() ;
 	$to_kategorie_inshop = array();
-	$czy_aktu_kategorie = 0;
+	
 	
 	if (!empty($kategoria) && !empty($kategoria2) && $kategoria !=999 && $kategoria2 !=999) {
 		
 		$to_kategorie_inshop = $kategoria;
 		$to_kategorie_inshop = $kategoria2;
-		$czy_aktu_kategorie = 1;
+		
 		array_walk($to_kategorie_inshop, function(int &$int){;});
 		
-	}else {
-		$czy_aktu_kategorie = 0;
 	}
 	
 	
@@ -224,17 +222,13 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 							),
 						'tax_id' => $podatek,
 						'code' => $kod,
-						'unit_id' => $jedmiar
+						'unit_id' => $jedmiar,
+						'categories' => $to_kategorie_inshop
 						
-						if($czy_aktu_kategorie == 1){
-							
-							'categories' => $to_kategorie_inshop
-						}
-						else {
-							'categories' => ''
-						}
+						
 					);
-			
+					
+		
 					$result = $resource->post($data);
 	
 				if($result){
@@ -283,14 +277,9 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 							),
 						'tax_id' => $podatek,
 						'code' => $kod,
-						'unit_id' => $jedmiar
+						'unit_id' => $jedmiar,
+						'categories' => $to_kategorie_inshop
 						
-						if($czy_aktu_kategorie == 1){
-							
-							'categories' => $to_kategorie_inshop
-						}else {
-							'categories' => ''
-						}
 					);
 
 					$result = $resource->put($id, $data);
