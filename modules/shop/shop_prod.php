@@ -59,8 +59,8 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	if (!empty($kategoria) && !empty($kategoria2) && $kategoria !=999 && $kategoria2 !=999) {
 		
-		$to_kategorie_inshop = $kategoria;
-		$to_kategorie_inshop = $kategoria2;
+		$to_kategorie_inshop[] = $kategoria;
+		$to_kategorie_inshop[] = $kategoria2;
 		
 		array_walk($to_kategorie_inshop, function(int &$int){;});
 		
