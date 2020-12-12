@@ -84,9 +84,9 @@ try{
 		'stock' => array(
 							'price' => 20,
 							'active' => 1,
-							'stock' => 30,
+							'stock' => 5,
 							'weight' => 50,
-							'availability_id' => 6 
+							'availability_id' => 5 
 							),
         
     );
