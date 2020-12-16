@@ -60,7 +60,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	if ($kategoria == 70 OR $kategoria == 71 OR $kategoria == 72){
 		
-		$to_order_inshop = 100;
+		$to_order_inshop = '100';
 	}
 	
 	
