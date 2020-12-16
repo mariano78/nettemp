@@ -58,8 +58,8 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	$to_order_inshop = 0;
 	
-	if ($kategoria == 70 OR $kategoria == 71 OR $kategoria == 72){
-		
+	$kat = array(75,76,77,78,74,73,79,80,81,82,83,84,85,86,91,92,87,88,89,90);
+	if (in_array($kategoria, $kat)) {
 		$to_order_inshop = 100;
 	}
 	
