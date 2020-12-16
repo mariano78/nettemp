@@ -56,6 +56,13 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$to_related_inshop = array() ;
 	$to_kategorie_inshop = array();
 	
+	$to_order_inshop = 0;
+	
+	if ($kategoria == 70 OR $kategoria == 71 OR $kategoria == 72){
+		
+		$to_order_inshop = 100;
+	}
+	
 	
 	if (!empty($kategoria) && !empty($kategoria2) && $kategoria !=999 && $kategoria2 !=999) {
 		
@@ -264,6 +271,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 							'name' => $nazwa,
 							'description' => $to_opis,
 							'seo_url' => $seo_name,
+							'order' => $to_order_inshop,
 							'active' => $aktywnosc
 							)
 						),
