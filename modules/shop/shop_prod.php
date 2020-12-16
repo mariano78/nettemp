@@ -56,7 +56,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$to_related_inshop = array() ;
 	$to_kategorie_inshop = array();
 	
-	$to_order_inshop = 0;
+	$to_order_inshop = 20;
 	
 	if ($kategoria == 70 OR $kategoria == 71 OR $kategoria == 72){
 		
@@ -271,7 +271,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 							'name' => $nazwa,
 							'description' => $to_opis,
 							'seo_url' => $seo_name,
-							'order' => 100,
+							'order' => $to_order_inshop,
 							'active' => $aktywnosc
 							)
 						),
