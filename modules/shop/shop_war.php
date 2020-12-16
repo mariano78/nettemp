@@ -80,7 +80,14 @@ try{
     $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
     $id = 1;
     $data = array(
-        'related' => [13]
+        'related' => [13],
+		'translations' => array(
+							'pl_PL' => array(
+							
+							'order' => 1234,
+							
+							)
+						)
         
     );
 
