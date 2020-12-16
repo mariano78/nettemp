@@ -56,11 +56,15 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$to_related_inshop = array() ;
 	$to_kategorie_inshop = array();
 	
-	$to_order_inshop = 20;
+	$to_order_inshop = 0;
 	
 	if ($kategoria == 70 OR $kategoria == 71 OR $kategoria == 72){
 		
 		$to_order_inshop = 100;
+	}else {
+		
+		echo "Nie aktualizauje priorytetu";
+		$to_order_inshop = 123;
 	}
 	
 	
