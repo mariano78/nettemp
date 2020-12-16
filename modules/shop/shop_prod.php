@@ -56,7 +56,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$to_related_inshop = array() ;
 	$to_kategorie_inshop = array();
 	
-	$to_order_inshop = 0;
+	$to_order_inshop = '0';
 	
 	if ($kategoria == 70 OR $kategoria == 71 OR $kategoria == 72){
 		
