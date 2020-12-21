@@ -71,15 +71,22 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 		array_walk($to_kategorie_inshop, function(int &$int){;});
 		
 	}
-	
-	
-	
-	
-	
+
 	if (empty($to_opis)){
 		
 		$to_opis = 'To jest opis produktu';
 	}
+	
+	$cut_to_opis = substr($to_opis, 0, 3);
+	if  ($cut_to_opis != '<p>'){
+		
+		$to_opis = '<p>'.$topis;
+		
+	}
+	
+	
+	
+	
 	
 	if ($nazwa_shop != ''){
 		$nazwa = $nazwa_shop;
