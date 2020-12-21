@@ -80,7 +80,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$cut_to_opis = substr($to_opis, 0, 3);
 	if  ($cut_to_opis != '<p>'){
 		
-		$to_opis = '<p>'.$topis;
+		$to_opis = '<p>'.$to_opis;
 		
 	}
 	
