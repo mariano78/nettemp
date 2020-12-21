@@ -355,52 +355,61 @@ $result_log = $sth_log->fetchAll();
 			 
 	
 	
-
+$count2 = $result_log->count;
 $lp = 1;
-foreach ($result_log as $log) {
-	//logs_shop($date, 'error', "Brak parametru-".$kod."-".$nazwa."-".$ean."-".$kategoria."-".$delivery."-".$delivery2."-".$cena );
+if ($count2 > 0){
+	
+	foreach ($result_log as $log) {
+		//logs_shop($date, 'error', "Brak parametru-".$kod."-".$nazwa."-".$ean."-".$kategoria."-".$delivery."-".$delivery2."-".$cena );
+		
+		
+		$mess_log =  $log['message'];
+		$sklad = explode("-", $mess_log);
+		$log_kod = $sklad[1];
+		$log_nazwa = $sklad[2];
+		
+		//$log_kategoria = $sklad[4];
+		//$log_delivery = $sklad[5];
+		//$log_delivery2 = $sklad[6];
+		//$log_cena = $sklad[7];
+		($sklad[3] == '') ? $log_ean = 'Brak EAN' : $log_ean = $sklad[3];
+		($sklad[4] == '999') ? $log_kategoria = 'Brak' : $log_kategoria = '';
+		($sklad[5] == '999') ? $log_delivery  = 'Brak' : $log_delivery = '';
+		($sklad[6] == '999') ? $log_delivery2 = 'Brak' : $log_delivery2 = '';
+		($sklad[7] == '') ? $log_cena = 'Brak' : $log_cena = $sklad[7];
+		$log_aktywny = $sklad[8];
+		
+		
+		$body .= '<tr><td>'.$lp.'</td><td>'.$log_kod.'</td><td>'.$log_nazwa.'</td><td>'.$log_ean.'</td><td>'.$log_aktywny.'</td><td>'.$log_kategoria.'</td><td>'.$log_delivery.'</td><td>'.$log_delivery2.'</td><td>'.$log_cena.'</td></tr>';
+		$lp ++;
+	}
+	$lp = 0;
+	$body .= '</table></div></body></html>';
+	$odbiorcy = '';
+	$dzien = date("D"); 
+
+	if (date('H') == 13 && ($dzien == 'Fri' OR $dzien == 'Mon') ){
+		$odbiorcy = 'musik@robelit.pl;mikolajczyk@robelit.pl';
+	}else {
+		$odbiorcy = 'musik@robelit.pl';
+	}
+
+	if ( mail ($odbiorcy, 'Shoper - raport produktów do uzupełnienia', $body, $headers ) ) {
+								echo "Mail send OK\n";
+							} else {
+							echo "Mail send problem\n";
+							}
+
+} else if($count2 == 0 AND (date('H') == 08 OR date('H') == 20) ){
+	
+	if ( mail ('musik@robelit.pl', 'Shoper - synchronizacja OK', 'Synchronizacja przebiegła pomyślnie' ) ) {
+								echo "Mail send OK\n";
+							} else {
+							echo "Mail send problem\n";
+							}
 	
 	
-	$mess_log =  $log['message'];
-	$sklad = explode("-", $mess_log);
-	
-	
-	$log_kod = $sklad[1];
-	$log_nazwa = $sklad[2];
-	
-	//$log_kategoria = $sklad[4];
-	//$log_delivery = $sklad[5];
-	//$log_delivery2 = $sklad[6];
-	//$log_cena = $sklad[7];
-	($sklad[3] == '') ? $log_ean = 'Brak EAN' : $log_ean = $sklad[3];
-	($sklad[4] == '999') ? $log_kategoria = 'Brak' : $log_kategoria = '';
-	($sklad[5] == '999') ? $log_delivery  = 'Brak' : $log_delivery = '';
-	($sklad[6] == '999') ? $log_delivery2 = 'Brak' : $log_delivery2 = '';
-	($sklad[7] == '') ? $log_cena = 'Brak' : $log_cena = $sklad[7];
-	$log_aktywny = $sklad[8];
-	
-	
-	$body .= '<tr><td>'.$lp.'</td><td>'.$log_kod.'</td><td>'.$log_nazwa.'</td><td>'.$log_ean.'</td><td>'.$log_aktywny.'</td><td>'.$log_kategoria.'</td><td>'.$log_delivery.'</td><td>'.$log_delivery2.'</td><td>'.$log_cena.'</td></tr>';
-	$lp ++;
 }
-$lp = 0;
-$body .= '</table></div></body></html>';
-$odbiorcy = '';
-$dzien = date("D"); 
-
-if (date('H') == 13 && ($dzien == 'Fri' OR $dzien == 'Mon') ){
-	$odbiorcy = 'musik@robelit.pl;mikolajczyk@robelit.pl';
-}else {
-	$odbiorcy = 'musik@robelit.pl';
-}
-
-if ( mail ($odbiorcy, 'Shoper - raport produktów do uzupełnienia', $body, $headers ) ) {
-							echo "Mail send OK\n";
-						} else {
-						echo "Mail send problem\n";
-						}
-
-
 
 $db2->exec("DELETE FROM logs");
 
