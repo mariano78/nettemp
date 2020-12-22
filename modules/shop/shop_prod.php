@@ -123,6 +123,17 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 		}
 }
 
+
+if ($kod == 'HPL00001'){
+	
+		if ($jed_miar_jfox == 'M2'){
+			
+			$cena = $cena * $to_opa3 ;
+			$stan = $stan / $to_opa3;
+		}
+}
+
+
 //if ($to_status == 'spz'){}
 //****************************************************Przeliczanie cen i stanów**********************************
 	
