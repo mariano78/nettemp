@@ -140,7 +140,7 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 		$av_id = '';
 	}
 	
-	if ($cena >=10){  //zaokraglanie w górę dla cen większych niż 10 pln
+	if ($cena >=5){  //zaokraglanie w górę dla cen większych niż 10 pln
 		
 		$cena = ceil($cena);
 	}
