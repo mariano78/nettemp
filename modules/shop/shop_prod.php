@@ -74,19 +74,13 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 
 	if (empty($to_opis)){
 		
-		$to_opis = 'To jest opis produktu';
+		$to_opis = 'Opis produktu';
 	}
 	
 	$cut_to_opis = substr($to_opis, 0, 3);
 	if  ($cut_to_opis != '<p>'){
-		
 		$to_opis = '<p style="text-align: justify;">'.$to_opis.'</p>';
-		
 	}
-	
-	
-	
-	
 	
 	if ($nazwa_shop != ''){
 		$nazwa = $nazwa_shop;
@@ -94,7 +88,6 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	$seo_name = pl_charset($nazwa).'-'.$kod.'.html'; // link seo w shoperze
 
-	
 	
 	$podatek_jfox = $row['TO_VAT_CODE'];
 	if($podatek_jfox == '51') $podatek = 1; $mnoznik = 1.23; //przypisanie podatku jfox->shoper
@@ -108,7 +101,6 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 if ($to_grupa == 'PCB' OR $to_grupa == 'AKRYL' OR $to_grupa == 'PVCSP'){
 	
 		if ($jed_miar_jfox == 'M2'){
-			
 			$cena = $cena * $to_opa3 ;
 			$stan = $stan / $to_opa3;
 		}
@@ -117,7 +109,6 @@ if ($to_grupa == 'PCB' OR $to_grupa == 'AKRYL' OR $to_grupa == 'PVCSP'){
 if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_grupa == 'FOLOCH' OR $to_grupa == 'FOLBU' OR $to_grupa == 'PLSOG' OR $to_grupa == 'FOLRU' OR $to_grupa == 'OGRAG' OR $to_grupa == 'PLSRP'){
 	
 		if ($jed_miar_jfox == 'MB'){
-			
 			$cena = $cena * $to_opa3 ;
 			$stan = $stan / $to_opa3;
 		}
@@ -127,13 +118,10 @@ if ($to_grupa == 'IZOLK' OR $to_grupa == 'PLSRU' OR $to_grupa == 'IZOLM' OR $to_
 if ($kod == 'HPL00001'){
 	
 		if ($jed_miar_jfox == 'M2'){
-			
 			$cena = $cena * $to_opa3 ;
 			$stan = $stan / $to_opa3;
 		}
 }
-
-
 //if ($to_status == 'spz'){}
 //****************************************************Przeliczanie cen i stanów**********************************
 	
@@ -152,7 +140,6 @@ if ($kod == 'HPL00001'){
 	}
 	
 	if ($cena >=5){  //zaokraglanie w górę dla cen większych niż 10 pln
-		
 		$cena = ceil($cena);
 	}
 	
@@ -313,9 +300,7 @@ if ($kod == 'HPL00001'){
 							$data2 = array(
 								'related' => $to_related_inshop
 							);
-
 							$resulta2 = $resourcea2->put($id, $data2);
-							
 					}
 
 				if($result){
@@ -327,8 +312,6 @@ if ($kod == 'HPL00001'){
 				if($resulta2){
 					echo "Zaktualizowano powiazane dla ". $kod." \n";
 				}
-				
-				
 			}
 		}	
 	} 
@@ -353,15 +336,12 @@ $syncstatus = 1; // aktualizacja stanu synchronizacji
 $db->exec("UPDATE shop SET value='$exec_time' WHERE option='etime'");
 $db->exec("UPDATE shop SET value='$syncstatus' WHERE option='syncstatus'");
 
-
-
 $sth_log = $db2->query("SELECT * FROM logs WHERE type = 'error'");
 $sth_log->execute();
 $result_log = $sth_log->fetchAll();
 
 	$headers .= "MIME-Version: 1.0" . "\r\n";
 	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
 	$body = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 			 <html>
 			 <head>
@@ -371,15 +351,12 @@ $result_log = $sth_log->fetchAll();
 			 <table border="1" style="">
 			 <tr><th>Lp.</th><th>Kod Produktu</th><th>Nazwa</th><th>EAN</th><th>W sklepie?</th><th>Kategoria</th><th>Czas wysyłki</th><th>Przewoźnik</th><th>Cena</th></tr>';
 			 
-	
-	
 $count2 = $result_log->count;
 $lp = 1;
 if ($count2 > 0){
 	
 	foreach ($result_log as $log) {
 		//logs_shop($date, 'error', "Brak parametru-".$kod."-".$nazwa."-".$ean."-".$kategoria."-".$delivery."-".$delivery2."-".$cena );
-		
 		
 		$mess_log =  $log['message'];
 		$sklad = explode("-", $mess_log);
@@ -396,7 +373,6 @@ if ($count2 > 0){
 		($sklad[6] == '999') ? $log_delivery2 = 'Brak' : $log_delivery2 = '';
 		($sklad[7] == '') ? $log_cena = 'Brak' : $log_cena = $sklad[7];
 		$log_aktywny = $sklad[8];
-		
 		
 		$body .= '<tr><td>'.$lp.'</td><td>'.$log_kod.'</td><td>'.$log_nazwa.'</td><td>'.$log_ean.'</td><td>'.$log_aktywny.'</td><td>'.$log_kategoria.'</td><td>'.$log_delivery.'</td><td>'.$log_delivery2.'</td><td>'.$log_cena.'</td></tr>';
 		$lp ++;
