@@ -49,7 +49,7 @@ while($currentPage <= $result->getPageCount() ){
 try{
    
     $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
-    $id = 2177;
+    $id = 1788;
     $result = $resource->delete($id);
 
     if($result){
