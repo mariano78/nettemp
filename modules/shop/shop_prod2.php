@@ -25,7 +25,7 @@ try{
     $result = $resource->get();
 
     foreach($result as $r){
-        printf("#%d - %s\n", $r->option_id, $r->translations->pl_PL->name);
+        printf("#%d - %d %s\n", $r->option_id,$r->group_id, $r->translations->pl_PL->name);
     }
 } catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
     die($ex->getMessage());
