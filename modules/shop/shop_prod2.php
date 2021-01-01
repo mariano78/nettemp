@@ -22,22 +22,16 @@ $licz_produkt = 1;
 try{
     
 
-    $resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductStock($client);
-    $result = $resource->get();
-	var_dump($result);
 
-    foreach($result as $r){
-        printf("#%d - %.2f (product #%d)\n", $r->stock_id, $r->price, $r->product_id);
-		
+   
 		$resource2 = new DreamCommerce\ShopAppstoreLib\Resource\ProductStock($client);
-		$idd = $r->stock_id;
-		echo $idd;
+		$idd = 1500;
 		$result2 = $resource2->delete($idd);
 
     if($result2){
         echo 'Product stock deleted';
     }
-    }
+    
 } catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
     die($ex->getMessage());
 }
