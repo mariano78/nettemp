@@ -23,7 +23,8 @@ try{
     
 
     $resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductStock($client);
-    $result = $resource->get();
+    //$result = $resource->get();
+	$result = $resource->page(1)->limit(50)->get();
 	var_dump($result);
 
     foreach($result as $r){
