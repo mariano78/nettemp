@@ -20,12 +20,14 @@ $syncstatus = 0;
 $licz_produkt = 1;
 
 try{
-  
-    $resource = new DreamCommerce\ShopAppstoreLib\Resource\Option($client);
+    
+
+    $resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductStock($client);
     $result = $resource->get();
+	var_dump($result);
 
     foreach($result as $r){
-        printf("#%d - %d %s\n", $r->option_id,$r->group_id, $r->translations->pl_PL->name);
+        printf("#%d - %.2f (product #%d)\n", $r->stock_id, $r->price, $r->product_id);
     }
 } catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
     die($ex->getMessage());
