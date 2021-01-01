@@ -46,18 +46,7 @@ while($currentPage <= $result->getPageCount() ){
     die($ex->getMessage());
 }
 
-try{
-   
-    $resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductStock($client);
-    $id = 2176;
-    $result = $resource->delete($id);
 
-    if($result){
-        echo 'Product stock deleted';
-    }
-} catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
-    die($ex->getMessage());
-}
  
 echo $pages;
 ?>
