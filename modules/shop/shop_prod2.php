@@ -40,6 +40,7 @@ while($currentPage <= $result->getPageCount() ){
 		
 		
     }
+	$currentPage++;
 }
 } catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
     die($ex->getMessage());
