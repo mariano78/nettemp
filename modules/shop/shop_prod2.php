@@ -21,17 +21,14 @@ $licz_produkt = 1;
 
 try{
     
+    
+    $resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductStock($client);
+    $id = 1500;
+    $result = $resource->delete($id);
 
-
-   
-		$resource2 = new DreamCommerce\ShopAppstoreLib\Resource\ProductStock($client);
-		$idd = 1500;
-		$result2 = $resource2->delete($idd);
-
-    if($result2){
+    if($result){
         echo 'Product stock deleted';
     }
-    
 } catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
     die($ex->getMessage());
 }
