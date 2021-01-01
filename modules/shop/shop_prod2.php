@@ -23,8 +23,16 @@ try{
     
 
     $resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductStock($client);
-    //$result = $resource->get();
-	$result = $resource->page(1)->limit(50)->get();
+	$currentPage = 1;
+	$currentProd = 1;;
+	$result = $resource->get();
+	//var_dump($result);
+	
+	$pages = $result->pages;
+	
+while($currentPage <= $result->getPageCount() ){
+	  
+	  $result = $resource->page($currentPage)->limit(50)->get();
 	var_dump($result);
 
     foreach($result as $r){
@@ -39,6 +47,7 @@ try{
         echo 'Product stock deleted';
     }
     }
+}
 } catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
     die($ex->getMessage());
 }
