@@ -9,7 +9,7 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
     }
 }
 // Dołączam ustawienia Oracle i sdk shoper
-include("$root/modules/shop/shop_settings.php");
+include("$root/modules/shop/shop_settings2.php");
 
 $count = '';
 $dodanych = 0;
