@@ -48,7 +48,7 @@ while($currentPage <= $result->getPageCount() ){
 
 try{
    
-    $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
+    $resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductStock($client);
     $id = 2176;
     $result = $resource->delete($id);
 
