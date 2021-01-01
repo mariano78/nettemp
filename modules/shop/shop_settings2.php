@@ -66,7 +66,7 @@ foreach ($result as $a) {
 		$shoppass=$a['value'];
 	}
 	if($a['option']=='shoptest') {
-		$shoptest='http://sklep381276.shoparena.pl';
+		$shoptest='http://sklep795125.shoparena.pl';
 	}
 	if($a['option']=='paginating') {
 		$paginating=$a['value'];
