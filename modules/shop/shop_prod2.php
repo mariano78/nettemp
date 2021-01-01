@@ -59,5 +59,5 @@ try{
     die($ex->getMessage());
 }
  
-
+echo $pages;
 ?>
