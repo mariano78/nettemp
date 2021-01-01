@@ -28,6 +28,13 @@ try{
 
     foreach($result as $r){
         printf("#%d - %.2f (product #%d)\n", $r->stock_id, $r->price, $r->product_id);
+		 $resource = new DreamCommerce\ShopAppstoreLib\Resource\ProductStock($client);
+    $id = $r->stock_id;
+    $result = $resource->delete($id);
+
+    if($result){
+        echo 'Product stock deleted';
+    }
     }
 } catch(DreamCommerce\ShopAppstoreLib\Exception\Exception $ex) {
     die($ex->getMessage());
