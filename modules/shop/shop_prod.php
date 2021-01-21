@@ -275,7 +275,7 @@ if ($kod == 'HPL00001'){
 							'name' => $nazwa,
 							'description' => $to_opis,
 							'seo_url' => $seo_name,
-							//'order' => $to_order_inshop,
+							'order' => $to_order_inshop,
 							'active' => $aktywnosc
 							)
 						),
