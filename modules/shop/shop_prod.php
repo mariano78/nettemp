@@ -56,11 +56,11 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$to_related_inshop = array() ;
 	$to_kategorie_inshop = array();
 	
-	//$to_order_inshop = 0;
-	//$kat = array(75,76,77,78,74,73,79,80,81,82,83,84,85,86,91,92,87,88,89,90);
-	//if (in_array($kategoria, $kat)) {
-	//	$to_order_inshop = 100;
-	//}
+	$to_order_inshop = 0;
+	$kat = array(75,76,77,78,74,73,79,80,81,82,83,84,85,86,91,92,87,88,89,90);
+	if (in_array($kategoria, $kat)) {
+		$to_order_inshop = 100;
+	}
 	
 	
 	if (!empty($kategoria) && !empty($kategoria2) && $kategoria !=999 && $kategoria2 !=999) {
