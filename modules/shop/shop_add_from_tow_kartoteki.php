@@ -59,19 +59,6 @@ $syncstatus = 0;
 			oci_bind_by_name($stid2, ":spz", $spz);
 			oci_execute($stid2);
 			
-			$sqldesc = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob";
-			
-						echo $sqldesc."\n";
-						
-						$description = 'OPIS PRODUKTU';
-						$stmt = OCI_Parse($conn, $sqldesc);
-						$clob = OCI_New_Descriptor($conn, OCI_D_LOB);
-						OCI_Bind_By_Name($stmt, ':lob', $clob, -1, OCI_B_CLOB);
-						OCI_Execute($stmt,OCI_NO_AUTO_COMMIT);
-						$clob->save('aaaaa');
-						oci_commit($conn);
-						
-						OCIFreeStatement($stmt);
 				
 			
 		}
