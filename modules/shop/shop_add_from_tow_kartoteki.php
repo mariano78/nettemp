@@ -31,7 +31,7 @@ $syncstatus = 0;
 		$deliv2 = 999;
 		$deliv3 = 999;
 		
-		$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP_3');
+		$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP_4');
 		//oci_bind_by_name($stid, ":eean", $ean_csv);
 		oci_execute($stid);
 		
