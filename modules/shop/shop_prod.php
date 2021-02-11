@@ -351,7 +351,7 @@ $result_log = $sth_log->fetchAll();
 			 <table border="1" style="">
 			 <tr><th>Lp.</th><th>Kod Produktu</th><th>Nazwa</th><th>EAN</th><th>W sklepie?</th><th>Kategoria</th><th>Czas wysyłki</th><th>Przewoźnik</th><th>Cena</th></tr>';
 			 
-$count2 = $result_log->count;
+$count2 = $result_log->rowCount();
 $lp = 1;
 if ($count2 > 0){
 	
