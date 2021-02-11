@@ -60,7 +60,7 @@ $syncstatus = 0;
 			oci_execute($stid2);
 			
 			$sqldesc = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = EMPTY_CLOB() WHERE ID_TOW = '$id_tow' RETURNING SHOP_TO_DESCRIPTION INTO :lob";
-						echo $sql."\n";
+						echo $sqldesc."\n";
 						
 						$stmt = OCI_Parse($conn, $sqldesc);
 						$clob = OCI_New_Descriptor($conn, OCI_D_LOB);
