@@ -333,6 +333,8 @@ $updates['2020-11-20 11:59:45'][]="INSERT INTO shop ('option', 'value') VALUES (
 $updates['2020-11-20 11:59:47'][]="INSERT INTO shop ('option', 'value') VALUES ('fsklep','%')";
 $updates['2020-11-20 11:59:49'][]="INSERT INTO shop ('option', 'value') VALUES ('fstat','%')";
 $updates['2020-11-20 11:59:59'][]="INSERT INTO shop ('option', 'value') VALUES ('fspz','%')";
+$updates['2020-11-21 11:59:49'][]="INSERT INTO shop ('option', 'value') VALUES ('shopftp','%')";
+$updates['2020-11-22 11:59:39'][]="INSERT INTO shop ('option', 'value') VALUES ('shopftppass','%')";
 
 
 
