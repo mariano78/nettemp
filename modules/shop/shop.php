@@ -4,26 +4,25 @@ $dboracle = isset($_POST['dboracle']) ? $_POST['dboracle'] : '';
 $dbuser = isset($_POST['dbuser']) ? $_POST['dbuser'] : '';
 $dbpass = isset($_POST['dbpass']) ? $_POST['dbpass'] : '';
 $shopuser = isset($_POST['shopuser']) ? $_POST['shopuser'] : '';
-$shoppass = isset($_POST['shoppass']) ? $_POST['shoppass'] : '';
+$shoppass2 = isset($_POST['shoppass2']) ? $_POST['shoppass2'] : '';
 $shopshop = isset($_POST['shopshop']) ? $_POST['shopshop'] : '';
 $ftpusr = isset($_POST['ftpusr']) ? $_POST['ftpusr'] : '';
 $ftppass = isset($_POST['ftppass']) ? $_POST['ftppass'] : '';
 
-
-
     if ($msave == "msave"){
     $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("UPDATE nt_settings SET value='$mip' WHERE option='mqtt_ip'") or die ($db->lastErrorMsg());
-    $db->exec("UPDATE nt_settings SET value='$mport' WHERE option='mqtt_port'") or die ($db->lastErrorMsg());
-	$db->exec("UPDATE nt_settings SET value='$muser' WHERE option='mqtt_usr'") or die ($db->lastErrorMsg());
-	$db->exec("UPDATE nt_settings SET value='$mpwd' WHERE option='mqtt_pwd'") or die ($db->lastErrorMsg());
-	
-	shell_exec("sudo service nettempmqtt restart");
+    $db->exec("UPDATE nt_settings SET value='$dboracle' WHERE option='database'") or die ($db->lastErrorMsg());
+    $db->exec("UPDATE nt_settings SET value='$dbuser' WHERE option='user'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$dbpass' WHERE option='pass'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$shopuser' WHERE option='shopusr'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$shoppass2' WHERE option='shoppass'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$shopshop' WHERE option='shoptest'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$ftpusr' WHERE option='shopftp'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$ftppass' WHERE option='shopftppass'") or die ($db->lastErrorMsg());	
 	
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
-
 
 if(!empty($_SERVER["DOCUMENT_ROOT"])){
     $root=$_SERVER["DOCUMENT_ROOT"];
@@ -82,7 +81,7 @@ include("$root/modules/shop/shop_settings.php");
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Shoper password:</label>  
   <div class="col-md-4">
-  <input id="textinput" name="shoppass" placeholder="" class="form-control input-md"  type="text" value="<?php echo $shoppass; ?>">
+  <input id="textinput" name="shoppass2" placeholder="" class="form-control input-md"  type="text" value="<?php echo $shoppass; ?>">
   </div>
 </div>
 

@@ -86,6 +86,12 @@ foreach ($result as $a) {
 	if($a['option']=='fspz') {
 		$filtr_spz=$a['value'];
 	}
+	if($a['option']=='shopftp') {
+		$shopftp=$a['value'];
+	}
+	if($a['option']=='shopftppass') {
+		$shopftppass=$a['value'];
+	}
 }	
 // ORACLE - podłączenie do bazy
 
