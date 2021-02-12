@@ -11,14 +11,14 @@ $ftppass = isset($_POST['ftppass']) ? $_POST['ftppass'] : '';
 
     if ($msave == "msave"){
     $db = new PDO('sqlite:dbf/nettemp.db');
-    $db->exec("UPDATE nt_settings SET value='$dboracle' WHERE option='database'") or die ($db->lastErrorMsg());
-    $db->exec("UPDATE nt_settings SET value='$dbuser' WHERE option='user'") or die ($db->lastErrorMsg());
-	$db->exec("UPDATE nt_settings SET value='$dbpass' WHERE option='pass'") or die ($db->lastErrorMsg());
-	$db->exec("UPDATE nt_settings SET value='$shopuser' WHERE option='shopusr'") or die ($db->lastErrorMsg());
-	$db->exec("UPDATE nt_settings SET value='$shoppass2' WHERE option='shoppass'") or die ($db->lastErrorMsg());
-	$db->exec("UPDATE nt_settings SET value='$shopshop' WHERE option='shoptest'") or die ($db->lastErrorMsg());
-	$db->exec("UPDATE nt_settings SET value='$ftpusr' WHERE option='shopftp'") or die ($db->lastErrorMsg());
-	$db->exec("UPDATE nt_settings SET value='$ftppass' WHERE option='shopftppass'") or die ($db->lastErrorMsg());	
+    $db->exec("UPDATE shop SET value='$dboracle' WHERE option='database'") or die ($db->lastErrorMsg());
+    $db->exec("UPDATE shop SET value='$dbuser' WHERE option='user'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE shop SET value='$dbpass' WHERE option='pass'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE shop SET value='$shopuser' WHERE option='shopusr'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE shop SET value='$shoppass2' WHERE option='shoppass'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE shop SET value='$shopshop' WHERE option='shoptest'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE shop SET value='$ftpusr' WHERE option='shopftp'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE shop SET value='$ftppass' WHERE option='shopftppass'") or die ($db->lastErrorMsg());	
 	
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
