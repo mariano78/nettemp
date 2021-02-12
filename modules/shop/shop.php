@@ -1,5 +1,30 @@
 <?php
 
+$dboracle = isset($_POST['dboracle']) ? $_POST['dboracle'] : '';
+$dbuser = isset($_POST['dbuser']) ? $_POST['dbuser'] : '';
+$dbpass = isset($_POST['dbpass']) ? $_POST['dbpass'] : '';
+$shopuser = isset($_POST['shopuser']) ? $_POST['shopuser'] : '';
+$shoppass = isset($_POST['shoppass']) ? $_POST['shoppass'] : '';
+$shopshop = isset($_POST['shopshop']) ? $_POST['shopshop'] : '';
+$ftpusr = isset($_POST['ftpusr']) ? $_POST['ftpusr'] : '';
+$ftppass = isset($_POST['ftppass']) ? $_POST['ftppass'] : '';
+
+
+
+    if ($msave == "msave"){
+    $db = new PDO('sqlite:dbf/nettemp.db');
+    $db->exec("UPDATE nt_settings SET value='$mip' WHERE option='mqtt_ip'") or die ($db->lastErrorMsg());
+    $db->exec("UPDATE nt_settings SET value='$mport' WHERE option='mqtt_port'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$muser' WHERE option='mqtt_usr'") or die ($db->lastErrorMsg());
+	$db->exec("UPDATE nt_settings SET value='$mpwd' WHERE option='mqtt_pwd'") or die ($db->lastErrorMsg());
+	
+	shell_exec("sudo service nettempmqtt restart");
+	
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+
+
 if(!empty($_SERVER["DOCUMENT_ROOT"])){
     $root=$_SERVER["DOCUMENT_ROOT"];
 }else{
@@ -28,21 +53,21 @@ include("$root/modules/shop/shop_settings.php");
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">DB oracle:</label>  
   <div class="col-md-4">
-  <input id="textinput" name="mip" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $database; ?>">
+  <input id="textinput" name="dboracle" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $database; ?>">
   </div>
 </div>
 
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">DB Oracle user:</label>  
   <div class="col-md-4">
-  <input id="textinput" name="mport" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $user; ?>">
+  <input id="textinput" name="dbuser" placeholder="" class="form-control input-md" required="" type="text" value="<?php echo $user; ?>">
   </div>
 </div>
 
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">DB Oracle password:</label>  
   <div class="col-md-4">
-  <input id="textinput" name="muser" placeholder="" class="form-control input-md"  type="text" value="<?php echo $pass; ?>">
+  <input id="textinput" name="dbpass" placeholder="" class="form-control input-md"  type="text" value="<?php echo $pass; ?>">
   </div>
 </div>
 
@@ -50,24 +75,33 @@ include("$root/modules/shop/shop_settings.php");
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Shoper user:</label>  
   <div class="col-md-4">
-  <input id="textinput" name="mpwd" placeholder="" class="form-control input-md"  type="text" value="<?php echo $shopusr; ?>">
-     <input type="hidden" name="msave" value="msave" />
+  <input id="textinput" name="shopuser" placeholder="" class="form-control input-md"  type="text" value="<?php echo $shopusr; ?>">
   </div>
 </div>
 
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Shoper password:</label>  
   <div class="col-md-4">
-  <input id="textinput" name="mpwd" placeholder="" class="form-control input-md"  type="text" value="<?php echo $shoppass; ?>">
-     <input type="hidden" name="msave" value="msave" />
+  <input id="textinput" name="shoppass" placeholder="" class="form-control input-md"  type="text" value="<?php echo $shoppass; ?>">
   </div>
 </div>
 
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Shoper sklep:</label>  
   <div class="col-md-4">
-  <input id="textinput" name="mpwd" placeholder="" class="form-control input-md"  type="text" value="<?php echo $shoptest; ?>">
-     <input type="hidden" name="msave" value="msave" />
+  <input id="textinput" name="shopshop" placeholder="" class="form-control input-md"  type="text" value="<?php echo $shoptest; ?>">
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">FTP user:</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="ftpusr" placeholder="" class="form-control input-md"  type="text" value="<?php echo $shopftp; ?>">
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">FTP password:</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="ftppass" placeholder="" class="form-control input-md"  type="text" value="<?php echo $shopftppass; ?>">
   </div>
 </div>
 
