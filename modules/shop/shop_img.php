@@ -36,8 +36,8 @@ while($currentPage <= $result->getPageCount() ){
 			if ($count != '0') {
 				
 				$ftp_host = "robelit.home.pl";
-				$ftp_user = "shoper@robelit.pl";
-				$ftp_password = "Ala1Ala2";
+				$ftp_user = $shopftp;
+				$ftp_password = $shopftppass;
 
 				//Connect
 				echo "\n";
