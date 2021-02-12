@@ -8,6 +8,7 @@ $shoppass2 = isset($_POST['shoppass2']) ? $_POST['shoppass2'] : '';
 $shopshop = isset($_POST['shopshop']) ? $_POST['shopshop'] : '';
 $ftpusr = isset($_POST['ftpusr']) ? $_POST['ftpusr'] : '';
 $ftppass = isset($_POST['ftppass']) ? $_POST['ftppass'] : '';
+$msave = isset($_POST['msave']) ? $_POST['msave'] : '';
 
     if ($msave == "msave"){
     $db = new PDO('sqlite:dbf/nettemp.db');
@@ -107,6 +108,7 @@ include("$root/modules/shop/shop_settings.php");
 <div class="form-group">
   <label class="col-md-4 control-label" for="singlebutton"></label>
   <div class="col-md-4">
+	<input type="hidden" name="msave" value="msave" />
     <button id="singlebutton" name="singlebutton" class="btn btn-xs btn-success">Save</button>
   </div>
 </div>
