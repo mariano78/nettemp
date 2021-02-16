@@ -40,7 +40,7 @@ include("$root/modules/shop/shop_settings.php");
 					
 					echo "\n Kwota netto (całościowo) - ".$global_kwota_netto."\n";
 					
-					$do_wyplaty = $global_kwota_netto * 6%;
+					$do_wyplaty = $global_kwota_netto * 1.06;
 					
 					echo "\n Kwota netto do wyplaty (całościowo) - ".$do_wyplaty."\n";
 					
