@@ -11,7 +11,7 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
 
-			$resource = newDreamCommerce\ShopAppstoreLib\Resource\Order($client);
+			$resource = new DreamCommerce\ShopAppstoreLib\Resource\Order($client);
     $result = $resource->get();
 
     foreach($result as $r){
