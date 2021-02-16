@@ -3,9 +3,17 @@
 dir=$( cd "$( dirname "$0" )" && cd ../../ && pwd )
 date=`date +%y%m%d-%H%M`
 
-php -f $dir/modules/shop/shop_add_from_tow_kartoteki.php
-php -f $dir/modules/shop/shop_parse_products.php
-php -f $dir/modules/shop/shop_prod.php
+if [ ! -e $dir/tmp/log.txt ]; then
+touch $dir/tmp/log.txt
+chmod 775 $dir/tmp/log.txt
+chown root.www-data $dir/tmp/log.txt 
+fi
+
+
+
+php -f $dir/modules/shop/shop_add_from_tow_kartoteki.php >> $dir/tmp/log.txt
+php -f $dir/modules/shop/shop_parse_products.php >> $dir/tmp/log.txt
+php -f $dir/modules/shop/shop_prod.php >> $dir/tmp/log.txt
 
 
 
