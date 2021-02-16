@@ -17,6 +17,7 @@ include("$root/modules/shop/shop_settings.php");
 	$result = $resource->get();
 	$pages = $result->pages;
 	
+	$global_kwota_netto = 0;
 	
 	while($currentPage <= $result->getPageCount() ){
 	  
@@ -27,6 +28,7 @@ include("$root/modules/shop/shop_settings.php");
 				echo "count_".$count."\n";
 				
 				foreach($result as $r){
+					$id_zam = $r->order_id;
 					$kwota_zam = $r->sum;
 					$kwota_przesylki = $r->shipping_cost;
 					
@@ -34,6 +36,11 @@ include("$root/modules/shop/shop_settings.php");
 					echo $kwota_zam_brutto; 
 					$kwota_netto = $kwota_zam_brutto/1.23;
 					echo $kwota_netto;
+					$global_kwota_netto += $kwota_netto;
+					
+					echo $global_kwota_netto. "\n";
+					
+				
 					
         //printf("#%d - %.2f (@%s)\n", $r->order_id, $r->sum, $r->shipping_cost);
     }
