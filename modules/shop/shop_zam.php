@@ -38,7 +38,7 @@ include("$root/modules/shop/shop_settings.php");
 					echo $kwota_netto;
 					$global_kwota_netto += $kwota_netto;
 					
-					echo "\n".$global_kwota_netto."\n";
+					echo "\n Kwota netto (całościowo) - ".$global_kwota_netto."\n";
 					
 				
 					
