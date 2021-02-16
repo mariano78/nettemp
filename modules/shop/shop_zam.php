@@ -27,7 +27,15 @@ include("$root/modules/shop/shop_settings.php");
 				echo "count_".$count."\n";
 				
 				foreach($result as $r){
-        printf("#%d - %.2f (@%s)\n", $r->order_id, $r->sum, $r->shipping_cost);
+					$kwota_zam = $r->sum;
+					$kwota_przesylki = $r->shipping_cost;
+					
+					$kwota_zam_brutto = $kwota_zam - $kwota_przesylki;
+					echo $kwota_zam_brutto; 
+					$kwota_neto = $kwota_zam_brutto/1,23;
+					echo $kwota_netto;
+					
+        //printf("#%d - %.2f (@%s)\n", $r->order_id, $r->sum, $r->shipping_cost);
     }
 		
 		$currentPage++;		
