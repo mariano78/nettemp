@@ -27,7 +27,7 @@ include("$root/modules/shop/shop_settings.php");
 				echo "count_".$count."\n";
 				
 				foreach($result as $r){
-        printf("#%d - %.2f (@%s)\n", $r->order_id, $r->sum, $r->date);
+        printf("#%d - %.2f (@%s)\n", $r->order_id, $r->sum, $r->shipping_cost);
     }
 		
 		$currentPage++;		
