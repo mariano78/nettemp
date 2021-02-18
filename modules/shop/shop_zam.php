@@ -12,6 +12,7 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 include("$root/modules/shop/shop_settings.php");
 
 	$resource = new DreamCommerce\ShopAppstoreLib\Resource\Order($client);
+	$resource->filters(['status_id'=>7]);
     $currentPage = 1;
 	$currentProd = 1;;
 	$result = $resource->get();
@@ -34,7 +35,7 @@ include("$root/modules/shop/shop_settings.php");
 					$status_zam = $r->status_id;
 					$data_zam = $r->date;
 					
-					if($status_zam == 7){
+					
 					
 						$kwota_zam_brutto = $kwota_zam - $kwota_przesylki;
 						echo $kwota_zam_brutto; 
@@ -47,7 +48,7 @@ include("$root/modules/shop/shop_settings.php");
 						$do_wyplaty = $global_kwota_netto * 0.06;
 						
 						echo "\n".$data_zam." - ".$id_zam." Kwota netto do wyplaty (całościowo) - ".$status_zam." - ".$do_wyplaty."\n";
-					}
+					
 				
 					
         //printf("#%d - %.2f (@%s)\n", $r->order_id, $r->sum, $r->shipping_cost);
