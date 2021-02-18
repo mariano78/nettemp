@@ -18,7 +18,7 @@ include("$root/modules/shop/shop_settings.php");
 					'date' =>[
 						'>'=>2021-01-01,
 						'<'=>2021-01-31
-						}
+						]
 					
 					
 					
