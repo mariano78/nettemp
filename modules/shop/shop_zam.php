@@ -33,18 +33,20 @@ include("$root/modules/shop/shop_settings.php");
 					$kwota_przesylki = $r->shipping_cost;
 					$status_zam = $r->status_id;
 					
-					$kwota_zam_brutto = $kwota_zam - $kwota_przesylki;
-					echo $kwota_zam_brutto; 
-					$kwota_netto = $kwota_zam_brutto/1.23;
-					echo $kwota_netto;
-					$global_kwota_netto += $kwota_netto;
+					if($status_zam == 7){
 					
-					echo "\n Kwota netto (całościowo) - ".$global_kwota_netto."\n";
-					
-					$do_wyplaty = $global_kwota_netto * 0.06;
-					
-					echo "\n".$id_zam." Kwota netto do wyplaty (całościowo) - ".$status_zam." - ".$do_wyplaty."\n";
-					
+						$kwota_zam_brutto = $kwota_zam - $kwota_przesylki;
+						echo $kwota_zam_brutto; 
+						$kwota_netto = $kwota_zam_brutto/1.23;
+						echo $kwota_netto;
+						$global_kwota_netto += $kwota_netto;
+						
+						echo "\n Kwota netto (całościowo) - ".$global_kwota_netto."\n";
+						
+						$do_wyplaty = $global_kwota_netto * 0.06;
+						
+						echo "\n".$id_zam." Kwota netto do wyplaty (całościowo) - ".$status_zam." - ".$do_wyplaty."\n";
+					}
 				
 					
         //printf("#%d - %.2f (@%s)\n", $r->order_id, $r->sum, $r->shipping_cost);
