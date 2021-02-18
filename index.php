@@ -141,7 +141,7 @@ function new_seen($seen){
 
 <li <?php echo $id == 'map' ? ' class="active"' : ''; ?>><a href="index.php?id=map"><span class="glyphicon glyphicon-picture" aria-hidden="true"> Map</span> </a></li><?php }?>
 
-<li <?php echo $id == 'tools' ? ' class="active"' : ''; ?>><a href="index.php?id=tools"><span class="glyphicon glyphicon-wrench" aria-hidden="true"> Shoper</span></a></li>
+<li <?php echo $id == 'tools' ? ' class="active"' : ''; ?>><a href="index.php?id=shop_baza"><span class="glyphicon glyphicon-wrench" aria-hidden="true"> Shoper</span></a></li>
 <?php
 	}
 }

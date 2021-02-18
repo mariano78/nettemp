@@ -1,9 +1,9 @@
 <?php if(!isset($_SESSION['user'])){ header("Location: denied"); } ?>
 <?php $art = (!isset($art) || $art == '') ? 'update' : $art; ?>
 <p>
-
-<a href="index.php?id=tools&type=shop" ><button class="btn btn-xs btn-default <?php echo $art == 'shop' ? 'active' : ''; ?>">Shop</button></a>
 <a href="index.php?id=tools&type=shop_baza" ><button class="btn btn-xs btn-default <?php echo $art == 'shop_baza' ? 'active' : ''; ?>">Shop - Baza</button></a>
+<a href="index.php?id=tools&type=shop" ><button class="btn btn-xs btn-default <?php echo $art == 'shop' ? 'active' : ''; ?>">Shop-Ustawienia</button></a>
+
 <a href="index.php?id=tools&type=shop_kategorie" ><button class="btn btn-xs btn-default <?php echo $art == 'shop_kategorie' ? 'active' : ''; ?>">Shop - Kategorie</button></a>
 
 
