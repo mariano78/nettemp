@@ -31,7 +31,7 @@ include("$root/modules/shop/shop_settings.php");
 					$id_zam = $r->order_id;
 					$kwota_zam = $r->sum;
 					$kwota_przesylki = $r->shipping_cost;
-					$status_zam = $r->status.order;
+					$status_zam = $r->status->order;
 					
 					$kwota_zam_brutto = $kwota_zam - $kwota_przesylki;
 					echo $kwota_zam_brutto; 
