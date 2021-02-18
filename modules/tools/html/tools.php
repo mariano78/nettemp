@@ -4,7 +4,11 @@
 <a href="index.php?id=tools&type=shop_baza" ><button class="btn btn-xs btn-default <?php echo $art == 'shop_baza' ? 'active' : ''; ?>">Shoper - Baza</button></a>
 
 
-<a href="index.php?id=tools&type=shop_kategorie" ><button class="btn btn-xs btn-default <?php echo $art == 'shop_kategorie' ? 'active' : ''; ?>">Shoper - Kategorie</button></a>
+<!--
+
+<a href="index.php?id=tools&type=shop_kategorie" ><button class="btn btn-xs btn-default <?php echo $art == 'shop_kategorie' ? 'active' : ''; ?>">Shoper - Kategorie</button></a>  
+
+-->
 <a href="index.php?id=tools&type=shop" ><button class="btn btn-xs btn-default <?php echo $art == 'shop' ? 'active' : ''; ?>">Shoper - Ustawienia</button></a>
 
 
