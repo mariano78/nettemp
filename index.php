@@ -121,8 +121,6 @@ function new_seen($seen){
 ?>
 
 
-<li <?php echo $id == 'status' ? ' class="active"' : ''; ?>><a href="index.php?id=status"><span class="glyphicon glyphicon-th-large" aria-hidden="true"> Status</span></a></li>
-
 <?php
 	if($nts_screen=='on')
 	{
