@@ -32,6 +32,7 @@ include("$root/modules/shop/shop_settings.php");
 					$kwota_zam = $r->sum;
 					$kwota_przesylki = $r->shipping_cost;
 					$status_zam = $r->status_id;
+					$data_zam = $r->date;
 					
 					if($status_zam == 7){
 					
@@ -45,7 +46,7 @@ include("$root/modules/shop/shop_settings.php");
 						
 						$do_wyplaty = $global_kwota_netto * 0.06;
 						
-						echo "\n".$id_zam." Kwota netto do wyplaty (całościowo) - ".$status_zam." - ".$do_wyplaty."\n";
+						echo "\n".$data_zam." - ".$id_zam." Kwota netto do wyplaty (całościowo) - ".$status_zam." - ".$do_wyplaty."\n";
 					}
 				
 					
