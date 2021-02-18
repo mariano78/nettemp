@@ -75,7 +75,7 @@ if($id != 'screen') {
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
-		<a href="<?php echo $nts_nettemp_link ?>" target="_blank"><img src="<?php echo $nts_nettemp_logo ?>" height="50" alt="<?php echo $nts_nettemp_alt ?>"></a>
+		
 
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
