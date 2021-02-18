@@ -12,7 +12,17 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 include("$root/modules/shop/shop_settings.php");
 
 	$resource = new DreamCommerce\ShopAppstoreLib\Resource\Order($client);
-	$resource->filters(['status_id'=>7]);
+	$resource->filters([
+	
+					'status_id'=>7,
+					'date' =>[
+						'>'=>2021-01-01,
+						'<'=>2021-01-31
+						}
+					
+					
+					
+					]);
     $currentPage = 1;
 	$currentProd = 1;;
 	$result = $resource->get();
