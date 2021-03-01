@@ -48,9 +48,9 @@ include("$root/modules/shop/shop_settings.php");
 					
 					
 						$kwota_zam_brutto = $kwota_zam - $kwota_przesylki;
-						echo $kwota_zam_brutto; 
+						//echo $kwota_zam_brutto; 
 						$kwota_netto = $kwota_zam_brutto/1.23;
-						echo $kwota_netto;
+						//echo $kwota_netto;
 						$global_kwota_netto += $kwota_netto;
 						
 						//echo "\n Kwota netto (całościowo) - ".$global_kwota_netto."\n";
