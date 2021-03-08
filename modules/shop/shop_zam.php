@@ -17,7 +17,7 @@ include("$root/modules/shop/shop_settings.php");
 					'status_id'=>7,
 					'date' =>[
 						'>'=>'2021-01-01%',
-						'<'=>'2021-02-28%'
+						'<'=>'2021-03-31%'
 						]
 					
 					
