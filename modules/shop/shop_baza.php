@@ -16,7 +16,7 @@ $sync_pic_code = isset($_POST['sync_pic_code']) ? $_POST['sync_pic_code'] : '';
 
 if (!empty($sync_pic_code)){
     
-	shell_exec("php -f $root/modules/shoper/shop_img.php c=$sync_pic_code");
+	shell_exec("php -f $root/modules/shop/shop_img.php c=$sync_pic_code");
 	
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
