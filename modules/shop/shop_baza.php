@@ -11,6 +11,17 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
 
+//synchronizacja zdjec
+$sync_pic_code = isset($_POST['sync_pic_code']) ? $_POST['sync_pic_code'] : '';
+
+if (!empty($sync_pic_code)){
+    
+	shell_exec("php -f $root/modules/shoper/shop_img.php c=$sync_pic_code");
+	
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+
 //czy w sklepie
 $inshop_id_tow = isset($_POST['inshop_id_tow']) ? $_POST['inshop_id_tow'] : '';
 $inshopcheck = isset($_POST['inshopcheck']) ? $_POST['inshopcheck'] : '';
@@ -272,6 +283,7 @@ Spz ? (Y/N/%):
 <th>Kod RB</th>
 <th>Grupa</th>
 <th>Status</th>
+<th>Sync</th>
 <th>Stan</th>
 <th>Nazwa RB</th>
 <th>W sklepie?</th>
@@ -436,6 +448,16 @@ $stid2 = oci_parse($conn, "$sql");
 					<?php if ($rb_stat == 'spr') {echo  '<span class="label label-success">'.$rb_stat.'</span>';}  ?>
 					<?php if ($rb_stat == 'spz') {echo  '<span class="label label-info">'.$rb_stat.'</span>';}  ?>
 					<?php if ($rb_stat == 'wyp') {echo  '<span class="label label-danger">'.$rb_stat.'</span>';}  ?>
+				
+				</td>
+				
+				<td class="col-md-0"> 
+				
+					<form action="" method="post" style="display:inline!important;">
+						
+						<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-picture"></span> </button>
+						<input type="hidden" name="sync_pic_code" value="<?php echo $rb_tow_kod; ?>" />
+					</form>
 				
 				</td>
 				
