@@ -34,7 +34,8 @@ if ($code_to_update == 'all'){
 		
 						$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP_3');
 	}else {
-						$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP_3 WHERE TO_KOD LIKE $code_to_update'); ;
+						$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP_3 WHERE TO_KOD = :ctupdate');
+						oci_bind_by_name($stid, ":ctupdate", $code_to_update);
 	}
 
 oci_execute($stid);
