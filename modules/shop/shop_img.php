@@ -1,5 +1,13 @@
 <?php
 
+var_dump($argv);
+parse_str($argv[1],$single_code);
+$code_to_update=$single_code['c'];
+
+echo $code_to_update;
+
+
+
 if(!empty($_SERVER["DOCUMENT_ROOT"])){
     $root=$_SERVER["DOCUMENT_ROOT"];
 }else{
@@ -15,9 +23,17 @@ $db2->exec("DELETE FROM logs");
 $www_serwer = "http://robelit.home.pl/shop_img/";
 
 $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
-	//filtry
-	$resource->filters(['translations.pl_PL.active'=>true]);
-
+	if ($code_to_update == 'all'){
+		
+									$resource->filters(['translations.pl_PL.active'=>true]);
+	}else {
+	$resource->filters([
+						
+						'translations.pl_PL.active'=>true,
+						'code'=>$code_to_update
+						
+						]);
+	}
 	$currentPage = 1;
 	$currentProd = 1;;
 	$result = $resource->get();
