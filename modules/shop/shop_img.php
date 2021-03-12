@@ -29,8 +29,8 @@ $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 	}else {
 	$resource->filters([
 						
-						'translations.pl_PL.active'=>true,
-						'code'=> ['=' => $code_to_update]
+						'translations.pl_PL.active' =>true,
+						'code' => ['LIKE' => $code_to_update]
 						
 						]);
 	}
