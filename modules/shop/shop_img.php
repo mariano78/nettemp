@@ -30,7 +30,7 @@ $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 	$resource->filters([
 						
 						'translations.pl_PL.active'=>true,
-						'code'=>$code_to_update
+						'code'=> ['=' => $code_to_update]
 						
 						]);
 	}
