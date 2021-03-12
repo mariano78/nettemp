@@ -1,5 +1,9 @@
 <?php
 
+var_dump($argv);
+parse_str($argv[1],$single_code);
+$code_to_update=$single_code['c'];
+
 if(!empty($_SERVER["DOCUMENT_ROOT"])){
     $root=$_SERVER["DOCUMENT_ROOT"];
 }else{
@@ -25,7 +29,14 @@ $db2->exec("DELETE FROM logs");
 // 1. Pobieramy z bazy oracle dane o produkcie 
 // 2. Sprawdzamy czy w shoperze istnieje produkt z kodem z oracle - dodajemy lub aktualizujemy 
 $time_pre = microtime(true);
-$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP_3');
+
+if ($code_to_update == 'all'){
+		
+						$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP_3');
+	}else {
+						$stid = oci_parse($conn, 'SELECT * FROM INFOR_SHOPER_EXP_3 WHERE TO_KOD LIKE '$code_to_update''); ;
+	}
+
 oci_execute($stid);
 
 

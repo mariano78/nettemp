@@ -4,7 +4,7 @@ var_dump($argv);
 parse_str($argv[1],$single_code);
 $code_to_update=$single_code['c'];
 
-echo $code_to_update;
+//echo $code_to_update;
 
 
 
@@ -25,13 +25,11 @@ $www_serwer = "http://robelit.home.pl/shop_img/";
 $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 	if ($code_to_update == 'all'){
 		
-									$resource->filters(['translations.pl_PL.active'=>true]);
+						$resource->filters(['translations.pl_PL.active'=>true]);
 	}else {
-	$resource->filters([
-						
-						'translations.pl_PL.active' =>true,
-						'stock.code' =>['LIKE' => $code_to_update]
-						
+						$resource->filters([
+							'translations.pl_PL.active' =>true,
+							'stock.code' =>['LIKE' => $code_to_update]
 						]);
 	}
 	$currentPage = 1;
