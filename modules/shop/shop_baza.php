@@ -15,9 +15,16 @@ include("$root/modules/shop/shop_settings.php");
 $sync_pic_code = isset($_POST['sync_pic_code']) ? $_POST['sync_pic_code'] : '';
 
 if (!empty($sync_pic_code)){
-    
 	shell_exec("php -f $root/modules/shop/shop_img.php c=$sync_pic_code");
-	
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+
+//synchronizacja produktu
+$sync_prod_code = isset($_POST['sync_prod_code']) ? $_POST['sync_prod_code'] : '';
+
+if (!empty($sync_prod_code)){
+	shell_exec("php -f $root/modules/shop/shop_prod.php c=$sync_prod_code");
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
@@ -457,6 +464,12 @@ $stid2 = oci_parse($conn, "$sql");
 						
 						<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-picture"></span> </button>
 						<input type="hidden" name="sync_pic_code" value="<?php echo $rb_tow_kod; ?>" />
+					</form>
+					
+					<form action="" method="post" style="display:inline!important;">
+						
+						<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-send"></span> </button>
+						<input type="hidden" name="sync_prod_code" value="<?php echo $rb_tow_kod; ?>" />
 					</form>
 				
 				</td>
