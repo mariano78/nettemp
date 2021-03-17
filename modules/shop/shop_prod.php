@@ -84,7 +84,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 		
 	}
 
-	if ($to_opis == '')){
+	if ($to_opis == ''){
 		
 		$to_opis = 'Opis produktu';
 	}
