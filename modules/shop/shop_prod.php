@@ -66,7 +66,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$to_opis = $row['SHOP_OPIS']; // opis towaru
 	
 	if ($to_opis == ''){
-		$to_opis = 'Opis produktu22';
+		$to_opis = 'Opis produktu';
 	} else {
 		$to_opis = $row['SHOP_OPIS']->load(); // opis towaru
 	}
