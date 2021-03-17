@@ -62,7 +62,11 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$delivery2 = $row['DELIVERY2']; // rodzaj przewoźnika
 	$to_status = $row['STATUS']; // rodzaj przewoźnika
 	$to_spz2 = $row['SHOP_SPZ'];
-	$to_opis = $row['SHOP_OPIS']->load(); // opis towaru
+	//$to_opis = $row['SHOP_OPIS']->load(); // opis towaru
+	$to_opis = $row['SHOP_OPIS']; // opis towaru
+	
+	echo "opis_".$to_opis;
+	
 	$to_related = $row['SHOP_LINKED']; // indeksy towarów powiązanych rozdzielane ; - srednik
 	
 	$to_related_inshop = array() ;
