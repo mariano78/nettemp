@@ -107,7 +107,7 @@ function gpio_curl_onoff($ip,$gpio,$rom,$action,$moment_time){
 	}else {
 		CURLOPT_URL => "$ip/control?cmd=$method,$gpio,$set",
 	}
-		CURLOPT_URL => "$ip/control?cmd=$method,$gpio,$set,$moment_time",
+		//CURLOPT_URL => "$ip/control?cmd=$method,$gpio,$set,$moment_time",
 		CURLOPT_HEADER => true,
 		CURLOPT_NOBODY => true,
 		CURLOPT_RETURNTRANSFER => true,
