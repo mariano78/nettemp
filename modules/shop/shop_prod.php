@@ -65,7 +65,11 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	//$to_opis = $row['SHOP_OPIS']->load(); // opis towaru
 	$to_opis = $row['SHOP_OPIS']; // opis towaru
 	
-	echo "opis_".$to_opis;
+	if ($to_opis == ''){
+		$to_opis = 'Opis produktu22';
+	} else {
+		$to_opis = $row['SHOP_OPIS']->load(); // opis towaru
+	}
 	
 	$to_related = $row['SHOP_LINKED']; // indeksy towarów powiązanych rozdzielane ; - srednik
 	
@@ -88,10 +92,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 		
 	}
 
-	if ($to_opis == ''){
-		
-		$to_opis = 'Opis produktu';
-	}
+	
 	
 	$cut_to_opis = substr($to_opis, 0, 3);
 	if  ($cut_to_opis != '<p>'){
