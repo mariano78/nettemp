@@ -1,6 +1,6 @@
 <?php
 
-var_dump($argv);
+//var_dump($argv);
 parse_str($argv[1],$single_code);
 $code_to_update=$single_code['c'];
 
@@ -167,7 +167,7 @@ if ($kod == 'HPL00001'){
 	
 	$date = date('H:i:s');
 	if ($akcja == 0) {
-		logs_shop($date, 'error', "Brak parametru-".$kod."-".$nazwa."-".$ean."-".$kategoria."-".$delivery."-".$delivery2."-".$cena."-".$in_shop);
+		logs_shop($date, 'error', "Brak parametru^".$kod."^".$nazwa."^".$ean."^".$kategoria."^".$delivery."^".$delivery2."^".$cena."^".$in_shop);
 		$pominietych++;
 		}
 	
@@ -376,7 +376,7 @@ if ($count2 > 0){
 		//logs_shop($date, 'error', "Brak parametru-".$kod."-".$nazwa."-".$ean."-".$kategoria."-".$delivery."-".$delivery2."-".$cena );
 		
 		$mess_log =  $log['message'];
-		$sklad = explode("-", $mess_log);
+		$sklad = explode("^", $mess_log);
 		$log_kod = $sklad[1];
 		$log_nazwa = $sklad[2];
 		
