@@ -169,7 +169,7 @@ while($currentPage <= $result->getPageCount() ){
 						
 						echo "Nie ma folderu FTP dla produktu ", $kod." \n";
 						
-						logs_shop($date, 'errorimg', "Brak zdjeć-".$kod."-".$ean."-".$prod_name);
+						logs_shop($date, 'errorimg', "Brak zdjeć^".$kod."^".$ean."^".$prod_name);
 						
 						
 						
@@ -209,7 +209,7 @@ foreach ($result_log as $log) {
 	
 	
 	$mess_log =  $log['message'];
-	$sklad = explode("-", $mess_log);
+	$sklad = explode("^", $mess_log);
 	
 	
 	$log_kod = $sklad[1];
