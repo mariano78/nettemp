@@ -101,7 +101,7 @@ function gpio_curl_onoff($ip,$gpio,$rom,$action,$moment_time){
 	$ch = curl_init();
 	$optArray = array(
 	
-	if if($action=='moment') {
+	if($action=='moment') {
 		
 			CURLOPT_URL => "$ip/control?cmd=$method,$gpio,$set,$moment_time",
 	}else {
