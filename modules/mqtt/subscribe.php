@@ -74,8 +74,9 @@ function procmsg($topic, $msg){
 	$check_gpio = substr($arr['3'], 0, 5);  //gpio_
 	if ($check_gpio == 'gpio_') {
 		
+		$arr[4] = substr($arr['3'], strpos($arr['3'], "_") + 1); 
 		$arr[3] = 'gpio';  
-		$arr[4] = substr($arr['3'], strpos($arr['3'], "_") + 1);    
+		   
 				
 	}
 	
