@@ -66,7 +66,18 @@ function procmsg($topic, $msg){
     $ttp=(explode("/",$topic));
     foreach($ttp as $p) {
 	$arr[]=$p;
+	
+	
+	
     }
+	
+	$check_gpio = substr($arr['3'], 0, 5);  //gpio_
+	if ($check_gpio == 'gpio_') {
+		
+		$arr[3] = 'gpio';  
+		$arr[4] = substr($arr['3'], strpos($arr['3'], "_") + 1);    
+				
+	}
 	
     global $date;
     global $local_rom;
@@ -244,7 +255,9 @@ function procmsg($topic, $msg){
 		
 		
 		
-	} else if ($arr['3']=='gpio') {
+} else if ($arr['3']=='gpio' OR $arr['3']=='gpio_') {
+	
+	
 		
 	$ip=$arr['1'];
 	$name=$arr['2'];
