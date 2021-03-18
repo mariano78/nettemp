@@ -8,8 +8,10 @@
 
 <a href="index.php?id=tools&type=shop_kategorie" ><button class="btn btn-xs btn-default <?php echo $art == 'shop_kategorie' ? 'active' : ''; ?>">Shoper - Kategorie</button></a>  
 
--->
 <a href="index.php?id=tools&type=shop" ><button class="btn btn-xs btn-default <?php echo $art == 'shop' ? 'active' : ''; ?>">Shoper - Ustawienia</button></a>
+
+-->
+
 
 
 <?php if ( isset($NT_SETTINGS['dbUpdateEditPreparePage']) ){ ?>
