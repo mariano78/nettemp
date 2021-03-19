@@ -439,6 +439,16 @@ $stid2 = oci_parse($conn, "$sql");
 			$shop_spz = $row['SHOP_SPZ'];
 			$shop_linked = $row['SHOP_LINKED'];
 			$rb_stan = $row['STAN'];
+			$linkwww = '';
+			
+			if ($shop_name == ''){
+				
+				$linkwww = 'https://www.robelit.pl/'.pl_charset($rb_tow_nazwa).'html';	
+			} else {
+				$linkwww = 'https://www.robelit.pl/'.pl_charset($shop_name).'html';	
+				
+			}
+			
 			
 ?>
 			<tr>	
@@ -471,6 +481,8 @@ $stid2 = oci_parse($conn, "$sql");
 						<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-send"></span> </button>
 						<input type="hidden" name="sync_prod_code" value="<?php echo $rb_tow_kod; ?>" />
 					</form>
+					
+					<a class="glyphicon glyphicon-globe" href="<?php echo $linkwww ?>"</a>
 				
 				</td>
 				
