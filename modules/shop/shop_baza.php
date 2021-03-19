@@ -482,7 +482,7 @@ $stid2 = oci_parse($conn, "$sql");
 						<input type="hidden" name="sync_prod_code" value="<?php echo $rb_tow_kod; ?>" />
 					</form>
 					
-					<a target="_blank" style="display:inline!important;" class="btn btn-xs btn-success glyphicon glyphicon-globe" href="<?php echo $linkwww ?>"</a>
+					<a target="_blank" style="display:inline!important;" class="btn btn-xs btn-success" href="<?php echo $linkwww ?>" <span class="glyphicon glyphicon-globe"></span></a>
 				
 				</td>
 				
