@@ -443,9 +443,9 @@ $stid2 = oci_parse($conn, "$sql");
 			
 			if ($shop_name == ''){
 				
-				$linkwww = 'https://www.robelit.pl/'.pl_charset($rb_tow_nazwa).'html';	
+				$linkwww = 'https://www.robelit.pl/'.pl_charset($rb_tow_nazwa).'.html';	
 			} else {
-				$linkwww = 'https://www.robelit.pl/'.pl_charset($shop_name).'html';	
+				$linkwww = 'https://www.robelit.pl/'.pl_charset($shop_name).'.html';	
 				
 			}
 			
