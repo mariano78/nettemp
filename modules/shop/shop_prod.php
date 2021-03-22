@@ -172,8 +172,8 @@ if ($kod == 'HPL00001'){
 		}
 	
 	$waga = floatval($row['TO_MASA']); // waga produktu
-	$szerokosc = $row['TO_SZEROKOSC']; // szerokosc produktu - width
-	$dlugosc = $row['TO_DLUGOSC']; // długosc produktu
+	$szerokosc = $row['TO_SZEROKOSC']/10; // szerokosc produktu - width
+	$dlugosc = $row['TO_DLUGOSC']/10; // długosc produktu
 	
 	
 	//$opis = 'To jest opis produktu';
@@ -230,7 +230,7 @@ if ($kod == 'HPL00001'){
 						'category_id' => $kategoria,
 						'ean' => $ean,
 						'dimension_w' => $szerokosc,
-						'dimension_h' => $dlugosc,
+						'dimension_l' => $dlugosc,
 						'gauge_id' => $delivery2,
 						'translations' => array(
 							'pl_PL' => array(
@@ -284,7 +284,7 @@ if ($kod == 'HPL00001'){
 						'category_id' => $kategoria,
 						'ean' => $ean,
 						'dimension_w' => $szerokosc,
-						'dimension_h' => $dlugosc,
+						'dimension_l' => $dlugosc,
 						'gauge_id' => $delivery2,
 						
 						'translations' => array(
