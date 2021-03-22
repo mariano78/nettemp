@@ -625,6 +625,7 @@ $stid2 = oci_parse($conn, "$sql");
 							<option value="59"  <?php echo $shop_cat == 59 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty do ogrodu - Podesty kompozytowe" ?></option>
 							<option value="60"  <?php echo $shop_cat == 60 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty do ogrodu - Sztachety kompozytowe" ?></option>
 							<option value="123"  <?php echo $shop_cat == 123 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty do ogrodu - Szklarnie" ?></option>
+							<option value="123"  <?php echo $shop_cat == 133 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty do ogrodu - Pergole" ?></option>
 							
 							<option value="54"  <?php echo $shop_cat == 54 ? 'selected="selected"' : ''; ?>  ><?php echo "Folia - Folie PE" ?></option>
 							<option value="66"  <?php echo $shop_cat == 66 ? 'selected="selected"' : ''; ?>  ><?php echo "Folia - Folia A-Pet" ?></option>
@@ -758,6 +759,7 @@ $stid2 = oci_parse($conn, "$sql");
 							<option value="59"  <?php echo $shop_cat2 == 59 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty do ogrodu - Podesty kompozytowe" ?></option>
 							<option value="60"  <?php echo $shop_cat2 == 60 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty do ogrodu - Sztachety kompozytowe" ?></option>
 							<option value="123"  <?php echo $shop_cat2 == 123 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty do ogrodu - Szklarnie" ?></option>
+							<option value="123"  <?php echo $shop_cat == 133 ? 'selected="selected"' : ''; ?>  ><?php echo "Produkty do ogrodu - Pergole" ?></option>
 							
 							<option value="54"  <?php echo $shop_cat2 == 54 ? 'selected="selected"' : ''; ?>  ><?php echo "Folia - Folie PE" ?></option>
 							<option value="66"  <?php echo $shop_cat2 == 66 ? 'selected="selected"' : ''; ?>  ><?php echo "Folia - Folia A-Pet" ?></option>
