@@ -70,7 +70,7 @@ while($currentPage <= $result->getPageCount() ){
 				// dla każdego produktu w shoperze 
 				 foreach($result as $r){
 					 
-					echo "Do zaktualizowania pozostało - ".$count."\n"; 
+					echo "Do zaktualizowania pozostało ----------------------------------------------- ".$count."\n"; 
 					printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name);
 					$ean = $r->stock->ean;
 					$id = $r->product_id;
