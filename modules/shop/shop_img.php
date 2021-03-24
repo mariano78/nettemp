@@ -20,7 +20,8 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 include("$root/modules/shop/shop_settings.php");
 $db2->exec("DELETE FROM logs");
 
-$www_serwer = "http://robelit.home.pl/shop_img/";
+//$www_serwer = "http://robelit.home.pl/shop_img/";
+$www_serwer = "192.168.18.240";
 
 $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 	if ($code_to_update == 'all'){
