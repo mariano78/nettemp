@@ -46,7 +46,11 @@ while($currentPage <= $result->getPageCount() ){
 	
 				//var_dump($result);
 				$count = $result->count;
-				$count2 = $count - ($currentPage * 50); 
+				$count2 = $count;
+				if ($currentPage != 1){
+						$count2 = $count - ($currentPage * 50);
+				}
+				 
 				
 
 			if ($count != '0') {
