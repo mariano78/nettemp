@@ -34,7 +34,8 @@ $resource = new DreamCommerce\ShopAppstoreLib\Resource\Product($client);
 						]);
 	}
 	$currentPage = 1;
-	$currentProd = 1;;
+	$currentProd = 1;
+	$count2 = 0;
 	$result = $resource->get();
 	//var_dump($result);
 	
@@ -46,9 +47,9 @@ while($currentPage <= $result->getPageCount() ){
 	
 				//var_dump($result);
 				$count = $result->count;
-				$count2 = $count;
-				if ($currentPage != 1){
-						$count2 = $count - ($currentPage * 50);
+				
+				if ($currentPage == 1){
+						$count2 = $count;
 				}
 				 
 				
@@ -75,7 +76,7 @@ while($currentPage <= $result->getPageCount() ){
 				// dla każdego produktu w shoperze 
 				 foreach($result as $r){
 					
-					echo "Do zaktualizowania pozostało ----------------------------------------------- ".$count2 ."\n"; 
+					echo "------------------------- Do zaktualizowania pozostało ------------------------- ".$count2 ."\n"; 
 					printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name);
 					$ean = $r->stock->ean;
 					$id = $r->product_id;
