@@ -1,6 +1,6 @@
 <?php
 
-var_dump($argv);
+//var_dump($argv);
 parse_str($argv[1],$single_code);
 $code_to_update=$single_code['c'];
 
@@ -46,9 +46,11 @@ while($currentPage <= $result->getPageCount() ){
 	
 				//var_dump($result);
 				$count = $result->count;
-				echo "count_".$count."\n";
+				
 
 			if ($count != '0') {
+				
+				
 				
 				$ftp_host = "robelit.home.pl";
 				$ftp_user = $shopftp;
@@ -67,6 +69,8 @@ while($currentPage <= $result->getPageCount() ){
 				
 				// dla każdego produktu w shoperze 
 				 foreach($result as $r){
+					 
+					echo "Do zaktualizowania pozostało - ".$count."\n"; 
 					printf("#%d - %s\n", $r->product_id, $r->translations->pl_PL->name);
 					$ean = $r->stock->ean;
 					$id = $r->product_id;
@@ -175,7 +179,7 @@ while($currentPage <= $result->getPageCount() ){
 						
 						
 					}// jesli nie ma folderu/plikow zrob else i logi
-	
+					$count -= $count;
 				}
 				// dla każdego produktu w shoperze
 				
