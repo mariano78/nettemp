@@ -179,7 +179,7 @@ while($currentPage <= $result->getPageCount() ){
 						
 						
 					}// jesli nie ma folderu/plikow zrob else i logi
-					$count -= $count;
+					$count --;
 				}
 				// dla każdego produktu w shoperze
 				
