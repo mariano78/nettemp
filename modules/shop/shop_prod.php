@@ -148,6 +148,7 @@ if ($kod == 'HPL00001'){
 	
 	//jaka dostępność towaru
 	if ($to_status == 'spz' &&  $to_spz2 == 'Y' && $stan == 0){
+			$stan = 5; 
 			$av_id = 6; // id z shopera - na zamowienie
 		if ($delivery3 != 999){
 				$delivery = $delivery3; // bierzemy czas dostawy z drugiego pola
