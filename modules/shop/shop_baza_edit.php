@@ -22,20 +22,6 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
 
-
-?>
-
-
-
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h1>TinyMCE Quick Start Guide</h1>
-    <form method="post">
-      <textarea id="mytextarea">Hello, World!</textarea>
-    </form>
-
-<?php
 $sql = "SELECT 
 JFOX_TOWAR_KARTOTEKI.ID TO_ID,
 JFOX_TOWAR_KARTOTEKI.TO_KOD TO_KOD,
@@ -112,6 +98,12 @@ $stid = oci_parse($conn, "$sql");
 			}
 		
 ?>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h1>TinyMCE Quick Start Guide</h1>
+    <form method="post">
+      <textarea id="mytextarea">Hello, World!</textarea>
+    </form>
 		
 </div>
 </div>
