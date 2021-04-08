@@ -134,3 +134,7 @@ input[name='time_offset']
 	visibility: hidden;
 }
 
+.mytextarea{ 
+    background-color:red !important;
+}
+
