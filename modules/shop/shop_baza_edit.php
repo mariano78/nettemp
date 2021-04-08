@@ -7,7 +7,7 @@
 		language: 'pl',
 		plugins: 'autoresize importcss', 
 		toolbar_mode: 'floating',
-		content_css: 'var/www/nettemp/html/shop.css'
+		content_css: '/html/shop.css'
 		
       });
 	  
