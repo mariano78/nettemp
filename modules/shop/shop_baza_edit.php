@@ -148,8 +148,8 @@ Edytowany towar: <?php echo "$rb_tow_kod"." - "."$shop_name"?>
 	  
     </form>
 					
-	<form action="" method="post" style="display:inline!important; margin-top: 20px;">				
-		<button class="btn btn-xs btn-success">Wyślij na WWW </button>
+	<form action="" method="post" style="display:inline!important;">				
+		<button class="btn btn-xs btn-success" style="margin-top: 20px;">Wyślij na WWW </button>
 		<input type="hidden" name="sync_prod_code" value="<?php echo $rb_tow_kod; ?>" />
 	</form>
 					
