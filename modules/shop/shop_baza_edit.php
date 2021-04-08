@@ -141,7 +141,7 @@ $stid = oci_parse($conn, "$sql");
 <div class="panel panel-default">
 <div class="panel-heading">
 Edytowany towar: <?php echo "$rb_tow_kod"." - "."$shop_name"?>
-    <form method="post">
+    <form method="post" style="display:inline!important;">
 		<textarea name="description" id="mytextarea"><?php echo $to_opis; ?></textarea>
 		<button class="btn btn-xs btn-success">Zapisz</button>
 		<input type="hidden" name="save_desc" value="<?php echo $id_tow; ?>" />
@@ -149,11 +149,11 @@ Edytowany towar: <?php echo "$rb_tow_kod"." - "."$shop_name"?>
     </form>
 					
 	<form action="" method="post" style="display:inline!important;">				
-		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-send"></span>Wyślij na WWW </button>
+		<button class="btn btn-xs btn-success">Wyślij na WWW </button>
 		<input type="hidden" name="sync_prod_code" value="<?php echo $rb_tow_kod; ?>" />
 	</form>
 					
-	<a target="_blank" style="display:inline!important;" class="btn btn-xs btn-success glyphicon glyphicon-globe" href="<?php echo $linkwww ?>"</a>
+	<a target="_blank" style="display:inline!important;" class="btn btn-xs btn-success glyphicon glyphicon-globe" href="<?php echo $linkwww ?>">Podgląd w shoper</a>
 	
 		
 </div>
