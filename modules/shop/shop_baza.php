@@ -856,7 +856,7 @@ $stid2 = oci_parse($conn, "$sql");
 				</td>
 				
 				<td class="col-md-0">
-					<a target="_blank" style="display:inline!important;" class="btn btn-xs <?php if (strlen($to_opis) <= 100) {echo 'btn-danger'} else {echo 'btn-success'} ?> glyphicon glyphicon-text-background" href="<?php echo $link_prod_desc ?>"</a>
+					<a target="_blank" style="display:inline!important;" class="btn btn-xs <?php if (strlen($to_opis) <= 100) {echo 'btn-danger';} else {echo 'btn-success';} ?> glyphicon glyphicon-text-background" href="<?php echo $link_prod_desc ?>"</a>
 				</td>
 			</tr>
 
