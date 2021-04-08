@@ -6,7 +6,6 @@
       });
     </script>
 
-
 <?php
 
 $desc_id_tow=isset($_GET['code']) ? $_GET['code'] : '';
@@ -95,7 +94,7 @@ $stid = oci_parse($conn, "$sql");
 				$to_opis = '';
 			} else {
 				$to_opis = $row['SHOP_OPIS']->load(); // opis towaru
-			}
+			};
 		
 ?>
 <div class="panel panel-default">
