@@ -7,3 +7,10 @@ h1, h2, h3, h4, h5{
   font-family: 'Saira',sans-serif;
   color:#005472;
 }
+
+p{
+  font-size:1.1rem;
+    color: #575756;
+  margin: 10px 0;
+    line-height: 1.6;
+}
