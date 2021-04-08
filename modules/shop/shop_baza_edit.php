@@ -7,6 +7,7 @@
 		language: 'pl',
 		plugins: 'autoresize link code image table wordcount lists', 
 		toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | bullist | numlist | link | code | image | table',
+		block_formats: 'Paragraph=p; Header 1=h1; Header 2=h2; Header 3=h3',
 		content_css: '/html/shop.css'
 		
       });
