@@ -143,17 +143,17 @@ $stid = oci_parse($conn, "$sql");
 Edytowany towar: <?php echo "$rb_tow_kod"." - "."$shop_name"?>
     <form method="post" style="display:inline!important;">
 		<textarea name="description" id="mytextarea"><?php echo $to_opis; ?></textarea>
-		<button class="btn btn-xs btn-danger" style="margin-top: 20px;">Zapisz</button>
+		<button class="btn btn-xs btn-danger" style="margin: 20px;">Zapisz</button>
 		<input type="hidden" name="save_desc" value="<?php echo $id_tow; ?>" />
 	  
     </form>
 					
 	<form action="" method="post" style="display:inline!important;">				
-		<button class="btn btn-xs btn-success" style="margin-top: 20px;">Wyślij na WWW </button>
+		<button class="btn btn-xs btn-success" style="margin: 20px;">Wyślij na WWW </button>
 		<input type="hidden" name="sync_prod_code" value="<?php echo $rb_tow_kod; ?>" />
 	</form>
 					
-	<a target="_blank" class="btn btn-xs btn-success" style="margin-top: 20px;" href="<?php echo $linkwww ?>">Podgląd w shoper</a>
+	<a target="_blank" class="btn btn-xs btn-success" style="margin: 20px;" href="<?php echo $linkwww ?>">Podgląd w shoper</a>
 	
 		
 </div>
