@@ -25,6 +25,7 @@
 		language: 'pl',
 		plugins: 'autoresize',
 		toolbar_mode: 'floating',
+		toolbar: "undo redo | style-p style-h1 style-h2 style-h3 style-pre style-code",
 		plugins: "stylebuttons"
       });
 	  
