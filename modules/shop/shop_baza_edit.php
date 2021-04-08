@@ -153,7 +153,7 @@ Edytowany towar: <?php echo "$rb_tow_kod"." - "."$shop_name"?>
 		<input type="hidden" name="sync_prod_code" value="<?php echo $rb_tow_kod; ?>" />
 	</form>
 					
-	<a target="_blank" style="display:inline!important; margin-top: 20px;" href="<?php echo $linkwww ?>">Podgląd w shoper</a>
+	<a target="_blank" class="btn btn-xs btn-success" style="display:inline!important; margin-top: 20px;" href="<?php echo $linkwww ?>">Podgląd w shoper</a>
 	
 		
 </div>
