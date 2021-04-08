@@ -1,3 +1,12 @@
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+    </script>
+
+
 <?php
 
 if(!empty($_SERVER["DOCUMENT_ROOT"])){
@@ -247,40 +256,10 @@ $pstart = ($page-1) * $pstop;
 
 <div class="panel panel-default">
 <div class="panel-heading">
-Filtry:
-Kod:
-<form action="" method="post" style="display:inline!important;">
-	<input type="text" name="ffkod" size="9" maxlength="9" value="<?php echo $filtr_kod; ?>" />
-	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
-	<input type="hidden" name="ffkodok" value="ok" />
-</form>
-Status:
-<form action="" method="post" style="display:inline!important;">
-	<input type="text" name="ffstat" size="9" maxlength="9" value="<?php echo $filtr_stat; ?>" />
-	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
-	<input type="hidden" name="ffstatok" value="ok" />
-</form>
-Grupa:
-<form action="" method="post" style="display:inline!important;">
-	<input type="text" name="ffgrupa" size="9" maxlength="9" value="<?php echo $filtr_grupa; ?>" />
-	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
-	<input type="hidden" name="ffgrupaok" value="ok" />
-</form>
-W sklepie ? (T/N/%):
-<form action="" method="post" style="display:inline!important;">
-	<input type="text" name="ffsklep" size="9" maxlength="9" value="<?php echo $filtr_sklep; ?>" />
-	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
-	<input type="hidden" name="ffsklepok" value="ok" />
-</form>
-Spz ? (Y/N/%):
-<form action="" method="post" style="display:inline!important;">
-	<input type="text" name="ffspz" size="9" maxlength="9" value="<?php echo $filtr_spz; ?>" />
-	<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
-	<input type="hidden" name="ffspzok" value="ok" />
-</form>
-
-<center>Produkty do uzupełnienia - strona  <?php echo $page;?></center> </div>
-
+<h1>TinyMCE Quick Start Guide</h1>
+    <form method="post">
+      <textarea id="mytextarea">Hello, World!</textarea>
+    </form>
 <div class="table-responsive">
 <table class="table table-hover table-condensed small">
 <thead>
@@ -440,8 +419,6 @@ $stid2 = oci_parse($conn, "$sql");
 			$shop_linked = $row['SHOP_LINKED'];
 			$rb_stan = $row['STAN'];
 			$linkwww = '';
-			$link_prod_desc = '';
-			$link_prod_desc = 'http://192.168.18.96/index.php?id=tools&type=shop_baza_edit&code='.$rb_tow_kod;
 			
 			if ($shop_name == ''){
 				
@@ -485,8 +462,6 @@ $stid2 = oci_parse($conn, "$sql");
 					</form>
 					
 					<a target="_blank" style="display:inline!important;" class="btn btn-xs btn-success glyphicon glyphicon-globe" href="<?php echo $linkwww ?>"</a>
-					
-					<a target="_blank" style="display:inline!important;" class="btn btn-xs btn-success glyphicon glyphicon-text-background" href="<?php echo $link_prod_desc ?>"</a>
 				
 				</td>
 				
