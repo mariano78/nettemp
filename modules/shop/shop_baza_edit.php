@@ -2,7 +2,8 @@
 
     <script>
       tinymce.init({
-        selector: '#mytextarea'
+        selector: '#mytextarea',
+		language: 'pl'
       });
     </script>
 
