@@ -39,6 +39,7 @@ case 'dbcheck': include('modules/tools/html/tools_db_check.php'); break;
 case 'dbupdateedit': include('modules/tools/html/tools_db_update_edit.php'); break;
 case 'shop': include('modules/shop/shop.php'); break;
 case 'shop_baza': include('modules/shop/shop_baza.php'); break;
+case 'shop_baza_edit': include('modules/shop/shop_baza_edit.php'); break;
 case 'shop_baza_test': include('modules/shop/shop_baza_test.php'); break;
 //case 'shop_baza2': include('modules/shop/shop_baza2.php'); break;
 case 'shop_kategorie': include('modules/shop/shop_category_seo.php'); break;
