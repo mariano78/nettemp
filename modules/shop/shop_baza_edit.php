@@ -139,7 +139,7 @@ $stid = oci_parse($conn, "$sql");
 ?>
 
 <div class="panel panel-default">
-<div class="panel-heading" style="color:blue;text-align:center;">
+<div class="panel-heading" style="color:black;text-align:center;font-weight: bold;">
 Edytowany towar: <?php echo "$rb_tow_kod"." - "."$shop_name"?>
     <form method="post" style="display:inline!important;">
 		<textarea name="description" id="mytextarea"><?php echo $to_opis; ?></textarea>
@@ -148,7 +148,7 @@ Edytowany towar: <?php echo "$rb_tow_kod"." - "."$shop_name"?>
 	  
     </form>
 					
-	<form action="" method="post" style="display:inline!important;">				
+	<form action="" method="post" style="display:inline!important; margin-top: 20px;">				
 		<button class="btn btn-xs btn-success">Wyślij na WWW </button>
 		<input type="hidden" name="sync_prod_code" value="<?php echo $rb_tow_kod; ?>" />
 	</form>
