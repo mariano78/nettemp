@@ -4,7 +4,8 @@
       tinymce.init({
         selector: '#mytextarea',
 		language: 'pl',
-		plugins: 'autoresize'
+		plugins: 'autoresize',
+		toolbar_mode: 'floating'
       });
     </script>
 
