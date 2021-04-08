@@ -64,7 +64,8 @@ WHERE JFOX_TOWAR_KARTOTEKI.IS_DELETED LIKE 'N'
 AND JFOX_RB_TOWAR_KARTOTEKI.IS_DELETED LIKE 'N' 
 AND JFOX_CENNIK.IS_DELETED LIKE 'N' 
 AND JFOX_STAN_A01.MAGAZYN LIKE 'M-GLOWNY'
-AND SHOPPER_PRODUCTS.ID_TOW LIKE '".$desc_id_tow."'";
+AND SHOPPER_PRODUCTS.ID_TOW LIKE '".$desc_id_tow."'
+ORDER BY JFOX_TOWAR_KARTOTEKI.TO_GRUPA ASC, JFOX_TOWAR_KARTOTEKI.TO_KOD ASC";
 
 $stid = oci_parse($conn, "$sql");
 		oci_execute($stid);
@@ -97,6 +98,7 @@ $stid = oci_parse($conn, "$sql");
 			};
 		
 ?>
+
 <div class="panel panel-default">
 <div class="panel-heading">
 <h1>TinyMCE Quick Start Guide</h1>
