@@ -14,3 +14,10 @@ p{
   margin: 10px 0;
     line-height: 1.6;
 }
+
+a{
+  transition: all 0.3s ease;
+  color:#005472;
+  &:hover{
+    color:#f08a00;
+  }
