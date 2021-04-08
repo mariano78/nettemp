@@ -5,7 +5,7 @@
       tinymce.init({
         selector: '#mytextarea',
 		language: 'pl',
-		plugins: 'autoresize', 
+		plugins: 'autoresize link', 
 		content_css: '/html/shop.css'
 		
       });
