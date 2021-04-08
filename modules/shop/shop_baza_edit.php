@@ -1,4 +1,4 @@
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/pvjworei9jxokictreph27mi58kixrsqwu4e4zfchizpwfi3/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
     <script>
       tinymce.init({
@@ -141,11 +141,11 @@ $stid = oci_parse($conn, "$sql");
 <div class="panel panel-default">
 <div class="panel-heading" style="color:black;text-align:center;font-weight: bold;">
 Edytowany towar: <?php echo "$rb_tow_kod"." - "."$shop_name"?>
+
     <form method="post" style="display:inline!important;">
 		<textarea name="description" id="mytextarea"><?php echo $to_opis; ?></textarea>
 		<button class="btn btn-xs btn-danger" style="margin: 20px;">Zapisz</button>
 		<input type="hidden" name="save_desc" value="<?php echo $id_tow; ?>" />
-	  
     </form>
 					
 	<form action="" method="post" style="display:inline!important;">				
