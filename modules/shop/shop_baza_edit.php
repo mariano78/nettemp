@@ -131,7 +131,7 @@ $stid = oci_parse($conn, "$sql");
 
 <div class="panel panel-default">
 <div class="panel-heading">
-<h2>Edytowany towar: <?php echo "$rb_tow_kod"." - "."$shop_name"?> </h2>
+Edytowany towar: <?php echo "$rb_tow_kod"." - "."$shop_name"?>
     <form method="post">
 		<textarea name="description" id="mytextarea"><?php echo $to_opis; ?></textarea>
 		<button class="btn btn-xs btn-success">Zapisz</button>
