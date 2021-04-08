@@ -23,6 +23,34 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 // Dołączam ustawienia Oracle i sdk shoper
 include("$root/modules/shop/shop_settings.php");
 
+//Zapis opisu do bazy oracle
+$save_desc_id = isset($_POST['save_desc']) ? $_POST['save_desc'] : '';
+$description = isset($_POST['description']) ? $_POST['description'] : '';
+
+if (!empty($save_desc_id)){
+	
+	$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = :lob WHERE ID_TOW = '$save_desc_id' ";
+	$stid2 = oci_parse($conn, $sql);	
+	$lob_w = oci_new_descriptor($conn, OCI_D_LOB);
+					
+	oci_bind_by_name($stid2, ':lob',  $lob_w, -1, OCI_B_CLOB);
+	$lob_w->WriteTemporary($description);
+	oci_execute($stid2, OCI_NO_AUTO_COMMIT);
+		
+	$lob_w->close();
+	oci_commit($conn);
+							
+	//oci_free_descriptor($lob_w);
+	oci_free_statement($stid2);	
+    
+	
+	
+	header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
+
+
+
 $sql = "SELECT 
 JFOX_TOWAR_KARTOTEKI.ID TO_ID,
 JFOX_TOWAR_KARTOTEKI.TO_KOD TO_KOD,
@@ -105,8 +133,12 @@ $stid = oci_parse($conn, "$sql");
 <div class="panel-heading">
 <h1>Edycja opisu towaru dla: </h1>
     <form method="post">
-      <textarea id="mytextarea"><?php echo $to_opis; ?></textarea>
+		<textarea name="description" id="mytextarea"><?php echo $to_opis; ?></textarea>
+		<button class="btn btn-xs btn-success">Zapisz</button>
+		<input type="hidden" name="save_desc" value="<?php echo $id_tow; ?>" />
+	  
     </form>
+	
 		
 </div>
 </div>
