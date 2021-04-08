@@ -130,4 +130,7 @@ input[name='time_offset']
 .table > tbody > tr > td {
      vertical-align: middle;
 }
+.tox-notifications-container{
+	visibility: hidden;
+}
 
