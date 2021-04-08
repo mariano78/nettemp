@@ -1,9 +1,0 @@
-@orange: #f08a00;
-@color: #005472;
-@gray: #575756;
-@lightgray: #ebebeb;
-
-h1, h2, h3, h4, h5{
-  font-family: 'Saira',sans-serif;
-  color:@color;
-}
