@@ -302,6 +302,7 @@ Spz ? (Y/N/%):
 <th>Forma Dostawy </th>
 <th>Powiazane ;</th>
 <th>Shoper nazwa</th>
+<th>Opis</th>
 </tr>
 </thead>
 
@@ -484,9 +485,9 @@ $stid2 = oci_parse($conn, "$sql");
 						<input type="hidden" name="sync_prod_code" value="<?php echo $rb_tow_kod; ?>" />
 					</form>
 					
-					<a target="_blank" style="display:inline!important;" class="glyphicon glyphicon-globe" href="<?php echo $linkwww ?>"</a>
+					<a target="_blank" style="display:inline!important;" class="btn btn-xs btn-success glyphicon glyphicon-globe" href="<?php echo $linkwww ?>"</a>
 					
-					<a target="_blank" style="display:inline!important;" class="glyphicon glyphicon-text-background" href="<?php echo $link_prod_desc ?>"</a>
+					
 				
 				</td>
 				
@@ -844,6 +845,10 @@ $stid2 = oci_parse($conn, "$sql");
 						<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span> </button>
 						<input type="hidden" name="name_id" value="<?php echo $id_tow; ?>" />
 					</form>
+				</td>
+				
+				<td class="col-md-0">
+					<a target="_blank" style="display:inline!important;" class="btn btn-xs btn-success glyphicon glyphicon-text-background" href="<?php echo $link_prod_desc ?>"</a>
 				</td>
 			</tr>
 
