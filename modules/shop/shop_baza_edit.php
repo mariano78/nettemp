@@ -36,20 +36,21 @@ if (!empty($save_desc_id)){
 	oci_bind_by_name($stid2, ':lob',  $lob_w, -1, OCI_B_CLOB);
 	$lob_w->WriteTemporary($description);
 	oci_execute($stid2, OCI_NO_AUTO_COMMIT);
-		
 	$lob_w->close();
 	oci_commit($conn);
-							
-	//oci_free_descriptor($lob_w);
 	oci_free_statement($stid2);	
-    
-	
-	
 	header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
 
+//synchronizacja produktu
+$sync_prod_code = isset($_POST['sync_prod_code']) ? $_POST['sync_prod_code'] : '';
 
+if (!empty($sync_prod_code)){
+	shell_exec("php -f $root/modules/shop/shop_prod.php c=$sync_prod_code");
+    header("location: " . $_SERVER['REQUEST_URI']);
+    exit();
+    }
 
 $sql = "SELECT 
 JFOX_TOWAR_KARTOTEKI.ID TO_ID,
@@ -125,6 +126,14 @@ $stid = oci_parse($conn, "$sql");
 			} else {
 				$to_opis = $row['SHOP_OPIS']->load(); // opis towaru
 			}
+			
+			if ($shop_name == ''){
+				
+				$linkwww = 'https://www.robelit.pl/'.pl_charset($rb_tow_nazwa).'-'.$rb_tow_kod.'.html';	
+			} else {
+				$linkwww = 'https://www.robelit.pl/'.pl_charset($shop_name).'-'.$rb_tow_kod.'.html';	
+				
+			}
 		}
 		
 ?>
@@ -138,6 +147,13 @@ Edytowany towar: <?php echo "$rb_tow_kod"." - "."$shop_name"?>
 		<input type="hidden" name="save_desc" value="<?php echo $id_tow; ?>" />
 	  
     </form>
+					
+	<form action="" method="post" style="display:inline!important;">				
+		<button class="btn btn-xs btn-success"><span class="glyphicon glyphicon-send"></span>Wyślij na WWW </button>
+		<input type="hidden" name="sync_prod_code" value="<?php echo $rb_tow_kod; ?>" />
+	</form>
+					
+	<a target="_blank" style="display:inline!important;" class="btn btn-xs btn-success glyphicon glyphicon-globe" href="<?php echo $linkwww ?>"</a>
 	
 		
 </div>
