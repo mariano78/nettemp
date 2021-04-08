@@ -452,6 +452,9 @@ $stid2 = oci_parse($conn, "$sql");
 				$to_opis = $row['SHOP_OPIS']->load(); // opis towaru
 			}
 			
+			$to_opis = strip_tags($to_opis);
+			
+			
 			if ($shop_name == ''){
 				
 				$linkwww = 'https://www.robelit.pl/'.pl_charset($rb_tow_nazwa).'-'.$rb_tow_kod.'.html';	
