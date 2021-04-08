@@ -159,6 +159,3 @@ Edytowany towar: <?php echo "$rb_tow_kod"." - "."$shop_name"?>
 		
 </div>
 </div>
-<script>
-document.getElementsByClassName('tox-notifications-container')[0].style.visibility = 'hidden';
-</script>
