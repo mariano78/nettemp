@@ -311,7 +311,7 @@ Spz ? (Y/N/%):
 //ttt
 $total_records = 0;
 $licznik = 1;
-$to_opis_lenght = 1000;
+$to_opis_lenght = 1925;
 
 $sql = "SELECT 
 JFOX_TOWAR_KARTOTEKI.ID TO_ID,
