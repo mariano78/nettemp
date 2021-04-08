@@ -6,9 +6,7 @@
         selector: '#mytextarea',
 		language: 'pl',
 		plugins: 'autoresize', 
-		plugins: 'importcss',
-		toolbar_mode: 'floating',
-		content_css: '/shop.css'
+		
       });
 	  
 	  
