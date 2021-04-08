@@ -145,7 +145,7 @@ $stid = oci_parse($conn, "$sql");
 		}
 		
 ?>
-
+<title>Edycja opisu</title>
 <div class="panel panel-default">
 <div class="panel-heading" style="color:black;text-align:center;font-weight: bold;">
 Edytowany towar: <?php echo "$rb_tow_kod"." - "."$shop_name"?>
