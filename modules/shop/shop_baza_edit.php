@@ -5,8 +5,8 @@
       tinymce.init({
         selector: '#mytextarea',
 		language: 'pl',
-		plugins: 'autoresize link code image', 
-		toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link | code | image',
+		plugins: 'autoresize link code image toc wordcount', 
+		toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link | code | image | toc',
 		content_css: '/html/shop.css'
 		
       });
