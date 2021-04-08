@@ -6,7 +6,7 @@
         selector: '#mytextarea',
 		language: 'pl',
 		plugins: 'autoresize link', 
-		toolbar: 'link',
+		toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link',
 		content_css: '/html/shop.css'
 		
       });
