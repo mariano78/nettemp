@@ -22,6 +22,6 @@ a{
     color:#f08a00;
   }
   
-li{
+ul, li{
   line-height: 30px;
 }
