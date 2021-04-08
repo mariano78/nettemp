@@ -444,6 +444,14 @@ $stid2 = oci_parse($conn, "$sql");
 			$link_prod_desc = '';
 			$link_prod_desc = 'http://192.168.18.96/index.php?id=tools&type=shop_baza_edit&code='.$id_tow;
 			
+			$to_opis = $row['SHOP_OPIS']; // opis towaru
+	
+			if ($to_opis == ''){
+				$to_opis = 'Opis produktu';
+			} else {
+				$to_opis = $row['SHOP_OPIS']->load(); // opis towaru
+			}
+			
 			if ($shop_name == ''){
 				
 				$linkwww = 'https://www.robelit.pl/'.pl_charset($rb_tow_nazwa).'-'.$rb_tow_kod.'.html';	
@@ -848,7 +856,7 @@ $stid2 = oci_parse($conn, "$sql");
 				</td>
 				
 				<td class="col-md-0">
-					<a target="_blank" style="display:inline!important;" class="btn btn-xs btn-success glyphicon glyphicon-text-background" href="<?php echo $link_prod_desc ?>"</a>
+					<a target="_blank" style="display:inline!important;" class="btn btn-xs <?php if (strlen($to_opis) <= 100) {echo "btn-danger"} else {echo "btn-success"} ?> glyphicon glyphicon-text-background" href="<?php echo $link_prod_desc ?>"</a>
 				</td>
 			</tr>
 
