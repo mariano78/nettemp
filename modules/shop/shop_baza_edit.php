@@ -1,32 +1,13 @@
 <script src="https://cdn.tiny.cloud/1/pvjworei9jxokictreph27mi58kixrsqwu4e4zfchizpwfi3/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
     <script>
-	tinyMCE.PluginManager.add('stylebuttons', function(editor, url) {
-    ['pre', 'p', 'code', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'].forEach(function(name){
-        editor.addButton("style-" + name, {
-            tooltip: "Toggle " + name,
-            text: name.toUpperCase(),
-            onClick: function() { editor.execCommand('mceToggleFormat', false, name); },
-            onPostRender: function() {
-                var self = this, setup = function() {
-                    editor.formatter.formatChanged(name, function(state) {
-                        self.active(state);
-                    });
-                };
-                editor.formatter ? setup() : editor.on('init', setup);
-            }
-        })
-    });
-});
-	
-	
+
       tinymce.init({
         selector: '#mytextarea',
 		language: 'pl',
-		plugins: 'autoresize',
+		plugins: 'autoresize', 'importcss',
 		toolbar_mode: 'floating',
-		toolbar: "undo redo | style-p style-h1 style-h2 style-h3 style-pre style-code",
-		plugins: "stylebuttons"
+		content_css: '/shop.css'
       });
 	  
 	  
