@@ -15,6 +15,9 @@
 	  
 	  
     </script>
+	
+	
+	
 
 <?php
 
@@ -128,6 +131,7 @@ $stid = oci_parse($conn, "$sql");
 			$to_opis = $row['SHOP_OPIS']; // opis towaru
 			$rb_stan = $row['STAN'];
 			$linkwww = '';
+			$title = '';
 			
 			if ($to_opis == ''){
 				$to_opis = '';
@@ -138,9 +142,10 @@ $stid = oci_parse($conn, "$sql");
 			if ($shop_name == ''){
 				
 				$linkwww = 'https://www.robelit.pl/'.pl_charset($rb_tow_nazwa).'-'.$rb_tow_kod.'.html';	
+				$title = pl_charset($rb_tow_nazwa).'-'.$rb_tow_kod;
 			} else {
 				$linkwww = 'https://www.robelit.pl/'.pl_charset($shop_name).'-'.$rb_tow_kod.'.html';	
-				
+				$title = pl_charset($shop_name).'-'.$rb_tow_kod;
 			}
 		}
 		
@@ -168,3 +173,7 @@ Edytowany towar: <?php echo "$rb_tow_kod"." - "."$shop_name"?>
 		
 </div>
 </div>
+
+<script type="text/javascript">
+    document.title = "<?=$title;?>"
+</script>
