@@ -101,9 +101,9 @@ $stid = oci_parse($conn, "$sql");
 
 <div class="panel panel-default">
 <div class="panel-heading">
-<h1>TinyMCE Quick Start Guide</h1>
+<h1>Edycja opisu towaru dla: </h1>
     <form method="post">
-      <textarea id="mytextarea">Hello, World!</textarea>
+      <textarea id="mytextarea"><?php echo $to_opis; ?></textarea>
     </form>
 		
 </div>
