@@ -442,7 +442,7 @@ $stid2 = oci_parse($conn, "$sql");
 			$rb_stan = $row['STAN'];
 			$linkwww = '';
 			$link_prod_desc = '';
-			$link_prod_desc = 'http://192.168.18.96/index.php?id=tools&type=shop_baza_edit&code='.$rb_tow_kod;
+			$link_prod_desc = 'http://192.168.18.96/index.php?id=tools&type=shop_baza_edit&code='.$id_tow;
 			
 			if ($shop_name == ''){
 				
