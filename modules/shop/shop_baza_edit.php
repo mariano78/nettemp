@@ -6,6 +6,7 @@
         selector: '#mytextarea',
 		language: 'pl',
 		plugins: 'autoresize link', 
+		toolbar: 'link',
 		content_css: '/html/shop.css'
 		
       });
