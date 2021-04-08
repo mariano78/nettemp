@@ -129,6 +129,7 @@ $stid = oci_parse($conn, "$sql");
 			$rb_stan = $row['STAN'];
 			$linkwww = '';
 			$title = '';
+			$title2 = '';
 			
 			if ($to_opis == ''){
 				$to_opis = '';
@@ -140,9 +141,11 @@ $stid = oci_parse($conn, "$sql");
 				
 				$linkwww = 'https://www.robelit.pl/'.pl_charset($rb_tow_nazwa).'-'.$rb_tow_kod.'.html';	
 				$title = strtoupper(pl_charset($rb_tow_nazwa).'-'.$rb_tow_kod);
+				$title2 = $rb_tow_nazwa;
 			} else {
 				$linkwww = 'https://www.robelit.pl/'.pl_charset($shop_name).'-'.$rb_tow_kod.'.html';	
 				$title = strtoupper(pl_charset($shop_name).'-'.$rb_tow_kod);
+				$title2 = $shop_name;
 			}
 		}
 		
@@ -152,7 +155,7 @@ $stid = oci_parse($conn, "$sql");
 </head>
 <div class="panel panel-default">
 <div class="panel-heading" style="color:black;text-align:center;font-weight: bold;">
-Edytowany towar: <?php echo "$rb_tow_kod"." - "."$shop_name"?>
+Edytowany towar: <?php echo "$rb_tow_kod"." - "."$title2"?>
 
     <form method="post" style="display:inline!important;">
 		<textarea name="description" id="mytextarea"><?php echo $to_opis; ?></textarea>
