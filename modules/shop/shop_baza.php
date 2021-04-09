@@ -466,7 +466,7 @@ $stid2 = oci_parse($conn, "$sql");
 			<tr>	
 				<td class="col-md-0"> <?php echo $licznik ?></td>
 				
-				<td class="col-md-0 label"> <?php echo $id_tow ?></td>
+				<td class="col-md-0" style="font-weight: 100;"> <?php echo $id_tow ?></td>
 				
 				<td class="col-md-0"> <?php echo $rb_tow_kod ?></td>
 				
