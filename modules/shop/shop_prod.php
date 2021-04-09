@@ -147,7 +147,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	// sekcja składania opisu w całość
 	
-	$to_opis .= $to_opis_s1;
+	$to_opis .= $to_opis_s1.$to_opis_s2;
 	
 	if ($nazwa_shop != ''){
 		$nazwa = $nazwa_shop;
