@@ -67,6 +67,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$to_opis = $row['SHOP_OPIS']; // opis towaru
 	$to_opis_s1 = '';
 	$to_opis_s2 = '';
+	$to_opis_s3 = '';
 	
 	//parametry towaru - podstawowe
 	$to_kolor = $row['TO_RB_KOLOR']; // Kolor towaru
@@ -105,16 +106,19 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	oci_bind_by_name($stidd, ":rb_to_id", $to_id);
 	oci_execute($stidd);
 	
+		$to_opis_s2 = '<ul>';
+	
 	while (($row2 = oci_fetch_array($stidd, OCI_ASSOC)) != false) {
 		
 		
-		$to_opis_s2 = '<ul>';
-		$to_opis_s2 .= '<li>'.$row2['OPIS'].': '.$row2['WARTOSC'].'</li>';
-		$to_opis_s2 .= '</ul>';
 		
+		$to_opis_s2 .= '<li>'.$row2['OPIS'].': '.$row2['WARTOSC'].'</li>';
+		
+			
+		$to_opis_s3 .= $to_opis_s2;
 	}
 	
-	
+	$to_opis_s3 .= '</ul>';
 	
 	
 	$to_related = $row['SHOP_LINKED']; // indeksy towarów powiązanych rozdzielane ; - srednik
@@ -147,7 +151,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	// sekcja składania opisu w całość
 	
-	$to_opis .= $to_opis_s1.$to_opis_s2;
+	$to_opis .= $to_opis_s1.$to_opis_s3;
 	
 	if ($nazwa_shop != ''){
 		$nazwa = $nazwa_shop;
