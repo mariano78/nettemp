@@ -83,10 +83,11 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	
 	//Dadatkowe dane do opisu sekcja 1
-	$to_opis_s1 = 'aaaa';
+	$to_opis_s1 = '';
 	
 	if (!empty($to_kolor)) { $to_opis_s1 .= $to_kolor;}
-	
+	echo $to_opis_s1;
+	echo $to_kolor;
 	
 	
 	
