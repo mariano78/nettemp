@@ -112,7 +112,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 		
 		
 		
-		$to_opis_s2 .= '<li>'.$row2['OPIS'].': '.$row2['WARTOSC'].'</li>';
+		$to_opis_s2 .= '<li><b>'.$row2['OPIS'].': </b>'.$row2['WARTOSC'].'</li>';
 		
 			
 		$to_opis_s3 .= $to_opis_s2;
