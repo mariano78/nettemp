@@ -66,7 +66,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$to_opis = $row['SHOP_OPIS']; // opis towaru
 	
 	//parametry towaru - podstawowe
-	$to_kolor = $row['TO_KOLOR']; // Kolor towaru
+	$to_kolor = $row['TO_RB_KOLOR']; // Kolor towaru
 	$to_struktura = $row['TO_STRUKTURA']; // struktura towaru
 	$to_grubosc = $row['TO_GRUBOSC']; // grubosc towaru	
 	$to_masa = $row['TO_MASA']; // masa towaru
