@@ -666,7 +666,7 @@ $stid2 = oci_parse($conn, "$sql");
 				<td class="col-md-0">
 				
 					<form action="" method="post"  class="form-inline">
-						<select name="kategoria2" class="form-control input-sm small" onchange="this.form.submit()" style="width: 250px;" >
+						<select name="kategoria2" class="form-control input-sm small" onchange="this.form.submit()" style="width: 200px;" >
 							<option class="label-danger" value="999"  <?php echo $shop_cat2 == 999 ? 'selected="selected"' : ''; ?>  ><?php echo "Brak" ?></option>
 							<option value="30"  <?php echo $shop_cat2 == 30 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty lite -> Akryl PMMA" ?></option>
 							<option value="28"  <?php echo $shop_cat2 == 28 ? 'selected="selected"' : ''; ?>  ><?php echo "Płyty lite -> Poliwęglan lity" ?></option>
@@ -825,7 +825,7 @@ $stid2 = oci_parse($conn, "$sql");
 				<td class="col-md-0">
 					
 					<form action="" method="post"  class="form-inline">
-						<select name="dostawa_typ" class="form-control input-sm small" onchange="this.form.submit()" style="width: 100px;" >
+						<select name="dostawa_typ" class="form-control input-sm small" onchange="this.form.submit()" style="width: 75px;" >
 							<option class="label-danger" value="999"  <?php echo $shop_delivery_typ == 999 ? 'selected="selected"' : ''; ?>  ><?php echo "Brak" ?></option>
 							<option value="2"  <?php echo $shop_delivery_typ == 2 ? 'selected="selected"' : ''; ?>  ><?php echo "DPD - 20" ?></option>
 							<option value="3"  <?php echo $shop_delivery_typ == 3 ? 'selected="selected"' : ''; ?>  ><?php echo "DPD - 40" ?></option>
