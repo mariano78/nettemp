@@ -68,11 +68,12 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	//parametry towaru - podstawowe
 	$to_kolor = $row['TO_RB_KOLOR']; // Kolor towaru
 	$to_struktura = $row['TO_STRUKTURA']; // struktura towaru
-	$to_grubosc = $row['TO_GRUBOSC']; // grubosc towaru	
+	$to_grubosc = $row['TO_GRUBOSC']; // grubosc towaru
+	$to_wysokosc = $row['TO_WYSOKOSC']; // wysokosc towaru	
 	$to_masa = $row['TO_MASA']; // masa towaru
 	$to_szerokosc = $row['TO_SZEROKOSC']; // szerokosc towaru
 	$to_dlugosc = $row['TO_DLUGOSC']; // dlugosc towaru
-	$to_wysokosc = $row['TO_WYSOKOSC']; // wysokosc towaru
+	
 	
 	
 	if ($to_opis == ''){
@@ -86,11 +87,12 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$to_opis_s1 = '<h2>Specyfikacja produktu:</h2><ul>';
 	
 	if (!empty($to_kolor)) { $to_opis_s1 .= '<li><b>Kolor: </b>'.$to_kolor.'</li>';}
-	if (!empty($to_struktura)) { $to_opis_s1 .= '<li>Struktura: '.$to_struktura.'</li>';}
-	
-	
-	
-	
+	if (!empty($to_struktura)) { $to_opis_s1 .= '<li><b>Struktura: </b>'.$to_struktura.'</li>';}
+	if (!empty($to_grubosc)) { $to_opis_s1 .= '<li><b>Grubość: </b>'.$to_grubosc.' mm</li>';}
+	if (!empty($to_wysokosc)) { $to_opis_s1 .= '<li><b>Wysokość: </b>'.$to_wysokosc.' mm</li>';}
+	if (!empty($to_szerokosc)) { $to_opis_s1 .= '<li><b>Szerokość: </b>'.$to_szerokosc.' mm</li>';}
+	if (!empty($to_dlugosc)) { $to_opis_s1 .= '<li><b>Dlugość: </b>'.$to_dlugosc.' mm</li>';}
+	if (!empty($to_masa)) { $to_opis_s1 .= '<li><b>Masa: </b>'.$to_masa.' kg/m2</li>';}
 	
 	$to_opis_s1 .= '</ul>';
 	
