@@ -120,6 +120,10 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 		$to_opis = '<p style="text-align: justify;">'.$to_opis.'</p>';
 	}
 	
+	// sekcja składania opisu w całość
+	
+	$to_opis .= $to_opis_s1;
+	
 	if ($nazwa_shop != ''){
 		$nazwa = $nazwa_shop;
 	}
