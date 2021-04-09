@@ -98,7 +98,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	if (!empty($to_dlugosc)) { $to_opis_s1 .= '<li><b>Długość: </b>'.$to_dlugosc.' mm</li>';}
 	if (!empty($to_masa)) { $to_opis_s1 .= '<li><b>Masa: </b>'.$to_masa.' kg/m2</li>';}
 	
-	$to_opis_s1 .= '</ul>';
+	//$to_opis_s1 .= '</ul>';
 	
 	//Dadatkowe dane do opisu sekcja 2 - cechy z zakładki specyficzne w JFOX
 	
@@ -109,12 +109,8 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 		$to_opis_s2 = '<ul>';
 	
 	while (($row2 = oci_fetch_array($stidd, OCI_ASSOC)) != false) {
-		
-		
-		
-		$to_opis_s2 .= '<li><b>'.$row2['OPIS'].': </b>'.$row2['WARTOSC'].'</li>';
-		
 			
+		$to_opis_s2 .= '<li><b>'.$row2['OPIS'].': </b>'.$row2['WARTOSC'].'</li>';
 		$to_opis_s3 .= $to_opis_s2;
 		$to_opis_s2 = '';
 	}
