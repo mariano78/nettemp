@@ -96,7 +96,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	if (!empty($to_wysokosc)) { $to_opis_s1 .= '<li><b>Wysokość: </b>'.$to_wysokosc.' mm</li>';}
 	if (!empty($to_szerokosc)) { $to_opis_s1 .= '<li><b>Szerokość: </b>'.$to_szerokosc.' mm</li>';}
 	if (!empty($to_dlugosc)) { $to_opis_s1 .= '<li><b>Długość: </b>'.$to_dlugosc.' mm</li>';}
-	if (!empty($to_masa)) { $to_opis_s1 .= '<li><b>Masa: </b>'.strval($to_masa).' kg/'.strtolower($jed_miar_jfox).'</li>';}
+	if (!empty($to_masa)) { $to_opis_s1 .= '<li><b>Masa: </b>'.floatval($to_masa).' kg/'.strtolower($jed_miar_jfox).'</li>';}
 	
 	//$to_opis_s1 .= '</ul>';
 	
