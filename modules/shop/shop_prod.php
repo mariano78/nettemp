@@ -65,11 +65,32 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	//$to_opis = $row['SHOP_OPIS']->load(); // opis towaru
 	$to_opis = $row['SHOP_OPIS']; // opis towaru
 	
+	//parametry towaru - podstawowe
+	$to_kolor = $row['TO_KOLOR']; // Kolor towaru
+	$to_struktura = $row['TO_STRUKTURA']; // struktura towaru
+	$to_grubosc = $row['TO_GRUBOSC']; // grubosc towaru	
+	$to_masa = $row['TO_MASA']; // masa towaru
+	$to_szerokosc = $row['TO_SZEROKOSC']; // szerokosc towaru
+	$to_dlugosc = $row['TO_DLUGOSC']; // dlugosc towaru
+	$to_wysokosc = $row['TO_WYSOKOSC']; // wysokosc towaru
+	
+	
 	if ($to_opis == ''){
 		$to_opis = 'Opis produktu';
 	} else {
 		$to_opis = $row['SHOP_OPIS']->load(); // opis towaru
 	}
+	
+	
+	//Dadatkowe dane do opisu sekcja 1
+	$to_opis_s1 = '';
+	
+	if (!empty($to_kolor)) { $to_opis_s1 .= $to_kolor;}
+	
+	
+	
+	
+	
 	
 	$to_related = $row['SHOP_LINKED']; // indeksy towarów powiązanych rozdzielane ; - srednik
 	
