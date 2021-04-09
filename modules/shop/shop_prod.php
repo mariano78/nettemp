@@ -83,16 +83,16 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	
 	//Dadatkowe dane do opisu sekcja 1
-	$to_opis_s1 = '<h2>Specyfikacja produktu:</h2>';
+	$to_opis_s1 = '<h2>Specyfikacja produktu:</h2><ul>';
 	
-	if (!empty($to_kolor)) { $to_opis_s1 .= '<p>Kolor:'.$to_kolor.'</p>';}
-	if (!empty($to_struktura)) { $to_opis_s1 .= '<p>Struktura:'.$to_struktura.'</p>';}
-	
-	
+	if (!empty($to_kolor)) { $to_opis_s1 .= '<li>Kolor:'.$to_kolor.'</li>';}
+	if (!empty($to_struktura)) { $to_opis_s1 .= '<li>Struktura:'.$to_struktura.'</li>';}
 	
 	
 	
 	
+	
+	$to_opis_s1 .= '</ul>';
 	
 	$to_related = $row['SHOP_LINKED']; // indeksy towarów powiązanych rozdzielane ; - srednik
 	
