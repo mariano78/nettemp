@@ -106,7 +106,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	oci_bind_by_name($stidd, ":rb_to_id", $to_id);
 	oci_execute($stidd);
 	
-		$to_opis_s2 = '<ul>';
+		//$to_opis_s2 = '<ul>';
 	
 	while (($row2 = oci_fetch_array($stidd, OCI_ASSOC)) != false) {
 			
