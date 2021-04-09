@@ -86,6 +86,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$to_opis_s1 = '<h2>Specyfikacja produktu:</h2>';
 	
 	if (!empty($to_kolor)) { $to_opis_s1 .= '<p>Kolor:'.$to_kolor.'</p>';}
+	if (!empty($to_struktura)) { $to_opis_s1 .= '<p>Struktura:'.$to_struktura.'</p>';}
 	
 	
 	
