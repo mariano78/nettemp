@@ -85,8 +85,8 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	//Dadatkowe dane do opisu sekcja 1
 	$to_opis_s1 = '<h2>Specyfikacja produktu:</h2><ul>';
 	
-	if (!empty($to_kolor)) { $to_opis_s1 .= '<li>Kolor:'.$to_kolor.'</li>';}
-	if (!empty($to_struktura)) { $to_opis_s1 .= '<li>Struktura:'.$to_struktura.'</li>';}
+	if (!empty($to_kolor)) { $to_opis_s1 .= '<li><b>Kolor: </b>'.$to_kolor.'</li>';}
+	if (!empty($to_struktura)) { $to_opis_s1 .= '<li>Struktura: '.$to_struktura.'</li>';}
 	
 	
 	
