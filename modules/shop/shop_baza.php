@@ -464,13 +464,13 @@ $stid2 = oci_parse($conn, "$sql");
 			
 ?>
 			<tr>	
-				<td class="col-md-0" style="font-size: 12px;"> <?php echo $licznik ?></td>
+				<td class="col-md-0" style="font-size: 11px;"> <?php echo $licznik ?></td>
 				
-				<td class="col-md-0" style="font-size: 12px;"> <?php echo $id_tow ?></td>
+				<td class="col-md-0" style="font-size: 11px;"> <?php echo $id_tow ?></td>
 				
-				<td class="col-md-0" style="font-size: 12px;"> <?php echo $rb_tow_kod ?></td>
+				<td class="col-md-0" style="font-size: 11px;"> <?php echo $rb_tow_kod ?></td>
 				
-				<td class="col-md-0" style="font-size: 12px;"> <?php echo $grupa_tow ?></td>
+				<td class="col-md-0" style="font-size: 11px;"> <?php echo $grupa_tow ?></td>
 				
 				<td class="col-md-0"> 
 				
