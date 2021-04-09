@@ -500,11 +500,11 @@ $stid2 = oci_parse($conn, "$sql");
 				
 				</td>
 				
-				<td class="col-md-0"> <?php echo $rb_stan ?>
+				<td class="col-md-0" style="font-size: 11px;"> <?php echo $rb_stan ?>
 				
 				</td>
 				
-				<td class="col-md-0"> <?php echo $rb_tow_nazwa ?>
+				<td class="col-md-0" style="font-size: 11px;"> <?php echo $rb_tow_nazwa ?>
 				
 				</td>
 
