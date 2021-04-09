@@ -838,7 +838,7 @@ $stid2 = oci_parse($conn, "$sql");
 					</form>
 				</td>
 				
-				<td class="col-md-0">
+				<td class="col-md-0" style="font-size: 11px;">
 				
 					<form action="" method="post" style="display:inline!important;">
 						<input type="text" name="pow_new" size="20" maxlength="254" value="<?php echo $shop_pow; ?>" />
@@ -847,7 +847,7 @@ $stid2 = oci_parse($conn, "$sql");
 					</form>
 				</td>
 				
-				<td class="col-md-0">
+				<td class="col-md-0" style="font-size: 11px;">
 				
 					<form action="" method="post" style="display:inline!important;">
 						<input type="text" name="name_new" size="50" maxlength="250" value="<?php echo $shop_name; ?>" />
