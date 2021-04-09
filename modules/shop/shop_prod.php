@@ -116,6 +116,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 		
 			
 		$to_opis_s3 .= $to_opis_s2;
+		$to_opis_s2 = '';
 	}
 	
 	$to_opis_s3 .= '</ul>';
