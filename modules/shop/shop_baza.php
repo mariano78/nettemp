@@ -466,7 +466,7 @@ $stid2 = oci_parse($conn, "$sql");
 			<tr>	
 				<td class="col-md-0"> <?php echo $licznik ?></td>
 				
-				<td class="col-md-0"> <?php echo $id_tow ?></td>
+				<td class="col-md-0 label"> <?php echo $id_tow ?></td>
 				
 				<td class="col-md-0"> <?php echo $rb_tow_kod ?></td>
 				
@@ -825,7 +825,7 @@ $stid2 = oci_parse($conn, "$sql");
 				<td class="col-md-0">
 					
 					<form action="" method="post"  class="form-inline">
-						<select name="dostawa_typ" class="form-control" onchange="this.form.submit()" style="width: 75px;" >
+						<select name="dostawa_typ" class="form-control input-sm small" onchange="this.form.submit()" style="width: 75px;" >
 							<option class="label-danger" value="999"  <?php echo $shop_delivery_typ == 999 ? 'selected="selected"' : ''; ?>  ><?php echo "Brak" ?></option>
 							<option value="2"  <?php echo $shop_delivery_typ == 2 ? 'selected="selected"' : ''; ?>  ><?php echo "DPD - 20" ?></option>
 							<option value="3"  <?php echo $shop_delivery_typ == 3 ? 'selected="selected"' : ''; ?>  ><?php echo "DPD - 40" ?></option>
