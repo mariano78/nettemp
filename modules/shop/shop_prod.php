@@ -44,6 +44,7 @@ oci_execute($stid);
 
 while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
+	$to_id = $row['TO_ID']; //kod towaru w RB
 	$kod = $row['TO_KOD']; //kod towaru w RB
 	$ean = $row['TO_KK_1']; // kod ean
 	$nazwa = $row['TO_NAZWA']; //nazwa z jfox
@@ -64,6 +65,8 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$to_spz2 = $row['SHOP_SPZ'];
 	//$to_opis = $row['SHOP_OPIS']->load(); // opis towaru
 	$to_opis = $row['SHOP_OPIS']; // opis towaru
+	$to_opis_s1 = '';
+	$to_opis_s2 = '';
 	
 	//parametry towaru - podstawowe
 	$to_kolor = $row['TO_RB_KOLOR']; // Kolor towaru
@@ -95,6 +98,24 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	if (!empty($to_masa)) { $to_opis_s1 .= '<li><b>Masa: </b>'.$to_masa.' kg/m2</li>';}
 	
 	$to_opis_s1 .= '</ul>';
+	
+	//Dadatkowe dane do opisu sekcja 2 - cechy z zakładki specyficzne w JFOX
+	
+	$stidd = oci_parse($conn, 'SELECT * FROM JFOX_CECHY_DODATKOWE_W_VW  WHERE TOW_ID = :rb_to_id ORDER BY PRIORITY ASC');
+	oci_bind_by_name($stidd, ":rb_to_id", $to_id);
+	oci_execute($stidd);
+	
+	while (($row2 = oci_fetch_array($stidd, OCI_ASSOC)) != false) {
+		
+		
+		$to_opis_s2 = '<ul>';
+		$to_opis_s2 .= '<li>'.$row2['OPIS'].': '.$row2['WARTOSC'].'</li>';
+		$to_opis_s2 .= '</ul>';
+		
+	}
+	
+	
+	
 	
 	$to_related = $row['SHOP_LINKED']; // indeksy towarów powiązanych rozdzielane ; - srednik
 	
