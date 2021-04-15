@@ -119,9 +119,11 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 			$to_opis_s3 .= $to_opis_s2;
 			$to_opis_s2 = '';
 			
-		} else {
+		} elseif (!in_array($row_opis, $tablica_opisy)) {
 			
-			$to_opis_s2 .= '<li><b>Kolor: </b>'.$to_kolor.'</li>';
+			$to_opis_s2 .= '<li><b>'.$row2['OPIS'].': </b>'.$row2['WARTOSC'].'</li>';
+			$to_opis_s3 .= $to_opis_s2;
+			$to_opis_s2 = '';
 		}
 			
 		
