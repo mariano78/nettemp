@@ -91,13 +91,13 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	//Dadatkowe dane do opisu sekcja 1
 	$to_opis_s1 = '<h2>Specyfikacja produktu:</h2><ul>';
 	
-	if (!empty($to_kolor)) {$tablica_opisy = 'Kolor';}
-	if (!empty($to_struktura)) {$tablica_opisy = 'Struktura';}
-	if (!empty($to_grubosc)) {$tablica_opisy = 'Grubość';}
-	if (!empty($to_wysokosc)) {$tablica_opisy = 'Wysokość';}
-	if (!empty($to_szerokosc)) {$tablica_opisy = 'Szerokość';}
-	if (!empty($to_dlugosc)) {$tablica_opisy = 'Długość';}
-	if (!empty($to_masa)) {$tablica_opisy = 'Masa';}
+	if (!empty($to_kolor)) {$tablica_opisy[] = 'Kolor';}
+	if (!empty($to_struktura)) {$tablica_opisy[] = 'Struktura';}
+	if (!empty($to_grubosc)) {$tablica_opisy[] = 'Grubość';}
+	if (!empty($to_wysokosc)) {$tablica_opisy[] = 'Wysokość';}
+	if (!empty($to_szerokosc)) {$tablica_opisy[] = 'Szerokość';}
+	if (!empty($to_dlugosc)) {$tablica_opisy[] = 'Długość';}
+	if (!empty($to_masa)) {$tablica_opisy[] = 'Masa';}
 	
 	//$to_opis_s1 .= '</ul>';
 	
