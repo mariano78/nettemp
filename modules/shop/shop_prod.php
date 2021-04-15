@@ -78,6 +78,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$to_szerokosc = $row['TO_SZEROKOSC']; // szerokosc towaru
 	$to_dlugosc = $row['TO_DLUGOSC']; // dlugosc towaru
 	$tablica_opisy = array();
+	$tablica_opisy2 = array();
 	
 	
 	
@@ -118,6 +119,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 			$to_opis_s2 .= '<li><b>'.$row2['OPIS'].': </b>'.$row2['WARTOSC'].'</li>';
 			$to_opis_s3 .= $to_opis_s2;
 			$to_opis_s2 = '';
+			$tablica_opisy2[] = $row_opis;
 			
 		} elseif (!in_array($row_opis, $tablica_opisy)) {
 			
@@ -128,13 +130,13 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	}
 	
 	
-	if (!empty($to_kolor) && in_array('Kolor', $tablica_opisy)) { $to_opis_s1 .= '<li><b>Kolor: </b>'.$to_kolor.'</li>';}
-	if (!empty($to_struktura) && in_array('Struktura', $tablica_opisy)) { $to_opis_s1 .= '<li><b>Struktura: </b>'.$to_struktura.'</li>';}
-	if (!empty($to_grubosc) && in_array('Grubość', $tablica_opisy)) { $to_opis_s1 .= '<li><b>Grubość: </b>'.floatval($to_grubosc).' mm</li>';}
-	if (!empty($to_wysokosc) && in_array('Wysokość', $tablica_opisy)) { $to_opis_s1 .= '<li><b>Wysokość: </b>'.$to_wysokosc.' mm</li>';}
-	if (!empty($to_szerokosc) && in_array('Szerokość', $tablica_opisy)) { $to_opis_s1 .= '<li><b>Szerokość: </b>'.$to_szerokosc.' mm</li>';}
-	if (!empty($to_dlugosc) && in_array('Długość', $tablica_opisy)) { $to_opis_s1 .= '<li><b>Długość: </b>'.$to_dlugosc.' mm</li>';}
-	if (!empty($to_masa) && in_array('Masa', $tablica_opisy)) { $to_opis_s1 .= '<li><b>Masa: </b>'.floatval($to_masa).' kg/'.strtolower($jed_miar_jfox).'</li>';}
+	if (!empty($to_kolor) && in_array('Kolor', $tablica_opisy2)) { $to_opis_s1 .= '<li><b>Kolor: </b>'.$to_kolor.'</li>';}
+	if (!empty($to_struktura) && in_array('Struktura', $tablica_opisy2)) { $to_opis_s1 .= '<li><b>Struktura: </b>'.$to_struktura.'</li>';}
+	if (!empty($to_grubosc) && in_array('Grubość', $tablica_opisy2)) { $to_opis_s1 .= '<li><b>Grubość: </b>'.floatval($to_grubosc).' mm</li>';}
+	if (!empty($to_wysokosc) && in_array('Wysokość', $tablica_opisy2)) { $to_opis_s1 .= '<li><b>Wysokość: </b>'.$to_wysokosc.' mm</li>';}
+	if (!empty($to_szerokosc) && in_array('Szerokość', $tablica_opisy2)) { $to_opis_s1 .= '<li><b>Szerokość: </b>'.$to_szerokosc.' mm</li>';}
+	if (!empty($to_dlugosc) && in_array('Długość', $tablica_opisy2)) { $to_opis_s1 .= '<li><b>Długość: </b>'.$to_dlugosc.' mm</li>';}
+	if (!empty($to_masa) && in_array('Masa', $tablica_opisy2)) { $to_opis_s1 .= '<li><b>Masa: </b>'.floatval($to_masa).' kg/'.strtolower($jed_miar_jfox).'</li>';}
 
 	
 	$to_opis_s3 .= '</ul>';
