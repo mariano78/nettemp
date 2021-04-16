@@ -182,7 +182,7 @@ Edytowany towar: <?php echo "$rb_tow_kod"." - "."$title2"?>
     </form>
 					
 	<form action="" method="post" style="display:inline!important;">		
-		<textarea name="description2" id="mytextarea"><?php echo $to_opis; ?></textarea>	
+		
 		<button class="btn btn-xs btn-success" style="margin: 20px;">Wyślij na WWW </button>
 		<input type="hidden" name="sync_prod_code" value="<?php echo $rb_tow_kod; ?>" />
 		<input type="hidden" name="save_desc2" value="<?php echo $id_tow; ?>" />
