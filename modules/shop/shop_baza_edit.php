@@ -34,8 +34,6 @@ include("$root/modules/shop/shop_settings.php");
 //Zapis opisu do bazy oracle
 $save_desc_id = isset($_POST['save_desc']) ? $_POST['save_desc'] : '';
 $description = isset($_POST['description']) ? $_POST['description'] : '';
-$save_desc_id2 = isset($_POST['save_desc2']) ? $_POST['save_desc2'] : '';
-$description2 = isset($_POST['description2']) ? $_POST['description2'] : '';
 
 if (!empty($save_desc_id)){
 	
@@ -56,24 +54,8 @@ if (!empty($save_desc_id)){
 //synchronizacja produktu
 $sync_prod_code = isset($_POST['sync_prod_code']) ? $_POST['sync_prod_code'] : '';
 
-if (!empty($sync_prod_code) && !empty($save_desc_id2)){
-	
-	$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = :lob WHERE ID_TOW = '$save_desc_id2' ";
-	$stid2 = oci_parse($conn, $sql);	
-	$lob_w = oci_new_descriptor($conn, OCI_D_LOB);
-					
-	oci_bind_by_name($stid2, ':lob',  $lob_w, -1, OCI_B_CLOB);
-	$lob_w->WriteTemporary($description2);
-	oci_execute($stid2, OCI_NO_AUTO_COMMIT);
-	$lob_w->close();
-	oci_commit($conn);
-	oci_free_statement($stid2);	
-	
+if (!empty($sync_prod_code)){
 	shell_exec("php -f $root/modules/shop/shop_prod.php c=$sync_prod_code");
-	
-	
-	
-	
     header("location: " . $_SERVER['REQUEST_URI']);
     exit();
     }
@@ -181,11 +163,9 @@ Edytowany towar: <?php echo "$rb_tow_kod"." - "."$title2"?>
 		<input type="hidden" name="save_desc" value="<?php echo $id_tow; ?>" />
     </form>
 					
-	<form action="" method="post" style="display:inline!important;">		
-		<textarea type="hidden" name="description2" id="mytextarea"><?php echo $to_opis; ?></textarea>
+	<form action="" method="post" style="display:inline!important;">				
 		<button class="btn btn-xs btn-success" style="margin: 20px;">Wyślij na WWW </button>
 		<input type="hidden" name="sync_prod_code" value="<?php echo $rb_tow_kod; ?>" />
-		<input type="hidden" name="save_desc2" value="<?php echo $id_tow; ?>" />
 	</form>
 					
 	<a target="_blank" class="btn btn-xs btn-success" style="margin: 20px;" href="<?php echo $linkwww ?>">Podgląd w shoper</a>
