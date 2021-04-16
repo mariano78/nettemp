@@ -58,7 +58,7 @@ $sync_prod_code = isset($_POST['sync_prod_code']) ? $_POST['sync_prod_code'] : '
 
 if (!empty($sync_prod_code) && !empty($save_desc_id2)){
 	
-	$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = :lob WHERE ID_TOW = '$save_desc_id' ";
+	$sql = "UPDATE SHOPPER_PRODUCTS SET SHOP_TO_DESCRIPTION = :lob WHERE ID_TOW = '$save_desc_id2' ";
 	$stid2 = oci_parse($conn, $sql);	
 	$lob_w = oci_new_descriptor($conn, OCI_D_LOB);
 					
