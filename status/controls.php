@@ -88,23 +88,20 @@ function gpio_curl_onoff($ip,$gpio,$rom,$action,$moment_time){
 		$tmp='1.0';
 		$method='GPIO';
 		$time='0';
+		$action_string = "$ip/control?cmd=$method,$gpio,$set";
 	} elseif($action=='off') {
 		$set='0';
 		$tmp='0.0';
 		$method='GPIO';
 		$time='0';
+		$action_string = "$ip/control?cmd=$method,$gpio,$set";
 	} elseif($action=='moment') {
 		$method='Pulse';
 		$set='1';
 		$tmp='1.0';
+		$action_string =  "$ip/control?cmd=$method,$gpio,$set,$moment_time";
 	}
 	
-	if ($action=='moment'){
-			$action_string =  "$ip/control?cmd=$method,$gpio,$set,$moment_time";
-		}else{
-			$action_string = "$ip/control?cmd=$method,$gpio,$set";
-		}
-		
 	$ch = curl_init();
 	$optArray = array(
 	
