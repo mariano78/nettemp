@@ -81,6 +81,7 @@ function gpio_status($rom,$tmp,$action,$gpio){
 }
 
 function gpio_curl_onoff($ip,$gpio,$rom,$action,$moment_time){
+	$action_string = '';
 	
 	if($action=='on') {
 		$set='1';
@@ -97,15 +98,18 @@ function gpio_curl_onoff($ip,$gpio,$rom,$action,$moment_time){
 		$set='1';
 		$tmp='1.0';
 	}
+	
+	if ($action=='moment'){
+			$action_string =  "$ip/control?cmd=$method,$gpio,$set,$moment_time",
+		}else{
+			$action_string = "$ip/control?cmd=$method,$gpio,$set",
+		}
 		
 	$ch = curl_init();
 	$optArray = array(
 	
-		if ($action=='moment'){
-			CURLOPT_URL => "$ip/control?cmd=$method,$gpio,$set,$moment_time",
-		}else{
-			CURLOPT_URL => "$ip/control?cmd=$method,$gpio,$set,$moment_time",
-		}
+		
+		CURLOPT_URL => "$action_string",
 		CURLOPT_HEADER => true,
 		CURLOPT_NOBODY => true,
 		CURLOPT_RETURNTRANSFER => true,
