@@ -100,9 +100,9 @@ function gpio_curl_onoff($ip,$gpio,$rom,$action,$moment_time){
 	}
 	
 	if ($action=='moment'){
-			$action_string =  "$ip/control?cmd=$method,$gpio,$set,$moment_time",
+			$action_string =  "$ip/control?cmd=$method,$gpio,$set,$moment_time";
 		}else{
-			$action_string = "$ip/control?cmd=$method,$gpio,$set",
+			$action_string = "$ip/control?cmd=$method,$gpio,$set";
 		}
 		
 	$ch = curl_init();
