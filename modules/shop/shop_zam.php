@@ -67,7 +67,7 @@ include("$root/modules/shop/shop_settings.php");
 		$currentPage++;		
 	}
 	echo "\n Kwota netto (całościowo) - ".$global_kwota_netto."\n";
-	echo "\n Kwota netto do wyplaty (całościowo) - ".$do_wyplaty."\n";
+	echo "\n Kwota netto2(całościowo) - ".$do_wyplaty."\n";
 	
 	
 
