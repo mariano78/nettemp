@@ -175,12 +175,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	// dodanie ulotki na końcu opisu - według grup towarowych
 	
-	if ($to_grupa == 'DASZP'){
-	
-		$to_opis .= '<h2>Pliki do pobrania:</h2>
-		<p><a href="https://robelit.home.pl/shop_pdf_opisy/Daszki_Robelit.pdf" target="_blank" rel = "nofollow">Ulotka - Daszki Robelit</a></p>';
-	
-	}
+
 	
 	
 	
