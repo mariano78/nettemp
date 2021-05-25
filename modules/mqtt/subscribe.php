@@ -265,7 +265,6 @@ function procmsg($topic, $msg){
 	$type=$arr['3'];
 	$gpio=$arr['4'];
 	$tskname=$arr['5'];
-	echo 'takie IP:'.$ip;
     
 	$local_device	=	'ip_mqtt';
 	$local_type	=	$type;
