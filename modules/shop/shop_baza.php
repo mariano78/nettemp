@@ -733,9 +733,9 @@ $stid2 = oci_parse($conn, "$sql");
 							<option value="40"  <?php echo $shop_cat2 == 40 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Daszki aluminiowe RETRO" ?></option>
 							<option value="41"  <?php echo $shop_cat2 == 41 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Daszki aluminiowe PLUS" ?></option>
 							<option value="42"  <?php echo $shop_cat2 == 42 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Daszki ze stali nierdzewnej" ?></option>
-								<option value="130"  <?php echo $shop_cat2 == 130 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Daszki ze stali nierdzewnej - Daszki lightline" ?></option>
-								<option value="131"  <?php echo $shop_cat2 == 131 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Daszki ze stali nierdzewnej - Daszki modułowe lightline" ?></option>
-								<option value="132"  <?php echo $shop_cat2 == 132 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Daszki ze stali nierdzewnej - Ścianki boczne" ?></option>
+							<option value="130"  <?php echo $shop_cat2 == 130 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Daszki ze stali nierdzewnej - Daszki lightline" ?></option>
+							<option value="131"  <?php echo $shop_cat2 == 131 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Daszki ze stali nierdzewnej - Daszki modułowe lightline" ?></option>
+							<option value="132"  <?php echo $shop_cat2 == 132 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Daszki ze stali nierdzewnej - Ścianki boczne" ?></option>
 							
 							
 							<option value="43"  <?php echo $shop_cat2 == 43 ? 'selected="selected"' : ''; ?>  ><?php echo "Zad. drzwi i bal. - Daszki balkonowe" ?></option>
