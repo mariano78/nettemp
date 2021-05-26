@@ -56,7 +56,8 @@ include("$root/modules/shop/shop_settings.php");
 						//echo "\n Kwota netto (całościowo) - ".$global_kwota_netto."\n";
 						
 						$do_wyplaty = $global_kwota_netto * 0.06;
-						$do_wyplaty2 = $global_kwota_netto * 0.04;
+						$do_wyplaty2 = $global_kwota_netto * 0.05;
+						$do_wyplaty3 = $global_kwota_netto * 0.04;
 						
 						//echo "\n".$data_zam." - ".$id_zam." Kwota netto do wyplaty (całościowo) - ".$status_zam." - ".$do_wyplaty."\n";
 					
@@ -68,8 +69,9 @@ include("$root/modules/shop/shop_settings.php");
 		$currentPage++;		
 	}
 	echo "\n Kwota netto (całościowo) - ".$global_kwota_netto."\n";
-	echo "\n Kwota netto2(całościowo) - ".$do_wyplaty."\n";
-	echo "\n Kwota netto3(całościowo) - ".$do_wyplaty2."\n";
+	echo "\n Kwota netto 6(całościowo) - ".$do_wyplaty."\n";
+	echo "\n Kwota netto 5(całościowo) - ".$do_wyplaty2."\n";
+	echo "\n Kwota netto 4(całościowo) - ".$do_wyplaty3."\n";
 	
 	
 
