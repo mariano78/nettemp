@@ -88,6 +88,16 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 		$to_opis = $row['SHOP_OPIS']->load(); // opis towaru
 	}
 	
+	//sekcja informacji o montażu daszków
+	
+	$grup_montaz = array('DASZK','DASZP');
+	if (in_array($to_grupa, $grup_montaz)) {
+		$to_opis .= '<br/><p style="text-align: center;">&nbsp;<a class="btn btn-montaz" href="https://robelit.pl/montaz-zadaszen">Wyceń montaż zadaszenia</a></p>';
+	
+	}
+	
+	
+	
 	
 	//Dadatkowe dane do opisu sekcja 1
 	$to_opis_s1 = '<h2>Specyfikacja produktu:</h2><ul>';
