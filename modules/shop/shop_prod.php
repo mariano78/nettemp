@@ -97,8 +97,6 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	}
 	
 	
-	
-	
 	//Dadatkowe dane do opisu sekcja 1
 	$to_opis_s1 = '<h2>Specyfikacja produktu:</h2><ul>';
 	
