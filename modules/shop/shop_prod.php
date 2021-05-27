@@ -90,7 +90,7 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	//sekcja informacji o montażu daszków
 	
-	$grup_montaz = array('DASZK','DASZP');
+	$grup_montaz = array('DASZK','DASZP','DASZR','DASZB','DASCL','DASZPL','DASZN');
 	if (in_array($to_grupa, $grup_montaz)) {
 		$to_opis .= '<br/><p style="text-align: center;">&nbsp;<a class="btn btn-montaz" href="https://robelit.pl/montaz-zadaszen">Wyceń montaż zadaszenia</a></p>';
 	
