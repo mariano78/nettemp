@@ -20,7 +20,7 @@ if (isset($_GET['kod'])) {
     $kod='';
 }
 
-shell_exec("php -f /modules/shop/shop_prod.php c=$kod");
+shell_exec("php -f $root/modules/shop/shop_prod.php c=$kod");
 
 
 echo $kod;
