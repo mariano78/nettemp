@@ -15,15 +15,15 @@ if(!empty($_SERVER["DOCUMENT_ROOT"])){
 // php-cgi -f receiver.php key=123456 rom=new_12_temp value=23
 
 if (isset($_GET['kod'])) { 
-    $kod2 = $_GET['kod'];
+    $kod = $_GET['kod'];
 } else { 
-    $kod2='';
+    $kod='';
 }
 
-shell_exec("php-cgi -f $root/modules/shop/shop_prod.php c=$kod2");
+shell_exec("php-cgi -f /var/www/nettemp/modules/shop/shop_prod.php c=$kod");
 
 
-echo $kod2;
+echo $kod;
 
 
 
