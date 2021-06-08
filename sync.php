@@ -1,7 +1,9 @@
 <?php
 
 
-
+if(!empty($_SERVER["DOCUMENT_ROOT"])){
+    $root=$_SERVER["DOCUMENT_ROOT"];
+}
 // name:
 // type: temp, humid, relay, lux, press, humid, gas, water, elec, volt, amps, watt, trigger
 // device: ip, wireless, remote, gpio, i2c, usb
@@ -18,7 +20,7 @@ if (isset($_GET['kod'])) {
     $kod='';
 }
 
-shell_exec("php-cgi -f modules/shop/shop_prod.php c=$kod");
+shell_exec("php-cgi -f $root/modules/shop/shop_prod.php c=$kod");
 
 
 echo $kod;
