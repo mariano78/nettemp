@@ -20,6 +20,8 @@ if (isset($_GET['kod'])) {
 
 shell_exec("php-cgi -f /modules/shop/shop_prod.php?code='.$kod'");
 
+echo $kod;
+
 
 
 ?>
