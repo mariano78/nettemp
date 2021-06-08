@@ -1,6 +1,6 @@
 <?php
 
-//var_dump($argv);
+var_dump($argv);
 parse_str($argv[1],$single_code);
 $code_to_update=$single_code['c'];
 
