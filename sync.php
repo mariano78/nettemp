@@ -19,11 +19,12 @@ if (isset($_GET['kod'])) {
 } else { 
     $kod='';
 }
-
-shell_exec("php -f $root/modules/shop/shop_prod.php c=$kod");
-
-
-echo $kod;
+if (!empty($kod)){
+	shell_exec("php -f $root/modules/shop/shop_prod.php c=$kod");
+}else{
+	echo 'Brak kodu towaru';
+	
+}
 
 
 
