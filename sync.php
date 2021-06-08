@@ -12,13 +12,15 @@
 // curl --connect-timeout 3 -G "http://172.18.10.10/receiver.php" -d "value=20&key=123456&device=wireless&type=elec&ip=172.18.10.9"
 // php-cgi -f receiver.php key=123456 rom=new_12_temp value=23
 
-if (isset($_GET['code'])) { 
-    $key = $_GET['code'];
+if (isset($_GET['kod'])) { 
+    $kod = $_GET['kod'];
 } else { 
-    $key='';
+    $kod='';
 }
 
-php-cgi -f /modules/shop/shop_prod.php key=123456 rom=new_12_temp value=23
+shell_exec("php-cgi -f /modules/shop/shop_prod.php?code='.$kod'");
+
+
 
 ?>
 
