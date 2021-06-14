@@ -1,332 +1,173 @@
-BEGIN TRANSACTION;
-CREATE TABLE "users" (
-	`id`	INTEGER,
-	`login`	TEXT UNIQUE,
-	`password`	TEXT,
-	`perms`	TEXT,
-	`tel`	TEXT UNIQUE,
-	`mail`	TEXT UNIQUE,
-	`smsa`	TEXT,
-	`maila`	TEXT,
-	`adm`	TEXT,
-	`ctr`	TEXT,
-	`simple`	TEXT,
-	`trigger`	TEXT,
-	`moment`	TEXT,
-	`cam`	TEXT,
-	`at`	TEXT,
-	`smspin`	TEXT,
-	`smsts`	TEXT,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "usb" (
-	`id`	INTEGER,
-	`dev`	TEXT,
-	`device`	TEXT UNIQUE,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "types" (
-	`id`	INTEGER,
-	`type`	TEXT UNIQUE,
-	`unit`	TEXT,
-	`unit2`	TEXT,
-	`ico`	TEXT,
-	`title`	TEXT,
-	`min`	NUMERIC,
-	`max`	NUMERIC,
-	`value1`	NUMERIC,
-	`value2`	NUMERIC,
-	`value3`	NUMERIC,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "statistics" (
-	`id`	INTEGER,
-	`agreement`	TEXT UNIQUE,
-	`nick`	TEXT UNIQUE,
-	`location`	TEXT UNIQUE,
-	`sensor_temp`	TEXT,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "snmp" (
-	`id`	INTEGER,
-	`name`	TEXT UNIQUE,
-	`rom`	TEXT UNIQUE,
-	`community`	TEXT,
-	`host`	TEXT,
-	`oid`	TEXT,
-	`divider`	TEXT,
-	`type`	TEXT,
-	`version`	TEXT,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "sensors" (
-	`id`	INTEGER,
-	`time`	TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	`tmp`	REAL,
-	`name`	TEXT UNIQUE,
-	`rom`	TEXT UNIQUE,
-	`tmp_min`	REAL,
-	`tmp_max`	REAL,
-	`type`	TEXT,
-	`gpio`	TEXT,
-	`ip`	TEXT,
-	`device`	TEXT,
-	`lcd`	TEXT,
-	`method`	TEXT,
-	`tmp_5ago`	TEXT,
-	`adj`	TEXT,
-	`charts`	TEXT,
-	`remote`	TEXT,
-	`i2c`	TEXT,
-	`minmax`	TEXT,
-	`sum`	TEXT,
-	`ch_group`	TEXT,
-	`jg`	TEXT,
-	`current`	TEXT,
-	`mail`	TEXT,
-	`status`	TEXT,
-	`usb`	TEXT,
-	`position_group`	TEXT,
-	`stat_min` TEXT,
-	`stat_max` TEXT,
-	`position` TEXT,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "rs485" (
-	`id`	INTEGER,
-	`dev`	TEXT,
-	`addr`	TEXT,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "relays" (
-	`id`	INTEGER,
-	`list`	TEXT UNIQUE,
-	`name`	TEXT,
-	`ip`	TEXT,
-	`delay`	TEXT,
-	`rom`	TEXT,
-	`type`	TEXT,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "newdev" (
-	`id`	INTEGER,
-	`list`	TEXT,
-	`type`	TEXT,
-	`rom`	TEXT UNIQUE,
-	`device`	TEXT,
-	`i2c`	TEXT,
-	`usb`	TEXT,
-	`gpio`	TEXT,
-	`ip`	TEXT,
-	`name`	TEXT, seen TEXT,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "meteo" (
-	`id`	INTEGER,
-	`temp`	TEXT,
-	`latitude`	TEXT,
-	`height`	TEXT,
-	`pressure`	TEXT,
-	`humid`	TEXT,
-	`onoff`	TEXT,
-	`normalized`	TEXT,
-	`jg`	TEXT,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "maps" (
-	`id`	INTEGER,
-	`type`	TEXT,
-	`element_id`	INTEGER,
-	`map_num`	NUMERIC,
-	`map_pos`	NUMERIC,
-	`position`	INTEGER DEFAULT 1,
-	`map_on`	TEXT,
-	`transparent`	TEXT,
-	`control_on_map`	TEXT,
-	`display_name`	TEXT,
-	`transparent_bkg`	TEXT,
-	`background_color`	TEXT,
-	`background_low`	TEXT,
-	`background_high`	TEXT,
-	`font_color`	TEXT,
-	`font_size`	TEXT,
-	`icon`	TEXT,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "i2c" (
-	`id`	INTEGER,
-	`name`	TEXT,
-	`addr`	TEXT UNIQUE,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "hosts" (
-	`id`	INTEGER,
-	`time`	TEXT DEFAULT CURRENT_TIMESTAMP,
-	`name`	TEXT UNIQUE,
-	`ip`	TEXT,
-	`type`	TEXT,
-	`last`	TEXT,
-	`status`	TEXT,
-	`rom`	TEXT,
-	`map_pos`	NUMERIC,
-	`map_num`	NUMERIC,
-	`map`	NUMERIC,
-	`alarm`	TEXT,
-	`position`	TEXT,
-	`element_id`	TEXT,
-	`mail`	TEXT,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "gpio" (
-	`id`	INTEGER,
-	`gpio`	TEXT,
-	`name`	TEXT,
-	`mode`	TEXT,
-	`simple`	TEXT,
-	`rev`	TEXT,
-	`status`	TEXT,
-	`time_run`	TEXT,
-	`time_offset`	TEXT,
-	`time_start`	TEXT,
-	`humid_type`	TEXT,
-	`day_run`	TEXT,
-	`week_run`	TEXT,
-	`week_status`	TEXT,
-	`trigger_run`	TEXT,
-	`trigger_notice`	TEXT,
-	`kwh_run`	TEXT,
-	`kwh_divider`	TEXT,
-	`temp_run`	TEXT,
-	`trigger_source`	TEXT,
-	`control`	TEXT,
-	`control_run`	TEXT,
-	`trigger_delay`	TEXT,
-	`trigger_con`	TEXT,
-	`tel_num1`	TEXT,
-	`tel_num2`	TEXT,
-	`tel_num3`	TEXT,
-	`tel_any`	TEXT,
-	`tel_at`	TEXT,
-	`elec_divider`	TEXT,
-	`water_divider`	TEXT,
-	`gas_divider`	TEXT,
-	`elec_run`	TEXT,
-	`water_run`	TEXT,
-	`gas_run`	TEXT,
-	`elec_debouncing`	TEXT,
-	`water_debouncing`	TEXT,
-	`gas_debouncing`	TEXT,
-	`fnum`	TEXT,
-	`state`	TEXT,
-	`position`	TEXT,
-	`day_zone2s`	TEXT,
-	`day_zone2e`	TEXT,
-	`day_zone3s`	TEXT,
-	`day_zone3e`	TEXT,
-	`moment_time`	TEXT,
-	`ip`	TEXT,
-	`rom`	TEXT,
-	`locked`	TEXT, map NUM, map_num NUMERIC, map_pos NUMERIC, week_Fri  TEXT, week_Mon  TEXT, week_Sat  TEXT, week_Sun  TEXT, week_Thu  TEXT, week_Tue  TEXT, week_Wed  TEXT,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "g_func" (
-	`id`	INTEGER,
-	`position`	INTEGER DEFAULT 1,
-	`sensor`	TEXT,
-	`sensor2`	TEXT,
-	`onoff`	TEXT,
-	`value`	TEXT,
-	`op`	TEXT,
-	`hyst`	TEXT,
-	`source`	TEXT,
-	`gpio`	TEXT,
-	`w_profile`	TEXT,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "fw" (
-	`id`	INTEGER,
-	`ssh`	TEXT,
-	`icmp`	TEXT,
-	`openvpn`	TEXT,
-	`ext`	TEXT,
-	`radius`	TEXT,
-	`syslog`	TEXT,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "device" (
-	`id`	INTEGER,
-	`usb`	TEXT UNIQUE,
-	`onewire`	TEXT UNIQUE,
-	`serial`	TEXT UNIQUE,
-	`i2c`	TEXT UNIQUE,
-	`lmsensors`	TEXT,
-	`wireless`	TEXT,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "day_plan" (
-	`id`	INTEGER,
-	`name`	TEXT UNIQUE,
-	`Mon`	TEXT,
-	`Tue`	TEXT,
-	`Wed`	TEXT,
-	`Thu`	TEXT,
-	`Fri`	TEXT,
-	`Sat`	TEXT,
-	`Sun`	TEXT,
-	`stime`	TEXT,
-	`etime`	TEXT,
-	`gpio`	TEXT,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "camera" (
-	`id`	INTEGER,
-	`name`	TEXT UNIQUE,
-	`link`	TEXT UNIQUE,
-	`access_all`	TEXT,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "call_settings" (
-	`id`	INTEGER,
-	`name`	TEXT,
-	`dev`	TEXT,
-	`default_dev`	TEXT,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "auth_tokens" (
-	`id`	INTEGER,
-	`selector`	TEXT,
-	`token`	TEXT,
-	`userid`	TEXT,
-	`expires`	TEXT,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "access_time" (
-	`id`	INTEGER,
-	`name`	TEXT UNIQUE,
-	`Mon`	TEXT,
-	`Tue`	TEXT,
-	`Wed`	TEXT,
-	`Thu`	TEXT,
-	`Fri`	TEXT,
-	`Sat`	TEXT,
-	`Sun`	TEXT,
-	`stime`	TEXT,
-	`etime`	TEXT,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "adjust" (
-	`id`	INTEGER,
-	`rom` 	TEXT,
-	`threshold` NUMERIC,
-	`end` NUMERIC,
-	`addvalue` NUMERIC,
-	PRIMARY KEY(id)
-);
-CREATE TABLE "nt_settings" (
-	`id` INTEGER,
-	`option` TEXT UNIQUE,
-	`value` TEXT,
-	PRIMARY KEY(id)
-);
-CREATE TRIGGER aupdate_time_trigger AFTER UPDATE OF tmp ON sensors FOR EACH ROW WHEN NEW.tmp BEGIN UPDATE sensors SET time = (datetime('now','localtime')) WHERE id = old.id; END;
-COMMIT;
+-- MySQL dump 10.17  Distrib 10.3.22-MariaDB, for debian-linux-gnueabihf (armv8l)
+--
+-- Host: localhost    Database: nettemp
+-- ------------------------------------------------------
+-- Server version	10.3.22-MariaDB-0+deb10u1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `maps`
+--
+
+DROP TABLE IF EXISTS `maps`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `maps` (
+  `id` int(9) unsigned NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) DEFAULT NULL,
+  `map_id` int(255) DEFAULT NULL,
+  `pos_y` int(255) DEFAULT NULL,
+  `pos_x` int(255) DEFAULT NULL,
+  `map_on` varchar(255) DEFAULT NULL,
+  `transparent` varchar(255) DEFAULT NULL,
+  `control_on_map` varchar(255) DEFAULT NULL,
+  `display_name` varchar(255) DEFAULT NULL,
+  `transparent_bkg` varchar(255) DEFAULT NULL,
+  `background_color` varchar(255) DEFAULT NULL,
+  `background_low` varchar(255) DEFAULT NULL,
+  `background_high` varchar(255) DEFAULT NULL,
+  `font_color` varchar(255) DEFAULT NULL,
+  `font_size` varchar(255) DEFAULT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `nt_settings`
+--
+
+DROP TABLE IF EXISTS `nt_settings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `nt_settings` (
+  `id` int(9) unsigned NOT NULL AUTO_INCREMENT,
+  `option` varchar(255) DEFAULT NULL,
+  `value` varchar(255) DEFAULT NULL,
+  `node_token` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `option` (`option`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `sensors`
+--
+
+DROP TABLE IF EXISTS `sensors`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sensors` (
+  `id` int(9) unsigned NOT NULL AUTO_INCREMENT,
+  `time` varchar(255) DEFAULT NULL,
+  `tmp` float DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `rom` varchar(255) DEFAULT NULL,
+  `tmp_min` float DEFAULT NULL,
+  `tmp_max` float DEFAULT NULL,
+  `alarm` varchar(255) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `ip` varchar(255) DEFAULT NULL,
+  `device` varchar(255) DEFAULT NULL,
+  `method` varchar(255) DEFAULT NULL,
+  `tmp_5ago` float DEFAULT NULL,
+  `adj` float DEFAULT NULL,
+  `charts` varchar(255) DEFAULT NULL,
+  `i2c` varchar(255) DEFAULT NULL,
+  `minmax` varchar(255) DEFAULT NULL,
+  `sum` varchar(255) DEFAULT NULL,
+  `ch_group` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `email_time` varchar(255) DEFAULT NULL,
+  `email_status` varchar(255) DEFAULT NULL,
+  `email_delay` int(11) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `usb` varchar(255) DEFAULT NULL,
+  `stat_min` float DEFAULT NULL,
+  `stat_max` float DEFAULT NULL,
+  `fiveago` varchar(255) DEFAULT NULL,
+  `map_id` int(11) DEFAULT NULL,
+  `gpio` varchar(255) DEFAULT NULL,
+  `stat_min_time` varchar(255) DEFAULT NULL,
+  `stat_max_time` varchar(255) DEFAULT NULL,
+  `alarm_status` varchar(255) DEFAULT NULL,
+  `alarm_recovery_time` varchar(255) DEFAULT NULL,
+  `node` varchar(255) DEFAULT NULL,
+  `node_url` varchar(255) DEFAULT NULL,
+  `node_token` text DEFAULT NULL,
+  `nodata` varchar(255) DEFAULT NULL,
+  `sid` int(6) DEFAULT NULL,
+  `gid` varchar(255) DEFAULT NULL,
+  `nodata_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`),
+  UNIQUE KEY `rom` (`rom`),
+  KEY `sid` (`sid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `types`
+--
+
+DROP TABLE IF EXISTS `types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `types` (
+  `id` int(9) unsigned NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) DEFAULT NULL,
+  `unit` varchar(255) DEFAULT NULL,
+  `unit2` varchar(255) DEFAULT NULL,
+  `ico` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `min` varchar(255) DEFAULT NULL,
+  `max` varchar(255) DEFAULT NULL,
+  `value1` varchar(255) DEFAULT NULL,
+  `value2` varchar(255) DEFAULT NULL,
+  `value3` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `type` (`type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(9) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `active` varchar(255) DEFAULT NULL,
+  `jwt` varchar(255) DEFAULT NULL,
+  `receive_mail` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-04-09  9:17:57
