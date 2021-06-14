@@ -1,6 +1,9 @@
 <?php
-define("DB_HOST", "localhost");
-define("DB_USER", "nettemp@localhost");
-define("DB_PASSWORD", "db_pass_mysql");
-define("DB_DATABASE", "nettemp");
+
+$host = 'localhost';
+$db   = 'nettemp';
+$user = 'nettemp@localhost';
+$password = 'db_pass_mysql';
+$dsn = "mysql:host=$host;dbname=$db";
+
 ?>

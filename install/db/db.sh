@@ -6,7 +6,7 @@ PASSWDDB=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 echo $ROOTPASSWDDB >> /root/mysql_pass
 MAINDB=nettemp
 
-sed -i "s/db_pass_mysql/$PASSWDDB/g" $dir/config/config.cfg
+sed -i "s/db_pass_mysql/$PASSWDDB/g" $dir/config/config.php
 
 # If /root/mysql_pass exists then it won't ask for root password
 if [ -f /root/mysql_pass ]; then
@@ -28,8 +28,5 @@ else
     mysql -uroot -p${rootpasswd} -e "FLUSH PRIVILEGES;"
 fi
 
-
-
-#echo -e "\n\$rootpass\$rootpass\n\n\n\n\n " | mysql_secure_installation 2>/dev/null
 
 php-cgi -f $dir/modules/tools/db_reset.php
