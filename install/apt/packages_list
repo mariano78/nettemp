@@ -1,5 +1,5 @@
 acl
-lighttpd
+nginx
 php7.3-cgi 
 php7.3-sqlite3 
 php7.3-fpm 
@@ -7,6 +7,7 @@ php7.3-curl
 php7.3-mysql
 php7.3-snmp
 php7.3-xml
+mariadb-server
 sqlite3 
 msmtp 
 digitemp 
@@ -43,7 +44,7 @@ libmodbus5
 iptables-persistent
 apcupsd
 smstools
-mariadb-client
+
 python-pymodbus
 lm-sensors
 mosquitto

@@ -3,7 +3,7 @@
 {
 /etc/init.d/ntp restart
 /etc/init.d/php7.3-fpm restart
-/etc/init.d/lighttpd restart
+#/etc/init.d/lighttpd restart
 
 update-rc.d smstools enable
 
@@ -21,6 +21,8 @@ cp $dir/install/services/nettempmqtt.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable nettempmqtt
 systemctl start nettempmqtt
+systemctl enable nginx
+systemctl restart nginx
 
 
 
