@@ -6,7 +6,7 @@ PASSWDDB=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 echo $ROOTPASSWDDB >> /root/mysql_pass
 MAINDB=nettemp
 DBUSER=nettempusr
-
+echo $dir
 sed -i "s/db_pass_mysql/$PASSWDDB/g" $dir/config/config.php
 
 # If /root/mysql_pass exists then it won't ask for root password
@@ -28,6 +28,7 @@ else
     mysql -uroot -p${rootpasswd} -e "GRANT ALL PRIVILEGES ON ${MAINDB}.* TO '${MAINDB}'@'localhost';"
     mysql -uroot -p${rootpasswd} -e "FLUSH PRIVILEGES;"
 fi
-
+systemctl enable mariadb
+systemctl restart mariadb
 
 php-cgi -f $dir/modules/tools/db_reset.php

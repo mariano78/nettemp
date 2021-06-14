@@ -27,7 +27,6 @@ systemctl restart nginx
 
 
 
-
 if [[ $APCUPS == 'yes' ]]; then
     /etc/init.d/apcupsd start
     update-rc.d apcupsd enable
