@@ -7,13 +7,14 @@ echo $ROOTPASSWDDB >> /root/mysql_pass
 MAINDB=nettemp
 DBUSER=nettempusr
 echo $dir
+
 sed -i "s/db_pass_mysql/$PASSWDDB/g" $dir/config/config.php
 
 # If /root/mysql_pass exists then it won't ask for root password
 if [ -f /root/mysql_pass ]; then
 
     mysql -e "CREATE DATABASE ${MAINDB} /*\!40100 DEFAULT CHARACTER SET utf8 */;"
-    mysql -e "CREATE USER mario@localhost IDENTIFIED BY 'Ala1Ala2';"
+    mysql -e "CREATE USER '$DBUSER'@localhost IDENTIFIED BY '$PASSWDDB';"
     mysql -e "GRANT ALL PRIVILEGES ON ${MAINDB}.* TO '${MAINDB}'@'localhost';"
     mysql -e "FLUSH PRIVILEGES;"
 
