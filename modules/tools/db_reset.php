@@ -26,7 +26,7 @@ foreach ($lines as $line)
         $op_data = '';
     }
 }
-echo "Table Created Inside " . $database . " Database.......";
+echo "Table Created Inside " . $db . " Database.......";
  
 
 
