@@ -2,7 +2,7 @@
 
 $host = 'localhost';
 $db   = 'nettemp';
-$user = 'nettemp@localhost';
+$user = 'nettemp';
 $password = 'db_pass_mysql';
 $dsn = "mysql:host=$host;dbname=$db";
 
