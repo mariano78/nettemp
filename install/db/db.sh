@@ -5,7 +5,7 @@ ROOTPASSWDDB=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 PASSWDDB=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 echo $ROOTPASSWDDB >> /root/mysql_pass
 MAINDB=nettemp
-DBUSER=nettempusr
+DBUSER=nettempusr6
 echo $dir
 
 sed -i "s/db_pass_mysql/$PASSWDDB/g" $dir/config/config.php
