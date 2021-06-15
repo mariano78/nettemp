@@ -11,8 +11,9 @@ sed -i "s/dbpassmysql/$PASSWDDB/g" $dir/config/config.php
 
 # If /root/mysql_pass exists then it won't ask for root password
 if [ -f /root/mysql_pass ]; then
-
-    mysql -e "CREATE DATABASE $MAINDB /*\!40100 DEFAULT CHARACTER SET utf8 */;"
+	mysql -e "DROP DATABASE IF EXISTS $MAINDB;"
+    mysql -e "DROP USER IF EXISTS $DBUSER@localhost;"
+	mysql -e "CREATE DATABASE $MAINDB /*\!40100 DEFAULT CHARACTER SET utf8 */;"
     mysql -e "CREATE USER $DBUSER@localhost IDENTIFIED BY '$PASSWDDB';"
     mysql -e "GRANT ALL PRIVILEGES ON $MAINDB.* TO $DBUSER@localhost;"
     mysql -e "FLUSH PRIVILEGES;"
