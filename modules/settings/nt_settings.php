@@ -2,9 +2,7 @@
 if(!empty($_SERVER["DOCUMENT_ROOT"])){
     $root=$_SERVER["DOCUMENT_ROOT"];
 }
-if(!isset($db)){
-    $db = new PDO($dsn, $user, $password);
-}
+
 $sth = $db->query("SELECT * FROM nt_settings");
 $sth->execute();
 $result = $sth->fetchAll();
