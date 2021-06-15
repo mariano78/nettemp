@@ -4,7 +4,7 @@
 
 mkdir -p $dir/tmp
 sudo chown -R root.www-data $dir
-sudo chmod -R 775 $dirs
+sudo chmod -R 775 $dir
 sudo chmod -R g+s $dir
 rm -f $dir/config/config.php
 cp $dir/install/config/config.php $dir/config/config.php
