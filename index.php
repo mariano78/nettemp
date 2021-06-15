@@ -10,7 +10,7 @@ include_once("$root/config/config.php");
 	//$conn = new mysqli($host, $user, $password, $db);
     $db = new PDO($dsn, $user, $password);
 
-    include("modules/login/login.php");
+    //include("modules/login/login.php");
     ob_start();
     $id = isset($_GET['id']) ? $_GET['id'] : '';
     $art=isset($_GET['type']) ? $_GET['type'] : '';
