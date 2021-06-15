@@ -15,6 +15,6 @@ include("/var/www/nettemp/config/config.php");
 	$row1 = $rows1->fetchAll();
 	foreach ($row1 as $a) {
 		
-		echo $a[rom];
+		echo $a['name'];
 	}
 ?>
