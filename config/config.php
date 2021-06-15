@@ -1,4 +1,4 @@
-dbpassmysql
+
 <?php
 
 $host = 'localhost';
