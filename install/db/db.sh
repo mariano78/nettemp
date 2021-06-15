@@ -1,4 +1,5 @@
 #! /bin/bash
+chown -R root.www-data $dir
 rm -f $dir/config/config.php
 cp $dir/install/config/config.php $dir/config/config.php
 
