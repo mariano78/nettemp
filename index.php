@@ -2,7 +2,7 @@
 $root=$_SERVER["DOCUMENT_ROOT"];
 echo $root;
 #$dbfile=$root.'/dbf/nettemp.db';
-include("var/www/nettemp/config/config.php");
+include("/var/www/nettemp/config/config.php");
 
 //if( !file_exists($dbfile) || !is_readable($dbfile) || filesize($dbfile) == 0 ){
     //header("Location: html/errors/no_db.php");
