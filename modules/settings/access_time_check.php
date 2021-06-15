@@ -10,7 +10,7 @@ $sat=null;
 $sun=null;
 $profil='';
 
-$db = new PDO('sqlite:dbf/nettemp.db');
+//$db = new PDO('sqlite:dbf/nettemp.db');
 $rows = $db->query("SELECT at FROM users WHERE login='$user'");
 $row = $rows->fetchAll();
 foreach ($row as $at) {
