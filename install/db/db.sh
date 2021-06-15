@@ -6,9 +6,8 @@ PASSWDDB=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 echo $ROOTPASSWDDB >> /root/mysql_pass
 MAINDB=nettemp
 DBUSER=nettemp
-echo $dir
-#sed -i "s/dbpassmysql/$PASSWDDB/g" /var/www/nettemp/config/config.php
-sed -i "5s/dbpassmysql/$PASSWDDB/g" $dir/config/config.php
+
+sed -i "s/dbpassmysql/$PASSWDDB/g" $dir/config/config.php
 
 # If /root/mysql_pass exists then it won't ask for root password
 if [ -f /root/mysql_pass ]; then
