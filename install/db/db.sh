@@ -8,7 +8,7 @@ MAINDB=nettemp
 DBUSER=nettemp
 echo $dir
 
-sudo sed -i 's/db_pass_mysql/ala/g' /var/www/nettemp/config/config.php
+sudo sed -i 's/db_pass_mysql/ala/g' $dir/config/config.php
 
 # If /root/mysql_pass exists then it won't ask for root password
 if [ -f /root/mysql_pass ]; then
@@ -33,4 +33,5 @@ systemctl enable mariadb
 systemctl restart mariadb
 
 php-cgi -f $dir/modules/tools/db_reset.php
+
 
