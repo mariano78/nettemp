@@ -120,7 +120,7 @@ function new_seen($seen){
 <li <?php echo $id == 'status' ? ' class="active"' : ''; ?>><a href="index.php?id=status"><span class="glyphicon glyphicon-th-large" aria-hidden="true"> Status</span></a></li>
 <li <?php echo $id == 'view' ? ' class="active"' : ''; ?>><a href="index.php?id=view&type=temp&max=<?php echo $nts_charts_max?>"><span class="glyphicon glyphicon-stats" aria-hidden="true"> Charts</span></a></li>
 <?php
-	if($nts_screen=='on')
+	if(1=1)
 	{
 	?>
 	<li <?php echo $id == 'screen' ? ' class="active"' : ''; ?>><a href="index.php?id=screen"><span class="glyphicon glyphicon-modal-window" aria-hidden="true"> Screen</span></a></li>
