@@ -83,7 +83,7 @@ if($id != 'screen') {
 <div id="navbar" class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <?php
-#$rows1 = $db->query("SELECT * FROM gpio WHERE mode='trigger' OR mode='call'") or header("Location: html/errors/db_error.php");
+$rows1 = $db->query("SELECT * FROM sensors") or header("Location: html/errors/db_error.php");
 #$rows2 = $db->query("SELECT * FROM sensors WHERE type='relay'") or header("Location: html/errors/db_error.php");
 
 if(($_SESSION["perms"] == 'adm') || (isset($_SESSION["user"]))) {
