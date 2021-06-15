@@ -36,3 +36,4 @@ systemctl restart mariadb
 
 php-cgi -f $dir/modules/tools/db_reset.php
 
+
