@@ -3,6 +3,8 @@
 > $dir/install_log.txt
 
 mkdir -p $dir/tmp
+rm -f $dir/config/config.php
+cp $dir/install/config/config.php $dir/config/config.php
 
 source install/apt/apt.sh
 source install/rpi/rpi.sh
@@ -20,8 +22,9 @@ source install/ups/ups.sh
 
 source install/www/www.sh
 source install/crontab/crontab.sh
-source install/db/db.sh
 source install/perms/perms.sh
+source install/db/db.sh
+
 source install/services/services.sh
 
 
