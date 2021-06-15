@@ -1,11 +1,14 @@
 <?php
 $root=$_SERVER["DOCUMENT_ROOT"];
-$dbfile=$root.'/dbf/nettemp.db';
+#$dbfile=$root.'/dbf/nettemp.db';
+include_once("$root/config/config.php");
 
-if( !file_exists($dbfile) || !is_readable($dbfile) || filesize($dbfile) == 0 ){
-    header("Location: html/errors/no_db.php");
-}else{
-    $db = new PDO("sqlite:$root/dbf/nettemp.db");
+//if( !file_exists($dbfile) || !is_readable($dbfile) || filesize($dbfile) == 0 ){
+    //header("Location: html/errors/no_db.php");
+//}else{
+	
+	//$conn = new mysqli($host, $user, $password, $db);
+    $db = new PDO($dsn, $user, $password);
 
     include("modules/login/login.php");
     ob_start();
