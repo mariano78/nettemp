@@ -8,7 +8,7 @@ MAINDB=nettemp
 DBUSER=nettemp
 echo $dir
 
-sed -i "s/db_pass_mysql/$PASSWDDB/g" /$dir/config/config.php
+sed -i "s/db_pass_mysql/$PASSWDDB/g" $dir/config/config.php
 
 # If /root/mysql_pass exists then it won't ask for root password
 if [ -f /root/mysql_pass ]; then
