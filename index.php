@@ -11,6 +11,9 @@ include_once("$root/config/config.php");
     $db = new PDO($dsn, $user, $password);
 
     $rows1 = $db->query("SELECT * FROM sensors;") or header("Location: html/errors/db_error.php");
-
+	$row1 = $rows1->fetchAll();
+	foreach ($row1 as $a) {
+		
+		echo $a[rom];
+	}
 ?>
-
