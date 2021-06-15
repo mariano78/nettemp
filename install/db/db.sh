@@ -14,8 +14,8 @@ sed -i "5s/dbpassmysql/$PASSWDDB/g" $dir/config/config.php
 if [ -f /root/mysql_pass ]; then
 
     mysql -e "CREATE DATABASE $MAINDB /*\!40100 DEFAULT CHARACTER SET utf8 */;"
-    mysql -e "CREATE USER '$DBUSER'@localhost IDENTIFIED BY '$PASSWDDB';"
-    mysql -e "GRANT ALL PRIVILEGES ON $MAINDB.* TO '$DBUSER'@'localhost';"
+    mysql -e "CREATE USER $DBUSER@localhost IDENTIFIED BY '$PASSWDDB';"
+    mysql -e "GRANT ALL PRIVILEGES ON $MAINDB.* TO $DBUSER@localhost;"
     mysql -e "FLUSH PRIVILEGES;"
 
 # If /root/mysql_pass doesn't exist then it'll ask for root password   
