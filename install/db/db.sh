@@ -1,5 +1,6 @@
 #! /bin/bash
-
+rm -f $dir/config/config.php
+cp $dir/install/config/config.php $dir/config/config.php
 
 ROOTPASSWDDB=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 PASSWDDB=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
