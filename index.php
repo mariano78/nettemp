@@ -1,5 +1,6 @@
 <?php
 $root=$_SERVER["DOCUMENT_ROOT"];
+echo $root;
 #$dbfile=$root.'/dbf/nettemp.db';
 include_once("$root/config/config.php");
 
