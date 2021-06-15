@@ -94,10 +94,10 @@ if(($_SESSION["perms"] == 'adm') || (isset($_SESSION["user"]))) {
 	#$rows3 = $db->query("SELECT * FROM ownlinks WHERE onoff = 'on' AND logon = 'on' ORDER BY pos ASC") or header("Location: html/errors/db_error.php");
 }
 
-#$row1 = $rows1->fetchAll();
+$row1 = $rows1->fetchAll();
 #$row2 = $rows2->fetchAll();
 #$row3 = $rows3->fetchAll();
-#$numsimple = count($row1);
+$numsimple = count($row1);
 #$numsimple2 = count($row2);
 #$numsimple3 = count($row3);
 
