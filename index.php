@@ -299,5 +299,5 @@ window.setInterval( function() {
   </body>
 </html>
 <?php
-} //end of : if( !file_exists($dbfile) || !is_readable($dbfile) || filesize($dbfile) == 0 )
+//end of : if( !file_exists($dbfile) || !is_readable($dbfile) || filesize($dbfile) == 0 )
 ?>

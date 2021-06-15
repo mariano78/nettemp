@@ -2,7 +2,6 @@
 if(!empty($_SERVER["DOCUMENT_ROOT"])){
     $root=$_SERVER["DOCUMENT_ROOT"];
 }
-include_once("$root/config/config.php");
 if(!isset($db)){
     $db = new PDO($dsn, $user, $password);
 }
