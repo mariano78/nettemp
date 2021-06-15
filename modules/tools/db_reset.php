@@ -8,9 +8,9 @@ shell_exec("sudo rm -rf $ROOT/tmp");
 shell_exec("sudo mkdir $ROOT/tmp");
 
 include("$ROOT/config/config.php");
- echo $ROOT;
+echo $ROOT;
 $conn = new mysqli($host, $user, $password, $db);
-$filename = '$ROOT/modules/tools/nettemp.sql';
+$filename = "$ROOT/modules/tools/nettemp.sql";
 $op_data = '';
 $lines = file($filename);
 foreach ($lines as $line)
