@@ -18,13 +18,9 @@ source install/python/python.sh
 source install/dht/dht.sh
 source install/gpio/gpio.sh
 source install/i2c/i2c.sh
-
-source install/fw/fw.sh
 source install/sdm120/sdm120.sh
 source install/sms/sms.sh
 source install/ups/ups.sh
-
-
 source install/www/www.sh
 source install/crontab/crontab.sh
 source install/db/db.sh
