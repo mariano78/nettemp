@@ -506,7 +506,7 @@ if ($count2 > 0){
 							echo "Mail send problem\n";
 							}
 
-} else if($count2 == 0 AND ((date('H') == 8) OR (date('H') == 10)) OR (date('H') == 20)) ){
+} else if($count2 == 0 AND ((date('H') == 8) OR (date('H') == 11) OR (date('H') == 20)) ){
 	
 	if ( mail ('musik@robelit.pl', 'Shoper - synchronizacja OK', 'Synchronizacja przebiegla pomyslnie' ) ) {
 								echo "Mail send OK\n";
