@@ -437,6 +437,7 @@ oci_close($conn);
 	
 $time_post = microtime(true);
 $exec_time = $time_post - $time_pre;
+$exec_time = time();
 $duration = $time_post-$time_pre;
 $hours = (int)($duration/60/60);
 $minutes = (int)($duration/60)-$hours*60;
