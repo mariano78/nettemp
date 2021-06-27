@@ -181,13 +181,20 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	
 	$to_opis .= $to_opis_s1.$to_opis_s3;
 	
-	// dodanie ulotki na końcu opisu - według grup towarowych
-	
+	// dodanie ulotki na końcu opisu - według grup towarowych - daszki
 	$ulotka_daszki = array('DASZK','DASZP','DASZR','DASZB','DASCL','DASZPL','DASZN');
 	if (in_array($to_grupa, $ulotka_daszki)) {
 		
 		$to_opis .= '<h2>Pliki do pobrania:</h2>
 		<p><a href="https://robelit.home.pl/shop_pdf_opisy/Daszki_Robelit.pdf" target="_blank" rel = "nofollow">Ulotka - Daszki Robelit</a></p>';
+	
+	}
+	// dodanie ulotki na końcu opisu - według grup towarowych - płyty pvc
+	$ulotka_pcv = array('PVCTD','PVCWBS','PCPROF','PCPROF2','PLSPŁ','PLSPR','PLSRU');
+	if (in_array($to_grupa, $ulotka_pcv)) {
+		
+		$to_opis .= '<h2>Pliki do pobrania:</h2>
+		<p><a href="https://robelit.home.pl/shop_pdf_opisy/Instrukcja_montazu_PVC_PC_i_poliestru.pdf" target="_blank" rel = "nofollow">Instrukcja montażu płyt profilowanych z PCV, PC, POLIESTRU</a></p>';
 	
 	}
 	
