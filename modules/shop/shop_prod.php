@@ -193,13 +193,10 @@ while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
 	$ulotka_pcv = array('PVCTD','PVCWBS','PCPROF','PCPROF2','PLSPŁ','PLSPR','PLSRU');
 	if (in_array($to_grupa, $ulotka_pcv)) {
 		
-		$to_opis .= '
-		
-		<p><center><iframe width="560" height="315" src="https://www.youtube.com/embed/kA4kloAw9-M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></p>
-		
-		<h2>Pliki do pobrania:</h2>
-		
-		<p><a href="https://robelit.home.pl/shop_pdf_opisy/Instrukcja_montazu_PVC_PC_i_poliestru.pdf" target="_blank" rel = "nofollow">Instrukcja montażu płyt profilowanych z PCV, PC, POLIESTRU</a></p>';
+		$to_opis .= '<h2>Pliki do pobrania:</h2>
+		<p><a href="https://robelit.home.pl/shop_pdf_opisy/Instrukcja_montazu_PVC_PC_i_poliestru.pdf" target="_blank" rel = "nofollow">Instrukcja montażu płyt profilowanych z PCV, PC, POLIESTRU</a></p>
+		<h2>Filmy:</h2>
+		<p><center><iframe width="560" height="315" src="https://www.youtube.com/embed/kA4kloAw9-M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></p>';
 	
 	}
 	
