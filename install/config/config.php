@@ -1,7 +1,7 @@
 <?php
 $host = 'localhost';
-$db   = 'nettemp';
+$dbname   = 'nettemp';
 $user = 'nettemp';
 $password = 'dbpassmysql';
-$dsn = "mysql:host=$host;dbname=$db";
+$dsn = "mysql:host=$host;dbname=$dbname";
 ?>
