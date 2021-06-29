@@ -65,7 +65,7 @@ $setautologout= isset($_POST['setautologout']) ? $_POST['setautologout'] : '';
 				time() + (3600 * 24 * 30),
 				'/'
 			);
-			$db = new PDO('sqlite:dbf/nettemp.db');
+			//$db = new PDO('sqlite:dbf/nettemp.db');
 			//$db->exec("DELETE FROM auth_tokens WHERE userid='$userid'");
 			$db->exec("INSERT INTO auth_tokens (selector, token, userid, expires) VALUES ('$selector', '$token', '$userid', '$date')");
 			/* seetocookie end */
