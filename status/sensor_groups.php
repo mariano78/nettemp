@@ -26,7 +26,7 @@ include_once("$root/common/global_functions.php");
 		if ($hidegstate == 'on') {$hidegstate = 'off';
 		}elseif ($hidegstate == 'off') {$hidegstate = 'on';}
 		
-	$db = new PDO('sqlite:dbf/nettemp.db');
+	//$db = new PDO('sqlite:dbf/nettemp.db');
 	$db->exec("UPDATE sensors SET ghide='$hidegstate' WHERE ch_group='$hideg'") or die ($db->lastErrorMsg());
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();
@@ -37,7 +37,7 @@ $clr_not = isset($_POST['clr_not']) ? $_POST['clr_not'] : '';
 $clr_rom = isset($_POST['clr_rom']) ? $_POST['clr_rom'] : '';
 
 if(!empty($clr_not) && ($clr_not == "clr_not")) { 
-	$db = new PDO("sqlite:$root/dbf/nettemp.db");
+	//$db = new PDO("sqlite:$root/dbf/nettemp.db");
 	$db->exec("UPDATE sensors SET mail = '' WHERE rom='$clr_rom'");
 	header("location: " . $_SERVER['REQUEST_URI']);
 	exit();
