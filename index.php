@@ -2,22 +2,12 @@
 $root=$_SERVER["DOCUMENT_ROOT"];
 include("config/config.php");
 
-//if( !file_exists($dbfile) || !is_readable($dbfile) || filesize($dbfile) == 0 ){
-    //header("Location: html/errors/no_db.php");
-//}else{
-	
-	//$conn = new mysqli($host, $user, $password, $db);
-	
 try {
 	$db = new PDO($dsn, $user, $password);
 	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);	  
 	} catch(PDOException $e) {
 		  echo "Connection failed: " . $e->getMessage();
 	}
-	
-	
-	
-    
 
     include("modules/login/login.php");
     ob_start();

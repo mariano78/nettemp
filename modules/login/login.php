@@ -18,7 +18,7 @@ $autologout = '';
 if (!empty($_COOKIE['stay_login'])) {	
     list($selector, $authenticator) = explode(':', $_COOKIE['stay_login']);
     
-    $db = new PDO('sqlite:dbf/nettemp.db');
+    //$db = new PDO('sqlite:dbf/nettemp.db');
     $stmt = $db->query("SELECT t1.*, t2.* FROM auth_tokens t1, users t2 WHERE t1.userid=t2.id AND t1.selector = '$selector'"); 
 	$row = $stmt->fetchAll();
 
